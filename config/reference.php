@@ -1509,6 +1509,9 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     generate_final_classes?: bool, // Default: true
  *     generate_final_entities?: bool, // Default: false
  * }
+ * @psalm-type KocalBiomeJsConfig = array{
+ *     binary_version: scalar|null, // Biome.js CLI version to download.
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1538,6 +1541,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
+ *         kocal_biome_js?: KocalBiomeJsConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
