@@ -84,7 +84,8 @@
         "apcu-autoloader": true,
         "optimize-autoloader": true,
         "bump-after-update": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "process-timeout": 1200
     },
     "autoload": {
         "psr-4": {
