@@ -75,6 +75,10 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.48",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-doctrine": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
         "phpunit/phpunit": "^12.5.4",
         "shipmonk/composer-dependency-analyser": "^1.8",
         "symfony/browser-kit": "7.4.*",
@@ -121,6 +125,7 @@
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
             "php-http/discovery": true,
+            "phpstan/extension-installer": true,
             "symfony/flex": true,
             "symfony/runtime": true,
             "symfony/thanks": true
