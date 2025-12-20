@@ -75,6 +75,7 @@
     "require-dev": {
         "ergebnis/composer-normalize": "^2.48",
         "phpunit/phpunit": "^12.5.4",
+        "shipmonk/composer-dependency-analyser": "^1.8",
         "symfony/browser-kit": "7.4.*",
         "symfony/debug-bundle": "7.4.*",
         "symfony/maker-bundle": "^1.65.1",
