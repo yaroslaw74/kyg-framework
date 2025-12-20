@@ -1,13 +1,35 @@
 {
+    "name": "yaroslaw74/kyg-framework",
+    "description": "KYG Framework for Business",
     "type": "project",
-    "license": "proprietary",
+    "license": [
+        "GPL-3.0-or-later",
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "Kataev Yaroslav",
+            "email": "yaroslaw74@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "yaroslaw74@gmail.com",
+        "issues": "https://github.com/yaroslaw74/kyg-framework/issues",
+        "forum": "https://github.com/yaroslaw74/kyg-framework/discussions",
+        "wiki": "https://github.com/yaroslaw74/kyg-framework/wiki",
+        "source": "https://github.com/yaroslaw74/kyg-framework",
+        "security": "https://github.com/yaroslaw74/kyg-framework/security"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/dbal": "^3",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "doctrine/dbal": "^4",
         "doctrine/doctrine-bundle": "^2.18",
         "doctrine/doctrine-migrations-bundle": "^3.7",
         "doctrine/orm": "^3.6",
@@ -26,7 +48,7 @@
         "symfony/intl": "7.4.*",
         "symfony/mailer": "7.4.*",
         "symfony/mime": "7.4.*",
-        "symfony/monolog-bundle": "^3.0|^4.0",
+        "symfony/monolog-bundle": "^4.0",
         "symfony/notifier": "7.4.*",
         "symfony/process": "7.4.*",
         "symfony/property-access": "7.4.*",
@@ -42,8 +64,8 @@
         "symfony/validator": "7.4.*",
         "symfony/web-link": "7.4.*",
         "symfony/yaml": "7.4.*",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/extra-bundle": "^3.0",
+        "twig/twig": "^3.0"
     },
     "config": {
         "allow-plugins": {
@@ -51,6 +73,8 @@
             "symfony/flex": true,
             "symfony/runtime": true
         },
+        "apcu-autoloader": true,
+        "optimize-autoloader": true,
         "bump-after-update": true,
         "sort-packages": true
     },
@@ -67,17 +91,26 @@
     "replace": {
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-intl": "*",
+        "symfony/polyfill-intl-grapheme": "*",
+        "symfony/polyfill-intl-icu": "*",
+        "symfony/polyfill-intl-idn": "*",
+        "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
-        "symfony/polyfill-php82": "*"
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
     },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "cache:warmup": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
