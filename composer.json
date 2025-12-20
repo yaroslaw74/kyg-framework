@@ -1,11 +1,11 @@
 {
     "name": "yaroslaw74/kyg-framework",
     "description": "KYG Framework for Business",
-    "type": "project",
     "license": [
         "GPL-3.0-or-later",
         "MIT"
     ],
+    "type": "project",
     "authors": [
         {
             "name": "Kataev Yaroslav",
@@ -21,8 +21,6 @@
         "source": "https://github.com/yaroslaw74/kyg-framework",
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
     "require": {
         "php": ">=8.4",
         "ext-ctype": "*",
@@ -61,7 +59,7 @@
         "symfony/stimulus-bundle": "^2.31",
         "symfony/stopwatch": "7.4.*",
         "symfony/string": "7.4.*",
-        "symfony/thanks": "^1.4",
+        "symfony/thanks": "^1.4.1",
         "symfony/translation": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
         "symfony/ux-turbo": "^2.31",
@@ -74,30 +72,13 @@
         "twig/markdown-extra": "^3.22",
         "twig/twig": "^3.22.2"
     },
-    "config": {
-        "allow-plugins": {
-            "php-http/discovery": true,
-            "symfony/flex": true,
-            "symfony/runtime": true,
-            "symfony/thanks": true
-        },
-        "apcu-autoloader": true,
-        "optimize-autoloader": true,
-        "bump-after-update": true,
-        "sort-packages": true,
-        "process-timeout": 1200
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/",
-            "App\\Modules\\": "modules/",
-            "App\\Additions\\": "public/additions/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "App\\Tests\\": "tests/"
-        }
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.48",
+        "phpunit/phpunit": "^12.5.4",
+        "symfony/browser-kit": "7.4.*",
+        "symfony/debug-bundle": "7.4.*",
+        "symfony/maker-bundle": "^1.65.1",
+        "symfony/web-profiler-bundle": "7.4.*"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
@@ -117,22 +98,36 @@
         "symfony/polyfill-php83": "*",
         "symfony/polyfill-php84": "*"
     },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "cache:warmup": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
     "conflict": {
         "symfony/symfony": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "App\\Additions\\": "public/additions/",
+            "App\\Modules\\": "modules/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true,
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "symfony/thanks": true
+        },
+        "apcu-autoloader": true,
+        "bump-after-update": true,
+        "optimize-autoloader": true,
+        "process-timeout": 1200,
+        "sort-packages": true
     },
     "extra": {
         "symfony": {
@@ -140,11 +135,18 @@
             "require": "7.4.*"
         }
     },
-    "require-dev": {
-        "phpunit/phpunit": "^12.5.4",
-        "symfony/browser-kit": "7.4.*",
-        "symfony/debug-bundle": "7.4.*",
-        "symfony/maker-bundle": "^1.65.1",
-        "symfony/web-profiler-bundle": "7.4.*"
+    "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "cache:warmup": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd"
+        }
     }
 }
