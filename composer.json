@@ -39,6 +39,7 @@
         "symfony/console": "7.4.*",
         "symfony/css-selector": "7.4.*",
         "symfony/doctrine-messenger": "7.4.*",
+        "symfony/dotenv": "7.4.*",
         "symfony/expression-language": "7.4.*",
         "symfony/flex": "^2.10",
         "symfony/form": "7.4.*",
@@ -79,7 +80,6 @@
         "shipmonk/composer-dependency-analyser": "^1.8",
         "symfony/browser-kit": "7.4.*",
         "symfony/debug-bundle": "7.4.*",
-        "symfony/dotenv": "7.4.*",
         "symfony/maker-bundle": "^1.65.1",
         "symfony/web-profiler-bundle": "7.4.*"
     },
