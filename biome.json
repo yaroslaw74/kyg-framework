@@ -12,5 +12,22 @@
             "!composer.json",
             "!package.json"
         ]
+    },
+    "formatter": {
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineEnding": "lf",
+        "lineWidth": 256
+    },
+    "javascript": {
+        "formatter": {
+            "arrowParentheses":"always",
+            "bracketSameLine": false,
+            "bracketSpacing": true,
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "semicolons": "always",
+            "trailingCommas": "none"
+        }
     }
 }
