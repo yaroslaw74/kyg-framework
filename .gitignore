@@ -30,3 +30,14 @@ phpstan.neon
 ###> kocal/biome-js-bundle ###
 /bin/biome*
 ###< kocal/biome-js-bundle ###
+
+###> doctrine/migrations ###
+/migrations/*.php
+###< doctrine/migrations ###
+
+###> symfony/public ###
+/public/additions/*/*
+/public/theme/
+/public/translations/
+/public/uploads/
+###< symfony/public ###
