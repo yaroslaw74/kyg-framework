@@ -157,7 +157,7 @@
             ],
             "post-update-cmd": [
                 "@php bin/console doctrine:diagram:er",
-                "@php bin/consoledoctrine:diagram:class",
+                "@php bin/console doctrine:diagram:class",
                 "vendor/bin/php-cs-fixer fix",
                 "vendor/bin/parallel-lint --exclude .git --exclude vendor .",
                 "vendor/bin/phpstan analyse",
