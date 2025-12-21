@@ -37,6 +37,7 @@ phpstan.neon
 
 ###> symfony/public ###
 /public/additions/*/*
+/public/storage/
 /public/theme/
 /public/translations/
 /public/uploads/
