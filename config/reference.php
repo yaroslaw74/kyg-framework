@@ -1602,6 +1602,22 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  * @psalm-type LiveComponentConfig = array{
  *     secret?: scalar|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
  * }
+ * @psalm-type FlysystemConfig = array{
+ *     storages?: array<string, array{ // Default: []
+ *         adapter: scalar|null,
+ *         options?: list<mixed>,
+ *         visibility?: scalar|null, // Default: null
+ *         directory_visibility?: scalar|null, // Default: null
+ *         retain_visibility?: bool|null, // Default: null
+ *         case_sensitive?: bool, // Default: true
+ *         disable_asserts?: bool, // Default: false
+ *         public_url?: list<scalar|null>,
+ *         path_normalizer?: scalar|null, // Default: null
+ *         public_url_generator?: scalar|null, // Default: null
+ *         temporary_url_generator?: scalar|null, // Default: null
+ *         read_only?: bool, // Default: false
+ *     }>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1622,6 +1638,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
+ *     flysystem?: FlysystemConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1646,6 +1663,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         ignition?: IgnitionConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         flysystem?: FlysystemConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1668,6 +1686,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         dama_doctrine_test?: DamaDoctrineTestConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         flysystem?: FlysystemConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
