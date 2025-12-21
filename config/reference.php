@@ -1512,6 +1512,28 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  * @psalm-type KocalBiomeJsConfig = array{
  *     binary_version: scalar|null, // Biome.js CLI version to download.
  * }
+ * @psalm-type DoctrineDiagramConfig = array{
+ *     er?: array{
+ *         filename?: scalar|null, // Default: "%kernel.project_dir%/er"
+ *         size?: "mini"|"midi"|"maxi", // Default: "midi"
+ *         theme?: scalar|null, // Default: "_none_"
+ *         connection?: scalar|null, // Default: null
+ *         exclude?: list<scalar|null>,
+ *     },
+ *     class?: array{
+ *         filename?: scalar|null, // Default: "%kernel.project_dir%/class"
+ *         size?: "mini"|"midi"|"maxi", // Default: "midi"
+ *         theme?: scalar|null, // Default: "_none_"
+ *         em?: scalar|null, // Default: null
+ *         exclude?: list<scalar|null>,
+ *     },
+ *     convert?: array{
+ *         format?: "puml"|"png"|"svg", // Default: "svg"
+ *         converter?: "auto"|"jar"|"server", // Default: "auto"
+ *         jar?: scalar|null, // Default: null
+ *         server?: scalar|null, // Default: "http://www.plantuml.com/plantuml"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1542,6 +1564,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
  *         kocal_biome_js?: KocalBiomeJsConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1571,6 +1594,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
