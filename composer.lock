@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7236c1352ffa4a9638b918197e6785c",
+    "content-hash": "daeda2a8c7c07229cf8d25258a7df14c",
     "packages": [
         {
             "name": "composer/semver",
@@ -9185,6 +9185,60 @@
                 }
             ],
             "time": "2025-08-01T08:46:24+00:00"
+        },
+        {
+            "name": "neronmoon/scriptsdev",
+            "version": "v0.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neronmoon/scriptsdev.git",
+                "reference": "e812b334bc662cccc4a965c245812b59ae2157cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neronmoon/scriptsdev/zipball/e812b334bc662cccc4a965c245812b59ae2157cb",
+                "reference": "e812b334bc662cccc4a965c245812b59ae2157cb",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0@dev || ~2.0@dev"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "ScriptsDev\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ScriptsDev\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vitaliy Krasnoperov",
+                    "email": "alistar.neron@gmail.com"
+                }
+            ],
+            "description": "Scripts-dev behaviour for Composer",
+            "homepage": "https://github.com/neronmoon/scriptsdev",
+            "keywords": [
+                "commands",
+                "commands execution",
+                "composer",
+                "dev",
+                "scripts"
+            ],
+            "support": {
+                "issues": "https://github.com/neronmoon/scriptsdev/issues",
+                "source": "https://github.com/neronmoon/scriptsdev/tree/v0.1.9"
+            },
+            "time": "2020-12-16T08:02:02+00:00"
         },
         {
             "name": "nikic/php-parser",
