@@ -114,6 +114,18 @@
             "./bin/phpunit"
         ]
     },
+    "spatie/symfony-ignition-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.0",
+            "ref": "3c8f56bc1d755d7164726116b3c4572ff05977b5"
+        },
+        "files": [
+            "./config/packages/ignition.yaml"
+        ]
+    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {
