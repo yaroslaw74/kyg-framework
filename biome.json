@@ -2,6 +2,7 @@
     "files": {
         "includes": [
             "**",
+            "!assets/fonts/",
             "!assets/icons/",
             "!assets/vendor/*",
             "!assets/controllers.json",
