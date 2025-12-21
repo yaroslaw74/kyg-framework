@@ -19,4 +19,5 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
+    Spatie\SymfonyIgnitionBundle\IgnitionBundle::class => ['dev' => true],
 ];
