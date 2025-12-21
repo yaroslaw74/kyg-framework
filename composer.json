@@ -77,6 +77,7 @@
         "dadadev/phpstan-symfony-routing": "^0.2.0",
         "ergebnis/composer-normalize": "^2.48",
         "friendsofphp/php-cs-fixer": "^3.92",
+        "jawira/doctrine-diagram-bundle": "^1.2",
         "kocal/biome-js-bundle": "^2.1",
         "kocal/phpstan-symfony-ux": "^1.0",
         "neronmoon/scriptsdev": "^0.1.9",
@@ -147,7 +148,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "7.4.*"
         },
         "scripts-dev": {
@@ -155,6 +156,7 @@
                 "@php bin/console biomejs:download"
             ],
             "post-update-cmd": [
+                "@php bin/console doctrine:diagram:er",
                 "vendor/bin/php-cs-fixer fix",
                 "vendor/bin/parallel-lint --exclude .git --exclude app --exclude vendor .",
                 "vendor/bin/phpstan analyse",
@@ -164,7 +166,6 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
             "@auto-scripts"
         ],
         "post-update-cmd": [
