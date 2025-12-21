@@ -77,8 +77,9 @@
         "dadadev/phpstan-symfony-routing": "^0.2.0",
         "ergebnis/composer-normalize": "^2.48",
         "friendsofphp/php-cs-fixer": "^3.92",
-        "kocal/biome-js-bundle": "*",
+        "kocal/biome-js-bundle": "^2.1",
         "kocal/phpstan-symfony-ux": "^1.0",
+        "neronmoon/scriptsdev": "^0.1.9",
         "php-parallel-lint/php-console-highlighter": "^1.0",
         "php-parallel-lint/php-parallel-lint": "^1.4",
         "phpstan/extension-installer": "^1.4",
@@ -131,6 +132,7 @@
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
+            "neronmoon/scriptsdev": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
             "symfony/flex": true,
@@ -147,6 +149,17 @@
         "symfony": {
             "allow-contrib": false,
             "require": "7.4.*"
+        },
+        "scripts-dev": {
+            "post-install-cmd": [
+                "@php bin/console biomejs:download"
+            ],
+            "post-update-cmd": [
+                "vendor/bin/php-cs-fixer fix",
+                "vendor/bin/parallel-lint --exclude .git --exclude app --exclude vendor .",
+                "vendor/bin/phpstan analyse",
+                "bin/biome lint --write assets modules"
+            ]
         }
     },
     "scripts": {
