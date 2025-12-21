@@ -33,4 +33,4 @@ services:
 imports:
     - { resource: "../modules/*/Resources/config/*.*" }
     - { resource: "../public/additions/*/Resources/config/*.*" }
-    - { resource: "../var/config/*.*" }
+    #- { resource: "../var/config/*.*" }
