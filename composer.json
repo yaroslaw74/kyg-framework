@@ -158,7 +158,7 @@
             "post-update-cmd": [
                 "@php bin/console doctrine:diagram:er",
                 "vendor/bin/php-cs-fixer fix",
-                "vendor/bin/parallel-lint --exclude .git --exclude app --exclude vendor .",
+                "vendor/bin/parallel-lint --exclude .git --exclude vendor .",
                 "vendor/bin/phpstan analyse",
                 "bin/biome format --write assets modules"
             ]
