@@ -65,6 +65,7 @@
         "symfony/translation": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
         "symfony/ux-icons": "^2.31",
+        "symfony/ux-toggle-password": "^2.31",
         "symfony/ux-turbo": "^2.31",
         "symfony/validator": "7.4.*",
         "symfony/web-link": "7.4.*",
@@ -74,7 +75,7 @@
         "twig/extra-bundle": "^3.22.2",
         "twig/inky-extra": "^3.22",
         "twig/markdown-extra": "^3.22",
-        "twig/string-extra": "^3.22",
+        "twig/string-extra": "^3.22.1",
         "twig/twig": "^3.22.2"
     },
     "require-dev": {
@@ -95,12 +96,13 @@
         "phpstan/phpstan-symfony": "^2.0.9",
         "phpunit/phpunit": "^12.5.4",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
+        "spatie/symfony-ignition-bundle": "*",
         "symfony/browser-kit": "7.4.*",
         "symfony/debug-bundle": "7.4.*",
         "symfony/maker-bundle": "^1.65.1",
         "symfony/web-profiler-bundle": "7.4.*",
-        "symplify/config-transformer": "^12.4",
-        "symplify/phpstan-extensions": "^12.0",
+        "symplify/config-transformer": "^12.4.3",
+        "symplify/phpstan-extensions": "^12.0.2",
         "symplify/phpstan-rules": "^14.9.5"
     },
     "replace": {
