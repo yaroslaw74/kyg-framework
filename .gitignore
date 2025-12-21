@@ -41,3 +41,7 @@ phpstan.neon
 /public/translations/
 /public/uploads/
 ###< symfony/public ###
+
+###> symfonycasts/sass-bundle ###
+/public/assets/
+###< symfonycasts/sass-bundle ###
