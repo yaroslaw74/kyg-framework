@@ -1584,6 +1584,12 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     enable_static_query_cache?: bool, // Default: true
  *     connection_keys?: list<mixed>,
  * }
+ * @psalm-type IgnitionConfig = array{
+ *     application_path?: scalar|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
+ *     dark_mode?: bool, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
+ *     should_display_exception?: bool, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
+ *     openai_key?: scalar|null, // if you want AI solutions to your app's errors. // Default: ""
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1623,6 +1629,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         knp_menu?: KnpMenuConfig,
  *         ux_icons?: UxIconsConfig,
+ *         ignition?: IgnitionConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
