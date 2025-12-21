@@ -158,12 +158,13 @@
                 "vendor/bin/php-cs-fixer fix",
                 "vendor/bin/parallel-lint --exclude .git --exclude app --exclude vendor .",
                 "vendor/bin/phpstan analyse",
-                "bin/biome lint --write assets modules"
+                "bin/biome format --write assets modules"
             ]
         }
     },
     "scripts": {
         "post-install-cmd": [
+            "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
             "@auto-scripts"
         ],
         "post-update-cmd": [
