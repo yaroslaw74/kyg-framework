@@ -27,6 +27,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "composer/composer": "^2.9.2",
         "doctrine/dbal": "^4.4.1",
         "doctrine/doctrine-bundle": "^2.18.1",
         "doctrine/doctrine-migrations-bundle": "^3.7",
