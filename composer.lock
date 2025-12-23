@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cc62352361a160fc8bdf0f1c3739ac6",
+    "content-hash": "d64bdbf64e6f1ce0cb83d4b9ffabee8e",
     "packages": [
+        {
+            "name": "balrok/composer-mkdir",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/balrok/composer-mkdir.git",
+                "reference": "41e77f0962cf497dbf5fd3bb89b109bc9bbda4f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/balrok/composer-mkdir/zipball/41e77f0962cf497dbf5fd3bb89b109bc9bbda4f2",
+                "reference": "41e77f0962cf497dbf5fd3bb89b109bc9bbda4f2",
+                "shasum": ""
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phing/phing": "^2.12",
+                "phpmd/phpmd": "^2.2",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Balrok\\ComposerMkdir\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Bourigault",
+                    "email": "bourigaultfabien@gmail.com"
+                },
+                {
+                    "name": "Carl Mai",
+                    "email": "carl.schoenbach@gmail.com"
+                }
+            ],
+            "description": "Composer script for easy directories and symlink creation.",
+            "homepage": "https://github.com/balrok/composer-mkdir",
+            "support": {
+                "source": "https://github.com/balrok/composer-mkdir/tree/2.1.1"
+            },
+            "time": "2017-10-02T19:15:42+00:00"
+        },
         {
             "name": "composer/ca-bundle",
             "version": "1.5.10",
