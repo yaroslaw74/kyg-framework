@@ -32,11 +32,11 @@ phpstan.neon
 ###< kocal/biome-js-bundle ###
 
 ###> doctrine/migrations ###
-/migrations/*.php
+/migrations/
 ###< doctrine/migrations ###
 
 ###> symfony/public ###
-/public/additions/*/*
+/public/additions/
 /public/storage/
 /public/theme/
 /public/translations/
