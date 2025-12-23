@@ -27,6 +27,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "balrok/composer-mkdir": "^2.1.1",
         "composer/composer": "^2.9.2",
         "doctrine/dbal": "^4.4.1",
         "doctrine/doctrine-bundle": "^2.18.2",
@@ -161,6 +162,12 @@
         "sort-packages": true
     },
     "extra": {
+        "mkdir": {
+            "migrations": "0644",
+            "public/additions": "0777",
+            "var": "0777",
+            "var/config": "0777"
+        },
         "scripts-dev": {
             "post-install-cmd": [
                 "@php bin/console biomejs:download"
@@ -181,6 +188,7 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
             "@auto-scripts"
         ],
         "post-update-cmd": [
