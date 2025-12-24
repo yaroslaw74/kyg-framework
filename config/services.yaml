@@ -31,6 +31,7 @@ services:
     # please note that last definitions always *replace* previous ones
 
 imports:
+    - { resource: "locales.php" }
     - { resource: "../modules/*/Resources/config/*.*" }
     - { resource: "../public/additions/*/Resources/config/*.*" }
     #- { resource: "../var/config/*.*" }
