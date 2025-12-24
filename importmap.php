@@ -36,6 +36,9 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.20',
     ],
+    'es-module-shims' => [
+        'version' => '2.7.0',
+    ],
     '@symfony/ux-swup' => [
         'version' => '2.31.0',
     ],
