@@ -4,6 +4,7 @@
             "**",
             "!assets/fonts/",
             "!assets/icons/",
+            "!assets/images/",
             "!assets/vendor/*",
             "!assets/controllers.json",
             "!public/assets/*",
