@@ -237,7 +237,9 @@
             "cache:warmup": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
-            "importmap:update": "symfony-cmd"
+            "importmap:update": "symfony-cmd",
+            "sass:build": "symfony-cmd",
+            "asset-map:compile": "symfony-cmd"
         }
     }
 }
