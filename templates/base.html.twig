@@ -7,7 +7,7 @@
 #  @License    GNU General Public License version 3 or later, see LICENSE
 ##################################################################################}
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<html lang="{{ locale_HTML(app.locale) }}" dir="{{ locale_dir(app.locale) }}" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
 	<head>
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -36,13 +36,13 @@
 		<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/ico/kyg-152X152.png') }}">
 		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/kyg-180X180.png') }}">
         {% block stylesheets %}{% endblock %}
-		{% block importmap %}{{ importmap('app') }}{% endblock %}
+		{% block importmap %}{{ importmap([locale_dir(app.locale), 'app']) }}{% endblock %}
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body {{ stimulus_controller('swup', {
         animateHistoryBrowsing: true,
         theme: 'slide',
-        debug:app.debug
+        debug: app.debug
     }) }}>
 		{% block body %}{% endblock %}
 	</body>
