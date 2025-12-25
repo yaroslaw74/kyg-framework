@@ -38,6 +38,7 @@
         "liborm85/composer-vendor-cleaner": "^1.7.1",
         "phpdocumentor/reflection-docblock": "^5.6.6",
         "phpstan/phpdoc-parser": "^2.3",
+        "slowprog/composer-copy-file": "^0.3.3",
         "symfony/apache-pack": "^1.0.1",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
@@ -164,6 +165,10 @@
         "sort-packages": true
     },
     "extra": {
+        "copy-file": {
+            "modules/Install/Resources/data/images/": "public/theme/images/",
+            "modules/Install/Resources/data/config/": "var/config/"
+        },
         "dev-files": {
             "*/*": [
                 ".git/",
@@ -202,9 +207,7 @@
         },
         "mkdir": {
             "migrations": "0644",
-            "public/additions": "0777",
-            "var": "0777",
-            "var/config": "0777"
+            "public/additions": "0777"
         },
         "scripts-dev": {
             "post-install-cmd": [
@@ -214,7 +217,7 @@
                 "@php bin/console doctrine:diagram:er",
                 "@php bin/console doctrine:diagram:class",
                 "vendor/bin/php-cs-fixer fix",
-                "vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+                "vendor/bin/parallel-lint --exclude .git --exclude .github --exclude var --exclude vendor .",
                 "vendor/bin/phpstan analyse",
                 "bin/biome format --write assets modules"
             ]
@@ -227,6 +230,7 @@
     "scripts": {
         "post-install-cmd": [
             "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
+            "SlowProg\\CopyFile\\ScriptHandler::copy",
             "@auto-scripts"
         ],
         "post-update-cmd": [
@@ -236,10 +240,7 @@
             "cache:clear": "symfony-cmd",
             "cache:warmup": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd",
-            "importmap:update": "symfony-cmd",
-            "sass:build": "symfony-cmd",
-            "asset-map:compile": "symfony-cmd"
+            "importmap:install": "symfony-cmd"
         }
     }
 }
