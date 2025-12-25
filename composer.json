@@ -35,7 +35,6 @@
         "doctrine/orm": "^3.6",
         "knplabs/knp-menu-bundle": "^3.7",
         "league/flysystem-bundle": "^3.6.1",
-        "liborm85/composer-vendor-cleaner": "^1.7.1",
         "phpdocumentor/reflection-docblock": "^5.6.6",
         "phpstan/phpdoc-parser": "^2.3",
         "slowprog/composer-copy-file": "^0.3.3",
@@ -150,7 +149,6 @@
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
-            "liborm85/composer-vendor-cleaner": true,
             "neronmoon/scriptsdev": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
@@ -168,42 +166,6 @@
         "copy-file": {
             "modules/Install/Resources/data/images/": "public/theme/images/",
             "modules/Install/Resources/data/config/": "var/config/"
-        },
-        "dev-files": {
-            "*/*": [
-                ".git/",
-                ".github/",
-                ".psalm/",
-                "tests/",
-                "docs/",
-                ".deepsource.toml",
-                ".editorconfig",
-                ".envrc",
-                ".gitattributes",
-                ".gitignore",
-                ".gitattributes",
-                ".php-cs-fixer.cache",
-                ".php-cs-fixer.php",
-                ".php-cs-fixer.dist.php",
-                ".prettierrc",
-                ".travis.yml",
-                "CHANGELOG",
-                "CREDITS",
-                "LICENSE",
-                "README",
-                "phpunit.dist.xml",
-                "phpunit.xml",
-                "phpunit.xml.dist",
-                "psalm.*",
-                "phpstan.dist.neon",
-                "phpstan.neon",
-                "phpstan.neon.dist",
-                "phpstan-baseline.*",
-                "psalm-baseline.*",
-                "LICENSE.*",
-                "README.*",
-                "*.md"
-            ]
         },
         "mkdir": {
             "migrations": "0644",
