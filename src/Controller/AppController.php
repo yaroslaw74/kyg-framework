@@ -1,4 +1,5 @@
 <?php
+
 /**********************************************************************************
  * @Project    KYG Framework for Business
  * @Version    1.0.0
@@ -8,6 +9,7 @@
  * @License    GNU General Public License version 3 or later, see LICENSE
  *********************************************************************************/
 declare(strict_types=1);
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
