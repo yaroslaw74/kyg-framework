@@ -169,7 +169,8 @@
         },
         "mkdir": {
             "migrations": "0644",
-            "public/additions": "0777"
+            "public/additions": "0777",
+            "public/storage": "0777"
         },
         "scripts-dev": {
             "post-install-cmd": [
