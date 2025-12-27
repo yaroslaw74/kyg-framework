@@ -9,11 +9,11 @@ flysystem:
                 skip_links: false
                 permissions:
                     file:
-                        public: 0o744
-                        private: 0o700
+                        public: 0744
+                        private: 0700
                     dir:
-                        public: 0o755
-                        private: 0o700
+                        public: 0755
+                        private: 0700
             visibility: "private"
             directory_visibility: "private"
             retain_visibility: true
@@ -28,11 +28,11 @@ flysystem:
                 skip_links: false
                 permissions:
                     file:
-                        public: 0o744
-                        private: 0o700
+                        public: 0744
+                        private: 0700
                     dir:
-                        public: 0o755
-                        private: 0o700
+                        public: 0755
+                        private: 0700
             visibility: "public"
             directory_visibility: "public"
             retain_visibility: true
