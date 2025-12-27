@@ -1,8 +1,10 @@
 <?php
+
 /**
- * @package    KYG Framework for Business
  * @category   Controller
+ *
  * @version    1.0.0
+ *
  * @copyright  Copyright (c) Kataev Yaroslav
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
