@@ -3,6 +3,7 @@
         "includes": [
             "**",
             "!assets/fonts/*",
+            "!assets/icon-fonts/",
             "!assets/icons/*",
             "!assets/images/*",
             "!assets/vendor/*",
@@ -12,8 +13,7 @@
             "!tests/*",
             "!var/*",
             "!vendor/*",
-            "!composer.json",
-            "!package.json"
+            "!composer.json"
         ]
     },
     "formatter": {
