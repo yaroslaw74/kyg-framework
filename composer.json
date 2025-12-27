@@ -30,10 +30,10 @@
         "balrok/composer-mkdir": "^2.1.1",
         "composer/composer": "^2.9.2",
         "doctrine/dbal": "^4.4.1",
-        "doctrine/doctrine-bundle": "^2.18.2",
-        "doctrine/doctrine-migrations-bundle": "^3.7",
+        "doctrine/doctrine-bundle": "^2.18.2|^3.1",
+        "doctrine/doctrine-migrations-bundle": "^3.7|^4.0",
         "doctrine/orm": "^3.6",
-        "friendsofsymfony/ckeditor-bundle": "*",
+        "friendsofsymfony/ckeditor-bundle": "^2.8",
         "knplabs/knp-menu-bundle": "^3.7",
         "league/flysystem-bundle": "^3.6.1",
         "phpdocumentor/reflection-docblock": "^5.6.6",
@@ -43,6 +43,7 @@
         "sonata-project/block-bundle": "^5.4",
         "sonata-project/doctrine-orm-admin-bundle": "^4.20",
         "sonata-project/exporter": "^3.4",
+        "sonata-project/formatter-bundle": "^5.5",
         "sonata-project/intl-bundle": "^3.3",
         "sonata-project/twig-extensions": "2.6",
         "sonata-project/user-bundle": "^5.19",
@@ -211,11 +212,11 @@
             "requirements-checker": "script",
             "cache:clear": "symfony-cmd",
             "cache:warmup": "symfony-cmd",
+            "ckeditor:install --clear=drop --release=full": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
             "sass:build": "symfony-cmd",
-            "asset-map:compile": "symfony-cmd",
-            "ckeditor:install": "symfony-cmd"
+            "asset-map:compile": "symfony-cmd"
         }
     }
 }
