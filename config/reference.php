@@ -1534,6 +1534,72 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         server?: scalar|null, // Default: "http://www.plantuml.com/plantuml"
  *     },
  * }
+ * @psalm-type DamaDoctrineTestConfig = array{
+ *     enable_static_connection?: mixed, // Default: true
+ *     enable_static_meta_data_cache?: bool, // Default: true
+ *     enable_static_query_cache?: bool, // Default: true
+ *     connection_keys?: list<mixed>,
+ * }
+ * @psalm-type KnpMenuConfig = array{
+ *     providers?: array{
+ *         builder_alias?: bool, // Default: true
+ *     },
+ *     twig?: array{
+ *         template?: scalar|null, // Default: "@KnpMenu/menu.html.twig"
+ *     },
+ *     templating?: bool, // Default: false
+ *     default_renderer?: scalar|null, // Default: "twig"
+ * }
+ * @psalm-type FlysystemConfig = array{
+ *     storages?: array<string, array{ // Default: []
+ *         adapter: scalar|null,
+ *         options?: list<mixed>,
+ *         visibility?: scalar|null, // Default: null
+ *         directory_visibility?: scalar|null, // Default: null
+ *         retain_visibility?: bool|null, // Default: null
+ *         case_sensitive?: bool, // Default: true
+ *         disable_asserts?: bool, // Default: false
+ *         public_url?: list<scalar|null>,
+ *         path_normalizer?: scalar|null, // Default: null
+ *         public_url_generator?: scalar|null, // Default: null
+ *         temporary_url_generator?: scalar|null, // Default: null
+ *         read_only?: bool, // Default: false
+ *     }>,
+ * }
+ * @psalm-type IgnitionConfig = array{
+ *     application_path?: scalar|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
+ *     dark_mode?: bool, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
+ *     should_display_exception?: bool, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
+ *     openai_key?: scalar|null, // if you want AI solutions to your app's errors. // Default: ""
+ * }
+ * @psalm-type UxIconsConfig = array{
+ *     icon_dir?: scalar|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
+ *     default_icon_attributes?: mixed, // Default attributes to add to all icons. // Default: {"fill":"currentColor"}
+ *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
+ *         path?: scalar|null, // The local icon set directory path. (cannot be used with 'alias')
+ *         alias?: scalar|null, // The remote icon set identifier. (cannot be used with 'path')
+ *         icon_attributes?: list<mixed>,
+ *     }>,
+ *     aliases?: list<scalar|null>,
+ *     iconify?: bool|array{ // Configuration for the remote icon service.
+ *         enabled?: bool, // Default: true
+ *         on_demand?: bool, // Whether to download icons "on demand". // Default: true
+ *         endpoint?: scalar|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
+ *     },
+ *     ignore_not_found?: bool, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
+ * }
+ * @psalm-type TwigComponentConfig = array{
+ *     defaults?: array<string, string|array{ // Default: ["__deprecated__use_old_naming_behavior"]
+ *         template_directory?: scalar|null, // Default: "components"
+ *         name_prefix?: scalar|null, // Default: ""
+ *     }>,
+ *     anonymous_template_directory?: scalar|null, // Defaults to `components`
+ *     profiler?: bool, // Enables the profiler for Twig Component (in debug mode) // Default: "%kernel.debug%"
+ *     controllers_json?: scalar|null, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
+ * }
+ * @psalm-type LiveComponentConfig = array{
+ *     secret?: scalar|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
+ * }
  * @psalm-type SymfonycastsSassConfig = array{
  *     root_sass?: list<scalar|null>,
  *     binary?: scalar|null, // The Sass binary to use // Default: null
@@ -1552,72 +1618,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     },
  *     embed_sourcemap?: bool|null, // Deprecated: Option "embed_sourcemap" at "symfonycasts_sass.embed_sourcemap" is deprecated. Use "sass_options.embed_source_map" instead". // Default: null
  * }
- * @psalm-type KnpMenuConfig = array{
- *     providers?: array{
- *         builder_alias?: bool, // Default: true
- *     },
- *     twig?: array{
- *         template?: scalar|null, // Default: "@KnpMenu/menu.html.twig"
- *     },
- *     templating?: bool, // Default: false
- *     default_renderer?: scalar|null, // Default: "twig"
- * }
- * @psalm-type UxIconsConfig = array{
- *     icon_dir?: scalar|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
- *     default_icon_attributes?: mixed, // Default attributes to add to all icons. // Default: {"fill":"currentColor"}
- *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
- *         path?: scalar|null, // The local icon set directory path. (cannot be used with 'alias')
- *         alias?: scalar|null, // The remote icon set identifier. (cannot be used with 'path')
- *         icon_attributes?: list<mixed>,
- *     }>,
- *     aliases?: list<scalar|null>,
- *     iconify?: bool|array{ // Configuration for the remote icon service.
- *         enabled?: bool, // Default: true
- *         on_demand?: bool, // Whether to download icons "on demand". // Default: true
- *         endpoint?: scalar|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
- *     },
- *     ignore_not_found?: bool, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
- * }
- * @psalm-type DamaDoctrineTestConfig = array{
- *     enable_static_connection?: mixed, // Default: true
- *     enable_static_meta_data_cache?: bool, // Default: true
- *     enable_static_query_cache?: bool, // Default: true
- *     connection_keys?: list<mixed>,
- * }
- * @psalm-type IgnitionConfig = array{
- *     application_path?: scalar|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
- *     dark_mode?: bool, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
- *     should_display_exception?: bool, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
- *     openai_key?: scalar|null, // if you want AI solutions to your app's errors. // Default: ""
- * }
- * @psalm-type TwigComponentConfig = array{
- *     defaults?: array<string, string|array{ // Default: ["__deprecated__use_old_naming_behavior"]
- *         template_directory?: scalar|null, // Default: "components"
- *         name_prefix?: scalar|null, // Default: ""
- *     }>,
- *     anonymous_template_directory?: scalar|null, // Defaults to `components`
- *     profiler?: bool, // Enables the profiler for Twig Component (in debug mode) // Default: "%kernel.debug%"
- *     controllers_json?: scalar|null, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
- * }
- * @psalm-type LiveComponentConfig = array{
- *     secret?: scalar|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
- * }
- * @psalm-type FlysystemConfig = array{
- *     storages?: array<string, array{ // Default: []
- *         adapter: scalar|null,
- *         options?: list<mixed>,
- *         visibility?: scalar|null, // Default: null
- *         directory_visibility?: scalar|null, // Default: null
- *         retain_visibility?: bool|null, // Default: null
- *         case_sensitive?: bool, // Default: true
- *         disable_asserts?: bool, // Default: false
- *         public_url?: list<scalar|null>,
- *         path_normalizer?: scalar|null, // Default: null
- *         public_url_generator?: scalar|null, // Default: null
- *         temporary_url_generator?: scalar|null, // Default: null
- *         read_only?: bool, // Default: false
- *     }>,
- * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1633,12 +1633,12 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
  *     doctrine_diagram?: DoctrineDiagramConfig,
- *     symfonycasts_sass?: SymfonycastsSassConfig,
  *     knp_menu?: KnpMenuConfig,
+ *     flysystem?: FlysystemConfig,
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
- *     flysystem?: FlysystemConfig,
+ *     symfonycasts_sass?: SymfonycastsSassConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1657,13 +1657,13 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         maker?: MakerConfig,
  *         kocal_biome_js?: KocalBiomeJsConfig,
  *         doctrine_diagram?: DoctrineDiagramConfig,
- *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         knp_menu?: KnpMenuConfig,
- *         ux_icons?: UxIconsConfig,
+ *         flysystem?: FlysystemConfig,
  *         ignition?: IgnitionConfig,
+ *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
- *         flysystem?: FlysystemConfig,
+ *         symfonycasts_sass?: SymfonycastsSassConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1680,13 +1680,13 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         doctrine_diagram?: DoctrineDiagramConfig,
- *         symfonycasts_sass?: SymfonycastsSassConfig,
- *         knp_menu?: KnpMenuConfig,
- *         ux_icons?: UxIconsConfig,
  *         dama_doctrine_test?: DamaDoctrineTestConfig,
+ *         knp_menu?: KnpMenuConfig,
+ *         flysystem?: FlysystemConfig,
+ *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
- *         flysystem?: FlysystemConfig,
+ *         symfonycasts_sass?: SymfonycastsSassConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
