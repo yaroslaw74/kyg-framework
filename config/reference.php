@@ -2027,6 +2027,13 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         items?: array<string, list<mixed>>,
  *     },
  * }
+ * @psalm-type SonataFormatterConfig = array{
+ *     default_formatter: scalar|null,
+ *     formatters?: array<string, array{ // Default: []
+ *         service: scalar|null,
+ *         extensions?: list<scalar|null>,
+ *     }>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2058,6 +2065,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     sonata_user?: SonataUserConfig,
  *     sonata_intl?: SonataIntlConfig,
  *     fos_ck_editor?: FosCkEditorConfig,
+ *     sonata_formatter?: SonataFormatterConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2093,6 +2101,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         sonata_user?: SonataUserConfig,
  *         sonata_intl?: SonataIntlConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
+ *         sonata_formatter?: SonataFormatterConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2126,6 +2135,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         sonata_user?: SonataUserConfig,
  *         sonata_intl?: SonataIntlConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
+ *         sonata_formatter?: SonataFormatterConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
