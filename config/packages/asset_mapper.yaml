@@ -8,3 +8,5 @@ framework:
         excluded_patterns:
             - "**/assets/scss/_*.scss"
             - "**/assets/scss/**/_*.scss"
+            - "*.md"
+            - "*.json"
