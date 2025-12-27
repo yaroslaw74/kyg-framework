@@ -1,13 +1,11 @@
 <?php
-
-/**********************************************************************************
- * @Project    KYG Framework for Business
- * @Version    1.0.0
- *
- * @Copyright  (C) Kataev Yaroslav
- * @E-mail     yaroslaw74@gmail.com
- * @License    GNU General Public License version 3 or later, see LICENSE
- *********************************************************************************/
+/**
+ * @package    KYG Framework for Business
+ * @category   Controller
+ * @version    1.0.0
+ * @copyright  Copyright (c) Kataev Yaroslav
+ * @license    GNU General Public License version 3 or later, see LICENSE
+ */
 declare(strict_types=1);
 
 namespace App\Controller;
