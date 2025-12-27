@@ -18,19 +18,6 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-###> phpstan/phpstan ###
-phpstan.neon
-###< phpstan/phpstan ###
-
-###> friendsofphp/php-cs-fixer ###
-/.php-cs-fixer.php
-/.php-cs-fixer.cache
-###< friendsofphp/php-cs-fixer ###
-
-###> kocal/biome-js-bundle ###
-/bin/biome*
-###< kocal/biome-js-bundle ###
-
 ###> doctrine/migrations ###
 /migrations/
 ###< doctrine/migrations ###
@@ -42,6 +29,19 @@ phpstan.neon
 /public/translations/
 /public/uploads/
 ###< symfony/public ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> kocal/biome-js-bundle ###
+/bin/biome*
+###< kocal/biome-js-bundle ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
 
 ###> symfonycasts/sass-bundle ###
 /public/assets/
