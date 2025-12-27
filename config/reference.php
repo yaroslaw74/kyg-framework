@@ -2034,6 +2034,23 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         extensions?: list<scalar|null>,
  *     }>,
  * }
+ * @psalm-type SonataTranslationConfig = array{
+ *     locales?: list<scalar|null>,
+ *     default_locale?: scalar|null, // The frontend locale that is used by default. // Default: "en"
+ *     default_filter_mode?: "gedmo"|"knplabs", // The filter mode that is used by default. // Default: "gedmo"
+ *     gedmo?: bool|array{
+ *         enabled?: bool, // Default: false
+ *         implements?: list<scalar|null>,
+ *         instanceof?: list<scalar|null>,
+ *         translatable_listener_service?: scalar|null, // Custom translatable listener service name when using gedmo/doctrine-extensions
+ *     },
+ *     knplabs?: bool|array{
+ *         enabled?: bool, // Default: false
+ *         implements?: list<scalar|null>,
+ *         instanceof?: list<scalar|null>,
+ *     },
+ *     locale_switcher?: bool, // Enable the global locale switcher services. // Default: false
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2066,6 +2083,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     sonata_intl?: SonataIntlConfig,
  *     fos_ck_editor?: FosCkEditorConfig,
  *     sonata_formatter?: SonataFormatterConfig,
+ *     sonata_translation?: SonataTranslationConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2102,6 +2120,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         sonata_intl?: SonataIntlConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
  *         sonata_formatter?: SonataFormatterConfig,
+ *         sonata_translation?: SonataTranslationConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2136,6 +2155,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         sonata_intl?: SonataIntlConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
  *         sonata_formatter?: SonataFormatterConfig,
+ *         sonata_translation?: SonataTranslationConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
