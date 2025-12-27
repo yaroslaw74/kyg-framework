@@ -1672,6 +1672,361 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     skip_translation_on_load?: bool, // Default: false
  *     metadata_cache_pool?: scalar|null, // Default: null
  * }
+ * @psalm-type SonataFormConfig = array{
+ *     form_type?: scalar|null, // Must be one of standard, horizontal // Default: "standard"
+ * }
+ * @psalm-type SonataBlockConfig = array{
+ *     profiler?: array{
+ *         enabled?: scalar|null, // Default: "%kernel.debug%"
+ *         template?: scalar|null, // Default: "@SonataBlock/Profiler/block.html.twig"
+ *     },
+ *     default_contexts?: list<scalar|null>,
+ *     context_manager?: scalar|null, // Default: "sonata.block.context_manager.default"
+ *     http_cache?: bool, // Deprecated: The "http_cache" option is deprecated and not doing anything anymore since sonata-project/block-bundle 5.0. It will be removed in 6.0. // Default: false
+ *     templates?: array{
+ *         block_base?: scalar|null, // Default: null
+ *         block_container?: scalar|null, // Default: null
+ *     },
+ *     container?: array{ // block container configuration
+ *         types?: list<scalar|null>,
+ *         templates?: list<scalar|null>,
+ *     },
+ *     blocks?: array<string, array{ // Default: []
+ *         contexts?: list<scalar|null>,
+ *         templates?: list<array{ // Default: []
+ *             name?: scalar|null,
+ *             template?: scalar|null,
+ *         }>,
+ *         settings?: array<string, scalar|null>,
+ *         exception?: array{
+ *             filter?: scalar|null, // Default: null
+ *             renderer?: scalar|null, // Default: null
+ *         },
+ *     }>,
+ *     blocks_by_class?: array<string, array{ // Default: []
+ *         settings?: array<string, scalar|null>,
+ *     }>,
+ *     exception?: array{
+ *         default?: array{
+ *             filter?: scalar|null, // Default: "debug_only"
+ *             renderer?: scalar|null, // Default: "throw"
+ *         },
+ *         filters?: array<string, scalar|null>,
+ *         renderers?: array<string, scalar|null>,
+ *     },
+ * }
+ * @psalm-type SonataExporterConfig = array{
+ *     exporter?: array{
+ *         default_writers?: list<scalar|null>,
+ *     },
+ *     writers?: array{
+ *         csv?: array{
+ *             filename?: scalar|null, // path to the output file // Default: "php://output"
+ *             delimiter?: scalar|null, // delimits csv values // Default: ","
+ *             enclosure?: scalar|null, // will be used when a value contains the delimiter // Default: "\""
+ *             escape?: scalar|null, // will be used when a value contains the enclosure // Default: "\\"
+ *             show_headers?: bool, // add column names as the first line // Default: true
+ *             with_bom?: bool, // include the byte order mark // Default: false
+ *         },
+ *         json?: array{
+ *             filename?: scalar|null, // path to the output file // Default: "php://output"
+ *         },
+ *         xls?: array{
+ *             filename?: scalar|null, // path to the output file // Default: "php://output"
+ *             show_headers?: bool, // add column names as the first line // Default: true
+ *         },
+ *         xlsx?: array{
+ *             filename?: scalar|null, // path to the output file // Default: "php://output"
+ *             show_headers?: bool, // add column names as the first line // Default: true
+ *             show_filters?: bool, // add filters in the first line // Default: true
+ *         },
+ *         xml?: array{
+ *             filename?: scalar|null, // path to the output file // Default: "php://output"
+ *             show_headers?: bool, // add column names as the first line // Default: true
+ *             main_element?: scalar|null, // name of the wrapping element // Default: "datas"
+ *             child_element?: scalar|null, // name of elements corresponding to rows // Default: "data"
+ *         },
+ *     },
+ * }
+ * @psalm-type SonataTwigConfig = array{
+ *     form_type?: "standard"|"horizontal", // Style used in the forms, some of the widgets need to be wrapped in a special div element depending on this style. // Default: "standard"
+ *     flashmessage?: array<string, array{ // Default: []
+ *         css_class?: scalar|null,
+ *         types?: list<scalar|null>,
+ *     }>,
+ * }
+ * @psalm-type SonataAdminConfig = array{
+ *     security?: array{
+ *         handler?: scalar|null, // Default: "sonata.admin.security.handler.noop"
+ *         information?: array<string, string|list<scalar|null>>,
+ *         admin_permissions?: list<scalar|null>,
+ *         role_admin?: scalar|null, // Role which will see the top nav bar and dropdown groups regardless of its configuration // Default: "ROLE_SONATA_ADMIN"
+ *         role_super_admin?: scalar|null, // Role which will perform all admin actions, see dashboard, menu and search groups regardless of its configuration // Default: "ROLE_SUPER_ADMIN"
+ *         object_permissions?: list<scalar|null>,
+ *         acl_user_manager?: scalar|null, // Default: null
+ *     },
+ *     title?: scalar|null, // Default: "Sonata Admin"
+ *     title_logo?: scalar|null, // Default: "bundles/sonataadmin/images/logo_title.png"
+ *     search?: bool, // Enable/disable the search form in the sidebar // Default: true
+ *     global_search?: array{
+ *         empty_boxes?: scalar|null, // Perhaps one of the three options: show, fade, hide. // Default: "show"
+ *         admin_route?: scalar|null, // Change the default route used to generate the link to the object // Default: "show"
+ *     },
+ *     default_controller?: scalar|null, // Name of the controller class to be used as a default in admin definitions // Default: "sonata.admin.controller.crud"
+ *     breadcrumbs?: array{
+ *         child_admin_route?: scalar|null, // Change the default route used to generate the link to the parent object, when in a child admin // Default: "show"
+ *     },
+ *     options?: array{
+ *         html5_validate?: bool, // Default: true
+ *         sort_admins?: bool, // Auto order groups and admins by label or id // Default: false
+ *         confirm_exit?: bool, // Default: true
+ *         js_debug?: bool, // Default: false
+ *         skin?: "skin-black"|"skin-black-light"|"skin-blue"|"skin-blue-light"|"skin-green"|"skin-green-light"|"skin-purple"|"skin-purple-light"|"skin-red"|"skin-red-light"|"skin-yellow"|"skin-yellow-light", // Default: "skin-black"
+ *         use_select2?: bool, // Default: true
+ *         use_icheck?: bool, // Default: true
+ *         use_bootlint?: bool, // Default: false
+ *         use_stickyforms?: bool, // Default: true
+ *         pager_links?: int, // Default: null
+ *         form_type?: scalar|null, // Default: "standard"
+ *         default_admin_route?: scalar|null, // Name of the admin route to be used as a default to generate the link to the object // Default: "show"
+ *         default_group?: scalar|null, // Group used for admin services if one isn't provided. // Default: "default"
+ *         default_label_catalogue?: scalar|null, // Deprecated: The "default_label_catalogue" node is deprecated, use "default_translation_domain" instead. // Label Catalogue used for admin services if one isn't provided. // Default: "SonataAdminBundle"
+ *         default_translation_domain?: scalar|null, // Translation domain used for admin services if one isn't provided. // Default: null
+ *         default_icon?: scalar|null, // Icon used for admin services if one isn't provided. // Default: "fas fa-folder"
+ *         dropdown_number_groups_per_colums?: int, // Default: 2
+ *         logo_content?: "text"|"icon"|"all", // Default: "all"
+ *         list_action_button_content?: "text"|"icon"|"all", // Default: "all"
+ *         lock_protection?: bool, // Enable locking when editing an object, if the corresponding object manager supports it. // Default: false
+ *         mosaic_background?: scalar|null, // Background used in mosaic view // Default: "bundles/sonataadmin/images/default_mosaic_image.png"
+ *     },
+ *     dashboard?: array{
+ *         groups?: array<string, array{ // Default: []
+ *             label?: scalar|null,
+ *             translation_domain?: scalar|null,
+ *             label_catalogue?: scalar|null, // Deprecated: The "label_catalogue" node is deprecated, use "translation_domain" instead.
+ *             icon?: scalar|null,
+ *             on_top?: scalar|null, // Show menu item in side dashboard menu without treeview // Default: false
+ *             keep_open?: scalar|null, // Keep menu group always open // Default: false
+ *             provider?: scalar|null,
+ *             items?: list<array{ // Default: []
+ *                 admin?: scalar|null,
+ *                 label?: scalar|null,
+ *                 route?: scalar|null,
+ *                 roles?: list<scalar|null>,
+ *                 route_params?: list<scalar|null>,
+ *                 route_absolute?: bool, // Whether the generated url should be absolute // Default: false
+ *             }>,
+ *             item_adds?: list<scalar|null>,
+ *             roles?: list<scalar|null>,
+ *         }>,
+ *         blocks?: list<array{ // Default: [{"position":"left","settings":[],"type":"sonata.admin.block.admin_list","roles":[]}]
+ *             type?: scalar|null,
+ *             roles?: list<scalar|null>,
+ *             settings?: array<string, mixed>,
+ *             position?: scalar|null, // Default: "right"
+ *             class?: scalar|null, // Default: "col-md-4"
+ *         }>,
+ *     },
+ *     default_admin_services?: array{
+ *         model_manager?: scalar|null, // Default: null
+ *         data_source?: scalar|null, // Default: null
+ *         field_description_factory?: scalar|null, // Default: null
+ *         form_contractor?: scalar|null, // Default: null
+ *         show_builder?: scalar|null, // Default: null
+ *         list_builder?: scalar|null, // Default: null
+ *         datagrid_builder?: scalar|null, // Default: null
+ *         translator?: scalar|null, // Default: null
+ *         configuration_pool?: scalar|null, // Default: null
+ *         route_generator?: scalar|null, // Default: null
+ *         security_handler?: scalar|null, // Default: null
+ *         menu_factory?: scalar|null, // Default: null
+ *         route_builder?: scalar|null, // Default: null
+ *         label_translator_strategy?: scalar|null, // Default: null
+ *         pager_type?: scalar|null, // Default: null
+ *     },
+ *     templates?: array{
+ *         user_block?: scalar|null, // Default: "@SonataAdmin/Core/user_block.html.twig"
+ *         add_block?: scalar|null, // Default: "@SonataAdmin/Core/add_block.html.twig"
+ *         layout?: scalar|null, // Default: "@SonataAdmin/standard_layout.html.twig"
+ *         ajax?: scalar|null, // Default: "@SonataAdmin/ajax_layout.html.twig"
+ *         dashboard?: scalar|null, // Default: "@SonataAdmin/Core/dashboard.html.twig"
+ *         search?: scalar|null, // Default: "@SonataAdmin/Core/search.html.twig"
+ *         list?: scalar|null, // Default: "@SonataAdmin/CRUD/list.html.twig"
+ *         filter?: scalar|null, // Default: "@SonataAdmin/Form/filter_admin_fields.html.twig"
+ *         show?: scalar|null, // Default: "@SonataAdmin/CRUD/show.html.twig"
+ *         show_compare?: scalar|null, // Default: "@SonataAdmin/CRUD/show_compare.html.twig"
+ *         edit?: scalar|null, // Default: "@SonataAdmin/CRUD/edit.html.twig"
+ *         preview?: scalar|null, // Default: "@SonataAdmin/CRUD/preview.html.twig"
+ *         history?: scalar|null, // Default: "@SonataAdmin/CRUD/history.html.twig"
+ *         acl?: scalar|null, // Default: "@SonataAdmin/CRUD/acl.html.twig"
+ *         history_revision_timestamp?: scalar|null, // Default: "@SonataAdmin/CRUD/history_revision_timestamp.html.twig"
+ *         action?: scalar|null, // Default: "@SonataAdmin/CRUD/action.html.twig"
+ *         select?: scalar|null, // Default: "@SonataAdmin/CRUD/list__select.html.twig"
+ *         list_block?: scalar|null, // Default: "@SonataAdmin/Block/block_admin_list.html.twig"
+ *         search_result_block?: scalar|null, // Default: "@SonataAdmin/Block/block_search_result.html.twig"
+ *         short_object_description?: scalar|null, // Default: "@SonataAdmin/Helper/short-object-description.html.twig"
+ *         delete?: scalar|null, // Default: "@SonataAdmin/CRUD/delete.html.twig"
+ *         batch?: scalar|null, // Default: "@SonataAdmin/CRUD/list__batch.html.twig"
+ *         batch_confirmation?: scalar|null, // Default: "@SonataAdmin/CRUD/batch_confirmation.html.twig"
+ *         inner_list_row?: scalar|null, // Default: "@SonataAdmin/CRUD/list_inner_row.html.twig"
+ *         outer_list_rows_mosaic?: scalar|null, // Default: "@SonataAdmin/CRUD/list_outer_rows_mosaic.html.twig"
+ *         outer_list_rows_list?: scalar|null, // Default: "@SonataAdmin/CRUD/list_outer_rows_list.html.twig"
+ *         outer_list_rows_tree?: scalar|null, // Default: "@SonataAdmin/CRUD/list_outer_rows_tree.html.twig"
+ *         base_list_field?: scalar|null, // Default: "@SonataAdmin/CRUD/base_list_field.html.twig"
+ *         pager_links?: scalar|null, // Default: "@SonataAdmin/Pager/links.html.twig"
+ *         pager_results?: scalar|null, // Default: "@SonataAdmin/Pager/results.html.twig"
+ *         tab_menu_template?: scalar|null, // Default: "@SonataAdmin/Core/tab_menu_template.html.twig"
+ *         knp_menu_template?: scalar|null, // Default: "@SonataAdmin/Menu/sonata_menu.html.twig"
+ *         action_create?: scalar|null, // Default: "@SonataAdmin/CRUD/dashboard__action_create.html.twig"
+ *         button_acl?: scalar|null, // Default: "@SonataAdmin/Button/acl_button.html.twig"
+ *         button_create?: scalar|null, // Default: "@SonataAdmin/Button/create_button.html.twig"
+ *         button_edit?: scalar|null, // Default: "@SonataAdmin/Button/edit_button.html.twig"
+ *         button_history?: scalar|null, // Default: "@SonataAdmin/Button/history_button.html.twig"
+ *         button_list?: scalar|null, // Default: "@SonataAdmin/Button/list_button.html.twig"
+ *         button_show?: scalar|null, // Default: "@SonataAdmin/Button/show_button.html.twig"
+ *         form_theme?: list<scalar|null>,
+ *         filter_theme?: list<scalar|null>,
+ *     },
+ *     assets?: array{
+ *         stylesheets?: list<array{ // Default: [{"path":"bundles/sonataadmin/app.css","package_name":"sonata_admin"},{"path":"bundles/sonataform/app.css","package_name":"sonata_admin"}]
+ *             path: scalar|null,
+ *             package_name?: scalar|null, // Default: "sonata_admin"
+ *         }>,
+ *         extra_stylesheets?: list<array{ // Default: []
+ *             path: scalar|null,
+ *             package_name?: scalar|null, // Default: "sonata_admin"
+ *         }>,
+ *         remove_stylesheets?: list<array{ // Default: []
+ *             path: scalar|null,
+ *             package_name?: scalar|null, // Default: "sonata_admin"
+ *         }>,
+ *         javascripts?: list<array{ // Default: [{"path":"bundles/sonataadmin/app.js","package_name":"sonata_admin"},{"path":"bundles/sonataform/app.js","package_name":"sonata_admin"}]
+ *             path: scalar|null,
+ *             package_name?: scalar|null, // Default: "sonata_admin"
+ *         }>,
+ *         extra_javascripts?: list<array{ // Default: []
+ *             path: scalar|null,
+ *             package_name?: scalar|null, // Default: "sonata_admin"
+ *         }>,
+ *         remove_javascripts?: list<array{ // Default: []
+ *             path: scalar|null,
+ *             package_name?: scalar|null, // Default: "sonata_admin"
+ *         }>,
+ *     },
+ *     extensions?: array<string, array{ // Default: []
+ *         global?: bool, // Default: false
+ *         admins?: list<scalar|null>,
+ *         excludes?: list<scalar|null>,
+ *         implements?: list<scalar|null>,
+ *         extends?: list<scalar|null>,
+ *         instanceof?: list<scalar|null>,
+ *         uses?: list<scalar|null>,
+ *         admin_implements?: list<scalar|null>,
+ *         admin_extends?: list<scalar|null>,
+ *         admin_instanceof?: list<scalar|null>,
+ *         admin_uses?: list<scalar|null>,
+ *         priority?: int, // Positive or negative integer. The higher the priority, the earlier it’s executed. // Default: 0
+ *     }>,
+ *     persist_filters?: scalar|null, // Default: false
+ *     filter_persister?: scalar|null, // Default: "sonata.admin.filter_persister.session"
+ *     show_mosaic_button?: bool, // Show mosaic button on all admin screens // Default: true
+ * }
+ * @psalm-type SonataDoctrineOrmAdminConfig = array{
+ *     entity_manager?: scalar|null, // Default: null
+ *     audit?: array{
+ *         force?: bool, // Default: true
+ *     },
+ *     templates?: array{
+ *         types?: array{
+ *             list?: array<string, scalar|null>,
+ *             show?: array<string, scalar|null>,
+ *         },
+ *     },
+ * }
+ * @psalm-type SonataUserConfig = array{
+ *     security_acl?: bool, // Default: false
+ *     impersonating?: bool|array{
+ *         enabled?: bool, // Default: false
+ *         route: scalar|null,
+ *         parameters?: array<string, scalar|null>,
+ *     },
+ *     manager_type?: scalar|null, // Default: "orm"
+ *     class?: array{
+ *         user?: scalar|null, // Default: "Sonata\\UserBundle\\Entity\\BaseUser"
+ *     },
+ *     admin?: array{
+ *         user?: array{
+ *             class?: scalar|null, // Default: "Sonata\\UserBundle\\Admin\\Entity\\UserAdmin"
+ *             controller?: scalar|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|null, // Default: "SonataUserBundle"
+ *         },
+ *     },
+ *     profile?: array{
+ *         default_avatar?: scalar|null, // Default: "bundles/sonatauser/default_avatar.png"
+ *     },
+ *     mailer?: scalar|null, // Custom mailer used to send reset password emails // Default: "sonata.user.mailer.default"
+ *     resetting?: array{
+ *         retry_ttl?: int, // Default: 7200
+ *         token_ttl?: int, // Default: 86400
+ *         email: array{
+ *             template?: scalar|null, // Default: "@SonataUser/Admin/Security/Resetting/email.html.twig"
+ *             address?: scalar|null,
+ *             sender_name?: scalar|null,
+ *         },
+ *     },
+ * }
+ * @psalm-type SonataIntlConfig = array{
+ *     locale?: scalar|null, // Default: null
+ *     timezone?: array{
+ *         service?: scalar|null,
+ *         detectors?: list<scalar|null>,
+ *         default?: scalar|null, // Default: "Europe/Minsk"
+ *         locales?: array<string, scalar|null>,
+ *     },
+ * }
+ * @psalm-type FosCkEditorConfig = array{
+ *     enable?: bool, // Default: true
+ *     async?: bool, // Default: false
+ *     auto_inline?: bool, // Default: true
+ *     inline?: bool, // Default: false
+ *     autoload?: bool, // Default: true
+ *     jquery?: bool, // Default: false
+ *     require_js?: bool, // Default: false
+ *     input_sync?: bool, // Default: false
+ *     base_path?: scalar|null, // Default: "bundles/fosckeditor/"
+ *     js_path?: scalar|null, // Default: "bundles/fosckeditor/ckeditor.js"
+ *     jquery_path?: scalar|null, // Default: "bundles/fosckeditor/adapters/jquery.js"
+ *     default_config?: scalar|null, // Default: null
+ *     configs?: array<string, array<string, mixed>>,
+ *     plugins?: array<string, array{ // Default: []
+ *         path?: scalar|null,
+ *         filename?: scalar|null,
+ *     }>,
+ *     styles?: array<string, list<array{ // Default: []
+ *             name?: scalar|null,
+ *             type?: scalar|null,
+ *             widget?: scalar|null,
+ *             element?: mixed,
+ *             styles?: array<string, scalar|null>,
+ *             attributes?: array<string, scalar|null>,
+ *         }>>,
+ *     templates?: array<string, array{ // Default: []
+ *         imagesPath?: scalar|null,
+ *         templates?: list<array{ // Default: []
+ *             title?: scalar|null,
+ *             image?: scalar|null,
+ *             description?: scalar|null,
+ *             html?: scalar|null,
+ *             template?: scalar|null,
+ *             template_parameters?: array<string, scalar|null>,
+ *         }>,
+ *     }>,
+ *     filebrowsers?: array<string, scalar|null>,
+ *     toolbars?: array{
+ *         configs?: array<string, list<mixed>>,
+ *         items?: array<string, list<mixed>>,
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1694,6 +2049,15 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     live_component?: LiveComponentConfig,
  *     symfonycasts_sass?: SymfonycastsSassConfig,
  *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *     sonata_form?: SonataFormConfig,
+ *     sonata_block?: SonataBlockConfig,
+ *     sonata_exporter?: SonataExporterConfig,
+ *     sonata_twig?: SonataTwigConfig,
+ *     sonata_admin?: SonataAdminConfig,
+ *     sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *     sonata_user?: SonataUserConfig,
+ *     sonata_intl?: SonataIntlConfig,
+ *     fos_ck_editor?: FosCkEditorConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1720,6 +2084,15 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         live_component?: LiveComponentConfig,
  *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         sonata_form?: SonataFormConfig,
+ *         sonata_block?: SonataBlockConfig,
+ *         sonata_exporter?: SonataExporterConfig,
+ *         sonata_twig?: SonataTwigConfig,
+ *         sonata_admin?: SonataAdminConfig,
+ *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_user?: SonataUserConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         fos_ck_editor?: FosCkEditorConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1744,6 +2117,15 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         live_component?: LiveComponentConfig,
  *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         sonata_form?: SonataFormConfig,
+ *         sonata_block?: SonataBlockConfig,
+ *         sonata_exporter?: SonataExporterConfig,
+ *         sonata_twig?: SonataTwigConfig,
+ *         sonata_admin?: SonataAdminConfig,
+ *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_user?: SonataUserConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         fos_ck_editor?: FosCkEditorConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
