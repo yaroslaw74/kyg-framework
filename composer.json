@@ -159,7 +159,7 @@
         "apcu-autoloader": true,
         "bump-after-update": true,
         "optimize-autoloader": true,
-        "process-timeout": 1200,
+        "process-timeout": 900,
         "sort-packages": true
     },
     "extra": {
