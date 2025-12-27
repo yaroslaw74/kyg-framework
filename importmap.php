@@ -83,4 +83,60 @@ return [
         'version' => '5.3.8',
         'type' => 'css',
     ],
+    'bootstrap-icons/font/bootstrap-icons.min.css' => [
+        'version' => '1.13.1',
+        'type' => 'css',
+    ],
+    'boxicons/css/boxicons.min.css' => [
+        'version' => '2.1.4',
+        'type' => 'css',
+    ],
+    '@fortawesome/fontawesome-free/css/all.min.css' => [
+        'version' => '7.1.0',
+        'type' => 'css',
+    ],
+    'ionicons/dist/css/ionicons.min.css' => [
+        'version' => '4.6.4-1',
+        'type' => 'css',
+    ],
+    'line-awesome/dist/line-awesome/css/line-awesome.min.css' => [
+        'version' => '1.3.0',
+        'type' => 'css',
+    ],
+    'material-icons/iconfont/material-icons.css' => [
+        'version' => '1.13.14',
+        'type' => 'css',
+    ],
+    'pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css' => [
+        'version' => '1.2.3',
+        'type' => 'css',
+    ],
+    'remixicon/fonts/remixicon.css' => [
+        'version' => '4.7.0',
+        'type' => 'css',
+    ],
+    'simple-line-icons/css/simple-line-icons.css' => [
+        'version' => '2.5.5',
+        'type' => 'css',
+    ],
+    '@tabler/icons-webfont/dist/tabler-icons.min.css' => [
+        'version' => '3.36.0',
+        'type' => 'css',
+    ],
+    '@icon/themify-icons/themify-icons.css' => [
+        'version' => '1.0.1-alpha.3',
+        'type' => 'css',
+    ],
+    'typicons.font/src/font/typicons.css' => [
+        'version' => '2.1.2',
+        'type' => 'css',
+    ],
+    'feathericon/build/css/feathericon.min.css' => [
+        'version' => '1.0.2',
+        'type' => 'css',
+    ],
+    'weather-icons/css/weather-icons.min.css' => [
+        'version' => '1.3.2',
+        'type' => 'css',
+    ],
 ];
