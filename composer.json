@@ -22,7 +22,7 @@
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
     "require": {
-        "php": ">=8.4",
+        "php": ">=8.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
@@ -82,7 +82,8 @@
         "twig/inky-extra": "^3.22",
         "twig/markdown-extra": "^3.22",
         "twig/string-extra": "^3.22.1",
-        "twig/twig": "^3.22.2"
+        "twig/twig": "^3.22.2",
+        "symfony/requirements-checker": "^2.0"
     },
     "require-dev": {
         "dadadev/phpstan-symfony-routing": "^0.2.0",
@@ -126,8 +127,7 @@
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
-        "symfony/polyfill-php83": "*",
-        "symfony/polyfill-php84": "*"
+        "symfony/polyfill-php83": "*"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -199,6 +199,7 @@
             "@auto-scripts"
         ],
         "auto-scripts": {
+            "requirements-checker": "script",
             "cache:clear": "symfony-cmd",
             "cache:warmup": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
