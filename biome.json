@@ -2,9 +2,9 @@
     "files": {
         "includes": [
             "**",
-            "!assets/fonts/",
-            "!assets/icons/",
-            "!assets/images/",
+            "!assets/fonts/*",
+            "!assets/icons/*",
+            "!assets/images/*",
             "!assets/vendor/*",
             "!assets/controllers.json",
             "!public/assets/*",
@@ -17,10 +17,8 @@
         ]
     },
     "formatter": {
-        "indentStyle": "space",
-        "indentWidth": 4,
-        "lineEnding": "lf",
-        "lineWidth": 256
+        "lineWidth": 256,
+        "useEditorconfig": true
     },
     "javascript": {
         "formatter": {
