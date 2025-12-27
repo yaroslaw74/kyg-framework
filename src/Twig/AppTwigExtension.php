@@ -1,40 +1,28 @@
 <?php
-
-/********************************************************************************
- * @Project    KYG Framework for Business
- * @Version    1.0.0
- *
- * @Copyright  (C) Kataev Yaroslav
- * @E-mail     yaroslaw74@gmail.com
- * @License    GNU General Public License version 3 or later; see LICENSE
- ********************************************************************************/
+/**
+ * @package    KYG Framework for Business
+ * @category   Twig Extension
+ * @version    1.0.0
+ * @copyright  Copyright (c) Kataev Yaroslav
+ * @license    GNU General Public License version 3 or later, see LICENSE
+ */
 declare(strict_types=1);
 
 namespace App\Twig;
 
 use App\Service\SystemService;
-use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 class AppTwigExtension extends AbstractExtension
 {
-    public function __construct(
-        private SystemService $systemService,
-        private ContainerBagInterface $params,
-    ) {
-    }
-
-    public function getLocales(): array
+    public function __construct(private SystemService $systemService)
     {
-        return $this->params->get('app.locales');
     }
 
     public function LocaleDirExtension(string $locale): string
     {
-        $locales = $this->getLocales();
-
-        return $locales[$locale]['dir'];
+        return $this->systemService->getLocaleDir($locale);
     }
 
     public function LocaleHTMLExtension(string $locale): string
