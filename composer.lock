@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e47a98d87a52fcf2a5a2d33598d4ce3f",
+    "content-hash": "714b18b003d889ca07d5bf71b03cb167",
     "packages": [
         {
             "name": "balrok/composer-mkdir",
@@ -4370,6 +4370,125 @@
                 }
             ],
             "time": "2025-11-23T16:45:01+00:00"
+        },
+        {
+            "name": "sonata-project/formatter-bundle",
+            "version": "5.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataFormatterBundle.git",
+                "reference": "3361e83a3a591875bac26573603962eba30e24d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/3361e83a3a591875bac26573603962eba30e24d9",
+                "reference": "3361e83a3a591875bac26573603962eba30e24d9",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/ckeditor-bundle": "^2.0",
+                "php": "^8.2",
+                "psr/container": "^1.0 || ^2.0",
+                "psr/log": "^2.0 || ^3.0",
+                "sonata-project/block-bundle": "^5.0",
+                "sonata-project/form-extensions": "^2.0",
+                "symfony/config": "^6.4 || ^7.3 || 8.0",
+                "symfony/dependency-injection": "^6.4 || ^7.3 || 8.0",
+                "symfony/event-dispatcher": "^6.4 || ^7.3 || 8.0",
+                "symfony/form": "^6.4 || ^7.3 || 8.0",
+                "symfony/framework-bundle": "^6.4 || ^7.3 || 8.0",
+                "symfony/http-foundation": "^6.4 || ^7.3 || 8.0",
+                "symfony/http-kernel": "^6.4 || ^7.3 || 8.0",
+                "symfony/options-resolver": "^6.4 || ^7.3 || 8.0",
+                "symfony/property-access": "^6.4 || ^7.3 || 8.0",
+                "symfony/translation": "^6.4 || ^7.3 || 8.0",
+                "symfony/validator": "^6.4 || ^7.3 || 8.0",
+                "twig/twig": "^3.0"
+            },
+            "conflict": {
+                "sonata-project/admin-bundle": "<4.0",
+                "sonata-project/classification-bundle": "<4.0",
+                "sonata-project/media-bundle": "<4.2"
+            },
+            "require-dev": {
+                "dama/doctrine-test-bundle": "^8.0.2",
+                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
+                "doctrine/orm": "^2.16 || ^3.0",
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "knplabs/knp-menu-bundle": "^3.0",
+                "matthiasnoback/symfony-config-test": "^6.1",
+                "matthiasnoback/symfony-dependency-injection-test": "^6.2",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpdoc-parser": "^1.0",
+                "phpstan/phpstan": "^1.4 || ^2.0",
+                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
+                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
+                "phpstan/phpstan-symfony": "^1.1 || ^2.0",
+                "phpunit/phpunit": "^10.5.54 || ^11.5.38 || ^12.3.10",
+                "rector/rector": "^1.1 || ^2.0",
+                "sonata-project/admin-bundle": "^4.39",
+                "sonata-project/classification-bundle": "^4.0",
+                "sonata-project/doctrine-extensions": "^2.0",
+                "sonata-project/doctrine-orm-admin-bundle": "^4.0",
+                "sonata-project/media-bundle": "^4.13",
+                "sonata-project/twig-extensions": "^2.0",
+                "symfony/browser-kit": "^6.4 || ^7.3 || 8.0",
+                "symfony/filesystem": "^6.4 || ^7.3 || 8.0",
+                "symfony/security-bundle": "^6.4 || ^7.3 || 8.0",
+                "symfony/yaml": "^6.4 || ^7.3 || 8.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\FormatterBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "https://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataFormatterBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataFormatterBundle",
+            "homepage": "https://docs.sonata-project.org/projects/SonataFormatterBundle",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "formatter",
+                "sonata"
+            ],
+            "support": {
+                "issues": "https://github.com/sonata-project/SonataFormatterBundle/issues",
+                "source": "https://github.com/sonata-project/SonataFormatterBundle/tree/5.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/VincentLanglet",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/core23",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/greg0ire",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jordisala1991",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-12-20T17:34:57+00:00"
         },
         {
             "name": "sonata-project/intl-bundle",
@@ -17325,7 +17444,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
@@ -17335,6 +17454,6 @@
         "ext-intl": "*",
         "ext-mbstring": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.9.0"
 }
