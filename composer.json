@@ -180,7 +180,6 @@
                 "@php bin/console doctrine:diagram:class",
                 "vendor/bin/php-cs-fixer fix",
                 "vendor/bin/parallel-lint --exclude .git --exclude .github --exclude var --exclude vendor .",
-                "vendor/bin/phpstan analyse",
                 "bin/biome format --write assets modules"
             ]
         },
