@@ -8,5 +8,5 @@ sonata_block:
         sonata_translation.block.locale_switcher: null
 
 sonata_translation:
-    locales: ['en']
-    default_locale: 'en'
+    locales: ["en"]
+    default_locale: "%app.default_locale%"
