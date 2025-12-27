@@ -83,7 +83,7 @@
         "twig/markdown-extra": "^3.22",
         "twig/string-extra": "^3.22.1",
         "twig/twig": "^3.22.2",
-        "symfony/requirements-checker": "^2.0"
+        "symfony/requirements-checker": "^2.0.3"
     },
     "require-dev": {
         "dadadev/phpstan-symfony-routing": "^0.2.0",
