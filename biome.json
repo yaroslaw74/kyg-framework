@@ -3,7 +3,6 @@
         "includes": [
             "**",
             "!assets/fonts/*",
-            "!assets/icon-fonts/",
             "!assets/icons/*",
             "!assets/images/*",
             "!assets/vendor/*",
