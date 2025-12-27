@@ -1,12 +1,15 @@
 <?php
+
 /**
- * @package    KYG Framework for Business
  * @category   Service
+ *
  * @version    1.0.0
+ *
  * @copyright  Copyright (c) Kataev Yaroslav
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Service;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
@@ -21,7 +24,6 @@ class SystemService
     {
         return $this->params->get('app.locales');
     }
-
 
     public function getLocaleDir(string $locale): string
     {
