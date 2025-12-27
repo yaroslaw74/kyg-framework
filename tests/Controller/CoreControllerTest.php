@@ -1,14 +1,11 @@
 <?php
-
-/**********************************************************************************
- * @Project    KYG Framework for Business
- * @Version    1.0.0
- *
- * @Copyright  (C) Kataev Yaroslav
- * @E-mail     yaroslaw74@gmail.com
- * @License    GNU General Public License version 3 or later, see LICENSE
- *********************************************************************************/
-
+/**
+ * @package    KYG Framework for Business
+ * @category   Test
+ * @version    1.0.0
+ * @copyright  Copyright (c) Kataev Yaroslav
+ * @license    GNU General Public License version 3 or later, see LICENSE
+ */
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
