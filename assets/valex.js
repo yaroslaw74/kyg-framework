@@ -5,6 +5,7 @@
 /*
  * Styles
  */
+import "./scss/valex.scss";
 
 /*
  * Widgets
@@ -13,4 +14,3 @@
 /*
  * Modules
  */
-
