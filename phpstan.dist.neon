@@ -10,6 +10,7 @@ parameters:
         - modules/
     excludePaths:
         - config\reference.php
+        - src\Kernel.php
         - public\index.php
         - tests\bootstrap.php
         - tests\console-application.php
