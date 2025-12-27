@@ -35,13 +35,13 @@
     display: block;
 }
 
-[data-theme-mode=dark] .footer .main-footer-container .footer-logo .footer-logo-white,
-[data-theme-mode=light] .footer .main-footer-container .footer-logo .footer-logo-dark {
+[data-theme-mode="dark"] .footer .main-footer-container .footer-logo .footer-logo-white,
+[data-theme-mode="light"] .footer .main-footer-container .footer-logo .footer-logo-dark {
     display: block;
 }
 
-[data-theme-mode=dark] .footer .main-footer-container .footer-logo .footer-logo-dark,
-[data-theme-mode=light] .footer .main-footer-container .footer-logo .footer-logo-white {
+[data-theme-mode="dark"] .footer .main-footer-container .footer-logo .footer-logo-dark,
+[data-theme-mode="light"] .footer .main-footer-container .footer-logo .footer-logo-white {
     display: none;
 }
 
