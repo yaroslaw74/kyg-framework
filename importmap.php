@@ -42,6 +42,9 @@ return [
     '@symfony/ux-swup' => [
         'version' => '2.31.0',
     ],
+    '@swup/debug-plugin' => [
+        'version' => '4.1.0',
+    ],
     '@swup/fade-theme' => [
         'version' => '2.0.2',
     ],
@@ -60,14 +63,11 @@ return [
     'delegate-it' => [
         'version' => '6.3.0',
     ],
-    '@swup/debug-plugin' => [
-        'version' => '4.1.0',
+    '@swup/theme' => [
+        'version' => '2.1.0',
     ],
     'path-to-regexp' => [
         'version' => '8.3.0',
-    ],
-    '@swup/theme' => [
-        'version' => '2.1.0',
     ],
     'bootstrap' => [
         'version' => '5.3.8',
