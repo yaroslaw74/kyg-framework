@@ -1,7 +1,7 @@
 /* Start:: landing  */
 
 @media (min-width: 992px) {
-    [data-nav-style="menu-click"][data-nav-layout="horizontal"] {
+    [data-nav-style=menu-click][data-nav-layout=horizontal] {
         &[data-theme-mode="dark"] {
             .landing-body .app-sidebar .slide.has-sub.open .slide-menu.child1::before {
                 border-block-start-color : rgba(0, 0, 0, 0.1);
@@ -416,7 +416,8 @@
         }
     }
 
-    @media (max-width: 767.98px) {
+    @media (max-width:767.98px) {
+
         .landing-banner {
             height: 34rem;
 
@@ -426,7 +427,7 @@
         }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width:400px) {
         .landing-body .landing-banner {
             height: 45rem;
         }
