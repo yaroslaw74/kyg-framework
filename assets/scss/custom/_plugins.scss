@@ -20,8 +20,8 @@
     padding-inline-end  : 1rem !important;
 }
 
-.choices[data-type*="select-one"]::after {
-    inset-inline-end: 0.7188rem !important;
+.choices[data-type*=select-one]::after {
+    inset-inline-end: .7188rem !important;
 }
 
 .choices[data-type*="select-one"]::after {
@@ -41,7 +41,7 @@
 }
 
 .choices__placeholder {
-    opacity: 0.4 !important;
+    opacity: .4 !important;
 }
 
 .choices__list--dropdown,
@@ -141,12 +141,13 @@
 }
 
 [dir="rtl"] {
-    .choices[data-type*="select-one"]::after {
-        left : 0.7188rem;
+
+    .choices[data-type*=select-one]::after {
+        left : .7188rem;
         right: inherit;
     }
 
-    .choices[data-type*="select-one"] .choices__button {
+    .choices[data-type*=select-one] .choices__button {
         left        : 0;
         right       : inherit;
         margin-left : 1.5625rem;
@@ -154,13 +155,13 @@
     }
 
     &[data-theme-mode="dark"] {
-        .choices[data-type*="select-one"] .choices__button {
+        .choices[data-type*=select-one] .choices__button {
             filter: invert(1);
         }
     }
 
-    .choices[data-type*="select-multiple"] .choices__button,
-    .choices[data-type*="text"] .choices__button {
+    .choices[data-type*=select-multiple] .choices__button,
+    .choices[data-type*=text] .choices__button {
         margin       : 0 8px 0 -4px;
         padding-right: 1rem;
         padding-left : inherit;
@@ -175,7 +176,7 @@
 }
 
 [data-theme-mode="dark"] {
-    .choices[data-type*="select-one"] .choices__button {
+    .choices[data-type*=select-one] .choices__button {
         filter: invert(1);
     }
 }
@@ -194,7 +195,7 @@
 }
 
 .apexcharts-tooltip-marker {
-    margin-inline-end: 0.625rem;
+    margin-inline-end: .625rem;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
@@ -446,7 +447,7 @@
 
 @media (max-width: 380px) {
     .fc .fc-daygrid-day-bottom {
-        font-size: 0.75em !important;
+        font-size: .75em !important;
         padding  : 0px 3px 0 !important;
     }
 
@@ -529,9 +530,9 @@
     border-bottom-color: $text-muted !important;
 }
 
-.flatpickr-day.selected.startRange+.endRange:not(:nth-child(7n + 1)),
-.flatpickr-day.startRange.startRange+.endRange:not(:nth-child(7n + 1)),
-.flatpickr-day.endRange.startRange+.endRange:not(:nth-child(7n + 1)) {
+.flatpickr-day.selected.startRange+.endRange:not(:nth-child(7n+1)),
+.flatpickr-day.startRange.startRange+.endRange:not(:nth-child(7n+1)),
+.flatpickr-day.endRange.startRange+.endRange:not(:nth-child(7n+1)) {
     box-shadow: none !important;
 }
 
@@ -642,7 +643,7 @@
 
 @media (min-width: 420px) {
     .flatpickr-time .flatpickr-am-pm {
-        padding: 0 1.875rem 0 0.5rem;
+        padding: 0 1.875rem 0 .5rem;
     }
 }
 
@@ -671,7 +672,7 @@
     }
 }
 
-@media (max-width: 575.98) {
+@media (max-width:575.98) {
     .flatpickr-calendar {
         width: 250px !important;
     }
@@ -770,12 +771,12 @@ span.flatpickr-weekday {
     }
 }
 
-.pcr-app[data-theme="classic"] .pcr-selection .pcr-color-preview {
+.pcr-app[data-theme='classic'] .pcr-selection .pcr-color-preview {
     margin-inline-end: 0.75em !important;
 }
 
-.pcr-app[data-theme="classic"] .pcr-selection .pcr-color-chooser,
-.pcr-app[data-theme="classic"] .pcr-selection .pcr-color-opacity {
+.pcr-app[data-theme='classic'] .pcr-selection .pcr-color-chooser,
+.pcr-app[data-theme='classic'] .pcr-selection .pcr-color-opacity {
     margin-inline-start: 0.75em !important;
 }
 
@@ -1033,7 +1034,7 @@ span.flatpickr-weekday {
         background-color: rgba(255, 255, 255, 0.05) !important;
         width           : 2.5rem !important;
         height          : 2.5rem !important;
-        padding         : 0.875rem;
+        padding         : .875rem;
     }
 
     [dir="rtl"] {
@@ -1190,7 +1191,7 @@ span.flatpickr-weekday {
 
 .apexcharts-legend-text {
     color               : $default-text-color !important;
-    padding-inline-start: 0.9375rem !important;
+    padding-inline-start: .9375rem !important;
     margin-inline-start : -0.625rem !important;
 }
 
@@ -1626,7 +1627,7 @@ span.flatpickr-weekday {
     font-size       : 1.5625rem !important;
     width           : 1.25rem !important;
     position        : absolute !important;
-    inset-inline-end: 0.625rem !important;
+    inset-inline-end: .625rem !important;
 }
 
 .select2-selection__clear {
@@ -1815,7 +1816,7 @@ td.gridjs-td {
     border-top-right-radius   : $default-radius !important;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width:575.98px) {
     .gridjs-search-input {
         width: 12.5rem !important;
     }
@@ -2411,7 +2412,7 @@ table.dataTable>tbody>tr.selected>* {
 }
 
 [dir="rtl"] {
-    .swal2-container .swal2-icon.swal2-success [class^="swal2-success-line"][class$="tip"] {
+    .swal2-container .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
         inset-inline-start: 1.9125em;
     }
 }
@@ -2534,12 +2535,12 @@ table.dataTable>tbody>tr.selected>* {
 /* End:: swiper js */
 
 /* Start:: prism js */
-pre[class*="language-"]:after,
-pre[class*="language-"]:before {
+pre[class*=language-]:after,
+pre[class*=language-]:before {
     display: none !important;
 }
 
-pre[class*="language-"]>code {
+pre[class*=language-]>code {
     border-inline-start: 1px solid $default-border !important;
     box-shadow         : none !important;
     background-color   : $light !important;
@@ -2549,8 +2550,8 @@ pre[class*="language-"]>code {
     white-space        : pre-wrap;
 }
 
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
+:not(pre)>code[class*=language-],
+pre[class*=language-] {
     background-color: $custom-white !important;
     margin-bottom   : 0 !important;
     max-height      : 400px;
@@ -2558,17 +2559,17 @@ pre[class*="language-"] {
     border-radius   : $default-radius;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*=language-],
+pre[class*=language-] {
     color    : $default-text-color !important;
     font-size: 0.82rem !important;
 }
 
-pre[class*="language-"] {
+pre[class*=language-] {
     margin: 0 !important;
 }
 
-code[class*="language-"] {
+code[class*=language-] {
     padding: 1rem !important;
 }
 
@@ -2578,12 +2579,12 @@ code[class*="language-"] {
 
 .prism-toggle {
     .btn.btn-sm {
-        font-size: 0.7rem;
+        font-size: .7rem;
     }
 }
 
 [dir="rtl"] {
-    pre[class*="language-"]>code {
+    pre[class*=language-]>code {
         border-left: 0;
         text-align : right;
     }
@@ -2616,6 +2617,7 @@ code[class*="language-"] {
 .awn-popup-loading-dots:after {
     inset-inline-start: 16px !important;
 }
+
 
 #awn-popup-wrapper .awn-popup-body {
     background: $custom-white !important;
