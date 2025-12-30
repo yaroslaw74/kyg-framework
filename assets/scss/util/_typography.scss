@@ -14,6 +14,7 @@
 
 /* End::basic sizes */
 
+
 /* Start::font sizes */
 // (1px-30px are linear, above 30px are step increment of 1)
 .fs-1 {
@@ -201,7 +202,7 @@
     }
 
     &.text-opacity-50 {
-        color: rgba(var(--secondary-rgb), 0.5) !important;
+        color: rgba(var(--secondary-rgb), 0.50) !important;
     }
 }
 
@@ -218,7 +219,7 @@
     }
 
     &.text-opacity-50 {
-        color: rgba(var(--info-rgb), 0.5) !important;
+        color: rgba(var(--info-rgb), 0.50) !important;
     }
 }
 
@@ -235,7 +236,7 @@
     }
 
     &.text-opacity-50 {
-        color: rgba(var(--success-rgb), 0.5) !important;
+        color: rgba(var(--success-rgb), 0.50) !important;
     }
 }
 
@@ -252,7 +253,7 @@
     }
 
     &.text-opacity-50 {
-        color: rgba(var(--warning-rgb), 0.5) !important;
+        color: rgba(var(--warning-rgb), 0.50) !important;
     }
 }
 
@@ -269,7 +270,7 @@
     }
 
     &.text-opacity-50 {
-        color: rgba(var(--danger-rgb), 0.5) !important;
+        color: rgba(var(--danger-rgb), 0.50) !important;
     }
 }
 
@@ -368,6 +369,7 @@
 
 //gray set ends
 /* End::text colors */
+
 
 /* Start::links */
 a {
@@ -634,7 +636,8 @@ a {
 
 /* End::Shadows */
 
-@media screen and (min-width: 576px) {
+
+@media screen and (min-width:576px) {
     .w-sm-auto {
         width: auto !important;
     }
