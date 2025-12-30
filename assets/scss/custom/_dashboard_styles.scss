@@ -19,27 +19,14 @@
     flex            : none;
     position        : absolute;
     z-index         : 0;
-    margin-block-end: 0.5rem;
+    margin-block-end: .5rem;
 
     h4 {
         font-size       : 21px;
         font-weight     : 700;
         letter-spacing  : -0.5px;
         margin-block-end: 3px;
-        font-family     :
-            "Archivo",
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            Roboto,
-            "Helvetica Neue",
-            Arial,
-            "Noto Sans",
-            sans-serif,
-            "Apple Color Emoji",
-            "Segoe UI Emoji",
-            "Segoe UI Symbol",
-            "Noto Color Emoji";
+        font-family     : "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     }
 
     >div+div {
@@ -298,6 +285,7 @@
 /*End:: table card*/
 .main-dashboard-header-right {
     >div {
+
         &:first-child {
             flex-basis: 100%;
         }
