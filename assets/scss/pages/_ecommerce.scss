@@ -216,6 +216,8 @@ dd {
     text-align: end;
 }
 
+
+
 /* Start:: Checkout */
 .product-checkout {
     .tab-style-2 .nav-item .nav-link {
@@ -316,6 +318,7 @@ dd {
     }
 }
 
+
 .card-pay .tabs-menu li {
     width  : 33.3%;
     display: block;
@@ -342,7 +345,7 @@ dd {
     overflow     : hidden;
 }
 
-@media (max-width: 1350px) {
+@media (max-width:1350px) {
     .tabs-menu {
         display: block;
     }
