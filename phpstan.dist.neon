@@ -1,20 +1,15 @@
 parameters:
-    level: 10
+    level: 6
     errorFormat: symplify
     paths:
         - bin/
         - config/
+        - modules/
         - public/
         - src/
         - tests/
-        - modules/
     excludePaths:
-        - config\reference.php
-        - src\Kernel.php
-        - public\index.php
-        - tests\bootstrap.php
-        - tests\console-application.php
-        - tests\object-manager.php
+        - config/reference.php
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
         consoleApplicationLoader: tests/console-application.php
@@ -24,23 +19,5 @@ parameters:
         - vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php
     doctrine:
         objectManagerLoader: tests/object-manager.php
-    strictRules:
-        disallowedLooseComparison: true
-        booleansInConditions: true
-        booleansInLoopConditions: true
-        uselessCast: true
-        requireParentConstructorCall: true
-        disallowedBacktick: true
-        disallowedEmpty: true
-        disallowedImplicitArrayCreation: true
-        disallowedShortTernary: true
-        overwriteVariablesWithLoop: true
-        closureUsesThis: true
-        matchingInheritedMethodNames: true
-        numericOperandsInArithmeticOperators: true
-        strictFunctionCalls: true
-        dynamicCallOnStaticMethod: true
-        switchConditionsMatchingType: true
-        noVariableVariables: true
-        strictArrayFilter: true
-        illegalConstructorMethodCall: true
+    friendly:
+        editorUrl: 'vscode://file/%%file%%:%%line%%'
