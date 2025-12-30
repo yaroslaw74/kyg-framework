@@ -33,7 +33,7 @@
     inset-block-start : 0;
     inset-inline-start: 0;
     z-index           : 103;
-    transition        : all 0.05s ease;
+    transition        : all .05s ease;
 
     .main-sidebar-header {
         width            : 15rem;
@@ -47,7 +47,7 @@
         padding          : 0.9375rem 1.25rem;
         border-inline-end: 1px solid $menu-border-color;
         border-block-end : 1px solid $menu-border-color;
-        transition       : all 0.05s ease;
+        transition       : all .05s ease;
 
         .header-logo {
             img {
@@ -236,7 +236,7 @@
         inset-inline-end: 1.2rem;
         font-size       : 0.85rem;
         color           : $menu-prime-color;
-        transition      : all 0.05s ease;
+        transition      : all .05s ease;
     }
 
     .slide.side-menu__label1 {
@@ -281,7 +281,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     [data-toggled="open"] {
         .page {
             position: absolute;
@@ -340,7 +340,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     .horizontal-logo {
         display: none;
     }
@@ -370,11 +370,11 @@
 /* Responsive Overlay End */
 @media (min-width: 992px) {
 
-    [data-toggled="icon-click-closed"],
-    [data-toggled="icon-hover-closed"],
-    [data-toggled="icon-text-close"],
-    [data-toggled="menu-click-closed"],
-    [data-toggled="menu-hover-closed"] {
+    [data-toggled=icon-click-closed],
+    [data-toggled=icon-hover-closed],
+    [data-toggled=icon-text-close],
+    [data-toggled=menu-click-closed],
+    [data-toggled=menu-hover-closed] {
         .app-content {
             min-height: calc(100vh + 50rem);
         }
