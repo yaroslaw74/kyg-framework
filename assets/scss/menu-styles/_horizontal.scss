@@ -51,7 +51,7 @@
             }
 
             .main-menu>.slide {
-                margin: 0 0.1875rem;
+                margin: 0 .1875rem;
             }
 
             .main-sidebar {
@@ -158,13 +158,13 @@
             .slide.has-sub .slide-menu {
                 &.child1 {
                     inset-inline-start: 1.5rem !important;
-                    padding           : 0.1875rem 0;
+                    padding           : .1875rem 0;
                 }
 
                 &.child2,
                 &.child3 {
                     inset-inline-end: 100% !important;
-                    padding         : 0.1875rem 0;
+                    padding         : .1875rem 0;
                 }
 
                 &.active {
@@ -213,7 +213,7 @@
                     .slide {
                         width  : 100%;
                         display: flex;
-                        padding: 0 0.1875rem;
+                        padding: 0 .1875rem;
                     }
                 }
 
