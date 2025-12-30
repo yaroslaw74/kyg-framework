@@ -14,8 +14,8 @@ flysystem:
                     dir:
                         public: 0755
                         private: 0700
-            visibility: "private"
-            directory_visibility: "private"
+            visibility: "public"
+            directory_visibility: "public"
             retain_visibility: true
             case_sensitive: true
             disable_asserts: false
