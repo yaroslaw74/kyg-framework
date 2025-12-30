@@ -8,7 +8,7 @@
     inset-inline     : 0;
     background       : $header-bg;
     border-block-end : 1px solid $header-border-color;
-    transition       : all 0.1s ease;
+    transition       : all .1s ease;
 
     #mainHeaderProfile {
         color: $header-prime-color;
@@ -29,8 +29,8 @@
     position         : absolute;
     inset-block-start: 0.4rem;
     inset-inline-end : 0.45rem;
-    font-size        : 0.625rem;
-    line-height      : 0.9;
+    font-size        : .625rem;
+    line-height      : .9;
 }
 
 .related-app {
@@ -66,7 +66,7 @@
     .header-link {
         display    : flex;
         align-items: center;
-        padding    : 0.8rem 0.65rem;
+        padding    : .8rem 0.65rem;
 
         &:hover,
         &.show {
@@ -226,6 +226,7 @@
 }
 
 .header-cart-remove {
+
     .ti {
         padding            : 0.25rem;
         border-radius      : 0.25rem;
@@ -408,7 +409,7 @@
 /* End::Header theme-mode icon style */
 
 /* Start::Header fullscreen responsive */
-@media (max-width: 767.98px) {
+@media (max-width:767.98px) {
     .header-element.header-fullscreen {
         display: none;
     }
@@ -417,7 +418,7 @@
 /* End::Header fullscreen responsive */
 
 /* Start::Responsive header dropdowns */
-@media (max-width: 575.98px) {
+@media (max-width:575.98px) {
     .app-header {
         .dropdown-menu {
             width: 100%;
@@ -446,8 +447,8 @@
     -ms-transition     : all 0.4s ease-in-out;
     transition         : all 0.05s ease-in-out;
     cursor             : pointer;
-    padding            : 0.3125rem;
-    margin-block-start : 0.375rem;
+    padding            : .3125rem;
+    margin-block-start : .375rem;
     margin-block-end   : 0;
     margin-inline-start: 0.5rem;
     margin-inline-end  : 0;
@@ -459,7 +460,7 @@
 
 .animated-arrow span {
     cursor    : pointer;
-    height    : 0.125rem;
+    height    : .125rem;
     width     : 0.75rem;
     background: $header-prime-color;
     position  : absolute;
@@ -486,7 +487,7 @@
 .animated-arrow span:before,
 .animated-arrow span:after {
     cursor    : pointer;
-    height    : 0.125rem;
+    height    : .125rem;
     width     : 1.0625rem;
     background: $header-prime-color;
     position  : absolute;
@@ -693,7 +694,7 @@
         }
 
         .nav-item {
-            margin-block-end : 0.5rem;
+            margin-block-end : .5rem;
             margin-inline-end: 0rem;
         }
     }
@@ -739,6 +740,7 @@
         }
     }
 
+
     .btn-check:checked+.btn,
     .btn.active,
     .btn.show,
@@ -762,7 +764,7 @@
     .main-header-notification .dropdown-footer {
         border-block-start: 1px solid rgba(255, 255, 255, 0.1);
         background        : rgba(255, 255, 255, 0.03);
-        box-shadow        : -8px 12px 18px 0 rgba(0, 0, 0, 0.1);
+        box-shadow        : -8px 12px 18px 0 rgba(0, 0, 0, .1);
     }
 }
 
