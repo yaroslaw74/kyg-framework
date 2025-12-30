@@ -107,7 +107,7 @@ $default-border: var(--default-border);
 $default-radius: 0.3rem;
 
 /*Box Shadow*/
-$box-shadow: 0 0.125rem 0 rgba(10, 10, 10, 0.04);
+$box-shadow: 0 0.125rem 0 rgba(10, 10, 10, .04);
 
 /* Card variables*/
 $card-box-shadow : var(--card-box-shadow);
@@ -159,10 +159,10 @@ $teal                 : rgb(var(--teal-rgb));
 $red                  : #d03d46;
 $blue                 : #2b3e65;
 $green                : #1dd871;
-$cyan                 : #00d1d1;
+$cyan                 : #00D1D1;
 $indigo               : #4d5ddb;
 $white                : #fff;
-$gray                 : #8699a3;
+$gray                 : #8699A3;
 $black                : #000;
 $yellow               : #ffc102;
 $text-muted           : var(--text-muted);
@@ -175,22 +175,22 @@ $form-control-bg      : var(--form-control-bg);
 $facebook: #3b5998;
 $twitter : #00acee;
 $github  : #333;
-$google  : #cf4e43;
-$youtube : #ff0000;
+$google  : #CF4E43;
+$youtube : #FF0000;
 
 /*gradient variables*/
 $primary-gradient  : linear-gradient(to right, $primary 0%, $primary-05 100%);
-$secondary-gradient: linear-gradient(to right, $secondary 0%, #6789d8 100%);
+$secondary-gradient: linear-gradient(to right, $secondary 0%, #6789D8 100%);
 $success-gradient  : linear-gradient(to left, #48d6a8 0%, #029666 100%);
 $warning-gradient  : linear-gradient(to left, #efa65f, #f76a2d);
-$pink-gradient     : linear-gradient(to right, $pink 0%, #ffa795 100%);
-$teal-gradient     : linear-gradient(to right, $teal 0%, #0695dd 100%);
+$pink-gradient     : linear-gradient(to right, $pink 0%, #FFA795 100%);
+$teal-gradient     : linear-gradient(to right, $teal 0%, #0695DD 100%);
 $danger-gradient   : linear-gradient(45deg, #f93a5a, #f7778c);
-$info-gradient     : linear-gradient(to right, $info 0%, #52f0ce 100%);
-$orange-gradient   : linear-gradient(to right, $orange 0%, #9ba815 100%);
+$info-gradient     : linear-gradient(to right, $info 0%, #52F0CE 100%);
+$orange-gradient   : linear-gradient(to right, $orange 0%, #9BA815 100%);
 $purple-gradient   : linear-gradient(to right, $purple 0%, #884af1 100%);
-$light-gradient    : linear-gradient(to right, $light 0%, #d1d6de 100%);
-$dark-gradient     : linear-gradient(to right, $dark 0%, #54505d 100%);
+$light-gradient    : linear-gradient(to right, $light 0%, #D1D6DE 100%);
+$dark-gradient     : linear-gradient(to right, $dark 0%, #54505D 100%);
 
 /*gray set*/
 $gray-1: var(--gray-1);
