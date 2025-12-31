@@ -143,6 +143,7 @@
         "symfony/uid": "7.4.*",
         "symfony/ux-icons": "^2.31",
         "symfony/ux-live-component": "^2.31",
+        "symfony/ux-toggle-password": "*",
         "symfony/ux-turbo": "^2.31",
         "symfony/ux-twig-component": "^2.31",
         "symfony/validator": "7.4.*",
