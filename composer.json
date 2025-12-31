@@ -22,7 +22,7 @@
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
@@ -42,13 +42,13 @@
         "api-platform/symfony": "^4.2.11",
         "api-platform/validator": "^4.2.11",
         "balrok/composer-mkdir": "^2.1.1",
-        "composer/composer": "^2.9.2",
+        "composer/composer": "^2.9.3",
         "doctrine/collections": "^2.4",
         "doctrine/common": "^3.5",
         "doctrine/dbal": "^4.4.1",
         "doctrine/deprecations": "^1.1.5",
-        "doctrine/doctrine-bundle": "^2.18.2|^3.1",
-        "doctrine/doctrine-migrations-bundle": "^3.7|^4.0",
+        "doctrine/doctrine-bundle": "^3.2.2",
+        "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/event-manager": "^2.0.1",
         "doctrine/inflector": "^2.1",
         "doctrine/instantiator": "^2.0",
@@ -143,7 +143,6 @@
         "symfony/uid": "7.4.*",
         "symfony/ux-icons": "^2.31",
         "symfony/ux-live-component": "^2.31",
-        "symfony/ux-toggle-password": "^2.31",
         "symfony/ux-turbo": "^2.31",
         "symfony/ux-twig-component": "^2.31",
         "symfony/validator": "7.4.*",
@@ -177,11 +176,11 @@
         "phpstan/phpstan": "^2.1.33",
         "phpstan/phpstan-doctrine": "^2.0.12",
         "phpstan/phpstan-phpunit": "^2.0.11",
-        "phpstan/phpstan-strict-rules": "^2.0.7",
         "phpstan/phpstan-symfony": "^2.0.9",
         "phpunit/phpunit": "^12.5.4",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
-        "spatie/symfony-ignition-bundle": "^1.2",
+        "shipmonk/dead-code-detector": "^0.14.1",
+        "spatie/symfony-ignition-bundle": "*",
         "symfony/browser-kit": "7.4.*",
         "symfony/debug-bundle": "7.4.*",
         "symfony/dom-crawler": "7.4.*",
@@ -189,7 +188,7 @@
         "symfony/web-profiler-bundle": "7.4.*",
         "symplify/config-transformer": "^12.4.3",
         "symplify/phpstan-extensions": "^12.0.2",
-        "symplify/phpstan-rules": "^14.9.5"
+        "yamadashy/phpstan-friendly-formatter": "^1.3"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
@@ -206,7 +205,8 @@
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
-        "symfony/polyfill-php83": "*"
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -243,13 +243,15 @@
     },
     "extra": {
         "copy-file": {
-            "modules/Install/Resources/data/images/": "public/theme/images/",
-            "modules/Install/Resources/data/config/": "var/config/"
+            "modules/Install/Resources/data/config/": "var/config/",
+            "modules/Install/Resources/data/images/": "public/theme/images/"
         },
         "mkdir": {
             "migrations": "0644",
             "public/additions": "0777",
-            "public/storage": "0777"
+            "public/storage": "0777",
+            "public/translations": "0777",
+            "public/uploads": "0777"
         },
         "scripts-dev": {
             "post-install-cmd": [
@@ -258,13 +260,14 @@
             "post-update-cmd": [
                 "@php bin/console doctrine:diagram:er",
                 "@php bin/console doctrine:diagram:class",
-                "vendor/bin/php-cs-fixer fix",
                 "vendor/bin/parallel-lint --exclude .git --exclude .github --exclude var --exclude vendor .",
+                "vendor/bin/php-cs-fixer fix",
+                "vendor/bin/phpstan analyse --error-format friendly",
                 "bin/biome format --write assets modules"
             ]
         },
         "symfony": {
-            "allow-contrib": "true",
+            "allow-contrib": false,
             "require": "7.4.*"
         }
     },
