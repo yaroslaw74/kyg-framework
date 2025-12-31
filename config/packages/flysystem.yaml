@@ -5,36 +5,8 @@ flysystem:
             adapter: "local"
             options:
                 directory: "%kernel.project_dir%/public/storage"
-                lock: 0
-                skip_links: false
-                permissions:
-                    file:
-                        public: 0744
-                        private: 0700
-                    dir:
-                        public: 0755
-                        private: 0700
-            visibility: "public"
-            directory_visibility: "public"
-            retain_visibility: true
-            case_sensitive: true
-            disable_asserts: false
 
         theme.storage:
             adapter: "local"
             options:
                 directory: "%kernel.project_dir%/public/theme"
-                lock: 0
-                skip_links: false
-                permissions:
-                    file:
-                        public: 0744
-                        private: 0700
-                    dir:
-                        public: 0755
-                        private: 0700
-            visibility: "public"
-            directory_visibility: "public"
-            retain_visibility: true
-            case_sensitive: true
-            disable_asserts: false
