@@ -11,6 +11,7 @@ parameters:
     excludePaths:
         - config/reference.php
         - src/Kernel.php
+        - tests/bootstrap.php
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
         consoleApplicationLoader: tests/console-application.php
