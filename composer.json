@@ -42,7 +42,6 @@
         "api-platform/symfony": "^4.2.11",
         "api-platform/validator": "^4.2.11",
         "balrok/composer-mkdir": "^2.1.1",
-        "composer/composer": "^2.9.3",
         "doctrine/collections": "^2.4",
         "doctrine/common": "^3.5",
         "doctrine/dbal": "^4.4.1",
@@ -171,8 +170,6 @@
         "kocal/biome-js-bundle": "^2.1.2",
         "kocal/phpstan-symfony-ux": "^1.0",
         "neronmoon/scriptsdev": "^0.1.9",
-        "php-parallel-lint/php-console-highlighter": "^1.0",
-        "php-parallel-lint/php-parallel-lint": "^1.4",
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.33",
         "phpstan/phpstan-doctrine": "^2.0.12",
@@ -239,7 +236,7 @@
         "apcu-autoloader": true,
         "bump-after-update": true,
         "optimize-autoloader": true,
-        "process-timeout": 900,
+        "process-timeout": 3000,
         "sort-packages": true
     },
     "extra": {
@@ -262,7 +259,6 @@
                 "@php bin/console doctrine:diagram:er",
                 "@php bin/console doctrine:diagram:class",
                 "vendor/bin/php-cs-fixer fix",
-                "vendor/bin/parallel-lint --exclude .git --exclude .github --exclude var --exclude vendor .",
                 "vendor/bin/phpstan analyse --error-format friendly",
                 "bin/biome format --write assets modules"
             ]
