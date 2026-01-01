@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f388227e227457fb84e4df7515fd2c0",
+    "content-hash": "a9ba7eba1809a3a90b6b1702bfdf6e37",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -15042,16 +15042,16 @@
         },
         {
             "name": "kocal/phpstan-symfony-ux",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kocal/phpstan-symfony-ux.git",
-                "reference": "c3ecd70b2444d48f414641a478a8a6653e314fa2"
+                "reference": "0746480622429b8b0ee2383251585213d9a87c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kocal/phpstan-symfony-ux/zipball/c3ecd70b2444d48f414641a478a8a6653e314fa2",
-                "reference": "c3ecd70b2444d48f414641a478a8a6653e314fa2",
+                "url": "https://api.github.com/repos/Kocal/phpstan-symfony-ux/zipball/0746480622429b8b0ee2383251585213d9a87c7d",
+                "reference": "0746480622429b8b0ee2383251585213d9a87c7d",
                 "shasum": ""
             },
             "require": {
@@ -15073,6 +15073,9 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "src/deprecated-aliases.php"
+                ],
                 "psr-4": {
                     "Kocal\\PHPStanSymfonyUX\\": "src/"
                 }
@@ -15090,9 +15093,9 @@
             "description": "PHPStan rules for Symfony UX",
             "support": {
                 "issues": "https://github.com/Kocal/phpstan-symfony-ux/issues",
-                "source": "https://github.com/Kocal/phpstan-symfony-ux/tree/v1.0.0"
+                "source": "https://github.com/Kocal/phpstan-symfony-ux/tree/v1.1.0"
             },
-            "time": "2025-11-24T08:43:34+00:00"
+            "time": "2025-12-16T00:28:25+00:00"
         },
         {
             "name": "localheinz/diff",
