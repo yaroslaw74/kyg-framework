@@ -97,6 +97,9 @@
             "./config/packages/doctrine_diagram.yaml"
         ]
     },
+    "jbtronics/settings-bundle": {
+        "version": "v3.1.2"
+    },
     "knplabs/knp-menu-bundle": {
         "version": "v3.7.0"
     },
