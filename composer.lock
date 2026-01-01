@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d4d206f25926ec4dae1f2448de9c01e",
+    "content-hash": "3468e25ca2164965c69479b4626915c3",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -14882,6 +14882,59 @@
             "time": "2025-12-18T10:45:02+00:00"
         },
         {
+            "name": "gromnan/symfony-config-xml-to-php",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GromNaN/symfony-config-xml-to-php.git",
+                "reference": "91481f172745ca8b5063038e9ba92bd3703b9027"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GromNaN/symfony-config-xml-to-php/zipball/91481f172745ca8b5063038e9ba92bd3703b9027",
+                "reference": "91481f172745ca8b5063038e9ba92bd3703b9027",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "php": ">= 8.2",
+                "sebastian/diff": "^6.0 || ^7.0",
+                "symfony/config": "7.4.*",
+                "symfony/console": "7.4.*",
+                "symfony/dependency-injection": "7.4.*",
+                "symfony/expression-language": "7.4.*",
+                "symfony/finder": "7.4.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.5 || ^12.5 || ^13.0@dev"
+            },
+            "bin": [
+                "bin/convert"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GromNaN\\SymfonyConfigXmlToPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jérôme Tamarelle",
+                    "email": "jerome@tamarelle.net"
+                }
+            ],
+            "description": "Convert Symfony config files from XML to PHP",
+            "support": {
+                "issues": "https://github.com/GromNaN/symfony-config-xml-to-php/issues",
+                "source": "https://github.com/GromNaN/symfony-config-xml-to-php/tree/0.2.1"
+            },
+            "time": "2025-12-07T21:52:00+00:00"
+        },
+        {
             "name": "illuminate/collections",
             "version": "v12.44.0",
             "source": {
@@ -15940,6 +15993,64 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.10.0"
             },
             "time": "2025-07-25T09:04:22+00:00"
+        },
+        {
+            "name": "matthiasnoback/symfony-config-test",
+            "version": "v6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SymfonyTest/SymfonyConfigTest.git",
+                "reference": "3c4594145376f528a2954269ec10456164e99a44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SymfonyTest/SymfonyConfigTest/zipball/3c4594145376f528a2954269ec10456164e99a44",
+                "reference": "3c4594145376f528a2954269ec10456164e99a44",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0",
+                "symfony/config": "^5.4 || ^6.4 || ^7.0 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Matthias\\SymfonyConfigTest\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Noback",
+                    "email": "matthiasnoback@gmail.com",
+                    "homepage": "http://php-and-symfony.matthiasnoback.nl"
+                }
+            ],
+            "description": "Library for testing user classes related to the Symfony Config Component",
+            "homepage": "https://github.com/matthiasnoback/SymfonyConfigTest",
+            "keywords": [
+                "config",
+                "phpunit",
+                "symfony",
+                "testing"
+            ],
+            "support": {
+                "issues": "https://github.com/SymfonyTest/SymfonyConfigTest/issues",
+                "source": "https://github.com/SymfonyTest/SymfonyConfigTest/tree/v6.1.0"
+            },
+            "time": "2025-08-13T18:34:21+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -19837,6 +19948,83 @@
                 }
             ],
             "time": "2025-11-17T20:03:58+00:00"
+        },
+        {
+            "name": "vincentlanglet/twig-cs-fixer",
+            "version": "3.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VincentLanglet/Twig-CS-Fixer.git",
+                "reference": "866af065fd09980b6390ee5c69e45b08053101e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VincentLanglet/Twig-CS-Fixer/zipball/866af065fd09980b6390ee5c69e45b08053101e8",
+                "reference": "866af065fd09980b6390ee5c69e45b08053101e8",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2.0.0",
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "php": ">=8.0",
+                "symfony/console": "^5.4.9 || ^6.4 || ^7.0 || ^8.0",
+                "symfony/filesystem": "^5.4 || ^6.4 || ^7.0 || ^8.0",
+                "symfony/finder": "^5.4 || ^6.4 || ^7.0 || ^8.0",
+                "symfony/string": "^5.4.42 || ^6.4.10 || ~7.0.10 || ^7.1.3 || ^8.0",
+                "twig/twig": "^3.4",
+                "webmozart/assert": "^1.10"
+            },
+            "require-dev": {
+                "composer/semver": "^3.2.0",
+                "dereuromark/composer-prefer-lowest": "^0.1.10",
+                "ergebnis/composer-normalize": "^2.29",
+                "friendsofphp/php-cs-fixer": "^3.13.0",
+                "infection/infection": "^0.26.16 || ^0.29.14",
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpstan/phpstan-symfony": "^2.0",
+                "phpstan/phpstan-webmozart-assert": "^2.0",
+                "phpunit/phpunit": "^9.5.26 || ^11.5.18 || ^12.1.3",
+                "rector/rector": "^2.0.0",
+                "shipmonk/composer-dependency-analyser": "^1.6",
+                "symfony/process": "^5.4 || ^6.4 || ^7.0 || ^8.0",
+                "symfony/twig-bridge": "^5.4 || ^6.4 || ^7.0 || ^8.0",
+                "symfony/ux-twig-component": "^2.2.0",
+                "twig/cache-extra": "^3.2"
+            },
+            "bin": [
+                "bin/twig-cs-fixer"
+            ],
+            "type": "coding-standard",
+            "autoload": {
+                "psr-4": {
+                    "TwigCsFixer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Langlet"
+                }
+            ],
+            "description": "A tool to automatically fix Twig code style",
+            "homepage": "https://github.com/VincentLanglet/Twig-CS-Fixer",
+            "support": {
+                "issues": "https://github.com/VincentLanglet/Twig-CS-Fixer/issues",
+                "source": "https://github.com/VincentLanglet/Twig-CS-Fixer/tree/3.11.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/VincentLanglet",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-11-24T18:13:18+00:00"
         },
         {
             "name": "voku/portable-ascii",
