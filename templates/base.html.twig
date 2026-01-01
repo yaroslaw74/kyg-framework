@@ -23,7 +23,7 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% if app_name %}{{ app_name }}|{% endif %}KYG Framevork{% endblock %}</title>
         <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}">
         <link rel="icon" sizes="96x96" href="{{ asset('images/ico/kyg-96X96.png') }}">
         <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/ico/kyg-57X57.png') }}">
