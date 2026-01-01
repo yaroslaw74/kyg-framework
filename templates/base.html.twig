@@ -1,49 +1,49 @@
-{##################################################################################
+{# #################################################################################
 #  @Project    KYG Framework for business
 #  @Version    1.0.0
 #
 #  @Copyright  (C) Kataev Yaroslav
 #  @E-mail     yaroslaw74@gmail.com
 #  @License    GNU General Public License version 3 or later, see LICENSE
-##################################################################################}
+################################################################################# #}
 <!DOCTYPE html>
 <html lang="{{ locale_HTML(app.locale) }}" dir="{{ locale_dir(app.locale) }}" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
-	<head>
-		<meta charset="UTF-8">
-		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="robots" content="noindex, nofollow">
-		<meta name="autor" content="Kataev Yaroslav">
-		<meta name="Description" content="KYG Framework for Business">
-		<meta name="msapplication-TileColor" content="#526cf7">
-		<meta name="msapplication-TileImage" content="{{ asset ('images/ico/kyg-270X270.png') }}">
-		<meta name="theme-color" content="#526cf7">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
-		<title>{% block title %}Welcome!{% endblock %}</title>
-		<link rel="icon" href="{{ asset('images/ico/favicon.ico') }}">
-		<link rel="icon" sizes="96x96" href="{{ asset('images/ico/kyg-96X96.png') }}">
-		<link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/ico/kyg-57X57.png') }}">
-		<link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/ico/kyg-60X60.png') }}">
-		<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/ico/kyg-72X72.png') }}">
-		<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/ico/kyg-76X76.png') }}">
-		<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/ico/kyg-114X114.png') }}">
-		<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/ico/kyg-120X120.png') }}">
-		<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/ico/kyg-144X144.png') }}">
-		<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/ico/kyg-152X152.png') }}">
-		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/kyg-180X180.png') }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="autor" content="Kataev Yaroslav">
+        <meta name="Description" content="KYG Framework for Business">
+        <meta name="msapplication-TileColor" content="#526cf7">
+        <meta name="msapplication-TileImage" content="{{ asset ('images/ico/kyg-270X270.png') }}">
+        <meta name="theme-color" content="#526cf7">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}">
+        <link rel="icon" sizes="96x96" href="{{ asset('images/ico/kyg-96X96.png') }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/ico/kyg-57X57.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/ico/kyg-60X60.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/ico/kyg-72X72.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/ico/kyg-76X76.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/ico/kyg-114X114.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/ico/kyg-120X120.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/ico/kyg-144X144.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/ico/kyg-152X152.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/kyg-180X180.png') }}">
         {% block stylesheets %}{% endblock %}
-		{% block importmap %}{{ importmap([locale_dir(app.locale), 'app']) }}{% endblock %}
-		{% block javascripts %}{% endblock %}
-	</head>
-	<body {{ stimulus_controller('swup', {
+        {% block importmap %}{{ importmap([locale_dir(app.locale), 'app']) }}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body {{ stimulus_controller('swup', {
         animateHistoryBrowsing: true,
         theme: 'slide',
-        debug: app.debug
+        debug: app.debug,
     }) }}>
-		{% block body %}{% endblock %}
-	</body>
+        {% block body %}{% endblock %}
+    </body>
 </html>
