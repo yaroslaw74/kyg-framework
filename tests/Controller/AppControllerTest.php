@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @category   Test
+ * KYG Framework for Business.
+ *
+ * @category   Controller Test
  *
  * @version    1.0.0
  *
