@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * KYG Framework for Business.
+ *
  * @category   Controller
  *
  * @version    1.0.0
