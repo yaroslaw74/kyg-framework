@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * KYG Framework for Business.
+ *
  * @category   Service
  *
  * @version    1.0.0
@@ -20,9 +22,21 @@ class SystemService
     {
     }
 
+    /**
+     * Summary of getLocales.
+     *
+     * @return array<string, array{name: string, dir: string, full: bool}>
+     */
     public function getLocales(): array
     {
         return $this->params->get('app.locales');
+    }
+
+    public function getLocaleName(string $locale): string
+    {
+        $locales = $this->getLocales();
+
+        return $locales[$locale]['name'];
     }
 
     public function getLocaleDir(string $locale): string
@@ -30,6 +44,13 @@ class SystemService
         $locales = $this->getLocales();
 
         return $locales[$locale]['dir'];
+    }
+
+    public function isFull(string $locale): bool
+    {
+        $locales = $this->getLocales();
+
+        return $locales[$locale]['full'];
     }
 
     public function getLocaleHTML(string $locale): string
