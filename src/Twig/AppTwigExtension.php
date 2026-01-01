@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * KYG Framework for Business.
+ *
  * @category   Twig Extension
  *
  * @version    1.0.0
@@ -32,11 +34,22 @@ class AppTwigExtension extends AbstractExtension
         return $this->systemService->getLocaleHTML($locale);
     }
 
+    public function LocaleIsFull(string $locale): bool
+    {
+        return $this->systemService->isFull($locale);
+    }
+
+    /**
+     * Summary of getFunctions.
+     *
+     * @return TwigFunction[]
+     */
     public function getFunctions(): array
     {
         return [
             new TwigFunction('locale_dir', [$this, 'LocaleDirExtension']),
             new TwigFunction('locale_HTML', [$this, 'LocaleHTMLExtension']),
+            new TwigFunction('locale_Fuul', [$this, 'LocaleIsFull']),
         ];
     }
 }
