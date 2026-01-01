@@ -9,7 +9,6 @@ parameters:
         - src/
         - tests/
     excludePaths:
-        - config/reference.php
         - src/Kernel.php
         - tests/bootstrap.php
     symfony:
