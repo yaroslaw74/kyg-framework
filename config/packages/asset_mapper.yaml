@@ -10,4 +10,5 @@ framework:
             - "**/assets/scss/_*.scss"
             - "**/assets/scss/**/_*.scss"
             - "*.md"
-            - "*.json"
+            - "composer.json"
+            - "package.json"
