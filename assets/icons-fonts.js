@@ -31,7 +31,7 @@ import "./vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css";
 /*
  * Material Design Icons
  */
-import "./vendor/material-icons/iconfont/material-icons.css";
+import "./vendor/@mdi/font/css/materialdesignicons.min.css";
 
 /*
  * Stroke 7 Icon Font Set
