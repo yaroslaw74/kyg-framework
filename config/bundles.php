@@ -44,4 +44,5 @@ return [
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
     Symfony\UX\LiveComponent\LiveComponentBundle::class => ['all' => true],
     Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
+    Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
 ];
