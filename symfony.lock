@@ -184,6 +184,9 @@
             "./bin/phpunit"
         ]
     },
+    "shivas/versioning-bundle": {
+        "version": "4.1.1"
+    },
     "sonata-project/admin-bundle": {
         "version": "4.41",
         "recipe": {
