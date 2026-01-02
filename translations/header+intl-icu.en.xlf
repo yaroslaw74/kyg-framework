@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="4s5Nig2" resname="Account Settings">
+        <source>Account Settings</source>
+        <target>Account Settings</target>
+      </trans-unit>
+      <trans-unit id="3MWRMJ2" resname="Add friends">
+        <source>Add friends</source>
+        <target>Add friends</target>
+      </trans-unit>
+      <trans-unit id="OEojeUd" resname="Add to group">
+        <source>Add to group</source>
+        <target>Add to group</target>
+      </trans-unit>
+      <trans-unit id="3XvGnXJ" resname="Block">
+        <source>Block</source>
+        <target>Block</target>
+      </trans-unit>
+      <trans-unit id="mj6MzN9" resname="Calling...">
+        <source>Calling...</source>
+        <target>Calling...</target>
+      </trans-unit>
+      <trans-unit id="uupXYC." resname="Chat">
+        <source>Chat</source>
+        <target>Chat</target>
+      </trans-unit>
+      <trans-unit id="Iwl9wtn" resname="Edit Profile">
+        <source>Edit Profile</source>
+        <target>Edit Profile</target>
+      </trans-unit>
+      <trans-unit id="1cbWG5k" resname="Friends">
+        <source>Friends</source>
+        <target>Friends</target>
+      </trans-unit>
+      <trans-unit id="UJhpz2V" resname="Inbox">
+        <source>Inbox</source>
+        <target>Inbox</target>
+      </trans-unit>
+      <trans-unit id="8cdUoH8" resname="Mark All Read">
+        <source>Mark All Read</source>
+        <target>Mark All Read</target>
+      </trans-unit>
+      <trans-unit id="1Z8uBHi" resname="Messages">
+        <source>Messages</source>
+        <target>Messages</target>
+      </trans-unit>
+      <trans-unit id="gGxnmUA" resname="Notifications">
+        <source>Notifications</source>
+        <target>Notifications</target>
+      </trans-unit>
+      <trans-unit id="5Y34z39" resname="Profile">
+        <source>Profile</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="HjLNs2T" resname="Search for anything...">
+        <source>Search for anything...</source>
+        <target>Search for anything...</target>
+      </trans-unit>
+      <trans-unit id="8XUswCk" resname="Search....">
+        <source>Search....</source>
+        <target>Search....</target>
+      </trans-unit>
+      <trans-unit id=".aGiz_3" resname="Sign Out">
+        <source>Sign Out</source>
+        <target>Sign Out</target>
+      </trans-unit>
+      <trans-unit id="GnpZL.Q" resname="Typing....">
+        <source>Typing....</source>
+        <target>Typing....</target>
+      </trans-unit>
+      <trans-unit id="q6DYwLc" resname="VIEW ALL">
+        <source>VIEW ALL</source>
+        <target>VIEW ALL</target>
+      </trans-unit>
+      <trans-unit id="c6S4h5X" resname="Video call">
+        <source>Video call</source>
+        <target>Video call</target>
+      </trans-unit>
+      <trans-unit id="6G0YwSJ" resname="View profile">
+        <source>View profile</source>
+        <target>View profile</target>
+      </trans-unit>
+      <trans-unit id="EtGHBbk" resname="Voice call">
+        <source>Voice call</source>
+        <target>Voice call</target>
+      </trans-unit>
+      <trans-unit id="3edgmfd" resname="You have %messages% unread messages">
+        <source>You have %messages% unread messages</source>
+        <target>{messages, plural, =0 {You have no unread messages} one {You have 1 unread messages} other {You have # unread messages}}</target>
+      </trans-unit>
+      <trans-unit id="mvd_pBj" resname="You have %notifications% unread Notifications">
+        <source>You have %notifications% unread Notifications</source>
+        <target>{notifications, plural, =0 {You have no unread notifications} one {You have 1 unread notification} other {You have # unread notifications}}</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
