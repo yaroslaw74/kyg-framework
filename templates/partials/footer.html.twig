@@ -1,22 +1,52 @@
 {# #################################################################################
-#  @Project    KYG Framework for business
-#  @Version    1.0.0
-#
-#  @Copyright  (C) Kataev Yaroslav
-#  @E-mail     yaroslaw74@gmail.com
-#  @License    GNU General Public License version 3 or later, see LICENSE
-################################################################################# #}
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ ################################################################################# #}
 <!-- Footer Start -->
-<footer class="footer mt-auto py-3 bg-white text-center">
-    <div class="container">
-        <span class="text-muted"> Copyright © <span id="year"></span> <a
-                href="javascript:void(0);" class="text-dark fw-semibold">Valex</a>.
-            Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
-                <span class="fw-semibold text-primary text-decoration-underline">Spruko</span>
-            </a> All
-            rights
-            reserved
-        </span>
+<footer class="footer mt-auto py-3 bg-white">
+    <div class="main-footer-container container">
+        <div class="footer-content-left">
+            <div class="footer-element">
+                <a href="https://laravelui.spruko.com/documentation/valex/" class="footer-logo">
+                    <img src="{{ asset('images/brand-logos/valex-logo.png') }}" alt="Valex" class="footer-logo-dark">
+                    <img src="{{ asset('images/brand-logos/valex-white.png') }}" alt="Valex" class="footer-logo-white">
+                </a>
+            </div>
+            <div class="footer-element">
+                <a href="https://getbootstrap.com/" class="footer-logo">
+                    {{ ux_icon('bootstrap-logo', {class: 'footer-logo-dark'}) }}
+                    {{ ux_icon('bootstrap-logo-white', {class: 'footer-logo-white'}) }}
+                </a>
+            </div>
+            <div class="footer-element">
+                <a href="https://symfony.com/" class="footer-logo">
+                    {{ ux_icon('symfony-black', {class: 'footer-logo-dark'}) }}
+                    {{ ux_icon('symfony-white', {class: 'footer-logo-white'}) }}
+                </a>
+            </div>
+            <div class="footer-element">
+                <a href="https://github.com/yaroslaw74/KYG-Framework/" class="footer-logo">{{ ux_icon('kyg', {class: 'footer-logo-all'}) }}</a>
+            </div>
+            <div class="footer-element">
+                <span class="text-dark fw-semibold">v1.0.0</span>
+            </div>
+        </div>
+        <div class="footer-content-right">
+            <div class="footer-element">
+                <span class="text-muted" lang="en" dir="ltr">
+                    Copyright &copy; <span id="year"></span>
+                    <span class="text-dark fw-semibold">Kataev Yaroslav</span>
+                    All rights reserved
+                </span>
+            </div>
+        </div>
     </div>
 </footer>
 <!-- Footer End -->
+
+<!-- Footer Year JS -->
+<script src="{{ asset('js/footer-year.js') }}"></script>
