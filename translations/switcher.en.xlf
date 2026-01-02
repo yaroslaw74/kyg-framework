@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="aXb.exL" resname="Boxed">
+        <source>Boxed</source>
+        <target>Boxed</target>
+      </trans-unit>
+      <trans-unit id="DpmWvPn" resname="Classic">
+        <source>Classic</source>
+        <target>Classic</target>
+      </trans-unit>
+      <trans-unit id="Em9skBO" resname="Closed Menu">
+        <source>Closed Menu</source>
+        <target>Closed Menu</target>
+      </trans-unit>
+      <trans-unit id="o1o7gsK" resname="Color Header">
+        <source>Color Header</source>
+        <target>Color Header</target>
+      </trans-unit>
+      <trans-unit id="PxIet3T" resname="Color Menu">
+        <source>Color Menu</source>
+        <target>Color Menu</target>
+      </trans-unit>
+      <trans-unit id="jGZfEE1" resname="Dark">
+        <source>Dark</source>
+        <target>Dark</target>
+      </trans-unit>
+      <trans-unit id="BlQtybz" resname="Dark Header">
+        <source>Dark Header</source>
+        <target>Dark Header</target>
+      </trans-unit>
+      <trans-unit id="nd8RNeT" resname="Dark Menu">
+        <source>Dark Menu</source>
+        <target>Dark Menu</target>
+      </trans-unit>
+      <trans-unit id="KKzGEXx" resname="Default Menu">
+        <source>Default Menu</source>
+        <target>Default Menu</target>
+      </trans-unit>
+      <trans-unit id="FwxtWzH" resname="Detached">
+        <source>Detached</source>
+        <target>Detached</target>
+      </trans-unit>
+      <trans-unit id="olypvzo" resname="Disable">
+        <source>Disable</source>
+        <target>Disable</target>
+      </trans-unit>
+      <trans-unit id="tC2u0ay" resname="Double Menu">
+        <source>Double Menu</source>
+        <target>Double Menu</target>
+      </trans-unit>
+      <trans-unit id="GtGBNUT" resname="Enable">
+        <source>Enable</source>
+        <target>Enable</target>
+      </trans-unit>
+      <trans-unit id="fpPMmb." resname="Fixed">
+        <source>Fixed</source>
+        <target>Fixed</target>
+      </trans-unit>
+      <trans-unit id="bpS5s_F" resname="Full Width">
+        <source>Full Width</source>
+        <target>Full Width</target>
+      </trans-unit>
+      <trans-unit id="EvljXLO" resname="Gradient Header">
+        <source>Gradient Header</source>
+        <target>Gradient Header</target>
+      </trans-unit>
+      <trans-unit id="VURf3N." resname="Gradient Menu">
+        <source>Gradient Menu</source>
+        <target>Gradient Menu</target>
+      </trans-unit>
+      <trans-unit id="1V3zLSL" resname="Header Colors:">
+        <source>Header Colors:</source>
+        <target>Header Colors:</target>
+      </trans-unit>
+      <trans-unit id="wGekOn0" resname="Header Positions:">
+        <source>Header Positions:</source>
+        <target>Header Positions:</target>
+      </trans-unit>
+      <trans-unit id="Za8wnm5" resname="Horizontal">
+        <source>Horizontal</source>
+        <target>Horizontal</target>
+      </trans-unit>
+      <trans-unit id="6DkoxrQ" resname="Icon Click">
+        <source>Icon Click</source>
+        <target>Icon Click</target>
+      </trans-unit>
+      <trans-unit id="hBAjcVv" resname="Icon Hover">
+        <source>Icon Hover</source>
+        <target>Icon Hover</target>
+      </trans-unit>
+      <trans-unit id="0KpWp92" resname="Icon Overlay">
+        <source>Icon Overlay</source>
+        <target>Icon Overlay</target>
+      </trans-unit>
+      <trans-unit id="L_YguUd" resname="Icon Text">
+        <source>Icon Text</source>
+        <target>Icon Text</target>
+      </trans-unit>
+      <trans-unit id="0WfTBOV" resname="Layout Width Styles:">
+        <source>Layout Width Styles:</source>
+        <target>Layout Width Styles:</target>
+      </trans-unit>
+      <trans-unit id="7GDr10z" resname="Light">
+        <source>Light</source>
+        <target>Light</target>
+      </trans-unit>
+      <trans-unit id="9nK.Nhd" resname="Light Header">
+        <source>Light Header</source>
+        <target>Light Header</target>
+      </trans-unit>
+      <trans-unit id="UQ37nWE" resname="Light Menu">
+        <source>Light Menu</source>
+        <target>Light Menu</target>
+      </trans-unit>
+      <trans-unit id="3FMwLq2" resname="Loader:">
+        <source>Loader:</source>
+        <target>Loader:</target>
+      </trans-unit>
+      <trans-unit id="1jfkhgR" resname="Menu Click">
+        <source>Menu Click</source>
+        <target>Menu Click</target>
+      </trans-unit>
+      <trans-unit id="0jjo43V" resname="Menu Colors:">
+        <source>Menu Colors:</source>
+        <target>Menu Colors:</target>
+      </trans-unit>
+      <trans-unit id="9uLuCaP" resname="Menu Hover">
+        <source>Menu Hover</source>
+        <target>Menu Hover</target>
+      </trans-unit>
+      <trans-unit id="Y9fvMwj" resname="Menu Positions:">
+        <source>Menu Positions:</source>
+        <target>Menu Positions:</target>
+      </trans-unit>
+      <trans-unit id="ygV_6Xe" resname="Menu With Background Image:">
+        <source>Menu With Background Image:</source>
+        <target>Menu With Background Image:</target>
+      </trans-unit>
+      <trans-unit id="ccwZrB2" resname="Modern">
+        <source>Modern</source>
+        <target>Modern</target>
+      </trans-unit>
+      <trans-unit id="Vs11qgC" resname="Navigation Styles:">
+        <source>Navigation Styles:</source>
+        <target>Navigation Styles:</target>
+      </trans-unit>
+      <trans-unit id="iNepk23" resname="Note:If you want to change color Header dynamically change from below Theme Primary color picker">
+        <source>Note:If you want to change color Header dynamically change from below Theme Primary color picker</source>
+        <target>Note:If you want to change color Header dynamically change from below Theme Primary color picker</target>
+      </trans-unit>
+      <trans-unit id="2e2YE.E" resname="Note:If you want to change color Menu dynamically change from below Theme Primary color picker">
+        <source>Note:If you want to change color Menu dynamically change from below Theme Primary color picker</source>
+        <target>Note:If you want to change color Menu dynamically change from below Theme Primary color picker</target>
+      </trans-unit>
+      <trans-unit id="hv.UPBm" resname="Page Styles:">
+        <source>Page Styles:</source>
+        <target>Page Styles:</target>
+      </trans-unit>
+      <trans-unit id="4ZlgZ17" resname="Regular">
+        <source>Regular</source>
+        <target>Regular</target>
+      </trans-unit>
+      <trans-unit id="e9cnuAC" resname="Reset">
+        <source>Reset</source>
+        <target>Reset</target>
+      </trans-unit>
+      <trans-unit id="gJYikJ3" resname="Scrollable">
+        <source>Scrollable</source>
+        <target>Scrollable</target>
+      </trans-unit>
+      <trans-unit id="27vSe.." resname="Sidemenu Layout Styles:">
+        <source>Sidemenu Layout Styles:</source>
+        <target>Sidemenu Layout Styles:</target>
+      </trans-unit>
+      <trans-unit id="c845ZKE" resname="Switcher">
+        <source>Switcher</source>
+        <target>Switcher</target>
+      </trans-unit>
+      <trans-unit id="Oyp95Jf" resname="Theme Background:">
+        <source>Theme Background:</source>
+        <target>Theme Background:</target>
+      </trans-unit>
+      <trans-unit id=".SgEush" resname="Theme Color Mode:">
+        <source>Theme Color Mode:</source>
+        <target>Theme Color Mode:</target>
+      </trans-unit>
+      <trans-unit id="g_XccTU" resname="Theme Colors">
+        <source>Theme Colors</source>
+        <target>Theme Colors</target>
+      </trans-unit>
+      <trans-unit id="xDzZ6TW" resname="Theme Primary:">
+        <source>Theme Primary:</source>
+        <target>Theme Primary:</target>
+      </trans-unit>
+      <trans-unit id="C.d_Xl3" resname="Theme Styles">
+        <source>Theme Styles</source>
+        <target>Theme Styles</target>
+      </trans-unit>
+      <trans-unit id="wPR5WM6" resname="Transparent Header">
+        <source>Transparent Header</source>
+        <target>Transparent Header</target>
+      </trans-unit>
+      <trans-unit id="swJepBS" resname="Transparent Menu">
+        <source>Transparent Menu</source>
+        <target>Transparent Menu</target>
+      </trans-unit>
+      <trans-unit id="vyD918S" resname="Vertical">
+        <source>Vertical</source>
+        <target>Vertical</target>
+      </trans-unit>
+      <trans-unit id="cARpj98" resname="Vertical and Horizontal Menu Styles:">
+        <source>Vertical and Horizontal Menu Styles:</source>
+        <target>Vertical and Horizontal Menu Styles:</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
