@@ -77,8 +77,8 @@ return [
         'version' => '1.3.0',
         'type' => 'css',
     ],
-    'material-icons/iconfont/material-icons.css' => [
-        'version' => '1.13.14',
+    '@mdi/font/css/materialdesignicons.min.css' => [
+        'version' => '7.4.47',
         'type' => 'css',
     ],
     'pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css' => [
