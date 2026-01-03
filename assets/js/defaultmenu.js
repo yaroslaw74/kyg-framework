@@ -1,5 +1,3 @@
-
-
 const ANIMATION_DURATION = 300;
 
 const sidebar = document.getElementById("sidebar");
@@ -155,7 +153,7 @@ const slideToggle = (target, duration = ANIMATION_DURATION) => {
             (html.getAttribute("data-nav-style") === "icon-hover" && html.getAttribute("data-toggled") === "icon-hover-closed" && window.innerWidth >= 992)
         ) &&
         target &&
-        target.nodeType != 3
+        target.nodeType !== 3
     ) {
         if (window.getComputedStyle(target).display === "none") return slideDown(target, duration);
         return slideUp(target, duration);
@@ -286,7 +284,7 @@ let headerToggleBtn, WindowPreSize;
     /* RTL End */
 
     /* Horizontal Start */
-    if (html.getAttribute("data-nav-layout") === "horizontal" && !document.querySelector(".landing-body") == true) {
+    if (html.getAttribute("data-nav-layout") === "horizontal" && !document.querySelector(".landing-body") === true) {
         setTimeout(() => {
             horizontalClickFn();
         }, 1000);
@@ -501,7 +499,7 @@ function toggleSidemenu() {
             const i = document.createElement("div");
             i.id = "responsive-overlay";
             setTimeout(() => {
-                if (document.querySelector("html").getAttribute("data-toggled") == "open") {
+                if (document.querySelector("html").getAttribute("data-toggled") === "open") {
                     document.querySelector("#responsive-overlay").classList.add("active");
                     document.querySelector("#responsive-overlay").addEventListener("click", () => {
                         document.querySelector("#responsive-overlay").classList.remove("active");
@@ -591,7 +589,7 @@ function doubletFn() {
         e.addEventListener("mouseenter", () => {
             tooltip.style.setProperty("display", "block");
             tooltip.textContent = e.querySelector(".side-menu__label").textContent;
-            if (document.querySelector("html").getAttribute("data-vertical-style") == "doublemenu") {
+            if (document.querySelector("html").getAttribute("data-vertical-style") === "doublemenu") {
                 e.appendChild(tooltip);
             }
         });
@@ -600,7 +598,7 @@ function doubletFn() {
         e.addEventListener("mouseleave", () => {
             tooltip.style.setProperty("display", "none");
             tooltip.textContent = e.querySelector(".side-menu__label").textContent;
-            if (document.querySelector("html").getAttribute("data-vertical-style") == "doublemenu") {
+            if (document.querySelector("html").getAttribute("data-vertical-style") === "doublemenu") {
                 e.removeChild(tooltip);
             }
         });
@@ -644,7 +642,7 @@ function iconHoverFn() {
 function setNavActive() {
     let currentPath = window.location.pathname.split("/")[0];
 
-    currentPath = location.pathname == "/" ? "index.html" : location.pathname.substring(1);
+    currentPath = location.pathname === "/" ? "index.html" : location.pathname.substring(1);
     currentPath = currentPath.substring(currentPath.lastIndexOf("/") + 1);
     const sidemenuItems = document.querySelectorAll(".side-menu__item");
     sidemenuItems.forEach((e) => {
@@ -717,13 +715,13 @@ function switcherArrowFn() {
     function slideClick() {
         const slide = document.querySelectorAll(".slide");
         const slideMenu = document.querySelectorAll(".slide-menu");
-        slide.forEach((element, index) => {
-            if (element.classList.contains("is-expanded") == true) {
+        slide.forEach((element, _index) => {
+            if (element.classList.contains("is-expanded") === true) {
                 element.classList.remove("is-expanded");
             }
         });
-        slideMenu.forEach((element, index) => {
-            if (element.classList.contains("open") == true) {
+        slideMenu.forEach((element, _index) => {
+            if (element.classList.contains("open") === true) {
                 element.classList.remove("open");
                 element.style.display = "none";
             }
@@ -742,7 +740,7 @@ function switcherArrowFn() {
             if (!(document.querySelector("html").getAttribute("dir") === "rtl")) {
                 if (marginLeftValue < 0 && !(Math.abs(marginLeftValue) < mainContainer1Width)) {
                     menuNav.style.marginRight = 0;
-                    menuNav.style.marginLeft = Number(menuNav.style.marginLeft.split("px")[0]) + Math.abs(mainContainer1Width) + "px";
+                    menuNav.style.marginLeft = `${Number(menuNav.style.marginLeft.split("px")[0]) + Math.abs(mainContainer1Width)}px`;
                     slideRight.classList.remove("d-none");
                 } else if (marginLeftValue >= 0) {
                     menuNav.style.marginLeft = "0px";
@@ -756,7 +754,7 @@ function switcherArrowFn() {
             } else {
                 if (marginRightValue < 0 && !(Math.abs(marginRightValue) < mainContainer1Width)) {
                     menuNav.style.marginLeft = 0;
-                    menuNav.style.marginRight = Number(menuNav.style.marginRight.split("px")[0]) + Math.abs(mainContainer1Width) + "px";
+                    menuNav.style.marginRight = `${Number(menuNav.style.marginRight.split("px")[0]) + Math.abs(mainContainer1Width)}px`;
                     slideRight.classList.remove("d-none");
                 } else if (marginRightValue >= 0) {
                     menuNav.style.marginRight = "0px";
@@ -803,7 +801,7 @@ function switcherArrowFn() {
                         mainContainer1Width = Math.abs(check) - Math.abs(marginLeftValue);
                         slideRight.classList.add("d-none");
                     }
-                    menuNav.style.marginLeft = Number(menuNav.style.marginLeft.split("px")[0]) - Math.abs(mainContainer1Width) + "px";
+                    menuNav.style.marginLeft = `${Number(menuNav.style.marginLeft.split("px")[0]) - Math.abs(mainContainer1Width)}px`;
                     slideLeft.classList.remove("d-none");
                 }
             } else {
@@ -813,7 +811,7 @@ function switcherArrowFn() {
                         mainContainer1Width = Math.abs(check) - Math.abs(marginRightValue);
                         slideRight.classList.add("d-none");
                     }
-                    menuNav.style.marginRight = Number(menuNav.style.marginRight.split("px")[0]) - Math.abs(mainContainer1Width) + "px";
+                    menuNav.style.marginRight = `${Number(menuNav.style.marginRight.split("px")[0]) - Math.abs(mainContainer1Width)}px`;
                     slideLeft.classList.remove("d-none");
                 }
             }
@@ -854,12 +852,12 @@ function checkHoriMenu() {
         // LTR check the width and adjust the menu in screen
         if (menuNav.scrollWidth > mainContainer1.offsetWidth) {
             if (Math.abs(check) < Math.abs(marginLeftValue)) {
-                menuNav.style.marginLeft = -check + "px";
+                menuNav.style.marginLeft = `${-check}px`;
                 slideLeft.classList.remove("d-none");
                 slideRight.classList.add("d-none");
             }
         }
-        if (marginLeftValue == 0) {
+        if (marginLeftValue === 0) {
             slideLeft.classList.add("d-none");
         } else {
             slideLeft.classList.remove("d-none");
@@ -868,18 +866,18 @@ function checkHoriMenu() {
         // RTL check the width and adjust the menu in screen
         if (menuNav.scrollWidth > mainContainer1.offsetWidth) {
             if (Math.abs(check) < Math.abs(marginRightValue)) {
-                menuNav.style.marginRight = -check + "px";
+                menuNav.style.marginRight = `${-check}px`;
                 slideLeft.classList.remove("d-none");
                 slideRight.classList.add("d-none");
             }
         }
-        if (marginRightValue == 0) {
+        if (marginRightValue === 0) {
             slideLeft.classList.add("d-none");
         } else {
             slideLeft.classList.remove("d-none");
         }
     }
-    if (marginLeftValue != 0 || marginRightValue != 0) {
+    if (marginLeftValue !== 0 || marginRightValue !== 0) {
         slideLeft.classList.remove("d-none");
     }
 }
@@ -905,7 +903,6 @@ function checkHoriMenu() {
 // double-menu click toggle start
 function doublemenu() {
     if (window.innerWidth >= 992) {
-        const html = document.querySelector("html");
         const sidemenulink = document.querySelectorAll(".main-menu > li > .side-menu__item");
         sidemenulink.forEach((ele) => {
             ele.addEventListener("click", doubleClickFn);
@@ -960,7 +957,7 @@ setTimeout(() => {
 // for menu click active close
 document.querySelector(".main-content").addEventListener("click", () => {
     document.querySelectorAll(".slide-menu").forEach((ele) => {
-        if (document.querySelector("html").getAttribute("data-toggled") == "menu-click-closed" || document.querySelector("html").getAttribute("data-toggled") == "icon-click-closed") {
+        if (document.querySelector("html").getAttribute("data-toggled") === "menu-click-closed" || document.querySelector("html").getAttribute("data-toggled") === "icon-click-closed") {
             ele.style.display = "none";
         }
     });
