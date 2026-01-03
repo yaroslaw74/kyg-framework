@@ -21,8 +21,14 @@ import "./js/custom-switcher.js";
 /*  Custom JS */
 import "./js/custom.js";
 
+/* Main Theme Js */
+import "./js/main.js";
+
 /* Page loader JS */
 import "./js/page-loader.js";
+
+/* Simplebar JS */
+import "./js/simplebar.js";
 
 /* Sticky JS */
 import "./js/sticky.js";
