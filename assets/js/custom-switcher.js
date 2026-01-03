@@ -1,5 +1,3 @@
-
-
 let mainContent;
 (() => {
     const html = document.querySelector("html");
@@ -436,7 +434,7 @@ function switcherClick() {
             }
         });
 
-        if (document.querySelector("html").getAttribute("data-nav-layout") == "horizontal") {
+        if (document.querySelector("html").getAttribute("data-nav-layout") === "horizontal") {
             document.querySelector(".main-menu").style.marginLeft = "0px";
             document.querySelector(".main-menu").style.marginRight = "0px";
             ResizeMenu();
@@ -451,7 +449,7 @@ function switcherClick() {
         localStorage.setItem("valexnavstyles", "menu-hover");
         localStorage.removeItem("valexverticalstyles");
 
-        if (document.querySelector("html").getAttribute("data-nav-layout") == "horizontal") {
+        if (document.querySelector("html").getAttribute("data-nav-layout") === "horizontal") {
             document.querySelector(".main-menu").style.marginLeft = "0px";
             document.querySelector(".main-menu").style.marginRight = "0px";
             ResizeMenu();
@@ -466,7 +464,7 @@ function switcherClick() {
         localStorage.setItem("valexnavstyles", "icon-click");
         localStorage.removeItem("valexverticalstyles");
 
-        if (document.querySelector("html").getAttribute("data-nav-layout") == "horizontal") {
+        if (document.querySelector("html").getAttribute("data-nav-layout") === "horizontal") {
             document.querySelector(".main-menu").style.marginLeft = "0px";
             document.querySelector(".main-menu").style.marginRight = "0px";
             ResizeMenu();
@@ -488,7 +486,7 @@ function switcherClick() {
         localStorage.setItem("valexnavstyles", "icon-hover");
         localStorage.removeItem("valexverticalstyles");
 
-        if (document.querySelector("html").getAttribute("data-nav-layout") == "horizontal") {
+        if (document.querySelector("html").getAttribute("data-nav-layout") === "horizontal") {
             document.querySelector(".main-menu").style.marginLeft = "0px";
             document.querySelector(".main-menu").style.marginRight = "0px";
             ResizeMenu();
@@ -610,7 +608,7 @@ function lightFn() {
     html.setAttribute("data-theme-mode", "light");
     html.setAttribute("data-header-styles", "light");
     html.setAttribute("data-menu-styles", "light");
-    if (localStorage.getItem("valexlayout") == "horizontal") {
+    if (localStorage.getItem("valexlayout") === "horizontal") {
         html.setAttribute("data-menu-styles", "light");
     }
     if (!localStorage.getItem("primaryRGB")) {
@@ -712,7 +710,7 @@ function horizontalClickFn() {
 
 function ResetAllFn() {
     const html = document.querySelector("html");
-    if (localStorage.getItem("valexlayout") == "horizontal") {
+    if (localStorage.getItem("valexlayout") === "horizontal") {
         document.querySelector(".main-menu").style.display = "block";
     }
     checkOptions();
@@ -942,7 +940,7 @@ function checkOptions() {
     }
 
     // loader
-    if (localStorage.loaderEnable != "true") {
+    if (localStorage.loaderEnable !== "true") {
         document.querySelector("#switcher-loader-disable").checked = true;
     }
 }
@@ -971,42 +969,42 @@ function localStorageBackup2() {
     }
 
     if (localStorage.bodyBgRGB && localStorage.bodylightRGB) {
-        if (localStorage.bodyBgRGB == "20, 30, 96") {
+        if (localStorage.bodyBgRGB === "20, 30, 96") {
             document.querySelector("#switcher-background").checked = true;
         }
-        if (localStorage.bodyBgRGB == "15, 95, 95") {
+        if (localStorage.bodyBgRGB === "15, 95, 95") {
             document.querySelector("#switcher-background1").checked = true;
         }
-        if (localStorage.bodyBgRGB == "87, 48, 121") {
+        if (localStorage.bodyBgRGB === "87, 48, 121") {
             document.querySelector("#switcher-background2").checked = true;
         }
-        if (localStorage.bodyBgRGB == "26, 93, 48") {
+        if (localStorage.bodyBgRGB === "26, 93, 48") {
             document.querySelector("#switcher-background3").checked = true;
         }
-        if (localStorage.bodyBgRGB == "157, 41, 41") {
+        if (localStorage.bodyBgRGB === "157, 41, 41") {
             document.querySelector("#switcher-background4").checked = true;
         }
     }
 
     if (localStorage.primaryRGB) {
-        if (localStorage.primaryRGB == "58, 88, 146") {
+        if (localStorage.primaryRGB === "58, 88, 146") {
             document.querySelector("#switcher-primary").checked = true;
         }
-        if (localStorage.primaryRGB == "49, 176, 176") {
+        if (localStorage.primaryRGB === "49, 176, 176") {
             document.querySelector("#switcher-primary1").checked = true;
         }
-        if (localStorage.primaryRGB == "170, 82, 216") {
+        if (localStorage.primaryRGB === "170, 82, 216") {
             document.querySelector("#switcher-primary2").checked = true;
         }
-        if (localStorage.primaryRGB == "80, 198, 118") {
+        if (localStorage.primaryRGB === "80, 198, 118") {
             document.querySelector("#switcher-primary3").checked = true;
         }
-        if (localStorage.primaryRGB == "244, 86, 86") {
+        if (localStorage.primaryRGB === "244, 86, 86") {
             document.querySelector("#switcher-primary4").checked = true;
         }
     }
 
-    if (localStorage.loaderEnable == "true") {
+    if (localStorage.loaderEnable === "true") {
         document.querySelector("#switcher-loader-enable").checked = true;
     }
 }
