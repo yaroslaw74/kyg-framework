@@ -1,15 +1,10 @@
-"use strict";
+import { stickyFn } from "./functions/stickyFn.js";
+
 (() => {
     window.addEventListener("scroll", stickyFn);
-    var navbar = document.getElementById("sidebar");
-    var sticky = navbar.offsetTop;
-    function stickyFn() {
-        if (window.scrollY >= 75) {
-            navbar.classList.add("sticky-pin");
-        } else {
-            navbar.classList.remove("sticky-pin");
-        }
-    }
+    let navbar = document.getElementById("sidebar");
+    let sticky = navbar.offsetTop;
+
     window.addEventListener("scroll", stickyFn);
     window.addEventListener("DOMContentLoaded", stickyFn);
 })();
