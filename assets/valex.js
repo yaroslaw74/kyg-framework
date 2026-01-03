@@ -15,6 +15,9 @@ import "./scss/styles.scss";
  * Modules
  */
 
+/* Custom-Switcher JS */
+import "./js/custom-switcher.js";
+
 /*  Custom JS */
 import "./js/custom.js";
 
