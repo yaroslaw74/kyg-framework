@@ -1,5 +1,6 @@
-(() => {
+import SimpleBar from "simplebar";
 
-    var myElement = document.getElementById("sidebar-scroll");
-    new SimpleBar(myElement, { autoHide: true });
+(() => {
+    const MY_ELEMENT = document.getElementById("sidebar-scroll");
+    new SimpleBar(MY_ELEMENT, { autoHide: true });
 })();
