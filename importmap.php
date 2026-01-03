@@ -165,7 +165,7 @@ return [
     'resize-observer-polyfill' => [
         'version' => '1.5.1',
     ],
-    '@simonwep/pickr' => [
+    '@simonwep/pickr/dist/pickr.es5.min.js' => [
         'version' => '1.9.1',
     ],
     '@simonwep/pickr/dist/themes/nano.min.css' => [
