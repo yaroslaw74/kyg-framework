@@ -266,6 +266,7 @@
                 "vendor/bin/php-cs-fixer fix",
                 "vendor/bin/twig-cs-fixer fix",
                 "vendor/bin/phpstan analyse --error-format friendly",
+                "bin/biome lint --write assets modules",
                 "bin/biome format --write assets modules"
             ]
         },
