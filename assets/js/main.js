@@ -4,11 +4,11 @@
         document.querySelector("html").setAttribute("data-menu-styles", "dark");
         document.querySelector("html").setAttribute("data-header-styles", "dark");
     }
-    if (localStorage.getItem("valexlayout") == "horizontal") {
+    if (localStorage.getItem("valexlayout") === "horizontal") {
         document.querySelector("html").setAttribute("data-nav-layout", "horizontal");
     }
 
-    if (localStorage.loaderEnable == "true") {
+    if (localStorage.loaderEnable === "true") {
         document.querySelector("html").setAttribute("loader", "enable");
     } else {
         if (!document.querySelector("html").getAttribute("loader")) {
@@ -45,7 +45,7 @@
         }
         if (localStorage.valexlayout) {
             const html = document.querySelector("html");
-            const layoutValue = localStorage.getItem("valexlayout");
+            const _layoutValue = localStorage.getItem("valexlayout");
             html.setAttribute("data-nav-layout", "horizontal");
             setTimeout(() => {
                 clearNavDropdown();
@@ -59,28 +59,28 @@
             const html = document.querySelector("html");
             const verticalStyles = localStorage.getItem("valexverticalstyles");
 
-            if (verticalStyles == "default") {
+            if (verticalStyles === "default") {
                 html.setAttribute("data-vertical-style", "default");
                 localStorage.removeItem("ynexnavstyles");
             }
 
-            if (verticalStyles == "closed") {
+            if (verticalStyles === "closed") {
                 html.setAttribute("data-vertical-style", "closed");
                 localStorage.removeItem("valexnavstyles");
             }
-            if (verticalStyles == "icontext") {
+            if (verticalStyles === "icontext") {
                 html.setAttribute("data-vertical-style", "icontext");
                 localStorage.removeItem("valexnavstyles");
             }
-            if (verticalStyles == "overlay") {
+            if (verticalStyles === "overlay") {
                 html.setAttribute("data-vertical-style", "overlay");
                 localStorage.removeItem("valexnavstyles");
             }
-            if (verticalStyles == "detached") {
+            if (verticalStyles === "detached") {
                 html.setAttribute("data-vertical-style", "detached");
                 localStorage.removeItem("valexnavstyles");
             }
-            if (verticalStyles == "doublemenu") {
+            if (verticalStyles === "doublemenu") {
                 html.setAttribute("data-vertical-style", "doublemenu");
                 localStorage.removeItem("valexnavstyles");
                 setTimeout(() => {
@@ -108,7 +108,7 @@
                         e.addEventListener("mouseenter", () => {
                             tooltip.style.setProperty("display", "block");
                             tooltip.textContent = e.querySelector(".side-menu__label").textContent;
-                            if (document.querySelector("html").getAttribute("data-vertical-style") == "doublemenu") {
+                            if (document.querySelector("html").getAttribute("data-vertical-style") === "doublemenu") {
                                 e.appendChild(tooltip);
                             }
                         });
@@ -125,22 +125,22 @@
         if (localStorage.valexnavstyles) {
             const html = document.querySelector("html");
             const navStyles = localStorage.getItem("valexnavstyles");
-            if (navStyles == "menu-click") {
+            if (navStyles === "menu-click") {
                 html.setAttribute("data-nav-style", "menu-click");
                 localStorage.removeItem("valexverticalstyles");
                 html.removeAttribute("data-vertical-style");
             }
-            if (navStyles == "menu-hover") {
+            if (navStyles === "menu-hover") {
                 html.setAttribute("data-nav-style", "menu-hover");
                 localStorage.removeItem("valexverticalstyles");
                 html.removeAttribute("data-vertical-style");
             }
-            if (navStyles == "icon-click") {
+            if (navStyles === "icon-click") {
                 html.setAttribute("data-nav-style", "icon-click");
                 localStorage.removeItem("valexverticalstyles");
                 html.removeAttribute("data-vertical-style");
             }
-            if (navStyles == "icon-hover") {
+            if (navStyles === "icon-hover") {
                 html.setAttribute("data-nav-style", "icon-hover");
                 localStorage.removeItem("valexverticalstyles");
                 html.removeAttribute("data-vertical-style");
