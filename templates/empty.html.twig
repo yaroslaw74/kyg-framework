@@ -10,7 +10,7 @@
 
 {% block javascripts %}
     <!-- Main Theme Js -->
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script type="module" async src="{{ asset('js/main.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -51,11 +51,10 @@
     <script type="module" async src="{{ asset('js/sticky.js') }}"></script>
 
     <!-- Simplebar JS -->
-    <script src="{{ asset('libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('js/simplebar.js') }}"></script>
+    <script type="module" async src="{{ asset('js/simplebar.js') }}"></script>
 
     <!-- Custom-Switcher JS -->
-    <script src="{{ asset('js/custom-switcher.js') }}"></script>
+    <script type="module" async src="{{ asset('js/custom-switcher.js') }}"></script>
 
     {% block body_javascript %}{% endblock %}
 
