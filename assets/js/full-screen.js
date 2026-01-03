@@ -1,21 +1,21 @@
-const elem = document.documentElement;
+const ELEM = document.documentElement;
 function _openFullscreen() {
-    const open = document.querySelector(".full-screen-open");
-    const close = document.querySelector(".full-screen-close");
+    const OPEN = document.querySelector(".full-screen-open");
+    const CLOSE = document.querySelector(".full-screen-close");
 
     if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
+        if (ELEM.requestFullscreen) {
+            ELEM.requestFullscreen();
+        } else if (ELEM.webkitRequestFullscreen) {
             /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
+            ELEM.webkitRequestFullscreen();
+        } else if (ELEM.msRequestFullscreen) {
             /* IE11 */
-            elem.msRequestFullscreen();
+            ELEM.msRequestFullscreen();
         }
-        close.classList.add("d-block");
-        close.classList.remove("d-none");
-        open.classList.add("d-none");
+        CLOSE.classList.add("d-block");
+        CLOSE.classList.remove("d-none");
+        OPEN.classList.add("d-none");
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -27,9 +27,9 @@ function _openFullscreen() {
             /* IE11 */
             document.msExitFullscreen();
         }
-        close.classList.remove("d-block");
-        open.classList.remove("d-none");
-        close.classList.add("d-none");
-        open.classList.add("d-block");
+        CLOSE.classList.remove("d-block");
+        OPEN.classList.remove("d-none");
+        CLOSE.classList.add("d-none");
+        OPEN.classList.add("d-block");
     }
 }
