@@ -1,5 +1,4 @@
-(function () {
-    "use strict";
+(() => {
     if (localStorage.getItem("valexdarktheme")) {
         document.querySelector("html").setAttribute("data-theme-mode", "dark");
         document.querySelector("html").setAttribute("data-menu-styles", "dark");
@@ -35,18 +34,18 @@
             document.querySelector("html").style.setProperty("--light-rgb", localStorage.bodylightRGB);
             document.querySelector("html").style.setProperty("--form-control-bg", `rgb(${localStorage.bodylightRGB})`);
             document.querySelector("html").style.setProperty("--input-border", "rgba(255,255,255,0.1)");
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-theme-mode", "dark");
             html.setAttribute("data-menu-styles", "dark");
             html.setAttribute("data-header-styles", "dark");
         }
         if (localStorage.valexdarktheme) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-theme-mode", "dark");
         }
         if (localStorage.valexlayout) {
-            let html = document.querySelector("html");
-            let layoutValue = localStorage.getItem("valexlayout");
+            const html = document.querySelector("html");
+            const layoutValue = localStorage.getItem("valexlayout");
             html.setAttribute("data-nav-layout", "horizontal");
             setTimeout(() => {
                 clearNavDropdown();
@@ -57,8 +56,8 @@
             }, 5000);
         }
         if (localStorage.valexverticalstyles) {
-            let html = document.querySelector("html");
-            let verticalStyles = localStorage.getItem("valexverticalstyles");
+            const html = document.querySelector("html");
+            const verticalStyles = localStorage.getItem("valexverticalstyles");
 
             if (verticalStyles == "default") {
                 html.setAttribute("data-vertical-style", "default");
@@ -124,8 +123,8 @@
             }
         }
         if (localStorage.valexnavstyles) {
-            let html = document.querySelector("html");
-            let navStyles = localStorage.getItem("valexnavstyles");
+            const html = document.querySelector("html");
+            const navStyles = localStorage.getItem("valexnavstyles");
             if (navStyles == "menu-click") {
                 html.setAttribute("data-nav-style", "menu-click");
                 localStorage.removeItem("valexverticalstyles");
@@ -148,36 +147,36 @@
             }
         }
         if (localStorage.valexclassic) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-page-style", "classic");
         }
         if (localStorage.valexmodern) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-page-style", "modern");
         }
         if (localStorage.valexboxed) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-width", "boxed");
         }
         if (localStorage.valexHeaderfixed) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-header-position", "fixed");
         }
         if (localStorage.valexHeaderscrollable) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-header-position", "scrollable");
         }
         if (localStorage.valexMenufixed) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-menu-position", "fixed");
         }
         if (localStorage.valexMenuscrollable) {
-            let html = document.querySelector("html");
+            const html = document.querySelector("html");
             html.setAttribute("data-menu-position", "scrollable");
         }
         if (localStorage.valexMenu) {
-            let html = document.querySelector("html");
-            let menuValue = localStorage.getItem("valexMenu");
+            const html = document.querySelector("html");
+            const menuValue = localStorage.getItem("valexMenu");
             switch (menuValue) {
                 case "light":
                     html.setAttribute("data-menu-styles", "light");
@@ -199,8 +198,8 @@
             }
         }
         if (localStorage.valexHeader) {
-            let html = document.querySelector("html");
-            let headerValue = localStorage.getItem("valexHeader");
+            const html = document.querySelector("html");
+            const headerValue = localStorage.getItem("valexHeader");
             switch (headerValue) {
                 case "light":
                     html.setAttribute("data-header-styles", "light");
@@ -223,8 +222,8 @@
             }
         }
         if (localStorage.bgimg) {
-            let html = document.querySelector("html");
-            let value = localStorage.getItem("bgimg");
+            const html = document.querySelector("html");
+            const value = localStorage.getItem("bgimg");
             html.setAttribute("data-bg-img", value);
         }
     }
