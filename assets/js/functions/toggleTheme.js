@@ -28,7 +28,7 @@ export function toggleTheme() {
         localStorage.removeItem("valexHeader");
         localStorage.removeItem("bodylightRGB");
         localStorage.removeItem("bodyBgRGB");
-        if (localStorage.getItem("valexlayout") != "horizontal") {
+        if (localStorage.getItem("valexlayout") !== "horizontal") {
             html.setAttribute("data-menu-styles", "light");
         }
         html.setAttribute("data-header-styles", "light");
