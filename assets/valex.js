@@ -14,3 +14,12 @@ import "./scss/styles.scss";
 /*
  * Modules
  */
+
+/*  Custom JS */
+import "./js/custom.js";
+
+/* Page loader JS */
+import "./js/page-loader.js";
+
+/* Sticky JS */
+import "./js/sticky.js";
