@@ -80,7 +80,7 @@ import { toggleTheme } from "./functions/toggleTheme.js";
 
             /* Set events */
             nanoPickr.on("changestop", (source, instance) => {
-                let color = instance.getColor().toRGBA();
+                const color = instance.getColor().toRGBA();
                 html.style.setProperty("--primary-rgb", `${Math.floor(color[0])}, ${Math.floor(color[1])}, ${Math.floor(color[2])}`);
                 /* theme color picker */
                 localStorage.setItem("primaryRGB", `${Math.floor(color[0])}, ${Math.floor(color[1])}, ${Math.floor(color[2])}`);
@@ -151,7 +151,7 @@ import { toggleTheme } from "./functions/toggleTheme.js";
 
             /* Set events */
             nanoPickr1.on("changestop", (source, instance) => {
-                let color = instance.getColor().toRGBA();
+                const color = instance.getColor().toRGBA();
                 html.style.setProperty("--body-bg-rgb", `${color[0]}, ${color[1]}, ${color[2]}`);
                 html.style.setProperty("--light-rgb", `${color[0] + 14}, ${color[1] + 14}, ${color[2] + 14}`);
                 html.style.setProperty("--form-control-bg", `rgb(${color[0] + 14}, ${color[1] + 14}, ${color[2] + 14})`);
@@ -171,15 +171,15 @@ import { toggleTheme } from "./functions/toggleTheme.js";
     /* for theme background */
 
     /* header theme toggle */
-    let layoutSetting = document.querySelector(".layout-setting");
+    const layoutSetting = document.querySelector(".layout-setting");
     layoutSetting.addEventListener("click", toggleTheme);
     /* header theme toggle */
 
     /* Choices JS */
-    document.addEventListener("DOMContentLoaded", function () {
-        let genericExamples = document.querySelectorAll("[data-trigger]");
+    document.addEventListener("DOMContentLoaded", () => {
+        const genericExamples = document.querySelectorAll("[data-trigger]");
         for (let i = 0; i < genericExamples.length; ++i) {
-            let element = genericExamples[i];
+            const element = genericExamples[i];
             new Choices(element, {
                 allowHTML: true,
                 placeholderValue: "This is a placeholder set in the config",
@@ -195,10 +195,10 @@ import { toggleTheme } from "./functions/toggleTheme.js";
     /* node waves */
 
     /* header dropdowns scroll */
-    let myHeadernotification = document.getElementById("header-notification-scroll");
+    const myHeadernotification = document.getElementById("header-notification-scroll");
     new SimpleBar(myHeadernotification, { autoHide: true });
 
-    let myHeaderCart = document.getElementById("header-cart-items-scroll");
+    const myHeaderCart = document.getElementById("header-cart-items-scroll");
     new SimpleBar(myHeaderCart, { autoHide: true });
     /* header dropdowns scroll */
 })();
