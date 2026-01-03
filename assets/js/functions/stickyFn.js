@@ -1,8 +1,8 @@
 export function stickyFn() {
-    const navbar = document.getElementById("sidebar");
+    const NAV_BAR = document.getElementById("sidebar");
     if (window.scrollY >= 75) {
-        navbar.classList.add("sticky-pin");
+        NAV_BAR.classList.add("sticky-pin");
     } else {
-        navbar.classList.remove("sticky-pin");
+        NAV_BAR.classList.remove("sticky-pin");
     }
 }
