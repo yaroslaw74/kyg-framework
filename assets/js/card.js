@@ -1,24 +1,25 @@
 (() => {
-    /* card with close button */
     const DIV_CARD = ".card";
-    const cardRemoveBtn = document.querySelectorAll('[data-bs-toggle="card-remove"]');
-    cardRemoveBtn.forEach((ele) => {
+
+    /* card with close button */
+    const CARD_REMOVE_BTN = document.querySelectorAll('[data-bs-toggle="card-remove"]');
+    CARD_REMOVE_BTN.forEach((ele) => {
         ele.addEventListener("click", function (e) {
             e.preventDefault();
-            const card = this.closest(DIV_CARD);
-            card.remove();
+            const CARD = this.closest(DIV_CARD);
+            CARD.remove();
             return false;
         });
     });
     /* card with close button */
 
     /* card with fullscreen */
-    const cardFullscreenBtn = document.querySelectorAll('[data-bs-toggle="card-fullscreen"]');
-    cardFullscreenBtn.forEach((ele) => {
+    const CARD_FULL_SCREEN_BTN = document.querySelectorAll('[data-bs-toggle="card-fullscreen"]');
+    CARD_FULL_SCREEN_BTN.forEach((ele) => {
         ele.addEventListener("click", function (e) {
-            const card = this.closest(DIV_CARD);
-            card.classList.toggle("card-fullscreen");
-            card.classList.remove("card-collapsed");
+            const CARD = this.closest(DIV_CARD);
+            CARD.classList.toggle("card-fullscreen");
+            CARD.classList.remove("card-collapsed");
             e.preventDefault();
             return false;
         });
