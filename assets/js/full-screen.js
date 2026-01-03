@@ -1,5 +1,5 @@
 const elem = document.documentElement;
-function openFullscreen() {
+function _openFullscreen() {
     const open = document.querySelector(".full-screen-open");
     const close = document.querySelector(".full-screen-close");
 
