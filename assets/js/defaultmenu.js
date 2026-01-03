@@ -1,9 +1,9 @@
-"use strict";
+
 
 const ANIMATION_DURATION = 300;
 
 const sidebar = document.getElementById("sidebar");
-let mainContentDiv = document.querySelector(".main-content");
+const mainContentDiv = document.querySelector(".main-content");
 
 const slideHasSub = document.querySelectorAll(".nav > ul > .slide.has-sub");
 
@@ -148,7 +148,7 @@ const slideDown = (target, duration = ANIMATION_DURATION) => {
     }, duration);
 };
 const slideToggle = (target, duration = ANIMATION_DURATION) => {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     if (
         !(
             (html.getAttribute("data-nav-style") === "menu-hover" && html.getAttribute("data-toggled") === "menu-hover-closed" && window.innerWidth >= 992) ||
@@ -184,7 +184,7 @@ defaultOpenMenus.forEach((element) => {
  */
 firstLevelItems.forEach((element) => {
     element.addEventListener("click", () => {
-        let html = document.querySelector("html");
+        const html = document.querySelector("html");
         if (
             !(
                 (html.getAttribute("data-nav-style") === "menu-hover" && html.getAttribute("data-toggled") === "menu-hover-closed" && window.innerWidth >= 992) ||
@@ -208,7 +208,7 @@ firstLevelItems.forEach((element) => {
  * handle inner submenu click
  */
 innerLevelItems.forEach((element) => {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     // if ((html.getAttribute('data-nav-style') !== "menu-hover" || html.getAttribute('data-nav-style') !== "icon-hover") ) {
     element.addEventListener("click", () => {
         const innerMenu = element.closest(".slide-menu");
@@ -230,10 +230,10 @@ innerLevelItems.forEach((element) => {
  */
 let headerToggleBtn, WindowPreSize;
 (() => {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     headerToggleBtn = document.querySelector(".sidemenu-toggle");
     headerToggleBtn.addEventListener("click", toggleSidemenu);
-    let mainContent = document.querySelector(".main-content");
+    const mainContent = document.querySelector(".main-content");
     if (window.innerWidth <= 992) {
         mainContent.addEventListener("click", menuClose);
     } else {
@@ -270,7 +270,7 @@ let headerToggleBtn, WindowPreSize;
     }
 
     function rtlFn() {
-        let html = document.querySelector("html");
+        const html = document.querySelector("html");
         html.setAttribute("dir", "rtl");
         document.querySelector("#style")?.setAttribute("href", "../assets/libs/bootstrap/css/bootstrap.rtl.min.css");
         //RTL
@@ -304,8 +304,8 @@ let headerToggleBtn, WindowPreSize;
 })();
 
 function ResizeMenu() {
-    let html = document.querySelector("html");
-    let mainContent = document.querySelector(".main-content");
+    const html = document.querySelector("html");
+    const mainContent = document.querySelector(".main-content");
 
     WindowPreSize.push(window.innerWidth);
     if (WindowPreSize.length > 2) {
@@ -336,13 +336,13 @@ function ResizeMenu() {
     checkHoriMenu();
 }
 function menuClose() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-toggled", "close");
     document.querySelector("#responsive-overlay").classList.remove("active");
 }
 function toggleSidemenu() {
-    let html = document.querySelector("html");
-    let sidemenuType = html.getAttribute("data-nav-layout");
+    const html = document.querySelector("html");
+    const sidemenuType = html.getAttribute("data-nav-layout");
 
     if (window.innerWidth >= 992) {
         if (sidemenuType === "vertical") {
@@ -350,10 +350,10 @@ function toggleSidemenu() {
             sidebar.removeEventListener("mouseleave", mouseLeave);
             sidebar.removeEventListener("click", icontextOpen);
             mainContentDiv.removeEventListener("click", icontextClose);
-            let sidemenulink = document.querySelectorAll(".main-menu li > .side-menu__item");
+            const sidemenulink = document.querySelectorAll(".main-menu li > .side-menu__item");
             sidemenulink.forEach((ele) => ele.removeEventListener("click", doubleClickFn));
 
-            let verticalStyle = html.getAttribute("data-vertical-style");
+            const verticalStyle = html.getAttribute("data-vertical-style");
             switch (verticalStyle) {
                 // closed
                 case "closed":
@@ -408,7 +408,7 @@ function toggleSidemenu() {
                     if (html.getAttribute("data-toggled") === "double-menu-open") {
                         html.setAttribute("data-toggled", "double-menu-close");
                         if (document.querySelector(".slide-menu")) {
-                            let slidemenu = document.querySelectorAll(".slide-menu");
+                            const slidemenu = document.querySelectorAll(".slide-menu");
                             slidemenu.forEach((e) => {
                                 if (e.classList.contains("double-menu-active")) {
                                     e.classList.remove("double-menu-active");
@@ -416,7 +416,7 @@ function toggleSidemenu() {
                             });
                         }
                     } else {
-                        let sidemenu = document.querySelector(".side-menu__item.active");
+                        const sidemenu = document.querySelector(".side-menu__item.active");
                         if (sidemenu) {
                             html.setAttribute("data-toggled", "double-menu-open");
                             if (sidemenu.nextElementSibling) {
@@ -457,7 +457,7 @@ function toggleSidemenu() {
                 // iconOverayFn();
                 // html.removeAttribute('data-toggled');
             }
-            let menuclickStyle = html.getAttribute("data-nav-style");
+            const menuclickStyle = html.getAttribute("data-nav-style");
             switch (menuclickStyle) {
                 case "menu-click":
                     if (html.getAttribute("data-toggled") === "menu-click-closed") {
@@ -498,7 +498,7 @@ function toggleSidemenu() {
     } else {
         if (html.getAttribute("data-toggled") === "close") {
             html.setAttribute("data-toggled", "open");
-            let i = document.createElement("div");
+            const i = document.createElement("div");
             i.id = "responsive-overlay";
             setTimeout(() => {
                 if (document.querySelector("html").getAttribute("data-toggled") == "open") {
@@ -521,48 +521,48 @@ function toggleSidemenu() {
     }
 }
 function mouseEntered() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-icon-overlay", "open");
 }
 function mouseLeave() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.removeAttribute("data-icon-overlay");
 }
 function icontextOpen() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-icon-text", "open");
 }
 function icontextClose() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.removeAttribute("data-icon-text");
 }
 function closedSidemenuFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-layout", "vertical");
     html.setAttribute("data-vertical-style", "closed");
     toggleSidemenu();
 }
 function detachedFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-layout", "vertical");
     html.setAttribute("data-vertical-style", "detached");
     toggleSidemenu();
 }
 function iconTextFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-layout", "vertical");
     html.setAttribute("data-vertical-style", "icontext");
     toggleSidemenu();
 }
 function iconOverayFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-layout", "vertical");
     html.setAttribute("data-vertical-style", "overlay");
     toggleSidemenu();
     setNavActive();
 }
 function doubletFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-layout", "vertical");
     html.setAttribute("data-vertical-style", "doublemenu");
     toggleSidemenu();
@@ -607,7 +607,7 @@ function doubletFn() {
     });
 }
 function menuClickFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-style", "menu-click");
     html.removeAttribute("data-hor-style");
     html.removeAttribute("data-vertical-style");
@@ -618,7 +618,7 @@ function menuClickFn() {
     }
 }
 function menuhoverFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-style", "menu-hover");
     html.removeAttribute("data-hor-style");
     html.removeAttribute("data-vertical-style");
@@ -628,7 +628,7 @@ function menuhoverFn() {
     }
 }
 function iconClickFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-style", "icon-click");
     toggleSidemenu();
     if (html.getAttribute("data-nav-layout") === "vertical") {
@@ -636,7 +636,7 @@ function iconClickFn() {
     }
 }
 function iconHoverFn() {
-    let html = document.querySelector("html");
+    const html = document.querySelector("html");
     html.setAttribute("data-nav-style", "icon-hover");
     toggleSidemenu();
     clearNavDropdown();
@@ -646,7 +646,7 @@ function setNavActive() {
 
     currentPath = location.pathname == "/" ? "index.html" : location.pathname.substring(1);
     currentPath = currentPath.substring(currentPath.lastIndexOf("/") + 1);
-    let sidemenuItems = document.querySelectorAll(".side-menu__item");
+    const sidemenuItems = document.querySelectorAll(".side-menu__item");
     sidemenuItems.forEach((e) => {
         if (currentPath === "/") {
             currentPath = "index.html";
@@ -664,7 +664,7 @@ function setNavActive() {
                 parent.parentElement.classList.add("active");
 
                 if (parent.parentElement.classList.contains("has-sub")) {
-                    let elemrntRef = parent.parentElement.parentElement.parentElement;
+                    const elemrntRef = parent.parentElement.parentElement.parentElement;
                     elemrntRef.classList.add("open", "active");
                     elemrntRef.firstElementChild.classList.add("active");
                     elemrntRef.children[1].style.display = "block";
@@ -692,7 +692,7 @@ function setNavActive() {
     });
 }
 function clearNavDropdown() {
-    let sidemenus = document.querySelectorAll("ul.slide-menu");
+    const sidemenus = document.querySelectorAll("ul.slide-menu");
     sidemenus.forEach((e) => {
         let parent = e.closest("ul");
         let parentNotMain = e.closest("ul:not(.main-menu)");
@@ -710,13 +710,13 @@ function clearNavDropdown() {
     });
 }
 function switcherArrowFn() {
-    let slideLeft = document.querySelector(".slide-left");
-    let slideRight = document.querySelector(".slide-right");
+    const slideLeft = document.querySelector(".slide-left");
+    const slideRight = document.querySelector(".slide-right");
 
     // used to remove is-expanded class and remove class on clicking arrow buttons
     function slideClick() {
-        let slide = document.querySelectorAll(".slide");
-        let slideMenu = document.querySelectorAll(".slide-menu");
+        const slide = document.querySelectorAll(".slide");
+        const slideMenu = document.querySelectorAll(".slide-menu");
         slide.forEach((element, index) => {
             if (element.classList.contains("is-expanded") == true) {
                 element.classList.remove("is-expanded");
@@ -733,11 +733,11 @@ function switcherArrowFn() {
     checkHoriMenu();
 
     slideLeft.addEventListener("click", () => {
-        let menuNav = document.querySelector(".main-menu");
-        let mainContainer1 = document.querySelector(".main-sidebar");
-        let marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
-        let marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
-        let mainContainer1Width = mainContainer1.offsetWidth;
+        const menuNav = document.querySelector(".main-menu");
+        const mainContainer1 = document.querySelector(".main-sidebar");
+        const marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
+        const marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
+        const mainContainer1Width = mainContainer1.offsetWidth;
         if (menuNav.scrollWidth > mainContainer1.offsetWidth) {
             if (!(document.querySelector("html").getAttribute("dir") === "rtl")) {
                 if (marginLeftValue < 0 && !(Math.abs(marginLeftValue) < mainContainer1Width)) {
@@ -774,8 +774,8 @@ function switcherArrowFn() {
             slideLeft.classList.add("d-none");
         }
 
-        let element = document.querySelector(".main-menu > .slide.open");
-        let element1 = document.querySelector(".main-menu > .slide.open >ul");
+        const element = document.querySelector(".main-menu > .slide.open");
+        const element1 = document.querySelector(".main-menu > .slide.open >ul");
         if (element) {
             element.classList.remove("open");
         }
@@ -788,11 +788,11 @@ function switcherArrowFn() {
         //
     });
     slideRight.addEventListener("click", () => {
-        let menuNav = document.querySelector(".main-menu");
-        let mainContainer1 = document.querySelector(".main-sidebar");
-        let marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
-        let marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
-        let check = menuNav.scrollWidth - mainContainer1.offsetWidth;
+        const menuNav = document.querySelector(".main-menu");
+        const mainContainer1 = document.querySelector(".main-sidebar");
+        const marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
+        const marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
+        const check = menuNav.scrollWidth - mainContainer1.offsetWidth;
         let mainContainer1Width = mainContainer1.offsetWidth;
 
         if (menuNav.scrollWidth > mainContainer1.offsetWidth) {
@@ -819,8 +819,8 @@ function switcherArrowFn() {
             }
         }
 
-        let element = document.querySelector(".main-menu > .slide.open");
-        let element1 = document.querySelector(".main-menu > .slide.open >ul");
+        const element = document.querySelector(".main-menu > .slide.open");
+        const element1 = document.querySelector(".main-menu > .slide.open >ul");
         if (element) {
             element.classList.remove("open");
         }
@@ -833,13 +833,13 @@ function switcherArrowFn() {
     });
 }
 function checkHoriMenu() {
-    let menuNav = document.querySelector(".main-menu");
-    let mainContainer1 = document.querySelector(".main-sidebar");
-    let slideLeft = document.querySelector(".slide-left");
-    let slideRight = document.querySelector(".slide-right");
-    let marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
-    let marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
-    let check = menuNav.scrollWidth - mainContainer1.offsetWidth;
+    const menuNav = document.querySelector(".main-menu");
+    const mainContainer1 = document.querySelector(".main-sidebar");
+    const slideLeft = document.querySelector(".slide-left");
+    const slideRight = document.querySelector(".slide-right");
+    const marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
+    const marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
+    const check = menuNav.scrollWidth - mainContainer1.offsetWidth;
     // Show/Hide the arrows
     if (menuNav.scrollWidth > mainContainer1.offsetWidth) {
         slideRight.classList.remove("d-none");
@@ -889,8 +889,8 @@ function checkHoriMenu() {
 ["switcher-icon-click", "switcher-icon-hover", "switcher-horizontal"].map((element) => {
     if (document.getElementById(element)) {
         document.getElementById(element).addEventListener("click", () => {
-            let menuNav = document.querySelector(".main-menu");
-            let mainContainer1 = document.querySelector(".main-sidebar");
+            const menuNav = document.querySelector(".main-menu");
+            const mainContainer1 = document.querySelector(".main-sidebar");
             setTimeout(() => {
                 if (menuNav.offsetWidth > mainContainer1.offsetWidth) {
                     document.getElementById("slide-right").classList.remove("d-none");
@@ -905,21 +905,20 @@ function checkHoriMenu() {
 // double-menu click toggle start
 function doublemenu() {
     if (window.innerWidth >= 992) {
-        let html = document.querySelector("html");
-        let sidemenulink = document.querySelectorAll(".main-menu > li > .side-menu__item");
+        const html = document.querySelector("html");
+        const sidemenulink = document.querySelectorAll(".main-menu > li > .side-menu__item");
         sidemenulink.forEach((ele) => {
             ele.addEventListener("click", doubleClickFn);
         });
     }
 }
 function doubleClickFn() {
-    var $this = this;
-    let html = document.querySelector("html");
-    var checkElement = $this.nextElementSibling;
+    const html = document.querySelector("html");
+    var checkElement = this.nextElementSibling;
     if (checkElement) {
         if (!checkElement.classList.contains("double-menu-active")) {
             if (document.querySelector(".slide-menu")) {
-                let slidemenu = document.querySelectorAll(".slide-menu");
+                const slidemenu = document.querySelectorAll(".slide-menu");
                 slidemenu.forEach((e) => {
                     if (e.classList.contains("double-menu-active")) {
                         e.classList.remove("double-menu-active");
@@ -935,18 +934,18 @@ function doubleClickFn() {
 // double-menu click toggle end
 
 window.addEventListener("unload", () => {
-    let mainContent = document.querySelector(".main-content");
+    const mainContent = document.querySelector(".main-content");
     mainContent.removeEventListener("click", clearNavDropdown);
     window.removeEventListener("resize", ResizeMenu);
-    let sidemenulink = document.querySelectorAll(".main-menu li > .side-menu__item");
+    const sidemenulink = document.querySelectorAll(".main-menu li > .side-menu__item");
     sidemenulink.forEach((ele) => ele.removeEventListener("click", doubleClickFn));
 });
 
 // for menu scroll to top active page
-let customScrollTop = () => {
+const customScrollTop = () => {
     document.querySelectorAll(".side-menu__item").forEach((ele) => {
         if (ele.classList.contains("active")) {
-            let elemRect = ele.getBoundingClientRect();
+            const elemRect = ele.getBoundingClientRect();
             if (ele.children[0] && ele.parentElement.classList.contains("has-sub") && elemRect.top > 435) {
                 ele.scrollIntoView({ behavior: "smooth" });
             }
