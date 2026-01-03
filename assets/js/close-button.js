@@ -9,8 +9,8 @@ headerbtn.forEach((button) => {
         document.getElementById("cart-icon-badge").innerText = `${document.querySelectorAll(".dropdown-item-close").length}`;
         console.log(document.getElementById("header-cart-items-scroll").children.length);
         if (document.querySelectorAll(".dropdown-item-close").length == 0) {
-            let elementHide = document.querySelector(".empty-header-item");
-            let elementShow = document.querySelector(".empty-item");
+            const elementHide = document.querySelector(".empty-header-item");
+            const elementShow = document.querySelector(".empty-item");
             elementHide.classList.add("d-none");
             elementShow.classList.remove("d-none");
         }
@@ -28,8 +28,8 @@ headerbtn1.forEach((button) => {
         document.getElementById("notifiation-data").innerText = `${document.querySelectorAll(".dropdown-item-close1").length} Unread`;
         document.getElementById("notification-icon-badge").innerText = `${document.querySelectorAll(".dropdown-item-close1").length}`;
         if (document.querySelectorAll(".dropdown-item-close1").length == 0) {
-            let elementHide1 = document.querySelector(".empty-header-item1");
-            let elementShow1 = document.querySelector(".empty-item1");
+            const elementHide1 = document.querySelector(".empty-header-item1");
+            const elementShow1 = document.querySelector(".empty-item1");
             elementHide1.classList.add("d-none");
             elementShow1.classList.remove("d-none");
         }
