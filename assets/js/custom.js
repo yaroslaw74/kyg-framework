@@ -10,11 +10,11 @@ import { toggleTheme } from "./functions/toggleTheme.js";
 
     /* tooltip */
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+    const _tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
 
     /* popover  */
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
-    const popoverList = [...popoverTriggerList].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
+    const _popoverList = [...popoverTriggerList].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
 
     //switcher color pickers
     const pickrContainerPrimary = document.querySelector(".pickr-container-primary");
@@ -79,7 +79,7 @@ import { toggleTheme } from "./functions/toggleTheme.js";
             );
 
             /* Set events */
-            nanoPickr.on("changestop", (source, instance) => {
+            nanoPickr.on("changestop", (_source, instance) => {
                 const color = instance.getColor().toRGBA();
                 html.style.setProperty("--primary-rgb", `${Math.floor(color[0])}, ${Math.floor(color[1])}, ${Math.floor(color[2])}`);
                 /* theme color picker */
@@ -150,7 +150,7 @@ import { toggleTheme } from "./functions/toggleTheme.js";
             );
 
             /* Set events */
-            nanoPickr1.on("changestop", (source, instance) => {
+            nanoPickr1.on("changestop", (_source, instance) => {
                 const color = instance.getColor().toRGBA();
                 html.style.setProperty("--body-bg-rgb", `${color[0]}, ${color[1]}, ${color[2]}`);
                 html.style.setProperty("--light-rgb", `${color[0] + 14}, ${color[1] + 14}, ${color[2] + 14}`);
