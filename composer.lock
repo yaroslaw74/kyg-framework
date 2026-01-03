@@ -3540,16 +3540,16 @@
         },
         {
             "name": "jbtronics/settings-bundle",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jbtronics/settings-bundle.git",
-                "reference": "f16bce21b54d202baabfe05cb7c64a14d43b9671"
+                "reference": "a99c6e4cde40b829c1643b89da506b9588b11eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/f16bce21b54d202baabfe05cb7c64a14d43b9671",
-                "reference": "f16bce21b54d202baabfe05cb7c64a14d43b9671",
+                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/a99c6e4cde40b829c1643b89da506b9588b11eaf",
+                "reference": "a99c6e4cde40b829c1643b89da506b9588b11eaf",
                 "shasum": ""
             },
             "require": {
@@ -3610,7 +3610,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jbtronics/settings-bundle/issues",
-                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.1.2"
+                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.1.3"
             },
             "funding": [
                 {
@@ -3622,20 +3622,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-30T22:22:49+00:00"
+            "time": "2026-01-02T23:58:02+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "6.6.3",
+            "version": "6.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "134e98916fa2f663afa623970af345cd788e8967"
+                "reference": "2eeb75d21cf73211335888e7f5e6fd7440723ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/134e98916fa2f663afa623970af345cd788e8967",
-                "reference": "134e98916fa2f663afa623970af345cd788e8967",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/2eeb75d21cf73211335888e7f5e6fd7440723ec7",
+                "reference": "2eeb75d21cf73211335888e7f5e6fd7440723ec7",
                 "shasum": ""
             },
             "require": {
@@ -3695,9 +3695,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/6.6.3"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/6.6.4"
             },
-            "time": "2025-12-02T10:21:33+00:00"
+            "time": "2025-12-19T15:01:32+00:00"
         },
         {
             "name": "knplabs/knp-components",
@@ -4493,16 +4493,16 @@
         },
         {
             "name": "nelmio/api-doc-bundle",
-            "version": "v5.8.3",
+            "version": "v5.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "39614af91d62271897796582b482dc9d7acdfa95"
+                "reference": "71a9e8e0f0c6862fc7a7bd180b8cbb38565eacae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/39614af91d62271897796582b482dc9d7acdfa95",
-                "reference": "39614af91d62271897796582b482dc9d7acdfa95",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/71a9e8e0f0c6862fc7a7bd180b8cbb38565eacae",
+                "reference": "71a9e8e0f0c6862fc7a7bd180b8cbb38565eacae",
                 "shasum": ""
             },
             "require": {
@@ -4603,7 +4603,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nelmio/NelmioApiDocBundle/issues",
-                "source": "https://github.com/nelmio/NelmioApiDocBundle/tree/v5.8.3"
+                "source": "https://github.com/nelmio/NelmioApiDocBundle/tree/v5.9.0"
             },
             "funding": [
                 {
@@ -4611,7 +4611,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-02T14:47:01+00:00"
+            "time": "2026-01-02T21:53:32+00:00"
         },
         {
             "name": "nelmio/cors-bundle",
@@ -14180,16 +14180,16 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "5.7.6",
+            "version": "5.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "e4727bad28cf426b026421162af384f893c0142c"
+                "reference": "a9cf18ac6610fcb1673f108380a76cf9b145a74e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/e4727bad28cf426b026421162af384f893c0142c",
-                "reference": "e4727bad28cf426b026421162af384f893c0142c",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/a9cf18ac6610fcb1673f108380a76cf9b145a74e",
+                "reference": "a9cf18ac6610fcb1673f108380a76cf9b145a74e",
                 "shasum": ""
             },
             "require": {
@@ -14211,7 +14211,7 @@
                 "friendsofphp/php-cs-fixer": "^3.62.0",
                 "phpstan/phpstan": "^1.6 || ^2.0",
                 "phpunit/phpunit": "^9.0",
-                "rector/rector": "^1.0 || ^2.0",
+                "rector/rector": "^1.0 || 2.2.14",
                 "vimeo/psalm": "^4.30 || ^5.0"
             },
             "suggest": {
@@ -14262,9 +14262,15 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/5.7.6"
+                "source": "https://github.com/zircote/swagger-php/tree/5.7.7"
             },
-            "time": "2025-12-04T01:33:01+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/zircote",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-01-02T21:36:49+00:00"
         }
     ],
     "packages-dev": [
