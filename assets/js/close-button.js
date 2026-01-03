@@ -1,6 +1,6 @@
 /* for cart dropdown */
-const headerbtn = document.querySelectorAll(".dropdown-item-close");
-headerbtn.forEach((button) => {
+const HEADER_BTN = document.querySelectorAll(".dropdown-item-close");
+HEADER_BTN.forEach((button) => {
     button.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -9,18 +9,18 @@ headerbtn.forEach((button) => {
         document.getElementById("cart-icon-badge").innerText = `${document.querySelectorAll(".dropdown-item-close").length}`;
         console.log(document.getElementById("header-cart-items-scroll").children.length);
         if (document.querySelectorAll(".dropdown-item-close").length === 0) {
-            const elementHide = document.querySelector(".empty-header-item");
-            const elementShow = document.querySelector(".empty-item");
-            elementHide.classList.add("d-none");
-            elementShow.classList.remove("d-none");
+            const ELEMENT_HIDE = document.querySelector(".empty-header-item");
+            const ELEMENT_SHOW = document.querySelector(".empty-item");
+            ELEMENT_HIDE.classList.add("d-none");
+            ELEMENT_SHOW.classList.remove("d-none");
         }
     });
 });
 /* for cart dropdown */
 
 /* for notifications dropdown */
-const headerbtn1 = document.querySelectorAll(".dropdown-item-close1");
-headerbtn1.forEach((button) => {
+const HEADER_BTN_1 = document.querySelectorAll(".dropdown-item-close1");
+HEADER_BTN_1.forEach((button) => {
     button.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -28,10 +28,10 @@ headerbtn1.forEach((button) => {
         document.getElementById("notifiation-data").innerText = `${document.querySelectorAll(".dropdown-item-close1").length} Unread`;
         document.getElementById("notification-icon-badge").innerText = `${document.querySelectorAll(".dropdown-item-close1").length}`;
         if (document.querySelectorAll(".dropdown-item-close1").length === 0) {
-            const elementHide1 = document.querySelector(".empty-header-item1");
-            const elementShow1 = document.querySelector(".empty-item1");
-            elementHide1.classList.add("d-none");
-            elementShow1.classList.remove("d-none");
+            const ELEMENT_HIDE_1 = document.querySelector(".empty-header-item1");
+            const ELEMENT_SHOW_1 = document.querySelector(".empty-item1");
+            ELEMENT_HIDE_1.classList.add("d-none");
+            ELEMENT_SHOW_1.classList.remove("d-none");
         }
     });
 });
