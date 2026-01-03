@@ -2,6 +2,7 @@
     "files": {
         "includes": [
             "**",
+            "!assets/controllers/csrf_protection_controller.js",
             "!assets/fonts/*",
             "!assets/icons/*",
             "!assets/images/*",
@@ -16,6 +17,9 @@
         ]
     },
     "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "attributePosition": "auto",
         "lineWidth": 256,
         "useEditorconfig": true
     },
