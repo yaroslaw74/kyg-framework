@@ -1,7 +1,7 @@
-let elem = document.documentElement;
+const elem = document.documentElement;
 function openFullscreen() {
-    let open = document.querySelector(".full-screen-open");
-    let close = document.querySelector(".full-screen-close");
+    const open = document.querySelector(".full-screen-open");
+    const close = document.querySelector(".full-screen-close");
 
     if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if (elem.requestFullscreen) {
