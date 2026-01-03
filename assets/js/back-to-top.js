@@ -1,17 +1,18 @@
 (() => {
-    const $rootElement = document.documentElement;
-    const _$body = document.body;
+    const SCROLL_TO_TOP = document.querySelector(".scrollToTop");
+    const $_ROOT_ELEMENT = document.documentElement;
+    const _$_BODY = document.body;
     window.onscroll = () => {
-        const _scrollTop = window.scrollY || window.pageYOffset;
-        const _clientHt = $rootElement.scrollHeight - $rootElement.clientHeight;
+        const _SCROLL_TOP = window.scrollY || window.pageYOffset;
+        const _CLIENT_HT = $_ROOT_ELEMENT.scrollHeight - $_ROOT_ELEMENT.clientHeight;
         if (window.scrollY > 100) {
-            scrollToTop.style.display = "flex";
+            SCROLL_TO_TOP.style.display = "flex";
         } else {
-            scrollToTop.style.display = "none";
+            SCROLL_TO_TOP.style.display = "none";
         }
     };
-    const scrollToTop = document.querySelector(".scrollToTop");
-    scrollToTop.onclick = () => {
+
+    SCROLL_TO_TOP.onclick = () => {
         window.scrollTo(0, 0);
     };
 })();
