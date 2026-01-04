@@ -1,6 +1,6 @@
 import { slideUp } from "./slideUp.js";
 
-const slideToggle = (target, duration = 300) => {
+export const slideToggle = (target, duration = 300) => {
     const HTML = document.querySelector("html");
     if (
         !(
