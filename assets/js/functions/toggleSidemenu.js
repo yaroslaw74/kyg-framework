@@ -1,11 +1,11 @@
+import { clearNavDropdown } from "./clearNavDropdown.js";
+import { doubleClickFn } from "./doubleClickFn.js";
+import { icontextClose } from "./icontextClose.js";
+import { icontextOpen } from "./icontextOpen.js";
+import { menuClose } from "./menuClose.js";
 import { mouseEntered } from "./mouseEntered.js";
 import { mouseLeave } from "./mouseLeave.js";
-import { icontextOpen } from "./icontextOpen.js";
-import { icontextClose } from "./icontextClose.js";
-import { doubleClickFn } from "./doubleClickFn.js";
 import { setNavActive } from "./setNavActive.js";
-import { menuClose } from "./menuClose.js";
-import { clearNavDropdown } from "./clearNavDropdown.js";
 
 export function toggleSidemenu() {
     const HTML = document.querySelector("html");
