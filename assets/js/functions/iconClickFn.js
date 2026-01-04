@@ -1,5 +1,5 @@
-import { toggleSidemenu } from "./toggleSidemenu.js";
 import { setNavActive } from "./setNavActive.js";
+import { toggleSidemenu } from "./toggleSidemenu.js";
 
 export function iconClickFn() {
     const HTML = document.querySelector("html");
