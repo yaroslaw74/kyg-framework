@@ -1,16 +1,16 @@
-import { PoppersInstance } from "./constants/PoppersInstance.js";
-import { slideUp } from "./constants/slideUp.js";
-import { slideToggle } from "./constants/slideToggle.js";
 import { customScrollTop } from "./constants/customScrollTop.js";
+import { PoppersInstance } from "./constants/PoppersInstance.js";
+import { slideToggle } from "./constants/slideToggle.js";
+import { slideUp } from "./constants/slideUp.js";
 import { clearNavDropdown } from "./functions/clearNavDropdown.js";
 import { doubleClickFn } from "./functions/doubleClickFn.js";
-import { toggleSidemenu } from "./functions/toggleSidemenu.js";
+import { horizontalClickFn } from "./functions/horizontalClickFn.js";
+import { iconOverayFn } from "./functions/iconOverayFn.js";
 import { menuClose } from "./functions/menuClose.js";
+import { ResizeMenu } from "./functions/ResizeMenu.js";
 import { setNavActive } from "./functions/setNavActive.js";
 import { switcherArrowFn } from "./functions/switcherArrowFn.js";
-import { iconOverayFn } from "./functions/iconOverayFn.js";
-import { horizontalClickFn } from "./functions/horizontalClickFn.js";
-import { ResizeMenu } from "./functions/ResizeMenu.js";
+import { toggleSidemenu } from "./functions/toggleSidemenu.js";
 
 /**
  * wait for the current animation to finish and update poppers position
