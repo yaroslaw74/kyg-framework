@@ -1,8 +1,8 @@
-import { menuClose } from "./menuClose.js";
+import { checkHoriMenu } from "./checkHoriMenu.js";
 import { clearNavDropdown } from "./clearNavDropdown.js";
+import { menuClose } from "./menuClose.js";
 import { setNavActive } from "./setNavActive.js";
 import { toggleSidemenu } from "./toggleSidemenu.js";
-import { checkHoriMenu } from "./checkHoriMenu.js";
 
 export function ResizeMenu() {
     const HTML = document.querySelector("html");
