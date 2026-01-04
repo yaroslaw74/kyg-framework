@@ -1,22 +1,22 @@
-import { updateColors } from "./updateColors.js";
-import { lightFn } from "./lightFn.js";
-import { darkFn } from "./darkFn.js";
-import { toggleSidemenu } from "./toggleSidemenu.js";
+import { clearNavDropdown } from "./clearNavDropdown.js";
 import { closedSidemenuFn } from "./closedSidemenuFn.js";
+import { darkFn } from "./darkFn.js";
 import { detachedFn } from "./detachedFn.js";
-import { iconTextFn } from "./iconTextFn.js";
-import { iconOverayFn } from "./iconOverayFn.js";
 import { doubletFn } from "./doubletFn.js";
-import { menuClickFn } from "./menuClickFn.js";
-import { ResizeMenu } from "./ResizeMenu.js";
-import { menuhoverFn } from "./menuhoverFn.js";
+import { horizontalClickFn } from "./horizontalClickFn.js";
 import { iconClickFn } from "./iconClickFn.js";
 import { iconHoverFn } from "./iconHoverFn.js";
-import { verticalFn } from "./verticalFn.js";
-import { setNavActive } from "./setNavActive.js";
-import { clearNavDropdown } from "./clearNavDropdown.js";
-import { horizontalClickFn } from "./horizontalClickFn.js";
+import { iconOverayFn } from "./iconOverayFn.js";
+import { iconTextFn } from "./iconTextFn.js";
+import { lightFn } from "./lightFn.js";
+import { menuClickFn } from "./menuClickFn.js";
+import { menuhoverFn } from "./menuhoverFn.js";
 import { ResetAllFn } from "./ResetAllFn.js";
+import { ResizeMenu } from "./ResizeMenu.js";
+import { setNavActive } from "./setNavActive.js";
+import { toggleSidemenu } from "./toggleSidemenu.js";
+import { updateColors } from "./updateColors.js";
+import { verticalFn } from "./verticalFn.js";
 
 export function switcherClick() {
     const HTML = document.querySelector("html");
