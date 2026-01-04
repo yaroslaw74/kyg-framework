@@ -61,10 +61,6 @@ return [
         'version' => '2.1.4',
         'type' => 'css',
     ],
-    'feathericon/build/css/feathericon.min.css' => [
-        'version' => '1.0.2',
-        'type' => 'css',
-    ],
     '@fortawesome/fontawesome-free/css/all.min.css' => [
         'version' => '7.1.0',
         'type' => 'css',
