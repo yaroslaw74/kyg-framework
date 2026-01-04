@@ -11,7 +11,7 @@ import "./vendor/boxicons/css/boxicons.min.css";
 /*
  * Feather Icons
  */
-import "./vendor/feathericon/build/css/feathericon.min.css";
+import "./icon-fonts/feather/feather.css";
 
 /*
  * Font Awesome
