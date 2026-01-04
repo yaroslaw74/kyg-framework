@@ -1,14 +1,3 @@
-const ANIMATION_DURATION = 300;
-
-const sidebar = document.getElementById("sidebar");
-const mainContentDiv = document.querySelector(".main-content");
-
-const slideHasSub = document.querySelectorAll(".nav > ul > .slide.has-sub");
-
-const firstLevelItems = document.querySelectorAll(".nav > ul > .slide.has-sub > a");
-
-const innerLevelItems = document.querySelectorAll(".nav > ul > .slide.has-sub .slide.has-sub > a");
-
 class PopperObject {
     instance = null;
     reference = null;
@@ -46,6 +35,7 @@ class PopperObject {
     }
 
     clicker(event, popperTarget, reference) {
+        const sidebar = document.getElementById("sidebar");
         if (sidebar.classList.contains("collapsed") && !popperTarget.contains(event.target) && !reference.contains(event.target)) {
             this.hide();
         }
@@ -64,6 +54,7 @@ class Poppers {
     }
 
     init() {
+        const slideHasSub = document.querySelectorAll(".nav > ul > .slide.has-sub");
         slideHasSub.forEach((element) => {
             this.subMenuPoppers.push(new PopperObject(element, element.lastElementChild));
             this.closePoppers();
@@ -89,7 +80,7 @@ class Poppers {
     }
 }
 
-const slideUp = (target, duration = ANIMATION_DURATION) => {
+const slideUp = (target, duration = 300) => {
     const { parentElement } = target;
     parentElement.classList.remove("open");
     target.style.transitionProperty = "height, margin, padding";
@@ -115,7 +106,7 @@ const slideUp = (target, duration = ANIMATION_DURATION) => {
         target.style.removeProperty("transition-property");
     }, duration);
 };
-const slideDown = (target, duration = ANIMATION_DURATION) => {
+const slideDown = (target, duration = 300) => {
     const { parentElement } = target;
     parentElement.classList.add("open");
     target.style.removeProperty("display");
@@ -145,7 +136,7 @@ const slideDown = (target, duration = ANIMATION_DURATION) => {
         target.style.removeProperty("transition-duration");
     }, duration);
 };
-const slideToggle = (target, duration = ANIMATION_DURATION) => {
+const slideToggle = (target, duration = 300) => {
     const html = document.querySelector("html");
     if (
         !(
@@ -168,7 +159,7 @@ const PoppersInstance = new Poppers();
 const updatePoppersTimeout = () => {
     setTimeout(() => {
         PoppersInstance.updatePoppers();
-    }, ANIMATION_DURATION);
+    }, 300);
 };
 
 const defaultOpenMenus = document.querySelectorAll(".slide.has-sub.open");
@@ -180,6 +171,7 @@ defaultOpenMenus.forEach((element) => {
 /**
  * handle top level submenu click
  */
+const firstLevelItems = document.querySelectorAll(".nav > ul > .slide.has-sub > a");
 firstLevelItems.forEach((element) => {
     element.addEventListener("click", () => {
         const html = document.querySelector("html");
@@ -205,6 +197,7 @@ firstLevelItems.forEach((element) => {
 /**
  * handle inner submenu click
  */
+const innerLevelItems = document.querySelectorAll(".nav > ul > .slide.has-sub .slide.has-sub > a");
 innerLevelItems.forEach((element) => {
     const html = document.querySelector("html");
     // if ((html.getAttribute('data-nav-style') !== "menu-hover" || html.getAttribute('data-nav-style') !== "icon-hover") ) {
@@ -226,10 +219,9 @@ innerLevelItems.forEach((element) => {
 /**
  * menu styles
  */
-let headerToggleBtn, WindowPreSize;
 (() => {
     const html = document.querySelector("html");
-    headerToggleBtn = document.querySelector(".sidemenu-toggle");
+    const headerToggleBtn = document.querySelector(".sidemenu-toggle");
     headerToggleBtn.addEventListener("click", toggleSidemenu);
     const mainContent = document.querySelector(".main-content");
     if (window.innerWidth <= 992) {
@@ -238,7 +230,6 @@ let headerToggleBtn, WindowPreSize;
         mainContent.removeEventListener("click", menuClose);
     }
 
-    WindowPreSize = [window.innerWidth];
     setNavActive();
     if (html.getAttribute("data-nav-layout") === "horizontal" && window.innerWidth >= 992) {
         clearNavDropdown();
@@ -267,22 +258,6 @@ let headerToggleBtn, WindowPreSize;
         }
     }
 
-    function rtlFn() {
-        const html = document.querySelector("html");
-        html.setAttribute("dir", "rtl");
-        document.querySelector("#style")?.setAttribute("href", "../assets/libs/bootstrap/css/bootstrap.rtl.min.css");
-        //RTL
-        if (localStorage.getItem("valexrtl")) {
-            document.querySelector("#switcher-rtl").checked = true;
-        }
-    }
-
-    /* RTL Start */
-    if (html.getAttribute("dir") === "rtl") {
-        rtlFn();
-    }
-    /* RTL End */
-
     /* Horizontal Start */
     if (html.getAttribute("data-nav-layout") === "horizontal" && !document.querySelector(".landing-body") === true) {
         setTimeout(() => {
@@ -304,6 +279,7 @@ let headerToggleBtn, WindowPreSize;
 function ResizeMenu() {
     const html = document.querySelector("html");
     const mainContent = document.querySelector(".main-content");
+    const WindowPreSize = [window.innerWidth];
 
     WindowPreSize.push(window.innerWidth);
     if (WindowPreSize.length > 2) {
@@ -341,6 +317,8 @@ function menuClose() {
 function toggleSidemenu() {
     const html = document.querySelector("html");
     const sidemenuType = html.getAttribute("data-nav-layout");
+    const sidebar = document.getElementById("sidebar");
+    const mainContentDiv = document.querySelector(".main-content");
 
     if (window.innerWidth >= 992) {
         if (sidemenuType === "vertical") {
@@ -517,127 +495,6 @@ function toggleSidemenu() {
             html.setAttribute("data-toggled", "close");
         }
     }
-}
-function mouseEntered() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-icon-overlay", "open");
-}
-function mouseLeave() {
-    const html = document.querySelector("html");
-    html.removeAttribute("data-icon-overlay");
-}
-function icontextOpen() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-icon-text", "open");
-}
-function icontextClose() {
-    const html = document.querySelector("html");
-    html.removeAttribute("data-icon-text");
-}
-function closedSidemenuFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-layout", "vertical");
-    html.setAttribute("data-vertical-style", "closed");
-    toggleSidemenu();
-}
-function detachedFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-layout", "vertical");
-    html.setAttribute("data-vertical-style", "detached");
-    toggleSidemenu();
-}
-function iconTextFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-layout", "vertical");
-    html.setAttribute("data-vertical-style", "icontext");
-    toggleSidemenu();
-}
-function iconOverayFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-layout", "vertical");
-    html.setAttribute("data-vertical-style", "overlay");
-    toggleSidemenu();
-    setNavActive();
-}
-function doubletFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-layout", "vertical");
-    html.setAttribute("data-vertical-style", "doublemenu");
-    toggleSidemenu();
-
-    const menuSlideItem = document.querySelectorAll(".main-menu > li > .side-menu__item");
-
-    // Create the tooltip element
-    const tooltip = document.createElement("div");
-    tooltip.className = "custome-tooltip";
-    // tooltip.textContent = "This is a tooltip";
-
-    // Set the CSS properties of the tooltip element
-    tooltip.style.setProperty("position", "fixed");
-    tooltip.style.setProperty("display", "none");
-    tooltip.style.setProperty("padding", "0.5rem");
-    tooltip.style.setProperty("font-weight", "500");
-    tooltip.style.setProperty("font-size", "0.75rem");
-    tooltip.style.setProperty("background-color", "rgb(15, 23 ,42)");
-    tooltip.style.setProperty("color", "rgb(255, 255 ,255)");
-    tooltip.style.setProperty("margin-inline-start", "100px");
-    tooltip.style.setProperty("border-radius", "0.25rem");
-    tooltip.style.setProperty("z-index", "99");
-
-    menuSlideItem.forEach((e) => {
-        // Add an event listener to the menu slide item to show the tooltip
-        e.addEventListener("mouseenter", () => {
-            tooltip.style.setProperty("display", "block");
-            tooltip.textContent = e.querySelector(".side-menu__label").textContent;
-            if (document.querySelector("html").getAttribute("data-vertical-style") === "doublemenu") {
-                e.appendChild(tooltip);
-            }
-        });
-
-        // Add an event listener to hide the tooltip
-        e.addEventListener("mouseleave", () => {
-            tooltip.style.setProperty("display", "none");
-            tooltip.textContent = e.querySelector(".side-menu__label").textContent;
-            if (document.querySelector("html").getAttribute("data-vertical-style") === "doublemenu") {
-                e.removeChild(tooltip);
-            }
-        });
-    });
-}
-function menuClickFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-style", "menu-click");
-    html.removeAttribute("data-hor-style");
-    html.removeAttribute("data-vertical-style");
-
-    toggleSidemenu();
-    if (html.getAttribute("data-nav-layout") === "vertical") {
-        setNavActive();
-    }
-}
-function menuhoverFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-style", "menu-hover");
-    html.removeAttribute("data-hor-style");
-    html.removeAttribute("data-vertical-style");
-    toggleSidemenu();
-    if (html.getAttribute("data-toggled") === "menu-hover-closed") {
-        clearNavDropdown();
-    }
-}
-function iconClickFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-style", "icon-click");
-    toggleSidemenu();
-    if (html.getAttribute("data-nav-layout") === "vertical") {
-        setNavActive();
-    }
-}
-function iconHoverFn() {
-    const html = document.querySelector("html");
-    html.setAttribute("data-nav-style", "icon-hover");
-    toggleSidemenu();
-    clearNavDropdown();
 }
 function setNavActive() {
     let currentPath = window.location.pathname.split("/")[0];
@@ -911,7 +768,7 @@ function doublemenu() {
 }
 function doubleClickFn() {
     const html = document.querySelector("html");
-    var checkElement = this.nextElementSibling;
+    let checkElement = this.nextElementSibling;
     if (checkElement) {
         if (!checkElement.classList.contains("double-menu-active")) {
             if (document.querySelector(".slide-menu")) {
@@ -955,7 +812,8 @@ setTimeout(() => {
 // for menu scroll to top active page
 
 // for menu click active close
-document.querySelector(".main-content").addEventListener("click", () => {
+const MAIN_CONTENT = document.querySelector(".main-content");
+MAIN_CONTENT.addEventListener("click", () => {
     document.querySelectorAll(".slide-menu").forEach((ele) => {
         if (document.querySelector("html").getAttribute("data-toggled") === "menu-click-closed" || document.querySelector("html").getAttribute("data-toggled") === "icon-click-closed") {
             ele.style.display = "none";
