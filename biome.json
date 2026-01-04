@@ -17,7 +17,6 @@
         ]
     },
     "formatter": {
-        "enabled": true,
         "formatWithErrors": false,
         "attributePosition": "auto",
         "lineWidth": 256,
