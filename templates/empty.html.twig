@@ -41,11 +41,8 @@
 
     {{ include('partials/commonjs.html.twig') }}
 
-    <!-- Popper JS -->
-    <script src="{{ asset('libs/@popperjs/core/umd/popper.min.js') }}"></script>
-
     <!-- Defaultmenu JS -->
-    <script src="{{ asset('js/defaultmenu.js') }}"></script>
+    <script type="module" async src="{{ asset('js/defaultmenu.js') }}"></script>
 
     <!-- Sticky JS -->
     <script type="module" async src="{{ asset('js/sticky.js') }}"></script>
