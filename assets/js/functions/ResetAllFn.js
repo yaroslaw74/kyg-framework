@@ -1,7 +1,7 @@
 import { checkOptions } from "/checkOptions.js";
 import { lightFn } from "./lightFn.js";
-import { verticalFn } from "./verticalFn.js";
 import { updateColors } from "./updateColors.js";
+import { verticalFn } from "./verticalFn.js";
 
 export function ResetAllFn() {
     const HTML = document.querySelector("html");
