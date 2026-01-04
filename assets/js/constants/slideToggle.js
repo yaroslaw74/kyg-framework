@@ -1,4 +1,5 @@
 import { slideUp } from "./slideUp.js";
+import { slideDown } from "./slideDown.js";
 
 export const slideToggle = (target, duration = 300) => {
     const HTML = document.querySelector("html");
