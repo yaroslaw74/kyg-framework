@@ -1,6 +1,6 @@
+import { checkOptions } from "./functions/checkOptions.js";
 import { localStorageBackup2 } from "./functions/localStorageBackup2.js";
 import { switcherClick } from "./functions/switcherClick.js";
-import { checkOptions } from "./functions/checkOptions.js";
 import { updateColors } from "./functions/updateColors.js";
 
 (() => {
