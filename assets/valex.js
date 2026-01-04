@@ -21,6 +21,9 @@ import "./js/custom-switcher.js";
 /*  Custom JS */
 import "./js/custom.js";
 
+/* Defaultmenu JS */
+import "./js/defaultmenu.js";
+
 /* Main Theme Js */
 import "./js/main.js";
 
