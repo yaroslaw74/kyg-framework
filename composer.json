@@ -168,7 +168,7 @@
         "dadadev/phpstan-symfony-routing": "^0.2.0",
         "dama/doctrine-test-bundle": "^8.4.1",
         "ergebnis/composer-normalize": "^2.48.2",
-        "friendsofphp/php-cs-fixer": "^3.92.3",
+        "friendsofphp/php-cs-fixer": "^3.92.4",
         "gromnan/symfony-config-xml-to-php": "^0.2.1",
         "jawira/doctrine-diagram-bundle": "^1.2",
         "kocal/biome-js-bundle": "^2.1.2",
@@ -191,7 +191,7 @@
         "symfony/web-profiler-bundle": "7.4.*",
         "symplify/config-transformer": "^12.4.3",
         "symplify/phpstan-extensions": "^12.0.2",
-        "symplify/phpstan-rules": "^14.9.5",
+        "symplify/phpstan-rules": "^14.9.9",
         "vincentlanglet/twig-cs-fixer": "^3.11",
         "yamadashy/phpstan-friendly-formatter": "^1.3"
     },
