@@ -76,34 +76,34 @@ export function switcherClick() {
     const LOADER_DISABLE_BTN = document.querySelector("#switcher-loader-disable");
 
     // primary theme
-    PRIMARY_DEFAULT_COLOR_1_BTN.onclick = () => {
+    const _primaryColor1Var = PRIMARY_DEFAULT_COLOR_1_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "58, 88, 146");
         HTML.style.setProperty("--primary-rgb", "58, 88, 146");
         updateColors();
-    };
-    PRIMARY_DEFAULT_COLOR_2_BTN.onclick = () => {
+    });
+    const _primaryColor2Var = PRIMARY_DEFAULT_COLOR_2_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "49, 176, 176");
         HTML.style.setProperty("--primary-rgb", "49, 176, 176");
         updateColors();
-    };
-    PRIMARY_DEFAULT_COLOR_3_BTN.onclick = () => {
+    });
+    const _primaryColor3Var = PRIMARY_DEFAULT_COLOR_3_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "170, 82, 216");
         HTML.style.setProperty("--primary-rgb", "170, 82, 216");
         updateColors();
-    };
-    PRIMARY_DEFAULT_COLOR_4_BTN.onclick = () => {
+    });
+    const _primaryColor4Var = PRIMARY_DEFAULT_COLOR_4_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "80, 198, 118");
         HTML.style.setProperty("--primary-rgb", "80, 198, 118");
         updateColors();
-    };
-    PRIMARY_DEFAULT_COLOR_5_BTN.onclick = () => {
+    });
+    const _primaryColor5Var = PRIMARY_DEFAULT_COLOR_5_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "244, 86, 86");
         HTML.style.setProperty("--primary-rgb", "244, 86, 86");
         updateColors();
-    };
+    });
 
     // Background theme
-    BG_DEFAULT_COLOR_1_BTN.onclick = () => {
+    const _backgroundColor1Var = BG_DEFAULT_COLOR_1_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "20, 30, 96");
         localStorage.setItem("bodylightRGB", "25, 38, 101");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -118,8 +118,8 @@ export function switcherClick() {
         DARK_BTN.checked = true;
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
-    };
-    BG_DEFAULT_COLOR_2_BTN.onclick = () => {
+    });
+    const _backgroundColor2Var = BG_DEFAULT_COLOR_2_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "15, 95, 95");
         localStorage.setItem("bodylightRGB", "16, 104, 104");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -134,8 +134,8 @@ export function switcherClick() {
         DARK_BTN.checked = true;
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
-    };
-    BG_DEFAULT_COLOR_3_BTN.onclick = () => {
+    });
+    const _backgroundColor3Var = BG_DEFAULT_COLOR_3_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "87, 48, 121");
         localStorage.setItem("bodylightRGB", "98, 51, 140");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -150,8 +150,8 @@ export function switcherClick() {
         DARK_BTN.checked = true;
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
-    };
-    BG_DEFAULT_COLOR_4_BTN.onclick = () => {
+    });
+    const _backgroundColor4Var = BG_DEFAULT_COLOR_4_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "26, 93, 48");
         localStorage.setItem("bodylightRGB", "28, 103, 53");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -166,8 +166,8 @@ export function switcherClick() {
         DARK_BTN.checked = true;
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
-    };
-    BG_DEFAULT_COLOR_5_BTN.onclick = () => {
+    });
+    const _backgroundColor5Var = BG_DEFAULT_COLOR_5_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "157, 41, 41");
         localStorage.setItem("bodylightRGB", "172, 56, 56");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -182,195 +182,195 @@ export function switcherClick() {
         DARK_BTN.checked = true;
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
-    };
+    });
 
     // Bg image
-    BG_IMAGE_1_BTN.onclick = () => {
+    const _bgImg1Var = BG_IMAGE_1_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg1");
         localStorage.setItem("bgimg", "bgimg1");
-    };
-    BG_IMAGE_2_BTN.onclick = () => {
+    });
+    const _bgImg2Var = BG_IMAGE_2_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg2");
         localStorage.setItem("bgimg", "bgimg2");
-    };
-    BG_IMAGE_3_BTN.onclick = () => {
+    });
+    const _bgImg3Var = BG_IMAGE_3_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg3");
         localStorage.setItem("bgimg", "bgimg3");
-    };
-    BG_IMAGE_4_BTN.onclick = () => {
+    });
+    const _bgImg4Var = BG_IMAGE_4_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg4");
         localStorage.setItem("bgimg", "bgimg4");
-    };
-    BG_IMAGE_5_BTN.onclick = () => {
+    });
+    const _bgImg5Var = BG_IMAGE_5_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg5");
         localStorage.setItem("bgimg", "bgimg5");
-    };
+    });
 
     /* Light Layout Start */
-    LIGHT_BTN.onclick = () => {
+    const _lightThemeVar = LIGHT_BTN.addEventListener("click", () => {
         lightFn();
         localStorage.setItem("valexHeader", "light");
         // localStorage.setItem("valexMenu", 'light');
         localStorage.removeItem("bodylightRGB");
         localStorage.removeItem("bodyBgRGB");
         localStorage.removeItem("valexMenu");
-    };
+    });
     /* Light Layout End */
 
     /* Dark Layout Start */
-    DARK_BTN.onclick = () => {
+    const _darkThemeVar = DARK_BTN.addEventListener("click", () => {
         darkFn();
         localStorage.setItem("valexMenu", "dark");
         localStorage.setItem("valexHeader", "dark");
         // HTML.setAttribute("style","")
-    };
+    });
     /* Dark Layout End */
 
     /* Light Menu Start */
-    LIGHT_MENU_BTN.onclick = () => {
+    const _lightMenuVar = LIGHT_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "light");
         localStorage.setItem("valexMenu", "light");
-    };
+    });
     /* Light Menu End */
 
     /* Color Menu Start */
-    COLOR_MENU_BTN.onclick = () => {
+    const _colorMenuVar = COLOR_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "color");
         localStorage.setItem("valexMenu", "color");
-    };
+    });
     /* Color Menu End */
 
     /* Dark Menu Start */
-    DARK_MENU_BTN.onclick = () => {
+    const _darkMenuVar = DARK_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "dark");
         localStorage.setItem("valexMenu", "dark");
-    };
+    });
     /* Dark Menu End */
 
     /* Gradient Menu Start */
-    GRADIENT_MENU_BTN.onclick = () => {
+    const _gradientMenuVar = GRADIENT_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "gradient");
         localStorage.setItem("valexMenu", "gradient");
-    };
+    });
     /* Gradient Menu End */
 
     /* Transparent Menu Start */
-    TRANSPARENT_MENU_BTN.onclick = () => {
+    const _transparentMenuVar = TRANSPARENT_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "transparent");
         localStorage.setItem("valexMenu", "transparent");
-    };
+    });
     /* Transparent Menu End */
 
     /* Light Header Start */
-    LIGHT_HEADER_BTN.onclick = () => {
+    const _lightHeaderVar = LIGHT_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "light");
         localStorage.setItem("valexHeader", "light");
-    };
+    });
     /* Light Header End */
 
     /* Color Header Start */
-    COLOR_HEADER_BTN.onclick = () => {
+    const _colorHeaderVar = COLOR_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "color");
         localStorage.setItem("valexHeader", "color");
-    };
+    });
     /* Color Header End */
 
     /* Dark Header Start */
-    DARK_HEADER_BTN.onclick = () => {
+    const _darkHeaderVar = DARK_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "dark");
         localStorage.setItem("valexHeader", "dark");
-    };
+    });
     /* Dark Header End */
 
     /* Gradient Header Start */
-    GRADIENT_HEADER_BTN.onclick = () => {
+    const _gradientHeaderVar = GRADIENT_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "gradient");
         localStorage.setItem("valexHeader", "gradient");
-    };
+    });
     /* Gradient Header End */
 
     /* Transparent Header Start */
-    TRANSPARENT_HEADER_BTN.onclick = () => {
+    const _transparentHeaderVar = TRANSPARENT_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "transparent");
         localStorage.setItem("valexHeader", "transparent");
-    };
+    });
     /* Transparent Header End */
 
     /* Full Width Layout Start */
-    FULL_WIDTH_BTN.onclick = () => {
+    const _fullwidthVar = FULL_WIDTH_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-width", "fullwidth");
         localStorage.setItem("valexfullwidth", "true");
         localStorage.removeItem("valexboxed");
-    };
+    });
     /* Full Width Layout End */
 
     /* Boxed Layout Start */
-    BOXED_BTN.onclick = () => {
+    const _boxedVar = BOXED_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-width", "boxed");
         localStorage.setItem("valexboxed", "true");
         localStorage.removeItem("valexfullwidth");
         document.querySelector("#slide-right").classList.remove("d-none");
         // checkHoriMenu();
-    };
+    });
     /* Boxed Layout End */
 
     /* Regular page style Start */
-    REGULAR_BTN.onclick = () => {
+    const _shadowVar = REGULAR_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-page-style", "regular");
         localStorage.setItem("valexregular", "true");
         localStorage.removeItem("valexclassic");
         localStorage.removeItem("valexmodern");
-    };
+    });
     /* Regular page style End */
 
     /* Classic page style Start */
-    CLASSIC_BTN.onclick = () => {
+    const _noShadowVar = CLASSIC_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-page-style", "classic");
         localStorage.setItem("valexclassic", "true");
         localStorage.removeItem("valexregular");
         localStorage.removeItem("valexmodern");
-    };
+    });
     /* Classic page style End */
 
     /* modern page style Start */
-    MODERN_BTN.onclick = () => {
+    const _modernVar = MODERN_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-page-style", "modern");
         localStorage.setItem("valexmodern", "true");
         localStorage.removeItem("valexregular");
         localStorage.removeItem("valexclassic");
-    };
+    });
     /* modern page style End */
 
     /* Header-Position Styles Start */
-    FIXED_HEADER_BTN.onclick = () => {
+    const _fixedHeaderVar = FIXED_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-position", "fixed");
         localStorage.setItem("valexHeaderfixed", "true");
         localStorage.removeItem("valexHeaderscrollable");
-    };
+    });
 
-    SCROLL_HEADE_RBTN.onclick = () => {
+    const _scrollHeaderVar = SCROLL_HEADE_RBTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-position", "scrollable");
         localStorage.setItem("valexHeaderscrollable", "true");
         localStorage.removeItem("valexHeaderfixed");
-    };
+    });
     /* Header-Position Styles End */
 
     /* Menu-Position Styles Start */
-    FIXED_MENU_BTN.onclick = () => {
+    const _fixedMenuVar = FIXED_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-position", "fixed");
         localStorage.setItem("valexMenufixed", "true");
         localStorage.removeItem("valexMenuscrollable");
-    };
+    });
 
-    SCROLL_MENU_BTN.onclick = () => {
+    const _scrollMenuVar = SCROLL_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-position", "scrollable");
         localStorage.setItem("valexMenuscrollable", "true");
         localStorage.removeItem("valexMenufixed");
-    };
+    });
     /* Menu-Position Styles End */
 
     /* Default Sidemenu Start */
-    DEFAULT_BTN.onclick = () => {
+    const _defaultVar = DEFAULT_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-vertical-style", "default");
         HTML.setAttribute("data-nav-layout", "vertical");
         toggleSidemenu();
@@ -381,11 +381,11 @@ export function switcherClick() {
                 ele.querySelector("ul").style.display = "none";
             }
         });
-    };
+    });
     /* Default Sidemenu End */
 
     /* Closed Sidemenu Start */
-    CLOSED_BTN.onclick = () => {
+    const _closedVar = CLOSED_BTN.addEventListener("click", () => {
         closedSidemenuFn();
         localStorage.setItem("valexverticalstyles", "closed");
         document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
@@ -394,25 +394,25 @@ export function switcherClick() {
                 ele.querySelector("ul").style.display = "none";
             }
         });
-    };
+    });
     /* Closed Sidemenu End */
 
     /* Hover Submenu Start */
-    DETACHED_BTN.onclick = () => {
+    const _detachedVar = DETACHED_BTN.addEventListener("click", () => {
         detachedFn();
         localStorage.setItem("valexverticalstyles", "detached");
-    };
+    });
     /* Hover Submenu End */
 
     /* Icon Text Sidemenu Start */
-    ICON_TEXT_BTN.onclick = () => {
+    const _iconTextVar = ICON_TEXT_BTN.addEventListener("click", () => {
         iconTextFn();
         localStorage.setItem("valexverticalstyles", "icontext");
-    };
+    });
     /* Icon Text Sidemenu End */
 
     /* Icon Overlay Sidemenu Start */
-    OVERLAY_BTN.onclick = () => {
+    const _overlayVar = OVERLAY_BTN.addEventListener("click", () => {
         iconOverayFn();
         localStorage.setItem("valexverticalstyles", "overlay");
         document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
@@ -421,18 +421,18 @@ export function switcherClick() {
                 ele.querySelector("ul").style.display = "none";
             }
         });
-    };
+    });
     /* Icon Overlay Sidemenu End */
 
     /* doublemenu Sidemenu Start */
-    DOUBLE_BTN.onclick = () => {
+    const _doubleVar = DOUBLE_BTN.addEventListener("click", () => {
         doubletFn();
         localStorage.setItem("valexverticalstyles", "doublemenu");
-    };
+    });
     /* doublemenu Sidemenu End */
 
     /* Menu Click Sidemenu Start */
-    MENU_CLICK_BTN.onclick = () => {
+    const _menuClickVar = MENU_CLICK_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         menuClickFn();
         localStorage.setItem("valexnavstyles", "menu-click");
@@ -449,11 +449,11 @@ export function switcherClick() {
             MENU_NAV.style.marginRight = "0px";
             ResizeMenu();
         }
-    };
+    });
     /* Menu Click Sidemenu End */
 
     /* Menu Hover Sidemenu Start */
-    MENU_HOVER_BTN.onclick = () => {
+    const _menuhoverVar = MENU_HOVER_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         menuhoverFn();
         localStorage.setItem("valexnavstyles", "menu-hover");
@@ -464,11 +464,11 @@ export function switcherClick() {
             MENU_NAV.style.marginRight = "0px";
             ResizeMenu();
         }
-    };
+    });
     /* Menu Hover Sidemenu End */
 
     /* icon Click Sidemenu Start */
-    ICON_CLICK_BTN.onclick = () => {
+    const _iconClickVar = ICON_CLICK_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         iconClickFn();
         localStorage.setItem("valexnavstyles", "icon-click");
@@ -486,11 +486,11 @@ export function switcherClick() {
                 ele.querySelector("ul").style.display = "none";
             }
         });
-    };
+    });
     /* icon Click Sidemenu End */
 
     /* icon hover Sidemenu Start */
-    ICON_HOVER_BTN.onclick = () => {
+    const _iconhoverVar = ICON_HOVER_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         iconHoverFn();
         localStorage.setItem("valexnavstyles", "icon-hover");
@@ -502,11 +502,11 @@ export function switcherClick() {
             ResizeMenu();
             document.querySelector("#slide-left").classList.add("d-none");
         }
-    };
+    });
     /* icon hover Sidemenu End */
 
     /* Sidemenu start*/
-    VERTICAL_BTN.onclick = () => {
+    const _verticalVar = VERTICAL_BTN.addEventListener("click", () => {
         // local storage
         localStorage.removeItem("valexlayout");
         localStorage.setItem("valexverticalstyles", "default");
@@ -523,11 +523,11 @@ export function switcherClick() {
                 element.querySelector("ul").style.display = "none";
             }
         });
-    };
+    });
     /* Sidemenu end */
 
     /* horizontal start*/
-    HORI_BTN.onclick = () => {
+    const _horiVar = HORI_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         //    local storage
         localStorage.setItem("valexlayout", "horizontal");
@@ -536,11 +536,11 @@ export function switcherClick() {
         horizontalClickFn();
         clearNavDropdown();
         MAIN_CONTENT.removeEventListener("click", clearNavDropdown);
-    };
+    });
     /* horizontal end*/
 
     // reset all start
-    RESET_ALL_BTN.onclick = () => {
+    const _resetVar = RESET_ALL_BTN.addEventListener("click", () => {
         ResetAllFn();
         setNavActive();
         HTML.setAttribute("data-menu-styles", "light");
@@ -550,18 +550,18 @@ export function switcherClick() {
                 element.querySelector("ul").style.display = "none";
             }
         });
-    };
+    });
     // reset all end
 
     /* loader start */
-    LOADER_ENABLE_BTN.onclick = () => {
+    const _LoaderEnableVar = LOADER_ENABLE_BTN.addEventListener("click", () => {
         HTML.setAttribute("loader", "enable");
         localStorage.setItem("loaderEnable", "true");
-    };
+    });
 
-    LOADER_DISABLE_BTN.onclick = () => {
+    const _LoaderDisableVar = LOADER_DISABLE_BTN.addEventListener("click", () => {
         HTML.setAttribute("loader", "disable");
         localStorage.setItem("loaderEnable", "false");
-    };
+    });
     /* loader end */
 }
