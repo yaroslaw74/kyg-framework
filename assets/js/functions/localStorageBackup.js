@@ -1,5 +1,5 @@
-import { clearNavDropdown } from "./clearNavDropdown.js";
 import { checkHoriMenu } from "./checkHoriMenu.js";
+import { clearNavDropdown } from "./clearNavDropdown.js";
 
 export function localStorageBackup() {
     const HTML = document.querySelector("html");
