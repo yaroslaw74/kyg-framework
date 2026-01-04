@@ -1,5 +1,5 @@
-import { toggleSidemenu } from "./toggleSidemenu.js";
 import { setNavActive } from "./setNavActive.js";
+import { toggleSidemenu } from "./toggleSidemenu.js";
 
 export function iconOverayFn() {
     const HTML = document.querySelector("html");
