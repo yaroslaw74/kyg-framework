@@ -12,7 +12,7 @@ import { localStorageBackup } from "./functions/localStorageBackup.js";
         HTML.setAttribute("data-nav-layout", "horizontal");
     }
 
-    if (localStorage.loaderEnable === "true") {
+    if (localStorage.getItem("loaderEnable") === "true") {
         HTML.setAttribute("loader", "enable");
     } else {
         if (!HTML.getAttribute("loader")) {
