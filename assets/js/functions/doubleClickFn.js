@@ -3,9 +3,10 @@ export function doubleClickFn() {
     const CHECK_ELEMENT = this.nextElementSibling;
     if (CHECK_ELEMENT) {
         if (!CHECK_ELEMENT.classList.contains("double-menu-active")) {
-            if (document.querySelector(".slide-menu")) {
-                const SLIDE_MENU = document.querySelectorAll(".slide-menu");
-                SLIDE_MENU.forEach((e) => {
+            const SLIDE_MENU_1 = document.querySelector(".slide-menu");
+            if (SLIDE_MENU_1) {
+                const SLID_EMENU = document.querySelectorAll(".slide-menu");
+                SLID_EMENU.forEach((e) => {
                     if (e.classList.contains("double-menu-active")) {
                         e.classList.remove("double-menu-active");
                         HTML.setAttribute("data-toggled", "double-menu-close");
