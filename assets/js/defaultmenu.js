@@ -79,6 +79,7 @@ INNER_LEVEL_ITEMS.forEach((element) => {
  */
 (() => {
     const HTML = document.querySelector("html");
+
     const HEADER_TOGGLE_BTN = document.querySelector(".sidemenu-toggle");
     HEADER_TOGGLE_BTN.addEventListener("click", toggleSidemenu);
     const MAIN_CONTENT = document.querySelector(".main-content");
@@ -134,11 +135,12 @@ INNER_LEVEL_ITEMS.forEach((element) => {
         document.getElementById(element).addEventListener("click", () => {
             const MENU_NAV = document.querySelector(".main-menu");
             const MAIN_CONTAINER_1 = document.querySelector(".main-sidebar");
+            const SLIDE_RIGHT = document.getElementById("slide-right");
             setTimeout(() => {
                 if (MENU_NAV.offsetWidth > MAIN_CONTAINER_1.offsetWidth) {
-                    document.getElementById("slide-right").classList.remove("d-none");
+                    SLIDE_RIGHT.classList.remove("d-none");
                 } else {
-                    document.getElementById("slide-right").classList.add("d-none");
+                    SLIDE_RIGHT.classList.add("d-none");
                 }
             }, 100);
         });
@@ -149,8 +151,8 @@ window.addEventListener("unload", () => {
     const MAIN_CONTENT = document.querySelector(".main-content");
     MAIN_CONTENT.removeEventListener("click", clearNavDropdown);
     window.removeEventListener("resize", ResizeMenu);
-    const SIDEMENU_LINK = document.querySelectorAll(".main-menu li > .side-menu__item");
-    SIDEMENU_LINK.forEach((ele) => ele.removeEventListener("click", doubleClickFn));
+    const SIDE_MENU_LINK = document.querySelectorAll(".main-menu li > .side-menu__item");
+    SIDE_MENU_LINK.forEach((ele) => ele.removeEventListener("click", doubleClickFn));
 });
 
 // for menu scroll to top active page
@@ -162,8 +164,8 @@ setTimeout(() => {
 // for menu click active close
 const MAIN_CONTENT = document.querySelector(".main-content");
 MAIN_CONTENT.addEventListener("click", () => {
-    const SLIDEMENU = document.querySelectorAll(".slide-menu");
-    SLIDEMENU.forEach((ele) => {
+    const SLIDE_MENU = document.querySelectorAll(".slide-menu");
+    SLIDE_MENU.forEach((ele) => {
         const HTML = document.querySelector("html");
         if (HTML.getAttribute("data-toggled") === "menu-click-closed" || HTML.getAttribute("data-toggled") === "icon-click-closed") {
             ele.style.display = "none";
