@@ -3,18 +3,17 @@ import { clearNavDropdown } from "./clearNavDropdown.js";
 
 export function localStorageBackup() {
     const HTML = document.querySelector("html");
-    const THEME_CONTAINER_PRIMARY = document.querySelector(".theme-container-primary");
-    const THEME_CONTAINER_BACKGROUND = document.querySelector(".theme-container-background");
-
     // if there is a value stored, update color picker and background color
     // Used to retrive the data from local storage
     if (localStorage.getItem("primaryRGB")) {
+        const THEME_CONTAINER_PRIMARY = document.querySelector(".theme-container-primary");
         if (THEME_CONTAINER_PRIMARY) {
             THEME_CONTAINER_PRIMARY.value = localStorage.getItem("primaryRGB");
         }
         HTML.style.setProperty("--primary-rgb", localStorage.getItem("primaryRGB"));
     }
     if (localStorage.getItem("bodyBgRGB") && localStorage.getItem("bodylightRGB")) {
+        const THEME_CONTAINER_BACKGROUND = document.querySelector(".theme-container-background");
         if (THEME_CONTAINER_BACKGROUND) {
             THEME_CONTAINER_BACKGROUND.value = localStorage.getItem("bodyBgRGB");
         }
@@ -44,12 +43,10 @@ export function localStorageBackup() {
     }
     if (localStorage.getItem("valexverticalstyles")) {
         const VERTICAL_STYLES = localStorage.getItem("valexverticalstyles");
-
         if (VERTICAL_STYLES === "default") {
             HTML.setAttribute("data-vertical-style", "default");
             localStorage.removeItem("ynexnavstyles");
         }
-
         if (VERTICAL_STYLES === "closed") {
             HTML.setAttribute("data-vertical-style", "closed");
             localStorage.removeItem("valexnavstyles");
@@ -145,7 +142,7 @@ export function localStorageBackup() {
     if (localStorage.getItem("valexHeaderscrollable") === "true") {
         HTML.setAttribute("data-header-position", "scrollable");
     }
-    if (localStorage.getItem("valexMenufixed")) {
+    if (localStorage.getItem("valexMenufixed") === "true") {
         HTML.setAttribute("data-menu-position", "fixed");
     }
     if (localStorage.getItem("valexMenuscrollable") === "true") {
