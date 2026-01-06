@@ -1,6 +1,6 @@
 export const slideUp = (target, duration = 300) => {
-    const { PARENT_ELEMENT } = target;
-    PARENT_ELEMENT.classList.remove("open");
+    const { PARENTEL_EMENT } = target;
+    PARENTEL_EMENT.classList.remove("open");
     target.style.transitionProperty = "height, margin, padding";
     target.style.transitionDuration = `${duration}ms`;
     target.style.boxSizing = "border-box";
