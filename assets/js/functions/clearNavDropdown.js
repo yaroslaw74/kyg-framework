@@ -1,8 +1,8 @@
 import { slideUp } from "../constants/slideUp.js";
 
 export function clearNavDropdown() {
-    const SIDEMENUS = document.querySelectorAll("ul.slide-menu");
-    SIDEMENUS.forEach((e) => {
+    const SIDE_MENUS = document.querySelectorAll("ul.slide-menu");
+    SIDE_MENUS.forEach((e) => {
         let parent = e.closest("ul");
         let parentNotMain = e.closest("ul:not(.main-menu)");
         if (parent) {
@@ -13,7 +13,9 @@ export function clearNavDropdown() {
                 //
                 parent = parent.parentElement.closest("ul");
                 parentNotMain = parent.closest("ul:not(.main-menu)");
-                if (!parentNotMain) hasParent = false;
+                if (!parentNotMain) {
+                    hasParent = false;
+                }
             }
         }
     });
