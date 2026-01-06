@@ -3,7 +3,6 @@ import { updateColors } from "./updateColors.js";
 
 export function darkFn() {
     const HTML = document.querySelector("html");
-
     const DARK_BTN = document.querySelector("#switcher-dark-theme");
     const DARK_HEADER_BTN = document.querySelector("#switcher-header-dark");
     const DARK_MENU_BTN = document.querySelector("#switcher-menu-dark");
@@ -29,7 +28,7 @@ export function darkFn() {
     HTML.style.removeProperty("--form-control-bg");
     HTML.style.removeProperty("--input-border");
     updateColors();
-    localStorage.setItem("valexdarktheme", "true");
+    localStorage.setItem("valexdarktheme", true);
     localStorage.removeItem("valexlighttheme");
     localStorage.removeItem("bodyBgRGB");
     localStorage.removeItem("valexbgColor");
@@ -38,11 +37,12 @@ export function darkFn() {
     localStorage.removeItem("valexMenubg");
     checkOptions();
 
-    BG_DEFAULT_COLOR_1_BTN.checked = false;
-    BG_DEFAULT_COLOR_2_BTN.checked = false;
-    BG_DEFAULT_COLOR_3_BTN.checked = false;
-    BG_DEFAULT_COLOR_4_BTN.checked = false;
     BG_DEFAULT_COLOR_5_BTN.checked = false;
+    BG_DEFAULT_COLOR_4_BTN.checked = false;
+    BG_DEFAULT_COLOR_3_BTN.checked = false;
+    BG_DEFAULT_COLOR_2_BTN.checked = false;
+    BG_DEFAULT_COLOR_1_BTN.checked = false;
+    DARK_BTN.checked = true;
     DARK_MENU_BTN.checked = true;
     DARK_HEADER_BTN.checked = true;
 }
