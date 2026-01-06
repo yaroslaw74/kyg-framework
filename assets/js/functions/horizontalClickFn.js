@@ -2,7 +2,6 @@ import { checkOptions } from "./checkOptions.js";
 
 export function horizontalClickFn() {
     const HTML = document.querySelector("html");
-
     const HORI_BTN = document.querySelector("#switcher-horizontal");
     const LIGHT_MENU_BTN = document.querySelector("#switcher-menu-light");
     const MENU_CLICK_BTN = document.querySelector("#switcher-menu-click");
