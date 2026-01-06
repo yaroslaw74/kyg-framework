@@ -6,7 +6,7 @@ export function checkOptions() {
     const FIXED_MENU_BTN = document.querySelector("#switcher-menu-fixed");
     const SCROLL_MENU_BTN = document.querySelector("#switcher-menu-scroll");
     const FIXED_HEADER_BTN = document.querySelector("#switcher-header-fixed");
-    const SCROLL_HEADE_RBTN = document.querySelector("#switcher-header-scroll");
+    const SCROLL_HEADER_BTN = document.querySelector("#switcher-header-scroll");
     const LIGHT_HEADER_BTN = document.querySelector("#switcher-header-light");
     const DARK_HEADER_BTN = document.querySelector("#switcher-header-dark");
     const COLOR_HEADER_BTN = document.querySelector("#switcher-header-primary");
@@ -29,10 +29,10 @@ export function checkOptions() {
     const OVERLAY_BTN = document.querySelector("#switcher-icon-overlay");
     const DOUBLE_BTN = document.querySelector("#switcher-double-menu");
     const DETACHED_BTN = document.querySelector("#switcher-detached");
-    const LOADER_DISABLE_BTN = document.querySelector("#switcher-loader-disable");
+    const LOADER_ENABLE_BTN = document.querySelector("#switcher-loader-enable");
 
     // dark
-    if (localStorage.getItem("valexdarktheme")) {
+    if (localStorage.getItem("valexdarktheme") === "true") {
         DARK_BTN.checked = true;
     }
 
@@ -93,40 +93,40 @@ export function checkOptions() {
     }
 
     //boxed
-    if (localStorage.getItem("valexboxed")) {
+    if (localStorage.getItem("valexboxed") === "true") {
         BOXED_BTN.checked = true;
     }
 
     //scrollable
-    if (localStorage.getItem("valexHeaderscrollable")) {
-        SCROLL_HEADE_RBTN.checked = true;
+    if (localStorage.getItem("valexHeaderscrollable") === "true") {
+        SCROLL_HEADER_BTN.checked = true;
     }
-    if (localStorage.getItem("valexMenuscrollable")) {
+    if (localStorage.getItem("valexMenuscrollable") === "true") {
         SCROLL_MENU_BTN.checked = true;
     }
 
     //fixed
-    if (localStorage.getItem("valexHeaderfixed")) {
+    if (localStorage.getItem("valexHeaderfixed") === "true") {
         FIXED_HEADER_BTN.checked = true;
     }
-    if (localStorage.getItem("valexMenufixed")) {
+    if (localStorage.getItem("valexMenufixed") === "true") {
         FIXED_MENU_BTN.checked = true;
     }
 
     //classic
-    if (localStorage.getItem("valexclassic")) {
+    if (localStorage.getItem("valexclassic") === "true") {
         CLASSIC_BTN.checked = true;
     }
 
     //modern
-    if (localStorage.getItem("valexmodern")) {
+    if (localStorage.getItem("valexmodern") === "true") {
         MODERN_BTN.checked = true;
     }
 
     // sidemenu layout style
     if (localStorage.getItem("valexverticalstyles")) {
-        const verticalStyles = localStorage.getItem("valexverticalstyles");
-        switch (verticalStyles) {
+        const VERTICAL_STYLES = localStorage.getItem("valexverticalstyles");
+        switch (VERTICAL_STYLES) {
             case "default":
                 DEFAULT_BTN.checked = true;
                 break;
@@ -171,6 +171,6 @@ export function checkOptions() {
 
     // loader
     if (localStorage.getItem("loaderEnable") !== "true") {
-        LOADER_DISABLE_BTN.checked = true;
+        LOADER_ENABLE_BTN.checked = true;
     }
 }
