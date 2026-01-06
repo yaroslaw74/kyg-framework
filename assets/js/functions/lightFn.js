@@ -40,11 +40,11 @@ export function lightFn() {
     HTML.style.removeProperty("--form-control-bg");
     HTML.style.removeProperty("--input-border");
 
-    BG_DEFAULT_COLOR_1_BTN.checked = false;
-    BG_DEFAULT_COLOR_2_BTN.checked = false;
-    BG_DEFAULT_COLOR_3_BTN.checked = false;
-    BG_DEFAULT_COLOR_4_BTN.checked = false;
     BG_DEFAULT_COLOR_5_BTN.checked = false;
+    BG_DEFAULT_COLOR_4_BTN.checked = false;
+    BG_DEFAULT_COLOR_3_BTN.checked = false;
+    BG_DEFAULT_COLOR_2_BTN.checked = false;
+    BG_DEFAULT_COLOR_1_BTN.checked = false;
     LIGHT_MENU_BTN.checked = true;
     LIGHT_HEADER_BTN.checked = true;
 }
