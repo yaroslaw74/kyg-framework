@@ -8,14 +8,13 @@ import { updateColors } from "./functions/updateColors.js";
 
 (() => {
     const HTML = document.querySelector("html");
-
     /* tooltip */
     const TOOLTIP_TRIGGER_LIST = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const _TOOLTIP_LIST_ = [...TOOLTIP_TRIGGER_LIST].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+    const _tooltipList = [...TOOLTIP_TRIGGER_LIST].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
 
     /* popover  */
     const POPOVER_TRIGGER_LIST = document.querySelectorAll('[data-bs-toggle="popover"]');
-    const _POPOVER_LIST_ = [...POPOVER_TRIGGER_LIST].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
+    const _popoverList = [...POPOVER_TRIGGER_LIST].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
 
     //switcher color pickers
     const PICKR_CONTAINER_PRIMARY = document.querySelector(".pickr-container-primary");
@@ -152,7 +151,9 @@ import { updateColors } from "./functions/updateColors.js";
 
             /* Set events */
             nanoPickr1.on("changestop", (_source, instance) => {
+                const DARK_BTN = document.querySelector("#switcher-dark-theme");
                 const COLOR = instance.getColor().toRGBA();
+                const HTML = document.querySelector("html");
                 HTML.style.setProperty("--body-bg-rgb", `${COLOR[0]}, ${COLOR[1]}, ${COLOR[2]}`);
                 HTML.style.setProperty("--light-rgb", `${COLOR[0] + 14}, ${COLOR[1] + 14}, ${COLOR[2] + 14}`);
                 HTML.style.setProperty("--form-control-bg", `rgb(${COLOR[0] + 14}, ${COLOR[1] + 14}, ${COLOR[2] + 14})`);
@@ -162,7 +163,6 @@ import { updateColors } from "./functions/updateColors.js";
                 HTML.setAttribute("data-theme-mode", "dark");
                 HTML.setAttribute("data-menu-styles", "dark");
                 HTML.setAttribute("data-header-styles", "dark");
-                const DARK_BTN = document.querySelector("#switcher-dark-theme");
                 DARK_BTN.checked = true;
                 localStorage.setItem("bodyBgRGB", `${COLOR[0]}, ${COLOR[1]}, ${COLOR[2]}`);
                 localStorage.setItem("bodylightRGB", `${COLOR[0] + 14}, ${COLOR[1] + 14}, ${COLOR[2] + 14}`);
