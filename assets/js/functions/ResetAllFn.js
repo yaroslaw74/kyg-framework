@@ -1,4 +1,5 @@
-import { checkOptions } from "/checkOptions.js";
+import { checkOptions } from "./checkOptions.js";
+import { clearNavDropdown } from "./clearNavDropdown.js";
 import { lightFn } from "./lightFn.js";
 import { updateColors } from "./updateColors.js";
 import { verticalFn } from "./verticalFn.js";
@@ -9,11 +10,11 @@ export function ResetAllFn() {
     const MAIN_CONTENT = document.querySelector(".main-content");
 
     const BOXED_BTN = document.querySelector("#switcher-boxed");
-    const FULLWIDTH_BTN = document.querySelector("#switcher-full-width");
+    const FULL_WIDTH_BTN = document.querySelector("#switcher-full-width");
     const FIXED_MENU_BTN = document.querySelector("#switcher-menu-fixed");
     const SCROLL_MENU_BTN = document.querySelector("#switcher-menu-scroll");
     const FIXED_HEADER_BTN = document.querySelector("#switcher-header-fixed");
-    const SCROLL_HEADE_RBTN = document.querySelector("#switcher-header-scroll");
+    const SCROLL_HEADER_BTN = document.querySelector("#switcher-header-scroll");
     const REGULAR_BTN = document.querySelector("#switcher-regular");
     const CLASSIC_BTN = document.querySelector("#switcher-classic");
     const MODERN_BTN = document.querySelector("#switcher-modern");
@@ -73,7 +74,7 @@ export function ResetAllFn() {
     REGULAR_BTN.checked = true;
 
     // reseting layout width styles
-    FULLWIDTH_BTN.checked = true;
+    FULL_WIDTH_BTN.checked = true;
     BOXED_BTN.checked = false;
 
     // reseting menu position styles
@@ -82,7 +83,7 @@ export function ResetAllFn() {
 
     // reseting header position styles
     FIXED_HEADER_BTN.checked = true;
-    SCROLL_HEADE_RBTN.checked = false;
+    SCROLL_HEADER_BTN.checked = false;
 
     // reseting sidemenu layout styles
     DEFAULT_BTN.checked = true;
