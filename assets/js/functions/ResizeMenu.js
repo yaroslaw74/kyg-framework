@@ -7,14 +7,14 @@ import { toggleSidemenu } from "./toggleSidemenu.js";
 export function ResizeMenu() {
     const HTML = document.querySelector("html");
     const MAIN_CONTENT = document.querySelector(".main-content");
-    const WINDOW_PRESIZE = [window.innerWidth];
 
-    WINDOW_PRESIZE.push(window.innerWidth);
-    if (WINDOW_PRESIZE.length > 2) {
-        WINDOW_PRESIZE.shift();
+    const WINDOW_PRE_SIZE = [window.innerWidth];
+    WINDOW_PRE_SIZE.push(window.innerWidth);
+    if (WINDOW_PRE_SIZE.length > 2) {
+        WINDOW_PRE_SIZE.shift();
     }
-    if (WINDOW_PRESIZE.length > 1) {
-        if (WINDOW_PRESIZE[WINDOW_PRESIZE.length - 1] < 992 && WINDOW_PRESIZE[WINDOW_PRESIZE.length - 2] >= 992) {
+    if (WINDOW_PRE_SIZE.length > 1) {
+        if (WINDOW_PRE_SIZE[WINDOW_PRE_SIZE.length - 1] < 992 && WINDOW_PRE_SIZE[WINDOW_PRE_SIZE.length - 2] >= 992) {
             // less than 992;
             MAIN_CONTENT.addEventListener("click", menuClose);
             setNavActive();
@@ -22,7 +22,7 @@ export function ResizeMenu() {
             MAIN_CONTENT.removeEventListener("click", clearNavDropdown);
         }
 
-        if (WINDOW_PRESIZE[WINDOW_PRESIZE.length - 1] >= 992 && WINDOW_PRESIZE[WINDOW_PRESIZE.length - 2] < 992) {
+        if (WINDOW_PRE_SIZE[WINDOW_PRE_SIZE.length - 1] >= 992 && WINDOW_PRE_SIZE[WINDOW_PRE_SIZE.length - 2] < 992) {
             // greater than 992
             MAIN_CONTENT.removeEventListener("click", menuClose);
             toggleSidemenu();
