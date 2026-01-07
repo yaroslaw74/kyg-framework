@@ -1,5 +1,6 @@
 import { clearNavDropdown } from "./clearNavDropdown.js";
 import { doubleClickFn } from "./doubleClickFn.js";
+import { doublemenu } from "./doublemenu.js";
 import { icontextClose } from "./icontextClose.js";
 import { icontextOpen } from "./icontextOpen.js";
 import { menuClose } from "./menuClose.js";
@@ -9,21 +10,19 @@ import { setNavActive } from "./setNavActive.js";
 
 export function toggleSidemenu() {
     const HTML = document.querySelector("html");
+    const RESPONSIVE_OVERLAY = document.querySelector("#responsive-overlay");
     const SIDEMENU_TYPE = HTML.getAttribute("data-nav-layout");
     const SIDEBAR = document.getElementById("sidebar");
-    const MAIN_CONTEN_TDIV = document.querySelector(".main-content");
-    const RESPONSIVE_OVERLAY = document.querySelector("#responsive-overlay");
+    const MAIN_CONTENT = document.querySelector(".main-content");
 
     if (window.innerWidth >= 992) {
         if (SIDEMENU_TYPE === "vertical") {
             SIDEBAR.removeEventListener("mouseenter", mouseEntered);
             SIDEBAR.removeEventListener("mouseleave", mouseLeave);
             SIDEBAR.removeEventListener("click", icontextOpen);
-            MAIN_CONTEN_TDIV.removeEventListener("click", icontextClose);
+            MAIN_CONTENT.removeEventListener("click", icontextClose);
             const SIDEMENU_LINK = document.querySelectorAll(".main-menu li > .side-menu__item");
-            SIDEMENU_LINK.forEach((ele) => {
-                ele.removeEventListener("click", doubleClickFn);
-            });
+            SIDEMENU_LINK.forEach((ele) => ele.removeEventListener("click", doubleClickFn));
 
             const VERTICAL_STYLE = HTML.getAttribute("data-vertical-style");
             switch (VERTICAL_STYLE) {
@@ -62,15 +61,15 @@ export function toggleSidemenu() {
                     if (HTML.getAttribute("data-toggled") === "icon-text-close") {
                         HTML.removeAttribute("data-toggled", "icon-text-close");
                         SIDEBAR.removeEventListener("click", icontextOpen);
-                        MAIN_CONTEN_TDIV.removeEventListener("click", icontextClose);
+                        MAIN_CONTENT.removeEventListener("click", icontextClose);
                     } else {
                         HTML.setAttribute("data-toggled", "icon-text-close");
                         if (window.innerWidth >= 992) {
                             SIDEBAR.addEventListener("click", icontextOpen);
-                            MAIN_CONTEN_TDIV.addEventListener("click", icontextClose);
+                            MAIN_CONTENT.addEventListener("click", icontextClose);
                         } else {
                             SIDEBAR.removeEventListener("click", icontextOpen);
-                            MAIN_CONTEN_TDIV.removeEventListener("click", icontextClose);
+                            MAIN_CONTENT.removeEventListener("click", icontextClose);
                         }
                     }
                     break;
@@ -79,20 +78,21 @@ export function toggleSidemenu() {
                     HTML.removeAttribute("data-nav-style");
                     if (HTML.getAttribute("data-toggled") === "double-menu-open") {
                         HTML.setAttribute("data-toggled", "double-menu-close");
-                        if (document.querySelector(".slide-menu")) {
-                            const SLIDEMENU = document.querySelectorAll(".slide-menu");
-                            SLIDEMENU.forEach((e) => {
+                        const SLIDE_MENU_1 = document.querySelector(".slide-menu");
+                        if (SLIDE_MENU_1) {
+                            const SLIDE_MENU = document.querySelectorAll(".slide-menu");
+                            SLIDE_MENU.forEach((e) => {
                                 if (e.classList.contains("double-menu-active")) {
                                     e.classList.remove("double-menu-active");
                                 }
                             });
                         }
                     } else {
-                        const SIDEMENU = document.querySelector(".side-menu__item.active");
-                        if (SIDEMENU) {
+                        const SIDE_MENU = document.querySelector(".side-menu__item.active");
+                        if (SIDE_MENU) {
                             HTML.setAttribute("data-toggled", "double-menu-open");
-                            if (SIDEMENU.nextElementSibling) {
-                                SIDEMENU.nextElementSibling.classList.add("double-menu-active");
+                            if (SIDE_MENU.nextElementSibling) {
+                                SIDE_MENU.nextElementSibling.classList.add("double-menu-active");
                             } else {
                                 HTML.setAttribute("data-toggled", "double-menu-close");
                             }
@@ -121,10 +121,10 @@ export function toggleSidemenu() {
                     break;
                 // default
                 case "default":
-                    HTML.removeAttribute("data-toggled");
                     HTML.setAttribute("data-nav-layout", "vertical");
                     HTML.setAttribute("data-vertical-style", "overlay");
                     setNavActive();
+                    HTML.removeAttribute("data-toggled");
 
                 // for making any vertical style as default
                 // default:
