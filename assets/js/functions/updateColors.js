@@ -1,3 +1,6 @@
+//import { salesReport } from "./salesReport.js";
+//import { vectormap } from "./vectormap.js";
+
 export function updateColors() {
     const PRIMARY_RGB = getComputedStyle(document.documentElement).getPropertyValue("--primary-rgb").trim();
 
