@@ -18,6 +18,7 @@
         ]
     },
     "formatter": {
+        "enabled": true,
         "formatWithErrors": false,
         "attributePosition": "auto",
         "lineWidth": 256,
@@ -37,6 +38,14 @@
     "json": {
         "formatter": {
             "trailingCommas": "none"
+        }
+    },
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
         }
     }
 }
