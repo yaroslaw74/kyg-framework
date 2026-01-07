@@ -1,3 +1,4 @@
+import { iconOverayFn } from "./iconOverayFn.js";
 import { clearNavDropdown } from "./clearNavDropdown.js";
 import { closedSidemenuFn } from "./closedSidemenuFn.js";
 import { darkFn } from "./darkFn.js";
@@ -6,10 +7,8 @@ import { doubletFn } from "./doubletFn.js";
 import { horizontalClickFn } from "./horizontalClickFn.js";
 import { iconClickFn } from "./iconClickFn.js";
 import { iconHoverFn } from "./iconHoverFn.js";
-import { iconOverayFn } from "./iconOverayFn.js";
 import { iconTextFn } from "./iconTextFn.js";
 import { lightFn } from "./lightFn.js";
-import { menuClickFn } from "./menuClickFn.js";
 import { menuhoverFn } from "./menuhoverFn.js";
 import { ResetAllFn } from "./ResetAllFn.js";
 import { ResizeMenu } from "./ResizeMenu.js";
@@ -21,7 +20,10 @@ import { verticalFn } from "./verticalFn.js";
 export function switcherClick() {
     const HTML = document.querySelector("html");
     const MENU_NAV = document.querySelector(".main-menu");
-    const MAIN_CONTENT = document.querySelector(".main-content");
+    const MAIN_MENU = document.querySelectorAll(".main-menu>li.open");
+    const SLIDE = document.querySelectorAll(".slide");
+    const SLIDE_RIGHT = document.querySelector("#slide-right");
+    const SLIDE_LEFT = document.querySelector("#slide-left");
 
     const LIGHT_BTN = document.querySelector("#switcher-light-theme");
     const DARK_BTN = document.querySelector("#switcher-dark-theme");
@@ -32,7 +34,7 @@ export function switcherClick() {
     const FIXED_MENU_BTN = document.querySelector("#switcher-menu-fixed");
     const SCROLL_MENU_BTN = document.querySelector("#switcher-menu-scroll");
     const FIXED_HEADER_BTN = document.querySelector("#switcher-header-fixed");
-    const SCROLL_HEADE_RBTN = document.querySelector("#switcher-header-scroll");
+    const SCROLL_HEADER_BTN = document.querySelector("#switcher-header-scroll");
     const LIGHT_HEADER_BTN = document.querySelector("#switcher-header-light");
     const DARK_HEADER_BTN = document.querySelector("#switcher-header-dark");
     const COLOR_HEADER_BTN = document.querySelector("#switcher-header-primary");
@@ -309,7 +311,7 @@ export function switcherClick() {
         HTML.setAttribute("data-width", "boxed");
         localStorage.setItem("valexboxed", "true");
         localStorage.removeItem("valexfullwidth");
-        document.querySelector("#slide-right").classList.remove("d-none");
+        SLIDE_RIGHT.classList.remove("d-none");
         // checkHoriMenu();
     });
     /* Boxed Layout End */
@@ -348,7 +350,7 @@ export function switcherClick() {
         localStorage.removeItem("valexHeaderscrollable");
     });
 
-    const _scrollHeaderVar = SCROLL_HEADE_RBTN.addEventListener("click", () => {
+    const _scrollHeaderVar = SCROLL_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-position", "scrollable");
         localStorage.setItem("valexHeaderscrollable", "true");
         localStorage.removeItem("valexHeaderfixed");
@@ -375,7 +377,7 @@ export function switcherClick() {
         HTML.setAttribute("data-nav-layout", "vertical");
         toggleSidemenu();
         localStorage.removeItem("valexverticalstyles");
-        document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
+        MAIN_MENU.forEach((ele) => {
             if (!ele.classList.contains("active")) {
                 ele.classList.remove("open");
                 ele.querySelector("ul").style.display = "none";
@@ -388,7 +390,7 @@ export function switcherClick() {
     const _closedVar = CLOSED_BTN.addEventListener("click", () => {
         closedSidemenuFn();
         localStorage.setItem("valexverticalstyles", "closed");
-        document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
+        MAIN_MENU.forEach((ele) => {
             if (!ele.classList.contains("active")) {
                 ele.classList.remove("open");
                 ele.querySelector("ul").style.display = "none";
@@ -415,7 +417,7 @@ export function switcherClick() {
     const _overlayVar = OVERLAY_BTN.addEventListener("click", () => {
         iconOverayFn();
         localStorage.setItem("valexverticalstyles", "overlay");
-        document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
+        MAIN_MENU.forEach((ele) => {
             if (!ele.classList.contains("active")) {
                 ele.classList.remove("open");
                 ele.querySelector("ul").style.display = "none";
@@ -437,7 +439,7 @@ export function switcherClick() {
         menuClickFn();
         localStorage.setItem("valexnavstyles", "menu-click");
         localStorage.removeItem("valexverticalstyles");
-        document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
+        MAIN_MENU.forEach((ele) => {
             if (!ele.classList.contains("active")) {
                 ele.classList.remove("open");
                 ele.querySelector("ul").style.display = "none";
@@ -478,9 +480,9 @@ export function switcherClick() {
             MENU_NAV.style.marginLeft = "0px";
             MENU_NAV.style.marginRight = "0px";
             ResizeMenu();
-            document.querySelector("#slide-left").classList.add("d-none");
+            SLIDE_LEFT.classList.add("d-none");
         }
-        document.querySelectorAll(".main-menu>li.open").forEach((ele) => {
+        MAIN_MENU.forEach((ele) => {
             if (!ele.classList.contains("active")) {
                 ele.classList.remove("open");
                 ele.querySelector("ul").style.display = "none";
@@ -500,25 +502,26 @@ export function switcherClick() {
             MENU_NAV.style.marginLeft = "0px";
             MENU_NAV.style.marginRight = "0px";
             ResizeMenu();
-            document.querySelector("#slide-left").classList.add("d-none");
+            SLIDE_LEFT.classList.add("d-none");
         }
     });
     /* icon hover Sidemenu End */
 
     /* Sidemenu start*/
     const _verticalVar = VERTICAL_BTN.addEventListener("click", () => {
+        const mainContent = document.querySelector(".main-content");
         // local storage
         localStorage.removeItem("valexlayout");
         localStorage.setItem("valexverticalstyles", "default");
         verticalFn();
         setNavActive();
-        MAIN_CONTENT.removeEventListener("click", clearNavDropdown);
+        mainContent.removeEventListener("click", clearNavDropdown);
 
         //
         MENU_NAV.style.marginLeft = "0px";
         MENU_NAV.style.marginRight = "0px";
 
-        document.querySelectorAll(".slide").forEach((element) => {
+        SLIDE.forEach((element) => {
             if (element.classList.contains("open") && !element.classList.contains("active")) {
                 element.querySelector("ul").style.display = "none";
             }
@@ -528,6 +531,7 @@ export function switcherClick() {
 
     /* horizontal start*/
     const _horiVar = HORI_BTN.addEventListener("click", () => {
+        const mainContent = document.querySelector(".main-content");
         HTML.removeAttribute("data-vertical-style");
         //    local storage
         localStorage.setItem("valexlayout", "horizontal");
@@ -535,7 +539,7 @@ export function switcherClick() {
 
         horizontalClickFn();
         clearNavDropdown();
-        MAIN_CONTENT.removeEventListener("click", clearNavDropdown);
+        mainContent.addEventListener("click", clearNavDropdown);
     });
     /* horizontal end*/
 
@@ -545,7 +549,7 @@ export function switcherClick() {
         setNavActive();
         HTML.setAttribute("data-menu-styles", "light");
         LIGHT_MENU_BTN.checked = true;
-        document.querySelectorAll(".slide").forEach((element) => {
+        SLIDE.forEach((element) => {
             if (element.classList.contains("open") && !element.classList.contains("active")) {
                 element.querySelector("ul").style.display = "none";
             }
@@ -554,14 +558,14 @@ export function switcherClick() {
     // reset all end
 
     /* loader start */
-    const _LoaderEnableVar = LOADER_ENABLE_BTN.addEventListener("click", () => {
+    LOADER_ENABLE_BTN.onclick = () => {
         HTML.setAttribute("loader", "enable");
         localStorage.setItem("loaderEnable", "true");
-    });
+    };
 
-    const _LoaderDisableVar = LOADER_DISABLE_BTN.addEventListener("click", () => {
+    LOADER_DISABLE_BTN.onclick = () => {
         HTML.setAttribute("loader", "disable");
         localStorage.setItem("loaderEnable", "false");
-    });
+    };
     /* loader end */
 }
