@@ -1,4 +1,3 @@
-import { iconOverayFn } from "./iconOverayFn.js";
 import { clearNavDropdown } from "./clearNavDropdown.js";
 import { closedSidemenuFn } from "./closedSidemenuFn.js";
 import { darkFn } from "./darkFn.js";
@@ -7,6 +6,7 @@ import { doubletFn } from "./doubletFn.js";
 import { horizontalClickFn } from "./horizontalClickFn.js";
 import { iconClickFn } from "./iconClickFn.js";
 import { iconHoverFn } from "./iconHoverFn.js";
+import { iconOverayFn } from "./iconOverayFn.js";
 import { iconTextFn } from "./iconTextFn.js";
 import { lightFn } from "./lightFn.js";
 import { menuhoverFn } from "./menuhoverFn.js";
