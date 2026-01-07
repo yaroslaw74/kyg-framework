@@ -1,11 +1,8 @@
-//import { salesReport } from "salesReport.js";
-//import { vectormap } from "vectormap.js";
-
 export function updateColors() {
-    const primaryRGB = getComputedStyle(document.documentElement).getPropertyValue("--primary-rgb").trim();
+    const PRIMARY_RGB = getComputedStyle(document.documentElement).getPropertyValue("--primary-rgb").trim();
 
     //get variable
-    const _myVarVal = localStorage.getItem("primaryRGB") || primaryRGB;
+    const _myVarVal = localStorage.getItem("primaryRGB") || PRIMARY_RGB;
     if (document.querySelector("#Sales-bar") !== null) {
         salesReport();
     }
