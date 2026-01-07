@@ -1,7 +1,7 @@
 import { checkOptions } from "./checkOptions.js";
 
 export function toggleTheme() {
-    const HTML = document.querySelector("HTML");
+    const HTML = document.querySelector("html");
 
     const LIGHT_BTN = document.querySelector("#switcher-light-theme");
     const DARK_BTN = document.querySelector("#switcher-dark-theme");
@@ -34,11 +34,11 @@ export function toggleTheme() {
         LIGHT_HEADER_BTN.checked = true;
         LIGHT_MENU_BTN.checked = true;
         LIGHT_BTN.checked = true;
-        BG_DEFAULT_COLOR_1_BTN.checked = false;
-        BG_DEFAULT_COLOR_2_BTN.checked = false;
-        BG_DEFAULT_COLOR_3_BTN.checked = false;
-        BG_DEFAULT_COLOR_4_BTN.checked = false;
         BG_DEFAULT_COLOR_5_BTN.checked = false;
+        BG_DEFAULT_COLOR_4_BTN.checked = false;
+        BG_DEFAULT_COLOR_3_BTN.checked = false;
+        BG_DEFAULT_COLOR_2_BTN.checked = false;
+        BG_DEFAULT_COLOR_1_BTN.checked = false;
         localStorage.removeItem("valexdarktheme");
         localStorage.removeItem("valexMenu");
         localStorage.removeItem("valexHeader");
@@ -63,11 +63,11 @@ export function toggleTheme() {
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
         DARK_BTN.checked = true;
-        BG_DEFAULT_COLOR_1_BTN.checked = false;
-        BG_DEFAULT_COLOR_2_BTN.checked = false;
-        BG_DEFAULT_COLOR_3_BTN.checked = false;
-        BG_DEFAULT_COLOR_4_BTN.checked = false;
         BG_DEFAULT_COLOR_5_BTN.checked = false;
+        BG_DEFAULT_COLOR_4_BTN.checked = false;
+        BG_DEFAULT_COLOR_3_BTN.checked = false;
+        BG_DEFAULT_COLOR_2_BTN.checked = false;
+        BG_DEFAULT_COLOR_1_BTN.checked = false;
         localStorage.setItem("valexdarktheme", "true");
         localStorage.setItem("valexMenu", "dark");
         localStorage.setItem("valexHeader", "dark");
