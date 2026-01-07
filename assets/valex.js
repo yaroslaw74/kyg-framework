@@ -15,11 +15,11 @@ import "./scss/styles.scss";
  * Modules
  */
 
+/* Custom JS */
+import "./js/custom.js";
+
 /* Custom-Switcher JS */
 import "./js/custom-switcher.js";
-
-/*  Custom JS */
-import "./js/custom.js";
 
 /* Defaultmenu JS */
 import "./js/defaultmenu.js";
