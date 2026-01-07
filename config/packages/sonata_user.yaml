@@ -1,0 +1,8 @@
+sonata_user:
+    manager_type: orm
+    class:
+        user: App\Modules\Users\Entity\User
+    resetting:
+        email:
+            address: sonata@localhost
+            sender_name: Sonata Admin
