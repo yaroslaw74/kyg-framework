@@ -7,7 +7,7 @@ security:
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
+        kyg_user_provider:
             entity:
                 class: App\Modules\Users\Entity\User
                 property: username
@@ -36,16 +36,29 @@ security:
                 lifetime: 2629746
                 path: /admin
             switch_user: true
-        app:
+        kyg:
             lazy: true
             pattern: /kyg(.*)
-            provider: app_user_provider
+            provider: kyg_user_provider
+            form_login:
+                login_path: kyg_login
+                check_path: kyg_login
+                enable_csrf: true
+            logout:
+                path: kyg_logout
+                # where to redirect after logout
+                target: kyg
+            remember_me:
+                signature_properties: ["password", "updatedAt"]
+            login_throttling:
+                max_attempts: 5
+                interval: "15 minutes"
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            switch_user: true
 
     role_hierarchy:
         ROLE_ADMIN: [ROLE_USER]
