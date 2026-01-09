@@ -1,4 +1,4 @@
-function localStorageBackup() {
+export function localStorageBackup() {
     const HTML = document.querySelector("html");
     // if there is a value stored, update color picker and background color
     // Used to retrive the data from local storage
