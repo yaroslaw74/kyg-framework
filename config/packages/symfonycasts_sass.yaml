@@ -1,3 +1,0 @@
-symfonycasts_sass:
-    root_sass:
-        - "assets/scss/styles.scss"
