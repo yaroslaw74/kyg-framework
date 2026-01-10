@@ -7,8 +7,6 @@ framework:
         missing_import_mode: strict
         exclude_dotfiles: true
         excluded_patterns:
-            - "**/assets/scss/_*.scss"
-            - "**/assets/scss/**/_*.scss"
             - "*.md"
             - "composer.json"
             - "package.json"
