@@ -42,11 +42,6 @@
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
-
-###> symfonycasts/sass-bundle ###
-/public/assets/
-###< symfonycasts/sass-bundle ###
-
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
