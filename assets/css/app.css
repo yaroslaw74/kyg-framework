@@ -1,34 +1,34 @@
 /* Start::main-footer-container */
 .main-footer-container {
-    display        : flex;
-    align-items    : center;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    height         : 100%;
+    height: 100%;
 }
 
 .main-footer-container .footer-content-left {
-    display        : flex;
-    align-items    : center;
+    display: flex;
+    align-items: center;
     justify-content: start;
 }
 
 .main-footer-container .footer-content-right {
-    display        : flex;
-    align-items    : center;
+    display: flex;
+    align-items: center;
     justify-content: end;
 }
 
 .main-footer-container .footer-element {
-    display    : flex;
+    display: flex;
     align-items: center;
-    padding    : 2px;
+    padding: 2px;
 }
 
 .footer .footer-logo .footer-logo-all,
 .footer .footer-logo .footer-logo-dark,
 .footer .footer-logo .footer-logo-white {
     height: 2rem;
-    width : 2rem;
+    width: 2rem;
 }
 
 .footer .footer-logo .footer-logo-all {
@@ -49,98 +49,98 @@
 
 /* Start::Auth-container */
 .auth-container {
-    display        : flex;
+    display: flex;
     justify-content: center;
-    height         : 100%;
+    height: 100%;
 }
 
 .auth-container-element {
     align-items: center;
-    padding    : 1px;
+    padding: 1px;
 }
 
 .btn-vk {
-    background-color: #0077FF;
-    color           : #fff;
-    border          : 1px solid #0077FF;
+    background-color: #0077ff;
+    color: #fff;
+    border: 1px solid #0077ff;
 }
 
 .btn-vk:hover,
 .btn-vk:focus,
 .btn-vk:active {
-    background-color: #0077FF !important;
-    color           : #fff !important;
-    border          : 1px solid #0077FF !important;
+    background-color: #0077ff !important;
+    color: #fff !important;
+    border: 1px solid #0077ff !important;
 }
 
 .btn-odnoklassniki {
     background-color: #f8931f;
-    color           : #fff;
-    border          : 1px solid #f8931f;
+    color: #fff;
+    border: 1px solid #f8931f;
 }
 
 .btn-odnoklassniki:hover,
 .btn-odnoklassniki:focus,
 .btn-odnoklassniki:active {
     background-color: #e67d0e !important;
-    color           : #fff !important;
-    border          : 1px solid #e67d0e !important;
+    color: #fff !important;
+    border: 1px solid #e67d0e !important;
 }
 
 .btn-x-twitter {
     background-color: #000;
-    color           : #fff;
-    border          : 1px solid #000;
+    color: #fff;
+    border: 1px solid #000;
 }
 
 .btn-x-twitter:hover,
 .btn-x-twitter:focus,
 .btn-x-twitter:active {
     background-color: #000 !important;
-    color           : #fff !important;
-    border          : 1px solid #000 !important;
+    color: #fff !important;
+    border: 1px solid #000 !important;
 }
 
 .btn-yandex {
-    background-color: #F00;
-    color           : #fff;
-    border          : 1px solid #F00;
+    background-color: #f00;
+    color: #fff;
+    border: 1px solid #f00;
 }
 
 .btn-yandex:hover,
 .btn-yandex:focus,
 .btn-yandex:active {
-    background-color: #F00 !important;
-    color           : #fff !important;
-    border          : 1px solid #F00 !important;
+    background-color: #f00 !important;
+    color: #fff !important;
+    border: 1px solid #f00 !important;
 }
 
 .btn-linkedin {
     background-color: #0077b5;
-    color           : #fff;
-    border          : 1px solid #0077b5;
+    color: #fff;
+    border: 1px solid #0077b5;
 }
 
 .btn-linkedin:hover,
 .btn-linkedin:focus,
 .btn-linkedin:active {
     background-color: #005580 !important;
-    color           : #fff !important;
-    border          : 1px solid #005580 !important;
+    color: #fff !important;
+    border: 1px solid #005580 !important;
 }
 
 .btn-mail-ru {
     background-color: #007bff;
-    color           : #fff;
-    border          : 1px solid #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
 }
 
 .btn-mail-ru:hover,
 .btn-mail-ru:focus,
 .btn-mail-ru:active {
     background-color: #0056b3 !important;
-    color           : #fff !important;
-    border          : 1px solid #0056b3 !important;
+    color: #fff !important;
+    border: 1px solid #0056b3 !important;
 }
 
 /* End::Auth-container */
