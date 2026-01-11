@@ -1,0 +1,38 @@
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.php"
+    prefix: /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.php"
+    prefix: /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.php"
+    prefix: /login
+
+facebook_login:
+    path: /login/check-facebook
+
+google_login:
+    path: /login/check-google
+
+yandex_login:
+    path: /login/check-yandex
+
+github_login:
+    path: /login/check-github
+
+linkedin_login:
+    path: /login/check-linkedin
+
+mailru_login:
+    path: /login/check-mailru
+
+odnoklassniki_login:
+    path: /login/check-odnoklassniki
+
+X_twitter_login:
+    path: /login/check-x-twitter
+
+vkontakte_login:
+    path: /login/check-vkontakte
