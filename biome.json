@@ -40,6 +40,9 @@
             "trailingCommas": "none"
         }
     },
+    "linter": {
+        "enabled": true
+    },
     "assist": {
         "enabled": true,
         "actions": {
