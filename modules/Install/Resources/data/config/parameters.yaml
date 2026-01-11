@@ -1,5 +1,19 @@
 parameters:
+    app.name: null
+    app.desktop_logo: null
+    app.toggle_logo: null
+    app.desktop_white: null
+    app.toggle_white: null
     app.default_locale: en
+    app.facebook: false
+    app.google: false
+    app.yandex: false
+    app.github: false
+    app.linkedin: false
+    app.mailru: false
+    app.odnoklassniki: false
+    app.x_twitter: false
+    app.vkontakte: false
     app.enabled_locales:
         - af_NA
         - af_ZA
