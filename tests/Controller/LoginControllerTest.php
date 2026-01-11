@@ -50,7 +50,7 @@ class LoginControllerTest extends WebTestCase
     public function testLogin(): void
     {
         // Denied - Can't login with invalid email address.
-        $this->client->request('GET', '/login');
+        $this->client->request('GET', '/kyg/login');
         self::assertResponseIsSuccessful();
 
         $this->client->submitForm('Sign in', [
@@ -58,14 +58,14 @@ class LoginControllerTest extends WebTestCase
             '_password' => 'password',
         ]);
 
-        self::assertResponseRedirects('/login');
+        self::assertResponseRedirects('/kyglogin');
         $this->client->followRedirect();
 
         // Ensure we do not reveal if the user exists or not.
         self::assertSelectorTextContains('.alert-danger', 'Invalid credentials.');
 
         // Denied - Can't login with invalid password.
-        $this->client->request('GET', '/login');
+        $this->client->request('GET', '/kyg/login');
         self::assertResponseIsSuccessful();
 
         $this->client->submitForm('Sign in', [
@@ -73,7 +73,7 @@ class LoginControllerTest extends WebTestCase
             '_password' => 'bad-password',
         ]);
 
-        self::assertResponseRedirects('/login');
+        self::assertResponseRedirects('/kyg/login');
         $this->client->followRedirect();
 
         // Ensure we do not reveal the user exists but the password is wrong.
