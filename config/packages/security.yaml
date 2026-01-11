@@ -105,6 +105,6 @@ security:
 
         - { path: ^/kyg/login$, roles: PUBLIC_ACCESS }
         - { path: ^/kyg/logout$, roles: PUBLIC_ACCESS }
-        - { path: ^/kyg/connect$, roles: PUBLIC_ACCESS }
-        - { path: ^/kyg/login_check$, role: PUBLIC_ACCESS }
+        - { path: ^/kyg/register$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/verify/email$, roles: PUBLIC_ACCESS }
         # - { path: ^/kyg, roles: ROLE_USER }
