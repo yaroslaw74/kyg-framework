@@ -338,7 +338,15 @@
                 <a href="javascript:void(0);" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     {% if app.user %}
                         {% if app.user.gravatar %}
-                            <img src="{{ gravatar(app.user.gravatar) }}" alt="img" width="37" height="37" class="rounded-circle">
+                            {% if gravatar_exists(app.user.gravatar) %}
+                                <img src="{{ gravatar(app.user.gravatar) }}" alt="img" width="37" height="37" class="rounded-circle">
+                            {% else %}
+                                {% if app.user.avatar %}
+                                    <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="img" width="37" height="37" class="rounded-circle">
+                                {% else %}
+                                    <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="img" width="37" height="37" class="rounded-circle">
+                                {% endif %}
+                            {% endif %}
                         {% else %}
                             {% if app.user.avatar %}
                                 <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="img" width="37" height="37" class="rounded-circle">
