@@ -98,7 +98,7 @@ services:
                 "linkedin": "linkedin"
                 "mailru": "mailru"
                 "odnoklassniki": "odnoklassniki"
-                "X-twitter": "twitter"
+                "X-twitter": "x_twitter"
                 "vkontakte": "vkontakte"
                 "github": "github"
 
