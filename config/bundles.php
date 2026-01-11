@@ -45,4 +45,5 @@ return [
     Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
     HWI\Bundle\OAuthBundle\HWIOAuthBundle::class => ['all' => true],
+    Pyrrah\GravatarBundle\PyrrahGravatarBundle::class => ['all' => true],
 ];
