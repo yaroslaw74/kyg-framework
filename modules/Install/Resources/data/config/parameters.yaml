@@ -4,6 +4,8 @@ parameters:
     app.toggle_logo: null
     app.desktop_white: null
     app.toggle_white: null
+    app.email_bot: "mailer@your-domain.com"
+    app.name_bot: "Acme Mail Bot"
     app.default_locale: en
     app.facebook: false
     app.google: false
