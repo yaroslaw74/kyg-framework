@@ -19,6 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseUser3 as BaseUser;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
@@ -26,6 +27,7 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
+#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -79,6 +81,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $gravatar = null;
 
+    #[ORM\Column(options: ["default" => false])]
+    private bool $isVerified = false;
+
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
      *
@@ -87,7 +92,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -128,6 +133,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->github,
             $this->avatar,
             $this->gravatar,
+            $this->isVerified,
         ] = $data;
     }
 
@@ -317,6 +323,18 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function setGravatar(string $gravatar): static
     {
         $this->gravatar = $gravatar;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
