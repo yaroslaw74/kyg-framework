@@ -12,10 +12,26 @@
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
         <a href="{{ path('kyg_home') }}" class="header-logo">
-            <img src="{{ asset('images/brand-logos/kyg-desktop-logo.png') }}" alt="logo" class="desktop-logo">
-            <img src="{{ asset('images/brand-logos/kyg-logo.png') }}" alt="logo" class="toggle-logo">
-            <img src="{{ asset('images/brand-logos/kyg-desktop-white.png') }}" alt="logo" class="desktop-white">
-            <img src="{{ asset('images/brand-logos/kyg-logo.png') }}" alt="logo" class="toggle-white">
+            {% if app_desktop_logo %}
+                <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_logo) }}" alt="logo" class="desktop-logo">
+            {% else %}
+                <img src="{{ asset('images/brand-logos/kyg-desktop-logo.png') }}" alt="logo" class="desktop-logo">
+            {% endif %}
+            {% if app_toggle_logo %}
+                <img src="{{ asset('theme/images/brand-logos/' ~ app_toggle_logo) }}" alt="logo" class="toggle-logo">
+            {% else %}
+                <img src="{{ asset('images/brand-logos/kyg-logo.png') }}" alt="logo" class="toggle-logo">
+            {% endif %}
+            {% if app_desktop_white %}
+                <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_white) }}" alt="logo" class="desktop-white">
+            {% else %}
+                <img src="{{ asset('images/brand-logos/kyg-desktop-white.png') }}" alt="logo" class="desktop-white">
+            {% endif %}
+            {% if app_toggle_white %}
+                <img src="{{ asset('theme/images/brand-logos/' ~ app_toggle_white) }}" alt="logo" class="toggle-white">
+            {% else %}
+                <img src="{{ asset('images/brand-logos/kyg-logo.png') }}" alt="logo" class="toggle-white">
+            {% endif %}
         </a>
     </div>
     <!-- End::main-sidebar-header -->
