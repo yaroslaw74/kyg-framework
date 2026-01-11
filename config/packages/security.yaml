@@ -40,6 +40,7 @@ security:
             lazy: true
             pattern: /kyg(.*)
             provider: kyg_user_provider
+            entry_point: "form_login"
             form_login:
                 login_path: kyg_login
                 check_path: kyg_login
@@ -49,10 +50,30 @@ security:
                 # where to redirect after logout
                 target: kyg
             remember_me:
-                signature_properties: ["password", "updatedAt"]
+                secret: "%env(APP_SECRET)%"
+                lifetime: 2629746
+                path: kyg
             login_throttling:
                 max_attempts: 5
                 interval: "15 minutes"
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    google: "/login/check-google"
+                    yandex: "/login/check-yandex"
+                    github: "/login/check-github"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    X-twitter: "/login/check-x-twitter"
+                    vkontakte: "/login/check-vkontakte"
+                login_path: /kyg/login
+                use_forward: false
+                failure_path: /kyg/login
+                check_path: /kyg/login-check
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -80,4 +101,10 @@ security:
         #- { path: ^/admin/, role: ROLE_SONATA_ADMIN }
         - { path: ^/.*, role: PUBLIC_ACCESS }
 
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/kyg/login$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/logout$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/connect$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/login_check$, role: PUBLIC_ACCESS }
         # - { path: ^/kyg, roles: ROLE_USER }
