@@ -1154,32 +1154,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             cache_pool?: string|Param, // The cache pool to use for storing the limiter state // Default: "cache.rate_limiter"
  *             storage_service?: string|Param, // The service ID of a custom storage implementation, this precedes any configured "cache_pool" // Default: null
  *         },
- *         oauth?: array{
- *             provider?: scalar|null|Param,
- *             remember_me?: bool|Param, // Default: true
- *             success_handler?: scalar|null|Param,
- *             failure_handler?: scalar|null|Param,
- *             check_path?: scalar|null|Param, // Default: "/login_check"
- *             use_forward?: bool|Param, // Default: false
- *             login_path: scalar|null|Param,
- *             always_use_default_target_path?: bool|Param, // Default: false
- *             default_target_path?: scalar|null|Param, // Default: "/"
- *             target_path_parameter?: scalar|null|Param, // Default: "_target_path"
- *             use_referer?: bool|Param, // Default: false
- *             failure_path?: scalar|null|Param, // Default: null
- *             failure_forward?: bool|Param, // Default: false
- *             failure_path_parameter?: scalar|null|Param, // Default: "_failure_path"
- *             oauth_user_provider: array{
- *                 orm?: array{
- *                     class: scalar|null|Param,
- *                     manager_name?: scalar|null|Param, // Default: null
- *                     properties: array<string, scalar|null|Param>,
- *                 },
- *                 service?: scalar|null|Param,
- *                 oauth?: scalar|null|Param,
- *             },
- *             resource_owners: array<string, scalar|null|Param>,
- *         },
  *         x509?: array{
  *             provider?: scalar|null|Param,
  *             user?: scalar|null|Param, // Default: "SSL_CLIENT_S_DN_Email"
@@ -2421,24 +2395,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     throttle_limit?: int|Param, // Another password reset cannot be made faster than this throttle time in seconds. // Default: 3600
  *     enable_garbage_collection?: bool|Param, // Enable/Disable automatic garbage collection. // Default: true
  * }
- * @psalm-type SymfonycastsSassConfig = array{
- *     root_sass?: list<scalar|null|Param>,
- *     binary?: scalar|null|Param, // The Sass binary to use // Default: null
- *     sass_options?: array{
- *         style?: "compressed"|"expanded"|Param, // The style of the generated CSS: compressed or expanded. // Default: "expanded"
- *         charset?: bool|Param, // Whether to include the charset declaration in the generated Sass.
- *         error_css?: bool|Param, // Emit a CSS file when an error occurs.
- *         source_map?: bool|Param, // Whether to generate source maps. // Default: true
- *         embed_sources?: bool|Param, // Embed source file contents in source maps.
- *         embed_source_map?: bool|Param, // Embed source map contents in CSS. // Default: "%kernel.debug%"
- *         load_path?: list<scalar|null|Param>,
- *         quiet?: bool|Param, // Don't print warnings.
- *         quiet_deps?: bool|Param, // Don't print compiler warnings from dependencies.
- *         stop_on_error?: bool|Param, // Don't compile more files once an error is encountered.
- *         trace?: bool|Param, // Print full Dart stack traces for exceptions.
- *     },
- *     embed_sourcemap?: bool|null|Param, // Deprecated: Option "embed_sourcemap" at "symfonycasts_sass.embed_sourcemap" is deprecated. Use "sass_options.embed_source_map" instead". // Default: null
- * }
  * @psalm-type SymfonycastsVerifyEmailConfig = array{
  *     lifetime?: int|Param, // The length of time in seconds that a signed URI is valid for after it is created. // Default: 3600
  * }
@@ -2465,41 +2421,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ttl?: int|Param, // Default: 0
  *         invalidate_on_env_change?: bool|Param, // Default: true
  *     },
- * }
- * @psalm-type HwiOauthConfig = array{
- *     firewall_names?: list<scalar|null|Param>,
- *     target_path_parameter?: scalar|null|Param, // Default: null
- *     target_path_domains_whitelist?: list<scalar|null|Param>,
- *     use_referer?: bool|Param, // Default: false
- *     failed_use_referer?: bool|Param, // Default: false
- *     failed_auth_path?: scalar|null|Param, // Default: "hwi_oauth_connect"
- *     grant_rule?: scalar|null|Param, // Default: "IS_AUTHENTICATED_REMEMBERED"
- *     connect?: array{
- *         confirmation?: bool|Param, // Default: true
- *         account_connector?: scalar|null|Param,
- *         registration_form_handler?: scalar|null|Param,
- *         registration_form?: scalar|null|Param,
- *     },
- *     resource_owners: array<string, array{ // Default: []
- *         base_url?: scalar|null|Param,
- *         access_token_url?: scalar|null|Param,
- *         authorization_url?: scalar|null|Param,
- *         request_token_url?: scalar|null|Param,
- *         revoke_token_url?: scalar|null|Param,
- *         infos_url?: scalar|null|Param,
- *         client_id?: scalar|null|Param,
- *         client_secret?: scalar|null|Param,
- *         realm?: scalar|null|Param,
- *         scope?: scalar|null|Param,
- *         user_response_class?: scalar|null|Param,
- *         service?: scalar|null|Param,
- *         class?: scalar|null|Param,
- *         type?: scalar|null|Param,
- *         use_authorization_to_get_token?: scalar|null|Param,
- *         paths?: array<string, mixed>,
- *         options?: array<string, scalar|null|Param>,
- *         ...<mixed>
- *     }>,
  * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
@@ -2537,11 +2458,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
- *     symfonycasts_sass?: SymfonycastsSassConfig,
  *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *     live_component?: LiveComponentConfig,
  *     jbtronics_settings?: JbtronicsSettingsConfig,
- *     hwi_oauth?: HwiOauthConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2582,11 +2501,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
- *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         live_component?: LiveComponentConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
- *         hwi_oauth?: HwiOauthConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2625,11 +2542,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
- *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         live_component?: LiveComponentConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
- *         hwi_oauth?: HwiOauthConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
