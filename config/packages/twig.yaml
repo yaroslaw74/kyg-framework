@@ -4,5 +4,18 @@ twig:
 
     globals:
         app_name: "%app.name%"
+        app_desktop_logo: "%app.desktop_logo%"
+        app_toggle_logo: "%app.toggle_logo%"
+        app_desktop_white: "%app.desktop_white%"
+        app_toggle_white: "%app.toggle_white%"
+        app_facebook: "%app.facebook%"
+        app_google: "%app.google%"
+        app_yandex: "%app.yandex%"
+        app_github: "%app.github%"
+        app_linkedin: "%app.linkedin%"
+        app_mailru: "%app.mailru%"
+        app_odnoklassniki: "%app.odnoklassniki%"
+        app_x_twitter: "%app.x_twitter%"
+        app_vkontakte: "%app.vkontakte%"
 
     file_name_pattern: "*.twig"
