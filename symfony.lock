@@ -197,6 +197,9 @@
             "./bin/phpunit"
         ]
     },
+    "pyrrah/gravatar-bundle": {
+        "version": "v1.5.2"
+    },
     "shivas/versioning-bundle": {
         "version": "4.1.1"
     },
