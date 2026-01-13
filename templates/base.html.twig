@@ -39,11 +39,5 @@
         {% block importmap %}{{ importmap([locale_dir(app.locale), 'app']) }}{% endblock %}
         {% block javascripts %}{% endblock %}
     </head>
-    <body {{ stimulus_controller('swup', {
-        animateHistoryBrowsing: true,
-        theme: 'slide',
-        debug: app.debug,
-    }) }}>
-        {% block body %}{% endblock %}
-    </body>
+    {% block body %}{% endblock %}
 </html>
