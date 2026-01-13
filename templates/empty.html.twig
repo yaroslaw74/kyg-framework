@@ -14,56 +14,62 @@
 {% endblock %}
 
 {% block body %}
-    {{ include('partials/switcher.html.twig') }}
-    {{ include('partials/loader.html.twig') }}
+    <body {{ stimulus_controller('swup', {
+        animateHistoryBrowsing: true,
+        theme: 'slide',
+        debug: app.debug,
+    }) }}>
+        {{ include('partials/switcher.html.twig') }}
+        {{ include('partials/loader.html.twig') }}
 
-    <div class="page">
-        {{ include('partials/header.html.twig') }}
-        {{ include('partials/sidebar.html.twig') }}
+        <div class="page">
+            {{ include('partials/header.html.twig') }}
+            {{ include('partials/sidebar.html.twig') }}
 
-        <!-- Start::app-content -->
-        <main class="main-content app-content" id="swup">
-            <div class="container-fluid">
+            <!-- Start::app-content -->
+            <main class="main-content app-content" id="swup">
+                <div class="container-fluid">
 
-                {% block page_header %}
-                    {{ include('partials/page-header.html.twig', {title: 'Empty', subtitle: 'Pages'}) }}
-                {% endblock %}
+                    {% block page_header %}
+                        {{ include('partials/page-header.html.twig', {title: 'Empty', subtitle: 'Pages'}) }}
+                    {% endblock %}
 
-                {% block content %}{% endblock %}
+                    {% block content %}{% endblock %}
 
-            </div>
-        </main>
-        <!-- End::app-content -->
+                </div>
+            </main>
+            <!-- End::app-content -->
 
-        {{ include('partials/footer.html.twig') }}
+            {{ include('partials/footer.html.twig') }}
 
-    </div>
+        </div>
 
-    {{ include('partials/commonjs.html.twig') }}
+        {{ include('partials/commonjs.html.twig') }}
 
-    <!-- Defaultmenu JS -->
-    <script async type="module" src="{{ asset('js/defaultmenu.js') }}"></script>
+        <!-- Defaultmenu JS -->
+        <script async type="module" src="{{ asset('js/defaultmenu.js') }}"></script>
 
-    <!-- Sticky JS -->
-    <script async type="module" src="{{ asset('js/sticky.js') }}"></script> {##}
+        <!-- Sticky JS -->
+        <script async type="module" src="{{ asset('js/sticky.js') }}"></script> {##}
 
-    <!-- Simplebar JS -->
-    <script async type="module" src="{{ asset('js/simplebar.js') }}"></script>
+        <!-- Simplebar JS -->
+        <script async type="module" src="{{ asset('js/simplebar.js') }}"></script>
 
-    <!-- Custom-Switcher JS -->
-    <script async type="module" src="{{ asset('js/custom-switcher.js') }}"></script>
+        <!-- Custom-Switcher JS -->
+        <script async type="module" src="{{ asset('js/custom-switcher.js') }}"></script>
 
-    {% block body_javascript %}{% endblock %}
+        {% block body_javascript %}{% endblock %}
 
-    <!-- Custom JS -->
-    <script async type="module" src="{{ asset('js/custom.js') }}"></script>
+        <!-- Custom JS -->
+        <script async type="module" src="{{ asset('js/custom.js') }}"></script>
 
-    <!-- Card JS -->
-    <script src="{{ asset('js/card.js') }}"></script> {##}
+        <!-- Card JS -->
+        <script src="{{ asset('js/card.js') }}"></script> {##}
 
-    <!-- Count-up JS -->
-    <script src="{{ asset('js/count-up.js') }}"></script> {##}
+        <!-- Count-up JS -->
+        <script src="{{ asset('js/count-up.js') }}"></script> {##}
 
-    <!-- Toggle Switches JS -->
-    <script src="{{ asset('js/toggle-switches.js') }}"></script> {##}
+        <!-- Toggle Switches JS -->
+        <script src="{{ asset('js/toggle-switches.js') }}"></script> {##}
+    </body>
 {% endblock body %}
