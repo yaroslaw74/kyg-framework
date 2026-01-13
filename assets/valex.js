@@ -26,6 +26,7 @@ import "./js/defaultmenu.js";
 
 /* Main Theme Js */
 import "./js/main.js";
+import "./js/authentication-main.js";
 
 /* Page loader JS */
 import "./js/page-loader.js";
