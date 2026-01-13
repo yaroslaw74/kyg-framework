@@ -101,6 +101,18 @@ services:
                 "X-twitter": "x_twitter"
                 "vkontakte": "vkontakte"
                 "github": "github"
+    App\Modules\Users\Security\OAuthConnector:
+        arguments:
+            $properties:
+                "facebook": "facebook"
+                "google": "google"
+                "yandex": "yandex"
+                "linkedin": "linkedin"
+                "mailru": "mailru"
+                "odnoklassniki": "odnoklassniki"
+                "X-twitter": "x_twitter"
+                "vkontakte": "vkontakte"
+                "github": "github"
 
 imports:
     - { resource: "locales.php" }
