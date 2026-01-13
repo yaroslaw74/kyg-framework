@@ -35,12 +35,20 @@ class RegistrationFormType extends AbstractType
             ->add('username', TextType::class, [
                     'label' => 'Username',
                     'row_attr' => ['class' => 'form-group mb-3'],
-                    'attr' => ['placeholder' => $this->translator->trans('Enter your username', [], 'users')],
+                    'attr' => ['placeholder' => $this->translator->trans('Enter your username', [], 'users')]
                 ])
             ->add('email', EmailType::class, [
                     'label' => 'Email',
                     'row_attr' => ['class' => 'form-group mb-3'],
-                    'attr' => ['placeholder' => $this->translator->trans('Enter your Email', [], 'users')],
+                    'attr' => [
+                        'autocomplete' => 'email',
+                        'placeholder' => $this->translator->trans('Enter your Email', [], 'users')
+                    ],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => $this->translator->trans('Please enter your email', [], 'users')
+                        ])
+                    ]
                 ])
             ->add('agreeTerms', CheckboxType::class, [
                     'label' => 'I agree to the terms and conditions',
@@ -50,7 +58,7 @@ class RegistrationFormType extends AbstractType
                         new IsTrue([
                             'message' => $this->translator->trans('You should agree to our terms.', [], 'users'),
                         ]),
-                    ],
+                    ]
                 ])
             ->add('plainPassword', PasswordType::class, [
                     'label' => 'Password',
@@ -67,15 +75,15 @@ class RegistrationFormType extends AbstractType
                     ],
                     'constraints' => [
                         new NotBlank([
-                            'message' => $this->translator->trans('Please enter a password', [], 'users'),
+                            'message' => $this->translator->trans('Please enter a password', [], 'users')
                         ]),
                         new Length([
                             'min' => 6,
                             'minMessage' => $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users'),
                             // max length allowed by Symfony for security reasons
-                            'max' => 4096,
+                            'max' => 4096
                         ]),
-                    ],
+                    ]
                 ])
         ;
     }
@@ -83,7 +91,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => User::class
         ]);
     }
 }
