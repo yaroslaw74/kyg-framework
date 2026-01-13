@@ -1,5 +1,6 @@
 twig:
     form_themes:
+        - "bootstrap_5_layout.html.twig"
         - "@SonataFormatter/Form/formatter.html.twig"
 
     globals:
