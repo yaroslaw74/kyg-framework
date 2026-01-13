@@ -69,7 +69,7 @@ security:
                     vkontakte: "/login/check-vkontakte"
                 login_path: /kyg/login
                 use_forward: false
-                failure_path: /kyg/login
+                failure_path: hwi_oauth_connect_registration
                 check_path: /kyg/login-check
 
                 oauth_user_provider:
@@ -106,5 +106,8 @@ security:
         - { path: ^/kyg/login$, roles: PUBLIC_ACCESS }
         - { path: ^/kyg/logout$, roles: PUBLIC_ACCESS }
         - { path: ^/kyg/register$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/login-check$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/check-email$, role: PUBLIC_ACCESS }
         - { path: ^/kyg/verify/email$, roles: PUBLIC_ACCESS }
+        - { path: ^/kyg/reset/.*$, role: PUBLIC_ACCESS }
         # - { path: ^/kyg, roles: ROLE_USER }
