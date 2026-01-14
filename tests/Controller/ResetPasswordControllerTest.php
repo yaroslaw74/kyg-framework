@@ -50,7 +50,7 @@ class ResetPasswordControllerTest extends WebTestCase
     {
         // Create a test user
         $user = new User();
-        $user
+        $user // @phpstan-ignore method.void, method.nonObject
             ->setUsername('testuser')
             ->setEmail('me@example.com')
             ->setPassword('a-test-password-that-will-be-changed-later')
