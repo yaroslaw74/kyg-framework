@@ -91,7 +91,7 @@ class ResetPasswordController extends AbstractController
     #[Route('/kyg/reset/{token}', name: 'kyg_reset_password')]
     public function reset(Request $request, UserPasswordHasherInterface $passwordHasher, ?string $token = null): Response
     {
-        if ($token) {
+        if ($token !== null) {
             // We store the token in session and remove it from the URL, to avoid the URL being
             // loaded in a browser and potentially leaking the token to 3rd party JavaScript.
             $this->storeTokenInSession($token);
@@ -150,7 +150,7 @@ class ResetPasswordController extends AbstractController
         ]);
 
         // Do not reveal whether a user account was found or not.
-        if (!$user) {
+        if ($user === null) {
             return $this->redirectToRoute('kyg_check_email');
         }
 
