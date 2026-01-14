@@ -27,6 +27,9 @@ final readonly class FormHandler implements RegistrationFormHandlerInterface
     {
     }
 
+    /**
+     * @param FormInterface<User> $form
+     */
     public function process(Request $request, FormInterface $form, UserResponseInterface $userInformation): bool
     {
         $user = new User();
