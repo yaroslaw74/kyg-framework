@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -13,7 +14,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Entity;
 
-use App\Modules\Users\Entity\User;
 use App\Modules\Users\Repository\ResetPasswordRequestRepository;
 use Doctrine\ORM\Mapping as ORM;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
