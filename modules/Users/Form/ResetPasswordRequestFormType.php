@@ -53,8 +53,6 @@ class ResetPasswordRequestFormType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            'data_class' => User::class,
-        ]);
+        $resolver->setDefaults([]);
     }
 }
