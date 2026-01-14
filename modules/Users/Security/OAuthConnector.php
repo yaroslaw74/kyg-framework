@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,6 +11,7 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Modules\Users\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,7 +23,7 @@ final class OAuthConnector implements AccountConnectorInterface
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
-        private readonly array $properties
+        private readonly array $properties,
     ) {
     }
 
