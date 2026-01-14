@@ -81,7 +81,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $gravatar = null;
 
-    #[ORM\Column(options: ["default" => false])]
+    #[ORM\Column(options: ['default' => false])]
     private bool $isVerified = false;
 
     /**
