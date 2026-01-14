@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -9,6 +10,7 @@
  * @copyright  Copyright (c) Kataev Yaroslav
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
+
 namespace App\Modules\Users\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -28,20 +30,20 @@ class ResetPasswordRequestFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                    'label' => 'Email',
-                    'row_attr' => [
-                        'class' => 'form-group mb-3'
-                    ],
-                    'attr' => [
-                        'autocomplete' => 'email',
-                        'placeholder' => $this->translator->trans('Enter your Email', [], 'users')
-                    ],
-                    'constraints' => [
-                        new NotBlank([
-                            'message' => $this->translator->trans('Please enter your email', [], 'users')
-                        ])
-                    ]
-                ])
+                'label' => 'Email',
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'autocomplete' => 'email',
+                    'placeholder' => $this->translator->trans('Enter your Email', [], 'users'),
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => $this->translator->trans('Please enter your email', [], 'users'),
+                    ]),
+                ],
+            ])
         ;
     }
 
