@@ -1,12 +1,57 @@
-{% extends 'base.html.twig' %}
+{# #################################################################################
+#  @Project    KYG Framework for business
+#  @Version    1.0.0
+#
+#  @Copyright  (C) Kataev Yaroslav
+#  @E-mail     yaroslaw74@gmail.com
+#  @License    GNU General Public License version 3 or later, see LICENSE
+################################################################################# #}
+{% extends '@Users/empty.html.twig' %}
+{% trans_default_domain 'users' %}
 
-{% block title %}Reset your password{% endblock %}
-
-{% block body %}
-    <h1>Reset your password</h1>
-
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+{% block title %}
+    {{ parent() }}
+    Reset your password
 {% endblock %}
+
+{% set pngs_img = '6.png' %}
+
+{% block content %}
+    <!-- Demo content-->
+    <div class="container p-0">
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+                <div class="card-sigin">
+                    <div class="mb-5 d-flex">
+                        <a href="{{ path('kyg_home') }}" class="header-logo">
+                            {% if app_desktop_logo %}
+                                <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_logo) }}" class="desktop-logo ht-40" alt="logo">
+                            {% else %}
+                                <img src="{{ asset('images/brand-logos/kyg-desktop-logo.png') }}" class="desktop-logo ht-40" alt="logo">
+                            {% endif %}
+                            {% if app_desktop_white %}
+                                <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_white) }}" class="desktop-white ht-40" alt="logo">
+                            {% else %}
+                                <img src="{{ asset('images/brand-logos/kyg-desktop-white.png') }}" class="desktop-white ht-40" alt="logo">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="card-sigin">
+                        <div class="main-signup-header">
+                            <h3>{% trans %}Welcome back!{% endtrans %}</h3>
+                            <h6 class="fw-medium mb-4 fs-17">{% trans %}Reset Your Password{% endtrans %}</h6>
+                            {{ form_start(resetForm) }}
+                                {{ form_row(resetForm.plainPassword) }}
+                                <button type="submit" class="btn btn-primary btn-block w-100">{% trans %}Reset Password{% endtrans %}</button>
+                            {{ form_end(resetForm) }}
+                            <div class="main-signin-footer mt-3">
+                                <p>{% trans %}Already have an account?{% endtrans %} <a href="{{ path('kyg_login') }}">{% trans %}Sign In{% endtrans %}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+{% endblock content %}
