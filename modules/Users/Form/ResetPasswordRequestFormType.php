@@ -13,6 +13,7 @@
 
 namespace App\Modules\Users\Form;
 
+use App\Modules\Users\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,6 +21,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * @template-extends AbstractType<User>
+ */
 class ResetPasswordRequestFormType extends AbstractType
 {
     public function __construct(private TranslatorInterface $translator)
@@ -49,6 +53,8 @@ class ResetPasswordRequestFormType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            'data_class' => User::class,
+        ]);
     }
 }
