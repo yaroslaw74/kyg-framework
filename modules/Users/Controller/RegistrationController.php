@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,10 +11,11 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Modules\Users\Controller;
 
-use App\Modules\Users\Form\RegistrationFormType;
 use App\Modules\Users\Entity\User;
+use App\Modules\Users\Form\RegistrationFormType;
 use App\Modules\Users\Repository\UserRepository;
 use App\Modules\Users\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,7 +35,7 @@ class RegistrationController extends AbstractController
 {
     public function __construct(
         private EmailVerifier $emailVerifier,
-        private TranslatorInterface $translator
+        private TranslatorInterface $translator,
     ) {
     }
 
