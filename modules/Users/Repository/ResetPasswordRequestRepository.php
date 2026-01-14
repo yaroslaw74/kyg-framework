@@ -36,6 +36,8 @@ class ResetPasswordRequestRepository extends ServiceEntityRepository implements 
 
     /**
      * @param User $user
+     *
+     * @phpstan-ignore method.childParameterType
      */
     public function createResetPasswordRequest(object $user, \DateTimeInterface $expiresAt, string $selector, string $hashedToken): ResetPasswordRequestInterface
     {
