@@ -264,12 +264,15 @@
             "post-update-cmd": [
                 "@php bin/console doctrine:diagram:er",
                 "@php bin/console doctrine:diagram:class",
-                "vendor/bin/php-cs-fixer fix",
+                "@php bin/console lint:twig templates",
+                "@php bin/console lint:twig modules",
+                "@php bin/console lint:twig public/additions",
                 "vendor/bin/twig-cs-fixer fix",
                 "vendor/bin/phpstan analyse --error-format friendly",
-                "bin/biome lint --write assets modules",
-                "bin/biome check --write assets modules",
-                "bin/biome format --write assets modules"
+                "vendor/bin/php-cs-fixer fix",
+                "bin/biome lint --write assets modules public/additions",
+                "bin/biome check --write assets modules public/additions",
+                "bin/biome format --write assets modules public/additions"
             ]
         },
         "symfony": {
