@@ -29,6 +29,7 @@ class RegistrationFormType extends AbstractType
     public function __construct(private TranslatorInterface $translator)
     {
     }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -62,7 +63,9 @@ class RegistrationFormType extends AbstractType
                 ])
             ->add('plainPassword', PasswordType::class, [
                     'label' => 'Password',
-                    'row_attr' => ['class' => 'form-group mb-3'],
+                    'row_attr' => [
+                        'class' => 'form-group mb-3'
+                    ],
                     'toggle' => true,
                     'hidden_label' => 'Hide password',
                     'visible_label' => 'Show password',
