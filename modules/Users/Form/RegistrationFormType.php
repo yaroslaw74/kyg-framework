@@ -26,6 +26,9 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * @template-extends AbstractType<User>
+ */
 class RegistrationFormType extends AbstractType
 {
     public function __construct(private TranslatorInterface $translator)
