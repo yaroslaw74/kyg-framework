@@ -1,0 +1,28 @@
+{# #################################################################################
+#  @Project    KYG Framework for business
+#  @Version    1.0.0
+#
+#  @Copyright  (C) Kataev Yaroslav
+#  @E-mail     yaroslaw74@gmail.com
+#  @License    GNU General Public License version 3 or later, see LICENSE
+################################################################################# #}
+{% extends 'empty.html.twig' %}
+
+{% block page_header %}{% endblock %}
+
+{% block javascripts %}
+    <!-- Main Theme Js -->
+    <script async type="module" src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Start::row-1 -->
+    <div class="row">
+        <div class="main-error-wrapper wrapper-1">
+            <h1 class="">501<span class="fs-20">{% trans %}error{% endtrans %}</span></h1>
+            <h3 class="title">{% trans %}Oopps. The page you were looking for doesn't exist.{% endtrans %}</h3>
+            <h6 class="sub_title text-default">{% trans %}You may have mistyped the address or the page may have moved.{% endtrans %}</h6><a class="btn btn-primary" href="index.html">Back to Home</a>
+        </div>
+    </div>
+    <!-- row closed -->
+{% endblock content %}
