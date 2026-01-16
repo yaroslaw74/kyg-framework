@@ -46,4 +46,5 @@ return [
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
     HWI\Bundle\OAuthBundle\HWIOAuthBundle::class => ['all' => true],
     Pyrrah\GravatarBundle\PyrrahGravatarBundle::class => ['all' => true],
+    Sonata\ClassificationBundle\SonataClassificationBundle::class => ['all' => true],
 ];
