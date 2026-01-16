@@ -19,4 +19,22 @@ twig:
         app_x_twitter: "%app.x_twitter%"
         app_vkontakte: "%app.vkontakte%"
 
+    # The default path used to load templates.
+    default_path: "%kernel.project_dir%/templates"
+
+    # Pattern of file name used for cache warmer and linter.
     file_name_pattern: "*.twig"
+
+    # The default format options used by the date filter.
+    date:
+        format: "%app.date_format%"
+        interval_format: "%d days"
+
+        # The timezone used when formatting dates, when set to null, the timezone returned by date_default_timezone_get() is used.
+        timezone: null
+
+    # The default format options for the number_format filter.
+    number_format:
+        decimals: "%app.number_format_decimals%"
+        decimal_point: "%app.number_format_decimal_point%"
+        thousands_separator: "%app.number_format_thousands_separator%"
