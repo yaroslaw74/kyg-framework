@@ -2,3 +2,22 @@
 liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     driver: "gd"
+
+    twig:
+        mode: "lazy"
+
+    filter_sets:
+        default_small:
+            quality: 75
+            filters:
+                thumbnail: { size: [100, 70], mode: outbound }
+
+        default_big:
+            quality: 75
+            filters:
+                thumbnail: { size: [500, 70], mode: outbound }
+
+        default_icon:
+            quality: 75
+            filters:
+                thumbnail: { size: [32, 70], mode: outbound }
