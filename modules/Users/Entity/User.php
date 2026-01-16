@@ -16,6 +16,8 @@ namespace App\Modules\Users\Entity;
 
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
+use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Sonata\UserBundle\Entity\BaseUser3 as BaseUser;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
@@ -28,8 +30,10 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface
+class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
 {
+    use TimezoneAwareTrait;
+
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
@@ -92,7 +96,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -134,6 +138,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->avatar,
             $this->gravatar,
             $this->isVerified,
+            $this->timezone,
         ] = $data;
     }
 
@@ -335,6 +340,13 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function setTimezone(string $timezone): static
+    {
+        $this->timezone = $timezone;
 
         return $this;
     }
