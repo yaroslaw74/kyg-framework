@@ -2490,6 +2490,36 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     format?: "url"|"base64"|Param, // Default: "url"
  *     secure?: bool|Param, // Deprecated: The child node "secure" at path "pyrrah_gravatar.secure" is deprecated. // Default: true
  * }
+ * @psalm-type SonataClassificationConfig = array{
+ *     class?: array{
+ *         tag?: scalar|null|Param, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Tag"
+ *         category?: scalar|null|Param, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Category"
+ *         collection?: scalar|null|Param, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Collection"
+ *         context?: scalar|null|Param, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Context"
+ *     },
+ *     admin?: array{
+ *         category?: array{
+ *             class?: scalar|null|Param, // Default: "Sonata\\ClassificationBundle\\Admin\\CategoryAdmin"
+ *             controller?: scalar|null|Param, // Default: "sonata.classification.controller.category_admin"
+ *             translation?: scalar|null|Param, // Default: "SonataClassificationBundle"
+ *         },
+ *         tag?: array{
+ *             class?: scalar|null|Param, // Default: "Sonata\\ClassificationBundle\\Admin\\TagAdmin"
+ *             controller?: scalar|null|Param, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|null|Param, // Default: "SonataClassificationBundle"
+ *         },
+ *         collection?: array{
+ *             class?: scalar|null|Param, // Default: "Sonata\\ClassificationBundle\\Admin\\CollectionAdmin"
+ *             controller?: scalar|null|Param, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|null|Param, // Default: "SonataClassificationBundle"
+ *         },
+ *         context?: array{
+ *             class?: scalar|null|Param, // Default: "Sonata\\ClassificationBundle\\Admin\\ContextAdmin"
+ *             controller?: scalar|null|Param, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|null|Param, // Default: "SonataClassificationBundle"
+ *         },
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2531,6 +2561,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     hwi_oauth?: HwiOauthConfig,
  *     pyrrah_gravatar?: PyrrahGravatarConfig,
+ *     sonata_classification?: SonataClassificationConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2576,6 +2607,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         hwi_oauth?: HwiOauthConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
+ *         sonata_classification?: SonataClassificationConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2619,6 +2651,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         hwi_oauth?: HwiOauthConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
+ *         sonata_classification?: SonataClassificationConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
