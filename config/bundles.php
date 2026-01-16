@@ -48,4 +48,5 @@ return [
     Pyrrah\GravatarBundle\PyrrahGravatarBundle::class => ['all' => true],
     Sonata\ClassificationBundle\SonataClassificationBundle::class => ['all' => true],
     Sonata\MediaBundle\SonataMediaBundle::class => ['all' => true],
+    Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
 ];
