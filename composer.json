@@ -87,6 +87,7 @@
         "sonata-project/form-extensions": "^2.7",
         "sonata-project/formatter-bundle": "^5.5",
         "sonata-project/intl-bundle": "^3.3",
+        "sonata-project/media-bundle": "^4.20",
         "sonata-project/translation-bundle": "^3.7",
         "sonata-project/twig-extensions": "2.6",
         "sonata-project/user-bundle": "^5.19",
