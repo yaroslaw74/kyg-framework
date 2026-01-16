@@ -12,6 +12,7 @@ parameters:
     app.number_format_decimals: 0
     app.number_format_decimal_point: "."
     app.number_format_thousands_separator: ","
+    app.liip_imagine_driver: "gd"
     app.facebook: false
     app.google: false
     app.yandex: false
