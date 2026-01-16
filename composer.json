@@ -43,7 +43,7 @@
         "api-platform/validator": "^4.2.12",
         "balrok/composer-mkdir": "^2.1.1",
         "composer/composer": "^2.9.3",
-        "doctrine/collections": "^2.5.1",
+        "doctrine/collections": "^2.6.0",
         "doctrine/common": "^3.5",
         "doctrine/dbal": "^4.4.1",
         "doctrine/deprecations": "^1.1.5",
