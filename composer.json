@@ -68,6 +68,7 @@
         "league/flysystem-bundle": "^3.6.1",
         "league/flysystem-local": "^3.30.2",
         "league/mime-type-detection": "^1.16",
+        "liip/imagine-bundle": "^2.17",
         "monolog/monolog": "^3.10.0",
         "nelmio/api-doc-bundle": "^5.9.2",
         "nelmio/cors-bundle": "^2.6.1",
@@ -256,6 +257,7 @@
             "migrations": "0644",
             "public/additions": "0777",
             "public/storage": "0777",
+            "public/storage/media": "0777",
             "public/translations": "0777",
             "public/uploads": "0777"
         },
