@@ -7,6 +7,11 @@ parameters:
     app.email_bot: "mailer@your-domain.com"
     app.name_bot: "Acme Mail Bot"
     app.default_locale: en
+    app.timezone: "UTC"
+    app.date_format: "F j, Y H:i"
+    app.number_format_decimals: 0
+    app.number_format_decimal_point: "."
+    app.number_format_thousands_separator: ","
     app.facebook: false
     app.google: false
     app.yandex: false
