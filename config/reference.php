@@ -2787,6 +2787,19 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         post_processors?: array<string, array<string, mixed>>,
  *     },
  * }
+ * @psalm-type FosJsRoutingConfig = array{
+ *     serializer?: scalar|null|Param,
+ *     routes_to_expose?: list<scalar|null|Param>,
+ *     router?: scalar|null|Param, // Default: "router"
+ *     request_context_base_url?: scalar|null|Param, // Default: null
+ *     cache_control?: array{
+ *         public?: bool|Param, // Default: false
+ *         expires?: scalar|null|Param, // Default: null
+ *         maxage?: scalar|null|Param, // Default: null
+ *         smaxage?: scalar|null|Param, // Default: null
+ *         vary?: list<scalar|null|Param>,
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2831,6 +2844,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_classification?: SonataClassificationConfig,
  *     sonata_media?: SonataMediaConfig,
  *     liip_imagine?: LiipImagineConfig,
+ *     fos_js_routing?: FosJsRoutingConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2879,6 +2893,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_classification?: SonataClassificationConfig,
  *         sonata_media?: SonataMediaConfig,
  *         liip_imagine?: LiipImagineConfig,
+ *         fos_js_routing?: FosJsRoutingConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2925,6 +2940,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_classification?: SonataClassificationConfig,
  *         sonata_media?: SonataMediaConfig,
  *         liip_imagine?: LiipImagineConfig,
+ *         fos_js_routing?: FosJsRoutingConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
