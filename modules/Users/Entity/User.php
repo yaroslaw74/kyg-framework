@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
@@ -30,6 +31,7 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
+#[ApiResource]
 class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
 {
     use TimezoneAwareTrait;
@@ -96,7 +98,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -144,6 +146,10 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
 
     public function getId(): ?string
     {
+        if (null === $this->id) {
+            return null;
+        }
+
         return $this->id->toString(); // @phpstan-ignore method.nonObject
     }
 
