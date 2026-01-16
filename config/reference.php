@@ -2520,6 +2520,172 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *     },
  * }
+ * @psalm-type SonataMediaConfig = array{
+ *     db_driver?: scalar|null|Param, // Choose persistence mechanism driver from the following list: "doctrine_orm", "doctrine_mongodb" // Default: "no_driver"
+ *     default_context: scalar|null|Param,
+ *     force_disable_category?: bool|Param, // true IF you really want to disable the relation with category // Default: false
+ *     admin_format?: array{ // Configures the thumbnail preview for the admin
+ *         width?: scalar|null|Param, // Default: 200
+ *         height?: scalar|null|Param, // Default: null
+ *         quality?: scalar|null|Param, // Default: 90
+ *         format?: scalar|null|Param, // Default: "jpg"
+ *         constraint?: scalar|null|Param, // Default: true
+ *         resizer?: scalar|null|Param, // Default: null
+ *         resizer_options?: array<string, scalar|null|Param>,
+ *     },
+ *     contexts?: array<string, array{ // Default: []
+ *         download?: array{
+ *             strategy?: scalar|null|Param, // Default: "sonata.media.security.superadmin_strategy"
+ *             mode?: scalar|null|Param, // Default: "http"
+ *         },
+ *         providers?: list<scalar|null|Param>,
+ *         formats?: array<string, array{ // Default: []
+ *             width?: int|Param, // Default: null
+ *             height?: int|Param, // Default: null
+ *             quality?: int|Param, // Default: 80
+ *             format?: scalar|null|Param, // Default: "jpg"
+ *             constraint?: bool|Param, // Default: true
+ *             resizer?: scalar|null|Param, // Default: null
+ *             resizer_options?: array<string, scalar|null|Param>,
+ *         }>,
+ *     }>,
+ *     cdn?: array{
+ *         server?: array{
+ *             path?: scalar|null|Param, // Default: "/uploads/media"
+ *         },
+ *         cloudfront?: array{
+ *             path: scalar|null|Param, // e.g. http://xxxxxxxxxxxxxx.cloudfront.net/uploads/media
+ *             distribution_id: scalar|null|Param,
+ *             key: scalar|null|Param,
+ *             secret: scalar|null|Param,
+ *             region: scalar|null|Param,
+ *             version: scalar|null|Param,
+ *         },
+ *         fallback?: array{
+ *             primary: scalar|null|Param,
+ *             fallback: scalar|null|Param,
+ *         },
+ *     },
+ *     filesystem?: array{
+ *         local?: array{
+ *             directory?: scalar|null|Param, // Default: "%kernel.project_dir%/web/uploads/media"
+ *             create?: scalar|null|Param, // Default: false
+ *         },
+ *         ftp?: array{
+ *             directory: scalar|null|Param,
+ *             host: scalar|null|Param,
+ *             username: scalar|null|Param,
+ *             password: scalar|null|Param,
+ *             port?: scalar|null|Param, // Default: 21
+ *             passive?: scalar|null|Param, // Default: false
+ *             create?: scalar|null|Param, // Default: false
+ *             mode?: scalar|null|Param, // Default: false
+ *         },
+ *         s3?: array{
+ *             directory?: scalar|null|Param, // Default: ""
+ *             bucket: scalar|null|Param,
+ *             accessKey: scalar|null|Param,
+ *             secretKey: scalar|null|Param,
+ *             create?: scalar|null|Param, // Default: false
+ *             storage?: scalar|null|Param, // Default: "standard"
+ *             cache_control?: scalar|null|Param, // Default: ""
+ *             acl?: scalar|null|Param, // Default: "public"
+ *             encryption?: scalar|null|Param, // Default: ""
+ *             region?: scalar|null|Param, // Default: "s3.amazonaws.com"
+ *             endpoint?: scalar|null|Param, // Default: null
+ *             version?: scalar|null|Param, // Using "latest" in a production application is not recommended because pulling in a new minor version of the SDK that includes an API update could break your production application. See https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_configuration.html#cfg-version. // Default: "latest"
+ *             meta?: array<string, scalar|null|Param>,
+ *             async?: bool|Param, // Default: false
+ *         },
+ *         azure?: array{
+ *             container_name: scalar|null|Param,
+ *             connection_string: scalar|null|Param,
+ *             create_container?: scalar|null|Param, // Default: false
+ *             cache_control?: scalar|null|Param, // Default: ""
+ *             meta?: array<string, scalar|null|Param>,
+ *         },
+ *         replicate?: array{
+ *             primary: scalar|null|Param,
+ *             secondary: scalar|null|Param,
+ *         },
+ *     },
+ *     providers?: array{
+ *         file?: array{
+ *             service?: scalar|null|Param, // Default: "sonata.media.provider.file"
+ *             resizer?: scalar|null|Param, // Default: null
+ *             filesystem?: scalar|null|Param, // Default: "sonata.media.filesystem.local"
+ *             cdn?: scalar|null|Param, // Default: "sonata.media.cdn.server"
+ *             generator?: scalar|null|Param, // Default: "sonata.media.generator.default"
+ *             thumbnail?: scalar|null|Param, // Default: "sonata.media.thumbnail.file"
+ *             allowed_extensions?: list<scalar|null|Param>,
+ *             allowed_mime_types?: list<scalar|null|Param>,
+ *         },
+ *         image?: array{
+ *             service?: scalar|null|Param, // Default: "sonata.media.provider.image"
+ *             resizer?: scalar|null|Param, // Default: "sonata.media.resizer.default"
+ *             filesystem?: scalar|null|Param, // Default: "sonata.media.filesystem.local"
+ *             cdn?: scalar|null|Param, // Default: "sonata.media.cdn.server"
+ *             generator?: scalar|null|Param, // Default: "sonata.media.generator.default"
+ *             thumbnail?: scalar|null|Param, // Default: "sonata.media.thumbnail.format"
+ *             adapter?: scalar|null|Param, // Default: "sonata.media.adapter.image.default"
+ *             allowed_extensions?: list<scalar|null|Param>,
+ *             allowed_mime_types?: list<scalar|null|Param>,
+ *         },
+ *         youtube?: array{
+ *             service?: scalar|null|Param, // Default: "sonata.media.provider.youtube"
+ *             resizer?: scalar|null|Param, // Default: "sonata.media.resizer.default"
+ *             filesystem?: scalar|null|Param, // Default: "sonata.media.filesystem.local"
+ *             cdn?: scalar|null|Param, // Default: "sonata.media.cdn.server"
+ *             generator?: scalar|null|Param, // Default: "sonata.media.generator.default"
+ *             thumbnail?: scalar|null|Param, // Default: "sonata.media.thumbnail.format"
+ *             html5?: scalar|null|Param, // Default: false
+ *         },
+ *         dailymotion?: array{
+ *             service?: scalar|null|Param, // Default: "sonata.media.provider.dailymotion"
+ *             resizer?: scalar|null|Param, // Default: "sonata.media.resizer.default"
+ *             filesystem?: scalar|null|Param, // Default: "sonata.media.filesystem.local"
+ *             cdn?: scalar|null|Param, // Default: "sonata.media.cdn.server"
+ *             generator?: scalar|null|Param, // Default: "sonata.media.generator.default"
+ *             thumbnail?: scalar|null|Param, // Default: "sonata.media.thumbnail.format"
+ *         },
+ *         vimeo?: array{
+ *             service?: scalar|null|Param, // Default: "sonata.media.provider.vimeo"
+ *             resizer?: scalar|null|Param, // Default: "sonata.media.resizer.default"
+ *             filesystem?: scalar|null|Param, // Default: "sonata.media.filesystem.local"
+ *             cdn?: scalar|null|Param, // Default: "sonata.media.cdn.server"
+ *             generator?: scalar|null|Param, // Default: "sonata.media.generator.default"
+ *             thumbnail?: scalar|null|Param, // Default: "sonata.media.thumbnail.format"
+ *         },
+ *     },
+ *     class?: array{
+ *         media?: scalar|null|Param, // Default: "App\\Entity\\SonataMediaMedia"
+ *         gallery?: scalar|null|Param, // Default: "App\\Entity\\SonataMediaGallery"
+ *         gallery_item?: scalar|null|Param, // Default: "App\\Entity\\SonataMediaGalleryItem"
+ *         category?: scalar|null|Param, // Default: "App\\Entity\\SonataClassificationCategory"
+ *     },
+ *     http?: array{
+ *         client?: scalar|null|Param, // Alias of the http client. // Default: "sonata.media.http.base_client"
+ *         message_factory?: scalar|null|Param, // Alias of the message factory. // Default: "sonata.media.http.base_message_factory"
+ *     },
+ *     resizer?: array{
+ *         simple?: array{
+ *             mode?: int|Param, // Default: 1
+ *         },
+ *         square?: array{
+ *             mode?: int|Param, // Default: 1
+ *         },
+ *     },
+ *     resizers?: array{
+ *         default?: scalar|null|Param, // Default: "sonata.media.resizer.simple"
+ *     },
+ *     adapters?: array{
+ *         default?: scalar|null|Param, // Default: "sonata.media.adapter.image.gd"
+ *     },
+ *     messenger?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         generate_thumbnails_bus?: scalar|null|Param, // Default: "messenger.default_bus"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2562,6 +2728,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     hwi_oauth?: HwiOauthConfig,
  *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     sonata_classification?: SonataClassificationConfig,
+ *     sonata_media?: SonataMediaConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2608,6 +2775,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         hwi_oauth?: HwiOauthConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         sonata_classification?: SonataClassificationConfig,
+ *         sonata_media?: SonataMediaConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2652,6 +2820,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         hwi_oauth?: HwiOauthConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         sonata_classification?: SonataClassificationConfig,
+ *         sonata_media?: SonataMediaConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
