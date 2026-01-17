@@ -1,14 +1,17 @@
 import { slideDown } from "../constants/slideDown.js";
+import Routing from "../../../public/bundles/fosjsrouting/js/router.min.js";
 
 export function setNavActive() {
     let currentPath = window.location.pathname.split("/")[0];
+    const INDEX = Routing.generate;
+    ("kyg");
 
-    currentPath = location.pathname === "/" ? "index.html" : location.pathname.substring(1);
+    currentPath = location.pathname === "/" ? INDEX : location.pathname.substring(1);
     currentPath = currentPath.substring(currentPath.lastIndexOf("/") + 1);
     const SIDEMENU_ITEMS = document.querySelectorAll(".side-menu__item");
     SIDEMENU_ITEMS.forEach((e) => {
         if (currentPath === "/") {
-            currentPath = "index.html";
+            currentPath = INDEX;
         }
         if (e.getAttribute("href") === currentPath) {
             e.classList.add("active");
