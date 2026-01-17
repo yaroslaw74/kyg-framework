@@ -197,4 +197,11 @@ return [
         'version' => '11.1.0',
         'type' => 'css',
     ],
+    'apexcharts' => [
+        'version' => '5.3.6',
+    ],
+    'apexcharts/dist/apexcharts.css' => [
+        'version' => '5.3.6',
+        'type' => 'css',
+    ],
 ];
