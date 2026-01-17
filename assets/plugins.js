@@ -19,6 +19,11 @@ import "./vendor/flatpickr/dist/flatpickr.min.css";
 import "./vendor/@simonwep/pickr/dist/themes/nano.min.css";
 
 /*
+ * Apex Charts Css
+ */
+import "./vendor/apexcharts/dist/apexcharts.css";
+
+/*
  * Choices Css
  */
 import "./vendor/choices.js/public/assets/styles/choices.min.css";
