@@ -1,5 +1,5 @@
-import { slideDown } from "../constants/slideDown.js";
 import Routing from "../../../public/bundles/fosjsrouting/js/router.min.js";
+import { slideDown } from "../constants/slideDown.js";
 
 export function setNavActive() {
     let currentPath = window.location.pathname.split("/")[0];
