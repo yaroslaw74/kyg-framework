@@ -4,6 +4,7 @@ framework:
         paths:
             - assets/
             - public/theme/
+            - modules/Charts/Resources/assets/
         missing_import_mode: strict
         exclude_dotfiles: true
         excluded_patterns:
