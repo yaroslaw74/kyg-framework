@@ -9,6 +9,7 @@
 {% extends 'base.html.twig' %}
 
 {% block javascripts %}
+    {{ parent() }}
     <!-- Main Theme Js -->
     <script async type="module" src="{{ asset('js/authentication-main.js') }}"></script>
 {% endblock %}
