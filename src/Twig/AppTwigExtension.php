@@ -16,9 +16,10 @@ namespace App\Twig;
 
 use App\Service\SystemService;
 use Twig\Extension\AbstractExtension;
+use Twig\Extension\ExtensionInterface;
 use Twig\TwigFunction;
 
-class AppTwigExtension extends AbstractExtension
+class AppTwigExtension extends AbstractExtension implements ExtensionInterface
 {
     public function __construct(private SystemService $systemService)
     {
