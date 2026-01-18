@@ -35,9 +35,13 @@
         <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/ico/kyg-144X144.png') }}">
         <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/ico/kyg-152X152.png') }}">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/kyg-180X180.png') }}">
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/flasher/flasher.min.css') }}">
+        {% endblock %}
         {% block importmap %}{{ importmap([locale_dir(app.locale), 'app']) }}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('vendor/flasher/flasher.min.js') }}"></script>
+        {% endblock %}
     </head>
     <body {{ stimulus_controller('swup', {
         animateHistoryBrowsing: true,
