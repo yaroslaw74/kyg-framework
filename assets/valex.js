@@ -10,6 +10,7 @@ import "./css/styles.css";
 /*
  * Widgets
  */
+import "../modules/Charts/Resources/assets/Widgets.js";
 
 /*
  * Modules
