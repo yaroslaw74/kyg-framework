@@ -1,0 +1,22 @@
+{# #################################################################################
+#  @Project    KYG Framework for business
+#  @Version    1.0.0
+#
+#  @Copyright  (C) Kataev Yaroslav
+#  @E-mail     yaroslaw74@gmail.com
+#  @License    GNU General Public License version 3 or later, see LICENSE
+################################################################################# #}
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">{{ widget.name }}</div>
+            </div>
+            <div class="card-body">
+                <div id="area-basic" data-options="{{ widget.options|json_encode }}"></div>
+            </div>
+        </div>
+    </div>
+    <script async type="module" src="{{ asset('js/widgets/' ~ widget.type ~ '.js') }}"></script>
+</div>
