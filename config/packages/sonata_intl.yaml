@@ -1,5 +1,0 @@
-sonata_intl:
-    timezone:
-        default: "%app.timezone%"
-        detectors:
-            - sonata.intl.timezone_detector.user
