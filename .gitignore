@@ -1,0 +1,45 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+###> doctrine/migrations ###
+/migrations/
+###< doctrine/migrations ###
+
+###> symfony/public ###
+/public/additions/
+/public/storage/
+/public/theme/
+/public/translations/
+/public/uploads/
+###< symfony/public ###
+
+###> vincentlanglet/twig-cs-fixer ###
+/.twig-cs-fixer.cache
+###< vincentlanglet/twig-cs-fixer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> kocal/biome-js-bundle ###
+/bin/biome*
+###< kocal/biome-js-bundle ###
