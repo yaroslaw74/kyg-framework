@@ -1,0 +1,54 @@
+{
+    "files": {
+        "includes": [
+            "**",
+            "!assets/controllers/csrf_protection_controller.js",
+            "!assets/icon-fonts/*",
+            "!assets/fonts/*",
+            "!assets/icons/*",
+            "!assets/images/*",
+            "!assets/vendor/*",
+            "!assets/controllers.json",
+            "!public/assets/*",
+            "!public/bundles/*",
+            "!tests/*",
+            "!var/*",
+            "!vendor/*",
+            "!composer.json"
+        ]
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "attributePosition": "auto",
+        "lineWidth": 320,
+        "useEditorconfig": true
+    },
+    "javascript": {
+        "formatter": {
+            "arrowParentheses": "always",
+            "bracketSameLine": false,
+            "bracketSpacing": true,
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "semicolons": "always",
+            "trailingCommas": "none"
+        }
+    },
+    "json": {
+        "formatter": {
+            "trailingCommas": "none"
+        }
+    },
+    "linter": {
+        "enabled": true
+    },
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
+    }
+}
