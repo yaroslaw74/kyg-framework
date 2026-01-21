@@ -21,8 +21,6 @@
         "source": "https://github.com/yaroslaw74/kyg-framework",
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
     "require": {
         "php": ">=8.5",
         "ext-ctype": "*",
@@ -78,104 +76,6 @@
         "twig/string-extra": "^3.22.1",
         "twig/twig": "^3.22.2"
     },
-    "config": {
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true,
-            "neronmoon/scriptsdev": true,
-            "php-http/discovery": true,
-            "phpstan/extension-installer": true,
-            "symfony/flex": true,
-            "symfony/runtime": true,
-            "symfony/thanks": true
-        },
-        "apcu-autoloader": true,
-        "bump-after-update": true,
-        "optimize-autoloader": true,
-        "process-timeout": 3000,
-        "sort-packages": true
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/",
-            "App\\Additions\\": "public/additions/",
-            "App\\Modules\\": "modules/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "App\\Tests\\": "tests/"
-        }
-    },
-    "replace": {
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-intl": "*",
-        "symfony/polyfill-intl-grapheme": "*",
-        "symfony/polyfill-intl-icu": "*",
-        "symfony/polyfill-intl-idn": "*",
-        "symfony/polyfill-intl-normalizer": "*",
-        "symfony/polyfill-mbstring": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php73": "*",
-        "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*",
-        "symfony/polyfill-php81": "*",
-        "symfony/polyfill-php82": "*",
-        "symfony/polyfill-php83": "*",
-        "symfony/polyfill-php84": "*",
-        "symfony/polyfill-php85": "*"
-    },
-    "scripts": {
-        "auto-scripts": {
-            "requirements-checker": "script",
-            "cache:clear": "symfony-cmd",
-            "cache:warmup": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
-            "SlowProg\\CopyFile\\ScriptHandler::copy",
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "7.4.*"
-        },
-        "mkdir": {
-            "migrations": "0644",
-            "public/additions": "0777",
-            "public/storage": "0777",
-            "public/storage/media": "0777",
-            "public/translations": "0777",
-            "public/uploads": "0777"
-        },
-        "copy-file": {},
-        "scripts-dev": {
-            "post-install-cmd": [
-                "@php bin/console biomejs:download"
-            ],
-            "post-update-cmd": [
-                "@php bin/console doctrine:diagram:er",
-                "@php bin/console doctrine:diagram:class",
-                "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
-                "vendor/bin/twig-cs-fixer fix",
-                "bin/biome lint --write assets modules public/additions",
-                "bin/biome check --write assets modules public/additions",
-                "bin/biome format --write assets modules public/additions",
-                "vendor/bin/phpstan analyse --error-format friendly",
-                "vendor/bin/php-cs-fixer fix"
-            ]
-        }
-    },
     "require-dev": {
         "dadadev/phpstan-symfony-routing": "^0.2.0",
         "dama/doctrine-test-bundle": "^8.6",
@@ -206,5 +106,108 @@
         "symplify/phpstan-rules": "^14.9.11",
         "vincentlanglet/twig-cs-fixer": "^3.12",
         "yamadashy/phpstan-friendly-formatter": "^1.3"
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-intl": "*",
+        "symfony/polyfill-intl-grapheme": "*",
+        "symfony/polyfill-intl-icu": "*",
+        "symfony/polyfill-intl-idn": "*",
+        "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*",
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*",
+        "symfony/polyfill-php85": "*"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "App\\Additions\\": "public/additions/",
+            "App\\Modules\\": "modules/"
+        },
+        "classmap": [
+            "config/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "neronmoon/scriptsdev": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "symfony/thanks": true
+        },
+        "apcu-autoloader": true,
+        "bump-after-update": true,
+        "optimize-autoloader": true,
+        "process-timeout": 3000,
+        "sort-packages": true
+    },
+    "extra": {
+        "copy-file": {},
+        "mkdir": {
+            "migrations": "0644",
+            "public/additions": "0777",
+            "public/storage": "0777",
+            "public/storage/media": "0777",
+            "public/translations": "0777",
+            "public/uploads": "0777"
+        },
+        "scripts-dev": {
+            "post-install-cmd": [
+                "@php bin/console biomejs:download"
+            ],
+            "post-update-cmd": [
+                "@php bin/console doctrine:diagram:er",
+                "@php bin/console doctrine:diagram:class",
+                "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
+                "vendor/bin/twig-cs-fixer fix",
+                "bin/biome lint --write assets modules public/additions",
+                "bin/biome check --write assets modules public/additions",
+                "bin/biome format --write assets modules public/additions",
+                "vendor/bin/phpstan analyse --error-format friendly",
+                "vendor/bin/php-cs-fixer fix"
+            ]
+        },
+        "symfony": {
+            "allow-contrib": false,
+            "require": "7.4.*"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
+            "SlowProg\\CopyFile\\ScriptHandler::copy",
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "auto-scripts": {
+            "requirements-checker": "script",
+            "cache:clear": "symfony-cmd",
+            "cache:warmup": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd"
+        }
     }
 }
