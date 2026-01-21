@@ -1,0 +1,11 @@
+# https://github.com/jawira/doctrine-diagram-bundle
+doctrine_diagram:
+    er:
+        filename: "%kernel.project_dir%/var/er"
+        size: maxi
+    class:
+        filename: "%kernel.project_dir%/class"
+        size: maxi
+    convert:
+        format: svg
+        converter: auto
