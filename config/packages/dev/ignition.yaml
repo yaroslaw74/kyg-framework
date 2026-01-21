@@ -1,0 +1,6 @@
+ignition:
+    application_path: "%kernel.project_dir%"
+    dark_mode: false
+    should_display_exception: "%kernel.debug%"
+    # if you want AI solutions to your app's errors
+    #openai_key: 'key-here'
