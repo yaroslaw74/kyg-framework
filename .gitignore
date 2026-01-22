@@ -46,3 +46,7 @@
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
+
+###> php-flasher/flasher-symfony ###
+/public/vendor/
+###< php-flasher/flasher-symfony ###
