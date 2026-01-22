@@ -28,4 +28,7 @@ return [
     'es-module-shims' => [
         'version' => '2.8.0',
     ],
+    '@symfony/ux-live-component' => [
+        'path' => './vendor/symfony/ux-live-component/assets/dist/live_controller.js',
+    ],
 ];
