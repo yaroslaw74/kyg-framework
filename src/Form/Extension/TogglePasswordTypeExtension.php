@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,6 +11,7 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
@@ -48,7 +50,7 @@ final class TogglePasswordTypeExtension extends AbstractTypeExtension
 
         $resolver->setNormalizer(
             'toggle_translation_domain',
-            static fn(Options $options, $labelTranslationDomain) => $labelTranslationDomain ?? $options['translation_domain'],
+            static fn (Options $options, $labelTranslationDomain) => $labelTranslationDomain ?? $options['translation_domain'],
         );
 
         $resolver->setAllowedTypes('toggle', ['bool']);
@@ -70,14 +72,14 @@ final class TogglePasswordTypeExtension extends AbstractTypeExtension
     {
         $view->vars['toggle'] = $options['toggle'];
 
-        /**
+        /*
          * @phpstan-ignore booleanNot.exprNotBoolean
          */
         if (!$options['toggle']) {
             return;
         }
 
-        /**
+        /*
          * @phpstan-ignore if.condNotBoolean
          */
         if ($options['use_toggle_form_theme']) {
