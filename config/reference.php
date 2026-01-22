@@ -1554,6 +1554,35 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         vary?: list<scalar|null|Param>,
  *     },
  * }
+ * @psalm-type FlasherConfig = array{
+ *     default?: scalar|null|Param, // Default notification library (e.g., "flasher", "toastr", "noty", "notyf", "sweetalert") // Default: "flasher"
+ *     main_script?: scalar|null|Param, // Path to the main PHPFlasher JavaScript file // Default: "/vendor/flasher/flasher.min.js"
+ *     inject_assets?: bool|Param, // Automatically inject assets into HTML pages // Default: true
+ *     translate?: bool|Param, // Enable message translation // Default: true
+ *     excluded_paths?: list<scalar|null|Param>,
+ *     filter?: list<mixed>,
+ *     scripts?: list<scalar|null|Param>,
+ *     styles?: list<scalar|null|Param>,
+ *     options?: list<mixed>,
+ *     flash_bag?: mixed, // Map Symfony flash messages to notification types // Default: true
+ *     presets?: array<string, array{ // Default: []
+ *         type?: scalar|null|Param, // Notification type (e.g., "success", "error")
+ *         title?: scalar|null|Param, // Default title
+ *         message?: scalar|null|Param, // Default message
+ *         options?: list<mixed>,
+ *     }>,
+ *     plugins?: array<string, array{ // Default: []
+ *         view?: scalar|null|Param, // Custom twig view template
+ *         styles?: list<scalar|null|Param>,
+ *         scripts?: list<scalar|null|Param>,
+ *         options?: list<mixed>,
+ *     }>,
+ *     themes?: array<string, array{ // Default: []
+ *         styles?: list<scalar|null|Param>,
+ *         scripts?: list<scalar|null|Param>,
+ *         options?: list<mixed>,
+ *     }>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1572,6 +1601,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     live_component?: LiveComponentConfig,
  *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     fos_js_routing?: FosJsRoutingConfig,
+ *     flasher?: FlasherConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1596,6 +1626,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
+ *         flasher?: FlasherConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1615,6 +1646,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
+ *         flasher?: FlasherConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1637,6 +1669,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
+ *         flasher?: FlasherConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
