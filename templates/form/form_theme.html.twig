@@ -1,0 +1,11 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{%- block toggle_password_widget -%}
+    <div class="{{ toggle_container_classes|join(' ') }}">{{ block('password_widget') }}</div>
+{%- endblock toggle_password_widget -%}
