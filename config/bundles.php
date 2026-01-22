@@ -17,4 +17,7 @@ return [
     Kocal\BiomeJsBundle\KocalBiomeJsBundle::class => ['dev' => true],
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
     Spatie\SymfonyIgnitionBundle\IgnitionBundle::class => ['dev' => true],
+    Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
+    Symfony\UX\TwigComponent\TwigComponentBundle::class => ['all' => true],
+    Symfony\UX\LiveComponent\LiveComponentBundle::class => ['all' => true],
 ];
