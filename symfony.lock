@@ -111,6 +111,9 @@
             "./bin/phpunit"
         ]
     },
+    "pyrrah/gravatar-bundle": {
+        "version": "v1.5.2"
+    },
     "spatie/symfony-ignition-bundle": {
         "version": "1.2",
         "recipe": {
