@@ -1,7 +1,7 @@
 import { startStimulusApp } from "@symfony/stimulus-bundle";
 import Swup from "@symfony/ux-swup";
-import Flatpickr from "stimulus-flatpickr";
 import toglePassword from "@symfony/ux-toggle-password";
+import Flatpickr from "stimulus-flatpickr";
 
 const app = startStimulusApp();
 // register any custom, 3rd party controllers here
