@@ -32,6 +32,11 @@ final class Kernel extends BaseKernel
         return $this->getProjectDir().'/public/additions';
     }
 
+    /**
+     * Summary of configureRoutes.
+     *
+     * @phpstan-ignore method.unused
+     */
     private function configureRoutes(RoutingConfigurator $routes): void
     {
         $configDir = $this->getConfigDir();
