@@ -3,4 +3,10 @@ framework:
         # The paths to make available to the asset mapper.
         paths:
             - assets/
+            - public/theme/
         missing_import_mode: strict
+        exclude_dotfiles: true
+        excluded_patterns:
+            - "*.md"
+            - "composer.json"
+            - "package.json"
