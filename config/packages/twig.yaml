@@ -1,6 +1,12 @@
 twig:
     form_themes:
         - "bootstrap_5_layout.html.twig"
+    globals:
+        app_name: null
+        app_desktop_logo: null
+        app_toggle_logo: null
+        app_desktop_white: null
+        app_toggle_white: null
 
     # The default path used to load templates.
     default_path: "%kernel.project_dir%/templates"
