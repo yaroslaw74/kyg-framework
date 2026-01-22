@@ -1,10 +1,10 @@
 {#
-#  @Project    KYG Framework for business
-#  @Version    1.0.0
-#
-#  @Copyright  (C) Kataev Yaroslav
-#  @E-mail     yaroslaw74@gmail.com
-#  @License    GNU General Public License version 3 or later, see LICENSE
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
  #}
 <!DOCTYPE html>
 <html lang="{{ locale_HTML(app.locale) }}" dir="{{ locale_dir(app.locale) }}" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
@@ -36,7 +36,9 @@
         <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/ico/kyg-152X152.png') }}">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/kyg-180X180.png') }}">
         {% block stylesheets %}{% endblock %}
-        {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% block importmap %}
+            {{ importmap([locale_dir(app.locale), 'app']) }}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </head>
     <body {{ stimulus_controller('swup', {
