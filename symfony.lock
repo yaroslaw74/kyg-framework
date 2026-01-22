@@ -96,6 +96,9 @@
             "./biome.json"
         ]
     },
+    "php-flasher/flasher-symfony": {
+        "version": "v2.4.0"
+    },
     "phpstan/phpstan": {
         "version": "2.1",
         "recipe": {
