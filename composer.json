@@ -186,6 +186,7 @@
                 "bin/biome check --write assets modules public/additions",
                 "bin/biome format --write assets modules public/additions",
                 "vendor/bin/phpstan analyse --error-format friendly",
+                "vendor/bin/psalm --alter --issues=MismatchingDocblockParamType,UnusedMethod --dry-run",
                 "vendor/bin/php-cs-fixer fix"
             ]
         },
