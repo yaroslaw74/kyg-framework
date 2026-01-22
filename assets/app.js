@@ -1,5 +1,7 @@
 import "./stimulus_bootstrap.js";
 import "./icons-fonts.js";
+import "./plugins.js";
+import "./valex.js";
 /*
  * Welcome to your app's main JavaScript file!
  *
