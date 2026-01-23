@@ -1583,6 +1583,27 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         options?: list<mixed>,
  *     }>,
  * }
+ * @psalm-type JbtronicsSettingsConfig = array{
+ *     search_paths?: list<scalar|null|Param>,
+ *     proxy_dir?: scalar|null|Param, // Default: "%kernel.cache_dir%/jbtronics_settings/proxies"
+ *     proxy_namespace?: scalar|null|Param, // Default: "Jbtronics\\SettingsBundle\\Proxies"
+ *     default_storage_adapter?: scalar|null|Param, // Default: null
+ *     save_after_migration?: bool|Param, // Default: true
+ *     file_storage?: array{
+ *         storage_directory?: scalar|null|Param, // Default: "%kernel.project_dir%/var/jbtronics_settings/"
+ *         default_filename?: scalar|null|Param, // Default: "settings"
+ *     },
+ *     orm_storage?: array{
+ *         default_entity_class?: scalar|null|Param, // Default: null
+ *         prefetch_all?: bool|Param, // Default: true
+ *     },
+ *     cache?: array{
+ *         service?: scalar|null|Param, // Default: "cache.app.taggable"
+ *         default_cacheable?: bool|Param, // Default: false
+ *         ttl?: int|Param, // Default: 0
+ *         invalidate_on_env_change?: bool|Param, // Default: true
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1602,6 +1623,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     fos_js_routing?: FosJsRoutingConfig,
  *     flasher?: FlasherConfig,
+ *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1627,6 +1649,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
  *         flasher?: FlasherConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1647,6 +1670,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
  *         flasher?: FlasherConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1670,6 +1694,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
  *         flasher?: FlasherConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
