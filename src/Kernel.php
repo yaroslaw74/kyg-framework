@@ -41,32 +41,33 @@ final class Kernel extends BaseKernel
     {
         $configDir = $this->getConfigDir();
 
-        $routes->import($configDir.'/{routes}/'.$this->environment.'/*.{php,yaml}');
-        $routes->import($configDir.'/{routes}/*.{php,yaml}');
+        $routes->import("{$configDir}/{routes}/{$this->environment}/*.{php,yaml}");
+        $routes->import("{$configDir}/{routes}/*.{php,yaml}");
 
-        if (is_file($configDir.'/routes.yaml')) {
-            $routes->import($configDir.'/routes.yaml');
+        if (is_file("{$configDir}/routes.yaml")) {
+            $routes->import("{$configDir}/routes.yaml");
         } else {
-            $routes->import($configDir.'/{routes}.php');
+            $routes->import("{$configDir}/{routes}.php");
         }
 
         $modulesDir = $this->getModulesDir();
         $modules = array_diff(scandir($modulesDir), ['..', '.']);
         foreach ($modules as $name) {
-            if (!is_file($modulesDir.'/'.$name)) {
-                $routes->import($modulesDir.'/'.$name.'/Resources/config/{routes}/*.{php,yaml,xml}');
+            if (!is_file("{$modulesDir}/{$name}")) {
+                $routes->import("{$modulesDir}/{$name}/Resources/config/{routes}/*.{php,yaml}");
             }
         }
 
         $additionsDir = $this->getAdditionssDir();
         $additions = array_diff(scandir($additionsDir), ['..', '.']);
         foreach ($additions as $name) {
-            if (!is_file($additionsDir.'/'.$name)) {
-                $routes->import($additionsDir.'/'.$name.'/Resources/config/{routes}/*.{php,yaml,xml}');
+            if (!is_file("{$additionsDir}/{$name}")) {
+                $routes->import("{$additionsDir}/{$name}/Resources/config/{routes}/*.{php,yaml}");
             }
         }
 
-        if (false !== ($fileName = (new \ReflectionObject($this))->getFileName())) {
+        $ReflectionObject = new \ReflectionObject($this);
+        if (false !== ($fileName = $ReflectionObject->getFileName())) {
             $routes->import($fileName, 'attribute');
         }
     }
