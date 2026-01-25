@@ -48,6 +48,7 @@
         "pyrrah/gravatar-bundle": "^1.5.2",
         "shivas/versioning-bundle": "^4.1.1",
         "slowprog/composer-copy-file": "^0.3.3",
+        "stof/doctrine-extensions-bundle": "^1.15",
         "symfony/apache-pack": "^1.0.1",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
