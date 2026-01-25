@@ -2,12 +2,13 @@ twig:
     form_themes:
         - "bootstrap_5_layout.html.twig"
         - "form/custom_form_fields.html.twig"
+
     globals:
-        app_name: "%env(settings:twig:AppName)%"
-        app_desktop_logo: "%env(settings:twig:DesktopLogo)%"
-        app_toggle_logo: "%env(settings:twig:ToggleLogo)%"
-        app_desktop_white: "%env(settings:twig:DesktopWhiteLogo)%"
-        app_toggle_white: "%env(settings:twig:ToggleWhiteLogo)%"
+        app_name: null
+        app_desktop_logo: null
+        app_toggle_logo: null
+        app_desktop_white: null
+        app_toggle_white: null
 
     # The default path used to load templates.
     default_path: "%kernel.project_dir%/templates"
