@@ -77,11 +77,11 @@
         "symfony/web-link": "7.4.*",
         "symfony/yaml": "7.4.*",
         "twig/cssinliner-extra": "^3.23",
-        "twig/extra-bundle": "^3.23.0",
+        "twig/extra-bundle": "^3.23",
         "twig/inky-extra": "^3.23",
         "twig/markdown-extra": "^3.23",
-        "twig/string-extra": "^3.23.0",
-        "twig/twig": "^3.23.0"
+        "twig/string-extra": "^3.23",
+        "twig/twig": "^3.23"
     },
     "require-dev": {
         "dadadev/phpstan-symfony-routing": "^0.2.0",
@@ -171,7 +171,9 @@
         "sort-packages": true
     },
     "extra": {
-        "copy-file": {},
+        "copy-file": {
+            "modules/Config/Resources/data/theme/": "public/theme/"
+        },
         "mkdir": {
             "migrations": "0644",
             "public/additions": "0777",
