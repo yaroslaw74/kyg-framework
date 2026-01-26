@@ -30,6 +30,8 @@ class SonataClassificationCategoryRepository extends ServiceEntityRepository
 
     /**
      * @return SonataClassificationCategory[] Returns an array of SonataClassificationCategory objects
+     *
+     * @phpstan-ignore missingType.parameter
      */
     public function findByExampleField($value): array
     {
@@ -44,9 +46,7 @@ class SonataClassificationCategoryRepository extends ServiceEntityRepository
         ;
     }
 
-    /**
-     * Summary of findOneBySomeField.
-     */
+    /** @phpstan-ignore missingType.parameter */
     public function findOneBySomeField($value): ?SonataClassificationCategory
     {
         /* @phpstan-ignore  doctrine.dql */
