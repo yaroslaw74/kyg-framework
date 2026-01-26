@@ -2331,6 +2331,36 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *     },
  * }
+ * @psalm-type SonataClassificationConfig = array{
+ *     class?: array{
+ *         tag?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Tag"
+ *         category?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Category"
+ *         collection?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Collection"
+ *         context?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Context"
+ *     },
+ *     admin?: array{
+ *         category?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\CategoryAdmin"
+ *             controller?: scalar|Param|null, // Default: "sonata.classification.controller.category_admin"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *         tag?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\TagAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *         collection?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\CollectionAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *         context?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\ContextAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2364,6 +2394,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_twig?: SonataTwigConfig,
  *     sonata_admin?: SonataAdminConfig,
  *     sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *     sonata_classification?: SonataClassificationConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2403,6 +2434,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_twig?: SonataTwigConfig,
  *         sonata_admin?: SonataAdminConfig,
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_classification?: SonataClassificationConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -2437,6 +2469,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_twig?: SonataTwigConfig,
  *         sonata_admin?: SonataAdminConfig,
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_classification?: SonataClassificationConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2474,6 +2507,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_twig?: SonataTwigConfig,
  *         sonata_admin?: SonataAdminConfig,
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_classification?: SonataClassificationConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
