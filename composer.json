@@ -48,7 +48,10 @@
         "pyrrah/gravatar-bundle": "^1.5.2",
         "shivas/versioning-bundle": "^4.1.1",
         "slowprog/composer-copy-file": "^0.3.3",
-        "stof/doctrine-extensions-bundle": "^1.15",
+        "sonata-project/admin-bundle": "^4.42",
+        "sonata-project/block-bundle": "^5.4",
+        "sonata-project/doctrine-orm-admin-bundle": "^4.21",
+        "stof/doctrine-extensions-bundle": "^1.15.3",
         "symfony/apache-pack": "^1.0.1",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
@@ -230,6 +233,7 @@
             "cache:warmup": "symfony-cmd",
             "ckeditor:install --clear=drop --release=full": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "kygbundle:install --symlink --relative": "symfony-cmd",
             "importmap:install": "symfony-cmd",
             "flasher:install": "symfony-cmd"
         }
