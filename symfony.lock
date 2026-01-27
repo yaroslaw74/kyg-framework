@@ -331,6 +331,9 @@
             "ref": "30dba2f9b719f21b497a6302f41aac07f9079e13"
         }
     },
+    "sonata-project/user-bundle": {
+        "version": "5.19.0"
+    },
     "spatie/symfony-ignition-bundle": {
         "version": "1.2",
         "recipe": {
