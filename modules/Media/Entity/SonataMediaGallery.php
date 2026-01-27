@@ -21,20 +21,51 @@ use Sonata\MediaBundle\Entity\BaseGallery;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 
 /**
  * @phpstan-ignore missingType.generics
  */
 #[ORM\Entity(repositoryClass: SonataMediaGalleryRepository::class)]
 #[ORM\Table(name: 'media__gallery')]
+#[Gedmo\SoftDeleteable]
 #[ApiResource]
 class SonataMediaGallery extends BaseGallery
 {
+    use SoftDeleteableEntity;
+
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private ?Uuid $id = null;
+
+    public function __serialize(): array
+    {
+        $data = (array) $this;
+
+        return $data;
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    public function __unserialize(array $data): void
+    {
+        [
+            $this->id,
+            $this->context,
+            $this->name,
+            $this->enabled,
+            $this->updatedAt,
+            $this->createdAt,
+            $this->deletedAt,
+            $this->defaultFormat,
+            $this->galleryItems
+        ] = $data;
+    }
+
 
     public function getId(): ?string
     {
