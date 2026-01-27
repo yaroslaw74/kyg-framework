@@ -35,6 +35,9 @@ class SonataClassificationTagRepository extends ServiceEntityRepository
      */
     public function findByExampleField($value): array
     {
+        /*
+         * @phpstan-ignore doctrine.dql
+         */
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')
             ->setParameter('val', $value)
@@ -50,6 +53,9 @@ class SonataClassificationTagRepository extends ServiceEntityRepository
      */
     public function findOneBySomeField($value): ?SonataClassificationTag
     {
+        /*
+         * @phpstan-ignore doctrine.dql
+         */
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')
             ->setParameter('val', $value)
