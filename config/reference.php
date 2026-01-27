@@ -2653,6 +2653,38 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * @psalm-type SymfonycastsVerifyEmailConfig = array{
  *     lifetime?: int|Param, // The length of time in seconds that a signed URI is valid for after it is created. // Default: 3600
  * }
+ * @psalm-type SonataUserConfig = array{
+ *     security_acl?: bool|Param, // Default: false
+ *     impersonating?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         route: scalar|Param|null,
+ *         parameters?: array<string, scalar|Param|null>,
+ *     },
+ *     manager_type?: scalar|Param|null, // Default: "orm"
+ *     class?: array{
+ *         user?: scalar|Param|null, // Default: "Sonata\\UserBundle\\Entity\\BaseUser"
+ *     },
+ *     admin?: array{
+ *         user?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\UserBundle\\Admin\\Entity\\UserAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataUserBundle"
+ *         },
+ *     },
+ *     profile?: array{
+ *         default_avatar?: scalar|Param|null, // Default: "bundles/sonatauser/default_avatar.png"
+ *     },
+ *     mailer?: scalar|Param|null, // Custom mailer used to send reset password emails // Default: "sonata.user.mailer.default"
+ *     resetting?: array{
+ *         retry_ttl?: int|Param, // Default: 7200
+ *         token_ttl?: int|Param, // Default: 86400
+ *         email: array{
+ *             template?: scalar|Param|null, // Default: "@SonataUser/Admin/Security/Resetting/email.html.twig"
+ *             address?: scalar|Param|null,
+ *             sender_name?: scalar|Param|null,
+ *         },
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2693,6 +2725,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_intl?: SonataIntlConfig,
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
+ *     sonata_user?: SonataUserConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2739,6 +2772,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_intl?: SonataIntlConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
+ *         sonata_user?: SonataUserConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -2780,6 +2814,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_intl?: SonataIntlConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
+ *         sonata_user?: SonataUserConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2824,6 +2859,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_intl?: SonataIntlConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
+ *         sonata_user?: SonataUserConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
