@@ -1,0 +1,9 @@
+sonata_user:
+    class:
+        user: App\Modules\Usaer\Entity\User
+    resetting:
+        email:
+            address: sonata@localhost
+            sender_name: Sonata Admin
+    profile:
+        default_avatar: bundles/KYG-Framework/avatar/pngwing.com.png
