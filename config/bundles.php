@@ -43,5 +43,5 @@ return [
     Sonata\MediaBundle\SonataMediaBundle::class => ['all' => true],
     Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
     Sonata\FormatterBundle\SonataFormatterBundle::class => ['all' => true],
-    Sonata\TranslationBundle\SonataTranslationBundle::class => ['all' => true],
+    Sonata\IntlBundle\SonataIntlBundle::class => ['all' => true],
 ];
