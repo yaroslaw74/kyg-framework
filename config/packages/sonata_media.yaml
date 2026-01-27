@@ -22,10 +22,22 @@ sonata_media:
 
     cdn:
         server:
-            path: /uploads/media
+            path: /storage/media
 
     filesystem:
         local:
             # Directory for uploads should be writable
-            directory: "%kernel.project_dir%/public/uploads/media"
+            directory: "%kernel.project_dir%/public/storage/media"
             create: false
+
+    providers:
+        image:
+            thumbnail: sonata.media.thumbnail.liip_imagine
+            allowed_extensions: ["jpg", "png", "gif", "jpeg", "bmp"]
+            allowed_mime_types: ["image/pjpeg", "image/jpeg", "image/png", "image/x-png", "image/gif", "image/bmp"]
+        vimeo:
+            thumbnail: sonata.media.thumbnail.liip_imagine
+        youtube:
+            thumbnail: sonata.media.thumbnail.liip_imagine
+        dailymotion:
+            thumbnail: sonata.media.thumbnail.liip_imagine
