@@ -74,6 +74,8 @@ class KYGBundleInstallCommand extends Command
 
         if (is_dir($originDir)) {
             try {
+                $this->filesystem->remove($targetDir);
+
                 if (self::METHOD_RELATIVE_SYMLINK === $expectedMethod) {
                     $this->relativeSymlinkWithFallback($originDir, $targetDir);
                 } elseif (self::METHOD_ABSOLUTE_SYMLINK === $expectedMethod) {
