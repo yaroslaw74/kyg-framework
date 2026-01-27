@@ -50,3 +50,7 @@ phpstan.neon
 ###> php-flasher/flasher-symfony ###
 /public/vendor/
 ###< php-flasher/flasher-symfony ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
