@@ -21,17 +21,65 @@ use Sonata\MediaBundle\Entity\BaseMedia;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 
 #[ORM\Entity(repositoryClass: SonataMediaMediaRepository::class)]
 #[ORM\Table(name: 'media__media')]
+#[Gedmo\SoftDeleteable]
 #[ApiResource]
 class SonataMediaMedia extends BaseMedia
 {
+    use SoftDeleteableEntity;
+
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private ?Uuid $id = null;
+
+    public function __serialize(): array
+    {
+        $data = (array) $this;
+
+        return $data;
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    public function __unserialize(array $data): void
+    {
+        [
+            $this->id,
+            $this->name,
+            $this->description,
+            $this->enabled,
+            $this->providerName,
+            $this->providerStatus,
+            $this->providerReference,
+            $this->providerMetadata,
+            $this->width,
+            $this->height,
+            $this->length,
+            $this->copyright,
+            $this->authorName,
+            $this->context,
+            $this->cdnStatus,
+            $this->cdnIsFlushable,
+            $this->cdnFlushIdentifier,
+            $this->cdnFlushAt,
+            $this->updatedAt,
+            $this->createdAt,
+            $this->deletedAt,
+            $this->binaryContent,
+            $this->previousProviderReference,
+            $this->contentType,
+            $this->size,
+            $this->galleryItems,
+            $this->category
+        ] = $data;
+    }
 
     public function getId(): ?string
     {
