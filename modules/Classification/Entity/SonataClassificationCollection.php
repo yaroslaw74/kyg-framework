@@ -21,17 +21,47 @@ use Sonata\ClassificationBundle\Entity\BaseCollection;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 
 #[ORM\Entity(repositoryClass: SonataClassificationCollectionRepository::class)]
 #[ORM\Table(name: 'classification__collection')]
+#[Gedmo\SoftDeleteable]
 #[ApiResource]
 class SonataClassificationCollection extends BaseCollection
 {
+    use SoftDeleteableEntity;
+
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     protected ?Uuid $id = null;
+
+    public function __serialize(): array
+    {
+        $data = (array) $this;
+
+        return $data;
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    public function __unserialize(array $data): void
+    {
+        [
+            $this->id,
+            $this->name,
+            $this->slug,
+            $this->enabled,
+            $this->description,
+            $this->createdAt,
+            $this->updatedAt,
+            $this->deletedAt,
+            $this->context
+        ] = $data;
+    }
 
     public function getId(): ?string
     {
