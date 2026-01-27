@@ -100,9 +100,9 @@
         "twig/twig": "^3.23"
     },
     "require-dev": {
-        "dadadev/phpstan-symfony-routing": "^0.2.0",
+        "dadadev/phpstan-symfony-routing": "^0.2",
         "dama/doctrine-test-bundle": "^8.6",
-        "ergebnis/composer-normalize": "^2.48.2",
+        "ergebnis/composer-normalize": "^2.49.0",
         "friendsofphp/php-cs-fixer": "^3.93.0",
         "gromnan/symfony-config-xml-to-php": "^0.2.1",
         "jawira/doctrine-diagram-bundle": "^1.2",
