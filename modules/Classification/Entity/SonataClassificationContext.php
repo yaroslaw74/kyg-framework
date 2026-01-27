@@ -27,5 +27,8 @@ class SonataClassificationContext extends BaseContext
 {
     #[ORM\Id]
     #[ORM\Column(type: Types::STRING)]
+    /**
+     * @phpstan-ignore doctrine.columnType
+     */
     protected ?string $id = null;
 }
