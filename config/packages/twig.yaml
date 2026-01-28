@@ -3,6 +3,7 @@ twig:
         - "bootstrap_5_layout.html.twig"
         - "form/custom_form_fields.html.twig"
         - "@SonataFormatter/Form/formatter.html.twig"
+        - "@SonataMedia/Form/media_widgets.html.twig"
 
     globals:
         app_name: null
