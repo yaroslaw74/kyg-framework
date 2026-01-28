@@ -23,6 +23,8 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
+
 
 #[ORM\Entity(repositoryClass: SonataMediaMediaRepository::class)]
 #[ORM\Table(name: 'media__media')]
@@ -31,6 +33,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 class SonataMediaMedia extends BaseMedia
 {
     use SoftDeleteableEntity;
+    use BlameableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -70,7 +73,9 @@ class SonataMediaMedia extends BaseMedia
             $this->cdnFlushIdentifier,
             $this->cdnFlushAt,
             $this->updatedAt,
+            $this->updatedBy,
             $this->createdAt,
+            $this->createdBy,
             $this->deletedAt,
             $this->binaryContent,
             $this->previousProviderReference,
