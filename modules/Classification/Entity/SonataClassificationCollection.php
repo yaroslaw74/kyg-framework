@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace App\Modules\Classification\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Modules\Classification\Entity\FAQCategory\SonataClassificationCollectionTranslation;
 use App\Modules\Classification\Repository\SonataClassificationCollectionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
