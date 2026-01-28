@@ -17,14 +17,13 @@ namespace App\Modules\Classification\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Classification\Repository\SonataClassificationTagRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\ClassificationBundle\Entity\BaseTag;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
-
 
 #[ORM\Entity(repositoryClass: SonataClassificationTagRepository::class)]
 #[ORM\Table(name: 'classification__tag')]
@@ -63,10 +62,9 @@ class SonataClassificationTag extends BaseTag
             $this->updatedBy,
             $this->deletedAt,
             $this->enabled,
-            $this->context
+            $this->context,
         ] = $data;
     }
-
 
     public function getId(): ?string
     {
