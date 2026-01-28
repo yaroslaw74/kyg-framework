@@ -21,6 +21,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\ClassificationBundle\Entity\BaseContext;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
+
 
 #[ORM\Entity(repositoryClass: SonataClassificationContextRepository::class)]
 #[ORM\Table(name: 'classification__context')]
@@ -29,6 +31,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 class SonataClassificationContext extends BaseContext
 {
     use SoftDeleteableEntity;
+    use BlameableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: Types::STRING)]
@@ -53,7 +56,9 @@ class SonataClassificationContext extends BaseContext
             $this->id,
             $this->name,
             $this->createdAt,
+            $this->createdBy,
             $this->updatedAt,
+            $this->updatedBy,
             $this->deletedAt,
             $this->enabled
         ] = $data;
