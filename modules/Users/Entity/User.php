@@ -27,6 +27,7 @@ use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -37,6 +38,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
 {
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
+    use BlameableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -135,7 +137,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->vkontakte,
             $this->github,
             $this->createdAt,
+            $this->createdBy,
             $this->updatedAt,
+            $this->updatedBy,
             $this->deletedAt,
             $this->timezone,
         ] = $data;
