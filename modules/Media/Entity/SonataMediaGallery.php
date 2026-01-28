@@ -17,13 +17,13 @@ namespace App\Modules\Media\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Media\Repository\SonataMediaGalleryRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\MediaBundle\Entity\BaseGallery;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
 
 /**
  * @phpstan-ignore missingType.generics
@@ -66,10 +66,9 @@ class SonataMediaGallery extends BaseGallery
             $this->createdBy,
             $this->deletedAt,
             $this->defaultFormat,
-            $this->galleryItems
+            $this->galleryItems,
         ] = $data;
     }
-
 
     public function getId(): ?string
     {
