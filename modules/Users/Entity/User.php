@@ -17,17 +17,17 @@ namespace App\Modules\Users\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
+use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Sonata\UserBundle\Entity\BaseUser3 as BaseUser;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
-use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
-use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -97,7 +97,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
