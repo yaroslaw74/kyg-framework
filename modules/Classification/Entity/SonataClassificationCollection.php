@@ -17,13 +17,13 @@ namespace App\Modules\Classification\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Classification\Repository\SonataClassificationCollectionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\ClassificationBundle\Entity\BaseCollection;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
 
 #[ORM\Entity(repositoryClass: SonataClassificationCollectionRepository::class)]
 #[ORM\Table(name: 'classification__collection')]
@@ -63,7 +63,7 @@ class SonataClassificationCollection extends BaseCollection
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
-            $this->context
+            $this->context,
         ] = $data;
     }
 
