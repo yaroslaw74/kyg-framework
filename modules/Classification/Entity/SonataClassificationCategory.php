@@ -17,13 +17,13 @@ namespace App\Modules\Classification\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Classification\Repository\SonataClassificationCategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\ClassificationBundle\Entity\BaseCategory;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
 
 #[ORM\Entity(repositoryClass: SonataClassificationCategoryRepository::class)]
 #[ORM\Table(name: 'classification__category')]
@@ -66,7 +66,7 @@ class SonataClassificationCategory extends BaseCategory
             $this->position,
             $this->children,
             $this->parent,
-            $this->context
+            $this->context,
         ] = $data;
     }
 
