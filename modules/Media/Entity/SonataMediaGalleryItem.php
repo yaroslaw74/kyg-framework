@@ -23,6 +23,7 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
 
 #[ORM\Entity(repositoryClass: SonataMediaGalleryItemRepository::class)]
 #[ORM\Table(name: 'media__gallery_item')]
@@ -31,6 +32,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 class SonataMediaGalleryItem extends BaseGalleryItem
 {
     use SoftDeleteableEntity;
+    use BlameableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -56,7 +58,9 @@ class SonataMediaGalleryItem extends BaseGalleryItem
             $this->gallery,
             $this->position,
             $this->updatedAt,
+            $this->updatedBy,
             $this->createdAt,
+            $this->createdBy,
             $this->deletedAt,
             $this->enabled
         ] = $data;
