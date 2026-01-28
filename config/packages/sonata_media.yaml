@@ -4,6 +4,7 @@ sonata_media:
         gallery: App\Modules\Media\Document\SonataMediaGallery
         gallery_item: App\Modules\Media\Document\SonataMediaGalleryItem
         category: App\Modules\Classification\Entity\SonataClassificationCategory
+    db_driver: doctrine_orm
     default_context: default
     admin_format: { width: 200, quality: 90, format: "jpg" }
     contexts:
