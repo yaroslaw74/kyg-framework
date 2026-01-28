@@ -17,14 +17,13 @@ namespace App\Modules\Media\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Media\Repository\SonataMediaMediaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\MediaBundle\Entity\BaseMedia;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
-
 
 #[ORM\Entity(repositoryClass: SonataMediaMediaRepository::class)]
 #[ORM\Table(name: 'media__media')]
@@ -82,7 +81,7 @@ class SonataMediaMedia extends BaseMedia
             $this->contentType,
             $this->size,
             $this->galleryItems,
-            $this->category
+            $this->category,
         ] = $data;
     }
 
