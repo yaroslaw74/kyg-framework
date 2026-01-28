@@ -23,6 +23,7 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
 
 /**
  * @phpstan-ignore missingType.generics
@@ -34,6 +35,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 class SonataMediaGallery extends BaseGallery
 {
     use SoftDeleteableEntity;
+    use BlameableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -59,7 +61,9 @@ class SonataMediaGallery extends BaseGallery
             $this->name,
             $this->enabled,
             $this->updatedAt,
+            $this->updatedBy,
             $this->createdAt,
+            $this->createdBy,
             $this->deletedAt,
             $this->defaultFormat,
             $this->galleryItems
