@@ -15,11 +15,15 @@ declare(strict_types=1);
 namespace App\Modules\Classification\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Classification\Entity\FAQCategory\SonataClassificationCategoryTranslation;
 use App\Modules\Classification\Repository\SonataClassificationCategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Translatable\Translatable;
 use Sonata\ClassificationBundle\Entity\BaseCategory;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
@@ -29,7 +33,7 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Table(name: 'classification__category')]
 #[Gedmo\SoftDeleteable]
 #[ApiResource]
-class SonataClassificationCategory extends BaseCategory
+class SonataClassificationCategory extends BaseCategory implements Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
@@ -39,6 +43,18 @@ class SonataClassificationCategory extends BaseCategory
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     protected ?Uuid $id = null;
+
+    /**
+     * @var Collection<int, SonataClassificationCategoryTranslation>
+     */
+    #[ORM\OneToMany(targetEntity: SonataClassificationCategoryTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->translations = new ArrayCollection();
+    }
 
     public function __serialize(): array
     {
@@ -67,6 +83,7 @@ class SonataClassificationCategory extends BaseCategory
             $this->children,
             $this->parent,
             $this->context,
+            $this->translations,
         ] = $data;
     }
 
@@ -82,5 +99,23 @@ class SonataClassificationCategory extends BaseCategory
     public function getUuid(): ?Uuid
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection<int, SonataClassificationCategoryTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(SonataClassificationCategoryTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
+
+        return $this;
     }
 }
