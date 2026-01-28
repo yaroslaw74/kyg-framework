@@ -18,11 +18,10 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Classification\Repository\SonataClassificationContextRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\ClassificationBundle\Entity\BaseContext;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
-use Gedmo\Blameable\Traits\BlameableEntity;
-
+use Sonata\ClassificationBundle\Entity\BaseContext;
 
 #[ORM\Entity(repositoryClass: SonataClassificationContextRepository::class)]
 #[ORM\Table(name: 'classification__context')]
@@ -60,8 +59,7 @@ class SonataClassificationContext extends BaseContext
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
-            $this->enabled
+            $this->enabled,
         ] = $data;
     }
-
 }
