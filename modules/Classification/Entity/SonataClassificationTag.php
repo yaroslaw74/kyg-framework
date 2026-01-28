@@ -23,6 +23,8 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
+
 
 #[ORM\Entity(repositoryClass: SonataClassificationTagRepository::class)]
 #[ORM\Table(name: 'classification__tag')]
@@ -31,6 +33,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 class SonataClassificationTag extends BaseTag
 {
     use SoftDeleteableEntity;
+    use BlameableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -55,7 +58,9 @@ class SonataClassificationTag extends BaseTag
             $this->name,
             $this->slug,
             $this->createdAt,
+            $this->createdBy,
             $this->updatedAt,
+            $this->updatedBy,
             $this->deletedAt,
             $this->enabled,
             $this->context
