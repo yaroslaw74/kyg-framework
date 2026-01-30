@@ -27,6 +27,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "1tomany/rich-bundle": "^1.14",
         "api-platform/doctrine-orm": "^4.2.15",
         "api-platform/graphql": "^4.2.15",
         "api-platform/symfony": "^4.2.15",
