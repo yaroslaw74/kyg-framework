@@ -20,13 +20,12 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
-use App\Modules\Users\Contract\Repository\UserRepositoryInterface;
-use Symfony\Component\Uid\Uuid;
+
 
 /**
  * @extends ServiceEntityRepository<User>
  */
-class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface, UserRepositoryInterface
+class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -81,13 +80,5 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery()
             ->getOneOrNullResult()
         ;
-    }
-
-    /**
-     * @see UserRepositoryInterface
-     */
-    public function findOneById(?Uuid $Id): ?User
-    {
-        return $Id ? $this->find($Id) : null;
     }
 }
