@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Users\Enumeration\UsersStatus;
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -92,6 +93,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $github = null;
 
+    #[ORM\Column]
+    private UsersStatus $status;
+
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
      */
@@ -143,6 +147,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->updatedBy,
             $this->deletedAt,
             $this->timezone,
+            $this->status,
         ] = $data;
     }
 
@@ -349,6 +354,18 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function setTimezone(string $timezone): static
     {
         $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    public function getStatus(): UsersStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(UsersStatus $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }
