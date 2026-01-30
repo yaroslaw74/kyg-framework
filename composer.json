@@ -27,9 +27,9 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "api-platform/doctrine-orm": "^4.2.14",
-        "api-platform/graphql": "^4.2.14",
-        "api-platform/symfony": "^4.2.14",
+        "api-platform/doctrine-orm": "^4.2.15",
+        "api-platform/graphql": "^4.2.15",
+        "api-platform/symfony": "^4.2.15",
         "balrok/composer-mkdir": "^2.1.1",
         "composer/composer": "^2.9.5",
         "doctrine/doctrine-bundle": "^3.2.2",
@@ -105,7 +105,9 @@
         "twig/inky-extra": "^3.23",
         "twig/markdown-extra": "^3.23",
         "twig/string-extra": "^3.23",
-        "twig/twig": "^3.23"
+        "twig/twig": "^3.23",
+        "yokai/enum-bundle": "^5.1",
+        "yokai/sonata-workflow": "^0.9.0"
     },
     "require-dev": {
         "dadadev/phpstan-symfony-routing": "^0.2",
