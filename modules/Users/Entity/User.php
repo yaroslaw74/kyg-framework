@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Users\Enum\StatusUsers;
 use App\Modules\Users\Enumeration\UsersStatus;
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
@@ -30,6 +31,7 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
+use Yokai\EnumBundle\Validator\Constraints\Enum;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -93,8 +95,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $github = null;
 
-    #[ORM\Column]
-    private UsersStatus $status;
+    #[ORM\Column(nullable: false, options: ['default' => UsersStatus::STATUS_NEW])]
+    #[Enum(enum: StatusUsers::class)]
+    private UsersStatus $status = UsersStatus::STATUS_NEW;
 
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
