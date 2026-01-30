@@ -49,5 +49,4 @@ return [
     Sonata\UserBundle\SonataUserBundle::class => ['all' => true],
     Sonata\TranslationBundle\SonataTranslationBundle::class => ['all' => true],
     Yokai\EnumBundle\YokaiEnumBundle::class => ['all' => true],
-    OneToMany\RichBundle\RichBundle::class => ['all' => true],
 ];
