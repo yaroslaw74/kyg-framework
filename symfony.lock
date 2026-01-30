@@ -1,7 +1,4 @@
 {
-    "1tomany/rich-bundle": {
-        "version": "v1.14.1"
-    },
     "api-platform/symfony": {
         "version": "4.2",
         "recipe": {
