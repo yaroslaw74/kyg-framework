@@ -4,71 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88ea40271653c3f998245575ceef0c1f",
+    "content-hash": "c2a420dde13aa88ac380b038c5634444",
     "packages": [
-        {
-            "name": "1tomany/rich-bundle",
-            "version": "v1.14.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/1tomany/rich-bundle.git",
-                "reference": "e7fce51fa775f9c546eb5ccc89d994370d14149f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/1tomany/rich-bundle/zipball/e7fce51fa775f9c546eb5ccc89d994370d14149f",
-                "reference": "e7fce51fa775f9c546eb5ccc89d994370d14149f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.4",
-                "psr/log": "^3.0",
-                "symfony/dependency-injection": "^7.2|^8.0",
-                "symfony/event-dispatcher": "^7.2|^8.0",
-                "symfony/form": "^7.2|^8.0",
-                "symfony/http-foundation": "^7.2|^8.0",
-                "symfony/http-kernel": "^7.2|^8.0",
-                "symfony/security-core": "^7.2|^8.0",
-                "symfony/serializer": "^7.2|^8.0",
-                "symfony/validator": "^7.2|^8.0"
-            },
-            "require-dev": {
-                "fakerphp/faker": "^1.24",
-                "friendsofphp/php-cs-fixer": "^3.93",
-                "phpdocumentor/reflection-docblock": "^5.2",
-                "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^12.5"
-            },
-            "suggest": {
-                "1tomany/data-uri-bundle": "Provides a decoder to convert data into a self-destroying file object",
-                "symfony/security-bundle": "Provides an autowired TokenStorageInterface to extract authenticated users"
-            },
-            "bin": [
-                "bin/rich"
-            ],
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "OneToMany\\RichBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vic Cherubini",
-                    "email": "vcherubini@gmail.com"
-                }
-            ],
-            "description": "Symfony bundle that provides easy scaffolding to build RICH applications",
-            "support": {
-                "issues": "https://github.com/1tomany/rich-bundle/issues",
-                "source": "https://github.com/1tomany/rich-bundle/tree/v1.14.1"
-            },
-            "time": "2026-01-28T21:23:18+00:00"
-        },
         {
             "name": "api-platform/doctrine-common",
             "version": "v4.2.15",
