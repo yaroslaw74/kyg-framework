@@ -3,7 +3,7 @@
 /**
  * KYG Framework for Business.
  *
- * @category   Enum
+ * @category   Enumeration
  *
  * @version    1.0.0
  *
@@ -22,4 +22,6 @@ enum UsersStatus: string
     case STATUS_PENDING = 'Pending';
     case STATUS_IN_ACTIVE = 'In Active';
     case STATUS_DELETED = 'Deleted';
+    case STATUS_VALIDATED = 'Validated';
+    case STATUS_DISABLED = 'Disabled';
 }
