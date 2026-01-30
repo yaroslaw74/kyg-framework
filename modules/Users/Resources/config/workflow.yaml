@@ -1,0 +1,40 @@
+framework:
+    workflows:
+        user_status:
+            type: "state_machine"
+            marking_store:
+                type: "method"
+                property: "status"
+            supports:
+                - App\Modules\Users\Entity\User
+            initial_marking: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_NEW
+            places: !php/enum App\Modules\Users\Enumeration\UsersStatus
+            transitions:
+                pending:
+                    from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_NEW
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
+                active:
+                    from:
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_IN_ACTIVE
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
+                in_active:
+                    from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_IN_ACTIVE
+                banned:
+                    from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_BANNED
+                deleted:
+                    from:
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_NEW
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_IN_ACTIVE
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_BANNED
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DELETED
+                not_banned:
+                    from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_BANNED
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
+                not_deleted:
+                    from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DELETED
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
