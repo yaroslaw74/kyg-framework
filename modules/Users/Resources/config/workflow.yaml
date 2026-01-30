@@ -10,13 +10,17 @@ framework:
             initial_marking: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_NEW
             places: !php/enum App\Modules\Users\Enumeration\UsersStatus
             transitions:
-                pending:
+                validated:
                     from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_NEW
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_VALIDATED
+                pending:
+                    from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_VALIDATED
                     to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
                 active:
                     from:
                         - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
                         - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_IN_ACTIVE
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DISABLED
                     to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
                 in_active:
                     from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
@@ -31,10 +35,11 @@ framework:
                         - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_ACTIVE
                         - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_IN_ACTIVE
                         - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_BANNED
+                        - !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DISABLED
                     to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DELETED
                 not_banned:
                     from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_BANNED
-                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DISABLED
                 not_deleted:
                     from: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DELETED
-                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_PENDING
+                    to: !php/enum App\Modules\Users\Enumeration\UsersStatus::STATUS_DISABLED
