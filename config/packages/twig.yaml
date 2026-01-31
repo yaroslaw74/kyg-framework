@@ -20,7 +20,7 @@ twig:
 
     # The default format options used by the date filter.
     date:
-        format: "F j, Y H:i"
+        format: "%env(ENV_DATE_FORMAT)%"
         interval_format: "%d days"
 
         # The timezone used when formatting dates, when set to null, the timezone returned by date_default_timezone_get() is used.
@@ -28,6 +28,6 @@ twig:
 
     # The default format options for the number_format filter.
     number_format:
-        decimals: 0
-        decimal_point: .
-        thousands_separator: ","
+        decimals: "%env(int:ENV_DECIMALS)%"
+        decimal_point: "%env(ENV_DECIMAL_POINT)%"
+        thousands_separator: "%env(ENV_THOUSANDS_SEPARATOR)%"
