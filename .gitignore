@@ -30,9 +30,13 @@
 /public/uploads/
 ###< symfony/public ###
 
-###> vincentlanglet/twig-cs-fixer ###
-/.twig-cs-fixer.cache
-###< vincentlanglet/twig-cs-fixer ###
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
+
+###> php-flasher/flasher-symfony ###
+/public/vendor/
+###< php-flasher/flasher-symfony ###
 
 ###> friendsofphp/php-cs-fixer ###
 /.php-cs-fixer.php
@@ -47,10 +51,6 @@
 phpstan.neon
 ###< phpstan/phpstan ###
 
-###> php-flasher/flasher-symfony ###
-/public/vendor/
-###< php-flasher/flasher-symfony ###
-
-###> liip/imagine-bundle ###
-/public/media/cache/
-###< liip/imagine-bundle ###
+###> vincentlanglet/twig-cs-fixer ###
+/.twig-cs-fixer.cache
+###< vincentlanglet/twig-cs-fixer ###
