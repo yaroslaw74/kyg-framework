@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <header>
+            <tool tool-id="symfony" tool-name="Symfony" />
+        </header>
+        <body>
+            <trans-unit id="XyaFC" resname="New">
+                <source>New</source>
+                <target>New</target>
+            </trans-unit>
+            <trans-unit id="3Aom9" resname="Active">
+                <source>Active</source>
+                <target>Active</target>
+            </trans-unit>
+            <trans-unit id="qNUwc" resname="Banned">
+                <source>Banned</source>
+                <target>Banned</target>
+            </trans-unit>
+            <trans-unit id="SPa3x" resname="Pending">
+                <source>Pending</source>
+                <target>Pending</target>
+            </trans-unit>
+            <trans-unit id="jGlOi" resname="Inactive">
+                <source>Inactive</source>
+                <target>Inactive</target>
+            </trans-unit>
+            <trans-unit id="NVWGp" resname="Deleted">
+                <source>Deleted</source>
+                <target>Deleted</target>
+            </trans-unit>
+            <trans-unit id="w5c2P" resname="Validated">
+                <source>Validated</source>
+                <target>Validated</target>
+            </trans-unit>
+            <trans-unit id="9fHV5" resname="Disabled">
+                <source>Disabled</source>
+                <target>Disabled</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
