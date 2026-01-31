@@ -20,7 +20,7 @@ enum UsersStatus: string
     case STATUS_ACTIVE = 'Active';
     case STATUS_BANNED = 'Banned';
     case STATUS_PENDING = 'Pending';
-    case STATUS_IN_ACTIVE = 'In Active';
+    case STATUS_INACTIVE = 'Inactive';
     case STATUS_DELETED = 'Deleted';
     case STATUS_VALIDATED = 'Validated';
     case STATUS_DISABLED = 'Disabled';
