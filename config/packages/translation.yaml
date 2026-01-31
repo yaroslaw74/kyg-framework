@@ -317,6 +317,8 @@ framework:
         - zh_Hant_TW
     translator:
         default_path: "%kernel.project_dir%/translations"
+        paths:
+            - "%kernel.project_dir%/public/translations"
         fallbacks:
             - "af"
             - "ar"
