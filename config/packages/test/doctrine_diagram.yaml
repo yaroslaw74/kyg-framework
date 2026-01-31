@@ -2,10 +2,10 @@
 doctrine_diagram:
     er:
         filename: "%kernel.project_dir%/var/er"
-        size: maxi
+        size: midi
     class:
         filename: "%kernel.project_dir%/class"
-        size: maxi
+        size: midi
     convert:
         format: svg
         converter: auto
