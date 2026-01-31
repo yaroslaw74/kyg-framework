@@ -3,7 +3,7 @@
 /**
  * KYG Framework for Business.
  *
- * @category   Controller
+ * @category   Dependency Injection
  *
  * @version    1.0.0
  *
