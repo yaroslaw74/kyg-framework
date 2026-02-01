@@ -213,7 +213,8 @@
     },
     "extra": {
         "copy-file": {
-            "modules/Config/Resources/data/theme/": "public/theme/"
+            "modules/Config/Resources/data/theme/": "public/theme/",
+            "modules/Config/Resources/data/config/": "var/config/"
         },
         "mkdir": {
             "migrations": "0644",
