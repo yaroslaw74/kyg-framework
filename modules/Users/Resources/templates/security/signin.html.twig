@@ -1,0 +1,89 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends '@Users/empty.html.twig' %}
+{% trans_default_domain 'users' %}
+
+{% set pngs_img = '5.png' %}
+
+{% block title %}
+    {{ parent() }}
+    Log in!
+{% endblock %}
+
+{% block stylesheets %}
+    <link id="style" href="{{ asset('vendor/@symfony/ux-toggle-password/dist/style.min.css') }}" rel="stylesheet" >
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+            <div class="card-sigin">
+                <div class="mb-5 d-flex">
+                    <a href="{{ path('app_home') }}" class="header-logo">
+                        {% if app_desktop_logo %}
+                            <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_logo) }}" class="desktop-logo ht-40" alt="logo">
+                        {% else %}
+                            <img src="{{ asset('images/brand-logos/kyg-desktop-logo.png') }}" class="desktop-logo ht-40" alt="logo">
+                        {% endif %}
+                        {% if app_desktop_white %}
+                            <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_white) }}" class="desktop-white ht-40" alt="logo">
+                        {% else %}
+                            <img src="{{ asset('images/brand-logos/kyg-desktop-white.png') }}" class="desktop-white ht-40" alt="logo">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="card-sigin">
+                    <div class="main-signup-header">
+                        <h3>{% trans %}Welcome back!{% endtrans %}</h3>
+                        <h6 class="fw-medium mb-4 fs-17">{% trans %}Please sign in to continue.{% endtrans %}</h6>
+                        <form action="{{ path('app_login') }}" method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <div class="mb-3">You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a></div>
+                            {% endif %}
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="username">{% trans %}Username{% endtrans %}</label>
+                                <input class="form-control" placeholder="{% trans %}Enter your username{% endtrans %}" type="text" value="{{ last_username }}" name="_username" id="username" autocomplete="username" required autofocus>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="password">{% trans %}Password{% endtrans %}</label>
+                                <div class="toggle-password-container">
+                                    <input class="form-control" placeholder="{% trans %}Enter your password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required {{ stimulus_controller('toggle-password', {visibleLabel: 'Show password'|trans({}, 'messages'), hiddenLabel: 'Hide password'|trans({}, 'messages'), buttonClasses: ['toggle-password-button']}) }}>
+                                </div>
+                            </div>
+                            <div class="checkbox mb-3">
+                                <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+                            </div>
+                            <div class="checkbox mb-3 form-check form-check-lg">
+                                <input class="form-check-input" type="checkbox" name="_remember_me" id="_remember_me">
+                                <label for="_remember_me" class="form-check-label">{% trans %}Remember me{% endtrans %}</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block w-100">{% trans %}Sign In{% endtrans %}</button>
+                        </form>
+                        <div class="row mt-3">
+                            <div class="col-sm-6">
+                                <button class="btn btn-block w-100 btn-facebook"><i class="fab fa-facebook-f me-2"></i> Signup with Facebook</button>
+                            </div>
+                            <div class="col-sm-6 mt-2 mt-sm-0">
+                                <button class="btn btn-info btn-block w-100"><i class="fab fa-twitter me-2"></i> Signup with Twitter</button>
+                            </div>
+                        </div>
+                        <div class="main-signin-footer mt-5">
+                            <p class="mb-1"><a href="forgot.html">{% trans %}Forgot password?{% endtrans %}</a></p>
+                            <p>{% trans %}Don't have an account?{% endtrans %} <a href="signup.html">{% trans %}Create an Account{% endtrans %}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
