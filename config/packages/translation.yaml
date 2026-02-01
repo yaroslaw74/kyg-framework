@@ -1,5 +1,5 @@
 framework:
-    default_locale: ru
+    default_locale: "%env(ENV_DEFAULT_LOCALE)%"
     enabled_locales:
         - af_NA
         - af_ZA
