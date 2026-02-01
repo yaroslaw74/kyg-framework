@@ -11,7 +11,7 @@ imports:
     - { resource: "locales.php" }
     - { resource: "../modules/*/Resources/config/*.*" }
     - { resource: "../public/additions/*/Resources/config/*.*" }
-    #- { resource: "../var/config/*.*" }
+    - { resource: "../var/config/*.*" }
 
 services:
     # default configuration for services in *this* file
