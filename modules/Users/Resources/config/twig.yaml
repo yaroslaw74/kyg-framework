@@ -1,0 +1,3 @@
+twig:
+    paths:
+        "modules/Users/Resources/templates": "Users"
