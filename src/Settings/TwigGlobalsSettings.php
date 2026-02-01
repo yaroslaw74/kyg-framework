@@ -20,7 +20,7 @@ use Jbtronics\SettingsBundle\Settings\SettingsParameter;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
 
-#[Settings(name: 'twig', dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'TwigGlobalsSettings.php'])]
+#[Settings(dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'TwigGlobalsSettings.php'])]
 class TwigGlobalsSettings
 {
     use SettingsTrait;
@@ -50,7 +50,7 @@ class TwigGlobalsSettings
         $this->name = $name;
     }
 
-    public function getВesktopLogo(): ?string
+    public function getDesktopLogo(): ?string
     {
         return $this->desktopLogo;
     }
