@@ -15,14 +15,19 @@ declare(strict_types=1);
 namespace App\Twig;
 
 use App\Service\SystemService;
+use App\Settings\TwigGlobalsSettings;
+use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
+use Twig\Extension\GlobalsInterface;
 use Twig\TwigFunction;
 
-class AppTwigExtension extends AbstractExtension implements ExtensionInterface
+class AppTwigExtension extends AbstractExtension implements ExtensionInterface, GlobalsInterface
 {
-    public function __construct(private SystemService $systemService)
-    {
+    public function __construct(
+        private SystemService $systemService,
+        private SettingsManagerInterface $settingsManager,
+    ) {
     }
 
     public function LocaleDirExtension(string $locale): string
@@ -41,8 +46,6 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface
     }
 
     /**
-     * Summary of getFunctions.
-     *
      * @return TwigFunction[]
      */
     public function getFunctions(): array
@@ -51,6 +54,22 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface
             new TwigFunction('locale_dir', [$this, 'LocaleDirExtension']),
             new TwigFunction('locale_HTML', [$this, 'LocaleHTMLExtension']),
             new TwigFunction('locale_Fuul', [$this, 'LocaleIsFull']),
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function getGlobals(): array
+    {
+        $settings = $this->settingsManager->get(TwigGlobalsSettings::class);
+
+        return [
+            'app_name' => $settings->getName(),
+            'app_desktop_logo' => $settings->getDesktopLogo(),
+            'app_toggle_logo' => $settings->getToggleLogo(),
+            'app_desktop_white' => $settings->getDesktopWhite(),
+            'app_toggle_white' => $settings->getToggleWhite(),
         ];
     }
 }
