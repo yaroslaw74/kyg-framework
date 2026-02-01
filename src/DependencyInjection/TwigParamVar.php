@@ -32,13 +32,12 @@ final class TwigParamVar implements EnvVarLoaderInterface
     public function loadEnvVars(): array
     {
         $settings = $this->settingsManager->get(TwigParametersSettings::class);
-        $param = [
+
+        return [
             'ENV_DATE_FORMAT' => $settings->getFormatDateTime(),
             'ENV_DECIMALS' => $settings->getNumberFormatDecimals(),
             'ENV_DECIMAL_POINT' => $settings->getNumberFormatDecimalPoint(),
             'ENV_THOUSANDS_SEPARATOR' => $settings->getNumberFormatThousandsSeparator(),
         ];
-
-        return $param;
     }
 }
