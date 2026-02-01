@@ -5,13 +5,6 @@ twig:
         - "@SonataFormatter/Form/formatter.html.twig"
         - "@SonataMedia/Form/media_widgets.html.twig"
 
-    globals:
-        app_name: "%env(settings:twig:name)%"
-        app_desktop_logo: "%env(settings:twig:desktopLogo)%"
-        app_toggle_logo: "%env(settings:twig:toggleLogo)%"
-        app_desktop_white: "%env(settings:twig:desktopWhite)%"
-        app_toggle_white: "%env(settings:twig:toggleWhite)%"
-
     # The default path used to load templates.
     default_path: "%kernel.project_dir%/templates"
 
