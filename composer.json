@@ -123,7 +123,6 @@
         "yokai/batch-symfony-serializer": "^0.7.7",
         "yokai/batch-symfony-uid": "^0.7.7",
         "yokai/batch-symfony-validator": "^0.7.7",
-        "yokai/dependency-injection": "^1.5",
         "yokai/doctrine-value-object": "^0.2.0",
         "yokai/enum-bundle": "^5.1",
         "yokai/security-token-bundle": "^3.4",
