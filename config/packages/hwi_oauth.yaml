@@ -1,0 +1,69 @@
+hwi_oauth:
+    # https://github.com/hwi/HWIOAuthBundle/blob/master/docs/2-configuring_resource_owners.md
+    #connect:
+    #    account_connector: App\Modules\Users\Security\OAuthConnector
+    #    registration_form: App\Modules\Users\Form\RegistrationFormType
+    #    registration_form_handler: App\Modules\Users\Security\FormHandler
+    resource_owners:
+        facebook:
+            type: facebook
+            client_id: "%env(ENV_FACEBOOK_ID)%"
+            client_secret: "%env(ENV_FACEBOOK_SECRET)%"
+            scope: "email public_profile"
+            options:
+                csrf: true
+                display: popup #dialog is optimized for popup window
+                auth_type: rerequest # Re-asking for Declined Permissions
+        yandex:
+            type: yandex
+            client_id: "%env(ENV_YANDEX_ID)%"
+            client_secret: "%env(ENV_YANDEX_SECRET)%"
+            options:
+                csrf: true
+        google:
+            type: google
+            client_id: "%env(ENV_GOOGLE_ID)%"
+            client_secret: "%env(ENV_GOOGLE_SECRET)%"
+            scope: "email profile"
+            options:
+                access_type: offline
+                csrf: true
+        linkedin:
+            type: linkedin
+            client_id: "%env(ENV_LINKEDIN_ID)%"
+            client_secret: "%env(ENV_LINKEDIN_SECRET)%"
+            scope: "r_liteprofile r_emailaddress"
+            options:
+                csrf: true
+        mailru:
+            type: mailru
+            client_id: "%env(ENV_MAILRU_ID)%"
+            client_secret: "%env(ENV_MAILRU_SECRET)%"
+            options:
+                csrf: true
+        odnoklassniki:
+            type: odnoklassniki
+            client_id: "%env(ENV_ODNOKLASSNIKI_ID)%"
+            client_secret: "%env(ENV_ODNOKLASSNIKI_SECRET)%"
+            options:
+                application_key: "%env(ENV_ODNOKLASSNIKI_APPLICATION_KEY)%"
+                csrf: true
+        X-twitter:
+            type: twitter
+            client_id: "%env(ENV_X_TWITTER_CONSUMER_KEY)%"
+            client_secret: "%env(ENV_X_TWITTER_CONSUMER_SECRET)%"
+            options:
+                csrf: true
+        vkontakte:
+            type: vkontakte
+            client_id: "%env(ENV_VKONTAKTE_ID)%"
+            client_secret: "%env(ENV_VKONTAKTE_SECRET)%"
+            options:
+                csrf: true
+        github:
+            type: github
+            client_id: "%env(ENV_GITHUB_ID)%"
+            client_secret: "%env(ENV_GITHUB_SECRET)%"
+            scope: "user:email,public_repo"
+            options:
+                csrf: true
