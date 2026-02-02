@@ -25,61 +25,61 @@ class hwiOauthSettings
 {
     use SettingsTrait;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:FACEBOOK_ID')]
     private ?string $facebookID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:FACEBOOK_SECRET')]
     private ?string $facebookSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:YANDEX_ID')]
     private ?string $yandexID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:YANDEX_SECRET')]
     private ?string $yandexSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:GOOGLE_ID')]
     private ?string $googleID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:GOOGLE_SECRET')]
     private ?string $googleSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:LINKEDIN_ID')]
     private ?string $linkedinID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:LINKEDIN_SECRET')]
     private ?string $linkedinSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:MAILRU_ID')]
     private ?string $mailruID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:MAILRU_SECRET')]
     private ?string $mailruSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:ODNOKLASSNIKI_ID')]
     private ?string $odnoklassnikiID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:ODNOKLASSNIKI_SECRET')]
     private ?string $odnoklassnikiSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:ODNOKLASSNIKI_APPLICATION_KEY')]
     private ?string $odnoklassnikiApplicationKey = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:TWITTER_CONSUMER_KEY')]
     private ?string $xTwitterID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:TWITTER_CONSUMER_SECRET')]
     private ?string $xTwitterSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:VKONTAKTE_ID')]
     private ?string $vkontakteID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:VKONTAKTE_SECRET')]
     private ?string $vkontakteSecret = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:GITHUB_ID')]
     private ?string $githubID = null;
 
-    #[SettingsParameter(type: StringType::class)]
+    #[SettingsParameter(type: StringType::class, envVar: 'string:GITHUB_SECRET')]
     private ?string $githubSecret = null;
 
     public function getFacebookID(): ?string
