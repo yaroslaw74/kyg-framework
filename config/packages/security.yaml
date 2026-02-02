@@ -39,10 +39,28 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    google: "/login/check-google"
+                    yandex: "/login/check-yandex"
+                    github: "/login/check-github"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    X-twitter: "/login/check-x-twitter"
+                    vkontakte: "/login/check-vkontakte"
+                login_path: /login
+                use_forward: false
+                failure_path: /login
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
         app:
             lazy: true
             pattern: /app(.*)
             provider: app_user_provider
+            entry_point: "form_login"
             form_login:
                 login_path: app_login
                 check_path: app_login
@@ -51,12 +69,37 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 target: app
+            remember_me:
+                secret: "%env(APP_SECRET)%"
+                lifetime: 2629746
+                path: app
+            login_throttling:
+                max_attempts: 5
+                interval: "15 minutes"
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    google: "/login/check-google"
+                    yandex: "/login/check-yandex"
+                    github: "/login/check-github"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    X-twitter: "/login/check-x-twitter"
+                    vkontakte: "/login/check-vkontakte"
+                login_path: /app/login
+                use_forward: false
+                failure_path: /app/login
+                check_path: /app/login-check
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            switch_user: true
 
     role_hierarchy:
         ROLE_ADMIN: [ROLE_USER]
@@ -65,6 +108,7 @@ security:
     # Note: Only the *first* matching rule is applied
     access_control:
         - { path: ^/.*, role: PUBLIC_ACCESS }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # Admin login page needs to be accessed without credential
         - { path: ^/admin/login$, role: PUBLIC_ACCESS }
@@ -85,4 +129,3 @@ security:
         # Secured part of the site
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
-        #- { path: ^/admin/, role: ROLE_ADMIN }
