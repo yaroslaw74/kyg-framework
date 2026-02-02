@@ -58,7 +58,7 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface, 
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string, string|bool>
      */
     public function getGlobals(): array
     {
@@ -70,6 +70,15 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface, 
             'app_toggle_logo' => $settings->getToggleLogo(),
             'app_desktop_white' => $settings->getDesktopWhite(),
             'app_toggle_white' => $settings->getToggleWhite(),
+            'app_facebook' => $settings->getFacebook(),
+            'app_google' => $settings->getGoogle(),
+            'app_github' => $settings->getGithub(),
+            'app_vkontakte' => $settings->getVkontakte(),
+            'app_odnoklassniki' => $settings->grtOdnoklassniki(),
+            'app_yandex' => $settings->getYandex(),
+            'app_linkedin' => $settings->getLinkedin(),
+            'app_x_twitter' => $settings->getXTwitter(),
+            'app_mailru' => $settings->getMailru(),
         ];
     }
 }
