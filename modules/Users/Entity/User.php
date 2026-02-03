@@ -156,6 +156,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->deletedAt,
             $this->timezone,
             $this->status,
+            $this->isVerified,
         ] = $data;
     }
 
