@@ -1,0 +1,57 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends '@Users/empty.html.twig' %}
+{% trans_default_domain 'users' %}
+
+{% set pngs_img = '6.png' %}
+
+{% block title %}
+    {{ parent() }}
+    Reset your password
+{% endblock %}
+
+{% block stylesheets %}
+    <link id="style" href="{{ asset('vendor/@symfony/ux-toggle-password/dist/style.min.css') }}" rel="stylesheet" >
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+            <div class="card-sigin">
+                <div class="mb-5 d-flex">
+                    <a href="index.html" class="header-logo">
+                        {% if app_desktop_logo %}
+                            <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_logo) }}" class="desktop-logo ht-40" alt="logo">
+                        {% else %}
+                            <img src="{{ asset('images/brand-logos/kyg-desktop-logo.png') }}" class="desktop-logo ht-40" alt="logo">
+                        {% endif %}
+                        {% if app_desktop_white %}
+                            <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_white) }}" class="desktop-white ht-40" alt="logo">
+                        {% else %}
+                            <img src="{{ asset('images/brand-logos/kyg-desktop-white.png') }}" class="desktop-white ht-40" alt="logo">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="card-sigin">
+                    <div class="main-signup-header">
+                        <h3>{% trans %}Welcome back!{% endtrans %}</h3>
+                        <h6 class="fw-medium mb-4 fs-17">{% trans %}Reset Your Password{% endtrans %}</h6>
+                        {{ form_start(resetForm) }}
+                            {{ form_row(resetForm.plainPassword) }}
+                            <button class="btn btn-primary btn-block w-100">{% trans %}Reset Password{% endtrans %}</button>
+                        {{ form_end(resetForm) }}
+                        <div class="main-signin-footer mt-3">
+                            <p>{% trans %}Already have an account?{% endtrans %} <a href="{{ path('app_login') }}">{% trans %}Sign In{% endtrans %}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
