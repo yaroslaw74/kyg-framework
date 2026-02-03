@@ -5,37 +5,81 @@
             <tool tool-id="symfony" tool-name="Symfony" />
         </header>
         <body>
-            <trans-unit id="XyaFC" resname="New">
-                <source>New</source>
-                <target>Новый</target>
-            </trans-unit>
-            <trans-unit id="3Aom9" resname="Active">
+            <trans-unit id="JjO6Nuw" resname="Active">
                 <source>Active</source>
                 <target>Активный</target>
             </trans-unit>
-            <trans-unit id="qNUwc" resname="Banned">
+            <trans-unit id="737pkI." resname="Banned">
                 <source>Banned</source>
-                <target>Запрещен</target>
+                <target>Запрещён</target>
             </trans-unit>
-            <trans-unit id="SPa3x" resname="Pending">
-                <source>Pending</source>
-                <target>В ожидании</target>
+            <trans-unit id="SCRgs_V" resname="Create an Account">
+                <source>Create an Account</source>
+                <target>Создать учётную запись</target>
             </trans-unit>
-            <trans-unit id="jGlOi" resname="Inactive">
+            <trans-unit id="l9KZflr" resname="Deleted">
+                <source>Deleted</source>
+                <target>Удалён</target>
+            </trans-unit>
+            <trans-unit id="tK64T0a" resname="Disabled">
+                <source>Disabled</source>
+                <target>Отключён</target>
+            </trans-unit>
+            <trans-unit id="8IvMqPn" resname="Don't have an account?">
+                <source>Don't have an account?</source>
+                <target>У вас нет учётной записи?</target>
+            </trans-unit>
+            <trans-unit id="v9LnMuq" resname="Enter your password">
+                <source>Enter your password</source>
+                <target>Введите Выш пароль</target>
+            </trans-unit>
+            <trans-unit id="kXDIuDb" resname="Enter your username">
+                <source>Enter your username</source>
+                <target>Введите Ваше имя пользователя</target>
+            </trans-unit>
+            <trans-unit id="DxQEefv" resname="Forgot password?">
+                <source>Forgot password?</source>
+                <target>Забыли пароль?</target>
+            </trans-unit>
+            <trans-unit id="ybqiXt5" resname="Inactive">
                 <source>Inactive</source>
                 <target>Неактивный</target>
             </trans-unit>
-            <trans-unit id="NVWGp" resname="Deleted">
-                <source>Deleted</source>
-                <target>Удален</target>
+            <trans-unit id="fcdWVrX" resname="New">
+                <source>New</source>
+                <target>Новый</target>
             </trans-unit>
-            <trans-unit id="w5c2P" resname="Validated">
+            <trans-unit id="GqmFSHc" resname="Password">
+                <source>Password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id=".ku3jMu" resname="Pending">
+                <source>Pending</source>
+                <target>В ожидании</target>
+            </trans-unit>
+            <trans-unit id="0N4x_Ri" resname="Please sign in to continue.">
+                <source>Please sign in to continue.</source>
+                <target>Для продолжения, пожалуйста, войдите в систему.</target>
+            </trans-unit>
+            <trans-unit id="WevL4T_" resname="Remember me">
+                <source>Remember me</source>
+                <target>Запомнить меня</target>
+            </trans-unit>
+            <trans-unit id="hXquTtV" resname="Sign In">
+                <source>Sign In</source>
+                <target>Войти</target>
+            </trans-unit>
+            <trans-unit id="VhxhtYo" resname="Username">
+                <source>Username</source>
+                <target>Имя пользователя</target>
+            </trans-unit>
+            <trans-unit id="OQ2VAxf" resname="Validated">
                 <source>Validated</source>
                 <target>Проверен</target>
             </trans-unit>
-            <trans-unit id="9fHV5" resname="Disabled">
-                <source>Disabled</source>
-                <target>Отключен</target>
+            <trans-unit id="wRXXUbi" resname="Welcome back!">
+                <source>Welcome back!</source>
+                <target>Добро пожаловать!</target>
             </trans-unit>
         </body>
     </file>
