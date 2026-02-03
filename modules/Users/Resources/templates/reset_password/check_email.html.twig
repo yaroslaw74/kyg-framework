@@ -1,0 +1,25 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends '@Users/empty.html.twig' %}
+{% trans_default_domain 'users' %}
+
+{% set pngs_img = '3.png' %}
+
+{% block title %}
+    {{ parent() }}
+    Password Reset Email Sent
+{% endblock %}
+
+{% block content %}
+    <p>
+        {% trans %}If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.{% endtrans %}
+        {% trans %}This link will expire in{% endtrans %} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </p>
+    <p>{% trans %}If you don't receive an email please check your spam folder or{% endtrans %} <a href="{{ path('kyg_forgot_password_request') }}">{% trans %}try again{% endtrans %}</a>.</p>
+{% endblock %}
