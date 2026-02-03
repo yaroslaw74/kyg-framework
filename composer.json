@@ -22,7 +22,7 @@
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
@@ -55,12 +55,8 @@
         "slowprog/composer-copy-file": "^0.3.3",
         "sonata-project/admin-bundle": "^4.42",
         "sonata-project/block-bundle": "^5.4",
-        "sonata-project/classification-bundle": "^4.11",
         "sonata-project/doctrine-orm-admin-bundle": "^4.21",
-        "sonata-project/formatter-bundle": "^5.5",
         "sonata-project/intl-bundle": "^3.3",
-        "sonata-project/media-bundle": "^4.20",
-        "sonata-project/translation-bundle": "^3.7",
         "sonata-project/user-bundle": "^5.19",
         "stof/doctrine-extensions-bundle": "^1.15.3",
         "symfony/apache-pack": "^1.0.1",
@@ -175,7 +171,8 @@
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
-        "symfony/polyfill-php83": "*"
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -215,8 +212,8 @@
     },
     "extra": {
         "copy-file": {
-            "modules/Config/Resources/data/theme/": "public/theme/",
-            "modules/Config/Resources/data/config/": "var/config/"
+            "modules/Config/Resources/data/config/": "var/config/",
+            "modules/Config/Resources/data/theme/": "public/theme/"
         },
         "mkdir": {
             "migrations": "0644",
