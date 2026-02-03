@@ -28,6 +28,7 @@ use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Sonata\UserBundle\Entity\BaseUser;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
@@ -38,6 +39,7 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[Gedmo\SoftDeleteable]
 #[ApiResource]
+#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
 {
     use TimezoneAwareTrait;
@@ -98,6 +100,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(nullable: false, options: ['default' => UsersStatus::STATUS_NEW])]
     #[Enum(enum: StatusUsers::class)]
     private UsersStatus $status = UsersStatus::STATUS_NEW;
+
+    #[ORM\Column]
+    private bool $isVerified = false;
 
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
@@ -369,6 +374,18 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function setStatus(UsersStatus $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
