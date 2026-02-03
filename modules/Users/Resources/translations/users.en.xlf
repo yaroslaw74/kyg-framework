@@ -9,9 +9,25 @@
                 <source>Active</source>
                 <target>Active</target>
             </trans-unit>
+            <trans-unit id="9QMZdkf" resname="Already have an account?">
+                <source>Already have an account?</source>
+                <target>Already have an account?</target>
+            </trans-unit>
             <trans-unit id="737pkI." resname="Banned">
                 <source>Banned</source>
                 <target>Banned</target>
+            </trans-unit>
+            <trans-unit id="TLYBGV6" resname="Cheers!">
+                <source>Cheers!</source>
+                <target>Cheers!</target>
+            </trans-unit>
+            <trans-unit id="NoxuOPe" resname="Confirm my Email">
+                <source>Confirm my Email</source>
+                <target>Confirm my Email</target>
+            </trans-unit>
+            <trans-unit id="uDxr_Pa" resname="Create Account">
+                <source>Create Account</source>
+                <target>Create Account</target>
             </trans-unit>
             <trans-unit id="SCRgs_V" resname="Create an Account">
                 <source>Create an Account</source>
@@ -29,6 +45,21 @@
                 <source>Don't have an account?</source>
                 <target>Don't have an account?</target>
             </trans-unit>
+            <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
+                <source>Enter your Confirm Password</source>
+                <target>Enter your Confirm Password</target>
+            </trans-unit>
+            <trans-unit id="bR5bxp." resname="Enter your Email">
+                <source>Enter your Email</source>
+                <target>Enter your Email</target>
+            </trans-unit>
+            <trans-unit id="ifotYH6"
+                resname="Enter your email address, and we will send you a link to reset your password.">
+                <source>Enter your email address, and we will send you a link to reset your
+                    password.</source>
+                <target>Enter your email address, and we will send you a link to reset your
+                    password.</target>
+            </trans-unit>
             <trans-unit id="v9LnMuq" resname="Enter your password">
                 <source>Enter your password</source>
                 <target>Enter your password</target>
@@ -37,13 +68,49 @@
                 <source>Enter your username</source>
                 <target>Enter your username</target>
             </trans-unit>
+            <trans-unit id="mcyh89V" resname="Forget it,">
+                <source>Forget it,</source>
+                <target>Forget it,</target>
+            </trans-unit>
+            <trans-unit id="SwTdbKS" resname="Forgot Password!">
+                <source>Forgot Password!</source>
+                <target>Forgot Password!</target>
+            </trans-unit>
             <trans-unit id="DxQEefv" resname="Forgot password?">
                 <source>Forgot password?</source>
                 <target>Forgot password?</target>
             </trans-unit>
+            <trans-unit id="L0rykdc" resname="Get Started">
+                <source>Get Started</source>
+                <target>Get Started</target>
+            </trans-unit>
+            <trans-unit id="1PPDBCa" resname="Hi!">
+                <source>Hi!</source>
+                <target>Hi!</target>
+            </trans-unit>
+            <trans-unit id="6O3nWZM" resname="Hi! Please confirm your email!">
+                <source>Hi! Please confirm your email!</source>
+                <target>Hi! Please confirm your email!</target>
+            </trans-unit>
+            <trans-unit id="NJn0f4_"
+                resname="If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.">
+                <source>If an account matching your email exists, then an email was just sent that
+                    contains a link that you can use to reset your password.</source>
+                <target>If an account matching your email exists, then an email was just sent that
+                    contains a link that you can use to reset your password.</target>
+            </trans-unit>
+            <trans-unit id="bDPZm0a"
+                resname="If you don't receive an email please check your spam folder or">
+                <source>If you don't receive an email please check your spam folder or</source>
+                <target>If you don't receive an email please check your spam folder or</target>
+            </trans-unit>
             <trans-unit id="ybqiXt5" resname="Inactive">
                 <source>Inactive</source>
                 <target>Inactive</target>
+            </trans-unit>
+            <trans-unit id="KisA1uf" resname="It's free to signup and only takes a minute.">
+                <source>It's free to signup and only takes a minute.</source>
+                <target>It's free to signup and only takes a minute.</target>
             </trans-unit>
             <trans-unit id="fcdWVrX" resname="New">
                 <source>New</source>
@@ -57,6 +124,27 @@
                 <source>Pending</source>
                 <target>Pending</target>
             </trans-unit>
+            <trans-unit id="6EclFME" resname="Please Confirm your Email">
+                <source>Please Confirm your Email</source>
+                <target>Please Confirm your Email</target>
+            </trans-unit>
+            <trans-unit id="puSICbH" resname="Please Enter Your Email">
+                <source>Please Enter Your Email</source>
+                <target>Please Enter Your Email</target>
+            </trans-unit>
+            <trans-unit id="AHRbevG"
+                resname="Please confirm your email address by clicking the following link:">
+                <source>Please confirm your email address by clicking the following link:</source>
+                <target>Please confirm your email address by clicking the following link:</target>
+            </trans-unit>
+            <trans-unit id="B7yoMOR" resname="Please enter a password">
+                <source>Please enter a password</source>
+                <target>Please enter a password</target>
+            </trans-unit>
+            <trans-unit id="7VWHcE0" resname="Please enter your email">
+                <source>Please enter your email</source>
+                <target>Please enter your email</target>
+            </trans-unit>
             <trans-unit id="0N4x_Ri" resname="Please sign in to continue.">
                 <source>Please sign in to continue.</source>
                 <target>Please sign in to continue.</target>
@@ -65,9 +153,34 @@
                 <source>Remember me</source>
                 <target>Remember me</target>
             </trans-unit>
+            <trans-unit id="NruI0zj" resname="Reset Password">
+                <source>Reset Password</source>
+                <target>Reset Password</target>
+            </trans-unit>
+            <trans-unit id="YLugC6X" resname="Reset Your Password">
+                <source>Reset Your Password</source>
+                <target>Reset Your Password</target>
+            </trans-unit>
+            <trans-unit id="avHhpap" resname="Send me back">
+                <source>Send me back</source>
+                <target>Send me back</target>
+            </trans-unit>
+            <trans-unit id="5XiCCZa" resname="Send password reset email">
+                <source>Send password reset email</source>
+                <target>Send password reset email</target>
+            </trans-unit>
             <trans-unit id="hXquTtV" resname="Sign In">
                 <source>Sign In</source>
                 <target>Sign In</target>
+            </trans-unit>
+            <trans-unit id="BRJuStP" resname="This link will expire in">
+                <source>This link will expire in</source>
+                <target>This link will expire in</target>
+            </trans-unit>
+            <trans-unit id="ETTNQ2F"
+                resname="To reset your password, please visit the following link">
+                <source>To reset your password, please visit the following link</source>
+                <target>To reset your password, please visit the following link</target>
             </trans-unit>
             <trans-unit id="VhxhtYo" resname="Username">
                 <source>Username</source>
@@ -80,6 +193,27 @@
             <trans-unit id="wRXXUbi" resname="Welcome back!">
                 <source>Welcome back!</source>
                 <target>Welcome back!</target>
+            </trans-unit>
+            <trans-unit id="6h2NNfX" resname="You should agree to our terms.">
+                <source>You should agree to our terms.</source>
+                <target>You should agree to our terms.</target>
+            </trans-unit>
+            <trans-unit id="m80cBv0" resname="Your email address has been verified.">
+                <source>Your email address has been verified.</source>
+                <target>Your email address has been verified.</target>
+            </trans-unit>
+            <trans-unit id="_OmnKuR"
+                resname="Your password should be at least {{ limit }} characters">
+                <source>Your password should be at least {{ limit }} characters</source>
+                <target>Your password should be at least {{ limit }} characters</target>
+            </trans-unit>
+            <trans-unit id="FTO0d6Z" resname="to the sign in screen">
+                <source>to the sign in screen</source>
+                <target>to the sign in screen</target>
+            </trans-unit>
+            <trans-unit id="zqHSO6v" resname="try again">
+                <source>try again</source>
+                <target>try again</target>
             </trans-unit>
         </body>
     </file>
