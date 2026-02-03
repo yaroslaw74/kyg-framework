@@ -1,0 +1,59 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends '@Users/empty.html.twig' %}
+{% trans_default_domain 'users' %}
+
+{% block title %}
+    {{ parent() }}
+    Reset your password
+{% endblock %}
+
+{% set pngs_img = '3.png' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+            <div class="card-sigin">
+                <div class="mb-5 d-flex">
+                    <a href="index.html" class="header-logo">
+                       {% if app_desktop_logo %}
+                            <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_logo) }}" class="desktop-logo ht-40" alt="logo">
+                        {% else %}
+                            <img src="{{ asset('images/brand-logos/kyg-desktop-logo.png') }}" class="desktop-logo ht-40" alt="logo">
+                        {% endif %}
+                        {% if app_desktop_white %}
+                            <img src="{{ asset('theme/images/brand-logos/' ~ app_desktop_white) }}" class="desktop-white ht-40" alt="logo">
+                        {% else %}
+                            <img src="{{ asset('images/brand-logos/kyg-desktop-white.png') }}" class="desktop-white ht-40" alt="logo">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="card-sigin">
+                    <div class="main-signup-header">
+                        <h3>{% trans %}Forgot Password!{% endtrans %}</h3>
+                        <h6 class="fw-medium mb-4 fs-17">{% trans %}Please Enter Your Email{% endtrans %}</h6>
+                        {% for flash_error in app.flashes('reset_password_error') %}
+                            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                        {% endfor %}
+                        {{ form_start(requestForm) }}
+                            {{ form_row(requestForm.email) }}
+                            <div class="mb-3">
+                                <small>{% trans %}Enter your email address, and we will send you a link to reset your password.{% endtrans %}</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block w-100">{% trans %}Send password reset email{% endtrans %}</button>
+                        {{ form_end(requestForm) }}
+                        <div class="main-signin-footer mt-3">
+                            <p>{% trans %}Forget it,{% endtrans %} <a href="{{ path('app_login') }}">{% trans %}Send me back{% endtrans %}</a> {% trans %}to the sign in screen{% endtrans %}.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
