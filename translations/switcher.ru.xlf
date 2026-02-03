@@ -27,15 +27,15 @@
             </trans-unit>
             <trans-unit id="jGZfEE1" resname="Dark">
                 <source>Dark</source>
-                <target>Темный</target>
+                <target>Тёмный</target>
             </trans-unit>
             <trans-unit id="BlQtybz" resname="Dark Header">
                 <source>Dark Header</source>
-                <target>Темный Заголовок</target>
+                <target>Тёмный Заголовок</target>
             </trans-unit>
             <trans-unit id="nd8RNeT" resname="Dark Menu">
                 <source>Dark Menu</source>
-                <target>Темное Меню</target>
+                <target>Тёмное Меню</target>
             </trans-unit>
             <trans-unit id="KKzGEXx" resname="Default Menu">
                 <source>Default Menu</source>
@@ -47,7 +47,7 @@
             </trans-unit>
             <trans-unit id="olypvzo" resname="Disable">
                 <source>Disable</source>
-                <target>Отключен</target>
+                <target>Отключён</target>
             </trans-unit>
             <trans-unit id="tC2u0ay" resname="Double Menu">
                 <source>Double Menu</source>
@@ -55,7 +55,7 @@
             </trans-unit>
             <trans-unit id="GtGBNUT" resname="Enable">
                 <source>Enable</source>
-                <target>Включен</target>
+                <target>Включён</target>
             </trans-unit>
             <trans-unit id="fpPMmb." resname="Fixed">
                 <source>Fixed</source>
@@ -153,14 +153,14 @@
                 resname="Note:If you want to change color Header dynamically change from below Theme Primary color picker">
                 <source>Note:If you want to change color Header dynamically change from below Theme
                     Primary color picker</source>
-                <target>Примечание: Если вы хотите изменить цвет Заголовка динамически, измените его
+                <target>Примечание: Если Вы хотите изменить цвет Заголовка динамически, измените его
                     внизу палитры Основных цветов Темы.</target>
             </trans-unit>
             <trans-unit id="2e2YE.E"
                 resname="Note:If you want to change color Menu dynamically change from below Theme Primary color picker">
                 <source>Note:If you want to change color Menu dynamically change from below Theme
                     Primary color picker</source>
-                <target>Примечание: Если вы хотите изменить цвет Меню динамически, измените его
+                <target>Примечание: Если Вы хотите изменить цвет Меню динамически, измените его
                     внизу палитры Основных цветов Темы.</target>
             </trans-unit>
             <trans-unit id="hv.UPBm" resname="Page Styles:">
