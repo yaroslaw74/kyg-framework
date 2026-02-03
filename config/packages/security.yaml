@@ -124,6 +124,7 @@ security:
         - { path: ^/app/login_check$, role: PUBLIC_ACCESS }
         - { path: ^/app/request$, role: PUBLIC_ACCESS }
         - { path: ^/app/check-email$, role: PUBLIC_ACCESS }
+        - { path: ^/app/verify$, role: PUBLIC_ACCESS }
         - { path: ^/app/reset/.*$, role: PUBLIC_ACCESS }
 
         # Secured part of the site
