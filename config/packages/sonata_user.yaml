@@ -3,7 +3,7 @@ sonata_user:
         user: App\Modules\Usaer\Entity\User
     resetting:
         email:
-            address: sonata@localhost
-            sender_name: Sonata Admin
+            address: "%app.email_bot%"
+            sender_name: "%app.name_bot%"
     profile:
         default_avatar: bundles/KYG-Framework/avatar/pngwing.com.png
