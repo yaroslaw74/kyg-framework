@@ -56,12 +56,12 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $templatedEmail = new TemplatedEmail();
+            $email = new TemplatedEmail();
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation(
                 'app_verify_email',
                 $user,
-                $templatedEmail
+                $email
                     ->from(new Address($this->getParameter('app.email_bot'), $this->getParameter('app.name_bot')))
                     ->to((string) $user->getEmail())
                     ->subject($this->translator->trans('Please Confirm your Email', [], 'users'))
