@@ -58,7 +58,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => $this->translator->trans('I agree to the terms and conditions', [], 'users'),
+                'label' => 'I agree to the terms and conditions',
                 'row_attr' => ['class' => 'checkbox mb-3 form-check form-check-lg'],
                 'mapped' => false,
                 'constraints' => [
