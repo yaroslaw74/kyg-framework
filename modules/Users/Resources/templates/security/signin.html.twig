@@ -117,7 +117,7 @@
                             {% endif %}
                         </div>
                         <div class="main-signin-footer mt-5">
-                            <p class="mb-1"><a href="forgot.html">{% trans %}Forgot password?{% endtrans %}</a></p>
+                            <p class="mb-1"><a href="{{ path('app_forgot_password_request') }}">{% trans %}Forgot password?{% endtrans %}</a></p>
                             <p>{% trans %}Don't have an account?{% endtrans %} <a href="{{ path('app_register') }}">{% trans %}Create an Account{% endtrans %}</a></p>
                         </div>
                     </div>
