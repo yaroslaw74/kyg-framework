@@ -15,19 +15,24 @@ declare(strict_types=1);
 namespace App\Modules\Classification\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Classification\Entity\Translation\SonataClassificationContexTranslationt;
 use App\Modules\Classification\Repository\SonataClassificationContextRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Translatable\Translatable;
 use Sonata\ClassificationBundle\Entity\BaseContext;
 
 #[ORM\Entity(repositoryClass: SonataClassificationContextRepository::class)]
 #[ORM\Table(name: 'classification__context')]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\TranslationEntity(class: SonataClassificationContexTranslationt::class)]
 #[ApiResource]
-class SonataClassificationContext extends BaseContext
+class SonataClassificationContext extends BaseContext implements Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
@@ -38,6 +43,17 @@ class SonataClassificationContext extends BaseContext
      * @phpstan-ignore doctrine.columnType
      */
     protected ?string $id = null;
+
+    /**
+     * @var Collection<int, SonataClassificationContexTranslationt>
+     */
+    #[ORM\OneToMany(targetEntity: SonataClassificationContexTranslationt::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     public function __serialize(): array
     {
@@ -60,6 +76,25 @@ class SonataClassificationContext extends BaseContext
             $this->updatedBy,
             $this->deletedAt,
             $this->enabled,
+            $this->translations,
         ] = $data;
+    }
+
+    /**
+     * @return Collection<int, SonataClassificationContexTranslationt>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(SonataClassificationContexTranslationt $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
+
+        return $this;
     }
 }
