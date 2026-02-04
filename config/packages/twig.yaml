@@ -1,7 +1,12 @@
 twig:
+    debug: "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
     form_themes:
         - "bootstrap_5_layout.html.twig"
         - "form/form_theme.html.twig"
+        - "@SonataMedia/Form/media_widgets.html.twig"
+        - "@SonataFormatter/Form/formatter.html.twig"
 
     # The default path used to load templates.
     default_path: "%kernel.project_dir%/templates"
