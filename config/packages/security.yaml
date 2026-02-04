@@ -52,7 +52,7 @@ security:
                     vkontakte: "/login/check-vkontakte"
                 login_path: /login
                 use_forward: false
-                failure_path: /login
+                failure_path: hwi_oauth_connect_registration
 
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.entity
@@ -89,7 +89,7 @@ security:
                     vkontakte: "/login/check-vkontakte"
                 login_path: /app/login
                 use_forward: false
-                failure_path: /app/login
+                failure_path: hwi_oauth_connect_registration
                 check_path: /app/login-check
 
                 oauth_user_provider:
