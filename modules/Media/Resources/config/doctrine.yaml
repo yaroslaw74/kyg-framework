@@ -1,0 +1,10 @@
+doctrine:
+    orm:
+        mappings:
+            SonataMediaBundle: ~
+            Media:
+                type: attribute
+                is_bundle: false
+                dir: "%kernel.project_dir%/modules/Media/Entity"
+                prefix: 'App\Modules\Media\Entity'
+                alias: Media
