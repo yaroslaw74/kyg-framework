@@ -1,9 +1,9 @@
 hwi_oauth:
     # https://github.com/hwi/HWIOAuthBundle/blob/master/docs/2-configuring_resource_owners.md
-    #connect:
-    #    account_connector: App\Modules\Users\Security\OAuthConnector
-    #    registration_form: App\Modules\Users\Form\RegistrationFormType
-    #    registration_form_handler: App\Modules\Users\Security\FormHandler
+    connect:
+        account_connector: App\Modules\Users\Security\OAuthConnector
+        registration_form: App\Modules\Users\Form\RegistrationFormType
+        registration_form_handler: App\Modules\Users\Security\FormHandler
     resource_owners:
         facebook:
             type: facebook
