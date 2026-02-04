@@ -48,4 +48,6 @@ return [
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Yokai\EnumBundle\YokaiEnumBundle::class => ['all' => true],
     Yokai\SecurityTokenBundle\YokaiSecurityTokenBundle::class => ['all' => true],
+    Sonata\ClassificationBundle\SonataClassificationBundle::class => ['all' => true],
+    Sonata\MediaBundle\SonataMediaBundle::class => ['all' => true],
 ];
