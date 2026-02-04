@@ -2829,6 +2829,23 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         extensions?: list<scalar|Param|null>,
  *     }>,
  * }
+ * @psalm-type SonataTranslationConfig = array{
+ *     locales?: list<scalar|Param|null>,
+ *     default_locale?: scalar|Param|null, // The frontend locale that is used by default. // Default: "en"
+ *     default_filter_mode?: "gedmo"|"knplabs"|Param, // The filter mode that is used by default. // Default: "gedmo"
+ *     gedmo?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         implements?: list<scalar|Param|null>,
+ *         instanceof?: list<scalar|Param|null>,
+ *         translatable_listener_service?: scalar|Param|null, // Custom translatable listener service name when using gedmo/doctrine-extensions
+ *     },
+ *     knplabs?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         implements?: list<scalar|Param|null>,
+ *         instanceof?: list<scalar|Param|null>,
+ *     },
+ *     locale_switcher?: bool|Param, // Enable the global locale switcher services. // Default: false
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2875,6 +2892,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_classification?: SonataClassificationConfig,
  *     sonata_media?: SonataMediaConfig,
  *     sonata_formatter?: SonataFormatterConfig,
+ *     sonata_translation?: SonataTranslationConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2925,6 +2943,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_classification?: SonataClassificationConfig,
  *         sonata_media?: SonataMediaConfig,
  *         sonata_formatter?: SonataFormatterConfig,
+ *         sonata_translation?: SonataTranslationConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2973,6 +2992,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_classification?: SonataClassificationConfig,
  *         sonata_media?: SonataMediaConfig,
  *         sonata_formatter?: SonataFormatterConfig,
+ *         sonata_translation?: SonataTranslationConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
