@@ -1,7 +1,17 @@
 sonata_media:
+    class:
+        media: App\Modules\Media\Document\SonataMediaMedia
+        gallery: App\Modules\Media\Document\SonataMediaGallery
+        gallery_item: App\Modules\Media\Document\SonataMediaGalleryItem
+        category: App\Modules\Classification\Entity\SonataClassificationCategory
+    db_driver: doctrine_orm
     default_context: default
+    admin_format: { width: 200, quality: 90, format: "jpg" }
     contexts:
         default:
+            #download:
+            #    strategy: sonata.media.security.public_strategy
+            #    mode: http
             providers:
                 - sonata.media.provider.dailymotion
                 - sonata.media.provider.youtube
@@ -10,15 +20,28 @@ sonata_media:
                 - sonata.media.provider.vimeo
 
             formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
+                small: { width: 100, quality: 70 }
+                big: { width: 500, quality: 70, resizer: sonata.media.resizer.crop }
+                icon: { width: 32, quality: 70, resizer: sonata.media.resizer.square, resizer_options: { custom_crop: true } }
 
     cdn:
         server:
-            path: /uploads/media
+            path: /storage/media
 
     filesystem:
         local:
             # Directory for uploads should be writable
-            directory: "%kernel.project_dir%/public/uploads/media"
+            directory: "%kernel.project_dir%/public/storage/media"
             create: false
+
+    providers:
+        image:
+            thumbnail: sonata.media.thumbnail.liip_imagine
+            allowed_extensions: ["jpg", "png", "gif", "jpeg", "bmp"]
+            allowed_mime_types: ["image/pjpeg", "image/jpeg", "image/png", "image/x-png", "image/gif", "image/bmp"]
+        vimeo:
+            thumbnail: sonata.media.thumbnail.liip_imagine
+        youtube:
+            thumbnail: sonata.media.thumbnail.liip_imagine
+        dailymotion:
+            thumbnail: sonata.media.thumbnail.liip_imagine
