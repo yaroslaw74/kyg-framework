@@ -15,11 +15,15 @@ declare(strict_types=1);
 namespace App\Modules\Classification\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Classification\Entity\Translation\SonataClassificationTagTranslation;
 use App\Modules\Classification\Repository\SonataClassificationTagRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Translatable\Translatable;
 use Sonata\ClassificationBundle\Entity\BaseTag;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
@@ -28,8 +32,9 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Entity(repositoryClass: SonataClassificationTagRepository::class)]
 #[ORM\Table(name: 'classification__tag')]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\TranslationEntity(class: SonataClassificationTagTranslation::class)]
 #[ApiResource]
-class SonataClassificationTag extends BaseTag
+class SonataClassificationTag extends BaseTag implements Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
@@ -39,6 +44,17 @@ class SonataClassificationTag extends BaseTag
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     protected ?Uuid $id = null;
+
+    /**
+     * @var Collection<int, SonataClassificationTagTranslation>
+     */
+    #[ORM\OneToMany(targetEntity: SonataClassificationTagTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
@@ -66,6 +82,7 @@ class SonataClassificationTag extends BaseTag
             $this->deletedAt,
             $this->enabled,
             $this->context,
+            $this->translations,
         ] = $data;
     }
 
@@ -81,5 +98,23 @@ class SonataClassificationTag extends BaseTag
     public function getUuid(): ?Uuid
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection<int, SonataClassificationTagTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(SonataClassificationTagTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
+
+        return $this;
     }
 }
