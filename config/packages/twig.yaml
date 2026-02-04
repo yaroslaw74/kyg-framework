@@ -3,7 +3,6 @@ twig:
     strict_variables: "%kernel.debug%"
 
     form_themes:
-        - "bootstrap_5_layout.html.twig"
         - "form/form_theme.html.twig"
         - "@SonataMedia/Form/media_widgets.html.twig"
         - "@SonataFormatter/Form/formatter.html.twig"
