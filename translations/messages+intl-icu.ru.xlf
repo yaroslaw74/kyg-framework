@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-    <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
-        <header>
-            <tool tool-id="symfony" tool-name="Symfony" />
-        </header>
-        <body>
-            <trans-unit id="H2Id1Wm" resname="Back to Home">
-                <source>Back to Home</source>
-                <target>Вернуться на главную</target>
-            </trans-unit>
-            <trans-unit id="ApaPPIo" resname="Hide password">
-                <source>Hide password</source>
-                <target>Скрыть пароль</target>
-            </trans-unit>
-            <trans-unit id="kn8v24H" resname="Oopps. The page you were looking for doesn't exist.">
-                <source>Oopps. The page you were looking for doesn't exist.</source>
-                <target>Ой. Страница, которую вы искали, не существует.</target>
-            </trans-unit>
-            <trans-unit id="PVuB1wf" resname="Show password">
-                <source>Show password</source>
-                <target>Показать пароль</target>
-            </trans-unit>
-            <trans-unit id="gNPnRTl"
-                resname="You may have mistyped the address or the page may have moved.">
-                <source>You may have mistyped the address or the page may have moved.</source>
-                <target>Возможно, вы неправильно ввели адрес, или страница переместилась.</target>
-            </trans-unit>
-            <trans-unit id="QFWN2NW" resname="error">
-                <source>error</source>
-                <target>ошибка</target>
-            </trans-unit>
-        </body>
-    </file>
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony" />
+    </header>
+    <body>
+      <trans-unit id="H2Id1Wm" resname="Back to Home">
+        <source>Back to Home</source>
+        <target>Вернуться на главную</target>
+      </trans-unit>
+      <trans-unit id="ApaPPIo" resname="Hide password">
+        <source>Hide password</source>
+        <target>Скрыть пароль</target>
+      </trans-unit>
+      <trans-unit id="kn8v24H" resname="Oopps. The page you were looking for doesn't exist.">
+        <source>Oopps. The page you were looking for doesn't exist.</source>
+        <target>Ой. Страница, которую вы искали, не существует.</target>
+      </trans-unit>
+      <trans-unit id="PVuB1wf" resname="Show password">
+        <source>Show password</source>
+        <target>Показать пароль</target>
+      </trans-unit>
+      <trans-unit id="gNPnRTl"
+        resname="You may have mistyped the address or the page may have moved.">
+        <source>You may have mistyped the address or the page may have moved.</source>
+        <target>Возможно, вы неправильно ввели адрес, или страница переместилась.</target>
+      </trans-unit>
+      <trans-unit id="QFWN2NW" resname="error">
+        <source>error</source>
+        <target>ошибка</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
