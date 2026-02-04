@@ -1,106 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-    <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
-        <header>
-            <tool tool-id="symfony" tool-name="Symfony" />
-        </header>
-        <body>
-            <trans-unit id="4s5Nig2" resname="Account Settings">
-                <source>Account Settings</source>
-                <target>Настройки Учётной записи</target>
-            </trans-unit>
-            <trans-unit id="3MWRMJ2" resname="Add friends">
-                <source>Add friends</source>
-                <target>Добавить друзей</target>
-            </trans-unit>
-            <trans-unit id="OEojeUd" resname="Add to group">
-                <source>Add to group</source>
-                <target>Добавить в группу</target>
-            </trans-unit>
-            <trans-unit id="3XvGnXJ" resname="Block">
-                <source>Block</source>
-                <target>Заблокировать</target>
-            </trans-unit>
-            <trans-unit id="mj6MzN9" resname="Calling...">
-                <source>Calling...</source>
-                <target>Вызов...</target>
-            </trans-unit>
-            <trans-unit id="uupXYC." resname="Chat">
-                <source>Chat</source>
-                <target>Чат</target>
-            </trans-unit>
-            <trans-unit id="Iwl9wtn" resname="Edit Profile">
-                <source>Edit Profile</source>
-                <target>Редактировать Профиль</target>
-            </trans-unit>
-            <trans-unit id="1cbWG5k" resname="Friends">
-                <source>Friends</source>
-                <target>Друзья</target>
-            </trans-unit>
-            <trans-unit id="UJhpz2V" resname="Inbox">
-                <source>Inbox</source>
-                <target>Входящие</target>
-            </trans-unit>
-            <trans-unit id="8cdUoH8" resname="Mark All Read">
-                <source>Mark All Read</source>
-                <target>Пометить Всё как Прочитанные</target>
-            </trans-unit>
-            <trans-unit id="1Z8uBHi" resname="Messages">
-                <source>Messages</source>
-                <target>Сообщения</target>
-            </trans-unit>
-            <trans-unit id="gGxnmUA" resname="Notifications">
-                <source>Notifications</source>
-                <target>Уведомления</target>
-            </trans-unit>
-            <trans-unit id="5Y34z39" resname="Profile">
-                <source>Profile</source>
-                <target>Профиль</target>
-            </trans-unit>
-            <trans-unit id="HjLNs2T" resname="Search for anything...">
-                <source>Search for anything...</source>
-                <target>Искать что угодно...</target>
-            </trans-unit>
-            <trans-unit id="8XUswCk" resname="Search....">
-                <source>Search....</source>
-                <target>Поиск....</target>
-            </trans-unit>
-            <trans-unit id=".aGiz_3" resname="Sign Out">
-                <source>Sign Out</source>
-                <target>Выйти</target>
-            </trans-unit>
-            <trans-unit id="GnpZL.Q" resname="Typing....">
-                <source>Typing....</source>
-                <target>Печатает....</target>
-            </trans-unit>
-            <trans-unit id="q6DYwLc" resname="VIEW ALL">
-                <source>VIEW ALL</source>
-                <target>ПРОСМОТРЬ ВСЁ</target>
-            </trans-unit>
-            <trans-unit id="c6S4h5X" resname="Video call">
-                <source>Video call</source>
-                <target>Видеозвонок</target>
-            </trans-unit>
-            <trans-unit id="6G0YwSJ" resname="View profile">
-                <source>View profile</source>
-                <target>Просмотреть профиль</target>
-            </trans-unit>
-            <trans-unit id="EtGHBbk" resname="Voice call">
-                <source>Voice call</source>
-                <target>Голосовой вызов</target>
-            </trans-unit>
-            <trans-unit id="3edgmfd" resname="You have %messages% unread messages">
-                <source>You have %messages% unread messages</source>
-                <target>{messages, plural, =0 {У Вас нет непрочитанных сообщений} one {У Вас #
-                    непрочитанное сообщение} few {У Вас # непрочитанных сообщения} many {У Вас #
-                    непрочитанных сообщений} other {У Вас # непрочитанных сообщений}}</target>
-            </trans-unit>
-            <trans-unit id="mvd_pBj" resname="You have %notifications% unread Notifications">
-                <source>You have %notifications% unread Notifications</source>
-                <target>{notifications, plural, =0 {У Вас нет непрочитанных уведомлений} one {У Вас
-                    # непрочитанное уведомление} few {У Вас # непрочитанных уведомления} many {У Вас
-                    # непрочитанных уведомлений} other {У Вас # непрочитанных уведомлений}}</target>
-            </trans-unit>
-        </body>
-    </file>
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony" />
+    </header>
+    <body>
+      <trans-unit id="4s5Nig2" resname="Account Settings">
+        <source>Account Settings</source>
+        <target>Настройки Учётной записи</target>
+      </trans-unit>
+      <trans-unit id="3MWRMJ2" resname="Add friends">
+        <source>Add friends</source>
+        <target>Добавить друзей</target>
+      </trans-unit>
+      <trans-unit id="OEojeUd" resname="Add to group">
+        <source>Add to group</source>
+        <target>Добавить в группу</target>
+      </trans-unit>
+      <trans-unit id="3XvGnXJ" resname="Block">
+        <source>Block</source>
+        <target>Заблокировать</target>
+      </trans-unit>
+      <trans-unit id="mj6MzN9" resname="Calling...">
+        <source>Calling...</source>
+        <target>Вызов...</target>
+      </trans-unit>
+      <trans-unit id="uupXYC." resname="Chat">
+        <source>Chat</source>
+        <target>Чат</target>
+      </trans-unit>
+      <trans-unit id="Iwl9wtn" resname="Edit Profile">
+        <source>Edit Profile</source>
+        <target>Редактировать Профиль</target>
+      </trans-unit>
+      <trans-unit id="1cbWG5k" resname="Friends">
+        <source>Friends</source>
+        <target>Друзья</target>
+      </trans-unit>
+      <trans-unit id="UJhpz2V" resname="Inbox">
+        <source>Inbox</source>
+        <target>Входящие</target>
+      </trans-unit>
+      <trans-unit id="8cdUoH8" resname="Mark All Read">
+        <source>Mark All Read</source>
+        <target>Пометить Всё как Прочитанные</target>
+      </trans-unit>
+      <trans-unit id="1Z8uBHi" resname="Messages">
+        <source>Messages</source>
+        <target>Сообщения</target>
+      </trans-unit>
+      <trans-unit id="gGxnmUA" resname="Notifications">
+        <source>Notifications</source>
+        <target>Уведомления</target>
+      </trans-unit>
+      <trans-unit id="5Y34z39" resname="Profile">
+        <source>Profile</source>
+        <target>Профиль</target>
+      </trans-unit>
+      <trans-unit id="HjLNs2T" resname="Search for anything...">
+        <source>Search for anything...</source>
+        <target>Искать что угодно...</target>
+      </trans-unit>
+      <trans-unit id="8XUswCk" resname="Search....">
+        <source>Search....</source>
+        <target>Поиск....</target>
+      </trans-unit>
+      <trans-unit id=".aGiz_3" resname="Sign Out">
+        <source>Sign Out</source>
+        <target>Выйти</target>
+      </trans-unit>
+      <trans-unit id="GnpZL.Q" resname="Typing....">
+        <source>Typing....</source>
+        <target>Печатает....</target>
+      </trans-unit>
+      <trans-unit id="q6DYwLc" resname="VIEW ALL">
+        <source>VIEW ALL</source>
+        <target>ПРОСМОТРЬ ВСЁ</target>
+      </trans-unit>
+      <trans-unit id="c6S4h5X" resname="Video call">
+        <source>Video call</source>
+        <target>Видеозвонок</target>
+      </trans-unit>
+      <trans-unit id="6G0YwSJ" resname="View profile">
+        <source>View profile</source>
+        <target>Просмотреть профиль</target>
+      </trans-unit>
+      <trans-unit id="EtGHBbk" resname="Voice call">
+        <source>Voice call</source>
+        <target>Голосовой вызов</target>
+      </trans-unit>
+      <trans-unit id="3edgmfd" resname="You have %messages% unread messages">
+        <source>You have %messages% unread messages</source>
+        <target>{messages, plural, =0 {У Вас нет непрочитанных сообщений} one {У Вас # непрочитанное сообщение} few {У Вас # непрочитанных сообщения} many {У Вас # непрочитанных сообщений} other {У Вас # непрочитанных сообщений}}</target>
+      </trans-unit>
+      <trans-unit id="mvd_pBj" resname="You have %notifications% unread Notifications">
+        <source>You have %notifications% unread Notifications</source>
+        <target>{notifications, plural, =0 {У Вас нет непрочитанных уведомлений} one {У Вас # непрочитанное уведомление} few {У Вас # непрочитанных уведомления} many {У Вас # непрочитанных уведомлений} other {У Вас # непрочитанных уведомлений}}</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
