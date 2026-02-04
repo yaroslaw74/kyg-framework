@@ -20,7 +20,7 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 use Gedmo\Translatable\Entity\Repository\TranslationRepository;
 
 #[ORM\Table(name: 'classification__category_translation')]
-#[ORM\Index(name: 'classification__category_translation_idx', columns: ['foreign_key', 'locale', 'object_class', 'field'])]
+#[ORM\Index(name: 'classification__category_translation_idx', columns: ['locale', 'object_id', 'field'])]
 #[ORM\Entity(repositoryClass: TranslationRepository::class)]
 class SonataClassificationCategoryTranslation extends AbstractPersonalTranslation
 {
