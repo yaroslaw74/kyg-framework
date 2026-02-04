@@ -101,7 +101,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[Enum(enum: StatusUsers::class)]
     private UsersStatus $status = UsersStatus::STATUS_NEW;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
     /**
