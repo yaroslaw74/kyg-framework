@@ -44,6 +44,9 @@ class SonataClassificationContext extends BaseContext implements Translatable
      */
     protected ?string $id = null;
 
+    #[Gedmo\Locale]
+    private ?string $locale = null;
+
     /**
      * @var Collection<int, SonataClassificationContexTranslationt>
      */
@@ -78,6 +81,11 @@ class SonataClassificationContext extends BaseContext implements Translatable
             $this->enabled,
             $this->translations,
         ] = $data;
+    }
+
+    public function setTranslatableLocale(string $locale): void
+    {
+        $this->locale = $locale;
     }
 
     /**
