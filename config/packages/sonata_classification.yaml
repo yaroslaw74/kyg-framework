@@ -1,0 +1,6 @@
+sonata_classification:
+    class:
+        category: App\Modules\Classification\Entity\SonataClassificationCategory
+        collection: App\Modules\Classification\Entity\SonataClassificationCollection
+        context: App\Modules\Classification\Entity\SonataClassificationContext
+        tag: App\Modules\Classification\Entity\SonataClassificationTag
