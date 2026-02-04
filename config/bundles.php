@@ -50,4 +50,5 @@ return [
     Yokai\SecurityTokenBundle\YokaiSecurityTokenBundle::class => ['all' => true],
     Sonata\ClassificationBundle\SonataClassificationBundle::class => ['all' => true],
     Sonata\MediaBundle\SonataMediaBundle::class => ['all' => true],
+    Sonata\FormatterBundle\SonataFormatterBundle::class => ['all' => true],
 ];
