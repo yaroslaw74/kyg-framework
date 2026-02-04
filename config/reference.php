@@ -1702,6 +1702,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         prefetch_all?: bool|Param, // Default: true
  *     },
  *     cache?: array{
+ *         metadata_service?: scalar|Param|null, // Default: "cache.system"
  *         service?: scalar|Param|null, // Default: "cache.app.taggable"
  *         default_cacheable?: bool|Param, // Default: false
  *         ttl?: int|Param, // Default: 0
@@ -2821,6 +2822,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         generate_thumbnails_bus?: scalar|Param|null, // Default: "messenger.default_bus"
  *     },
  * }
+ * @psalm-type SonataFormatterConfig = array{
+ *     default_formatter: scalar|Param|null,
+ *     formatters?: array<string, array{ // Default: []
+ *         service: scalar|Param|null,
+ *         extensions?: list<scalar|Param|null>,
+ *     }>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2866,6 +2874,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     yokai_security_token?: YokaiSecurityTokenConfig,
  *     sonata_classification?: SonataClassificationConfig,
  *     sonata_media?: SonataMediaConfig,
+ *     sonata_formatter?: SonataFormatterConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2915,6 +2924,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         yokai_security_token?: YokaiSecurityTokenConfig,
  *         sonata_classification?: SonataClassificationConfig,
  *         sonata_media?: SonataMediaConfig,
+ *         sonata_formatter?: SonataFormatterConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2962,6 +2972,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         yokai_security_token?: YokaiSecurityTokenConfig,
  *         sonata_classification?: SonataClassificationConfig,
  *         sonata_media?: SonataMediaConfig,
+ *         sonata_formatter?: SonataFormatterConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
