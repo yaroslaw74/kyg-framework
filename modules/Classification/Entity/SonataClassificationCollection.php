@@ -45,6 +45,9 @@ class SonataClassificationCollection extends BaseCollection implements Translata
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     protected ?Uuid $id = null;
 
+    #[Gedmo\Locale]
+    private ?string $locale = null;
+
     /**
      * @var Collection<int, SonataClassificationCollectionTranslation>
      */
@@ -82,6 +85,11 @@ class SonataClassificationCollection extends BaseCollection implements Translata
             $this->context,
             $this->translations,
         ] = $data;
+    }
+
+    public function setTranslatableLocale(string $locale): void
+    {
+        $this->locale = $locale;
     }
 
     public function getId(): ?string
