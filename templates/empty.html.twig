@@ -8,13 +8,29 @@
  #}
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <!-- Node Waves Css -->
+    <link href="{{ asset('vendor/node-waves/dist/waves.min.css') }}" rel="stylesheet">
+
+    <!-- Simplebar Css -->
+    <link href="{{ asset('vendor/simplebar/dist/simplebar.min.css')}}" rel="stylesheet">
+
+    <!-- Color Picker Css -->
+    <link href="{{ asset('vendor/@simonwep/pickr/dist/themes/nano.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('vendor/flatpickr/dist/flatpickr.min.css') }}" rel="stylesheet">
+
+    <!-- Choices Css -->
+    <link href="{{ asset('vendor/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet" >
+{% endblock stylesheets %}
+
 {% block javascripts %}
     <!-- Main Theme Js -->
     <script async type="module" src="{{ asset('js/main.js') }}"></script>
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {callback: 'fos.Router.setData'}) }}"></script>
-{% endblock %}
+{% endblock javascripts %}
 
 {% block body %}
     {{ include('partials/switcher.html.twig') }}
