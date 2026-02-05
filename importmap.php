@@ -387,7 +387,7 @@ return [
         'version' => '6.0.0',
     ],
     'tslib' => [
-        'version' => '2.3.0',
+        'version' => '2.8.1',
     ],
     'zrender/lib/zrender.js' => [
         'version' => '6.0.0',
