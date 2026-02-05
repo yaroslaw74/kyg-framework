@@ -15,11 +15,15 @@ declare(strict_types=1);
 namespace App\Modules\Media\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Media\Entity\Translation\SonataMediaMediaTranslation;
 use App\Modules\Media\Repository\SonataMediaMediaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Translatable\Translatable;
 use Sonata\MediaBundle\Entity\BaseMedia;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
@@ -28,8 +32,9 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Entity(repositoryClass: SonataMediaMediaRepository::class)]
 #[ORM\Table(name: 'media__media')]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\TranslationEntity(class: SonataMediaMediaTranslation::class)]
 #[ApiResource]
-class SonataMediaMedia extends BaseMedia
+class SonataMediaMedia extends BaseMedia implements Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
@@ -39,6 +44,21 @@ class SonataMediaMedia extends BaseMedia
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     protected ?Uuid $id = null;
+
+    #[Gedmo\Locale]
+    private ?string $locale = null;
+
+    /**
+     * @var Collection<int, SonataMediaMediaTranslation>
+     */
+    #[ORM\OneToMany(targetEntity: SonataMediaMediaTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->translations = new ArrayCollection();
+    }
 
     public function __serialize(): array
     {
@@ -82,7 +102,13 @@ class SonataMediaMedia extends BaseMedia
             $this->size,
             $this->galleryItems,
             $this->category,
+            $this->translations,
         ] = $data;
+    }
+
+    public function setTranslatableLocale(string $locale): void
+    {
+        $this->locale = $locale;
     }
 
     public function getId(): ?string
@@ -97,5 +123,23 @@ class SonataMediaMedia extends BaseMedia
     public function getUuid(): ?Uuid
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection<int, SonataMediaMediaTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(SonataMediaMediaTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
+
+        return $this;
     }
 }
