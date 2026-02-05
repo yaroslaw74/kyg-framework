@@ -43,7 +43,7 @@
         "jbtronics/settings-bundle": "^3.2.0",
         "knplabs/knp-menu-bundle": "^3.7",
         "knplabs/knp-paginator-bundle": "^6.10",
-        "league/flysystem-bundle": "^3.6.1",
+        "league/flysystem-bundle": "^3.6.2",
         "liip/imagine-bundle": "^2.17.1",
         "nelmio/api-doc-bundle": "^5.9.2",
         "nelmio/cors-bundle": "^2.6.1",
