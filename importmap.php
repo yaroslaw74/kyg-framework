@@ -560,4 +560,7 @@ return [
     'zrender/lib/tool/morphPath.js' => [
         'version' => '6.0.0',
     ],
+    '@googlemaps/js-api-loader' => [
+        'version' => '1.16.10',
+    ],
 ];
