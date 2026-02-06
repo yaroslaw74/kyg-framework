@@ -58,7 +58,6 @@ return [
     Rekalogika\Reconstitutor\RekalogikaReconstitutorBundle::class => ['all' => true],
     Symfony\UX\Autocomplete\AutocompleteBundle::class => ['all' => true],
     Symfony\UX\Chartjs\ChartjsBundle::class => ['all' => true],
-    Symfony\UX\Cropperjs\CropperjsBundle::class => ['all' => true],
-    Symfony\UX\Dropzone\DropzoneBundle::class => ['all' => true],
     Rekalogika\File\Bridge\FilePond\RekalogikaFileFilePondBundle::class => ['all' => true],
+    Symfony\UX\Dropzone\DropzoneBundle::class => ['all' => true],
 ];
