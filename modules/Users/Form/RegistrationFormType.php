@@ -40,12 +40,12 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => 'Username',
+                'label' => $this->translator->trans('Username', [], 'users'),
                 'row_attr' => ['class' => 'form-group mb-3'],
                 'attr' => ['placeholder' => $this->translator->trans('Enter your username', [], 'users')],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => $this->translator->trans('Email', [], 'users'),
                 'row_attr' => ['class' => 'form-group mb-3'],
                 'attr' => [
                     'autocomplete' => 'email',
@@ -58,7 +58,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'I agree to the terms and conditions',
+                'label' => $this->translator->trans('I agree to the terms and conditions', [], 'users'),
                 'row_attr' => ['class' => 'checkbox mb-3 form-check form-check-lg'],
                 'mapped' => false,
                 'constraints' => [
@@ -68,7 +68,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-                'label' => 'Password',
+                'label' => $this->translator->trans('Password', [], 'users'),
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
