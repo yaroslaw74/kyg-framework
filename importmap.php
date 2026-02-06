@@ -364,6 +364,9 @@ return [
     'chartjs-plugin-zoom' => [
         'version' => '2.2.0',
     ],
+    '@kurkle/color' => [
+        'version' => '0.4.0',
+    ],
     'tom-select' => [
         'version' => '2.4.5',
     ],
