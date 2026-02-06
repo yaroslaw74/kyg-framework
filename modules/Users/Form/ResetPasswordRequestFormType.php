@@ -34,7 +34,7 @@ class ResetPasswordRequestFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => $this->translator->trans('Email', [], 'users'),
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
