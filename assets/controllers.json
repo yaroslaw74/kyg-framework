@@ -45,6 +45,12 @@
                 }
             }
         },
+        "@symfony/ux-google-map": {
+            "map": {
+                "enabled": true,
+                "fetch": "lazy"
+            }
+        },
         "@symfony/ux-live-component": {
             "live": {
                 "enabled": true,
