@@ -105,7 +105,7 @@
         "symfony/ux-autocomplete": "^2.32",
         "symfony/ux-chartjs": "^2.32",
         "symfony/ux-dropzone": "^2.32",
-        "symfony/ux-google-map": "*",
+        "symfony/ux-google-map": "^2.32",
         "symfony/ux-icons": "^2.32",
         "symfony/ux-live-component": "^2.32",
         "symfony/ux-map": "^2.32",
