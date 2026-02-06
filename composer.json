@@ -168,7 +168,10 @@
         "symplify/phpstan-rules": "^14.9.11",
         "vincentlanglet/twig-cs-fixer": "^3.13",
         "yamadashy/phpstan-friendly-formatter": "^1.4",
-        "zenstruck/foundry": "^2.9"
+        "zenstruck/browser": "^1.10",
+        "zenstruck/foundry": "^2.9",
+        "zenstruck/mailer-test": "^1.5",
+        "zenstruck/messenger-test": "^1.13"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
