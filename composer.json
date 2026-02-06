@@ -149,7 +149,7 @@
     "require-dev": {
         "dadadev/phpstan-symfony-routing": "^0.2",
         "dama/doctrine-test-bundle": "^8.6",
-        "doctrine/doctrine-fixtures-bundle": "^4.3",
+        "doctrine/doctrine-fixtures-bundle": "^4.3.1",
         "ergebnis/composer-normalize": "^2.49",
         "friendsofphp/php-cs-fixer": "^3.93.1",
         "gromnan/symfony-config-xml-to-php": "^0.2.1",
