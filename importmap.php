@@ -3,13 +3,13 @@
 /**
  * Returns the importmap for this application.
  *
- * - "path" is a path inside the asset mapper system. Use the
- *     "debug:asset-map" command to see the full list of paths.
+ * - 'path' is a path inside the asset mapper system. Use the
+ *     'debug:asset-map' command to see the full list of paths.
  *
- * - "entrypoint" (JavaScript only) set to true for any module that will
- *     be used as an "entrypoint" (and passed to the importmap() Twig function).
+ * - 'entrypoint' (JavaScript only) set to true for any module that will
+ *     be used as an 'entrypoint' (and passed to the importmap() Twig function).
  *
- * The "importmap:require" command can be used to add new entries to this file.
+ * The 'importmap:require' command can be used to add new entries to this file.
  */
 return [
     'app' => [
@@ -204,41 +204,6 @@ return [
         'version' => '11.1.0',
         'type' => 'css',
     ],
-    'filepond-plugin-file-validate-size' => [
-        'version' => '2.2.8',
-    ],
-    'filepond-plugin-file-validate-type' => [
-        'version' => '1.2.9',
-    ],
-    'filepond-plugin-image-crop' => [
-        'version' => '2.0.6',
-    ],
-    'filepond-plugin-image-edit' => [
-        'version' => '1.6.3',
-    ],
-    'filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css' => [
-        'version' => '1.6.3',
-        'type' => 'css',
-    ],
-    'filepond-plugin-image-exif-orientation' => [
-        'version' => '1.0.11',
-    ],
-    'filepond-plugin-image-preview' => [
-        'version' => '4.6.12',
-    ],
-    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css' => [
-        'version' => '4.6.12',
-        'type' => 'css',
-    ],
-    'filepond-plugin-image-resize' => [
-        'version' => '2.0.10',
-    ],
-    'filepond-plugin-image-transform' => [
-        'version' => '3.8.7',
-    ],
-    'filepond-plugin-image-validate-size' => [
-        'version' => '1.2.7',
-    ],
     'filepond' => [
         'version' => '4.32.11',
     ],
@@ -336,6 +301,54 @@ return [
     'filepond/locale/zh-tw.js' => [
         'version' => '4.32.11',
     ],
+    'filepond-plugin-file-encode' => [
+        'version' => '2.1.14',
+    ],
+    'filepond-plugin-file-metadata' => [
+        'version' => '1.0.8',
+    ],
+    'filepond-plugin-file-poster' => [
+        'version' => '2.5.2',
+    ],
+    'filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css' => [
+        'version' => '2.5.2',
+        'type' => 'css',
+    ],
+    'filepond-plugin-file-validate-size' => [
+        'version' => '2.2.8',
+    ],
+    'filepond-plugin-file-validate-type' => [
+        'version' => '1.2.9',
+    ],
+    'filepond-plugin-image-crop' => [
+        'version' => '2.0.6',
+    ],
+    'filepond-plugin-image-edit' => [
+        'version' => '1.6.3',
+    ],
+    'filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css' => [
+        'version' => '1.6.3',
+        'type' => 'css',
+    ],
+    'filepond-plugin-image-exif-orientation' => [
+        'version' => '1.0.11',
+    ],
+    'filepond-plugin-image-preview' => [
+        'version' => '4.6.12',
+    ],
+    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css' => [
+        'version' => '4.6.12',
+        'type' => 'css',
+    ],
+    'filepond-plugin-image-resize' => [
+        'version' => '2.0.10',
+    ],
+    'filepond-plugin-image-transform' => [
+        'version' => '3.8.7',
+    ],
+    'filepond-plugin-image-validate-size' => [
+        'version' => '1.2.7',
+    ],
     'chart.js' => [
         'version' => '4.5.1',
     ],
@@ -347,13 +360,6 @@ return [
     ],
     'chartjs-plugin-zoom' => [
         'version' => '2.2.0',
-    ],
-    'cropperjs' => [
-        'version' => '1.6.2',
-    ],
-    'cropperjs/dist/cropper.min.css' => [
-        'version' => '1.6.2',
-        'type' => 'css',
     ],
     'tom-select' => [
         'version' => '2.4.5',
