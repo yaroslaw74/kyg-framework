@@ -85,7 +85,7 @@ security:
                     linkedin: "/login/check-linkedin"
                     mailru: "/login/check-mailru"
                     odnoklassniki: "/login/check-odnoklassniki"
-                    XTwitter: "/login/check-xTwitter"
+                    xTwitter: "/login/check-xTwitter"
                     vkontakte: "/login/check-vkontakte"
                 login_path: /app/login
                 use_forward: false
