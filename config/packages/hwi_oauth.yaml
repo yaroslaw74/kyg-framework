@@ -48,7 +48,7 @@ hwi_oauth:
             options:
                 application_key: "%env(ODNOKLASSNIKI_APPLICATION_KEY)%"
                 csrf: true
-        X-twitter:
+        xTwitter:
             type: twitter
             client_id: "%env(TWITTER_CONSUMER_KEY)%"
             client_secret: "%env(TWITTER_CONSUMER_SECRET)%"
