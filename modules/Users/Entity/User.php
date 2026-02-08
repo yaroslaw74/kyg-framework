@@ -53,13 +53,13 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     protected $id;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
-    private ?string $first_name = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
-    private ?string $last_name = null;
+    private ?string $lastName = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
-    private ?string $middle_name = null;
+    private ?string $middleName = null;
 
     #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
     private ?string $locale = null;
@@ -92,7 +92,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     private ?string $vkontakte = null;
 
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
-    private ?string $x_twitter = null;
+    private ?string $xTwitter = null;
 
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $github = null;
@@ -128,9 +128,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->emailCanonical,
             $this->password,
             $this->plainPassword,
-            $this->first_name,
-            $this->last_name,
-            $this->middle_name,
+            $this->firstName,
+            $this->lastName,
+            $this->middleName,
             $this->locale,
             $this->avatar,
             $this->gravatar,
@@ -146,7 +146,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->linkedin,
             $this->mailru,
             $this->odnoklassniki,
-            $this->x_twitter,
+            $this->xTwitter,
             $this->vkontakte,
             $this->github,
             $this->createdAt,
@@ -182,36 +182,36 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     public function setFirstName(?string $first_name): static
     {
-        $this->first_name = $first_name;
+        $this->firstName = $first_name;
 
         return $this;
     }
 
     public function getLastName(): ?string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     public function setLastName(?string $last_name): static
     {
-        $this->last_name = $last_name;
+        $this->lastName = $last_name;
 
         return $this;
     }
 
     public function getMiddleName(): ?string
     {
-        return $this->middle_name;
+        return $this->middleName;
     }
 
     public function setMiddleName(?string $middle_name): static
     {
-        $this->middle_name = $middle_name;
+        $this->middleName = $middle_name;
 
         return $this;
     }
@@ -338,12 +338,12 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
 
     public function getXTwitter(): ?string
     {
-        return $this->x_twitter;
+        return $this->xTwitter;
     }
 
-    public function setXTwitter(?string $x_twitter): static
+    public function setXTwitter(?string $xTwitter): static
     {
-        $this->x_twitter = $x_twitter;
+        $this->xTwitter = $xTwitter;
 
         return $this;
     }
