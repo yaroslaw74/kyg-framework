@@ -60,6 +60,6 @@ services:
                 "linkedin": "linkedin"
                 "mailru": "mailru"
                 "odnoklassniki": "odnoklassniki"
-                "XTwitter": "xTwitter"
+                "xTwitter": "xTwitter"
                 "vkontakte": "vkontakte"
                 "github": "github"
