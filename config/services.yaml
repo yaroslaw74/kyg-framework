@@ -48,7 +48,7 @@ services:
                 "linkedin": "linkedin"
                 "mailru": "mailru"
                 "odnoklassniki": "odnoklassniki"
-                "X-twitter": "x_twitter"
+                "XTwitter": "xTwitter"
                 "vkontakte": "vkontakte"
                 "github": "github"
     App\Modules\Users\Security\OAuthConnector:
@@ -60,6 +60,6 @@ services:
                 "linkedin": "linkedin"
                 "mailru": "mailru"
                 "odnoklassniki": "odnoklassniki"
-                "X-twitter": "x_twitter"
+                "XTwitter": "xTwitter"
                 "vkontakte": "vkontakte"
                 "github": "github"
