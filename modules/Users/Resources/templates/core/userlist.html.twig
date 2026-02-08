@@ -38,45 +38,35 @@
                 <div class="card-body">
                     <div class="table-responsive border border-bottom-0 userlist-table">
                         <table class="table card-table table-vcenter text-nowrap table-striped mb-0">
-                            <thead class="table-info">
+                            <thead>
                                 <tr>
-                                    <th scope="col"><span class="text-primary">{% trans %}Avatar{% endtrans %}</span></th>
+                                    <th scope="col"><a href="javascript:void(0);">{% trans %}Avatar{% endtrans %}</a></th>
                                     {% if settings_instance('name').firstMiddleName %}
                                         {% if settings_instance('name').lastNameEnable %}
                                             <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName', 'a.lastName']) %} class="sorted"{% endif %}>
-                                                <span class="text-primary">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
                                         {% else %}
                                             <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName']) %} class="sorted"{% endif %}>
-                                                <span class="text-primary">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
                                         {% endif %}
                                     {% else %}
                                         {% if settings_instance('name').lastNameEnable %}
                                             <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.lastName', 'a.middleName']) %} class="sorted"{% endif %}>
-                                                <span class="text-primary">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
                                         {% else %}
                                             <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.middleName']) %} class="sorted"{% endif %}>
-                                                <span class="text-primary">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
                                         {% endif %}
                                     {% endif %}
-                                        </span>
                                     </th>
-                                    <th scope="col"><span class="text-primary">{% trans %}Name{% endtrans %}</span></th>
                                     <th scope="col" {%- if pagination.isSorted('a.createdAt') %} class="sorted"{% endif %}>
-                                        <span class="text-primary">
-                                            {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
-                                        </span>
+                                        {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
                                     </th>
                                     <th scope="col" {%- if pagination.isSorted('a.status') %} class="sorted"{% endif %}>
-                                        <span class="text-primary">
-                                            {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
-                                        </span>
+                                        {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
                                     </th>
-                                    <th scope="col"><span class="text-primary">{% trans %}Email{% endtrans %}</span></th>
-                                    <th scope="col"><span class="text-primary">{% trans %}Action{% endtrans %}</span></th>
+                                    <th scope="col"><a href="javascript:void(0);">{% trans %}Email{% endtrans %}</a></th>
+                                    <th scope="col"><a href="javascript:void(0);">{% trans %}Action{% endtrans %}</a></th>
                                 </tr>
                             </thead>
                             <tbody>
