@@ -17,11 +17,11 @@ namespace App\Modules\Users\Enumeration;
 enum UsersStatus: string
 {
     case STATUS_NEW = 'New';
+    case STATUS_PENDING = 'Pending';
+    case STATUS_VALIDATED = 'Validated';
+    case STATUS_INACTIVE = 'Inactive';
     case STATUS_ACTIVE = 'Active';
     case STATUS_BANNED = 'Banned';
-    case STATUS_PENDING = 'Pending';
-    case STATUS_INACTIVE = 'Inactive';
-    case STATUS_DELETED = 'Deleted';
-    case STATUS_VALIDATED = 'Validated';
     case STATUS_DISABLED = 'Disabled';
+    case STATUS_DELETED = 'Deleted';
 }
