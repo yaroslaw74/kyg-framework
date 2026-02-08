@@ -31,7 +31,7 @@ mailru_login:
 odnoklassniki_login:
     path: /login/check-odnoklassniki
 
-XTwitter_login:
+xTwitter_login:
     path: /login/check-xTwitter
 
 vkontakte_login:
