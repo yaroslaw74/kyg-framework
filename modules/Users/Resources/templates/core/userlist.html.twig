@@ -1,0 +1,153 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends 'empty.html.twig' %}
+{% trans_default_domain 'users' %}
+
+{% block page_header %}
+    {{ include('partials/page-header.html.twig', {title: 'Userlist'|trans, subtitle: 'Users'}) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ knp_pagination_rel_links(pagination) }}
+{% endblock %}
+
+{% block content %}
+    <!-- Start::row-1 -->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mb-0">{% trans %}USERS TABLE{% endtrans %}</h4>
+                        <a href="javascript:void(0);" class="tx-inverse" data-bs-toggle="dropdown"><i class="mdi mdi-dots-horizontal text-gray"></i></a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="javascript:void(0);">Action</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Another Action</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Something Else Here</a>
+                        </div>
+                    </div>
+                        <p class="fs-12 text-gray-5 mb-2 count">{% trans %}Total number of registered users:{% endtrans %} {{ pagination.getTotalItemCount }}</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive border border-bottom-0 userlist-table">
+                        <table class="table card-table table-vcenter text-nowrap table-striped mb-0">
+                            <thead class="table-info">
+                                <tr>
+                                    <th scope="col"><span class="text-primary">{% trans %}Avatar{% endtrans %}</span></th>
+                                    {% if settings_instance('name').firstMiddleName %}
+                                        {% if settings_instance('name').lastNameEnable %}
+                                            <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName', 'a.lastName']) %} class="sorted"{% endif %}>
+                                                <span class="text-primary">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
+                                        {% else %}
+                                            <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName']) %} class="sorted"{% endif %}>
+                                                <span class="text-primary">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if settings_instance('name').lastNameEnable %}
+                                            <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.lastName', 'a.middleName']) %} class="sorted"{% endif %}>
+                                                <span class="text-primary">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
+                                        {% else %}
+                                            <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.middleName']) %} class="sorted"{% endif %}>
+                                                <span class="text-primary">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
+                                        {% endif %}
+                                    {% endif %}
+                                        </span>
+                                    </th>
+                                    <th scope="col"><span class="text-primary">{% trans %}Name{% endtrans %}</span></th>
+                                    <th scope="col" {%- if pagination.isSorted('a.createdAt') %} class="sorted"{% endif %}>
+                                        <span class="text-primary">
+                                            {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
+                                        </span>
+                                    </th>
+                                    <th scope="col" {%- if pagination.isSorted('a.status') %} class="sorted"{% endif %}>
+                                        <span class="text-primary">
+                                            {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
+                                        </span>
+                                    </th>
+                                    <th scope="col"><span class="text-primary">{% trans %}Email{% endtrans %}</span></th>
+                                    <th scope="col"><span class="text-primary">{% trans %}Action{% endtrans %}</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for article in pagination %}
+                                    <tr>
+                                        <td>
+                                            {% if article.gravatar != null %}
+                                                <img src="{{ gravatar(app.user.gravatar) }}" alt="avatar" class="ounded-circle avatar-md avatar">
+                                            {% else %}
+                                                {% if article.avatar != null %}
+                                                    <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="avatar" class="ounded-circle avatar-md avatar">
+                                                {% else %}
+                                                    <img src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}" alt="avatar" class="rounded-circle avatar-md avatar">
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <span class="text-dark">
+                                                {% if settings_instance('name').firstMiddleName %}
+                                                    {% if settings_instance('name').lastNameEnable %}
+                                                        {{ article.middleName }} {{ article.firstName }} {{ article.lastName }}
+                                                    {% else %}
+                                                        {{ article.middleName }} {{ article.firstName }}
+                                                    {% endif %}
+                                                 {% else %}
+                                                    {% if settings_instance('name').lastNameEnable %}
+                                                        {{ article.firstName }} {{ article.lastName }} {{ article.middleName }}
+                                                    {% else %}
+                                                        {{ article.firstName }} {{ article.middleName }}
+                                                    {% endif %}
+                                                {% endif %}
+                                            </span>
+                                        </td>
+                                        <td><span class="text-dark">{{ article.createdAt|date }}</span></td>
+                                        <td>
+                                            {% if article.status == 4 %}
+                                                <span class="badge bg-success-transparent">
+                                            {% elseif article.status == 5 %}
+                                                <span class="badge bg-danger-transparent">
+                                            {% elseif article.status == 1 %}
+                                                <span class="badge bg-warning-transparent">
+                                            {% elseif article.status == 6 %}
+                                                <span class="badge bg-primary-transparent">
+                                            {% elseif article.status == 0 or article.status == 2 %}
+                                                <span class="badge bg-info-transparent">
+                                            {% else %}
+                                                <span class="badge bg-secondary-transparent">
+                                            {% endif %}
+                                                {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);">{{ article.email }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="" data-bs-original-title="search"><i class="las la-search"></i></a>
+                                            <a href="javascript:void(0);" class="btn btn-sm btn-info btn-b" data-bs-toggle="tooltip" title="" data-bs-original-title="edit"><i class="las la-pen"></i></a>
+                                            <a href="javascript:void(0);" class="btn btn-sm btn-danger"  data-bs-toggle="tooltip" title="" data-bs-original-title="delete"><i class="las la-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination mt-4 mb-0 float-end flex-wrap navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- COL END -->
+    </div>
+    <!--End::row-1 -->
+{% endblock content %}
