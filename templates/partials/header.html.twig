@@ -339,12 +339,12 @@
                     {% if app.user %}
                         {% if app.user.gravatar %}
                             {% if gravatar_exists(app.user.gravatar) %}
-                                <img src="{{ gravatar(app.user.gravatar) }}" alt="img" width="37" height="37" class="rounded-circle">
+                                <img src="{{ gravatar(app.user.gravatar) }}" alt="avatar" width="37" height="37" class="rounded-circle">
                             {% else %}
                                 {% if app.user.avatar %}
-                                    <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="img" width="37" height="37" class="rounded-circle">
+                                    <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="avatar" width="37" height="37" class="rounded-circle">
                                 {% else %}
-                                    <img src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}" alt="img" width="37" height="37" class="rounded-circle">
+                                    <img src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}" alt="avatar" width="37" height="37" class="rounded-circle">
                                 {% endif %}
                             {% endif %}
                         {% else %}
