@@ -48,7 +48,7 @@ security:
                     linkedin: "/login/check-linkedin"
                     mailru: "/login/check-mailru"
                     odnoklassniki: "/login/check-odnoklassniki"
-                    X-twitter: "/login/check-x-twitter"
+                    XTwitter: "/login/check-xTwitter"
                     vkontakte: "/login/check-vkontakte"
                 login_path: /login
                 use_forward: false
@@ -85,7 +85,7 @@ security:
                     linkedin: "/login/check-linkedin"
                     mailru: "/login/check-mailru"
                     odnoklassniki: "/login/check-odnoklassniki"
-                    X-twitter: "/login/check-x-twitter"
+                    XTwitter: "/login/check-xTwitter"
                     vkontakte: "/login/check-vkontakte"
                 login_path: /app/login
                 use_forward: false
