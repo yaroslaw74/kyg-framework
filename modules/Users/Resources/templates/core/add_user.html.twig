@@ -22,10 +22,14 @@
 {% block content %}
     <div class="row">
         <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
-            <div class="card-sigin">
-                <div class="card-sigin">
-                    <div class="main-signup-header">
-                        <h3 class="mb-5">{% trans %}Creating a user{% endtrans %}</h3>
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mb-0">{% trans %}CREATING A USER{% endtrans %}</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="main-signup-header mt-3">
                         {{ form_start(userAddForm) }}
                             {{ form_row(userAddForm.username) }}
                             {{ form_row(userAddForm.plainPassword) }}
