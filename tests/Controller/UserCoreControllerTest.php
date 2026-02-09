@@ -25,4 +25,12 @@ final class UserCoreControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
     }
+
+    public function testUserAdd(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/app/user/add');
+
+        self::assertResponseIsSuccessful();
+    }
 }
