@@ -33,4 +33,20 @@ final class UserCoreControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
     }
+
+    public function testUserProfile(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/app/user/profile');
+
+        self::assertResponseIsSuccessful();
+    }
+
+    public function testUserEditProfile(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/app/user/editprofile');
+
+        self::assertResponseIsSuccessful();
+    }
 }
