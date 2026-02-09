@@ -28,7 +28,7 @@
                         <h4 class="card-title mb-0">{% trans %}USERS TABLE{% endtrans %}</h4>
                         <a href="javascript:void(0);" class="tx-inverse" data-bs-toggle="dropdown"><i class="mdi mdi-dots-horizontal text-gray"></i></a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="{% path('app_user_add') %}">{% trans %}Add User{% endtrans %}</a>
+                            <a class="dropdown-item" href="{{ path('app_user_add') }}">{% trans %}Add User{% endtrans %}</a>
                             <a class="dropdown-item" href="javascript:void(0);">Another Action</a>
                             <a class="dropdown-item" href="javascript:void(0);">Something Else Here</a>
                         </div>
@@ -40,33 +40,54 @@
                         <table class="table card-table table-vcenter text-nowrap table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col"><a href="javascript:void(0);">{% trans %}Avatar{% endtrans %}</a></th>
+                                    <th scope="col">
+                                        <span class="text-dark">
+                                            <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{% trans %}Avatar{% endtrans %}</font>
+                                        </span>
+                                    </th>
                                     {% if settings_instance('name').firstMiddleName %}
                                         {% if settings_instance('name').lastNameEnable %}
                                             <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName', 'a.lastName']) %} class="sorted"{% endif %}>
-                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
+                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
                                         {% else %}
                                             <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName']) %} class="sorted"{% endif %}>
-                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
+                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
                                         {% endif %}
                                     {% else %}
                                         {% if settings_instance('name').lastNameEnable %}
                                             <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.lastName', 'a.middleName']) %} class="sorted"{% endif %}>
-                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
+                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
                                         {% else %}
                                             <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.middleName']) %} class="sorted"{% endif %}>
-                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
+                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
                                         {% endif %}
                                     {% endif %}
+                                        </font>
                                     </th>
                                     <th scope="col" {%- if pagination.isSorted('a.createdAt') %} class="sorted"{% endif %}>
-                                        {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
+                                        <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                            {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
+                                        </font>
                                     </th>
                                     <th scope="col" {%- if pagination.isSorted('a.status') %} class="sorted"{% endif %}>
-                                        {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
+                                        <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                            {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
+                                        </font>
                                     </th>
-                                    <th scope="col"><a href="javascript:void(0);">{% trans %}Email{% endtrans %}</a></th>
-                                    <th scope="col"><a href="javascript:void(0);">{% trans %}Action{% endtrans %}</a></th>
+                                    <th scope="col">
+                                        <span class="text-dark">
+                                            <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{% trans %}Email{% endtrans %}</font>
+                                        </span>
+                                    </th>
+                                    <th scope="col">
+                                        <span class="text-dark">
+                                            <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{% trans %}Action{% endtrans %}</font>
+                                        </span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -85,22 +106,28 @@
                                         </td>
                                         <td>
                                             <span class="text-dark">
-                                                {% if settings_instance('name').firstMiddleName %}
-                                                    {% if settings_instance('name').lastNameEnable %}
-                                                        {{ article.middleName }} {{ article.firstName }} {{ article.lastName }}
+                                                <font class="vertical-align: inherid;" dir="auto">
+                                                    {% if settings_instance('name').firstMiddleName %}
+                                                        {% if settings_instance('name').lastNameEnable %}
+                                                            {{ article.middleName }} {{ article.firstName }} {{ article.lastName }}
+                                                        {% else %}
+                                                            {{ article.middleName }} {{ article.firstName }}
+                                                        {% endif %}
                                                     {% else %}
-                                                        {{ article.middleName }} {{ article.firstName }}
+                                                        {% if settings_instance('name').lastNameEnable %}
+                                                            {{ article.firstName }} {{ article.lastName }} {{ article.middleName }}
+                                                        {% else %}
+                                                            {{ article.firstName }} {{ article.middleName }}
+                                                        {% endif %}
                                                     {% endif %}
-                                                 {% else %}
-                                                    {% if settings_instance('name').lastNameEnable %}
-                                                        {{ article.firstName }} {{ article.lastName }} {{ article.middleName }}
-                                                    {% else %}
-                                                        {{ article.firstName }} {{ article.middleName }}
-                                                    {% endif %}
-                                                {% endif %}
+                                                </font>
+                                            <span>
+                                        </td>
+                                        <td>
+                                            <span class="text-dark">
+                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{{ article.createdAt|date }}</font>
                                             </span>
                                         </td>
-                                        <td><span class="text-dark">{{ article.createdAt|date }}</span></td>
                                         <td>
                                             {% if article.status == 4 %}
                                                 <span class="badge bg-success-transparent">
@@ -115,11 +142,15 @@
                                             {% else %}
                                                 <span class="badge bg-secondary-transparent">
                                             {% endif %}
-                                                {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
+                                                    {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                </font>
                                             </span>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0);">{{ article.email }}</a>
+                                            <span class="text-dark">
+                                                <font class="vertical-align: inherid;" dir="en">{{ article.email }}</font>
+                                            </span>
                                         </td>
                                         <td>
                                             <a href="javascript:void(0);" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="" data-bs-original-title="search"><i class="las la-search"></i></a>
