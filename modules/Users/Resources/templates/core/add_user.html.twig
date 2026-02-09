@@ -1,0 +1,45 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends 'empty.html.twig' %}
+{% trans_default_domain 'users' %}
+{% form_theme userAddForm 'bootstrap_5_layout.html.twig' %}
+
+{% block page_header %}
+    {{ include('partials/page-header.html.twig', {title: 'User add'|trans, subtitle: 'Users'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link id="style" href="{{ asset('vendor/@symfony/ux-toggle-password/dist/style.min.css') }}" rel="stylesheet" >
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+            <div class="card-sigin">
+                <div class="card-sigin">
+                    <div class="main-signup-header">
+                        <h3 class="mb-5">{% trans %}Creating a user{% endtrans %}</h3>
+                        {{ form_start(userAddForm) }}
+                            {{ form_row(userAddForm.username) }}
+                            {{ form_row(userAddForm.plainPassword) }}
+                            {{ form_row(userAddForm.middleName) }}
+                            {{ form_row(userAddForm.firstName) }}
+                            {% if settings_instance('name').lastNameEnable %}
+                                {{ form_row(userAddForm.lastName) }}
+                            {% endif %}
+                            {{ form_row(userAddForm.email) }}
+                            <button type="submit" class="btn btn-primary btn-block w-100 mt-3 mb-3">{% trans %}Create User{% endtrans %}</button>
+                        {{ form_end(userAddForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
