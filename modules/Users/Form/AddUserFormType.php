@@ -15,16 +15,16 @@ declare(strict_types=1);
 namespace App\Modules\Users\Form;
 
 use App\Modules\Users\Entity\User;
+use App\Settings\NameSettings;
+use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
-use App\Settings\NameSettings;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 /**
  * @template-extends AbstractType<User>
@@ -62,8 +62,8 @@ class AddUserFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => $this->translator->trans('Please enter email', [], 'users'),
-                    ])
-                ]
+                    ]),
+                ],
             ])
             ->add('plainPassword', PasswordType::class, [
                 'label' => $this->translator->trans('Password', [], 'users'),
@@ -73,7 +73,7 @@ class AddUserFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password']
+                'attr' => ['autocomplete' => 'new-password'],
             ]);
 
         $settings = $this->settingsManager->get(NameSettings::class);
