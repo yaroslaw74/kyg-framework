@@ -49,4 +49,12 @@ final class UserCoreControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
     }
+
+    public function testUserSettings(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/app/user/settings');
+
+        self::assertResponseIsSuccessful();
+    }
 }
