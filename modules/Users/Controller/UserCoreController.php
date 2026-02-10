@@ -98,4 +98,10 @@ final class UserCoreController extends AbstractController
     {
         return $this->render('@Users/core/editprofile.html.twig', []);
     }
+
+    #[Route('/app/user/settings', name: 'app_user_settings')]
+    public function userSettings(): Response
+    {
+        return $this->render('@Users/core/settings.html.twig', []);
+    }
 }
