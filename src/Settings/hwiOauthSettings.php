@@ -19,11 +19,18 @@ use Jbtronics\SettingsBundle\Settings\Settings;
 use Jbtronics\SettingsBundle\Settings\SettingsParameter;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
+use Jbtronics\SettingsBundle\ParameterTypes\BoolType;
 
-#[Settings(dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'HwiOauthSettings.php'])]
+#[Settings(name: 'hwi', dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'HwiOauthSettings.php'])]
 class hwiOauthSettings
 {
     use SettingsTrait;
+
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $hwiOauth = false;
+
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $facebook = false;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:FACEBOOK_ID')]
     private ?string $facebookID = null;
@@ -31,11 +38,17 @@ class hwiOauthSettings
     #[SettingsParameter(type: StringType::class, envVar: 'string:FACEBOOK_SECRET')]
     private ?string $facebookSecret = null;
 
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $yandex = false;
+
     #[SettingsParameter(type: StringType::class, envVar: 'string:YANDEX_ID')]
     private ?string $yandexID = null;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:YANDEX_SECRET')]
     private ?string $yandexSecret = null;
+
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $google = false;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:GOOGLE_ID')]
     private ?string $googleID = null;
@@ -43,17 +56,26 @@ class hwiOauthSettings
     #[SettingsParameter(type: StringType::class, envVar: 'string:GOOGLE_SECRET')]
     private ?string $googleSecret = null;
 
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $linkedin = false;
+
     #[SettingsParameter(type: StringType::class, envVar: 'string:LINKEDIN_ID')]
     private ?string $linkedinID = null;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:LINKEDIN_SECRET')]
     private ?string $linkedinSecret = null;
 
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $mailru = false;
+
     #[SettingsParameter(type: StringType::class, envVar: 'string:MAILRU_ID')]
     private ?string $mailruID = null;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:MAILRU_SECRET')]
     private ?string $mailruSecret = null;
+
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $odnoklassniki = false;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:ODNOKLASSNIKI_ID')]
     private ?string $odnoklassnikiID = null;
@@ -64,6 +86,9 @@ class hwiOauthSettings
     #[SettingsParameter(type: StringType::class, envVar: 'string:ODNOKLASSNIKI_APPLICATION_KEY')]
     private ?string $odnoklassnikiApplicationKey = null;
 
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $xTwitter = false;
+
     #[SettingsParameter(type: StringType::class, envVar: 'string:TWITTER_CONSUMER_KEY')]
     private ?string $xTwitterID = null;
 
@@ -73,14 +98,40 @@ class hwiOauthSettings
     #[SettingsParameter(type: StringType::class, envVar: 'string:VKONTAKTE_ID')]
     private ?string $vkontakteID = null;
 
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $vkontakte = false;
+
     #[SettingsParameter(type: StringType::class, envVar: 'string:VKONTAKTE_SECRET')]
     private ?string $vkontakteSecret = null;
+
+    #[SettingsParameter(type: BoolType::class)]
+    private bool $github = false;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:GITHUB_ID')]
     private ?string $githubID = null;
 
     #[SettingsParameter(type: StringType::class, envVar: 'string:GITHUB_SECRET')]
     private ?string $githubSecret = null;
+
+    public function getHwiOauth(): bool
+    {
+        return $this->hwiOauth;
+    }
+
+    public function setHwiOauth(bool $hwiOauth): void
+    {
+        $this->hwiOauth = $hwiOauth;
+    }
+
+    public function getFacebook(): bool
+    {
+        return $this->facebook;
+    }
+
+    public function setFacebook(bool $facebook): void
+    {
+        $this->facebook = $facebook;
+    }
 
     public function getFacebookID(): ?string
     {
@@ -100,6 +151,16 @@ class hwiOauthSettings
     public function setFacebookSecret(string $facebookSecret): void
     {
         $this->facebookSecret = $facebookSecret;
+    }
+
+    public function getYandex(): bool
+    {
+        return $this->yandex;
+    }
+
+    public function setYandex(bool $yandex): void
+    {
+        $this->yandex = $yandex;
     }
 
     public function getYandexID(): ?string
@@ -122,6 +183,16 @@ class hwiOauthSettings
         $this->yandexSecret = $yandexSecret;
     }
 
+    public function getGoogle(): bool
+    {
+        return $this->google;
+    }
+
+    public function setGoogle(bool $google): void
+    {
+        $this->google = $google;
+    }
+
     public function getGoogleID(): ?string
     {
         return $this->googleID;
@@ -141,6 +212,17 @@ class hwiOauthSettings
     {
         $this->googleSecret = $googleSecret;
     }
+
+    public function getLinkedin(): bool
+    {
+        return $this->linkedin;
+    }
+
+    public function setLinkedin(bool $linkedin): void
+    {
+        $this->linkedin = $linkedin;
+    }
+
 
     public function getLinkedinID(): ?string
     {
@@ -162,6 +244,16 @@ class hwiOauthSettings
         $this->linkedinSecret = $linkedinSecret;
     }
 
+    public function getMailru(): bool
+    {
+        return $this->mailru;
+    }
+
+    public function setMailru(bool $mailru): void
+    {
+        $this->mailru = $mailru;
+    }
+
     public function getMailruID(): ?string
     {
         return $this->mailruID;
@@ -181,6 +273,17 @@ class hwiOauthSettings
     {
         $this->mailruSecret = $mailruSecret;
     }
+
+    public function grtOdnoklassniki(): bool
+    {
+        return $this->odnoklassniki;
+    }
+
+    public function setOdnoklassniki(bool $odnoklassniki): void
+    {
+        $this->odnoklassniki = $odnoklassniki;
+    }
+
 
     public function getOdnoklassnikiID(): ?string
     {
@@ -212,6 +315,17 @@ class hwiOauthSettings
         $this->odnoklassnikiApplicationKey = $odnoklassnikiApplicationKey;
     }
 
+    public function getXTwitter(): bool
+    {
+        return $this->xTwitter;
+    }
+
+    public function setXTwitter(bool $xTwitter): void
+    {
+        $this->xTwitter = $xTwitter;
+    }
+
+
     public function getXTwitterID(): ?string
     {
         return $this->xTwitterID;
@@ -232,6 +346,16 @@ class hwiOauthSettings
         $this->xTwitterSecret = $xTwitterSecret;
     }
 
+    public function getVkontakte(): bool
+    {
+        return $this->vkontakte;
+    }
+
+    public function setVkontakte(bool $vkontakte): void
+    {
+        $this->vkontakte = $vkontakte;
+    }
+
     public function getVkontakteID(): ?string
     {
         return $this->vkontakteID;
@@ -250,6 +374,16 @@ class hwiOauthSettings
     public function setVkontakteSecret(string $vkontakteSecret): void
     {
         $this->vkontakteSecret = $vkontakteSecret;
+    }
+
+    public function getGithub(): bool
+    {
+        return $this->github;
+    }
+
+    public function setGithub(bool $github): void
+    {
+        $this->github = $github;
     }
 
     public function getGithubID(): ?string
