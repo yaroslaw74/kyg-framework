@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace App\Settings;
 
-use Jbtronics\SettingsBundle\ParameterTypes\BoolType;
 use Jbtronics\SettingsBundle\ParameterTypes\StringType;
 use Jbtronics\SettingsBundle\Settings\Settings;
 use Jbtronics\SettingsBundle\Settings\SettingsParameter;
@@ -40,33 +39,6 @@ class TwigGlobalsSettings
 
     #[SettingsParameter(type: StringType::class)]
     private ?string $toggleWhite = null;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $facebook = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $google = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $github = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $vkontakte = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $odnoklassniki = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $yandex = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $linkedin = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $xTwitter = false;
-
-    #[SettingsParameter(type: BoolType::class)]
-    private bool $mailru = false;
 
     public function getName(): ?string
     {
@@ -116,95 +88,5 @@ class TwigGlobalsSettings
     public function setToggleWhite(string $toggleWhite): void
     {
         $this->toggleWhite = $toggleWhite;
-    }
-
-    public function getFacebook(): bool
-    {
-        return $this->facebook;
-    }
-
-    public function setFacebook(bool $facebook): void
-    {
-        $this->facebook = $facebook;
-    }
-
-    public function getGoogle(): bool
-    {
-        return $this->google;
-    }
-
-    public function setGoogle(bool $google): void
-    {
-        $this->google = $google;
-    }
-
-    public function getGithub(): bool
-    {
-        return $this->github;
-    }
-
-    public function setGithub(bool $github): void
-    {
-        $this->github = $github;
-    }
-
-    public function getVkontakte(): bool
-    {
-        return $this->vkontakte;
-    }
-
-    public function setVkontakte(bool $vkontakte): void
-    {
-        $this->vkontakte = $vkontakte;
-    }
-
-    public function grtOdnoklassniki(): bool
-    {
-        return $this->odnoklassniki;
-    }
-
-    public function setOdnoklassniki(bool $odnoklassniki): void
-    {
-        $this->odnoklassniki = $odnoklassniki;
-    }
-
-    public function getYandex(): bool
-    {
-        return $this->yandex;
-    }
-
-    public function setYandex(bool $yandex): void
-    {
-        $this->yandex = $yandex;
-    }
-
-    public function getLinkedin(): bool
-    {
-        return $this->linkedin;
-    }
-
-    public function setLinkedin(bool $linkedin): void
-    {
-        $this->linkedin = $linkedin;
-    }
-
-    public function getXTwitter(): bool
-    {
-        return $this->xTwitter;
-    }
-
-    public function setXTwitter(bool $xTwitter): void
-    {
-        $this->xTwitter = $xTwitter;
-    }
-
-    public function getMailru(): bool
-    {
-        return $this->mailru;
-    }
-
-    public function setMailru(bool $mailru): void
-    {
-        $this->mailru = $mailru;
     }
 }
