@@ -15,21 +15,17 @@ declare(strict_types=1);
 namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\User;
+use App\Modules\Users\Form\AddUserFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Target;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
-use App\Modules\Users\Form\AddUserFormType;
-use Symfony\Component\Workflow\WorkflowInterface;
-use Symfony\Component\DependencyInjection\Attribute\Target;
-use App\Modules\Users\Repository\UserRepository;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class UserCoreController extends AbstractController
@@ -66,7 +62,7 @@ final class UserCoreController extends AbstractController
             /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
 
-            if ($plainPassword !== '') {
+            if ('' !== $plainPassword) {
                 // encode the plain password
                 $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
                 $this->workflow->apply($user, 'pending');
