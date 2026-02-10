@@ -15,7 +15,7 @@
 #}
 
 {% block page_header %}
-    {{ include('partials/page-header.html.twig', {title: 'Profile'|trans, subtitle: 'Users'}) }}
+    {{ include('partials/page-header.html.twig', {title: 'Profile'|trans, subtitle: 'Users'|trans }) }}
 {% endblock %}
 
 {% block content %}
@@ -56,91 +56,147 @@
                                     <h6 class="text-small text-muted fs-14 mb-0">Posts</h6>
                                 </div>
                             </div>
-                            <hr class="border-0">
-                            <label class="main-content-label fs-13 mb-4">Social</label>
-                            <div class="main-profile-social-list">
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-facebook"><i class="fa-brands fa-facebook-f fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Facebook</span>
-                                        <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
+                            {% if settings_instance('hwi').hwiOauth %}
+                                <hr class="border-0">
+                                <label class="main-content-label fs-13 mb-4">{% trans %}Social{% endtrans %}</label>
+                                <div class="main-profile-social-list">
+                                    {% if settings_instance('hwi').hwiOauth %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-facebook"><i class="fa-brands fa-facebook-f fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Facebook</span>
+                                                {% if attribute(app.user, 'facebook') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'facebook'}) }}" class="text-primary">{{ 'facebook'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'facebook'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').google %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-google"><i class="fa-brands fa-google fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Google</span>
+                                                {% if attribute(app.user, 'google') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'google'}) }}" class="text-primary">{{ 'google'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'google'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').github %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-github"><i class="fa-brands fa-github fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Github</span>
+                                                {% if attribute(app.user, 'github') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'github'}) }}" class="text-primary">{{ 'github'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'github'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').vkontakte %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-vk"><i class="fa-brands fa-vk fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>VK</span>
+                                                {% if attribute(app.user, 'vkontakte') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'vkontakte'}) }}" class="text-primary">{{ 'vkontakte'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'vkontakte'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').odnoklassniki %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-odnoklassniki"><i class="fa-brands fa-odnoklassniki fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>OK</span>
+                                                {% if attribute(app.user, 'odnoklassniki') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'odnoklassniki'}) }}" class="text-primary">{{ 'odnoklassniki'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'odnoklassniki'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span> <br />
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').yandex %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-yandex"><i class="fa-brands fa-yandex fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Yandex</span>
+                                                {% if attribute(app.user, 'yandex') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'yandex'}) }}" class="text-primary">{{ 'yandex'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'yandex'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').linkedin %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-linkedin"><i class="fa-brands fa-linkedin-in fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Linkedin</span>
+                                                {% if attribute(app.user, 'linkedin') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'linkedin'}) }}" class="text-primary">{{ 'linkedin'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'linkedin'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span> <br />
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').xTwitter %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-x-twitter"><i class="fa-brands fa-x-twitter fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>X</span>
+                                                {% if attribute(app.user, 'xTwitter') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'xTwitter'}) }}" class="text-primary">{{ 'xTwitter'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'xTwitter'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').mailru %}
+                                        <div class="media">
+                                            <div class="media-icon bg-primary-transparent text-primary">
+                                                <div class="btn btn-block btn-mail-ru"><i class="fa-solid fa-at fa-xl"></i></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Mail.ru</span>
+                                                {% if attribute(app.user, 'mailru') is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'mailru'}) }}" class="text-primary">{{ 'mailru'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                {% else %}
+                                                    <span class="text-primary">{{ 'mailru'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-google"><i class="fa-brands fa-google fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Google</span>
-                                        <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-github"><i class="fa-brands fa-github fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Github</span>
-                                        <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-vk"><i class="fa-brands fa-vk fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>VK</span>
-                                        <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-odnoklassniki"><i class="fa-brands fa-odnoklassniki fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>OK</span>
-                                        <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-yandex"><i class="fa-brands fa-yandex fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Yandex</span>
-                                        <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-linkedin"><i class="fa-brands fa-linkedin-in fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Linkedin</span>
-                                        <a href="javascript:void(0);" class="text-primary">linkedin.com/in/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-x-twitter"><i class="fa-brands fa-x-twitter fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>X</span>
-                                        <a href="javascript:void(0);" class="text-primary">linkedin.com/in/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <div class="btn btn-block btn-mail-ru"><i class="fa-solid fa-at fa-xl"></i></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Mail.ru</span>
-                                        <a href="javascript:void(0);" class="text-primary">linkedin.com/in/spruko</a>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endif %}
                             <hr class="border-0">
                             <h6 class="fs-14">Skills</h6>
                             <div class="skill-bar mb-4 clearfix mt-3">
