@@ -15,7 +15,7 @@
 #}
 
 {% block page_header %}
-    {{ include('partials/page-header.html.twig', {title: 'Profile'|trans, subtitle: 'Users'|trans }) }}
+    {{ include('partials/page-header.html.twig', {title: 'Profile'|trans, subtitle: 'Users'|trans}) }}
 {% endblock %}
 
 {% block content %}
@@ -68,7 +68,7 @@
                                             <div class="media-body">
                                                 <span>Facebook</span>
                                                 {% if attribute(app.user, 'facebook') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'facebook'}) }}" class="text-primary">{{ 'facebook'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'facebook'}) }}" class="text-primary">{{ 'facebook'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'facebook'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
@@ -83,7 +83,7 @@
                                             <div class="media-body">
                                                 <span>Google</span>
                                                 {% if attribute(app.user, 'google') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'google'}) }}" class="text-primary">{{ 'google'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'google'}) }}" class="text-primary">{{ 'google'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'google'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
@@ -98,7 +98,7 @@
                                             <div class="media-body">
                                                 <span>Github</span>
                                                 {% if attribute(app.user, 'github') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'github'}) }}" class="text-primary">{{ 'github'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'github'}) }}" class="text-primary">{{ 'github'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'github'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
@@ -113,7 +113,7 @@
                                             <div class="media-body">
                                                 <span>VK</span>
                                                 {% if attribute(app.user, 'vkontakte') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'vkontakte'}) }}" class="text-primary">{{ 'vkontakte'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'vkontakte'}) }}" class="text-primary">{{ 'vkontakte'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'vkontakte'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
@@ -128,7 +128,7 @@
                                             <div class="media-body">
                                                 <span>OK</span>
                                                 {% if attribute(app.user, 'odnoklassniki') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'odnoklassniki'}) }}" class="text-primary">{{ 'odnoklassniki'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'odnoklassniki'}) }}" class="text-primary">{{ 'odnoklassniki'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'odnoklassniki'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span> <br />
                                                 {% endif %}
@@ -143,7 +143,7 @@
                                             <div class="media-body">
                                                 <span>Yandex</span>
                                                 {% if attribute(app.user, 'yandex') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'yandex'}) }}" class="text-primary">{{ 'yandex'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'yandex'}) }}" class="text-primary">{{ 'yandex'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'yandex'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
@@ -158,7 +158,7 @@
                                             <div class="media-body">
                                                 <span>Linkedin</span>
                                                 {% if attribute(app.user, 'linkedin') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'linkedin'}) }}" class="text-primary">{{ 'linkedin'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'linkedin'}) }}" class="text-primary">{{ 'linkedin'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'linkedin'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span> <br />
                                                 {% endif %}
@@ -173,7 +173,7 @@
                                             <div class="media-body">
                                                 <span>X</span>
                                                 {% if attribute(app.user, 'xTwitter') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'xTwitter'}) }}" class="text-primary">{{ 'xTwitter'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'xTwitter'}) }}" class="text-primary">{{ 'xTwitter'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'xTwitter'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
@@ -188,7 +188,7 @@
                                             <div class="media-body">
                                                 <span>Mail.ru</span>
                                                 {% if attribute(app.user, 'mailru') is empty %}
-                                                    <a href="{{ path('hwi_oauth_connect_service', {'service': 'mailru'}) }}" class="text-primary">{{ 'mailru'|trans({}, 'HWIOAuthBundle') }}</a><br>
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: 'mailru'}) }}" class="text-primary">{{ 'mailru'|trans({}, 'HWIOAuthBundle') }}</a><br>
                                                 {% else %}
                                                     <span class="text-primary">{{ 'mailru'|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span><br>
                                                 {% endif %}
