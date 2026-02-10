@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace App\Settings;
 
+use Jbtronics\SettingsBundle\ParameterTypes\BoolType;
 use Jbtronics\SettingsBundle\ParameterTypes\StringType;
 use Jbtronics\SettingsBundle\Settings\Settings;
 use Jbtronics\SettingsBundle\Settings\SettingsParameter;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
-use Jbtronics\SettingsBundle\ParameterTypes\BoolType;
 
 #[Settings(name: 'hwi', dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'HwiOauthSettings.php'])]
 class hwiOauthSettings
@@ -223,7 +223,6 @@ class hwiOauthSettings
         $this->linkedin = $linkedin;
     }
 
-
     public function getLinkedinID(): ?string
     {
         return $this->linkedinID;
@@ -284,7 +283,6 @@ class hwiOauthSettings
         $this->odnoklassniki = $odnoklassniki;
     }
 
-
     public function getOdnoklassnikiID(): ?string
     {
         return $this->odnoklassnikiID;
@@ -324,7 +322,6 @@ class hwiOauthSettings
     {
         $this->xTwitter = $xTwitter;
     }
-
 
     public function getXTwitterID(): ?string
     {
