@@ -367,12 +367,32 @@
                             </div>
                         </div>
                     </li>
-                    <li><a class="dropdown-item d-flex" href="profile.html"><i class="bx bx-user-circle fs-18 me-2 op-7"></i>{% trans %}Profile{% endtrans %}</a></li>
-                    <li><a class="dropdown-item d-flex" href="editprofile.html"><i class="bx bx-cog fs-18 me-2 op-7"></i>{% trans %}Edit Profile{% endtrans %}</a></li>
+                    <li>
+                        <a class="dropdown-item d-flex" href="{{ path('app_user_profile') }}">
+                            <i class="bx bx-user-circle fs-18 me-2 op-7"></i>
+                            {% trans %}Profile{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex" href="{{ path('app_user_editprofile') }}">
+                            <i class="bx bx-cog fs-18 me-2 op-7"></i>
+                            {% trans %}Edit Profile{% endtrans %}
+                        </a>
+                    </li>
                     <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="bx bxs-inbox fs-18 me-2 op-7"></i>{% trans %}Inbox{% endtrans %}</a></li>
                     <li><a class="dropdown-item d-flex" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i>{% trans %}Messages{% endtrans %}</a></li>
-                    <li><a class="dropdown-item d-flex border-block-end" href="editprofile.html"><i class="bx bx-slider-alt fs-18 me-2 op-7"></i>{% trans %}Account Settings{% endtrans %}</a></li>
-                    <li><a class="dropdown-item d-flex" href="{{ path('app_logout') }}"><i class="bx bx-log-out fs-18 me-2 op-7"></i>{% trans %}Sign Out{% endtrans %}</a></li>
+                    <li>
+                        <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_settings') }}">
+                            <i class="bx bx-slider-alt fs-18 me-2 op-7"></i>
+                            {% trans %}Account Settings{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex" href="{{ path('app_logout') }}">
+                            <i class="bx bx-log-out fs-18 me-2 op-7"></i>
+                            {% trans %}Sign Out{% endtrans %}
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- End::header-element -->
