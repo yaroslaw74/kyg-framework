@@ -244,7 +244,12 @@
             "migrations": "0644",
             "public/additions": "0777",
             "public/storage": "0777",
-            "public/storage/media": "0777",
+            "public/storage/Documents": "0777",
+            "public/storage/Downloads": "0777",
+            "public/storage/Images": "0777",
+            "public/storage/Music": "0777",
+            "public/storage/Videos": "0777",
+            "public/storage/Other": "0777",
             "public/translations": "0777",
             "public/uploads": "0777"
         },
