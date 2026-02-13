@@ -1,0 +1,233 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% extends 'empty.html.twig' %}
+{% trans_default_domain 'administration' %}
+
+{% block page_header %}
+    {{ include('partials/page-header.html.twig', {title: 'File Manager'|trans, subtitle: 'Administration'|trans}) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ knp_pagination_rel_links(pagination) }}
+{% endblock %}
+
+{% block content %}
+    <!-- Start::row-1 -->
+    <div class="row">
+        <div class="col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="main-content-left main-content-left-mail card-body">
+                    <a class="btn btn-primary btn-compose" id="btnCompose" href="javascript:void(0);"><i class="fa fa-plus mx-2"></i>{% trans %}Create Folder{% endtrans %}</a>
+                    <div class="main-mail-menu">
+                        <nav class="nav main-nav-column">
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-home"></i>{% trans %}Home{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-image"></i>{% trans %}Images{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-music"></i>{% trans %}Music{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-video"></i>{% trans %}Videos{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-file"></i>{% trans %}Documents{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-download"></i>{% trans %}Downloads{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-grid "></i>{% trans %}Other{% endtrans %}</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-smartphone"></i>APKS</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-heart"></i>Favourites</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-eye"></i>Hidden FIles</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-share"></i>Transfer files</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-database"></i>Google Drive</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-airplay"></i>FTP</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-lock"></i>Private FIles</a>
+                            <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-wind"></i>Deep Clean</a>
+
+                        </nav>
+                    </div>
+                    <!-- main-mail-menu -->
+                    <div class="card mt-3 pb-0 mb-0 shadow-none">
+                        <div class="card-header fw-bold">
+                            <i class="fe fe-hard-drive me-2"></i>
+                            {% trans %}Storage{% endtrans %}
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="progress progress-xs mb-2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-primary" style="width: {{ storage_size_percent }}"></div>
+                            </div>
+                            <div class="text-muted fw-medium fs-13 mb-1">{{ size_dir(storage_dir) }} {% trans %}Used of{% endtrans %} {{storage_free_space}}</div>
+                            <div class="fs-13 text-primary fw-medium">{% trans %}Upgrade Storage{% endtrans %}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-xl-9">
+            <div class="row">
+                <div class="col-6">
+                    <div class="fs-20 mb-4">{% trans %}FILE MANAGER{% endtrans %}</div>
+                </div>
+                <div class="col-sm-6 col-12 col-auto file-1">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" placeholder="{% trans %}Search folder.....{% endtrans %}">
+                        <button class="btn ripple btn-primary" type="button">{% trans %}Search{% endtrans %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-muted mb-2 fs-16">{% trans %}All Files{% endtrans %}</div>
+            <div class="row">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <a href="file-manager-list.html">
+                            <div class="card-body">
+                                <div class="fs-16 d-flex align-items-center flex-wrap">
+                                    {{ ux_icon('file-manager:image', {class: 'file-manager-icon me-2'}) }}
+                                    {% trans %}Images{% endtrans %}
+                                    <div class="ms-auto fs-13 text-muted">{{ size_dir(storage_dir ~ '/Images') }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <a href="file-manager-list.html">
+                            <div class="card-body">
+                                <div class="fs-16 d-flex align-items-center flex-wrap">
+                                    {{ ux_icon('file-manager:video', {class: 'file-manager-icon me-2'}) }}
+                                    {% trans %}Videos{% endtrans %}
+                                    <div class="ms-auto fs-13 text-muted">{{ size_dir(storage_dir ~ '/Videos') }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <a href="file-manager-list.html">
+                            <div class="card-body">
+                                <div class="fs-16 d-flex align-items-center flex-wrap">
+                                    {{ ux_icon('file-manager:docs', {class: 'file-manager-icon me-2'}) }}
+                                    {% trans %}Documents{% endtrans %}
+                                    <div class="ms-auto fs-13 text-muted">{{ size_dir(storage_dir ~ '/Documents') }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <a href="file-manager-list.html">
+                            <div class="card-body">
+                                <div class="fs-16 d-flex align-items-center flex-wrap">
+                                    {{ ux_icon('file-manager:music', {class: 'file-manager-icon me-2'}) }}
+                                    {% trans %}Music{% endtrans %}
+                                    <div class="ms-auto fs-13 text-muted">{{ size_dir(storage_dir ~ '/Music') }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <a href="file-manager-list.html">
+                            <div class="card-body">
+                                <div class="fs-16 d-flex align-items-center flex-wrap">
+                                    {{ ux_icon('file-manager:downloads', {class: 'file-manager-icon me-2'}) }}
+                                    {% trans %}Downloads{% endtrans %}
+                                    <div class="ms-auto fs-13 text-muted">{{ size_dir(storage_dir ~ '/Downloads') }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <a href="file-manager-list.html">
+                            <div class="card-body">
+                                <div class="fs-16 d-flex align-items-center flex-wrap">
+                                    {{ ux_icon('file-manager:more', {class: 'file-manager-icon me-2'}) }}
+                                    {% trans %}Other{% endtrans %}
+                                    <div class="ms-auto fs-13 text-muted">{{ size_dir(storage_dir ~ '/Other') }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-muted mb-2 fs-16">{% trans %}Folders{% endtrans %}</div>
+                <div class="row">
+                    {% for article in pagination %}
+                        {% if not article.file %}
+                            <div class="col-xl-3 col-md-4 col-sm-6">
+                                <div class="card p-0 ">
+                                    <div class="d-flex align-items-center px-3 pt-3 pb-1">
+                                        <label class="custom-control form-checkbox mb-0">
+                                            <input type="checkbox" class="form-check-input" name="example-checkbox2" value="option2">
+                                            <span class="custom-control-label"></span>
+                                        </label>
+                                        <div class="float-end ms-auto">
+                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                            <div class="dropdown-menu rounded-7">
+                                                {% if not article.system %}
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit me-2"></i>{% trans %}Edit{% endtrans %}</a>
+                                                {% endif %}
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-share me-2"></i>{% trans %}Share{% endtrans %}</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-download me-2"></i>{% trans %}Download{% endtrans %}</a>
+                                                {% if not article.system %}
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-0 text-center">
+                                        <div class="file-manger-icon">
+                                            <a href="file-manager-list.html"><img src="{{ asset('images/file-manager/folders/' ~ article.logo) }}" alt="img" class="rounded-7"></a>
+                                        </div>
+                                        {% if article.system %}
+                                            <h6 class="mb-1 fw-semibold fs-14">{{ article.name|trans }}</h6>
+                                        {% else %}
+                                            <h6 class="mb-1 fw-semibold fs-14">{{ article.name }}</h6>
+                                        {% endif %}
+                                        <span class="text-muted fs-11">{{ article.size }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="col-xl-3 col-md-4 col-sm-6">
+                                <div class="card p-0 ">
+                                    <div class="d-flex align-items-center px-3 pt-3 pb-1">
+                                        <label class="custom-control form-checkbox mb-0">
+                                            <input type="checkbox" class="form-check-input" name="example-checkbox2" value="option2">
+                                            <span class="custom-control-label"></span>
+                                        </label>
+                                        <div class="float-end ms-auto">
+                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                            <div class="dropdown-menu rounded-7">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit me-2"></i>{% trans %}Edit{% endtrans %}</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-share me-2"></i>{% trans %}Share{% endtrans %}</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-download me-2"></i>{% trans %}Download{% endtrans %}</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-0 text-center">
+                                        <div class="file-manger-icon">
+                                            <a href="file-manager-list.html"><img src="{{ asset('images/file-manager/files/' ~ article.logo) }}" alt="img" class="rounded-7"></a>
+                                        </div>
+                                        <h6 class="mb-1 fw-semibold fs-14">{{ article.name }}</h6>
+                                        <span class="text-muted fs-11">{{ article.size }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="pagination float-end mb-4 flex-wrap navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+    <!--End::row-1 -->
+{% endblock content %}
