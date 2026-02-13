@@ -33,11 +33,14 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
+use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
+use Gedmo\Uploadable\Mapping\Validator;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
@@ -65,6 +68,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     private ?string $locale = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
+    #[Gedmo\UploadableFileName]
     private ?string $avatar = null;
 
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
@@ -110,7 +114,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -158,6 +162,11 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->status,
             $this->isVerified,
         ] = $data;
+    }
+
+    public function path(ContainerBagInterface $params): string
+    {
+        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
     }
 
     public function getId(): ?string
