@@ -38,4 +38,20 @@ final class FileManagerController extends AbstractController
             'pagination' => $pagination,
         ]);
     }
+
+    #[Route('/app/admin/file/manager/list/{list}', name: 'app_admin_file_manager_list')]
+
+    public function fileManagerList(Request $request, ?string $list = null): Response
+    {
+        $dir = $this->fileManagerService->getStoragePath() . '/' . $list;
+
+        $listDir = $this->fileManagerService->getFoldersList($dir, $list);
+
+        $pagination = $this->paginator->paginate($listDir, $request->query->getInt('page', 1));
+
+        return $this->render('@Administration/file_manager/file-manager-list.html.twig', [
+            'pagination' => $pagination,
+            'list' => $list
+        ]);
+    }
 }
