@@ -24,13 +24,12 @@ class FileManagerServise
 
     public function getStoragePath(): string
     {
-        return $this->params->get('kernel.project_dir') . '/public/storage';
+        return $this->params->get('kernel.project_dir').'/public/storage';
     }
 
     /**
      * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool, path: string|null}>
      */
-
     public function getStorageList(): array
     {
         $pathDir = $this->getStoragePath();
@@ -46,7 +45,7 @@ class FileManagerServise
                         'logo' => "{$name}.png",
                         'path' => null,
                         'system' => true,
-                        'file' => false
+                        'file' => false,
                     ]
                     :
                     $listDir[] = [
@@ -55,9 +54,8 @@ class FileManagerServise
                         'logo' => 'Folder.png',
                         'path' => null,
                         'system' => false,
-                        'file' => false
+                        'file' => false,
                     ];
-
             } else {
                 $listDir[] = [
                     'name' => $name,
@@ -65,7 +63,7 @@ class FileManagerServise
                     'logo' => $this->getFileIcon($path),
                     'path' => null,
                     'system' => false,
-                    'file' => true
+                    'file' => true,
                 ];
             }
         }
@@ -76,7 +74,6 @@ class FileManagerServise
     /**
      * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool, path: string|null}>
      */
-
     public function getFoldersList(string $dir, ?string $pathDir = null): array
     {
         $dirScan = array_diff(scandir($dir), ['.', '..']);
@@ -90,7 +87,7 @@ class FileManagerServise
                     'logo' => 'Folder.png',
                     'path' => $pathDir,
                     'system' => false,
-                    'file' => false
+                    'file' => false,
                 ]
                 :
                 $listDir[] = [
@@ -99,9 +96,8 @@ class FileManagerServise
                     'logo' => $this->getFileIcon($path),
                     'path' => $pathDir,
                     'system' => false,
-                    'file' => true
+                    'file' => true,
                 ];
-
         }
 
         return $listDir;
@@ -123,15 +119,15 @@ class FileManagerServise
             return 'Help.png';
         }
 
-        if ($extension === 'docx') {
+        if ('docx' === $extension) {
             return 'doc.png';
         }
 
-        if ($extension === 'xlsx') {
+        if ('xlsx' === $extension) {
             return 'xls.png';
         }
 
-        if ($extension === 'pptx') {
+        if ('pptx' === $extension) {
             return 'ppt.png';
         }
 
@@ -184,14 +180,14 @@ class FileManagerServise
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB'];
         $bytes = max($byte, 0);
-        if ((int) $bytes === 0) {
+        if (0 === (int) $bytes) {
             return '0 B';
         }
         $pow = floor(log($bytes) / log(1024));
         $pow = min($pow, \count($units) - 1);
         $bytes /= pow(1024, $pow);
 
-        return round($bytes, $precision) . ' ' . $units[$pow];
+        return round($bytes, $precision).' '.$units[$pow];
     }
 
     public function getFreeSpaseStorage(): float
@@ -205,17 +201,19 @@ class FileManagerServise
         $freeSpace = $this->getFreeSpaseStorage();
         $sizePercent = round($size / ($size + $freeSpace) * 100);
 
-
         return "{$sizePercent}%";
     }
 
+    /**
+     * @return list<array<string, string>>
+     */
     public function getBreadcrumbPath(string $path): array
     {
         $parts = explode('/', $path);
         $breadcrumb = [];
         $currentPath = '';
         foreach ($parts as $part) {
-            if ($part === '') {
+            if ('' === $part) {
                 continue;
             }
             $breadcrumb[] = [
