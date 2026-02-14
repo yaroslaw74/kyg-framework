@@ -28,7 +28,7 @@ class FileManagerServise
     }
 
     /**
-     * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool}>
+     * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool, path: string|null}>
      */
 
     public function getStorageList(): array
@@ -44,6 +44,7 @@ class FileManagerServise
                         'name' => $name,
                         'size' => $this->getDirSize($path),
                         'logo' => "{$name}.png",
+                        'path' => null,
                         'system' => true,
                         'file' => false
                     ]
@@ -52,6 +53,7 @@ class FileManagerServise
                         'name' => $name,
                         'size' => $this->getDirSize($path),
                         'logo' => 'Folder.png',
+                        'path' => null,
                         'system' => false,
                         'file' => false
                     ];
@@ -60,7 +62,8 @@ class FileManagerServise
                 $listDir[] = [
                     'name' => $name,
                     'size' => $this->formatBytes(filesize($path)),
-                    'logo' => 'File.png',
+                    'logo' => $this->getFileIcon($path),
+                    'path' => null,
                     'system' => false,
                     'file' => true
                 ];
@@ -71,41 +74,91 @@ class FileManagerServise
     }
 
     /**
-     * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool}>
+     * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool, path: string|null}>
      */
 
-    public function getFoldersList(string $dir): array
+    public function getFoldersList(string $dir, ?string $pathDir = null): array
     {
         $dirScan = array_diff(scandir($dir), ['.', '..']);
         $listDir = [];
         foreach ($dirScan as $name) {
             $path = "{$dir}/{$name}";
-            if (is_dir($path)) {
+            is_dir($path) ?
                 $listDir[] = [
                     'name' => $name,
                     'size' => $this->getDirSize($path),
                     'logo' => 'Folder.png',
+                    'path' => $pathDir,
                     'system' => false,
                     'file' => false
-                ];
-            } else {
+                ]
+                :
                 $listDir[] = [
                     'name' => $name,
                     'size' => $this->formatBytes(filesize($path)),
-                    'logo' => 'File.png',
+                    'logo' => $this->getFileIcon($path),
+                    'path' => $pathDir,
                     'system' => false,
                     'file' => true
                 ];
-            }
+
         }
 
         return $listDir;
+    }
 
+    public function getFileIcon(string $file): string
+    {
+        $extension = $this->getFileExtension($file);
+
+        if (\in_array($extension, ['ai', 'avi', 'bmp', 'cab', 'doc', 'fla', 'gif', 'html', 'ip', 'jpeg', 'midi', 'pdf', 'png', 'ppt', 'psd', 'rar', 'rtf', 'tiff', 'txt', 'wav', 'wma', 'xls', 'zip'], true)) {
+            return "{$extension}.png";
+        }
+
+        if (\in_array($extension, ['mp3', 'aif', 'aiff', 'ogg', 'xm', 'mod', 'it', 's3m'], true)) {
+            return 'SoundClip.png';
+        }
+
+        if (\in_array($extension, ['chm', 'hlp', 'htb', 'hht', 'gid'], true)) {
+            return 'Help.png';
+        }
+
+        if ($extension === 'docx') {
+            return 'doc.png';
+        }
+
+        if ($extension === 'xlsx') {
+            return 'xls.png';
+        }
+
+        if ($extension === 'pptx') {
+            return 'ppt.png';
+        }
+
+        $mime = mime_content_type($file);
+
+        if (str_starts_with($mime, 'image/')) {
+            return 'Picture.png';
+        }
+
+        if (str_starts_with($mime, 'text/')) {
+            return 'Document.png';
+        }
+
+        if (str_starts_with($mime, 'video/')) {
+            return 'VideoClips.png';
+        }
+
+        if (str_starts_with($mime, 'audio/')) {
+            return 'Sounds.png';
+        }
+
+        return 'Default.png';
     }
 
     public function getFileExtension(string $file): string
     {
-        return pathinfo($file, PATHINFO_EXTENSION);
+        return strtolower(pathinfo($file, PATHINFO_EXTENSION));
     }
 
     public function getDirSizeFloat(string $dir): float
@@ -127,7 +180,7 @@ class FileManagerServise
         return $this->formatBytes($this->getDirSizeFloat($dir));
     }
 
-    function formatBytes(float $byte, int $precision = 2): string
+    public function formatBytes(float $byte, int $precision = 2): string
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB'];
         $bytes = max($byte, 0);
@@ -154,5 +207,25 @@ class FileManagerServise
 
 
         return "{$sizePercent}%";
+    }
+
+    public function getBreadcrumbPath(string $path): array
+    {
+        $parts = explode('/', $path);
+        $breadcrumb = [];
+        $currentPath = '';
+        foreach ($parts as $part) {
+            if ($part === '') {
+                continue;
+            }
+            $breadcrumb[] = [
+                'name' => $part,
+                'path' => $currentPath,
+            ];
+
+            $currentPath .= '/';
+        }
+
+        return $breadcrumb;
     }
 }
