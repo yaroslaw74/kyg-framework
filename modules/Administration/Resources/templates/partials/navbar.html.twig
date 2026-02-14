@@ -41,7 +41,7 @@
                     <div class="progress progress-xs mb-2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                         <div class="progress-bar bg-primary" style="width: {{ storage_size_percent }}"></div>
                     </div>
-                    <div class="text-muted fw-medium fs-13 mb-1">{{ size_dir(storage_dir) }} {% trans %}Used of{% endtrans %} {{storage_free_space}}</div>
+                    <div class="text-muted fw-medium fs-13 mb-1">{{ size_dir(storage_dir) }} {% trans %}Used of{% endtrans %} {{ storage_free_space }}</div>
                     <div class="fs-13 text-primary fw-medium">{% trans %}Upgrade Storage{% endtrans %}</div>
                 </div>
             </div>
