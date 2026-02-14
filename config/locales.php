@@ -797,11 +797,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'dir' => 'ltr',
                 'full' => true,
             ],
-            'en_DG' => [
-                'name' => 'English (Diego Garcia)',
-                'dir' => 'ltr',
-                'full' => true,
-            ],
             'en_DK' => [
                 'name' => 'English (Denmark)',
                 'dir' => 'ltr',
@@ -1287,11 +1282,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'dir' => 'ltr',
                 'full' => true,
             ],
-            'es_EA' => [
-                'name' => 'español (Ceuta y Melilla)',
-                'dir' => 'ltr',
-                'full' => true,
-            ],
             'es_EC' => [
                 'name' => 'español (Ecuador)',
                 'dir' => 'ltr',
@@ -1314,11 +1304,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ],
             'es_HN' => [
                 'name' => 'español (Honduras)',
-                'dir' => 'ltr',
-                'full' => true,
-            ],
-            'es_IC' => [
-                'name' => 'español (Canarias)',
                 'dir' => 'ltr',
                 'full' => true,
             ],
@@ -3472,11 +3457,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'dir' => 'ltr',
                 'full' => true,
             ],
-            'sq_XK' => [
-                'name' => 'shqip (Kosovë)',
-                'dir' => 'ltr',
-                'full' => true,
-            ],
             'sr' => [
                 'name' => 'српски',
                 'dir' => 'ltr',
@@ -3764,11 +3744,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ],
             'uk' => [
                 'name' => 'українська',
-                'dir' => 'ltr',
-                'full' => false,
-            ],
-            'uk_RU' => [
-                'name' => 'українська (Росія)',
                 'dir' => 'ltr',
                 'full' => false,
             ],
