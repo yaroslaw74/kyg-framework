@@ -1,0 +1,50 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+{% trans_default_domain 'administration' %}
+
+<div class="col-lg-4 col-xl-3">
+    <div class="card">
+        <div class="main-content-left main-content-left-mail card-body">
+            <a class="btn btn-primary btn-compose" id="btnCompose" href="javascript:void(0);"><i class="fa fa-plus mx-2"></i>{% trans %}Create Folder{% endtrans %}</a>
+            <div class="main-mail-menu">
+                <nav class="nav main-nav-column">
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager') }}"><i class="fe fe-home"></i>{% trans %}Home{% endtrans %}</a>
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager_list', {list: 'Images'}) }}"><i class="fe fe-image"></i>{% trans %}Images{% endtrans %}</a>
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager_list', {list: 'Music'}) }}"><i class="fe fe-music"></i>{% trans %}Music{% endtrans %}</a>
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager_list', {list: 'Videos'}) }}"><i class="fe fe-video"></i>{% trans %}Videos{% endtrans %}</a>
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager_list', {list: 'Documents'}) }}"><i class="fe fe-file"></i>{% trans %}Documents{% endtrans %}</a>
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager_list', {list: 'Downloads'}) }}"><i class="fe fe-download"></i>{% trans %}Downloads{% endtrans %}</a>
+                    <a class="nav-link thumb" href="{{ path('app_admin_file_manager_list', {list: 'Other'}) }}"><i class="fe fe-grid "></i>{% trans %}Other{% endtrans %}</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-smartphone"></i>APKS</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-heart"></i>Favourites</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-eye"></i>Hidden FIles</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-share"></i>Transfer files</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-database"></i>Google Drive</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-airplay"></i>FTP</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-lock"></i>Private FIles</a>
+                    <a class="nav-link thumb" href="javascript:void(0);"><i class="fe fe-wind"></i>Deep Clean</a>
+                </nav>
+            </div>
+            <!-- main-mail-menu -->
+            <div class="card mt-3 pb-0 mb-0 shadow-none">
+                <div class="card-header fw-bold">
+                    <i class="fe fe-hard-drive me-2"></i>
+                    {% trans %}Storage{% endtrans %}
+                </div>
+                <div class="card-body pt-0">
+                    <div class="progress progress-xs mb-2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-primary" style="width: {{ storage_size_percent }}"></div>
+                    </div>
+                    <div class="text-muted fw-medium fs-13 mb-1">{{ size_dir(storage_dir) }} {% trans %}Used of{% endtrans %} {{storage_free_space}}</div>
+                    <div class="fs-13 text-primary fw-medium">{% trans %}Upgrade Storage{% endtrans %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
