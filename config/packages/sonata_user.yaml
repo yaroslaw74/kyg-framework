@@ -1,6 +1,6 @@
 sonata_user:
     class:
-        user: App\Modules\Usaer\Entity\User
+        user: App\Modules\Users\Entity\User
     resetting:
         email:
             address: "%app.email_bot%"
