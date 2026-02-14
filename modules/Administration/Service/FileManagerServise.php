@@ -51,7 +51,7 @@ class FileManagerServise
                     $listDir[] = [
                         'name' => $name,
                         'size' => $this->getDirSize($path),
-                        'logo' => 'Blank.png',
+                        'logo' => 'Folder.png',
                         'system' => false,
                         'file' => false
                     ];
@@ -68,6 +68,44 @@ class FileManagerServise
         }
 
         return $listDir;
+    }
+
+    /**
+     * @return array<int, array{name: string, size: string,logo: string, system: bool, file: bool}>
+     */
+
+    public function getFoldersList(string $dir): array
+    {
+        $dirScan = array_diff(scandir($dir), ['.', '..']);
+        $listDir = [];
+        foreach ($dirScan as $name) {
+            $path = "{$dir}/{$name}";
+            if (is_dir($path)) {
+                $listDir[] = [
+                    'name' => $name,
+                    'size' => $this->getDirSize($path),
+                    'logo' => 'Folder.png',
+                    'system' => false,
+                    'file' => false
+                ];
+            } else {
+                $listDir[] = [
+                    'name' => $name,
+                    'size' => $this->formatBytes(filesize($path)),
+                    'logo' => 'File.png',
+                    'system' => false,
+                    'file' => true
+                ];
+            }
+        }
+
+        return $listDir;
+
+    }
+
+    public function getFileExtension(string $file): string
+    {
+        return pathinfo($file, PATHINFO_EXTENSION);
     }
 
     public function getDirSizeFloat(string $dir): float
