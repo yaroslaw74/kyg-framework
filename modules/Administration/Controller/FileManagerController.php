@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,14 +11,15 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Modules\Administration\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
 use App\Modules\Administration\Service\FileManagerServise;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 final class FileManagerController extends AbstractController
 {
@@ -40,10 +42,9 @@ final class FileManagerController extends AbstractController
     }
 
     #[Route('/app/admin/file/manager/list/{list}', name: 'app_admin_file_manager_list')]
-
     public function fileManagerList(Request $request, ?string $list = null): Response
     {
-        $dir = $this->fileManagerService->getStoragePath() . '/' . $list;
+        $dir = $this->fileManagerService->getStoragePath().'/'.$list;
 
         $listDir = $this->fileManagerService->getFoldersList($dir, $list);
 
@@ -51,7 +52,7 @@ final class FileManagerController extends AbstractController
 
         return $this->render('@Administration/file_manager/file-manager-list.html.twig', [
             'pagination' => $pagination,
-            'list' => $list
+            'list' => $list,
         ]);
     }
 }
