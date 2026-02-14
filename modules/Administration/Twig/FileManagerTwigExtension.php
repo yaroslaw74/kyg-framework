@@ -31,13 +31,19 @@ class FileManagerTwigExtension extends AbstractExtension implements ExtensionInt
         return $this->fileManagerService->getDirSize($path);
     }
 
+    public function breadcrumbPathExtension(string $path): array
+    {
+        return $this->fileManagerService->getBreadcrumbPath($path);
+    }
+
     /**
      * @return TwigFunction[]
      */
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('size_dir', [$this, 'sizeDirExtension'])
+            new TwigFunction('size_dir', [$this, 'sizeDirExtension']),
+            new TwigFunction('breadcrumb_path', [$this, 'breadcrumbPathExtension'])
         ];
     }
 
