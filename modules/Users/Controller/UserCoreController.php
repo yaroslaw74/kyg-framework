@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\User;
-use App\Modules\Users\Form\AddUserFormType;
+use App\Modules\Users\Form\Type\AddUserFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
