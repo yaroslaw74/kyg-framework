@@ -39,8 +39,47 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.23',
     ],
+    '@googlemaps/js-api-loader' => [
+        'version' => '1.16.10',
+    ],
     'es-module-shims' => [
         'version' => '2.8.0',
+    ],
+    'chart.js' => [
+        'version' => '4.5.1',
+    ],
+    'chartjs-plugin-annotation' => [
+        'version' => '3.1.0',
+    ],
+    'chartjs-plugin-datalabels' => [
+        'version' => '2.2.0',
+    ],
+    'chartjs-plugin-zoom' => [
+        'version' => '2.2.0',
+    ],
+    '@kurkle/color' => [
+        'version' => '0.4.0',
+    ],
+    'tom-select' => [
+        'version' => '2.5.1',
+    ],
+    'tom-select/dist/css/tom-select.bootstrap5.css' => [
+        'version' => '2.5.1',
+        'type' => 'css',
+    ],
+    'tom-select/dist/css/tom-select.bootstrap4.css' => [
+        'version' => '2.5.1',
+        'type' => 'css',
+    ],
+    'tom-select/dist/css/tom-select.default.css' => [
+        'version' => '2.5.1',
+        'type' => 'css',
+    ],
+    '@orchidjs/sifter' => [
+        'version' => '1.1.0',
+    ],
+    '@orchidjs/unicode-variants' => [
+        'version' => '1.1.2',
     ],
     'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.13.1',
@@ -51,7 +90,7 @@ return [
         'type' => 'css',
     ],
     '@fortawesome/fontawesome-free/css/all.min.css' => [
-        'version' => '7.1.0',
+        'version' => '7.2.0',
         'type' => 'css',
     ],
     'ionicons/dist/css/ionicons.min.css' => [
@@ -352,47 +391,11 @@ return [
     'filepond-plugin-image-validate-size' => [
         'version' => '1.2.7',
     ],
-    'chart.js' => [
-        'version' => '4.5.1',
-    ],
-    'chartjs-plugin-annotation' => [
-        'version' => '3.1.0',
-    ],
-    'chartjs-plugin-datalabels' => [
-        'version' => '2.2.0',
-    ],
-    'chartjs-plugin-zoom' => [
-        'version' => '2.2.0',
-    ],
-    '@kurkle/color' => [
-        'version' => '0.4.0',
-    ],
-    'tom-select' => [
-        'version' => '2.4.5',
-    ],
-    'tom-select/dist/css/tom-select.default.css' => [
-        'version' => '2.4.5',
-        'type' => 'css',
-    ],
-    'tom-select/dist/css/tom-select.bootstrap4.css' => [
-        'version' => '2.4.5',
-        'type' => 'css',
-    ],
-    'tom-select/dist/css/tom-select.bootstrap5.css' => [
-        'version' => '2.4.5',
-        'type' => 'css',
-    ],
-    '@orchidjs/sifter' => [
-        'version' => '1.1.0',
-    ],
-    '@orchidjs/unicode-variants' => [
-        'version' => '1.1.2',
-    ],
     'apexcharts' => [
-        'version' => '5.3.6',
+        'version' => '5.4.0',
     ],
     'apexcharts/dist/apexcharts.css' => [
-        'version' => '5.3.6',
+        'version' => '5.4.0',
         'type' => 'css',
     ],
     'echarts' => [
@@ -562,8 +565,5 @@ return [
     ],
     'zrender/lib/tool/morphPath.js' => [
         'version' => '6.0.0',
-    ],
-    '@googlemaps/js-api-loader' => [
-        'version' => '1.16.10',
     ],
 ];
