@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\User;
-use App\Modules\Users\Form\RegistrationFormType;
+use App\Modules\Users\Form\Type\RegistrationFormType;
 use App\Modules\Users\Repository\UserRepository;
 use App\Modules\Users\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
