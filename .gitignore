@@ -31,6 +31,10 @@
 /public/uploads/
 ###< symfony/public ###
 
+###> php-flasher/flasher-symfony ###
+/public/vendor/
+###< php-flasher/flasher-symfony ###
+
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
