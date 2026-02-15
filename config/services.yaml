@@ -10,12 +10,6 @@ parameters:
     app.email_bot: "%env(ENV_BOT_EMAIL)%"
     app.name_bot: "%env(ENV_BOT_NAME)%"
 
-imports:
-    - { resource: "locales.php" }
-    - { resource: "../modules/*/Resources/config/*.*" }
-    - { resource: "../public/additions/*/Resources/config/*.*" }
-    - { resource: "../var/config/*.*" }
-
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -63,3 +57,9 @@ services:
                 "xTwitter": "xTwitter"
                 "vkontakte": "vkontakte"
                 "github": "github"
+
+imports:
+    - { resource: "locales.php" }
+    - { resource: "../modules/*/Resources/config/*.*" }
+    - { resource: "../public/additions/*/Resources/config/*.*" }
+    - { resource: "../var/config/*.*" }
