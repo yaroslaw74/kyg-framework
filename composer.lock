@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aad5c7dc714629d7da884691921cfff1",
+    "content-hash": "776ac91f0fce42c6e56a92e756d7b6a3",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -1403,80 +1403,6 @@
                 "source": "https://github.com/cardinalby/phpContentDisposition/tree/1.1.1"
             },
             "time": "2023-05-23T22:16:05+00:00"
-        },
-        {
-            "name": "cocur/slugify",
-            "version": "v4.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cocur/slugify.git",
-                "reference": "a860dab2b9f5f37775fc6414d4f049434848165f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cocur/slugify/zipball/a860dab2b9f5f37775fc6414d4f049434848165f",
-                "reference": "a860dab2b9f5f37775fc6414d4f049434848165f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0"
-            },
-            "conflict": {
-                "symfony/config": "<3.4 || >=4,<4.3",
-                "symfony/dependency-injection": "<3.4 || >=4,<4.3",
-                "symfony/http-kernel": "<3.4 || >=4,<4.3",
-                "twig/twig": "<2.12.1"
-            },
-            "require-dev": {
-                "laravel/framework": "^5.0|^6.0|^7.0|^8.0",
-                "latte/latte": "~2.2",
-                "league/container": "^2.2.0",
-                "mikey179/vfsstream": "~1.6.8",
-                "mockery/mockery": "^1.3",
-                "nette/di": "~2.4",
-                "pimple/pimple": "~1.1",
-                "plumphp/plum": "~0.1",
-                "symfony/config": "^3.4 || ^4.3 || ^5.0 || ^6.0",
-                "symfony/dependency-injection": "^3.4 || ^4.3 || ^5.0 || ^6.0",
-                "symfony/http-kernel": "^3.4 || ^4.3 || ^5.0 || ^6.0",
-                "symfony/phpunit-bridge": "^5.4 || ^6.0",
-                "twig/twig": "^2.12.1 || ~3.0",
-                "zendframework/zend-modulemanager": "~2.2",
-                "zendframework/zend-servicemanager": "~2.2",
-                "zendframework/zend-view": "~2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Cocur\\Slugify\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Florian Eckerstorfer",
-                    "email": "florian@eckerstorfer.co",
-                    "homepage": "https://florian.ec"
-                },
-                {
-                    "name": "Ivo Bathke",
-                    "email": "ivo.bathke@gmail.com"
-                }
-            ],
-            "description": "Converts a string into a slug.",
-            "keywords": [
-                "slug",
-                "slugify"
-            ],
-            "support": {
-                "issues": "https://github.com/cocur/slugify/issues",
-                "source": "https://github.com/cocur/slugify/tree/v4.7.1"
-            },
-            "time": "2025-11-27T18:57:36+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -4142,68 +4068,6 @@
             "time": "2025-05-29T20:23:24+00:00"
         },
         {
-            "name": "imagine/imagine",
-            "version": "1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-imagine/Imagine.git",
-                "reference": "f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c",
-                "reference": "f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5 || ^8.4 || ^9.3"
-            },
-            "suggest": {
-                "ext-exif": "to read EXIF metadata",
-                "ext-gd": "to use the GD implementation",
-                "ext-gmagick": "to use the Gmagick implementation",
-                "ext-imagick": "to use the Imagick implementation"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Imagine\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bulat Shakirzyanov",
-                    "email": "mallluhuct@gmail.com",
-                    "homepage": "http://avalanche123.com"
-                }
-            ],
-            "description": "Image processing for PHP",
-            "homepage": "http://imagine.readthedocs.org/",
-            "keywords": [
-                "drawing",
-                "graphics",
-                "image manipulation",
-                "image processing"
-            ],
-            "support": {
-                "issues": "https://github.com/php-imagine/Imagine/issues",
-                "source": "https://github.com/php-imagine/Imagine/tree/1.5.2"
-            },
-            "time": "2026-01-09T10:45:12+00:00"
-        },
-        {
             "name": "intervention/gif",
             "version": "4.2.4",
             "source": {
@@ -4507,76 +4371,6 @@
                 "source": "https://github.com/jsonrainbow/json-schema/tree/v6.7.1"
             },
             "time": "2026-02-13T16:16:54+00:00"
-        },
-        {
-            "name": "knplabs/gaufrette",
-            "version": "v0.11.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/Gaufrette.git",
-                "reference": "3cc396cae0f7c7d3f965e6b69d8fc546ffa0f94c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/3cc396cae0f7c7d3f965e6b69d8fc546ffa0f94c",
-                "reference": "3cc396cae0f7c7d3f965e6b69d8fc546ffa0f94c",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4 || ^8.0"
-            },
-            "conflict": {
-                "microsoft/windowsazure": "<0.4.3"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.9",
-                "mikey179/vfsstream": "v1.x-dev as 1.7.0",
-                "pedrotroller/php-cs-custom-fixer": "^2.28",
-                "phpspec/phpspec": "^7.0",
-                "phpunit/phpunit": "~8.0"
-            },
-            "suggest": {
-                "ext-fileinfo": "This extension is used to automatically detect the content-type of a file in the AwsS3, OpenCloud, AzureBlogStorage and GoogleCloudStorage adapters",
-                "knplabs/knp-gaufrette-bundle": "to use with Symfony"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.10.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Gaufrette": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KnpLabs Team",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "The contributors",
-                    "homepage": "http://github.com/knplabs/Gaufrette/contributors"
-                }
-            ],
-            "description": "PHP library that provides a filesystem abstraction layer",
-            "homepage": "http://knplabs.com",
-            "keywords": [
-                "abstraction",
-                "file",
-                "filesystem",
-                "media"
-            ],
-            "support": {
-                "issues": "https://github.com/KnpLabs/Gaufrette/issues",
-                "source": "https://github.com/KnpLabs/Gaufrette/tree/v0.11.1"
-            },
-            "time": "2022-11-03T17:26:17+00:00"
         },
         {
             "name": "knplabs/knp-components",
@@ -5277,114 +5071,6 @@
                 }
             ],
             "time": "2024-09-21T08:32:55+00:00"
-        },
-        {
-            "name": "liip/imagine-bundle",
-            "version": "2.17.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "69d2df3c6606495d1878fa190d6c3dc4bc5623b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/69d2df3c6606495d1878fa190d6c3dc4bc5623b6",
-                "reference": "69d2df3c6606495d1878fa190d6c3dc4bc5623b6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "imagine/imagine": "^1.3.2",
-                "php": "^8.0",
-                "symfony/dependency-injection": "^5.4|^6.4|^7.4|^8.0",
-                "symfony/deprecation-contracts": "^2.5 || ^3",
-                "symfony/filesystem": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/finder": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/framework-bundle": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/mime": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/options-resolver": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/process": "^5.4|^6.4|^7.3|^8.0",
-                "twig/twig": "^1.44|^2.9|^3.0"
-            },
-            "require-dev": {
-                "amazonwebservices/aws-sdk-for-php": "^1.0",
-                "aws/aws-sdk-php": "^2.4|^3.0",
-                "doctrine/cache": "^1.11|^2.0",
-                "doctrine/persistence": "^1.3|^2.0",
-                "enqueue/enqueue-bundle": "^0.9|^0.10",
-                "ext-gd": "*",
-                "league/flysystem": "^1.0|^2.0|^3.0",
-                "phpstan/phpstan": "^1.10.0",
-                "psr/cache": "^1.0|^2.0|^3.0",
-                "psr/log": "^1.0",
-                "symfony/asset": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/browser-kit": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/cache": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/console": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/form": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/messenger": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/phpunit-bridge": "^7.3",
-                "symfony/runtime": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/templating": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/validator": "^5.4|^6.4|^7.3|^8.0",
-                "symfony/yaml": "^5.4|^6.4|^7.3|^8.0"
-            },
-            "suggest": {
-                "alcaeus/mongo-php-adapter": "required for mongodb components",
-                "amazonwebservices/aws-sdk-for-php": "required to use AWS version 1 cache resolver",
-                "aws/aws-sdk-php": "required to use AWS version 2/3 cache resolver",
-                "doctrine/mongodb-odm": "required to use mongodb-backed doctrine components",
-                "enqueue/enqueue-bundle": "^0.9 add if you like to process images in background",
-                "ext-exif": "required to read EXIF metadata from images",
-                "ext-gd": "required to use gd driver",
-                "ext-gmagick": "required to use gmagick driver",
-                "ext-imagick": "required to use imagick driver",
-                "ext-json": "required to read JSON manifest versioning",
-                "ext-mongodb": "required for mongodb components",
-                "league/flysystem": "required to use FlySystem data loader or cache resolver",
-                "monolog/monolog": "A psr/log compatible logger is required to enable logging",
-                "rokka/imagine-vips": "required to use 'vips' driver",
-                "symfony/asset": "If you want to use asset versioning",
-                "symfony/messenger": "If you like to process images in background",
-                "symfony/templating": "required to use deprecated Templating component instead of Twig"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Liip\\ImagineBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Liip and other contributors",
-                    "homepage": "https://github.com/liip/LiipImagineBundle/contributors"
-                }
-            ],
-            "description": "This bundle provides an image manipulation abstraction toolkit for Symfony-based projects.",
-            "homepage": "https://www.liip.ch",
-            "keywords": [
-                "bundle",
-                "image",
-                "imagine",
-                "liip",
-                "manipulation",
-                "photos",
-                "pictures",
-                "symfony",
-                "transformation"
-            ],
-            "support": {
-                "issues": "https://github.com/liip/LiipImagineBundle/issues",
-                "source": "https://github.com/liip/LiipImagineBundle/tree/2.17.1"
-            },
-            "time": "2026-01-06T09:34:48+00:00"
         },
         {
             "name": "lorenzo/pinky",
@@ -6775,58 +6461,6 @@
                 "source": "https://github.com/php-fig/event-dispatcher/tree/1.0.0"
             },
             "time": "2019-01-08T18:20:26+00:00"
-        },
-        {
-            "name": "psr/http-client",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-client.git",
-                "reference": "bb5906edc1c324c9a05aa0873d40117941e5fa90"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/bb5906edc1c324c9a05aa0873d40117941e5fa90",
-                "reference": "bb5906edc1c324c9a05aa0873d40117941e5fa90",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0 || ^8.0",
-                "psr/http-message": "^1.0 || ^2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP clients",
-            "homepage": "https://github.com/php-fig/http-client",
-            "keywords": [
-                "http",
-                "http-client",
-                "psr",
-                "psr-18"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/http-client"
-            },
-            "time": "2023-09-23T14:17:50+00:00"
         },
         {
             "name": "psr/http-factory",
@@ -9132,1520 +8766,6 @@
                 "source": "https://github.com/slowprog/CopyFile/tree/0.3.3"
             },
             "time": "2020-07-02T14:44:41+00:00"
-        },
-        {
-            "name": "sonata-project/admin-bundle",
-            "version": "4.42.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "45593b94f70f200ef5ba1ab9678cac9460231288"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/45593b94f70f200ef5ba1ab9678cac9460231288",
-                "reference": "45593b94f70f200ef5ba1ab9678cac9460231288",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/collections": "^1.6 || ^2.0",
-                "doctrine/common": "^3.0",
-                "knplabs/knp-menu": "^3.6",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "php": "^8.2",
-                "psr/container": "^1.0 || ^2.0",
-                "psr/log": "^2.0 || ^3.0",
-                "sonata-project/block-bundle": "^5.0",
-                "sonata-project/doctrine-extensions": "^2.0",
-                "sonata-project/exporter": "^3.1.1",
-                "sonata-project/form-extensions": "^2.0",
-                "sonata-project/twig-extensions": "^2.0",
-                "symfony/asset": "^6.4 || ^7.3 || ^8.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/console": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/deprecation-contracts": "^3.6",
-                "symfony/doctrine-bridge": "^6.4 || ^7.3 || ^8.0",
-                "symfony/event-dispatcher": "^6.4 || ^7.3 || ^8.0",
-                "symfony/event-dispatcher-contracts": "^2.0 || ^3.0",
-                "symfony/expression-language": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/property-access": "^6.4 || ^7.3 || ^8.0",
-                "symfony/routing": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-core": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-csrf": "^6.4 || ^7.3 || ^8.0",
-                "symfony/serializer": "^6.4 || ^7.3 || ^8.0",
-                "symfony/stimulus-bundle": "^2.22",
-                "symfony/string": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation-contracts": "^2.3 || ^3.0",
-                "symfony/twig-bridge": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/validator": "^6.4 || ^7.3 || ^8.0",
-                "twig/string-extra": "^3.0",
-                "twig/twig": "^3.15"
-            },
-            "conflict": {
-                "symfony/security-acl": "<3.1 >=4.0"
-            },
-            "require-dev": {
-                "doctrine/persistence": "^3.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.2",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38",
-                "psr/event-dispatcher": "^1.0",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/css-selector": "^6.4 || ^7.3 || ^8.0",
-                "symfony/filesystem": "^6.4 || ^7.3 || ^8.0",
-                "symfony/maker-bundle": "^1.25",
-                "symfony/security-acl": "^3.1",
-                "symfony/yaml": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "twig/extra-bundle": "Auto configures the Twig Intl extension"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\AdminBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataAdminBundle/contributors"
-                }
-            ],
-            "description": "The missing Symfony Admin Generator",
-            "homepage": "https://docs.sonata-project.org/projects/SonataAdminBundle",
-            "keywords": [
-                "admin",
-                "admin-generator",
-                "admin-lte",
-                "bundle",
-                "sonata",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataAdminBundle/tree/4.42.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/OskarStark",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-01-05T16:31:00+00:00"
-        },
-        {
-            "name": "sonata-project/block-bundle",
-            "version": "5.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "6c7b38af2662ab81197fae2697f46bfa28db9384"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/6c7b38af2662ab81197fae2697f46bfa28db9384",
-                "reference": "6c7b38af2662ab81197fae2697f46bfa28db9384",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/collections": "^1.8 || ^2.0",
-                "doctrine/common": "^3.0",
-                "php": "^8.2",
-                "psr/container": "^1.0 || ^2.0",
-                "psr/log": "^2.0 || ^3.0",
-                "sonata-project/form-extensions": "^2.0",
-                "symfony/asset": "^6.4 || ^7.3 || ^8.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/console": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/event-dispatcher": "^6.4 || ^7.3 || ^8.0",
-                "symfony/event-dispatcher-contracts": "^2.0 || ^3.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/validator": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "knplabs/knp-menu-bundle": "<3.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "knplabs/knp-menu": "^3.1",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.2.0",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/error-handler": "^6.4 || ^7.3 || ^8.0",
-                "symfony/stopwatch": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "knplabs/knp-menu-bundle": "Required to use the menu block"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\BlockBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataBlockBundle/contributors"
-                }
-            ],
-            "description": "Symfony SonataBlockBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataBlockBundle",
-            "keywords": [
-                "block",
-                "sonata"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataBlockBundle/issues",
-                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/5.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-11-30T18:19:11+00:00"
-        },
-        {
-            "name": "sonata-project/classification-bundle",
-            "version": "4.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataClassificationBundle.git",
-                "reference": "1923429c1eec775dacb1f26f82f99aa7c23f1103"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/1923429c1eec775dacb1f26f82f99aa7c23f1103",
-                "reference": "1923429c1eec775dacb1f26f82f99aa7c23f1103",
-                "shasum": ""
-            },
-            "require": {
-                "cocur/slugify": "^4.0",
-                "doctrine/collections": "^1.6 || ^2.0",
-                "doctrine/persistence": "^3.0.2 || ^4.0",
-                "php": "^8.2",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/console": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/routing": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/validator": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "doctrine/mongodb-odm": "<2.4",
-                "doctrine/orm": "<2.14",
-                "sonata-project/admin-bundle": "<4.14",
-                "sonata-project/block-bundle": "<5.0",
-                "sonata-project/doctrine-orm-admin-bundle": "<4.0"
-            },
-            "require-dev": {
-                "dama/doctrine-test-bundle": "^8.0.1",
-                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
-                "doctrine/mongodb-odm": "^2.4",
-                "doctrine/orm": "^2.14 || ^3.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "knplabs/knp-menu": "^3.0",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "masterminds/html5": "^2.7",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.2",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "sonata-project/admin-bundle": "^4.39",
-                "sonata-project/block-bundle": "^5.0",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.0",
-                "symfony/asset": "^6.4 || ^7.3 || ^8.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/filesystem": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-csrf": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/yaml": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "sonata-project/block-bundle": "For rendering dynamic list blocks on a page.",
-                "sonata-project/classification-media-bundle": "For media previews of categories and collections."
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\ClassificationBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataClassificationBundle/contributors"
-                }
-            ],
-            "description": "Symfony SonataClassificationBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataClassificationBundle",
-            "keywords": [
-                "category",
-                "tag",
-                "taxonomy"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataClassificationBundle/issues",
-                "source": "https://github.com/sonata-project/SonataClassificationBundle/tree/4.11.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-19T13:16:17+00:00"
-        },
-        {
-            "name": "sonata-project/doctrine-extensions",
-            "version": "2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "1a7ce987cf1761e88fa55dc157e941b44bf11e42"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/1a7ce987cf1761e88fa55dc157e941b44bf11e42",
-                "reference": "1a7ce987cf1761e88fa55dc157e941b44bf11e42",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "^3.4 || ^4.0",
-                "doctrine/persistence": "^3.0.2 || ^4.0",
-                "php": "^8.2"
-            },
-            "conflict": {
-                "doctrine/doctrine-bundle": "<2.7",
-                "doctrine/mongodb-odm": "<2.4",
-                "doctrine/orm": "<2.16"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
-                "doctrine/event-manager": "^1.2 || ^2.0",
-                "doctrine/mongodb-odm": "^2.4",
-                "doctrine/orm": "^2.16 || ^3.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.1",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^10.5.54 || ^11.5.38 || ^12.3.10",
-                "psalm/plugin-phpunit": "^0.18 || ^0.19",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/doctrine-bridge": "^6.4 || ^7.3 || ^8.0",
-                "symfony/expression-language": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "doctrine/mongodb-odm": "If you use mongo",
-                "doctrine/orm": "If you use doctrine orm",
-                "symfony/framework-bundle": "If you want to use symfony"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\Doctrine\\": "src/",
-                    "Sonata\\Doctrine\\Bridge\\Symfony\\": "src/Bridge/Symfony/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "http://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/sonata-doctrine-extensions/contributors"
-                }
-            ],
-            "description": "Doctrine2 behavioral extensions",
-            "homepage": "https://github.com/sonata-project/sonata-doctrine-extensions",
-            "keywords": [
-                "doctrine",
-                "doctrine2",
-                "json"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/sonata-doctrine-extensions/issues",
-                "source": "https://github.com/sonata-project/sonata-doctrine-extensions/tree/2.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-11-23T16:39:05+00:00"
-        },
-        {
-            "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "4.21.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "214739047182fc85ab97ade350fdc461cb1d52cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/214739047182fc85ab97ade350fdc461cb1d52cf",
-                "reference": "214739047182fc85ab97ade350fdc461cb1d52cf",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "^3.4 || ^4.0",
-                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
-                "doctrine/orm": "^2.20 || ^3.3",
-                "doctrine/persistence": "^3.0.2 || ^4.0",
-                "php": "^8.2",
-                "sonata-project/admin-bundle": "^4.39.0",
-                "sonata-project/exporter": "^3.0",
-                "sonata-project/form-extensions": "^2.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/console": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/doctrine-bridge": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/property-access": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "sonata-project/block-bundle": "<4.2",
-                "sonata-project/entity-audit-bundle": ">=2.0",
-                "symfony/security-acl": "<3.0 >=4.0"
-            },
-            "provide": {
-                "sonata-project/admin-bundle-persistency-layer": "1.0.0"
-            },
-            "require-dev": {
-                "dama/doctrine-test-bundle": "^8.0",
-                "doctrine/doctrine-fixtures-bundle": "^3.4 || ^4.0",
-                "ext-pdo_sqlite": "*",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.1",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "sonata-project/block-bundle": "^5.0",
-                "sonata-project/entity-audit-bundle": "^1.1",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/css-selector": "^6.4 || ^7.3 || ^8.0",
-                "symfony/panther": "dev-symfony-8-support",
-                "symfony/security-acl": "^3.0",
-                "symfony/uid": "^6.4 || ^7.3 || ^8.0",
-                "symfony/yaml": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "sonata-project/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\DoctrineORMAdminBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/contributors"
-                }
-            ],
-            "description": "Integrate Doctrine ORM into the SonataAdminBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataDoctrineORMAdminBundle",
-            "keywords": [
-                "admin",
-                "admin-generator",
-                "bundle",
-                "doctrine",
-                "orm",
-                "sonata",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/issues",
-                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/4.21.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/OskarStark",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-01-05T16:29:15+00:00"
-        },
-        {
-            "name": "sonata-project/exporter",
-            "version": "3.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/exporter.git",
-                "reference": "ff9f0c116d8cdf08a05ac98a6eb8fb4cd94f73d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/ff9f0c116d8cdf08a05ac98a6eb8fb4cd94f73d0",
-                "reference": "ff9f0c116d8cdf08a05ac98a6eb8fb4cd94f73d0",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2"
-            },
-            "conflict": {
-                "doctrine/mongodb-odm": "<2.3",
-                "doctrine/orm": "<2.14",
-                "phpoffice/phpspreadsheet": "<1.23",
-                "symfony/config": "<5.4"
-            },
-            "require-dev": {
-                "doctrine/dbal": "^3.1 || ^4.0",
-                "doctrine/mongodb-odm": "^2.15.1",
-                "doctrine/orm": "^2.14 || ^3.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "dev-ci-updates as 6.1.0.1",
-                "phpoffice/phpspreadsheet": "^1.23",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/cache": "^6.4 || ^7.3 || ^8.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/property-access": "^6.4 || ^7.3 || ^8.0",
-                "symfony/routing": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "phpoffice/phpspreadsheet": "To be able to export the data in XLSX",
-                "symfony/property-access": "To be able to export from database entities",
-                "symfony/routing": "To be able to export the routes of a Symfony app"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\Exporter\\": "src/",
-                    "Sonata\\Exporter\\Bridge\\Symfony\\": "src/Bridge/Symfony/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@gmail.com",
-                    "homepage": "https://sonata-project.org/"
-                }
-            ],
-            "description": "Lightweight Exporter library",
-            "homepage": "https://docs.sonata-project.org/projects/exporter",
-            "keywords": [
-                "bundle",
-                "client",
-                "csv",
-                "data",
-                "export",
-                "symfony-bundle",
-                "xls",
-                "xlsx"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/exporter/issues",
-                "source": "https://github.com/sonata-project/exporter/tree/3.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-11-23T16:46:42+00:00"
-        },
-        {
-            "name": "sonata-project/form-extensions",
-            "version": "2.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/form-extensions.git",
-                "reference": "f4f46206377a4eb4fcdef343698198bdca88c834"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/form-extensions/zipball/f4f46206377a4eb4fcdef343698198bdca88c834",
-                "reference": "f4f46206377a4eb4fcdef343698198bdca88c834",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2",
-                "symfony/deprecation-contracts": "^3.6",
-                "symfony/event-dispatcher": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/property-access": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-csrf": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation-contracts": "^2.5 || ^3.0",
-                "symfony/validator": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1.0",
-                "matthiasnoback/symfony-dependency-injection-test": "dev-ci-updates as 6.1.0.1",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bridge": "^6.4.3 || ^7.1",
-                "symfony/twig-bundle": "^6.4 || ^7.3 || ^8.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\Form\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/form-extensions/contributors"
-                }
-            ],
-            "description": "Symfony form extensions",
-            "homepage": "https://docs.sonata-project.org/projects/form-extensions",
-            "keywords": [
-                "form",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/form-extensions/issues",
-                "source": "https://github.com/sonata-project/form-extensions/tree/2.7.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-11-23T16:45:01+00:00"
-        },
-        {
-            "name": "sonata-project/formatter-bundle",
-            "version": "5.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataFormatterBundle.git",
-                "reference": "3361e83a3a591875bac26573603962eba30e24d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/3361e83a3a591875bac26573603962eba30e24d9",
-                "reference": "3361e83a3a591875bac26573603962eba30e24d9",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/ckeditor-bundle": "^2.0",
-                "php": "^8.2",
-                "psr/container": "^1.0 || ^2.0",
-                "psr/log": "^2.0 || ^3.0",
-                "sonata-project/block-bundle": "^5.0",
-                "sonata-project/form-extensions": "^2.0",
-                "symfony/config": "^6.4 || ^7.3 || 8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || 8.0",
-                "symfony/event-dispatcher": "^6.4 || ^7.3 || 8.0",
-                "symfony/form": "^6.4 || ^7.3 || 8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || 8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || 8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || 8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || 8.0",
-                "symfony/property-access": "^6.4 || ^7.3 || 8.0",
-                "symfony/translation": "^6.4 || ^7.3 || 8.0",
-                "symfony/validator": "^6.4 || ^7.3 || 8.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "sonata-project/admin-bundle": "<4.0",
-                "sonata-project/classification-bundle": "<4.0",
-                "sonata-project/media-bundle": "<4.2"
-            },
-            "require-dev": {
-                "dama/doctrine-test-bundle": "^8.0.2",
-                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
-                "doctrine/orm": "^2.16 || ^3.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.2",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.4 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.1 || ^2.0",
-                "phpunit/phpunit": "^10.5.54 || ^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "sonata-project/admin-bundle": "^4.39",
-                "sonata-project/classification-bundle": "^4.0",
-                "sonata-project/doctrine-extensions": "^2.0",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.0",
-                "sonata-project/media-bundle": "^4.13",
-                "sonata-project/twig-extensions": "^2.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || 8.0",
-                "symfony/filesystem": "^6.4 || ^7.3 || 8.0",
-                "symfony/security-bundle": "^6.4 || ^7.3 || 8.0",
-                "symfony/yaml": "^6.4 || ^7.3 || 8.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\FormatterBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataFormatterBundle/contributors"
-                }
-            ],
-            "description": "Symfony SonataFormatterBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataFormatterBundle",
-            "keywords": [
-                "CKEditor",
-                "editor",
-                "formatter",
-                "sonata"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataFormatterBundle/issues",
-                "source": "https://github.com/sonata-project/SonataFormatterBundle/tree/5.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-20T17:34:57+00:00"
-        },
-        {
-            "name": "sonata-project/intl-bundle",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataIntlBundle.git",
-                "reference": "008f1a1e2fe95c6b80e4dd27e641370353862d4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/008f1a1e2fe95c6b80e4dd27e641370353862d4b",
-                "reference": "008f1a1e2fe95c6b80e4dd27e641370353862d4b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/intl": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation-contracts": "^2.5 || ^3.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "sonata-project/user-bundle": "<3.6"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "dev-ci-updates as 6.1.0.1",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/security-core": "^6.4 || ^7.3 || ^8.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\IntlBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataIntlBundle/contributors"
-                }
-            ],
-            "description": "Symfony SonataIntlBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataIntlBundle",
-            "keywords": [
-                "date",
-                "intl",
-                "number",
-                "sonata",
-                "time"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataIntlBundle/issues",
-                "source": "https://github.com/sonata-project/SonataIntlBundle/tree/3.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/OskarStark",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-11-25T17:46:21+00:00"
-        },
-        {
-            "name": "sonata-project/media-bundle",
-            "version": "4.20.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "fe09f5c9fdb1b24d6fc31ef292d7d94d06a4f66e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/fe09f5c9fdb1b24d6fc31ef292d7d94d06a4f66e",
-                "reference": "fe09f5c9fdb1b24d6fc31ef292d7d94d06a4f66e",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/persistence": "^3.0.2 || ^4.0",
-                "imagine/imagine": "^1.3",
-                "knplabs/gaufrette": "^0.10 || ^0.11",
-                "nyholm/psr7": "^1.4",
-                "php": "^8.2",
-                "psr/http-client": "^1.0",
-                "psr/http-factory": "^1.0",
-                "psr/http-message": "^1.0 || ^2.0",
-                "psr/log": "^2.0 || ^3.0",
-                "sonata-project/doctrine-extensions": "^1.13 || ^2.0",
-                "sonata-project/form-extensions": "^1.4 || ^2.0",
-                "sonata-project/twig-extensions": "^1.3 || ^2.0",
-                "symfony/asset": "^6.4 || ^7.3 || ^8.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/console": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/event-dispatcher": "^6.4 || ^7.3 || ^8.0",
-                "symfony/filesystem": "^6.4 || ^7.3 || ^8.0",
-                "symfony/finder": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-client": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/mime": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/routing": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-core": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation-contracts": "^2.0 || ^3.0",
-                "symfony/twig-bridge": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/validator": "^6.4 || ^7.3 || ^8.0",
-                "twig/string-extra": "^3.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "async-aws/simple-s3": "<1.0",
-                "aws/aws-sdk-php": "<3.0",
-                "doctrine/mongodb-odm": "<2.4",
-                "doctrine/orm": "<2.14",
-                "knplabs/knp-menu-bundle": "<3.0",
-                "liip/imagine-bundle": "<2.0",
-                "sonata-project/admin-bundle": "<4.9",
-                "sonata-project/block-bundle": "<4.11",
-                "sonata-project/classification-bundle": "<4.0",
-                "sonata-project/doctrine-orm-admin-bundle": "<4.0"
-            },
-            "require-dev": {
-                "async-aws/simple-s3": "^1.0",
-                "aws/aws-sdk-php": "^3.0",
-                "dama/doctrine-test-bundle": "^8.0.1",
-                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
-                "doctrine/mongodb-odm": "^2.4",
-                "doctrine/orm": "^2.16 || ^3.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "liip/imagine-bundle": "^2.0",
-                "masterminds/html5": "^2.7",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.2",
-                "microsoft/azure-storage-blob": "^1.5.4",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "sonata-project/admin-bundle": "^4.39",
-                "sonata-project/block-bundle": "^4.11 || ^5.0",
-                "sonata-project/classification-bundle": "^4.0",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/messenger": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-csrf": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "async-aws/simple-s3": "If you want to use async Amazon S3 adapter",
-                "aws/aws-sdk-php": "If you want to use Amazon S3",
-                "liip/imagine-bundle": "If you want on-the-fly thumbnail generation or image filtering (scale, crop, watermark...).",
-                "microsoft/azure-storage-blob": "If you want to use Azure Blob Storage",
-                "sonata-project/classification-bundle": "If you want to categorize your media items.",
-                "sonata-project/doctrine-orm-admin-bundle": "If you want to persist entities.",
-                "symfony/messenger": "If you want to generate thumbnails asynchronously.",
-                "twig/extra-bundle": "Auto configures the Twig Intl extension."
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\MediaBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataMediaBundle/contributors"
-                }
-            ],
-            "description": "Symfony SonataMediaBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataMediaBundle",
-            "keywords": [
-                "dailymotion",
-                "file",
-                "media",
-                "pdf",
-                "sonata",
-                "upload",
-                "vimeo",
-                "youtube"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataMediaBundle/issues",
-                "source": "https://github.com/sonata-project/SonataMediaBundle/tree/4.20.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/OskarStark",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-19T13:38:12+00:00"
-        },
-        {
-            "name": "sonata-project/translation-bundle",
-            "version": "3.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataTranslationBundle.git",
-                "reference": "c1dff450f529b6b7a6c969cb357e2a2a6bf6ee07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataTranslationBundle/zipball/c1dff450f529b6b7a6c969cb357e2a2a6bf6ee07",
-                "reference": "c1dff450f529b6b7a6c969cb357e2a2a6bf6ee07",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2",
-                "sonata-project/admin-bundle": "^4.39",
-                "sonata-project/block-bundle": "^5.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/intl": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "doctrine/persistence": "<3.0.2",
-                "gedmo/doctrine-extensions": "<3.11",
-                "knplabs/doctrine-behaviors": "<2.6.2"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "^2.9 || ^3.0",
-                "doctrine/doctrine-fixtures-bundle": "^3.4 || ^4.0",
-                "doctrine/orm": "^2.14 || ^3.5",
-                "doctrine/persistence": "^3.0.2 || ^4.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "gedmo/doctrine-extensions": "^3.11",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.1",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-doctrine": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/css-selector": "^6.4 || ^7.3 || ^8.0",
-                "symfony/doctrine-bridge": "^6.4 || ^7.3 || ^8.0",
-                "symfony/filesystem": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "gedmo/doctrine-extensions": "if you translate orm entities with the gedmo extensions",
-                "knplabs/doctrine-behaviors": "if you translate orm entities with the knplabs behaviours",
-                "sonata-project/doctrine-orm-admin-bundle": "if you translate orm entities and search on translated fields"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\TranslationBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Bastien",
-                    "email": "nbastien.pro@gmail.com",
-                    "homepage": "https://github.com/nicolas-bastien"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataTranslationBundle/contributors"
-                }
-            ],
-            "description": "SonataTranslationBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataTranslationBundle",
-            "keywords": [
-                "i18n",
-                "translation"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataTranslationBundle/issues",
-                "source": "https://github.com/sonata-project/SonataTranslationBundle/tree/3.7.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/OskarStark",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-19T13:30:50+00:00"
-        },
-        {
-            "name": "sonata-project/twig-extensions",
-            "version": "2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/twig-extensions.git",
-                "reference": "bbc173ad144d30f87e94f544cbec4ab8de1b4b20"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/twig-extensions/zipball/bbc173ad144d30f87e94f544cbec4ab8de1b4b20",
-                "reference": "bbc173ad144d30f87e94f544cbec4ab8de1b4b20",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bridge": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.13"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "dev-ci-updates as 6.1.0.1",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/twig-bundle": "^6.4 || ^7.3 || ^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\Twig\\": "src/",
-                    "Sonata\\Twig\\Bridge\\Symfony\\": "src/Bridge/Symfony/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/twig-extensions/contributors"
-                }
-            ],
-            "description": "Sonata twig extensions",
-            "homepage": "https://docs.sonata-project.org/projects/twig-extensions",
-            "keywords": [
-                "sonata",
-                "twig",
-                "twig-extensions"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/twig-extensions/issues",
-                "source": "https://github.com/sonata-project/twig-extensions/tree/2.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/greg0ire",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-11-23T16:41:45+00:00"
-        },
-        {
-            "name": "sonata-project/user-bundle",
-            "version": "5.19.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "fe5afad0db63ca268ee3f69a93c7a7290b7a1b84"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/fe5afad0db63ca268ee3f69a93c7a7290b7a1b84",
-                "reference": "fe5afad0db63ca268ee3f69a93c7a7290b7a1b84",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/collections": "^1.6 || ^2.0",
-                "doctrine/common": "^3.1",
-                "doctrine/persistence": "^3.0.2 || ^4.0",
-                "php": "^8.2",
-                "sonata-project/doctrine-extensions": "^1.13 || ^2.0",
-                "sonata-project/form-extensions": "^1.4 || ^2.0",
-                "sonata-project/twig-extensions": "^1.3 || ^2.0",
-                "symfony/config": "^6.4 || ^7.3 || ^8.0",
-                "symfony/console": "^6.4 || ^7.3 || ^8.0",
-                "symfony/dependency-injection": "^6.4 || ^7.3 || ^8.0",
-                "symfony/event-dispatcher": "^6.4 || ^7.3 || ^8.0",
-                "symfony/form": "^6.4 || ^7.3 || ^8.0",
-                "symfony/framework-bundle": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-foundation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/http-kernel": "^6.4 || ^7.3 || ^8.0",
-                "symfony/options-resolver": "^6.4 || ^7.3 || ^8.0",
-                "symfony/routing": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-acl": "^3.0",
-                "symfony/security-core": "^6.4 || ^7.3 || ^8.0",
-                "symfony/security-csrf": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation": "^6.4 || ^7.3 || ^8.0",
-                "symfony/translation-contracts": "^2.5 || ^3.0",
-                "symfony/validator": "^6.4 || ^7.3 || ^8.0",
-                "twig/twig": "^3.0"
-            },
-            "conflict": {
-                "sonata-project/admin-bundle": "<4.20",
-                "sonata-project/block-bundle": "<4.11",
-                "sonata-project/doctrine-orm-admin-bundle": "<4.0"
-            },
-            "require-dev": {
-                "dama/doctrine-test-bundle": "^8.0",
-                "doctrine/doctrine-bundle": "^2.17 || ^3.0",
-                "doctrine/mongodb-odm": "^2.3",
-                "doctrine/orm": "^2.14 || ^3.0",
-                "egulias/email-validator": "^3.1 || ^4.0",
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "matthiasnoback/symfony-config-test": "^6.1",
-                "matthiasnoback/symfony-dependency-injection-test": "^6.2",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "^1.0",
-                "phpstan/phpstan": "^1.0 || ^2.0",
-                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
-                "phpstan/phpstan-strict-rules": "^1.0 || ^2.0",
-                "phpstan/phpstan-symfony": "^1.0 || ^2.0",
-                "phpunit/phpunit": "^11.5.38 || ^12.3.10",
-                "rector/rector": "^1.1 || ^2.0",
-                "sonata-project/admin-bundle": "^4.39",
-                "sonata-project/block-bundle": "^5.0",
-                "sonata-project/doctrine-orm-admin-bundle": "^4.0",
-                "symfony/browser-kit": "^6.4 || ^7.3 || ^8.0",
-                "symfony/filesystem": "^6.4 || ^7.3 || ^8.0",
-                "symfony/intl": "^6.4 || ^7.3 || ^8.0",
-                "symfony/mailer": "^6.4 || ^7.3 || ^8.0",
-                "symfony/mime": "^6.4 || ^7.3 || ^8.0"
-            },
-            "suggest": {
-                "sonata-project/admin-bundle": "For admin dashboard to manage users and other entities",
-                "sonata-project/doctrine-orm-admin-bundle": "For persisting entities",
-                "symfony/mailer": "For sending reset emails",
-                "symfony/mime": "For sending reset emails"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Sonata\\UserBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org",
-                    "homepage": "https://sonata-project.org"
-                },
-                {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataUserBundle/contributors"
-                }
-            ],
-            "description": "Symfony SonataUserBundle",
-            "homepage": "https://docs.sonata-project.org/projects/SonataUserBundle",
-            "keywords": [
-                "sonata",
-                "user"
-            ],
-            "support": {
-                "issues": "https://github.com/sonata-project/SonataUserBundle/issues",
-                "source": "https://github.com/sonata-project/SonataUserBundle/tree/5.19.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/OskarStark",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/VincentLanglet",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/core23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jordisala1991",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-18T17:40:42+00:00"
         },
         {
             "name": "spomky-labs/otphp",
@@ -13899,86 +12019,6 @@
             "time": "2026-01-01T22:13:48+00:00"
         },
         {
-            "name": "symfony/polyfill-php85",
-            "version": "v1.33.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "d4e5fcd4ab3d998ab16c0db48e6cbb9a01993f91"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/d4e5fcd4ab3d998ab16c0db48e6cbb9a01993f91",
-                "reference": "d4e5fcd4ab3d998ab16c0db48e6cbb9a01993f91",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php85\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.5+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.33.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-06-23T16:12:55+00:00"
-        },
-        {
             "name": "symfony/polyfill-uuid",
             "version": "v1.33.0",
             "source": {
@@ -14753,88 +12793,6 @@
                 }
             ],
             "time": "2026-01-19T10:50:45+00:00"
-        },
-        {
-            "name": "symfony/security-acl",
-            "version": "v3.3.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-acl.git",
-                "reference": "96a1d7e22fd456b231ab256509d492f29dfcd4c1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/96a1d7e22fd456b231ab256509d492f29dfcd4c1",
-                "reference": "96a1d7e22fd456b231ab256509d492f29dfcd4c1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/security-core": "^4.4|^5.0|^6.0|^7.0"
-            },
-            "conflict": {
-                "doctrine/cache": "<1.11",
-                "doctrine/dbal": "<2.13.1|~3.0.0"
-            },
-            "require-dev": {
-                "doctrine/cache": "^1.11|^2.0",
-                "doctrine/common": "^2.2|^3",
-                "doctrine/dbal": "^2.13.1|^3.1",
-                "doctrine/persistence": "^1.3.3|^2|^3",
-                "psr/log": "^1|^2|^3",
-                "symfony/cache": "^4.4|^5.0|^6.0|^7.0",
-                "symfony/finder": "^4.4|^5.0|^6.0|^7.0",
-                "symfony/phpunit-bridge": "^5.2|^6.0|^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Acl\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - ACL (Access Control List)",
-            "homepage": "https://symfony.com",
-            "support": {
-                "issues": "https://github.com/symfony/security-acl/issues",
-                "source": "https://github.com/symfony/security-acl/tree/v3.3.4"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-10-18T06:15:14+00:00"
         },
         {
             "name": "symfony/security-bundle",
@@ -17871,6 +15829,71 @@
             "time": "2025-12-02T11:56:42+00:00"
         },
         {
+            "name": "twig/cache-extra",
+            "version": "v3.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/cache-extra.git",
+                "reference": "c85c6ca1142db2f1f4f8c853988aef560d064199"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/cache-extra/zipball/c85c6ca1142db2f1f4f8c853988aef560d064199",
+                "reference": "c85c6ca1142db2f1f4f8c853988aef560d064199",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1.0",
+                "symfony/cache": "^5.4|^6.4|^7.0|^8.0",
+                "twig/twig": "^3.21|^4.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twig\\Extra\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A Twig extension for Symfony Cache",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "cache",
+                "html",
+                "twig"
+            ],
+            "support": {
+                "source": "https://github.com/twigphp/cache-extra/tree/v3.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-12-02T14:45:16+00:00"
+        },
+        {
             "name": "twig/cssinliner-extra",
             "version": "v3.23.0",
             "source": {
@@ -18012,6 +16035,74 @@
                 }
             ],
             "time": "2025-12-18T20:46:15+00:00"
+        },
+        {
+            "name": "twig/html-extra",
+            "version": "v3.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/html-extra.git",
+                "reference": "2ef1d0ccaa06d4f4405b330fe6c4b6f7b50fbbc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/html-extra/zipball/2ef1d0ccaa06d4f4405b330fe6c4b6f7b50fbbc3",
+                "reference": "2ef1d0ccaa06d4f4405b330fe6c4b6f7b50fbbc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1.0",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/mime": "^5.4|^6.4|^7.0|^8.0",
+                "twig/twig": "^3.13|^4.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Resources/functions.php"
+                ],
+                "psr-4": {
+                    "Twig\\Extra\\Html\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A Twig extension for HTML",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "html",
+                "twig"
+            ],
+            "support": {
+                "source": "https://github.com/twigphp/html-extra/tree/v3.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-12-02T14:45:16+00:00"
         },
         {
             "name": "twig/inky-extra",
@@ -19462,58 +17553,6 @@
             "time": "2024-06-03T12:22:21+00:00"
         },
         {
-            "name": "yokai/sonata-workflow",
-            "version": "v0.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yokai-php/sonata-workflow.git",
-                "reference": "48aced6c31ff3d6d417b9b2fdc3914c9cbd64b60"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yokai-php/sonata-workflow/zipball/48aced6c31ff3d6d417b9b2fdc3914c9cbd64b60",
-                "reference": "48aced6c31ff3d6d417b9b2fdc3914c9cbd64b60",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0",
-                "sonata-project/admin-bundle": "^4.0",
-                "symfony/workflow": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.5",
-                "squizlabs/php_codesniffer": "^3.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Yokai\\SonataWorkflow\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Yann Eugoné",
-                    "email": "eugone.yann@gmail.com"
-                }
-            ],
-            "description": "Integrate Symfony workflow component in Sonata Admin",
-            "keywords": [
-                "admin",
-                "sonata",
-                "workflow"
-            ],
-            "support": {
-                "issues": "https://github.com/yokai-php/sonata-workflow/issues",
-                "source": "https://github.com/yokai-php/sonata-workflow/tree/v0.9.0"
-            },
-            "time": "2025-09-02T13:55:11+00:00"
-        },
-        {
             "name": "zircote/swagger-php",
             "version": "5.8.2",
             "source": {
@@ -19609,6 +17648,51 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "alisqi/twigqi",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alisqi/TwigQI.git",
+                "reference": "31c8ddb318e215a74b95cba1afedb97aa12c63bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alisqi/TwigQI/zipball/31c8ddb318e215a74b95cba1afedb97aa12c63bd",
+                "reference": "31c8ddb318e215a74b95cba1afedb97aa12c63bd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "phpdocumentor/reflection-docblock": "^5.4",
+                "psr/log": "^3.0",
+                "twig/twig": "~3.15"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlisQI\\TwigQI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Versteeg"
+                }
+            ],
+            "description": "Static code analysis for Twig templates",
+            "support": {
+                "issues": "https://github.com/alisqi/TwigQI/issues",
+                "source": "https://github.com/alisqi/TwigQI/tree/v3.1.1"
+            },
+            "time": "2025-08-27T09:43:01+00:00"
+        },
         {
             "name": "amphp/amp",
             "version": "v3.1.1",
@@ -20619,16 +18703,16 @@
         },
         {
             "name": "dadadev/phpstan-symfony-routing",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DaDeather/phpstan-symfony-routing.git",
-                "reference": "63cf673a9cc0abb4c097f790a495a93a65d41458"
+                "reference": "1e7e79b1abdf29720bcd2b668b7c4ce34bfe7cd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DaDeather/phpstan-symfony-routing/zipball/63cf673a9cc0abb4c097f790a495a93a65d41458",
-                "reference": "63cf673a9cc0abb4c097f790a495a93a65d41458",
+                "url": "https://api.github.com/repos/DaDeather/phpstan-symfony-routing/zipball/1e7e79b1abdf29720bcd2b668b7c4ce34bfe7cd8",
+                "reference": "1e7e79b1abdf29720bcd2b668b7c4ce34bfe7cd8",
                 "shasum": ""
             },
             "require": {
@@ -20643,10 +18727,10 @@
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^9.5",
-                "symfony/framework-bundle": "^6.4 || ^7.0",
+                "phpunit/phpunit": "^12.0",
+                "symfony/framework-bundle": "^6.4 || ^7.0 || ^8.0",
                 "symfony/polyfill-php80": "^1.24",
-                "symfony/routing": "^6.4 || ^7.0"
+                "symfony/routing": "^6.4 || ^7.0 || ^8.0"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -20687,9 +18771,9 @@
             ],
             "support": {
                 "issues": "https://github.com/DaDeather/phpstan-symfony-routing/issues",
-                "source": "https://github.com/DaDeather/phpstan-symfony-routing/tree/0.2.0"
+                "source": "https://github.com/DaDeather/phpstan-symfony-routing/tree/0.3.0"
             },
-            "time": "2025-01-13T13:09:21+00:00"
+            "time": "2026-01-23T18:14:11+00:00"
         },
         {
             "name": "dama/doctrine-test-bundle",
@@ -23534,6 +21618,443 @@
                 "source": "https://github.com/cweiske/jsonmapper/tree/v5.0.0"
             },
             "time": "2024-09-08T10:20:00+00:00"
+        },
+        {
+            "name": "nette/bootstrap",
+            "version": "v3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/bootstrap.git",
+                "reference": "10fdb1cb05497da39396f2ce1785cea67c8aa439"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/bootstrap/zipball/10fdb1cb05497da39396f2ce1785cea67c8aa439",
+                "reference": "10fdb1cb05497da39396f2ce1785cea67c8aa439",
+                "shasum": ""
+            },
+            "require": {
+                "nette/di": "^3.1",
+                "nette/utils": "^3.2.1 || ^4.0",
+                "php": "8.0 - 8.5"
+            },
+            "conflict": {
+                "tracy/tracy": "<2.6"
+            },
+            "require-dev": {
+                "latte/latte": "^2.8 || ^3.0",
+                "nette/application": "^3.1",
+                "nette/caching": "^3.0",
+                "nette/database": "^3.0",
+                "nette/forms": "^3.0",
+                "nette/http": "^3.0",
+                "nette/mail": "^3.0 || ^4.0",
+                "nette/robot-loader": "^3.0 || ^4.0",
+                "nette/safe-stream": "^2.2",
+                "nette/security": "^3.0",
+                "nette/tester": "^2.4",
+                "phpstan/phpstan-nette": "^2.0@stable",
+                "tracy/tracy": "^2.9"
+            },
+            "suggest": {
+                "nette/robot-loader": "to use Configurator::createRobotLoader()",
+                "tracy/tracy": "to use Configurator::enableTracy()"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nette\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🅱  Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "bootstrapping",
+                "configurator",
+                "nette"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/bootstrap/issues",
+                "source": "https://github.com/nette/bootstrap/tree/v3.2.7"
+            },
+            "time": "2025-08-01T02:02:03+00:00"
+        },
+        {
+            "name": "nette/di",
+            "version": "v3.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/di.git",
+                "reference": "5708c328ce7658a73c96b14dd6da7b8b27bf220f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/di/zipball/5708c328ce7658a73c96b14dd6da7b8b27bf220f",
+                "reference": "5708c328ce7658a73c96b14dd6da7b8b27bf220f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-tokenizer": "*",
+                "nette/neon": "^3.3",
+                "nette/php-generator": "^4.1.6",
+                "nette/robot-loader": "^4.0",
+                "nette/schema": "^1.2.5",
+                "nette/utils": "^4.0",
+                "php": "8.1 - 8.5"
+            },
+            "require-dev": {
+                "nette/tester": "^2.5.2",
+                "phpstan/phpstan-nette": "^2.0@stable",
+                "tracy/tracy": "^2.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nette\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "💎 Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP features.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "compiled",
+                "di",
+                "dic",
+                "factory",
+                "ioc",
+                "nette",
+                "static"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/di/issues",
+                "source": "https://github.com/nette/di/tree/v3.2.5"
+            },
+            "time": "2025-08-14T22:59:46+00:00"
+        },
+        {
+            "name": "nette/neon",
+            "version": "v3.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/neon.git",
+                "reference": "cc96bf5264d721d0c102bb976272d3d001a23e65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/neon/zipball/cc96bf5264d721d0c102bb976272d3d001a23e65",
+                "reference": "cc96bf5264d721d0c102bb976272d3d001a23e65",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "8.0 - 8.5"
+            },
+            "require-dev": {
+                "nette/tester": "^2.4",
+                "phpstan/phpstan-nette": "^2.0@stable",
+                "tracy/tracy": "^2.7"
+            },
+            "bin": [
+                "bin/neon-lint"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nette\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "homepage": "https://neon.nette.org",
+            "keywords": [
+                "export",
+                "import",
+                "neon",
+                "nette",
+                "yaml"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/neon/issues",
+                "source": "https://github.com/nette/neon/tree/v3.4.7"
+            },
+            "time": "2026-01-04T08:39:50+00:00"
+        },
+        {
+            "name": "nette/php-generator",
+            "version": "v4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/php-generator.git",
+                "reference": "52aff4d9b12f20ca9f3e31a559b646d2fd21dd61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/52aff4d9b12f20ca9f3e31a559b646d2fd21dd61",
+                "reference": "52aff4d9b12f20ca9f3e31a559b646d2fd21dd61",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^4.0.6",
+                "php": "8.1 - 8.5"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.2",
+                "nette/tester": "^2.6",
+                "nikic/php-parser": "^5.0",
+                "phpstan/phpstan": "^2.0@stable",
+                "tracy/tracy": "^2.8"
+            },
+            "suggest": {
+                "nikic/php-parser": "to use ClassType::from(withBodies: true) & ClassType::fromCode()"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nette\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 8.5 features.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "code",
+                "nette",
+                "php",
+                "scaffolding"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/php-generator/issues",
+                "source": "https://github.com/nette/php-generator/tree/v4.2.1"
+            },
+            "time": "2026-02-09T05:43:31+00:00"
+        },
+        {
+            "name": "nette/robot-loader",
+            "version": "v4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/robot-loader.git",
+                "reference": "fb255f5da2676d58863bef1716baf52993c7ffec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/fb255f5da2676d58863bef1716baf52993c7ffec",
+                "reference": "fb255f5da2676d58863bef1716baf52993c7ffec",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "nette/utils": "^4.0",
+                "php": "8.1 - 8.5"
+            },
+            "require-dev": {
+                "nette/tester": "^2.6",
+                "phpstan/phpstan": "^2.0@stable",
+                "tracy/tracy": "^2.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nette\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "autoload",
+                "class",
+                "interface",
+                "nette",
+                "trait"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/robot-loader/issues",
+                "source": "https://github.com/nette/robot-loader/tree/v4.1.1"
+            },
+            "time": "2026-02-08T03:51:26+00:00"
+        },
+        {
+            "name": "nette/schema",
+            "version": "v1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/schema.git",
+                "reference": "086497a2f34b82fede9b5a41cc8e131d087cd8f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/schema/zipball/086497a2f34b82fede9b5a41cc8e131d087cd8f7",
+                "reference": "086497a2f34b82fede9b5a41cc8e131d087cd8f7",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^4.0",
+                "php": "8.1 - 8.5"
+            },
+            "require-dev": {
+                "nette/tester": "^2.6",
+                "phpstan/phpstan": "^2.0@stable",
+                "tracy/tracy": "^2.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nette\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "📐 Nette Schema: validating data structures against a given Schema.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "config",
+                "nette"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/schema/issues",
+                "source": "https://github.com/nette/schema/tree/v1.3.4"
+            },
+            "time": "2026-02-08T02:54:00+00:00"
         },
         {
             "name": "nette/utils",
@@ -27302,6 +25823,88 @@
             "time": "2025-12-08T11:19:18+00:00"
         },
         {
+            "name": "twigstan/twigstan",
+            "version": "0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigstan/twigstan.git",
+                "reference": "94d4873aa131b5c50252a196f03f40bb4e102198"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigstan/twigstan/zipball/94d4873aa131b5c50252a196f03f40bb4e102198",
+                "reference": "94d4873aa131b5c50252a196f03f40bb4e102198",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2.2",
+                "nette/bootstrap": "^3.2",
+                "nette/di": "^3.2.2",
+                "nette/neon": "^3.4",
+                "nikic/php-parser": "^5.1.0",
+                "php": "^8.3",
+                "phpstan/phpdoc-parser": "^2.0",
+                "phpstan/phpstan": "^2.0",
+                "symfony/console": "^6.4 || ^7.1",
+                "symfony/filesystem": "^6.4 || ^7.1",
+                "symfony/finder": "^6.4 || ^7.1",
+                "symfony/polyfill-php84": "^1.31",
+                "symfony/process": "^6.4 || ^7.1",
+                "twig/twig": "^3.20.0"
+            },
+            "require-dev": {
+                "editorconfig-checker/editorconfig-checker": "^10.6",
+                "ergebnis/composer-normalize": "^2.43",
+                "erickskrauch/php-cs-fixer-custom-fixers": "^1.3",
+                "friendsofphp/php-cs-fixer": "^3.59",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpstan/phpstan-symfony": "^2.0",
+                "phpunit/phpunit": "^11.4",
+                "shipmonk/composer-dependency-analyser": "^1.7",
+                "staabm/phpstan-todo-by": "^0.2",
+                "symfony/form": "^6.4 || ^7.1",
+                "symfony/framework-bundle": "^6.4 || ^7.1",
+                "symfony/http-foundation": "^6.4 || ^7.1",
+                "symfony/http-kernel": "^6.4 || ^7.1",
+                "symfony/routing": "^6.4 || ^7.1",
+                "symfony/twig-bridge": "^6.4 || ^7.1",
+                "symfony/var-dumper": "^6.4 || ^7.1",
+                "ticketswap/phpstan-error-formatter": "^1.0.3",
+                "vincentlanglet/twig-cs-fixer": "^3.1"
+            },
+            "bin": [
+                "bin/twigstan"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TwigStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "TwigStan is a static analyzer for Twig templates powered by PHPStan",
+            "keywords": [
+                "static analysis",
+                "twig"
+            ],
+            "support": {
+                "issues": "https://github.com/twigstan/twigstan/issues",
+                "source": "https://github.com/twigstan/twigstan/tree/0.1.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/twigstan",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-11-11T08:58:17+00:00"
+        },
+        {
             "name": "vimeo/psalm",
             "version": "6.15.1",
             "source": {
@@ -28102,7 +26705,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.4",
+        "php": ">=8.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
