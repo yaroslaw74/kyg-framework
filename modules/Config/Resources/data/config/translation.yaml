@@ -74,6 +74,7 @@ framework:
         - en_CX
         - en_CY
         - en_DE
+        - en_DG
         - en_DK
         - en_DM
         - en_ER
@@ -167,11 +168,13 @@ framework:
         - es_CR
         - es_CU
         - es_DO
+        - es_EA
         - es_EC
         - es_ES
         - es_GQ
         - es_GT
         - es_HN
+        - es_IC
         - es_MX
         - es_NI
         - es_PA
@@ -289,6 +292,7 @@ framework:
         - sq_AL
         - sq_AL
         - sq_MK
+        - sq_XK
         - sr_Cyrl_BA
         - sr_Cyrl_ME
         - sr_Cyrl_RS
@@ -302,6 +306,7 @@ framework:
         - tl_PH
         - tr_CY
         - tr_TR
+        - uk_RU
         - uk_UA
         - ur_IN
         - ur_PK
