@@ -1,3 +1,0 @@
-twig:
-    paths:
-        "modules/Administration/Resources/templates": "Administration"
