@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -25,12 +26,12 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -50,7 +51,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private ?Uuid $id = null;
 
-    #[ORM\Column(type: Types::STRING, length: 180)]
+    #[ORM\Column(type: Types::STRING, length: 180, nullable: true)]
     private ?string $username = null;
 
     #[ORM\Column(type: Types::STRING, length: 180, unique: true, nullable: true)]
@@ -65,7 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      */
-    #[ORM\Column(type: Types::STRING)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $password = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
@@ -130,7 +131,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -178,7 +179,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
+        return $params->get('kernel.project_dir').'/public/uploads/avatar';
     }
 
     public function getId(): ?Uuid
