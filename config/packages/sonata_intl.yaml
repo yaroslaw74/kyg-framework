@@ -1,5 +1,0 @@
-sonata_intl:
-    timezone:
-        default: "UTC"
-        detectors:
-            - sonata.intl.timezone_detector.user
