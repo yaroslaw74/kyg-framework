@@ -18,6 +18,7 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
+
 ###> doctrine/migrations ###
 /migrations/
 ###< doctrine/migrations ###
@@ -30,13 +31,9 @@
 /public/uploads/
 ###< symfony/public ###
 
-###> liip/imagine-bundle ###
-/public/media/cache/
-###< liip/imagine-bundle ###
-
-###> php-flasher/flasher-symfony ###
-/public/vendor/
-###< php-flasher/flasher-symfony ###
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
 
 ###> friendsofphp/php-cs-fixer ###
 /.php-cs-fixer.php
@@ -46,10 +43,6 @@
 ###> kocal/biome-js-bundle ###
 /bin/biome*
 ###< kocal/biome-js-bundle ###
-
-###> phpstan/phpstan ###
-phpstan.neon
-###< phpstan/phpstan ###
 
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
