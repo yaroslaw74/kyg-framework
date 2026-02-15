@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\User;
-use App\Modules\Users\Form\ChangePasswordFormType;
-use App\Modules\Users\Form\ResetPasswordRequestFormType;
+use App\Modules\Users\Form\Type\ChangePasswordFormType;
+use App\Modules\Users\Form\type\ResetPasswordRequestFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
