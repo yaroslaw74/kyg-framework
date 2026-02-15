@@ -24,6 +24,8 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
+use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
+use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -40,8 +42,9 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[ApiResource]
 #[Gedmo\SoftDeleteable]
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
 {
+    use TimezoneAwareTrait;
     use SoftDeleteableEntity;
     use BlameableEntity;
 
@@ -118,9 +121,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: false, options: ['default' => UsersStatus::STATUS_NEW])]
     #[Enum(enum: StatusUsers::class)]
     private UsersStatus $status = UsersStatus::STATUS_NEW;
-
-    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
-    private ?string $timezone = null;
 
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
@@ -448,11 +448,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->status = $status;
 
         return $this;
-    }
-
-    public function getTimezone(): ?string
-    {
-        return $this->timezone;
     }
 
     public function setTimezone(string $timezone): static
