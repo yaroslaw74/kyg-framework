@@ -1,5 +1,4 @@
 <?php
-
 /**
  * KYG Framework for Business.
  *
@@ -24,28 +23,24 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
-use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
-use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
-use Sonata\UserBundle\Entity\BaseUser;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
+#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
+#[ApiResource]
 #[Gedmo\SoftDeleteable]
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
-#[ApiResource]
-#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    use TimezoneAwareTrait;
     use SoftDeleteableEntity;
     use BlameableEntity;
 
@@ -53,7 +48,25 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
-    protected $id;
+    private ?Uuid $id = null;
+
+    #[ORM\Column(type: Types::STRING, length: 180)]
+    private ?string $username = null;
+
+    #[ORM\Column(type: Types::STRING, length: 180, unique: true, nullable: true)]
+    private ?string $email = null;
+
+    /**
+     * @var list<string> The user roles
+     */
+    #[ORM\Column(type: Types::JSON)]
+    private array $roles = [];
+
+    /**
+     * @var string The hashed password
+     */
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $password = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $firstName = null;
@@ -105,6 +118,9 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[Enum(enum: StatusUsers::class)]
     private UsersStatus $status = UsersStatus::STATUS_NEW;
 
+    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
+    private ?string $timezone = null;
+
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
@@ -114,7 +130,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -127,22 +143,14 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
         [
             $this->id,
             $this->username,
-            $this->usernameCanonical,
             $this->email,
-            $this->emailCanonical,
             $this->password,
-            $this->plainPassword,
             $this->firstName,
             $this->lastName,
             $this->middleName,
             $this->locale,
             $this->avatar,
             $this->gravatar,
-            $this->enabled,
-            $this->salt,
-            $this->lastLogin,
-            $this->confirmationToken,
-            $this->passwordRequestedAt,
             $this->roles,
             $this->facebook,
             $this->google,
@@ -153,9 +161,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
             $this->xTwitter,
             $this->vkontakte,
             $this->github,
-            $this->createdAt,
             $this->createdBy,
-            $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
             $this->timezone,
@@ -164,29 +170,91 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
         ] = $data;
     }
 
+    #[\Deprecated]
+    public function eraseCredentials(): void
+    {
+        // @deprecated, to be removed when upgrading to Symfony 8
+    }
+
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir').'/public/uploads/avatar';
+        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
     }
 
-    public function getId(): ?string
+    public function getId(): ?Uuid
     {
-        if (null !== $this->id) {
-            /*
-             * @phpstan-ignore method.nonObject
-             */
-            return $this->id->toString();
-        }
-
-        return null;
-    }
-
-    public function getUuid(): ?Uuid
-    {
-        /*
-         * @phpstan-ignore return.type
-         */
         return $this->id;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): static
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->username;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    /**
+     * @param list<string> $roles
+     */
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): static
+    {
+        $this->password = $password;
+
+        return $this;
     }
 
     public function getFirstName(): ?string
@@ -369,13 +437,6 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
         return $this;
     }
 
-    public function setTimezone(string $timezone): static
-    {
-        $this->timezone = $timezone;
-
-        return $this;
-    }
-
     public function getStatus(): UsersStatus
     {
         return $this->status;
@@ -384,6 +445,18 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function setStatus(UsersStatus $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getTimezone(): ?string
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone(string $timezone): static
+    {
+        $this->timezone = $timezone;
 
         return $this;
     }
