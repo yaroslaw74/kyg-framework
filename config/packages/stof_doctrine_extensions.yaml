@@ -14,7 +14,7 @@ stof_doctrine_extensions:
             translatable: true
             blameable: true
             sluggable: true
-            loggable: true
+            loggable: false
             ip_traceable: true
             sortable: true
             softdeleteable: true
