@@ -1,6 +1,0 @@
-sonata_block:
-    profiler:
-        enabled: "%kernel.debug%"
-        template: "@SonataBlock/Profiler/block.html.twig"
-    blocks:
-        sonata.formatter.block.formatter: ~
