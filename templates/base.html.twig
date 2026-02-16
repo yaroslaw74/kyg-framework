@@ -7,11 +7,11 @@
  #  @License    GNU General Public License version 3 or later, see LICENSE
  #}
 <!DOCTYPE html>
-<html lang="{{ locale_HTML(app.locale) }}" dir="{{ locale_dir(app.locale) }}" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<html lang="{{ locale_HTML(app.locale) }}" dir="{{ locale_dir(app.locale) }}" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close" {%- block html_attributes -%}{%- endblock -%}>
     <head>
         <meta charset="UTF-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="robots" content="noindex, nofollow">
         <meta name="autor" content="Kataev Yaroslav">
         <meta name="Description" content="KYG Framework for Business">
@@ -23,6 +23,7 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
+        {% block meta_tags %}{% endblock %}
         <title>{% block title %}{% if app_name %}{{ app_name }}|{% endif %}KYG Framevork{% endblock %}</title>
         <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}">
         <link rel="icon" sizes="96x96" href="{{ asset('images/ico/kyg-96X96.png') }}">
@@ -43,11 +44,14 @@
         {% block javascripts %}{% endblock %}
         <script src="{{ asset('vendor/flasher/flasher.min.js') }}"></script>
     </head>
-    <body {{ stimulus_controller('swup', {
-        animateHistoryBrowsing: true,
-        theme: 'slide',
-        debug: app.debug,
-    }) }}>
+    <body
+        {{ stimulus_controller('swup', {
+            animateHistoryBrowsing: true,
+            theme: 'slide',
+            debug: app.debug,
+        }) }}
+        {%- block body_attributes -%}{%- endblock -%}
+    >
         {% block body %}{% endblock %}
     </body>
 </html>
