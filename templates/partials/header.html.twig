@@ -52,11 +52,16 @@
                     <i class="header-icon fe fe-align-left"></i>
                 </a>
                 <div class="main-header-center d-none d-lg-block">
-                    <input class="form-control" placeholder="{% trans %}Search for anything...{% endtrans %}" type="search"><button class="btn"><i class="fa fa-search d-none d-md-block"></i></button>
+                    {% block searh %}
+                        <input class="form-control" placeholder="{% trans %}Search for anything...{% endtrans %}" type="search">
+                        <button class="btn"><i class="fa fa-search d-none d-md-block"></i></button>
+                    {% endblock %}
                 </div>
                 <!-- End::header-link -->
             </div>
             <!-- End::header-element -->
+
+            {% block header %}{% endblock %}
 
         </div>
         <!-- End::header-content-left -->
