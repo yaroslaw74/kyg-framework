@@ -71,6 +71,9 @@
         "scheb/2fa-trusted-device": "^8.3",
         "shivas/versioning-bundle": "^4.1.1",
         "slowprog/composer-copy-file": "^0.3.3",
+        "sonata-project/admin-bundle": ">=4.42",
+        "sonata-project/block-bundle": ">=5.4",
+        "sonata-project/doctrine-orm-admin-bundle": ">=4.21",
         "sonata-project/intl-bundle": "^3.3",
         "stof/doctrine-extensions-bundle": "^1.15.3",
         "symfony/apache-pack": "^1.0.1",
@@ -177,7 +180,6 @@
         "yokai/security-token-bundle": "^3.4"
     },
     "require-dev": {
-        "alisqi/twigqi": "^3.1.1",
         "dadadev/phpstan-symfony-routing": "^0.3",
         "dama/doctrine-test-bundle": "^8.6",
         "doctrine/doctrine-fixtures-bundle": "^4.3.1",
