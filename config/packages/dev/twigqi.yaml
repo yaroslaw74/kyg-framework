@@ -1,4 +1,0 @@
-services:
-    AlisQI\TwigQI\Extension:
-        autowire: true
-        tags: ["twig.extension"]
