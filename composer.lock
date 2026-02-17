@@ -20819,16 +20819,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "1fd7db2203ce5a935fffd2ad40955248fb9f581c"
+                "reference": "f35c084f0d9bc57895515cb4d0665797c66285fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/1fd7db2203ce5a935fffd2ad40955248fb9f581c",
-                "reference": "1fd7db2203ce5a935fffd2ad40955248fb9f581c",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/f35c084f0d9bc57895515cb4d0665797c66285fd",
+                "reference": "f35c084f0d9bc57895515cb4d0665797c66285fd",
                 "shasum": ""
             },
             "require": {
@@ -20875,11 +20875,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-02-09T13:43:38+00:00"
+            "time": "2026-02-16T14:10:38+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -20925,16 +20925,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "3d4eeab332c04a9eaea90968c19a66f78745e47a"
+                "reference": "620d82bad07f55fcb7f5125f44c9d9b93335fb8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/3d4eeab332c04a9eaea90968c19a66f78745e47a",
-                "reference": "3d4eeab332c04a9eaea90968c19a66f78745e47a",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/620d82bad07f55fcb7f5125f44c9d9b93335fb8c",
+                "reference": "620d82bad07f55fcb7f5125f44c9d9b93335fb8c",
                 "shasum": ""
             },
             "require": {
@@ -20969,11 +20969,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-01-28T15:26:27+00:00"
+            "time": "2026-02-10T18:16:44+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -21019,7 +21019,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -21071,7 +21071,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -21122,16 +21122,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v12.51.0",
+            "version": "v12.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "fcc84cf4fba138f1835d6a5978ac4434f11a55aa"
+                "reference": "6e9de455bcb232372db11531b72a01d4eca83ef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/fcc84cf4fba138f1835d6a5978ac4434f11a55aa",
-                "reference": "fcc84cf4fba138f1835d6a5978ac4434f11a55aa",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/6e9de455bcb232372db11531b72a01d4eca83ef2",
+                "reference": "6e9de455bcb232372db11531b72a01d4eca83ef2",
                 "shasum": ""
             },
             "require": {
@@ -21198,7 +21198,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-02-10T16:02:09+00:00"
+            "time": "2026-02-14T23:03:41+00:00"
         },
         {
             "name": "jawira/db-draw",
@@ -21758,16 +21758,16 @@
         },
         {
             "name": "kocal/phpstan-symfony-ux",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kocal/phpstan-symfony-ux.git",
-                "reference": "42ddbac0b31afdf867b16e70e7cb91e54950d9ea"
+                "reference": "4b1d8d578aa385fa584eb561a6ea8a85c66a4241"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kocal/phpstan-symfony-ux/zipball/42ddbac0b31afdf867b16e70e7cb91e54950d9ea",
-                "reference": "42ddbac0b31afdf867b16e70e7cb91e54950d9ea",
+                "url": "https://api.github.com/repos/Kocal/phpstan-symfony-ux/zipball/4b1d8d578aa385fa584eb561a6ea8a85c66a4241",
+                "reference": "4b1d8d578aa385fa584eb561a6ea8a85c66a4241",
                 "shasum": ""
             },
             "require": {
@@ -21806,9 +21806,9 @@
             "description": "PHPStan rules for Symfony UX",
             "support": {
                 "issues": "https://github.com/Kocal/phpstan-symfony-ux/issues",
-                "source": "https://github.com/Kocal/phpstan-symfony-ux/tree/v1.1.1"
+                "source": "https://github.com/Kocal/phpstan-symfony-ux/tree/v1.2.0"
             },
-            "time": "2026-02-09T21:59:52+00:00"
+            "time": "2026-02-17T10:05:30+00:00"
         },
         {
             "name": "league/uri",
@@ -26736,16 +26736,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.9.1",
+            "version": "v2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "304e5333e62745a8f1b70e40b284c1d278b61cf0"
+                "reference": "9f3fe969d37fd5a0799ca455af9990a88036b6a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/304e5333e62745a8f1b70e40b284c1d278b61cf0",
-                "reference": "304e5333e62745a8f1b70e40b284c1d278b61cf0",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/9f3fe969d37fd5a0799ca455af9990a88036b6a0",
+                "reference": "9f3fe969d37fd5a0799ca455af9990a88036b6a0",
                 "shasum": ""
             },
             "require": {
@@ -26844,7 +26844,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.9.1"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.9.2"
             },
             "funding": [
                 {
@@ -26856,7 +26856,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-08T14:53:41+00:00"
+            "time": "2026-02-17T15:48:50+00:00"
         },
         {
             "name": "zenstruck/mailer-test",
