@@ -15,12 +15,12 @@ declare(strict_types=1);
 namespace App\Modules\System\Entity;
 
 use App\Modules\System\Repository\SonataMediaGalleryRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\MediaBundle\Entity\BaseGallery;
-use Doctrine\DBAL\Types\Types;
 
 /**
  * @phpstan-ignore missingType.generics
