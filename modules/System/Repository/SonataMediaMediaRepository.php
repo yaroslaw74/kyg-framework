@@ -35,7 +35,7 @@ class SonataMediaMediaRepository extends ServiceEntityRepository
      */
     public function findByExampleField($value): array
     {
-        /**
+        /*
          * @phpstan-ignore doctrine.dql
          */
         return $this->createQueryBuilder('s')
@@ -53,7 +53,7 @@ class SonataMediaMediaRepository extends ServiceEntityRepository
      */
     public function findOneBySomeField($value): ?SonataMediaMedia
     {
-        /**
+        /*
          * @phpstan-ignore doctrine.dql
          */
         return $this->createQueryBuilder('s')
