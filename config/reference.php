@@ -2997,6 +2997,161 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         generate_thumbnails_bus?: scalar|Param|null, // Default: "messenger.default_bus"
  *     },
  * }
+ * @psalm-type LiipImagineConfig = array{
+ *     resolvers?: array<string, array{ // Default: []
+ *         web_path?: array{
+ *             web_root?: scalar|Param|null, // Default: "%kernel.project_dir%/public"
+ *             cache_prefix?: scalar|Param|null, // Default: "media/cache"
+ *         },
+ *         aws_s3?: array{
+ *             bucket: scalar|Param|null,
+ *             cache?: scalar|Param|null, // Default: false
+ *             use_psr_cache?: bool|Param, // Default: false
+ *             acl?: scalar|Param|null, // Default: "public-read"
+ *             cache_prefix?: scalar|Param|null, // Default: ""
+ *             client_id?: scalar|Param|null, // Default: null
+ *             client_config: list<mixed>,
+ *             get_options?: array<string, scalar|Param|null>,
+ *             put_options?: array<string, scalar|Param|null>,
+ *             proxies?: array<string, scalar|Param|null>,
+ *         },
+ *         flysystem?: array{
+ *             filesystem_service: scalar|Param|null,
+ *             cache_prefix?: scalar|Param|null, // Default: ""
+ *             root_url: scalar|Param|null,
+ *             visibility?: "public"|"private"|"noPredefinedVisibility"|Param, // Default: "public"
+ *         },
+ *     }>,
+ *     loaders?: array<string, array{ // Default: []
+ *         stream?: array{
+ *             wrapper: scalar|Param|null,
+ *             context?: scalar|Param|null, // Default: null
+ *         },
+ *         filesystem?: array{
+ *             locator?: "filesystem"|"filesystem_insecure"|Param, // Using the "filesystem_insecure" locator is not recommended due to a less secure resolver mechanism, but is provided for those using heavily symlinked projects. // Default: "filesystem"
+ *             data_root?: list<scalar|Param|null>,
+ *             allow_unresolvable_data_roots?: bool|Param, // Default: false
+ *             bundle_resources?: array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 access_control_type?: "blacklist"|"whitelist"|Param, // Sets the access control method applied to bundle names in "access_control_list" into a blacklist or whitelist. // Default: "blacklist"
+ *                 access_control_list?: list<scalar|Param|null>,
+ *             },
+ *         },
+ *         flysystem?: array{
+ *             filesystem_service: scalar|Param|null,
+ *         },
+ *         asset_mapper?: array<mixed>,
+ *         chain?: array{
+ *             loaders: list<scalar|Param|null>,
+ *         },
+ *     }>,
+ *     driver?: scalar|Param|null, // Default: "gd"
+ *     cache?: scalar|Param|null, // Default: "default"
+ *     cache_base_path?: scalar|Param|null, // Default: ""
+ *     data_loader?: scalar|Param|null, // Default: "default"
+ *     default_image?: scalar|Param|null, // Default: null
+ *     default_filter_set_settings?: array{
+ *         quality?: scalar|Param|null, // Default: 100
+ *         jpeg_quality?: scalar|Param|null, // Default: null
+ *         png_compression_level?: scalar|Param|null, // Default: null
+ *         png_compression_filter?: scalar|Param|null, // Default: null
+ *         format?: scalar|Param|null, // Default: null
+ *         animated?: bool|Param, // Default: false
+ *         cache?: scalar|Param|null, // Default: null
+ *         data_loader?: scalar|Param|null, // Default: null
+ *         default_image?: scalar|Param|null, // Default: null
+ *         filters?: array<string, array<string, mixed>>,
+ *         post_processors?: array<string, array<string, mixed>>,
+ *     },
+ *     controller?: array{
+ *         filter_action?: scalar|Param|null, // Default: "Liip\\ImagineBundle\\Controller\\ImagineController::filterAction"
+ *         filter_runtime_action?: scalar|Param|null, // Default: "Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction"
+ *         redirect_response_code?: int|Param, // Default: 302
+ *     },
+ *     filter_sets?: array<string, array{ // Default: []
+ *         quality?: scalar|Param|null,
+ *         jpeg_quality?: scalar|Param|null,
+ *         png_compression_level?: scalar|Param|null,
+ *         png_compression_filter?: scalar|Param|null,
+ *         format?: scalar|Param|null,
+ *         animated?: bool|Param,
+ *         cache?: scalar|Param|null,
+ *         data_loader?: scalar|Param|null,
+ *         default_image?: scalar|Param|null,
+ *         filters?: array<string, array<string, mixed>>,
+ *         post_processors?: array<string, array<string, mixed>>,
+ *     }>,
+ *     twig?: array{
+ *         mode?: "none"|"lazy"|"legacy"|Param, // Twig mode: none/lazy/legacy (default) // Default: "legacy"
+ *         assets_version?: scalar|Param|null, // Default: null
+ *     },
+ *     enqueue?: bool|Param, // Enables integration with enqueue if set true. Allows resolve image caches in background by sending messages to MQ. // Default: false
+ *     messenger?: bool|array{ // Enables integration with symfony/messenger if set true. Warmup image caches in background by sending messages to MQ.
+ *         enabled?: bool|Param, // Default: false
+ *     },
+ *     templating?: bool|Param, // Enables integration with symfony/templating component // Default: true
+ *     webp?: array{
+ *         generate?: bool|Param, // Default: false
+ *         quality?: int|Param, // Default: 100
+ *         cache?: scalar|Param|null, // Default: null
+ *         data_loader?: scalar|Param|null, // Default: null
+ *         post_processors?: array<string, array<string, mixed>>,
+ *     },
+ * }
+ * @psalm-type SonataClassificationConfig = array{
+ *     class?: array{
+ *         tag?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Tag"
+ *         category?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Category"
+ *         collection?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Collection"
+ *         context?: scalar|Param|null, // Default: "Application\\Sonata\\ClassificationBundle\\Entity\\Context"
+ *     },
+ *     admin?: array{
+ *         category?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\CategoryAdmin"
+ *             controller?: scalar|Param|null, // Default: "sonata.classification.controller.category_admin"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *         tag?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\TagAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *         collection?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\CollectionAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *         context?: array{
+ *             class?: scalar|Param|null, // Default: "Sonata\\ClassificationBundle\\Admin\\ContextAdmin"
+ *             controller?: scalar|Param|null, // Default: "%sonata.admin.configuration.default_controller%"
+ *             translation?: scalar|Param|null, // Default: "SonataClassificationBundle"
+ *         },
+ *     },
+ * }
+ * @psalm-type SonataFormatterConfig = array{
+ *     default_formatter: scalar|Param|null,
+ *     formatters?: array<string, array{ // Default: []
+ *         service: scalar|Param|null,
+ *         extensions?: list<scalar|Param|null>,
+ *     }>,
+ * }
+ * @psalm-type SonataTranslationConfig = array{
+ *     locales?: list<scalar|Param|null>,
+ *     default_locale?: scalar|Param|null, // The frontend locale that is used by default. // Default: "en"
+ *     default_filter_mode?: "gedmo"|"knplabs"|Param, // The filter mode that is used by default. // Default: "gedmo"
+ *     gedmo?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         implements?: list<scalar|Param|null>,
+ *         instanceof?: list<scalar|Param|null>,
+ *         translatable_listener_service?: scalar|Param|null, // Custom translatable listener service name when using gedmo/doctrine-extensions
+ *     },
+ *     knplabs?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         implements?: list<scalar|Param|null>,
+ *         instanceof?: list<scalar|Param|null>,
+ *     },
+ *     locale_switcher?: bool|Param, // Enable the global locale switcher services. // Default: false
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -3051,6 +3206,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *     sonata_auto_configure?: SonataAutoConfigureConfig,
  *     sonata_media?: SonataMediaConfig,
+ *     liip_imagine?: LiipImagineConfig,
+ *     sonata_classification?: SonataClassificationConfig,
+ *     sonata_formatter?: SonataFormatterConfig,
+ *     sonata_translation?: SonataTranslationConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -3109,6 +3268,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *         sonata_auto_configure?: SonataAutoConfigureConfig,
  *         sonata_media?: SonataMediaConfig,
+ *         liip_imagine?: LiipImagineConfig,
+ *         sonata_classification?: SonataClassificationConfig,
+ *         sonata_formatter?: SonataFormatterConfig,
+ *         sonata_translation?: SonataTranslationConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3165,6 +3328,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *         sonata_auto_configure?: SonataAutoConfigureConfig,
  *         sonata_media?: SonataMediaConfig,
+ *         liip_imagine?: LiipImagineConfig,
+ *         sonata_classification?: SonataClassificationConfig,
+ *         sonata_formatter?: SonataFormatterConfig,
+ *         sonata_translation?: SonataTranslationConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
