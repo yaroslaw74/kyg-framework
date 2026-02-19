@@ -1,7 +1,7 @@
 sonata_user_admin_security:
-    resource: "@SonataUserBundle/Resources/config/routing/admin_security.xml"
+    resource: "@SonataUserBundle/Resources/config/routing/admin_security.php"
     prefix: /admin
 
 sonata_user_admin_resetting:
-    resource: "@SonataUserBundle/Resources/config/routing/admin_resetting.xml"
+    resource: "@SonataUserBundle/Resources/config/routing/admin_resetting.php"
     prefix: /admin
