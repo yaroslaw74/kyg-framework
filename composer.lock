@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56c92a0040cd7d40cafa40f65fab9991",
+    "content-hash": "4f1ee6f12218b34b1b72bbd70efb09b7",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -2242,6 +2242,84 @@
                 }
             ],
             "time": "2024-05-06T16:37:16+00:00"
+        },
+        {
+            "name": "darkwebdesign/symfony-addon-pack",
+            "version": "v7.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darkwebdesign/symfony-addon-pack.git",
+                "reference": "5a99cd5abbca6cf9f8a7f8059f0873559c76ad64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darkwebdesign/symfony-addon-pack/zipball/5a99cd5abbca6cf9f8a7f8059f0873559c76ad64",
+                "reference": "5a99cd5abbca6cf9f8a7f8059f0873559c76ad64",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^8.2",
+                "symfony/event-dispatcher": "7.4.*",
+                "symfony/form": "7.4.*",
+                "symfony/options-resolver": "7.4.*",
+                "symfony/validator": "7.4.*"
+            },
+            "conflict": {
+                "doctrine/orm": "<2.7"
+            },
+            "replace": {
+                "darkwebdesign/symfony-addon-constraints": "self.version",
+                "darkwebdesign/symfony-addon-form-types": "self.version",
+                "darkwebdesign/symfony-addon-transformers": "self.version"
+            },
+            "require-dev": {
+                "doctrine/orm": "^2.7",
+                "friendsofphp/php-cs-fixer": "^3.93",
+                "maglnet/composer-require-checker": "^4.17",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-doctrine": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-symfony": "^2.0",
+                "phpunit/phpunit": "^10.5",
+                "rector/rector": "^2.3"
+            },
+            "suggest": {
+                "doctrine/orm": "Required for EntityToIdentifierTransformer and EntityType"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DarkWebDesign\\SymfonyAddonFormTypes\\": "symfony-addon-form-types/src/",
+                    "DarkWebDesign\\SymfonyAddonConstraints\\": "symfony-addon-constraints/src/",
+                    "DarkWebDesign\\SymfonyAddonTransformers\\": "symfony-addon-transformers/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raymond Schouten"
+                }
+            ],
+            "description": "Symfony Add-on Pack",
+            "homepage": "https://www.darkwebdesign.nl/",
+            "keywords": [
+                "constraints",
+                "form",
+                "symfony",
+                "transformers",
+                "types",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/darkwebdesign/symfony-addon-pack/issues",
+                "source": "https://github.com/darkwebdesign/symfony-addon-pack/tree/v7.4.0"
+            },
+            "time": "2026-02-11T13:54:43+00:00"
         },
         {
             "name": "doctrine/cache",
