@@ -27,13 +27,10 @@ use Gedmo\Uploadable\Mapping\Validator;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Sonata\UserBundle\Entity\BaseUser;
-use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
-use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Uid\Uuid;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -50,9 +47,8 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     use BlameableEntity;
 
     #[ORM\Id]
-    #[ORM\Column(type: UuidType::NAME, unique: true)]
-    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: Types::INTEGER, unique: true, nullable: true)]
     protected $id;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
@@ -167,26 +163,6 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function path(ContainerBagInterface $params): string
     {
         return $params->get('kernel.project_dir').'/public/uploads/avatar';
-    }
-
-    public function getId(): ?string
-    {
-        if (null !== $this->id) {
-            /*
-             * @phpstan-ignore method.nonObject
-             */
-            return $this->id->toString();
-        }
-
-        return null;
-    }
-
-    public function getUuid(): ?Uuid
-    {
-        /*
-         * @phpstan-ignore return.type
-         */
-        return $this->id;
     }
 
     public function getFirstName(): ?string
