@@ -68,4 +68,5 @@ return [
     Sonata\Exporter\Bridge\Symfony\SonataExporterBundle::class => ['all' => true],
     Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
     Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle::class => ['all' => true],
+    Nucleos\SonataAutoConfigureBundle\SonataAutoConfigureBundle::class => ['all' => true],
 ];
