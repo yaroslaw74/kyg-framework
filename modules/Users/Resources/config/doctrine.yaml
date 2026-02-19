@@ -1,6 +1,7 @@
 doctrine:
     orm:
         mappings:
+            SonataUserBundle: ~
             Users:
                 type: attribute
                 is_bundle: false
