@@ -15,12 +15,12 @@ declare(strict_types=1);
 namespace App\Modules\System\Entity;
 
 use App\Modules\System\Repository\SonataMediaMediaRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\MediaBundle\Entity\BaseMedia;
-use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: SonataMediaMediaRepository::class)]
 #[ORM\Table(name: 'media__media')]
@@ -80,10 +80,8 @@ class SonataMediaMedia extends BaseMedia
         ] = $data;
     }
 
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
 }
