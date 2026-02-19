@@ -1,0 +1,7 @@
+sonata_user:
+    class:
+        user: App\Modules\Users\Entity\User
+    resetting:
+        email:
+            address: "%app.email_bot%"
+            sender_name: "%app.name_bot%"
