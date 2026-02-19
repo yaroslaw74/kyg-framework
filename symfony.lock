@@ -229,6 +229,9 @@
     "nelmio/js-logger-bundle": {
         "version": "1.11.0"
     },
+    "nucleos/sonata-auto-configure-bundle": {
+        "version": "1.3.0"
+    },
     "php-flasher/flasher-symfony": {
         "version": "v2.4.0"
     },
