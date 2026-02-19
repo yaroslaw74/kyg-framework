@@ -33,6 +33,7 @@
         "balrok/composer-mkdir": "^2.1.1",
         "ckfinder/ckfinder-symfony-bundle": "^4.0.3",
         "composer/composer": "^2.9.5",
+        "darkwebdesign/symfony-addon-pack": "^7.4",
         "doctrine/dbal": "^3.10.4|^4.0",
         "doctrine/doctrine-bundle": "^2.18.2|^3.0",
         "doctrine/doctrine-migrations-bundle": "^3.7|^4.0",
