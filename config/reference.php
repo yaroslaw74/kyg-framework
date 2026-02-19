@@ -2810,6 +2810,27 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *     },
  * }
+ * @psalm-type SonataAutoConfigureConfig = array{
+ *     admin?: array{
+ *         suffix?: scalar|Param|null, // Default: "Admin"
+ *         manager_type?: scalar|Param|null, // Default: "orm"
+ *         label_catalogue?: scalar|Param|null, // Default: null
+ *         label_translator_strategy?: scalar|Param|null, // Default: null
+ *         translation_domain?: scalar|Param|null, // Default: null
+ *         group?: scalar|Param|null, // Default: null
+ *         pager_type?: scalar|Param|null, // Default: null
+ *     },
+ *     entity?: array{
+ *         namespaces?: list<array{ // Default: [{"namespace":"App\\Entity","manager_type":"orm"}]
+ *             namespace?: scalar|Param|null,
+ *             manager_type?: scalar|Param|null, // Default: "orm"
+ *         }>,
+ *     },
+ *     controller?: array{
+ *         suffix?: scalar|Param|null, // Default: "Controller"
+ *         namespaces?: list<scalar|Param|null>,
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2862,6 +2883,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_exporter?: SonataExporterConfig,
  *     sonata_admin?: SonataAdminConfig,
  *     sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *     sonata_auto_configure?: SonataAutoConfigureConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2918,6 +2940,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_exporter?: SonataExporterConfig,
  *         sonata_admin?: SonataAdminConfig,
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_auto_configure?: SonataAutoConfigureConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2972,6 +2995,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_exporter?: SonataExporterConfig,
  *         sonata_admin?: SonataAdminConfig,
  *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
+ *         sonata_auto_configure?: SonataAutoConfigureConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
