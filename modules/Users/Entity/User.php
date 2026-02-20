@@ -26,7 +26,6 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
-use Sonata\UserBundle\Entity\BaseUser;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -40,7 +39,7 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
 {
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
@@ -48,8 +47,26 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: Types::INTEGER, unique: true, nullable: true)]
-    protected $id;
+    #[ORM\Column(type: Types::INTEGER)]
+    private ?int $id = null;
+
+    #[ORM\Column(type: Types::STRING, nullable: true, unique: true)]
+    private ?string $username = null;
+
+    #[ORM\Column(type: Types::STRING, nullable: true, unique: true)]
+    private ?string $email = null;
+
+    /**
+     * @var list<string> The user roles
+     */
+    #[ORM\Column(type: Types::JSON)]
+    private array $roles = [];
+
+    /**
+     * @var string The hashed password
+     */
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $password = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $firstName = null;
@@ -104,6 +121,17 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    protected ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    protected ?\DateTimeInterface $updatedAt = null;
+
+    public function __toString(): string
+    {
+        return $this->getUserIdentifier();
+    }
+
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
      */
@@ -123,22 +151,14 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
         [
             $this->id,
             $this->username,
-            $this->usernameCanonical,
             $this->email,
-            $this->emailCanonical,
             $this->password,
-            $this->plainPassword,
             $this->firstName,
             $this->lastName,
             $this->middleName,
             $this->locale,
             $this->avatar,
             $this->gravatar,
-            $this->enabled,
-            $this->salt,
-            $this->lastLogin,
-            $this->confirmationToken,
-            $this->passwordRequestedAt,
             $this->roles,
             $this->facebook,
             $this->google,
@@ -163,6 +183,94 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function path(ContainerBagInterface $params): string
     {
         return $params->get('kernel.project_dir').'/public/uploads/avatar';
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     *
+     * @deprecated since Symfony 7.3, erase credentials using the "__serialize()" method instead
+     */
+    public function eraseCredentials(): void
+    {
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(?string $username): static
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    /**
+     * @param list<string> $roles
+     */
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): static
+    {
+        $this->password = $password;
+
+        return $this;
     }
 
     public function getFirstName(): ?string
@@ -374,5 +482,25 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt = null): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt = null): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 }
