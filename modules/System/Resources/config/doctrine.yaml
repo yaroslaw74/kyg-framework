@@ -1,7 +1,6 @@
 doctrine:
     orm:
         mappings:
-            SonataMediaBundle: ~
             System:
                 type: attribute
                 is_bundle: false
