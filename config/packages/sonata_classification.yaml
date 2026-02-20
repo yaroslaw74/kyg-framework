@@ -1,6 +1,0 @@
-sonata_classification:
-    class:
-        category: App\Modules\Config\Entity\SonataClassificationCategory
-        collection: App\Modules\Config\Entity\SonataClassificationCollection
-        context: App\Modules\Config\Entity\SonataClassificationContext
-        tag: App\Modules\Config\Entity\SonataClassificationTag
