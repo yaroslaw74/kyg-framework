@@ -1,7 +1,6 @@
 doctrine:
     orm:
         mappings:
-            SonataClassificationBundle: ~
             Config:
                 type: attribute
                 is_bundle: false
