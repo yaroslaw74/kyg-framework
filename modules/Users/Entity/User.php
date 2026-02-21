@@ -193,8 +193,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
      *
      * @deprecated since Symfony 7.3, erase credentials using the "__serialize()" method instead
      */
+    #[\Deprecated]
     public function eraseCredentials(): void
     {
+        // @deprecated, to be removed when upgrading to Symfony 8
     }
 
     public function getId(): ?int
