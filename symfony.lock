@@ -13,9 +13,6 @@
             "./src/ApiResource/.gitignore"
         ]
     },
-    "ckfinder/ckfinder-symfony-bundle": {
-        "version": "4.0.3"
-    },
     "dama/doctrine-test-bundle": {
         "version": "8.6",
         "recipe": {
@@ -38,12 +35,12 @@
         }
     },
     "doctrine/doctrine-bundle": {
-        "version": "2.18",
+        "version": "3.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "2.13",
-            "ref": "620b57f496f2e599a6015a9fa222c2ee0a32adcb"
+            "version": "3.0",
+            "ref": "18ee08e513ba0303fd09a01fc1c934870af06ffa"
         },
         "files": [
             "./config/packages/doctrine.yaml",
@@ -64,7 +61,7 @@
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
-        "version": "3.7",
+        "version": "4.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -139,7 +136,7 @@
         ]
     },
     "hwi/oauth-bundle": {
-        "version": "2.4",
+        "version": "2.5",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "main",
@@ -199,19 +196,6 @@
         "files": [
             "./config/packages/flysystem.yaml",
             "./var/storage/.gitignore"
-        ]
-    },
-    "liip/imagine-bundle": {
-        "version": "2.17",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "1.8",
-            "ref": "d1227d002b70d1a1f941d91845fcd7ac7fbfc929"
-        },
-        "files": [
-            "./config/packages/liip_imagine.yaml",
-            "./config/routes/liip_imagine.yaml"
         ]
     },
     "nelmio/api-doc-bundle": {
@@ -325,7 +309,7 @@
         ]
     },
     "shapecode/cron-bundle": {
-        "version": "7.3.0"
+        "version": "8.0.0"
     },
     "shivas/versioning-bundle": {
         "version": "4.1.1"
@@ -334,7 +318,7 @@
         "version": "3.3.0"
     },
     "spatie/symfony-ignition-bundle": {
-        "version": "1.2",
+        "version": "1.3",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "main",
@@ -821,9 +805,6 @@
     },
     "yokai/enum-bundle": {
         "version": "v5.1.0"
-    },
-    "yokai/security-token-bundle": {
-        "version": "v3.4.0"
     },
     "zenstruck/browser": {
         "version": "1.10",
