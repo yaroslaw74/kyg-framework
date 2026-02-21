@@ -18,23 +18,6 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-
-###> doctrine/migrations ###
-/migrations/
-###< doctrine/migrations ###
-
-###> symfony/public ###
-/public/additions/
-/public/storage/
-/public/theme/
-/public/translations/
-/public/uploads/
-###< symfony/public ###
-
-###> php-flasher/flasher-symfony ###
-/public/vendor/
-###< php-flasher/flasher-symfony ###
-
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
@@ -52,6 +35,14 @@ phpstan.neon
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
 
-###> liip/imagine-bundle ###
-/public/media/cache/
-###< liip/imagine-bundle ###
+###> doctrine/migrations ###
+/migrations/
+###< doctrine/migrations ###
+
+###> symfony/public ###
+/public/additions/
+/public/storage/
+/public/theme/
+/public/translations/
+/public/uploads/
+###< symfony/public ###
