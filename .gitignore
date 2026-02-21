@@ -46,3 +46,7 @@ phpstan.neon
 /public/translations/
 /public/uploads/
 ###< symfony/public ###
+
+###> php-flasher/flasher-symfony ###
+/public/vendor/
+###< php-flasher/flasher-symfony ###
