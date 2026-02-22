@@ -1,6 +1,6 @@
 export const slideDown = (target, duration = 300) => {
-    const { PARENTEL_EMENT } = target;
-    PARENTEL_EMENT.classList.add("open");
+    const { parentElement } = target;
+    parentElement.classList.add("open");
     target.style.removeProperty("display");
     let { display } = window.getComputedStyle(target);
     if (display === "none") display = "block";
