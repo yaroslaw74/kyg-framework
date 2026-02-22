@@ -39,7 +39,6 @@ return [
     Dukecity\CommandSchedulerBundle\DukecityCommandSchedulerBundle::class => ['all' => true],
     FD\LogViewer\FDLogViewerBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
-    FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
     HWI\Bundle\OAuthBundle\HWIOAuthBundle::class => ['all' => true],
     Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
