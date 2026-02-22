@@ -26,8 +26,6 @@ final class TwigParamVar implements EnvVarLoaderInterface
 
     /**
      * @return array<string, int|string>
-     *
-     * @phpstan-ignore method.childReturnType
      */
     public function loadEnvVars(): array
     {
