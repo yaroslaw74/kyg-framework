@@ -147,7 +147,9 @@ window.addEventListener("unload", () => {
     MAIN_CONTENT.removeEventListener("click", clearNavDropdown);
     window.removeEventListener("resize", ResizeMenu);
     const SIDE_MENU_LINK = document.querySelectorAll(".main-menu li > .side-menu__item");
-    SIDE_MENU_LINK.forEach((ele) => ele.removeEventListener("click", doubleClickFn));
+    SIDE_MENU_LINK.forEach((ele) => {
+        ele.removeEventListener("click", doubleClickFn)
+    });
 });
 
 // for menu scroll to top active page
