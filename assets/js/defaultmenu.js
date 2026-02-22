@@ -148,7 +148,7 @@ window.addEventListener("unload", () => {
     window.removeEventListener("resize", ResizeMenu);
     const SIDE_MENU_LINK = document.querySelectorAll(".main-menu li > .side-menu__item");
     SIDE_MENU_LINK.forEach((ele) => {
-        ele.removeEventListener("click", doubleClickFn)
+        ele.removeEventListener("click", doubleClickFn);
     });
 });
 
