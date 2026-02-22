@@ -2081,19 +2081,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         items?: array<string, list<mixed>>,
  *     },
  * }
- * @psalm-type FosJsRoutingConfig = array{
- *     serializer?: scalar|Param|null,
- *     routes_to_expose?: list<scalar|Param|null>,
- *     router?: scalar|Param|null, // Default: "router"
- *     request_context_base_url?: scalar|Param|null, // Default: null
- *     cache_control?: array{
- *         public?: bool|Param, // Default: false
- *         expires?: scalar|Param|null, // Default: null
- *         maxage?: scalar|Param|null, // Default: null
- *         smaxage?: scalar|Param|null, // Default: null
- *         vary?: list<scalar|Param|null>,
- *     },
- * }
  * @psalm-type HwiOauthConfig = array{
  *     firewall_names?: list<scalar|Param|null>,
  *     target_path_parameter?: scalar|Param|null, // Default: null
@@ -2389,7 +2376,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *     fd_log_viewer?: FdLogViewerConfig,
  *     fos_ck_editor?: FosCkEditorConfig,
- *     fos_js_routing?: FosJsRoutingConfig,
  *     hwi_oauth?: HwiOauthConfig,
  *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     knp_menu?: KnpMenuConfig,
@@ -2436,7 +2422,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *         fd_log_viewer?: FdLogViewerConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
- *         fos_js_routing?: FosJsRoutingConfig,
  *         hwi_oauth?: HwiOauthConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         knp_menu?: KnpMenuConfig,
@@ -2481,7 +2466,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *         fd_log_viewer?: FdLogViewerConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
- *         fos_js_routing?: FosJsRoutingConfig,
  *         hwi_oauth?: HwiOauthConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         knp_menu?: KnpMenuConfig,
