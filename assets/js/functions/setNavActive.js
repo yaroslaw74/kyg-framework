@@ -1,10 +1,10 @@
 import { slideDown } from "../constants/slideDown.js";
 
 export function setNavActive() {
-    let currentPath = location.pathname;
+    const CURRENT_PATH = location.pathname;
     const SIDEMENU_ITEMS = document.querySelectorAll(".side-menu__item");
     SIDEMENU_ITEMS.forEach((e) => {
-        if (e.getAttribute("href") === currentPath) {
+        if (e.getAttribute("href") === CURRENT_PATH) {
             e.classList.add("active");
             e.parentElement.classList.add("active");
             let parent = e.closest("ul");
