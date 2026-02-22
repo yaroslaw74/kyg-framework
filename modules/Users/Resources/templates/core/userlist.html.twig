@@ -41,52 +41,40 @@
                             <thead>
                                 <tr>
                                     <th scope="col">
-                                        <span class="text-dark">
-                                            <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{% trans %}Avatar{% endtrans %}</font>
-                                        </span>
+                                        <span class="text-dark">{% trans %}Avatar{% endtrans %}</span>
                                     </th>
                                     {% if settings_instance('name').firstMiddleName %}
                                         {% if settings_instance('name').lastNameEnable %}
                                             <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName', 'a.lastName']) %} class="sorted"{% endif %}>
-                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName', 'a.lastName']) }}
+                                            </th>
                                         {% else %}
                                             <th scope="col" {%- if pagination.isSorted(['a.middleName', 'a.firstName']) %} class="sorted"{% endif %}>
-                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.middleName', 'a.firstName']) }}
+                                            </th>
                                         {% endif %}
                                     {% else %}
                                         {% if settings_instance('name').lastNameEnable %}
                                             <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.lastName', 'a.middleName']) %} class="sorted"{% endif %}>
-                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.firstName', 'a.lastName', 'a.middleName']) }}
+                                            </th>
                                         {% else %}
                                             <th scope="col" {%- if pagination.isSorted(['a.firstName', 'a.middleName']) %} class="sorted"{% endif %}>
-                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
-                                                    {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
+                                                {{ knp_pagination_sortable(pagination, 'Name'|trans, ['a.first_name', 'a.middle_name']) }}
+                                            </th>
                                         {% endif %}
                                     {% endif %}
-                                        </font>
-                                    </th>
                                     <th scope="col" {%- if pagination.isSorted('a.createdAt') %} class="sorted"{% endif %}>
-                                        <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
-                                            {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
-                                        </font>
+                                        {{ knp_pagination_sortable(pagination, 'Created'|trans, 'a.createdAt') }}
                                     </th>
                                     <th scope="col" {%- if pagination.isSorted('a.status') %} class="sorted"{% endif %}>
-                                        <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
-                                            {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
-                                        </font>
+                                        {{ knp_pagination_sortable(pagination, 'Status'|trans, 'a.status') }}
                                     </th>
                                     <th scope="col">
-                                        <span class="text-dark">
-                                            <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{% trans %}Email{% endtrans %}</font>
-                                        </span>
+                                        <span class="text-dark">{% trans %}Email{% endtrans %}</span>
                                     </th>
                                     <th scope="col">
-                                        <span class="text-dark">
-                                            <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{% trans %}Action{% endtrans %}</font>
-                                        </span>
+                                        <span class="text-dark">{% trans %}Action{% endtrans %}</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -106,51 +94,53 @@
                                         </td>
                                         <td>
                                             <span class="text-dark">
-                                                <font class="vertical-align: inherid;" dir="auto">
-                                                    {% if settings_instance('name').firstMiddleName %}
-                                                        {% if settings_instance('name').lastNameEnable %}
-                                                            {{ article.middleName }} {{ article.firstName }} {{ article.lastName }}
-                                                        {% else %}
-                                                            {{ article.middleName }} {{ article.firstName }}
-                                                        {% endif %}
+                                                {% if settings_instance('name').firstMiddleName %}
+                                                    {% if settings_instance('name').lastNameEnable %}
+                                                        {{ article.middleName }} {{ article.firstName }} {{ article.lastName }}
                                                     {% else %}
-                                                        {% if settings_instance('name').lastNameEnable %}
-                                                            {{ article.firstName }} {{ article.lastName }} {{ article.middleName }}
-                                                        {% else %}
-                                                            {{ article.firstName }} {{ article.middleName }}
-                                                        {% endif %}
+                                                        {{ article.middleName }} {{ article.firstName }}
                                                     {% endif %}
-                                                </font>
-                                            <span>
+                                                {% else %}
+                                                    {% if settings_instance('name').lastNameEnable %}
+                                                        {{ article.firstName }} {{ article.lastName }} {{ article.middleName }}
+                                                    {% else %}
+                                                        {{ article.firstName }} {{ article.middleName }}
+                                                    {% endif %}
+                                                {% endif %}
+                                            </span>
                                         </td>
                                         <td>
-                                            <span class="text-dark">
-                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">{{ article.createdAt|date }}</font>
-                                            </span>
+                                            <span class="text-dark">{{ article.createdAt|date }}</span>
                                         </td>
                                         <td>
                                             {% if article.status == 4 %}
                                                 <span class="badge bg-success-transparent">
+                                                    {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                </span>
                                             {% elseif article.status == 5 %}
                                                 <span class="badge bg-danger-transparent">
+                                                    {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                </span>
                                             {% elseif article.status == 1 %}
                                                 <span class="badge bg-warning-transparent">
+                                                    {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                </span>
                                             {% elseif article.status == 6 %}
                                                 <span class="badge bg-primary-transparent">
+                                                    {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                </span>
                                             {% elseif article.status == 0 or article.status == 2 %}
                                                 <span class="badge bg-info-transparent">
+                                                    {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
+                                                </span>
                                             {% else %}
                                                 <span class="badge bg-secondary-transparent">
-                                            {% endif %}
-                                                <font class="vertical-align: inherid;" dir="{{ locale_dir(app.locale) }}">
                                                     {{ article.status|enum_label('App\\Modules\\Users\\Enum\\StatusUsers') }}
-                                                </font>
-                                            </span>
+                                                </span>
+                                            {% endif %}
                                         </td>
                                         <td>
-                                            <span class="text-dark">
-                                                <font class="vertical-align: inherid;" dir="en">{{ article.email }}</font>
-                                            </span>
+                                            <span class="text-dark">{{ article.email }}</span>
                                         </td>
                                         <td>
                                             <a href="javascript:void(0);" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="" data-bs-original-title="search"><i class="las la-search"></i></a>
