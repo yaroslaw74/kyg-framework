@@ -29,8 +29,6 @@ final readonly class FormHandler implements RegistrationFormHandlerInterface
 
     /**
      * @param FormInterface<User> $form
-     *
-     * @phpstan-ignore method.childParameterType
      */
     public function process(Request $request, FormInterface $form, UserResponseInterface $userInformation): bool
     {
