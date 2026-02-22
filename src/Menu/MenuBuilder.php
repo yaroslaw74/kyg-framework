@@ -24,7 +24,7 @@ class MenuBuilder
     {
     }
     #[AsMenuBuilder('app_sidebar_menu')]
-    public function mainMenu(array $options): ItemInterface
+    public function createMainMenu(): ItemInterface
     {
         $menu = $this->factory->createItem('app_sidebar_menu');
         $menu->setChildrenAttribute('class', 'main-menu');
