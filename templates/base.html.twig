@@ -45,9 +45,6 @@
         {% endblock %}
         {% block javascripts %}{% endblock %}
         <script src="{{ asset('vendor/flasher/flasher.min.js') }}"></script>
-        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {callback: 'fos.Router.setData'}) }}"></script>
-    </head>
     <body
         {{ stimulus_controller('swup', {
             animateHistoryBrowsing: true,
