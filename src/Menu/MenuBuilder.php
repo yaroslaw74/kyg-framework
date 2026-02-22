@@ -23,6 +23,7 @@ class MenuBuilder
     public function __construct(private FactoryInterface $factory)
     {
     }
+
     #[AsMenuBuilder('app_sidebar_menu')]
     public function createMainMenu(): ItemInterface
     {
@@ -32,27 +33,27 @@ class MenuBuilder
         $menu->addChild('home', [
             'label' => 'Home',
             'attributes' => [
-                'class' => 'slide__category'
+                'class' => 'slide__category',
             ],
             'labelAttributes' => [
-                'class' => 'category-name'
-            ]
+                'class' => 'category-name',
+            ],
         ]);
         $menu->addChild('dashboard', [
             'route' => 'app_home',
             'label' => 'Dashboard',
             'attributes' => [
-                'class' => 'slide'
+                'class' => 'slide',
             ],
             'labelAttributes' => [
-                'class' => 'side-menu__label'
+                'class' => 'side-menu__label',
             ],
             'linkAttributes' => [
-                'class' => 'side-menu__item'
+                'class' => 'side-menu__item',
             ],
             'extras' => [
-                'icon' => 'ic:twotone-dashboard'
-            ]
+                'icon' => 'ic:twotone-dashboard',
+            ],
         ]);
 
         return $menu;
