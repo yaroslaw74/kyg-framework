@@ -171,6 +171,6 @@ export function checkOptions() {
 
     // loader
     if (localStorage.getItem("loaderEnable") !== "true") {
-        LOADER_DISABLE_BTN.checked = true
+        LOADER_DISABLE_BTN.checked = true;
     }
 }
