@@ -41,12 +41,18 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('username', TextType::class, [
                 'label' => $this->translator->trans('Username', [], 'users'),
-                'row_attr' => ['class' => 'form-group mb-3'],
-                'attr' => ['placeholder' => $this->translator->trans('Enter your username', [], 'users')],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter your username', [], 'users'),
+                ],
             ])
             ->add('email', EmailType::class, [
                 'label' => $this->translator->trans('Email', [], 'users'),
-                'row_attr' => ['class' => 'form-group mb-3'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
                 'attr' => [
                     'autocomplete' => 'email',
                     'placeholder' => $this->translator->trans('Enter your Email', [], 'users'),
@@ -59,7 +65,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => $this->translator->trans('I agree to the terms and conditions', [], 'users'),
-                'row_attr' => ['class' => 'checkbox mb-3 form-check form-check-lg'],
+                'row_attr' => [
+                    'class' => 'checkbox mb-3 form-check form-check-lg',
+                ],
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
