@@ -29,7 +29,7 @@ export function checkOptions() {
     const OVERLAY_BTN = document.querySelector("#switcher-icon-overlay");
     const DOUBLE_BTN = document.querySelector("#switcher-double-menu");
     const DETACHED_BTN = document.querySelector("#switcher-detached");
-    const LOADER_ENABLE_BTN = document.querySelector("#switcher-loader-enable");
+    const LOADER_DISABLE_BTN = document.querySelector("#switcher-loader-disable");
 
     // dark
     if (localStorage.getItem("valexdarktheme") === "true") {
@@ -171,6 +171,6 @@ export function checkOptions() {
 
     // loader
     if (localStorage.getItem("loaderEnable") !== "true") {
-        LOADER_ENABLE_BTN.checked = true;
+        LOADER_DISABLE_BTN.checked = true
     }
 }
