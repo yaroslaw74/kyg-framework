@@ -19,6 +19,12 @@
     {{ include('partials/page-header.html.twig', {title: 'Profile'|trans, subtitle: 'Users'|trans}) }}
 {% endblock %}
 
+{% if user %}
+    {% set pageUser = user %}
+{% else %}
+    {% set pageUser = app.user %}
+{% endif %}
+
 {% block body_content %}
     <!-- Start::row-1 -->
     <div class="row row-sm">
@@ -28,7 +34,27 @@
                     <div class="ps-0">
                         <div class="main-profile-overview">
                             <div class="main-img-user profile-user user-profile">
-                                <img alt="" src="{{ asset('images/avatar/pngwing.com.png') }}">
+                                {% if pageUser %}
+                                    {% if pageUser.gravatar %}
+                                        {% if gravatar_exists(pageUser.gravatar) %}
+                                            <img src="{{ gravatar(pageUser.gravatar) }}" alt="avatar">
+                                        {% else %}
+                                            {% if pageUser.avatar %}
+                                                <img src="{{ asset('uploads/avatar/' ~ pageUser.avatar) }}" alt="avatar">
+                                            {% else %}
+                                                <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if pageUser.avatar %}
+                                            <img src="{{ asset('uploads/avatar/' ~ pageUser.avatar) }}" alt="avatar">
+                                        {% else %}
+                                            <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar">
+                                        {% endif %}
+                                    {% endif %}
+                                {% else %}
+                                    <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar">
+                                {% endif %}
                                 <a class="fe fe-camera profile-edit text-primary" href="JavaScript:void(0);" data-bs-toggle="modal" data-bs-target="#profileEditModal"></a>
                             </div>
                             <div class="d-flex justify-content-between mb-4">
