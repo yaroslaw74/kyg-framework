@@ -354,13 +354,13 @@
                             {% endif %}
                         {% else %}
                             {% if app.user.avatar %}
-                                <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="img" width="37" height="37" class="rounded-circle">
+                                <img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="avatar" width="37" height="37" class="rounded-circle">
                             {% else %}
-                                <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="img" width="37" height="37" class="rounded-circle">
+                                <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar" width="37" height="37" class="rounded-circle">
                             {% endif %}
                         {% endif %}
                     {% else %}
-                        <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="img" width="37" height="37" class="rounded-circle">
+                        <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar" width="37" height="37" class="rounded-circle">
                     {% endif %}
                 </a>
                 <!-- End::header-link|dropdown-toggle -->
