@@ -84,8 +84,8 @@ final class UserCoreController extends AbstractController
         ]);
     }
 
-    #[Route('/app/user/profile', name: 'app_user_profile')]
-    public function userProfile(Request $request): Response
+    #[Route('/app/user/profile/{id}', name: 'app_user_profile')]
+    public function userProfile(Request $request, ?int $id = null): Response
     {
         $user = new User();
         $form = $this->createForm(SetAvatarUserForm::class, $user);
@@ -103,13 +103,21 @@ final class UserCoreController extends AbstractController
             $this->entityManager->flush();
         }
 
+        if (null === $id) {
+            $getUser = null;
+        } else {
+            $repository = $this->entityManager->getRepository(User::class);
+            $getUser = $repository->find($id);
+        }
+
         return $this->render('@Users/core/profile.html.twig', [
             'SetAvatarUserForm' => $form,
+            'user' => $getUser,
         ]);
     }
 
-    #[Route('/app/user/editprofile', name: 'app_user_editprofile')]
-    public function userEditProfile(Request $request): Response
+    #[Route('/app/user/editprofile/{id}', name: 'app_user_editprofile')]
+    public function userEditProfile(Request $request, ?int $id = null): Response
     {
         $user = new User();
         $formAvatar = $this->createForm(SetAvatarUserForm::class, $user);
@@ -127,8 +135,16 @@ final class UserCoreController extends AbstractController
             $this->entityManager->flush();
         }
 
+        if (null === $id) {
+            $getUser = null;
+        } else {
+            $repository = $this->entityManager->getRepository(User::class);
+            $getUser = $repository->find($id);
+        }
+
         return $this->render('@Users/core/editprofile.html.twig', [
             'SetAvatarUserForm' => $formAvatar,
+            'user' => $getUser,
         ]);
     }
 
