@@ -14,10 +14,10 @@ import { localStorageBackup } from "./functions/localStorageBackup.js";
     }
 
     if (localStorage.getItem("loaderEnable") === "true") {
-        HTML.setAttribute("loader","enable");
+        HTML.setAttribute("loader", "enable");
     } else {
         if (!HTML.getAttribute("loader")) {
-            HTML.setAttribute("loader","disable");
+            HTML.setAttribute("loader", "disable");
         }
     }
 
