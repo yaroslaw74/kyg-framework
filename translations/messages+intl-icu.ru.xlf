@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
     <header>
-      <tool tool-id="symfony" tool-name="Symfony" />
+      <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
       <trans-unit id="H2Id1Wm" resname="Back to Home">
@@ -21,14 +21,21 @@
         <source>Show password</source>
         <target>Показать пароль</target>
       </trans-unit>
-      <trans-unit id="gNPnRTl"
-        resname="You may have mistyped the address or the page may have moved.">
+      <trans-unit id="gNPnRTl" resname="You may have mistyped the address or the page may have moved.">
         <source>You may have mistyped the address or the page may have moved.</source>
         <target>Возможно, вы неправильно ввели адрес, или страница переместилась.</target>
       </trans-unit>
       <trans-unit id="QFWN2NW" resname="error">
         <source>error</source>
         <target>ошибка</target>
+      </trans-unit>
+      <trans-unit id="lZQaoaq" resname="Home">
+        <source>Home</source>
+        <target>Главная</target>
+      </trans-unit>
+      <trans-unit id="w3P3sIg" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Панель управления</target>
       </trans-unit>
     </body>
   </file>
