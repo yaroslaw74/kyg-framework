@@ -43,22 +43,32 @@ class AddUserFormType extends AbstractType
             ->add('username', TextType::class, [
                 'label' => $this->translator->trans('Username', [], 'users'),
                 'required' => false,
-                'row_attr' => ['class' => 'form-group mb-3'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
             ])
             ->add('middleName', TextType::class, [
                 'label' => $this->translator->trans('Middle Name', [], 'users'),
                 'required' => false,
-                'row_attr' => ['class' => 'form-group mb-3'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
             ])
             ->add('firstName', TextType::class, [
                 'label' => $this->translator->trans('First Name', [], 'users'),
                 'required' => false,
-                'row_attr' => ['class' => 'form-group mb-3'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
             ])
             ->add('email', EmailType::class, [
                 'label' => $this->translator->trans('Email', [], 'users'),
-                'row_attr' => ['class' => 'form-group mb-3'],
-                'attr' => ['autocomplete' => 'email'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'autocomplete' => 'email',
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => $this->translator->trans('Please enter email', [], 'users'),
@@ -67,13 +77,17 @@ class AddUserFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, [
                 'label' => $this->translator->trans('Password', [], 'users'),
-                'row_attr' => ['class' => 'form-group mb-3'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
                 'required' => false,
                 'toggle' => true,
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                ],
             ]);
 
         $settings = $this->settingsManager->get(NameSettings::class);
@@ -82,7 +96,9 @@ class AddUserFormType extends AbstractType
             $builder->add('lastName', TextType::class, [
                 'label' => $this->translator->trans('Last Name', [], 'users'),
                 'required' => false,
-                'row_attr' => ['class' => 'form-group mb-3'],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
             ]);
         }
     }
