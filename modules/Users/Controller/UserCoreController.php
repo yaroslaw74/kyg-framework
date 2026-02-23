@@ -16,6 +16,7 @@ namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\User;
 use App\Modules\Users\Form\Type\AddUserFormType;
+use App\Modules\Users\Form\Type\SetAvatarUserForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -84,15 +85,51 @@ final class UserCoreController extends AbstractController
     }
 
     #[Route('/app/user/profile', name: 'app_user_profile')]
-    public function userProfile(): Response
+    public function userProfile(Request $request): Response
     {
-        return $this->render('@Users/core/profile.html.twig', []);
+        $user = new User();
+        $form = $this->createForm(SetAvatarUserForm::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var string $avatar */
+            $avatar = $form->get('avatar')->getData();
+
+            if ('' !== $avatar) {
+                $user->setAvatar($avatar);
+            }
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        return $this->render('@Users/core/profile.html.twig', [
+            'SetAvatarUserForm' => $form,
+        ]);
     }
 
     #[Route('/app/user/editprofile', name: 'app_user_editprofile')]
-    public function userEditProfile(): Response
+    public function userEditProfile(Request $request): Response
     {
-        return $this->render('@Users/core/editprofile.html.twig', []);
+        $user = new User();
+        $formAvatar = $this->createForm(SetAvatarUserForm::class, $user);
+        $formAvatar->handleRequest($request);
+
+        if ($formAvatar->isSubmitted() && $formAvatar->isValid()) {
+            /** @var string $avatar */
+            $avatar = $formAvatar->get('avatar')->getData();
+
+            if ('' !== $avatar) {
+                $user->setAvatar($avatar);
+            }
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        return $this->render('@Users/core/editprofile.html.twig', [
+            'SetAvatarUserForm' => $formAvatar,
+        ]);
     }
 
     #[Route('/app/user/settings', name: 'app_user_settings')]
