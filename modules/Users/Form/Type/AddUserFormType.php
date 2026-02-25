@@ -46,12 +46,18 @@ class AddUserFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter username', [], 'users'),
+                ],
             ])
-            ->add('middleName', TextType::class, [
-                'label' => $this->translator->trans('Middle Name', [], 'users'),
+            ->add('lastName', TextType::class, [
+                'label' => $this->translator->trans('Last Name', [], 'users'),
                 'required' => false,
                 'row_attr' => [
                     'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter last name', [], 'users'),
                 ],
             ])
             ->add('firstName', TextType::class, [
@@ -60,6 +66,9 @@ class AddUserFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter first name', [], 'users'),
+                ],
             ])
             ->add('email', EmailType::class, [
                 'label' => $this->translator->trans('Email', [], 'users'),
@@ -67,7 +76,7 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'autocomplete' => 'email',
+                    'placeholder' => $this->translator->trans('Enter email', [], 'users'),
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -87,17 +96,21 @@ class AddUserFormType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
+                    'placeholder' => $this->translator->trans('Enter password', [], 'users'),
                 ],
             ]);
 
         $settings = $this->settingsManager->get(NameSettings::class);
 
-        if ($settings->getLastNameEnable()) {
-            $builder->add('lastName', TextType::class, [
-                'label' => $this->translator->trans('Last Name', [], 'users'),
+        if ($settings->getMiddleNameEnable()) {
+            $builder->add('middleName', TextType::class, [
+                'label' => $this->translator->trans('Middle Name', [], 'users'),
                 'required' => false,
                 'row_attr' => [
                     'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter middle name', [], 'users'),
                 ],
             ]);
         }
