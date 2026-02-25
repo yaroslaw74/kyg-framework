@@ -39,7 +39,7 @@ class ProfileFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => $this->translator->trans('Nike Name', [], 'users'),
+                'label' => $this->translator->trans('Username', [], 'users'),
                 'required' => false,
                 'row_attr' => [
                     'class' => 'form-group mb-3',
@@ -75,7 +75,7 @@ class ProfileFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter email', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Email', [], 'users'),
                 ],
             ])
             ->add('mobile', TextType::class, [
@@ -85,7 +85,7 @@ class ProfileFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter phone', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Phone', [], 'users'),
                 ],
             ]);
 
