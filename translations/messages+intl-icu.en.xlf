@@ -9,9 +9,17 @@
         <source>Back to Home</source>
         <target>Back to Home</target>
       </trans-unit>
+      <trans-unit id="xHsbIh6" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
       <trans-unit id="ApaPPIo" resname="Hide password">
         <source>Hide password</source>
         <target>Hide password</target>
+      </trans-unit>
+      <trans-unit id="ExFLJqx" resname="Home">
+        <source>Home</source>
+        <target>Home</target>
       </trans-unit>
       <trans-unit id="kn8v24H" resname="Oopps. The page you were looking for doesn't exist.">
         <source>Oopps. The page you were looking for doesn't exist.</source>
@@ -28,14 +36,6 @@
       <trans-unit id="QFWN2NW" resname="error">
         <source>error</source>
         <target>error</target>
-      </trans-unit>
-      <trans-unit id="lZQaoaq" resname="Home">
-        <source>Home</source>
-        <target>Home</target>
-      </trans-unit>
-      <trans-unit id="w3P3sIg" resname="Dashboard">
-        <source>Dashboard</source>
-        <target>Dashboard</target>
       </trans-unit>
     </body>
   </file>
