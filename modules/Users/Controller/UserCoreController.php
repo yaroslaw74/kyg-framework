@@ -44,6 +44,7 @@ final class UserCoreController extends AbstractController
     #[Route('/app/user/list/{page}', name: 'app_user_list')]
     public function userList(Request $request, int $page = 1): Response
     {
+        $this->entityManager->getFilters()->disable('softdeleteable');
         $repository = $this->entityManager->getRepository(User::class);
         $users = $repository->findAll();
         $pagination = $this->paginator->paginate($users, $request->query->getInt('page', $page));
@@ -77,7 +78,7 @@ final class UserCoreController extends AbstractController
 
             $referer = $request->headers->get('referer');
 
-            $this->redirect($referer ?? $this->generateUrl('app'));
+            return $this->redirect($referer ?? $this->generateUrl('app'));
         }
 
         return $this->render('@Users/core/add_user.html.twig', [
@@ -107,6 +108,7 @@ final class UserCoreController extends AbstractController
         if (null === $id) {
             $getUser = null;
         } else {
+            $this->entityManager->getFilters()->disable('softdeleteable');
             $repository = $this->entityManager->getRepository(User::class);
             $getUser = $repository->find($id);
         }
@@ -182,6 +184,7 @@ final class UserCoreController extends AbstractController
         if (null === $id) {
             $getUser = null;
         } else {
+            $this->entityManager->getFilters()->disable('softdeleteable');
             $repository = $this->entityManager->getRepository(User::class);
             $getUser = $repository->find($id);
         }
@@ -197,5 +200,19 @@ final class UserCoreController extends AbstractController
     public function userSettings(): Response
     {
         return $this->render('@Users/core/settings.html.twig', []);
+    }
+
+    #[Route('/app/user/delite/{id}', name: 'app_user_delite')]
+    public function userDelite(Request $request, ?int $id = null): RedirectResponse
+    {
+        $this->entityManager->getFilters()->disable('softdeleteable');
+        $repository = $this->entityManager->getRepository(User::class);
+        $users = $repository->find($id);
+        $this->entityManager->remove($users);
+        $this->entityManager->flush();
+
+        $referer = $request->headers->get('referer');
+
+        return $this->redirect($referer ?? $this->generateUrl('app'));
     }
 }
