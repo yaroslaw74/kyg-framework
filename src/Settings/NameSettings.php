@@ -26,28 +26,28 @@ class NameSettings
     use SettingsTrait;
 
     #[SettingsParameter(type: BoolType::class)]
-    private bool $lastNameEnable = false;
+    private bool $middleNameEnable = false;
 
     #[SettingsParameter(type: BoolType::class)]
-    private bool $firstMiddleName = true;
+    private bool $firstLastName = true;
 
-    public function getLastNameEnable(): bool
+    public function getMiddleNameEnable(): bool
     {
-        return $this->lastNameEnable;
+        return $this->middleNameEnable;
     }
 
-    public function setIastNameEnable(bool $lastNameEnable): void
+    public function setMiddleNameEnable(bool $middleNameEnable): void
     {
-        $this->lastNameEnable = $lastNameEnable;
+        $this->middleNameEnable = $middleNameEnable;
     }
 
-    public function getFirstMiddleName(): bool
+    public function getFirstLastName(): bool
     {
-        return $this->firstMiddleName;
+        return $this->firstLastName;
     }
 
-    public function setFirstMiddleName(bool $firstMiddleName): void
+    public function setFirstLastName(bool $firstLastName): void
     {
-        $this->firstMiddleName = $firstMiddleName;
+        $this->firstLastName = $firstLastName;
     }
 }
