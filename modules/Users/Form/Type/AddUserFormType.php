@@ -47,7 +47,7 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter username', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Username', [], 'users'),
                 ],
             ])
             ->add('lastName', TextType::class, [
@@ -57,7 +57,7 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter last name', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Last Name', [], 'users'),
                 ],
             ])
             ->add('firstName', TextType::class, [
@@ -67,7 +67,7 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter first name', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter First Name', [], 'users'),
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -76,11 +76,11 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter email', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Email', [], 'users'),
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => $this->translator->trans('Please enter email', [], 'users'),
+                        'message' => $this->translator->trans('Please enter Email', [], 'users'),
                     ]),
                 ],
             ])
@@ -96,7 +96,7 @@ class AddUserFormType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
-                    'placeholder' => $this->translator->trans('Enter password', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Password', [], 'users'),
                 ],
             ]);
 
@@ -110,7 +110,7 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter middle name', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter Middle Name', [], 'users'),
                 ],
             ]);
         }
