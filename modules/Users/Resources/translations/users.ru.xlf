@@ -41,6 +41,14 @@
         <source>Confirm my Email</source>
         <target>Подтвердить мой адрес электронной почты</target>
       </trans-unit>
+      <trans-unit id="4iRtdnb" resname="Contacts">
+        <source>Contacts</source>
+        <target>Контакты</target>
+      </trans-unit>
+      <trans-unit id="nas8hrY" resname="Contact Info">
+        <source>Contact Info</source>
+        <target>Контактная информация</target>
+      </trans-unit>
       <trans-unit id="uDxr_Pa" resname="Create Account">
         <source>Create Account</source>
         <target>Зарегистрироваться</target>
@@ -77,6 +85,14 @@
         <source>Don't have an account?</source>
         <target>У Вас нет учётной записи?</target>
       </trans-unit>
+      <trans-unit id="gqvgN2P" resname="Drag and drop or browse image">
+        <source>Drag and drop or browse image</source>
+        <target>Перетащите изображение или выберите нужное.</target>
+      </trans-unit>
+      <trans-unit id="r7qFsWz" resname="Edit Avatar">
+        <source>Edit Avatar</source>
+        <target>Редактировать аватар</target>
+      </trans-unit>
       <trans-unit id="Iwl9wtn" resname="Edit Profile">
         <source>Edit Profile</source>
         <target>Редактировать профиль</target>
@@ -84,6 +100,38 @@
       <trans-unit id="JZi_tm0" resname="Email">
         <source>Email</source>
         <target>Email</target>
+      </trans-unit>
+      <trans-unit id="tDokmjn" resname="Enter First Name">
+        <source>Enter First Name</source>
+        <target>Введите имя</target>
+      </trans-unit>
+      <trans-unit id="RVt1jCQ" resname="Enter Last Name">
+        <source>Enter Last Name</source>
+        <target>Введите фамилию</target>
+      </trans-unit>
+      <trans-unit id="KulMBox" resname="Enter Middle Name">
+        <source>Enter Middle Name</source>
+        <target>Введите отчество</target>
+      </trans-unit>
+      <trans-unit id="m.duQI8" resname="Enter Username">
+        <source>Enter Username</source>
+        <target>Введите имя пользователя</target>
+      </trans-unit>
+      <trans-unit id="_iXQYmW" resname="Enter Email">
+        <source>Enter Email</source>
+        <target>Введите адрес электронной почты</target>
+      </trans-unit>
+      <trans-unit id="Nq0IWlJ" resname="Enter Password">
+        <source>Enter Password</source>
+        <target>Введите пароль</target>
+      </trans-unit>
+      <trans-unit id="SPVpdGD" resname="Enter Phone">
+        <source>Enter Phone</source>
+        <target>Введите номер телефона</target>
+      </trans-unit>
+      <trans-unit id="bKgl4yX" resname="Enter Username">
+        <source>Enter Username</source>
+        <target>Введите имя пользователя</target>
       </trans-unit>
       <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
         <source>Enter your Confirm Password</source>
@@ -177,6 +225,10 @@
         <source>Middle Name</source>
         <target>Отчество</target>
       </trans-unit>
+      <trans-unit id="7VItq_h" resname="Mobile">
+        <source>Mobile</source>
+        <target>Мобильный</target>
+      </trans-unit>
       <trans-unit id="wbMeKOh" resname="Name">
         <source>Name</source>
         <target>Имя</target>
@@ -200,6 +252,14 @@
       <trans-unit id=".ku3jMu" resname="Pending">
         <source>Pending</source>
         <target>В ожидании</target>
+      </trans-unit>
+      <trans-unit id="5hMi0Jl" resname="Personal Information">
+        <source>Personal Information</source>
+        <target>Персональная информация</target>
+      </trans-unit>
+      <trans-unit id="gZdyOsC" resname="Phone">
+        <source>Phone</source>
+        <target>Телефон</target>
       </trans-unit>
       <trans-unit id="6EclFME" resname="Please Confirm your Email">
         <source>Please Confirm your Email</source>
@@ -269,6 +329,10 @@
         <source>Send password reset email</source>
         <target>Отправить письмо для сброса пароля</target>
       </trans-unit>
+      <trans-unit id="Bk_YwKX" resname="Set Avatar">
+        <source>Set Avatar</source>
+        <target>Установить аватар</target>
+      </trans-unit>
       <trans-unit id="VXFwlwn" resname="Settings">
         <source>Settings</source>
         <target>Настройки</target>
@@ -305,9 +369,17 @@
         <source>USERS TABLE</source>
         <target>ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ</target>
       </trans-unit>
+      <trans-unit id="6z6RwJn" resname="Update Profile">
+        <source>Update Profile</source>
+        <target>Обновить профиль</target>
+      </trans-unit>
       <trans-unit id="r.AIjvR" resname="Used to customize and manage all settings about User">
         <source>Used to customize and manage all settings about User</source>
         <target>Используется для настройки и управления всеми параметрами пользователя</target>
+      </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>Пользователь</target>
       </trans-unit>
       <trans-unit id="qZ9r_ZS" resname="User add">
         <source>User add</source>
@@ -348,6 +420,18 @@
       <trans-unit id="lr6d0Ih" resname="connected">
         <source>connected</source>
         <target>подключен</target>
+      </trans-unit>
+      <trans-unit id="u1x_1qs" resname="delete">
+        <source>delete</source>
+        <target>удалить</target>
+      </trans-unit>
+      <trans-unit id="BVAU8Tv" resname="edit">
+        <source>edit</source>
+        <target>редактировать</target>
+      </trans-unit>
+      <trans-unit id="0vWafco" resname="search">
+        <source>search</source>
+        <target>поиск</target>
       </trans-unit>
       <trans-unit id="FTO0d6Z" resname="to the sign in screen">
         <source>to the sign in screen</source>
