@@ -143,9 +143,9 @@
                                             <span class="text-dark">{{ article.email }}</span>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="" data-bs-original-title="search"><i class="las la-search"></i></a>
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-info btn-b" data-bs-toggle="tooltip" title="" data-bs-original-title="edit"><i class="las la-pen"></i></a>
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-danger"  data-bs-toggle="tooltip" title="" data-bs-original-title="delete"><i class="las la-trash"></i></a>
+                                            <a href="{{ path('app_user_profile', {id: article.id}) }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="" data-bs-original-title="{% trans %}search{% endtrans %}"><i class="las la-search"></i></a>
+                                            <a href="{{ path('app_user_editprofile', {id: article.id}) }}" class="btn btn-sm btn-info btn-b" data-bs-toggle="tooltip" title="" data-bs-original-title="{% trans %}edit{% endtrans %}"><i class="las la-pen"></i></a>
+                                            <a href="{{ path('app_user_delite', {id: article.id}) }}" class="btn btn-sm btn-danger"  data-bs-toggle="tooltip" title="" data-bs-original-title="{% trans %}delete{% endtrans %}"><i class="las la-trash"></i></a>
                                         </td>
                                     </tr>
                                 {% endfor %}
