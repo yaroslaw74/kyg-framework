@@ -83,7 +83,7 @@
       </trans-unit>
       <trans-unit id="JZi_tm0" resname="Email">
         <source>Email</source>
-        <target>Адрес электронной почты</target>
+        <target>Email</target>
       </trans-unit>
       <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
         <source>Enter your Confirm Password</source>
