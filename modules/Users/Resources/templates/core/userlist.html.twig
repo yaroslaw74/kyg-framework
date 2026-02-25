@@ -94,17 +94,17 @@
                                         </td>
                                         <td>
                                             <span class="text-dark">
-                                                {% if settings_instance('name').firstMiddleName %}
-                                                    {% if settings_instance('name').lastNameEnable %}
-                                                        {{ article.middleName }} {{ article.firstName }} {{ article.lastName }}
+                                                {% if settings_instance('name').getFirstLastName %}
+                                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                                        {{ article.lastName }} {{ article.firstName }} {{ article.middleName }}
                                                     {% else %}
-                                                        {{ article.middleName }} {{ article.firstName }}
+                                                        {{ article.lastName }} {{ article.firstName }}
                                                     {% endif %}
                                                 {% else %}
-                                                    {% if settings_instance('name').lastNameEnable %}
-                                                        {{ article.firstName }} {{ article.lastName }} {{ article.middleName }}
+                                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                                        {{ article.firstName }} {{ article.middleName }} {{ article.lastName }}
                                                     {% else %}
-                                                        {{ article.firstName }} {{ article.middleName }}
+                                                        {{ article.firstName }} {{ article.lastName }}
                                                     {% endif %}
                                                 {% endif %}
                                             </span>
