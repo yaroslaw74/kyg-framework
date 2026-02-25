@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7f67e658baf3a49028e965486c44400",
+    "content-hash": "3c2b825f2ae7e6c87a17bc9535aab171",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -8426,7 +8426,7 @@
         },
         {
             "name": "scheb/2fa-backup-code",
-            "version": "v8.3.0",
+            "version": "v8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-backup-code.git",
@@ -8469,22 +8469,22 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-backup-code/tree/v8.3.0"
+                "source": "https://github.com/scheb/2fa-backup-code/tree/v8.4.0"
             },
             "time": "2026-01-24T13:26:10+00:00"
         },
         {
             "name": "scheb/2fa-bundle",
-            "version": "v8.3.0",
+            "version": "v8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-bundle.git",
-                "reference": "5d3349ed7fbaf9225896caf280ed4e69c9d69add"
+                "reference": "d648139d0f8f6445fc8f1e83364833efd1124fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scheb/2fa-bundle/zipball/5d3349ed7fbaf9225896caf280ed4e69c9d69add",
-                "reference": "5d3349ed7fbaf9225896caf280ed4e69c9d69add",
+                "url": "https://api.github.com/repos/scheb/2fa-bundle/zipball/d648139d0f8f6445fc8f1e83364833efd1124fbc",
+                "reference": "d648139d0f8f6445fc8f1e83364833efd1124fbc",
                 "shasum": ""
             },
             "require": {
@@ -8537,13 +8537,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-bundle/tree/v8.3.0"
+                "source": "https://github.com/scheb/2fa-bundle/tree/v8.4.0"
             },
-            "time": "2026-01-24T13:26:10+00:00"
+            "time": "2026-02-25T18:14:10+00:00"
         },
         {
             "name": "scheb/2fa-email",
-            "version": "v8.3.0",
+            "version": "v8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-email.git",
@@ -8589,13 +8589,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-email/tree/v8.3.0"
+                "source": "https://github.com/scheb/2fa-email/tree/v8.4.0"
             },
             "time": "2026-01-24T13:26:10+00:00"
         },
         {
             "name": "scheb/2fa-google-authenticator",
-            "version": "v8.3.0",
+            "version": "v8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-google-authenticator.git",
@@ -8642,13 +8642,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-google-authenticator/tree/v8.3.0"
+                "source": "https://github.com/scheb/2fa-google-authenticator/tree/v8.4.0"
             },
             "time": "2026-01-24T13:27:55+00:00"
         },
         {
             "name": "scheb/2fa-totp",
-            "version": "v8.3.0",
+            "version": "v8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-totp.git",
@@ -8695,13 +8695,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-totp/tree/v8.3.0"
+                "source": "https://github.com/scheb/2fa-totp/tree/v8.4.0"
             },
             "time": "2026-01-24T13:27:55+00:00"
         },
         {
             "name": "scheb/2fa-trusted-device",
-            "version": "v8.3.0",
+            "version": "v8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-trusted-device.git",
@@ -8746,7 +8746,7 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-trusted-device/tree/v8.3.0"
+                "source": "https://github.com/scheb/2fa-trusted-device/tree/v8.4.0"
             },
             "time": "2026-01-24T13:26:10+00:00"
         },
