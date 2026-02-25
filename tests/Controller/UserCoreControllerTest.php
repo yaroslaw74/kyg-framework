@@ -57,4 +57,12 @@ final class UserCoreControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
     }
+
+    public function testUserDelite(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/app/user/delite');
+
+        self::assertResponseIsSuccessful();
+    }
 }
