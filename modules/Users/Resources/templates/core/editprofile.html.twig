@@ -9,10 +9,17 @@
 {% extends 'empty.html.twig' %}
 {% trans_default_domain 'users' %}
 {% form_theme SetAvatarUserForm 'bootstrap_5_layout.html.twig' %}
+{% form_theme ProfileForm 'bootstrap_5_layout.html.twig' %}
 
 {% block page_header %}
     {{ include('partials/page-header.html.twig', {title: 'Edit Profile'|trans, subtitle: 'Users'|trans}) }}
 {% endblock %}
+
+{% if user %}
+    {% set pageUser = user %}
+{% else %}
+    {% set pageUser = app.user %}
+{% endif %}
 
 {% block body_content %}
     <!-- Start::row-1 -->
@@ -23,12 +30,50 @@
                     <div class="ps-0">
                         <div class="main-profile-overview">
                             <div class="main-img-user profile-user">
-                                <img alt="" src="{{ asset('images/avatar/pngwing.com.png') }}">
+                                {% if pageUser %}
+                                    {% if pageUser.gravatar %}
+                                        {% if gravatar_exists(pageUser.gravatar) %}
+                                            <img src="{{ gravatar(pageUser.gravatar) }}" alt="avatar">
+                                        {% else %}
+                                            {% if pageUser.avatar %}
+                                                <img src="{{ asset('uploads/avatar/' ~ pageUser.avatar) }}" alt="avatar">
+                                            {% else %}
+                                                <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar">
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if pageUser.avatar %}
+                                            <img src="{{ asset('uploads/avatar/' ~ pageUser.avatar) }}" alt="avatar">
+                                        {% else %}
+                                            <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar">
+                                        {% endif %}
+                                    {% endif %}
+                                {% else %}
+                                    <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar">
+                                {% endif %}
                                 <a class="fe fe-camera profile-edit text-primary" href="JavaScript:void(0);" data-bs-toggle="modal" data-bs-target="#profileEditModal"></a>
                             </div>
                             <div class="d-flex justify-content-between mb-4">
                                 <div>
-                                    <h5 class="main-profile-name">Petey Cruiser</h5>
+                                    <h5 class="main-profile-name">
+                                        {% if pageUser %}
+                                            {% if settings_instance('name').getFirstLastName %}
+                                                {% if settings_instance('name').getMiddleNameEnable %}
+                                                    {{ pageUser.lastName }} {{ pageUser.firstName }} {{ pageUser.middleName }}
+                                                {% else %}
+                                                    {{ pageUser.lastName }} {{ pageUser.firstName }}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if settings_instance('name').getMiddleNameEnable %}
+                                                    {{ pageUser.firstName }} {{ pageUser.middleName }} {{ pageUser.lastName }}
+                                                {% else %}
+                                                    {{ pageUser.firstName }} {{ pageUser.lastName }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% else %}
+                                            {% trans %}User{% endtrans %}
+                                        {% endif %}
+                                    </h5>
                                     <p class="main-profile-name-text">Web Designer</p>
                                 </div>
                             </div>
@@ -54,41 +99,146 @@
                                 </div>
                             </div>
                             <hr class="border-0">
-                            <label class="main-content-label fs-13 mb-4">Social</label>
-                            <div class="main-profile-social-list">
-                                <div class="media">
-                                    <div class="media-icon bg-primary-transparent text-primary">
-                                        <i class="icon ion-logo-github"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Github</span> <a href="javascript:void(0);" class="text-primary">github.com/spruko</a>
-                                    </div>
+                            {% if settings_instance('hwi').hwiOauth and pageUser == app.user %}
+                                <label class="main-content-label fs-13 mb-4">{% trans %}Social{% endtrans %}</label>
+                                <div class="main-profile-social-list">
+                                    {% if settings_instance('hwi').facebook %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-facebook">
+                                                <i class="fa-brands fa-facebook-f fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Facebook</span>
+                                                {% if attribute(pageUser, facebook) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: facebook}) }}" class="text-primary">{{ facebook|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ facebook|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').google %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-google">
+                                                <i class="fa-brands fa-google fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Google</span>
+                                                {% if attribute(pageUser, google) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: google}) }}" class="text-primary">{{ google|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ google|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').github %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-github">
+                                                <i class="fa-brands fa-github fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Github</span>
+                                                {% if attribute(pageUser, github) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: github}) }}" class="text-primary">{{ github|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ github|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').vkontakte %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-vk">
+                                                <i class="fa-brands fa-vk fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>VK</span>
+                                                {% if attribute(pageUser, vkontakte) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: vkontakte}) }}" class="text-primary">{{ vkontakte|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ vkontakte|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').odnoklassniki %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-odnoklassniki">
+                                                <i class="fa-brands fa-odnoklassniki fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>OK</span>
+                                                {% if attribute(pageUser, odnoklassniki) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: odnoklassniki}) }}" class="text-primary">{{ odnoklassniki|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ odnoklassniki|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').yandex %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-yandex">
+                                                <i class="fa-brands fa-yandex fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>Yandex</span>
+                                                {% if attribute(pageUser, yandex) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: yandex}) }}" class="text-primary">{{ yandex|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ yandex|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').linkedin %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-linkedin">
+                                                <i class="fa-brands fa-linkedin-in fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>LinkedIn</span>
+                                                {% if attribute(pageUser, linkedin) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: linkedin}) }}" class="text-primary">{{ linkedin|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ linkedin|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').xTwitter %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-x-twitter">
+                                                <i class="fa-brands fa-x-twitter fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>X</span>
+                                                {% if attribute(pageUser, xTwitter) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: xTwitter}) }}" class="text-primary">{{ xTwitter|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ xTwitter|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if settings_instance('hwi').mailru %}
+                                        <div class="media">
+                                            <div class="btn btn-block btn-mail-ru">
+                                                <i class="fa-solid fa-at fa-xl"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <span>mail.ru</span>
+                                                {% if attribute(pageUser, mailru) is empty %}
+                                                    <a href="{{ path('hwi_oauth_connect_service', {service: mailru}) }}" class="text-primary">{{ mailru|trans({}, 'HWIOAuthBundle') }}</a>
+                                                {% else %}
+                                                    <span>{{ mailru|trans({}, 'HWIOAuthBundle') }} {% trans %}connected{% endtrans %}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                <div class="media">
-                                    <div class="media-icon bg-success-transparent text-success">
-                                        <i class="icon ion-logo-twitter"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Twitter</span> <a href="javascript:void(0);" class="text-primary">twitter.com/spruko.me</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-info-transparent text-info">
-                                        <i class="icon ion-logo-linkedin"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>Linkedin</span> <a href="javascript:void(0);" class="text-primary">linkedin.com/in/spruko</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-icon bg-danger-transparent text-danger">
-                                        <i class="icon ion-md-link"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <span>My Portfolio</span> <a href="javascript:void(0);" class="text-primary">spruko.com/</a>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endif %}
                             <hr class="border-0">
                             <h6 class="fs-14">Skills</h6>
                             <div class="skill-bar mb-4 clearfix mt-3">
@@ -126,24 +276,28 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <div class="main-content-label tx-13 mg-b-25">contact</div>
+                <div class="main-content-label tx-13 mg-b-25">{% trans %}Contact{% endtrans %}</div>
                     <div class="main-profile-contact-list">
                         <div class="media">
                             <div class="media-icon bg-primary-transparent text-primary">
                                 <i class="icon ion-md-phone-portrait"></i>
                             </div>
                             <div class="media-body">
-                                <span>Mobile</span>
-                                <div>+245 354 654</div>
+                                <span>{% trans %}Mobile{% endtrans %}</span>
+                                {% if pageUser and pageUser.mobile %}
+                                    <div>{{ pageUser.mobile }}</div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="media">
                             <div class="media-icon bg-success-transparent text-success">
-                                <i class="icon ion-logo-slack"></i>
+                                <i class="icon ion-ios-mail"></i>
                             </div>
                             <div class="media-body">
-                                <span>Slack</span>
-                                <div>@spruko.w</div>
+                                <span>{% trans %}Email{% endtrans %}</span>
+                                {% if pageUser and pageUser.email %}
+                                    <div>{{ pageUser.email }}</div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="media">
@@ -163,81 +317,126 @@
         <div class="col-xl-8 col-lg-7">
             <div class="card">
                 <div class="card-body">
-                    <div class="mb-4 main-content-label">Personal Information</div>
-                    <form class="form-horizontal">
+                    <div class="mb-4 main-content-label">{% trans %}Personal Information{% endtrans %}</div>
+                    {{ form_start(ProfileForm) }}
+                        <div class="mb-4 main-content-label">{% trans %}Name{% endtrans %}</div>
+                        {% if settings_instance('name').getFirstLastName %}
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        {{ form_label(ProfileForm.lastName) }}
+                                    </div>
+                                    <div class="col-md-9">
+                                        {% if pageUser and pageUser.lastName %}
+                                            {{ form_widget(ProfileForm.lastName, {attr: {value: pageUser.lastName}}) }}
+                                        {% else %}
+                                            {{ form_widget(ProfileForm.lastName) }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        {{ form_label(ProfileForm.firstName) }}
+                                    </div>
+                                    <div class="col-md-9">
+                                        {% if pageUser and pageUser.firstName %}
+                                            {{ form_widget(ProfileForm.firstName, {attr: {value: pageUser.firstName}}) }}
+                                        {% else %}
+                                            {{ form_widget(ProfileForm.firstName) }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if settings_instance('name').getMiddleNameEnable %}
+                                <div class="form-group mb-3">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            {{ form_label(ProfileForm.middleName) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {% if pageUser and pageUser.middleName %}
+                                                {{ form_widget(ProfileForm.middleName, {attr: {value: pageUser.middleName}}) }}
+                                            {% else %}
+                                                {{ form_widget(ProfileForm.middleName) }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        {{ form_label(ProfileForm.firstName) }}
+                                    </div>
+                                    <div class="col-md-9">
+                                        {% if pageUser and pageUser.firstName %}
+                                            {{ form_widget(ProfileForm.firstName, {attr: {value: pageUser.firstName}}) }}
+                                        {% else %}
+                                            {{ form_widget(ProfileForm.firstName) }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if settings_instance('name').getMiddleNameEnable %}
+                                <div class="form-group mb-3">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            {{ form_label(ProfileForm.middleName) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {% if pageUser and pageUser.middleName %}
+                                                {{ form_widget(ProfileForm.middleName, {attr: {value: pageUser.middleName}}) }}
+                                            {% else %}
+                                                {{ form_widget(ProfileForm.middleName) }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        {{ form_label(ProfileForm.lastName) }}
+                                    </div>
+                                    <div class="col-md-9">
+                                        {% if pageUser and pageUser.lastName %}
+                                            {{ form_widget(ProfileForm.lastName, {attr: {value: pageUser.lastName}}) }}
+                                        {% else %}
+                                            {{ form_widget(ProfileForm.lastName) }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">Language</label>
+                                    {{ form_label(ProfileForm.username) }}
                                 </div>
                                 <div class="col-md-9">
-                                    <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default1">
-                                        <option>Us English</option>
-                                        <option>Arabic</option>
-                                        <option>Korean</option>
-                                    </select>
+                                    {% if pageUser and pageUser.username %}
+                                        {{ form_widget(ProfileForm.username, {attr: {value: pageUser.username}}) }}
+                                    {% else %}
+                                        {{ form_widget(ProfileForm.username) }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-4 main-content-label">Name</div>
+                        <div class="mb-4 main-content-label">{% trans %}Contact Info{% endtrans %}</div>
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">User Name</label>
+                                    {{ form_label(ProfileForm.email) }}
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="User Name" value="Petey Cruiser">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">First Name</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="First Name" value="Petey">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">last Name</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="Last Name" value="Pechon">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Nick Name</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="Nick Name" value="Petey">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Designation</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="Designation" value="Web Designer">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-4 main-content-label">Contact Info</div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Email<i>(required)</i></label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="Email" value="info@Valex.in">
+                                    {% if pageUser and pageUser.email %}
+                                        {{ form_widget(ProfileForm.email, {attr: {value: pageUser.email}}) }}
+                                    {% else %}
+                                        {{ form_widget(ProfileForm.email) }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -254,10 +453,14 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">Phone</label>
+                                    {{ form_label(ProfileForm.mobile) }}
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="phone number" value="+245 354 654">
+                                    {% if pageUser and pageUser.mobile %}
+                                        {{ form_widget(ProfileForm.mobile, {attr: {value: pageUser.mobile}}) }}
+                                    {% else %}
+                                        {{ form_widget(ProfileForm.mobile) }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -350,8 +553,9 @@
                     </form>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update Profile</button>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">{% trans %}Update Profile{% endtrans %}</button>
                 </div>
+                {{ form_end(ProfileForm) }}
             </div>
         </div>
     </div>
