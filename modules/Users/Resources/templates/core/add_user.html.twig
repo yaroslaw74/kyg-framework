@@ -33,9 +33,17 @@
                         {{ form_start(userAddForm) }}
                             {{ form_row(userAddForm.username) }}
                             {{ form_row(userAddForm.plainPassword) }}
-                            {{ form_row(userAddForm.middleName) }}
-                            {{ form_row(userAddForm.firstName) }}
-                            {% if settings_instance('name').lastNameEnable %}
+                            {% if settings_instance('name').getFirstLastName %}
+                                {{ form_row(userAddForm.lastName) }}
+                                {{ form_row(userAddForm.firstName) }}
+                                {% if settings_instance('name').getMiddleNameEnable %}
+                                    {{ form_row(userAddForm.middleName) }}
+                                {% endif %}
+                            {% else %}
+                                {{ form_row(userAddForm.firstName) }}
+                                {% if settings_instance('name').getMiddleNameEnable %}
+                                    {{ form_row(userAddForm.middleName) }}
+                                {% endif %}
                                 {{ form_row(userAddForm.lastName) }}
                             {% endif %}
                             {{ form_row(userAddForm.email) }}
