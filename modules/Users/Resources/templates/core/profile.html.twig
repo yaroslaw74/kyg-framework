@@ -59,7 +59,25 @@
                             </div>
                             <div class="d-flex justify-content-between mb-4">
                                 <div>
-                                    <h5 class="main-profile-name">Petey Cruiser</h5>
+                                    <h5 class="main-profile-name">
+                                        {% if pageUser %}
+                                            {% if settings_instance('name').getFirstLastName %}
+                                                {% if settings_instance('name').getMiddleNameEnable %}
+                                                    {{ pageUser.lastName }} {{ pageUser.firstName }} {{ pageUser.middleName }}
+                                                {% else %}
+                                                    {{ pageUser.lastName }} {{ pageUser.firstName }}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if settings_instance('name').getMiddleNameEnable %}
+                                                    {{ pageUser.firstName }} {{ pageUser.middleName }} {{ pageUser.lastName }}
+                                                {% else %}
+                                                    {{ pageUser.firstName }} {{ pageUser.lastName }}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% else %}
+                                            {% trans %}User{% endtrans %}
+                                        {% endif %}
+                                    </h5>
                                     <p class="main-profile-name-text text-muted">Web Designer</p>
                                 </div>
                             </div>
