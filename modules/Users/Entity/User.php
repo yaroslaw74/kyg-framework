@@ -121,6 +121,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
+    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
+    private ?string $mobile = null;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     protected ?\DateTimeInterface $createdAt = null;
 
@@ -169,6 +172,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->xTwitter,
             $this->vkontakte,
             $this->github,
+            $this->mobile,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
@@ -482,6 +486,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getMobile(): ?string
+    {
+        return $this->mobile;
+    }
+
+    public function setMobile(?string $mobile): static
+    {
+        $this->mobile = $mobile;
 
         return $this;
     }
