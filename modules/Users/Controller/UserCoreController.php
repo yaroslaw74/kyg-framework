@@ -16,6 +16,7 @@ namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\User;
 use App\Modules\Users\Form\Type\AddUserFormType;
+use App\Modules\Users\Form\Type\ProfileFormType;
 use App\Modules\Users\Form\Type\SetAvatarUserForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -126,9 +127,52 @@ final class UserCoreController extends AbstractController
         if ($formAvatar->isSubmitted() && $formAvatar->isValid()) {
             /** @var string $avatar */
             $avatar = $formAvatar->get('avatar')->getData();
-
             if ('' !== $avatar) {
                 $user->setAvatar($avatar);
+            }
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        $formProfile = $this->createForm(ProfileFormType::class, $user);
+        $formProfile->handleRequest($request);
+
+        if ($formProfile->isSubmitted() && $formProfile->isValid()) {
+            /** @var string $username */
+            $username = $formProfile->get('username')->getData();
+            if ('' !== $username) {
+                $user->setUsername($username);
+            }
+
+            $middleName = $formProfile->get('middleName')->getData();
+            /** @var string $middleName */
+            if ('' !== $middleName) {
+                $user->setMiddleName($middleName);
+            }
+
+            $firstName = $formProfile->get('firstName')->getData();
+            /** @var string $firstName */
+            if ('' !== $firstName) {
+                $user->setFirstName($firstName);
+            }
+
+            $lastName = $formProfile->get('lastName')->getData();
+            /** @var string $lastName */
+            if ('' !== $lastName) {
+                $user->setLastName($lastName);
+            }
+
+            $email = $formProfile->get('email')->getData();
+            /** @var string $email */
+            if ('' !== $email) {
+                $user->setEmail($email);
+            }
+
+            $mobile = $formProfile->get('mobile')->getData();
+            /** @var string $mobile */
+            if ('' !== $mobile) {
+                $user->setMobile($mobile);
             }
 
             $this->entityManager->persist($user);
@@ -144,6 +188,7 @@ final class UserCoreController extends AbstractController
 
         return $this->render('@Users/core/editprofile.html.twig', [
             'SetAvatarUserForm' => $formAvatar,
+            'ProfileForm' => $formProfile,
             'user' => $getUser,
         ]);
     }
