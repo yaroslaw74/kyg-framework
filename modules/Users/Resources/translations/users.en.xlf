@@ -41,6 +41,14 @@
         <source>Confirm my Email</source>
         <target>Confirm my Email</target>
       </trans-unit>
+      <trans-unit id="4iRtdnb" resname="Contacts">
+        <source>Contacts</source>
+        <target>Contacts</target>
+      </trans-unit>
+      <trans-unit id="nas8hrY" resname="Contact Info">
+        <source>Contact Info</source>
+        <target>Contact Info</target>
+      </trans-unit>
       <trans-unit id="uDxr_Pa" resname="Create Account">
         <source>Create Account</source>
         <target>Create Account</target>
@@ -77,6 +85,14 @@
         <source>Don't have an account?</source>
         <target>Don't have an account?</target>
       </trans-unit>
+      <trans-unit id="gqvgN2P" resname="Drag and drop or browse image">
+        <source>Drag and drop or browse image</source>
+        <target>Drag and drop or browse image</target>
+      </trans-unit>
+      <trans-unit id="r7qFsWz" resname="Edit Avatar">
+        <source>Edit Avatar</source>
+        <target>Edit Avatar</target>
+      </trans-unit>
       <trans-unit id="Iwl9wtn" resname="Edit Profile">
         <source>Edit Profile</source>
         <target>Edit Profile</target>
@@ -84,6 +100,50 @@
       <trans-unit id="JZi_tm0" resname="Email">
         <source>Email</source>
         <target>Email</target>
+      </trans-unit>
+      <trans-unit id="tDokmjn" resname="Enter First Name">
+        <source>Enter First Name</source>
+        <target>Enter First Name</target>
+      </trans-unit>
+      <trans-unit id="RVt1jCQ" resname="Enter Last Name">
+        <source>Enter Last Name</source>
+        <target>Enter Last Name</target>
+      </trans-unit>
+      <trans-unit id="KulMBox" resname="Enter Middle Name">
+        <source>Enter Middle Name</source>
+        <target>Enter Middle Name</target>
+      </trans-unit>
+      <trans-unit id="m.duQI8" resname="Enter Username">
+        <source>Enter Username</source>
+        <target>Enter Username</target>
+      </trans-unit>
+      <trans-unit id="_iXQYmW" resname="Enter email">
+        <source>Enter email</source>
+        <target>Enter email</target>
+      </trans-unit>
+      <trans-unit id="qANuTdv" resname="Enter first name">
+        <source>Enter first name</source>
+        <target>Enter first name</target>
+      </trans-unit>
+      <trans-unit id="XlX0HN_" resname="Enter last name">
+        <source>Enter last name</source>
+        <target>Enter last name</target>
+      </trans-unit>
+      <trans-unit id="ESVp1_n" resname="Enter middle name">
+        <source>Enter middle name</source>
+        <target>Enter middle name</target>
+      </trans-unit>
+      <trans-unit id="Nq0IWlJ" resname="Enter password">
+        <source>Enter password</source>
+        <target>Enter password</target>
+      </trans-unit>
+      <trans-unit id="SPVpdGD" resname="Enter phone">
+        <source>Enter phone</source>
+        <target>Enter phone</target>
+      </trans-unit>
+      <trans-unit id="bKgl4yX" resname="Enter username">
+        <source>Enter username</source>
+        <target>Enter username</target>
       </trans-unit>
       <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
         <source>Enter your Confirm Password</source>
@@ -178,6 +238,10 @@
         <source>Middle Name</source>
         <target>Middle Name</target>
       </trans-unit>
+      <trans-unit id="7VItq_h" resname="Mobile">
+        <source>Mobile</source>
+        <target>Mobile</target>
+      </trans-unit>
       <trans-unit id="wbMeKOh" resname="Name">
         <source>Name</source>
         <target>Name</target>
@@ -190,6 +254,10 @@
         <source>New password</source>
         <target>New password</target>
       </trans-unit>
+      <trans-unit id="fBmEJZH" resname="Nike Name">
+        <source>Nike Name</source>
+        <target>Nike Name</target>
+      </trans-unit>
       <trans-unit id="HmgPmMV" resname="Overview">
         <source>Overview</source>
         <target>Overview</target>
@@ -201,6 +269,14 @@
       <trans-unit id=".ku3jMu" resname="Pending">
         <source>Pending</source>
         <target>Pending</target>
+      </trans-unit>
+      <trans-unit id="5hMi0Jl" resname="Personal Information">
+        <source>Personal Information</source>
+        <target>Personal Information</target>
+      </trans-unit>
+      <trans-unit id="gZdyOsC" resname="Phone">
+        <source>Phone</source>
+        <target>Phone</target>
       </trans-unit>
       <trans-unit id="6EclFME" resname="Please Confirm your Email">
         <source>Please Confirm your Email</source>
@@ -270,6 +346,10 @@
         <source>Send password reset email</source>
         <target>Send password reset email</target>
       </trans-unit>
+      <trans-unit id="Bk_YwKX" resname="Set Avatar">
+        <source>Set Avatar</source>
+        <target>Set Avatar</target>
+      </trans-unit>
       <trans-unit id="VXFwlwn" resname="Settings">
         <source>Settings</source>
         <target>Settings</target>
@@ -306,9 +386,17 @@
         <source>USERS TABLE</source>
         <target>USERS TABLE</target>
       </trans-unit>
+      <trans-unit id="6z6RwJn" resname="Update Profile">
+        <source>Update Profile</source>
+        <target>Update Profile</target>
+      </trans-unit>
       <trans-unit id="r.AIjvR" resname="Used to customize and manage all settings about User">
         <source>Used to customize and manage all settings about User</source>
         <target>Used to customize and manage all settings about User</target>
+      </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>User</target>
       </trans-unit>
       <trans-unit id="qZ9r_ZS" resname="User add">
         <source>User add</source>
@@ -349,6 +437,18 @@
       <trans-unit id="lr6d0Ih" resname="connected">
         <source>connected</source>
         <target>connected</target>
+      </trans-unit>
+      <trans-unit id="u1x_1qs" resname="delete">
+        <source>delete</source>
+        <target>delete</target>
+      </trans-unit>
+      <trans-unit id="BVAU8Tv" resname="edit">
+        <source>edit</source>
+        <target>edit</target>
+      </trans-unit>
+      <trans-unit id="0vWafco" resname="search">
+        <source>search</source>
+        <target>search</target>
       </trans-unit>
       <trans-unit id="FTO0d6Z" resname="to the sign in screen">
         <source>to the sign in screen</source>
