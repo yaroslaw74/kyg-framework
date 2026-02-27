@@ -35,19 +35,19 @@
       </trans-unit>
       <trans-unit id="TLYBGV6" resname="Cheers!">
         <source>Cheers!</source>
-        <target>Ваше здоровье!!</target>
+        <target>Ваше здоровье!</target>
       </trans-unit>
       <trans-unit id="NoxuOPe" resname="Confirm my Email">
         <source>Confirm my Email</source>
         <target>Подтвердить мой адрес электронной почты</target>
       </trans-unit>
-      <trans-unit id="4iRtdnb" resname="Contacts">
-        <source>Contacts</source>
-        <target>Контакты</target>
-      </trans-unit>
       <trans-unit id="nas8hrY" resname="Contact Info">
         <source>Contact Info</source>
         <target>Контактная информация</target>
+      </trans-unit>
+      <trans-unit id="lvJvRE8" resname="Contacts">
+        <source>Contacts</source>
+        <target>Контакты</target>
       </trans-unit>
       <trans-unit id="uDxr_Pa" resname="Create Account">
         <source>Create Account</source>
@@ -101,6 +101,10 @@
         <source>Email</source>
         <target>Email</target>
       </trans-unit>
+      <trans-unit id="RdM1twG" resname="Enter Email">
+        <source>Enter Email</source>
+        <target>Введите адрес электронной почты</target>
+      </trans-unit>
       <trans-unit id="tDokmjn" resname="Enter First Name">
         <source>Enter First Name</source>
         <target>Введите имя</target>
@@ -113,23 +117,15 @@
         <source>Enter Middle Name</source>
         <target>Введите отчество</target>
       </trans-unit>
-      <trans-unit id="m.duQI8" resname="Enter Username">
-        <source>Enter Username</source>
-        <target>Введите имя пользователя</target>
-      </trans-unit>
-      <trans-unit id="_iXQYmW" resname="Enter Email">
-        <source>Enter Email</source>
-        <target>Введите адрес электронной почты</target>
-      </trans-unit>
-      <trans-unit id="Nq0IWlJ" resname="Enter Password">
+      <trans-unit id="1zBfZPQ" resname="Enter Password">
         <source>Enter Password</source>
         <target>Введите пароль</target>
       </trans-unit>
-      <trans-unit id="SPVpdGD" resname="Enter Phone">
+      <trans-unit id="4MMVhbn" resname="Enter Phone">
         <source>Enter Phone</source>
         <target>Введите номер телефона</target>
       </trans-unit>
-      <trans-unit id="bKgl4yX" resname="Enter Username">
+      <trans-unit id="m.duQI8" resname="Enter Username">
         <source>Enter Username</source>
         <target>Введите имя пользователя</target>
       </trans-unit>
@@ -141,17 +137,17 @@
         <source>Enter your Email</source>
         <target>Введите свой адрес электронной почты</target>
       </trans-unit>
+      <trans-unit id="LEtu2Ix" resname="Enter your Password">
+        <source>Enter your Password</source>
+        <target>Введите Выш пароль</target>
+      </trans-unit>
+      <trans-unit id="XHIne9L" resname="Enter your Username">
+        <source>Enter your Username</source>
+        <target>Введите Ваше имя пользователя</target>
+      </trans-unit>
       <trans-unit id="ifotYH6" resname="Enter your email address, and we will send you a link to reset your password.">
         <source>Enter your email address, and we will send you a link to reset your password.</source>
         <target>Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.</target>
-      </trans-unit>
-      <trans-unit id="v9LnMuq" resname="Enter your password">
-        <source>Enter your password</source>
-        <target>Введите Выш пароль</target>
-      </trans-unit>
-      <trans-unit id="kXDIuDb" resname="Enter your username">
-        <source>Enter your username</source>
-        <target>Введите Ваше имя пользователя</target>
       </trans-unit>
       <trans-unit id="BQjGS3q" resname="First Name">
         <source>First Name</source>
@@ -201,7 +197,7 @@
         <source>In this settings we can change the region and language manually.</source>
         <target>В этих настройках мы можем вручную изменить регион и язык.</target>
       </trans-unit>
-      <trans-unit id="ybqiXt5" resname="Inactive">
+       <trans-unit id="ybqiXt5" resname="Inactive">
         <source>Inactive</source>
         <target>Неактивный</target>
       </trans-unit>
@@ -216,6 +212,10 @@
       <trans-unit id="0jsx_LN" resname="Last Name">
         <source>Last Name</source>
         <target>Фамилия</target>
+      </trans-unit>
+      <trans-unit id="0auSc.w" resname="Locale">
+        <source>Locale</source>
+        <target>Язык</target>
       </trans-unit>
       <trans-unit id="C.zs1yA" resname="Main">
         <source>Main</source>
@@ -237,8 +237,8 @@
         <source>New</source>
         <target>Новый</target>
       </trans-unit>
-      <trans-unit id="Zm.jZiK" resname="New password">
-        <source>New password</source>
+      <trans-unit id="K69AU92" resname="New Password">
+        <source>New Password</source>
         <target>Новый пароль</target>
       </trans-unit>
       <trans-unit id="HmgPmMV" resname="Overview">
@@ -273,17 +273,21 @@
         <source>Please confirm your email address by clicking the following link:</source>
         <target>Пожалуйста, подтвердите свой адрес электронной почты, перейдя по следующей ссылке:</target>
       </trans-unit>
-      <trans-unit id="B7yoMOR" resname="Please enter a password">
-        <source>Please enter a password</source>
+      <trans-unit id="u6Xt3kn" resname="Please enter Email">
+        <source>Please enter Email</source>
+        <target>Пожалуйста, введите адрес электронной почты.</target>
+      </trans-unit>
+      <trans-unit id="8JKrX1p" resname="Please enter a Password">
+        <source>Please enter a Password</source>
         <target>Пожалуйста, введите пароль</target>
       </trans-unit>
-      <trans-unit id="SKiupn5" resname="Please enter email">
-        <source>Please enter email</source>
-        <target>Пожалуйста, введите адрес электронной почты</target>
-      </trans-unit>
-      <trans-unit id="7VWHcE0" resname="Please enter your email">
-        <source>Please enter your email</source>
+      <trans-unit id="El0xBYR" resname="Please enter your Email">
+        <source>Please enter your Email</source>
         <target>Пожалуйста, введите свой адрес электронной почты.</target>
+      </trans-unit>
+      <trans-unit id="tx1qgNR" resname="Please enter your Password">
+        <source>Please enter your Password</source>
+        <target>Пожалуйста, введите Ваш пароль.</target>
       </trans-unit>
       <trans-unit id="0N4x_Ri" resname="Please sign in to continue.">
         <source>Please sign in to continue.</source>
@@ -293,8 +297,8 @@
         <source>Profile</source>
         <target>Профиль</target>
       </trans-unit>
-      <trans-unit id="aC5lObQ" resname="Region and language">
-        <source>Region and language</source>
+      <trans-unit id="aC5lObQ" resname="Region and Language">
+        <source>Region and Language</source>
         <target>Регион и язык</target>
       </trans-unit>
       <trans-unit id="WevL4T_" resname="Remember me">
@@ -333,6 +337,10 @@
         <source>Set Avatar</source>
         <target>Установить аватар</target>
       </trans-unit>
+      <trans-unit id="iDb9v0e" resname="Set Region and Language">
+        <source>Set Region and Language</source>
+        <target>Установить регион и язык</target>
+      </trans-unit>
       <trans-unit id="VXFwlwn" resname="Settings">
         <source>Settings</source>
         <target>Настройки</target>
@@ -356,6 +364,10 @@
       <trans-unit id="BRJuStP" resname="This link will expire in">
         <source>This link will expire in</source>
         <target>Срок действия этой ссылки истекает через</target>
+      </trans-unit>
+      <trans-unit id="ZvziuWE" resname="Timezone">
+        <source>Timezone</source>
+        <target>Часовой пояс</target>
       </trans-unit>
       <trans-unit id="ETTNQ2F" resname="To reset your password, please visit the following link">
         <source>To reset your password, please visit the following link</source>
@@ -431,7 +443,7 @@
       </trans-unit>
       <trans-unit id="0vWafco" resname="search">
         <source>search</source>
-        <target>поиск</target>
+        <target>искать</target>
       </trans-unit>
       <trans-unit id="FTO0d6Z" resname="to the sign in screen">
         <source>to the sign in screen</source>
