@@ -45,7 +45,7 @@ class RegistrationFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'attr' => [
-                    'placeholder' => $this->translator->trans('Enter your username', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter your Username', [], 'users'),
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -59,7 +59,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => $this->translator->trans('Please enter your email', [], 'users'),
+                        'message' => $this->translator->trans('Please enter your Email', [], 'users'),
                     ]),
                 ],
             ])
@@ -86,11 +86,11 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
-                    'placeholder' => $this->translator->trans('Enter your password', [], 'users'),
+                    'placeholder' => $this->translator->trans('Enter your Password', [], 'users'),
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => $this->translator->trans('Please enter a password', [], 'users'),
+                        'message' => $this->translator->trans('Please enter your Password', [], 'users'),
                     ]),
                     new Length([
                         'min' => 6,
