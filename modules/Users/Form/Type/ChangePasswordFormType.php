@@ -51,7 +51,7 @@ class ChangePasswordFormType extends AbstractType
                 'first_options' => [
                     'constraints' => [
                         new NotBlank([
-                            'message' => $this->translator->trans('Please enter a password', [], 'users'),
+                            'message' => $this->translator->trans('Please enter a Password', [], 'users'),
                         ]),
                         new Length([
                             'min' => 12,
@@ -62,9 +62,9 @@ class ChangePasswordFormType extends AbstractType
                         new PasswordStrength(),
                         new NotCompromisedPassword(),
                     ],
-                    'label' => $this->translator->trans('New password', [], 'users'),
+                    'label' => $this->translator->trans('New Password', [], 'users'),
                     'attr' => [
-                        'placeholder' => $this->translator->trans('Enter your password', [], 'users'),
+                        'placeholder' => $this->translator->trans('Enter your Password', [], 'users'),
                     ],
                 ],
                 'second_options' => [
