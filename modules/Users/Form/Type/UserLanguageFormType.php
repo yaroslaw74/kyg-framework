@@ -15,13 +15,13 @@ declare(strict_types=1);
 namespace App\Modules\Users\Form\Type;
 
 use App\Modules\Users\Entity\User;
+use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimezoneType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TimezoneType;
-use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 /**
  * @template-extends AbstractType<User>
@@ -30,7 +30,7 @@ class UserLanguageFormType extends AbstractType
 {
     public function __construct(
         private TranslatorInterface $translator,
-        private ContainerBagInterface $params
+        private ContainerBagInterface $params,
     ) {
     }
 
@@ -56,16 +56,16 @@ class UserLanguageFormType extends AbstractType
                 'choice_attr' => $locale_attr,
                 'choice_translation_domain' => false,
                 'placeholder' => false,
-                'data' => $this->translator->getLocale()
+                'data' => $this->translator->getLocale(),
             ])
             ->add('timezone', TimezoneType::class, [
                 'label' => $this->translator->trans('Timezone', [], 'users'),
                 'required' => false,
                 'attr' => [
-                    'dir' => 'en'
+                    'dir' => 'en',
                 ],
                 'placeholder' => false,
-                'data' => date_default_timezone_get()
+                'data' => date_default_timezone_get(),
             ]);
     }
 
@@ -75,5 +75,4 @@ class UserLanguageFormType extends AbstractType
             'data_class' => User::class,
         ]);
     }
-
 }
