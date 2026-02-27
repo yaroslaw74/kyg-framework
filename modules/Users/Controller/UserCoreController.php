@@ -29,6 +29,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use App\Modules\Users\Form\Type\UserLanguageFormType;
 
 final class UserCoreController extends AbstractController
 {
@@ -197,9 +198,32 @@ final class UserCoreController extends AbstractController
     }
 
     #[Route('/app/user/settings', name: 'app_user_settings')]
-    public function userSettings(): Response
+    public function userSettings(Request $request): Response
     {
-        return $this->render('@Users/core/settings.html.twig', []);
+        $user = new User();
+        $formLanguage = $this->createForm(UserLanguageFormType::class, $user);
+        $formLanguage->handleRequest($request);
+
+        if ($formLanguage->isSubmitted() && $formLanguage->isValid()) {
+            /** @var string $locale */
+            $locale = $formLanguage->get('locale')->getData();
+            if ('' !== $locale) {
+                $user->setLocale($locale);
+            }
+
+            /** @var string $timezone */
+            $timezone = $formLanguage->get('timezone')->getData();
+            if ('' !== $timezone) {
+                $user->setTimezone($timezone);
+            }
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        return $this->render('@Users/core/settings.html.twig', [
+            'LangugeForm' => $formLanguage
+        ]);
     }
 
     #[Route('/app/user/delite/{id}', name: 'app_user_delite')]
