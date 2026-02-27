@@ -8,6 +8,7 @@
  #}
 {% extends 'empty.html.twig' %}
 {% trans_default_domain 'users' %}
+{% form_theme LangugeForm 'bootstrap_5_layout.html.twig' %}
 
 {% block page_header %}
     {{ include('partials/page-header.html.twig', {title: 'Settings'|trans, subtitle: 'Users'|trans}) }}
@@ -132,7 +133,7 @@
                                     <div class="d-flex">
                                         <div class="settings-main-icon me-4 mt-1 flex-shrink-0"><i class="fe fe-flag"></i></div>
                                         <div>
-                                            <p class="fs-20 fw-medium d-flex mb-0">{% trans %}Region and language{% endtrans %}</p>
+                                            <p class="fs-20 fw-medium d-flex mb-0">{% trans %}Region and Language{% endtrans %}</p>
                                             <p class="fs-13 text-muted mb-0">{% trans %}In this settings we can change the region and language manually.{% endtrans %}</p>
                                         </div>
                                     </div>
@@ -140,7 +141,7 @@
                             </div>
                         </div>
                         <div class="card-footer p-3">
-                            <a href="javascript:void(0);" class="fs-14 mb-0 text-primary">{% trans %}Go to Settings{% endtrans %}</a>
+                            <a href="javascript:void(0);" class="fs-14 mb-0 text-primary" data-bs-toggle="modal" data-bs-target="#languageModal">{% trans %}Go to Settings{% endtrans %}</a>
                             <label class="form-switch float-end mb-0">
                                 <a href="javascript:void(0);" class="fs-14 mb-0 me-2 text-primary">{% trans %}Restore default{% endtrans %}</a>
                                 <input type="checkbox" name="form-switch-checkbox3" class="form-switch-input">
@@ -203,4 +204,34 @@
         </div>
     </div>
     <!--End::row-1 -->
+
+    <!-- Modal start -->
+    <div class="modal modal-xl fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <h6 class="modal-title" id="languageModalLabel">{% trans %}Region and Language{% endtrans %}</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="main-signup-header mt-3">
+                                {{ form_start(LangugeForm) }}
+                                    {{ form_row(LangugeForm.locale) }}
+                                    {{ form_row(LangugeForm.timezone) }}
+                                    <button type="submit" class="btn btn-primary btn-block w-100 mt-3 mb-3">{% trans %}Set Region and Language{% endtrans %}</button>
+                                {{ form_end(LangugeForm) }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- modal-body -->
+            </div>
+            <!-- modal-content -->
+        </div>
+        <!-- modal-dialog -->
+    </div>
+    <!-- Modal end -->
 {% endblock body_content %}
