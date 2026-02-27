@@ -44,7 +44,7 @@ class ResetPasswordRequestFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => $this->translator->trans('Please enter your email', [], 'users'),
+                        'message' => $this->translator->trans('Please enter your Email', [], 'users'),
                     ]),
                 ],
             ])
