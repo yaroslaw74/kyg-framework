@@ -52,12 +52,12 @@
                             {% endif %}
                             <div class="form-group mb-3">
                                 <label class="form-label required" for="username">{% trans %}Username{% endtrans %}</label>
-                                <input class="form-control" placeholder="{% trans %}Enter your username{% endtrans %}" type="text" value="{{ last_username }}" name="_username" id="username" autocomplete="username" required autofocus>
+                                <input class="form-control" placeholder="{% trans %}Enter your Username{% endtrans %}" type="text" value="{{ last_username }}" name="_username" id="username" autocomplete="username" required autofocus>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label required" for="password">{% trans %}Password{% endtrans %}</label>
                                 <div class="toggle-password-container">
-                                    <input class="form-control" placeholder="{% trans %}Enter your password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required {{ stimulus_controller('toggle-password', {visibleLabel: 'Show password'|trans({}, 'messages'), hiddenLabel: 'Hide password'|trans({}, 'messages'), buttonClasses: ['toggle-password-button']}) }}>
+                                    <input class="form-control" placeholder="{% trans %}Enter your Password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required {{ stimulus_controller('toggle-password', {visibleLabel: 'Show password'|trans({}, 'messages'), hiddenLabel: 'Hide password'|trans({}, 'messages'), buttonClasses: ['toggle-password-button']}) }}>
                                 </div>
                             </div>
                             <div class="checkbox mb-3">
