@@ -41,13 +41,13 @@
         <source>Confirm my Email</source>
         <target>Confirm my Email</target>
       </trans-unit>
-      <trans-unit id="4iRtdnb" resname="Contacts">
-        <source>Contacts</source>
-        <target>Contacts</target>
-      </trans-unit>
       <trans-unit id="nas8hrY" resname="Contact Info">
         <source>Contact Info</source>
         <target>Contact Info</target>
+      </trans-unit>
+      <trans-unit id="lvJvRE8" resname="Contacts">
+        <source>Contacts</source>
+        <target>Contacts</target>
       </trans-unit>
       <trans-unit id="uDxr_Pa" resname="Create Account">
         <source>Create Account</source>
@@ -101,6 +101,10 @@
         <source>Email</source>
         <target>Email</target>
       </trans-unit>
+      <trans-unit id="RdM1twG" resname="Enter Email">
+        <source>Enter Email</source>
+        <target>Enter Email</target>
+      </trans-unit>
       <trans-unit id="tDokmjn" resname="Enter First Name">
         <source>Enter First Name</source>
         <target>Enter First Name</target>
@@ -113,21 +117,17 @@
         <source>Enter Middle Name</source>
         <target>Enter Middle Name</target>
       </trans-unit>
+      <trans-unit id="1zBfZPQ" resname="Enter Password">
+        <source>Enter Password</source>
+        <target>Enter Password</target>
+      </trans-unit>
+      <trans-unit id="4MMVhbn" resname="Enter Phone">
+        <source>Enter Phone</source>
+        <target>Enter Phone</target>
+      </trans-unit>
       <trans-unit id="m.duQI8" resname="Enter Username">
         <source>Enter Username</source>
         <target>Enter Username</target>
-      </trans-unit>
-      <trans-unit id="_iXQYmW" resname="Enter Email">
-        <source>Enter Email</source>
-        <target>Enter Email</target>
-      </trans-unit>
-      <trans-unit id="qANuTdv" resname="Enter first name">
-        <source>Enter first name</source>
-        <target>Enter first name</target>
-      </trans-unit>
-      <trans-unit id="SPVpdGD" resname="Enter Phone">
-        <source>Enter Phone</source>
-        <target>Enter Phone</target>
       </trans-unit>
       <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
         <source>Enter your Confirm Password</source>
@@ -137,18 +137,18 @@
         <source>Enter your Email</source>
         <target>Enter your Email</target>
       </trans-unit>
+      <trans-unit id="LEtu2Ix" resname="Enter your Password">
+        <source>Enter your Password</source>
+        <target>Enter your Password</target>
+      </trans-unit>
+      <trans-unit id="XHIne9L" resname="Enter your Username">
+        <source>Enter your Username</source>
+        <target>Enter your Username</target>
+      </trans-unit>
       <trans-unit id="ifotYH6" resname="Enter your email address, and we will send you a link to reset your password.">
         <source>Enter your email address, and we will send you a link to reset your password.</source>
         <target>Enter your email address, and we will send you a link to reset your
           password.</target>
-      </trans-unit>
-      <trans-unit id="v9LnMuq" resname="Enter your password">
-        <source>Enter your password</source>
-        <target>Enter your password</target>
-      </trans-unit>
-      <trans-unit id="kXDIuDb" resname="Enter your username">
-        <source>Enter your username</source>
-        <target>Enter your username</target>
       </trans-unit>
       <trans-unit id="BQjGS3q" resname="First Name">
         <source>First Name</source>
@@ -214,6 +214,10 @@
         <source>Last Name</source>
         <target>Last Name</target>
       </trans-unit>
+      <trans-unit id="0auSc.w" resname="Locale">
+        <source>Locale</source>
+        <target>Locale</target>
+      </trans-unit>
       <trans-unit id="C.zs1yA" resname="Main">
         <source>Main</source>
         <target>Main</target>
@@ -234,9 +238,9 @@
         <source>New</source>
         <target>New</target>
       </trans-unit>
-      <trans-unit id="Zm.jZiK" resname="New password">
-        <source>New password</source>
-        <target>New password</target>
+      <trans-unit id="K69AU92" resname="New Password">
+        <source>New Password</source>
+        <target>New Password</target>
       </trans-unit>
       <trans-unit id="HmgPmMV" resname="Overview">
         <source>Overview</source>
@@ -270,17 +274,21 @@
         <source>Please confirm your email address by clicking the following link:</source>
         <target>Please confirm your email address by clicking the following link:</target>
       </trans-unit>
-      <trans-unit id="B7yoMOR" resname="Please enter a password">
-        <source>Please enter a password</source>
-        <target>Please enter a password</target>
+      <trans-unit id="u6Xt3kn" resname="Please enter Email">
+        <source>Please enter Email</source>
+        <target>Please enter Email</target>
       </trans-unit>
-      <trans-unit id="SKiupn5" resname="Please enter email">
-        <source>Please enter email</source>
-        <target>Please enter email</target>
+      <trans-unit id="8JKrX1p" resname="Please enter a Password">
+        <source>Please enter a Password</source>
+        <target>Please enter a Password</target>
       </trans-unit>
-      <trans-unit id="7VWHcE0" resname="Please enter your email">
-        <source>Please enter your email</source>
-        <target>Please enter your email</target>
+      <trans-unit id="El0xBYR" resname="Please enter your Email">
+        <source>Please enter your Email</source>
+        <target>Please enter your Email</target>
+      </trans-unit>
+      <trans-unit id="tx1qgNR" resname="Please enter your Password">
+        <source>Please enter your Password</source>
+        <target>Please enter your Password</target>
       </trans-unit>
       <trans-unit id="0N4x_Ri" resname="Please sign in to continue.">
         <source>Please sign in to continue.</source>
@@ -290,9 +298,9 @@
         <source>Profile</source>
         <target>Profile</target>
       </trans-unit>
-      <trans-unit id="aC5lObQ" resname="Region and language">
-        <source>Region and language</source>
-        <target>Region and language</target>
+      <trans-unit id="aC5lObQ" resname="Region and Language">
+        <source>Region and Language</source>
+        <target>Region and Language</target>
       </trans-unit>
       <trans-unit id="WevL4T_" resname="Remember me">
         <source>Remember me</source>
@@ -330,6 +338,10 @@
         <source>Set Avatar</source>
         <target>Set Avatar</target>
       </trans-unit>
+      <trans-unit id="iDb9v0e" resname="Set Region and Language">
+        <source>Set Region and Language</source>
+        <target>Set Region and Language</target>
+      </trans-unit>
       <trans-unit id="VXFwlwn" resname="Settings">
         <source>Settings</source>
         <target>Settings</target>
@@ -353,6 +365,10 @@
       <trans-unit id="BRJuStP" resname="This link will expire in">
         <source>This link will expire in</source>
         <target>This link will expire in</target>
+      </trans-unit>
+      <trans-unit id="ZvziuWE" resname="Timezone">
+        <source>Timezone</source>
+        <target>Timezone</target>
       </trans-unit>
       <trans-unit id="ETTNQ2F" resname="To reset your password, please visit the following link">
         <source>To reset your password, please visit the following link</source>
