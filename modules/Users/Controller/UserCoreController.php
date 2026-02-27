@@ -18,6 +18,7 @@ use App\Modules\Users\Entity\User;
 use App\Modules\Users\Form\Type\AddUserFormType;
 use App\Modules\Users\Form\Type\ProfileFormType;
 use App\Modules\Users\Form\Type\SetAvatarUserForm;
+use App\Modules\Users\Form\Type\UserLanguageFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,7 +30,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use App\Modules\Users\Form\Type\UserLanguageFormType;
 
 final class UserCoreController extends AbstractController
 {
@@ -222,7 +222,7 @@ final class UserCoreController extends AbstractController
         }
 
         return $this->render('@Users/core/settings.html.twig', [
-            'LangugeForm' => $formLanguage
+            'LangugeForm' => $formLanguage,
         ]);
     }
 
