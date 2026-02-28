@@ -47,6 +47,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * @return User[] Returns an array of User objects
+     *
+     * @phpstan-ignore missingType.parameter
      */
     public function findByExampleField($value): array
     {
@@ -61,6 +63,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
 
+    /**
+     * @phpstan-ignore missingType.parameter
+     */
     public function findOneBySomeField($value): ?User
     {
         /* @phpstan-ignore doctrine.dql */
