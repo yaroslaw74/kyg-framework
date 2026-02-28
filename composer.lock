@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c2b825f2ae7e6c87a17bc9535aab171",
+    "content-hash": "4ccfe2b8b5e34841df8f2890a13c6dbb",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -4209,16 +4209,16 @@
         },
         {
             "name": "jbtronics/settings-bundle",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jbtronics/settings-bundle.git",
-                "reference": "6a66c099460fd623d0d1ddbf9864b3173d416c3b"
+                "reference": "9cce5f59482e66417166354072c7e24790495b9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/6a66c099460fd623d0d1ddbf9864b3173d416c3b",
-                "reference": "6a66c099460fd623d0d1ddbf9864b3173d416c3b",
+                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/9cce5f59482e66417166354072c7e24790495b9b",
+                "reference": "9cce5f59482e66417166354072c7e24790495b9b",
                 "shasum": ""
             },
             "require": {
@@ -4231,7 +4231,7 @@
                 "symfony/translation": "^7.0|^6.4|^8.0",
                 "symfony/translation-contracts": "^2.5|^3.0",
                 "symfony/validator": "^6.4|^7.0|^8.0",
-                "symfony/var-exporter": "^6.4|^7.0"
+                "symfony/var-exporter": "^6.4|^7.0|^8.0"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "^2.11",
@@ -4279,7 +4279,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jbtronics/settings-bundle/issues",
-                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.2.0"
+                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.2.1"
             },
             "funding": [
                 {
@@ -4291,7 +4291,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-03T20:13:02+00:00"
+            "time": "2026-02-28T16:30:47+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
