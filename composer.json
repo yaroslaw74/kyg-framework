@@ -40,7 +40,7 @@
         "fdekker/log-viewer-bundle": "^2.7.1",
         "friendsofsymfony/ckeditor-bundle": "^2.8",
         "hwi/oauth-bundle": "^2.5",
-        "jbtronics/settings-bundle": "^3.2",
+        "jbtronics/settings-bundle": "^3.2.1",
         "knplabs/knp-menu-bundle": "^3.7",
         "knplabs/knp-paginator-bundle": "^6.10",
         "league/flysystem-bundle": "^3.6.2",
