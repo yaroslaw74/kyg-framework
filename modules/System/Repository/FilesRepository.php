@@ -30,6 +30,8 @@ class FilesRepository extends ServiceEntityRepository
 
     /**
      * @return Files[] Returns an array of Files objects
+     *
+     * @phpstan-ignore missingType.parameter
      */
     public function findByExampleField($value): array
     {
@@ -44,6 +46,9 @@ class FilesRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @phpstan-ignore missingType.parameter
+     */
     public function findOneBySomeField($value): ?Files
     {
         /* @phpstan-ignore doctrine.dql */
