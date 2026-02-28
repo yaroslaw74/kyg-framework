@@ -37,7 +37,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
         if (!$user instanceof User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
+            throw new UnsupportedUserException(\sprintf('Instances of "%s" are not supported.', $user::class));
         }
 
         $user->setPassword($newHashedPassword);
@@ -52,9 +52,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      */
     public function findByExampleField($value): array
     {
-        /*
-         * @phpstan-ignore doctrine.dql
-         */
+        /* @phpstan-ignore doctrine.dql */
         return $this->createQueryBuilder('u')
             ->andWhere('u.exampleField = :val')
             ->setParameter('val', $value)
@@ -70,9 +68,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      */
     public function findOneBySomeField($value): ?User
     {
-        /*
-         * @phpstan-ignore doctrine.dql
-         */
+        /* @phpstan-ignore doctrine.dql */
         return $this->createQueryBuilder('u')
             ->andWhere('u.exampleField = :val')
             ->setParameter('val', $value)
