@@ -1,0 +1,5 @@
+sysyem:
+    resource:
+        path: "../../../Controller/"
+        namespace: App\Modules\Sustem\Controller
+    type: attribute
