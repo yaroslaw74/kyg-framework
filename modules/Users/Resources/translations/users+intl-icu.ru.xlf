@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="BUIQ..a" resname="Action">
+        <source>Action</source>
+        <target>Действие</target>
+      </trans-unit>
+      <trans-unit id="JjO6Nuw" resname="Active">
+        <source>Active</source>
+        <target>Активный</target>
+      </trans-unit>
+      <trans-unit id="AG97PAk" resname="Add User">
+        <source>Add User</source>
+        <target>Добавить пользователя</target>
+      </trans-unit>
+      <trans-unit id="9QMZdkf" resname="Already have an account?">
+        <source>Already have an account?</source>
+        <target>У Вас уже есть аккаунт?</target>
+      </trans-unit>
+      <trans-unit id="m7V4I9G" resname="Avatar">
+        <source>Avatar</source>
+        <target>Аватар</target>
+      </trans-unit>
+      <trans-unit id="737pkI." resname="Banned">
+        <source>Banned</source>
+        <target>Запрещён</target>
+      </trans-unit>
+      <trans-unit id="NJqfUFN" resname="CREATING A USER">
+        <source>CREATING A USER</source>
+        <target>СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ</target>
+      </trans-unit>
+      <trans-unit id="TLYBGV6" resname="Cheers!">
+        <source>Cheers!</source>
+        <target>Ваше здоровье!</target>
+      </trans-unit>
+      <trans-unit id="NoxuOPe" resname="Confirm my Email">
+        <source>Confirm my Email</source>
+        <target>Подтвердить мой адрес электронной почты</target>
+      </trans-unit>
+      <trans-unit id="nas8hrY" resname="Contact Info">
+        <source>Contact Info</source>
+        <target>Контактная информация</target>
+      </trans-unit>
+      <trans-unit id="lvJvRE8" resname="Contacts">
+        <source>Contacts</source>
+        <target>Контакты</target>
+      </trans-unit>
+      <trans-unit id="uDxr_Pa" resname="Create Account">
+        <source>Create Account</source>
+        <target>Зарегистрироваться</target>
+      </trans-unit>
+      <trans-unit id="er2Jg1." resname="Create User">
+        <source>Create User</source>
+        <target>Создать пользователя</target>
+      </trans-unit>
+      <trans-unit id="SCRgs_V" resname="Create an Account">
+        <source>Create an Account</source>
+        <target>Создать учётную запись</target>
+      </trans-unit>
+      <trans-unit id="QizowMq" resname="Created">
+        <source>Created</source>
+        <target>Создан</target>
+      </trans-unit>
+      <trans-unit id="xHsbIh6" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Панель управления</target>
+      </trans-unit>
+      <trans-unit id="vlDWULV" resname="Dashboard Settings such as sidemenu, header and main page can be Controlled.">
+        <source>Dashboard Settings such as sidemenu, header and main page can be Controlled.</source>
+        <target>Настройки панели управления, такие как боковое меню, заголовок и главная страница могут быть изменены.</target>
+      </trans-unit>
+      <trans-unit id="l9KZflr" resname="Deleted">
+        <source>Deleted</source>
+        <target>Удалён</target>
+      </trans-unit>
+      <trans-unit id="tK64T0a" resname="Disabled">
+        <source>Disabled</source>
+        <target>Отключён</target>
+      </trans-unit>
+      <trans-unit id="8IvMqPn" resname="Don't have an account?">
+        <source>Don't have an account?</source>
+        <target>У Вас нет учётной записи?</target>
+      </trans-unit>
+      <trans-unit id="gqvgN2P" resname="Drag and drop or browse image">
+        <source>Drag and drop or browse image</source>
+        <target>Перетащите изображение или выберите нужное.</target>
+      </trans-unit>
+      <trans-unit id="r7qFsWz" resname="Edit Avatar">
+        <source>Edit Avatar</source>
+        <target>Редактировать аватар</target>
+      </trans-unit>
+      <trans-unit id="Iwl9wtn" resname="Edit Profile">
+        <source>Edit Profile</source>
+        <target>Редактировать профиль</target>
+      </trans-unit>
+      <trans-unit id="JZi_tm0" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="RdM1twG" resname="Enter Email">
+        <source>Enter Email</source>
+        <target>Введите адрес электронной почты</target>
+      </trans-unit>
+      <trans-unit id="tDokmjn" resname="Enter First Name">
+        <source>Enter First Name</source>
+        <target>Введите имя</target>
+      </trans-unit>
+      <trans-unit id="RVt1jCQ" resname="Enter Last Name">
+        <source>Enter Last Name</source>
+        <target>Введите фамилию</target>
+      </trans-unit>
+      <trans-unit id="KulMBox" resname="Enter Middle Name">
+        <source>Enter Middle Name</source>
+        <target>Введите отчество</target>
+      </trans-unit>
+      <trans-unit id="1zBfZPQ" resname="Enter Password">
+        <source>Enter Password</source>
+        <target>Введите пароль</target>
+      </trans-unit>
+      <trans-unit id="4MMVhbn" resname="Enter Phone">
+        <source>Enter Phone</source>
+        <target>Введите номер телефона</target>
+      </trans-unit>
+      <trans-unit id="m.duQI8" resname="Enter Username">
+        <source>Enter Username</source>
+        <target>Введите имя пользователя</target>
+      </trans-unit>
+      <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
+        <source>Enter your Confirm Password</source>
+        <target>Введите свой подтверждающий пароль</target>
+      </trans-unit>
+      <trans-unit id="bR5bxp." resname="Enter your Email">
+        <source>Enter your Email</source>
+        <target>Введите свой адрес электронной почты</target>
+      </trans-unit>
+      <trans-unit id="LEtu2Ix" resname="Enter your Password">
+        <source>Enter your Password</source>
+        <target>Введите Выш пароль</target>
+      </trans-unit>
+      <trans-unit id="XHIne9L" resname="Enter your Username">
+        <source>Enter your Username</source>
+        <target>Введите Ваше имя пользователя</target>
+      </trans-unit>
+      <trans-unit id="ifotYH6" resname="Enter your email address, and we will send you a link to reset your password.">
+        <source>Enter your email address, and we will send you a link to reset your password.</source>
+        <target>Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.</target>
+      </trans-unit>
+      <trans-unit id="BQjGS3q" resname="First Name">
+        <source>First Name</source>
+        <target>Имя</target>
+      </trans-unit>
+      <trans-unit id="mcyh89V" resname="Forget it,">
+        <source>Forget it,</source>
+        <target>Забудь это,</target>
+      </trans-unit>
+      <trans-unit id="SwTdbKS" resname="Forgot Password!">
+        <source>Forgot Password!</source>
+        <target>Забыли пароль!</target>
+      </trans-unit>
+      <trans-unit id="DxQEefv" resname="Forgot password?">
+        <source>Forgot password?</source>
+        <target>Забыли пароль?</target>
+      </trans-unit>
+      <trans-unit id="L0rykdc" resname="Get Started">
+        <source>Get Started</source>
+        <target>Начать</target>
+      </trans-unit>
+      <trans-unit id="Rrjl0wD" resname="Go to Settings">
+        <source>Go to Settings</source>
+        <target>Перейти к настройкам</target>
+      </trans-unit>
+      <trans-unit id="1PPDBCa" resname="Hi!">
+        <source>Hi!</source>
+        <target>Привет!</target>
+      </trans-unit>
+      <trans-unit id="6O3nWZM" resname="Hi! Please confirm your email!">
+        <source>Hi! Please confirm your email!</source>
+        <target>Привет! Пожалуйста, подтвердите свой адрес электронной почты!</target>
+      </trans-unit>
+      <trans-unit id="q_UWb1q" resname="I agree to the terms and conditions">
+        <source>I agree to the terms and conditions</source>
+        <target>Я соглашаюсь с условиями и положениями</target>
+      </trans-unit>
+      <trans-unit id="NJn0f4_" resname="If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.">
+        <source>If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.</source>
+        <target>Если существует учетная запись, соответствующая вашему адресу электронной почты, то вам только что было отправлено электронное письмо, содержащее ссылку, которую вы можете использовать для сброса пароля.</target>
+      </trans-unit>
+      <trans-unit id="bDPZm0a" resname="If you don't receive an email please check your spam folder or">
+        <source>If you don't receive an email please check your spam folder or</source>
+        <target>Если вы не получили электронное письмо, проверьте папку «Спам» или</target>
+      </trans-unit>
+      <trans-unit id="wBhLtFS" resname="In this settings we can change the region and language manually.">
+        <source>In this settings we can change the region and language manually.</source>
+        <target>В этих настройках мы можем вручную изменить регион и язык.</target>
+      </trans-unit>
+       <trans-unit id="ybqiXt5" resname="Inactive">
+        <source>Inactive</source>
+        <target>Неактивный</target>
+      </trans-unit>
+      <trans-unit id="KisA1uf" resname="It's free to signup and only takes a minute.">
+        <source>It's free to signup and only takes a minute.</source>
+        <target>Регистрация бесплатна и занимает всего минуту.</target>
+      </trans-unit>
+      <trans-unit id="Qt6RB5d" resname="Language and Region">
+        <source>Language and Region</source>
+        <target>Язык и регион</target>
+      </trans-unit>
+      <trans-unit id="0jsx_LN" resname="Last Name">
+        <source>Last Name</source>
+        <target>Фамилия</target>
+      </trans-unit>
+      <trans-unit id="0auSc.w" resname="Locale">
+        <source>Locale</source>
+        <target>Язык</target>
+      </trans-unit>
+      <trans-unit id="C.zs1yA" resname="Main">
+        <source>Main</source>
+        <target>Главная</target>
+      </trans-unit>
+      <trans-unit id="oOY49tw" resname="Middle Name">
+        <source>Middle Name</source>
+        <target>Отчество</target>
+      </trans-unit>
+      <trans-unit id="7VItq_h" resname="Mobile">
+        <source>Mobile</source>
+        <target>Мобильный</target>
+      </trans-unit>
+      <trans-unit id="wbMeKOh" resname="Name">
+        <source>Name</source>
+        <target>Имя</target>
+      </trans-unit>
+      <trans-unit id="fcdWVrX" resname="New">
+        <source>New</source>
+        <target>Новый</target>
+      </trans-unit>
+      <trans-unit id="K69AU92" resname="New Password">
+        <source>New Password</source>
+        <target>Новый пароль</target>
+      </trans-unit>
+      <trans-unit id="HmgPmMV" resname="Overview">
+        <source>Overview</source>
+        <target>Обзор</target>
+      </trans-unit>
+      <trans-unit id="GqmFSHc" resname="Password">
+        <source>Password</source>
+        <target>Пароль</target>
+      </trans-unit>
+      <trans-unit id=".ku3jMu" resname="Pending">
+        <source>Pending</source>
+        <target>В ожидании</target>
+      </trans-unit>
+      <trans-unit id="5hMi0Jl" resname="Personal Information">
+        <source>Personal Information</source>
+        <target>Персональная информация</target>
+      </trans-unit>
+      <trans-unit id="gZdyOsC" resname="Phone">
+        <source>Phone</source>
+        <target>Телефон</target>
+      </trans-unit>
+      <trans-unit id="6EclFME" resname="Please Confirm your Email">
+        <source>Please Confirm your Email</source>
+        <target>Пожалуйста, подтвердите свой адрес электронной почты.</target>
+      </trans-unit>
+      <trans-unit id="puSICbH" resname="Please Enter Your Email">
+        <source>Please Enter Your Email</source>
+        <target>Пожалуйста, введите свой адрес электронной почты.</target>
+      </trans-unit>
+      <trans-unit id="AHRbevG" resname="Please confirm your email address by clicking the following link:">
+        <source>Please confirm your email address by clicking the following link:</source>
+        <target>Пожалуйста, подтвердите свой адрес электронной почты, перейдя по следующей ссылке:</target>
+      </trans-unit>
+      <trans-unit id="u6Xt3kn" resname="Please enter Email">
+        <source>Please enter Email</source>
+        <target>Пожалуйста, введите адрес электронной почты.</target>
+      </trans-unit>
+      <trans-unit id="8JKrX1p" resname="Please enter a Password">
+        <source>Please enter a Password</source>
+        <target>Пожалуйста, введите пароль</target>
+      </trans-unit>
+      <trans-unit id="El0xBYR" resname="Please enter your Email">
+        <source>Please enter your Email</source>
+        <target>Пожалуйста, введите свой адрес электронной почты.</target>
+      </trans-unit>
+      <trans-unit id="tx1qgNR" resname="Please enter your Password">
+        <source>Please enter your Password</source>
+        <target>Пожалуйста, введите Ваш пароль.</target>
+      </trans-unit>
+      <trans-unit id="0N4x_Ri" resname="Please sign in to continue.">
+        <source>Please sign in to continue.</source>
+        <target>Для продолжения, пожалуйста, войдите в систему.</target>
+      </trans-unit>
+      <trans-unit id="5Y34z39" resname="Profile">
+        <source>Profile</source>
+        <target>Профиль</target>
+      </trans-unit>
+      <trans-unit id="aC5lObQ" resname="Region and Language">
+        <source>Region and Language</source>
+        <target>Регион и язык</target>
+      </trans-unit>
+      <trans-unit id="WevL4T_" resname="Remember me">
+        <source>Remember me</source>
+        <target>Запомнить меня</target>
+      </trans-unit>
+      <trans-unit id="Z9CSKpk" resname="Repeat Password">
+        <source>Repeat Password</source>
+        <target>Повторите пароль</target>
+      </trans-unit>
+      <trans-unit id="NruI0zj" resname="Reset Password">
+        <source>Reset Password</source>
+        <target>Сбросить пароль</target>
+      </trans-unit>
+      <trans-unit id="YLugC6X" resname="Reset Your Password">
+        <source>Reset Your Password</source>
+        <target>Сбросить Ваш пароль</target>
+      </trans-unit>
+      <trans-unit id="gfAfjf_" resname="Restore default">
+        <source>Restore default</source>
+        <target>Восстановить значения по умолчанию</target>
+      </trans-unit>
+      <trans-unit id="euctZ5A" resname="SETTINGS">
+        <source>SETTINGS</source>
+        <target>НАСТРОЙКИ</target>
+      </trans-unit>
+      <trans-unit id="avHhpap" resname="Send me back">
+        <source>Send me back</source>
+        <target>Отправьте меня обратно</target>
+      </trans-unit>
+      <trans-unit id="5XiCCZa" resname="Send password reset email">
+        <source>Send password reset email</source>
+        <target>Отправить письмо для сброса пароля</target>
+      </trans-unit>
+      <trans-unit id="Bk_YwKX" resname="Set Avatar">
+        <source>Set Avatar</source>
+        <target>Установить аватар</target>
+      </trans-unit>
+      <trans-unit id="iDb9v0e" resname="Set Region and Language">
+        <source>Set Region and Language</source>
+        <target>Установить регион и язык</target>
+      </trans-unit>
+      <trans-unit id="VXFwlwn" resname="Settings">
+        <source>Settings</source>
+        <target>Настройки</target>
+      </trans-unit>
+      <trans-unit id="hXquTtV" resname="Sign In">
+        <source>Sign In</source>
+        <target>Войти</target>
+      </trans-unit>
+      <trans-unit id=".KmYrxx" resname="Social">
+        <source>Social</source>
+        <target>Социальные сети</target>
+      </trans-unit>
+      <trans-unit id="6xCSWiZ" resname="Status">
+        <source>Status</source>
+        <target>Статус</target>
+      </trans-unit>
+      <trans-unit id="vErMzxq" resname="The user has been added.">
+        <source>The user has been added.</source>
+        <target>Пользователь был добавлен.</target>
+      </trans-unit>
+      <trans-unit id="BRJuStP" resname="This link will expire in">
+        <source>This link will expire in</source>
+        <target>Срок действия этой ссылки истекает через</target>
+      </trans-unit>
+      <trans-unit id="ZvziuWE" resname="Timezone">
+        <source>Timezone</source>
+        <target>Часовой пояс</target>
+      </trans-unit>
+      <trans-unit id="ETTNQ2F" resname="To reset your password, please visit the following link">
+        <source>To reset your password, please visit the following link</source>
+        <target>Для сброса пароля перейдите по следующей ссылке.</target>
+      </trans-unit>
+      <trans-unit id="7RyFn5x" resname="Total number of registered users:">
+        <source>Total number of registered users:</source>
+        <target>Общее количество зарегистрированных пользователей:</target>
+      </trans-unit>
+      <trans-unit id="wx9KBZp" resname="USERS TABLE">
+        <source>USERS TABLE</source>
+        <target>ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ</target>
+      </trans-unit>
+      <trans-unit id="6z6RwJn" resname="Update Profile">
+        <source>Update Profile</source>
+        <target>Обновить профиль</target>
+      </trans-unit>
+      <trans-unit id="r.AIjvR" resname="Used to customize and manage all settings about User">
+        <source>Used to customize and manage all settings about User</source>
+        <target>Используется для настройки и управления всеми параметрами пользователя</target>
+      </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>Пользователь</target>
+      </trans-unit>
+      <trans-unit id="qZ9r_ZS" resname="User add">
+        <source>User add</source>
+        <target>Добавить пользователя</target>
+      </trans-unit>
+      <trans-unit id="DulrEwY" resname="Userlist">
+        <source>Userlist</source>
+        <target>Список пользователей</target>
+      </trans-unit>
+      <trans-unit id="VhxhtYo" resname="Username">
+        <source>Username</source>
+        <target>Имя пользователя</target>
+      </trans-unit>
+      <trans-unit id="BCGjfox" resname="Users">
+        <source>Users</source>
+        <target>Пользователи</target>
+      </trans-unit>
+      <trans-unit id="OQ2VAxf" resname="Validated">
+        <source>Validated</source>
+        <target>Проверен</target>
+      </trans-unit>
+      <trans-unit id="wRXXUbi" resname="Welcome back!">
+        <source>Welcome back!</source>
+        <target>Добро пожаловать!</target>
+      </trans-unit>
+      <trans-unit id="6h2NNfX" resname="You should agree to our terms.">
+        <source>You should agree to our terms.</source>
+        <target>Вы должны согласиться с нашими условиями.</target>
+      </trans-unit>
+      <trans-unit id="m80cBv0" resname="Your email address has been verified.">
+        <source>Your email address has been verified.</source>
+        <target>Ваш адрес электронной почты подтвержден.</target>
+      </trans-unit>
+      <trans-unit id="_OmnKuR" resname="Your password should be at least {{ limit }} characters">
+        <source>Your password should be at least {{ limit }} characters</source>
+        <target>Ваш пароль должен содержать не менее {{ limit }} символов</target>
+      </trans-unit>
+      <trans-unit id="lr6d0Ih" resname="connected">
+        <source>connected</source>
+        <target>подключен</target>
+      </trans-unit>
+      <trans-unit id="u1x_1qs" resname="delete">
+        <source>delete</source>
+        <target>удалить</target>
+      </trans-unit>
+      <trans-unit id="BVAU8Tv" resname="edit">
+        <source>edit</source>
+        <target>редактировать</target>
+      </trans-unit>
+      <trans-unit id="0vWafco" resname="search">
+        <source>search</source>
+        <target>искать</target>
+      </trans-unit>
+      <trans-unit id="FTO0d6Z" resname="to the sign in screen">
+        <source>to the sign in screen</source>
+        <target>на экран входа в систему</target>
+      </trans-unit>
+      <trans-unit id="zqHSO6v" resname="try again">
+        <source>try again</source>
+        <target>попробуйте еще раз</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
