@@ -502,6 +502,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         return $this;
     }
 
+    public function prePersist(): void
+    {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
+
+    public function preUpdate(): void
+    {
+        $this->setUpdatedAt(new \DateTime());
+    }
+
     public function setCreatedAt(?\DateTimeInterface $createdAt = null): void
     {
         $this->createdAt = $createdAt;
