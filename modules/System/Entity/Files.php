@@ -21,17 +21,18 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Rekalogika\Contracts\File\FileInterface;
-use Rekalogika\File\Association\Attribute\AsFileAssociation;
+use Rekalogika\Domain\File\Association\Entity\FileTrait;
 use Rekalogika\File\Association\Attribute\WithFileAssociation;
 
 #[ORM\Entity(repositoryClass: FilesRepository::class)]
-#[ORM\Table(name: 'system__file')]
+#[ORM\Table(name: 'files')]
 #[Gedmo\SoftDeleteable]
 #[WithFileAssociation]
-class Files
+class Files implements FileInterface
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
+    use FileTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -41,20 +42,11 @@ class Files
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $path = null;
 
-    #[ORM\Column(type: FileInterface::class, nullable: true)]
-    #[AsFileAssociation]
-    private ?FileInterface $file = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     protected ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     protected ?\DateTimeInterface $updatedAt = null;
-
-    public function __toString(): string
-    {
-        return $this->getFileName();
-    }
 
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
@@ -75,6 +67,7 @@ class Files
             $this->id,
             $this->path,
             $this->file,
+            $this->metadata,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
@@ -98,26 +91,6 @@ class Files
         $this->path = $path;
 
         return $this;
-    }
-
-    public function getFile(): ?FileInterface
-    {
-        return $this->file;
-    }
-
-    public function setFile(FileInterface $file): static
-    {
-        $this->file = $file;
-
-        return $this;
-    }
-
-    /**
-     * @see FileInterface
-     */
-    public function getFileName(): string
-    {
-        return (string) $this->file->getName();
     }
 
     public function setCreatedAt(?\DateTimeInterface $createdAt = null): void
