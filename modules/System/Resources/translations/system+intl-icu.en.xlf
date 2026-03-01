@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="mpHDX6N" resname="Administration">
+        <source>Administration</source>
+        <target>Administration</target>
+      </trans-unit>
+      <trans-unit id="OB4tG_V" resname="All Files">
+        <source>All Files</source>
+        <target>All Files</target>
+      </trans-unit>
+      <trans-unit id="Z_crX_u" resname="Delete">
+        <source>Delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="Ahtz04L" resname="Documents">
+        <source>Documents</source>
+        <target>Documents</target>
+      </trans-unit>
+      <trans-unit id="iMlLPDz" resname="Download">
+        <source>Download</source>
+        <target>Download</target>
+      </trans-unit>
+      <trans-unit id="0u3lHHZ" resname="Downloads">
+        <source>Downloads</source>
+        <target>Downloads</target>
+      </trans-unit>
+      <trans-unit id="M.l1CPU" resname="Edit">
+        <source>Edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="tUDpWs0" resname="FILE MANAGER">
+        <source>FILE MANAGER</source>
+        <target>FILE MANAGER</target>
+      </trans-unit>
+      <trans-unit id="r2JETox" resname="FILES LIST">
+        <source>FILES LIST</source>
+        <target>FILES LIST</target>
+      </trans-unit>
+      <trans-unit id="VQ9mySy" resname="File Manager">
+        <source>File Manager</source>
+        <target>File Manager</target>
+      </trans-unit>
+      <trans-unit id="z3VEKZ." resname="File Details">
+        <source>File Details</source>
+        <target>File Details</target>
+      </trans-unit>
+      <trans-unit id="pYcsIS9" resname="File List">
+        <source>File List</source>
+        <target>File List</target>
+      </trans-unit>
+      <trans-unit id="um4Iri8" resname="File details:">
+        <source>File details:</source>
+        <target>File details:</target>
+      </trans-unit>
+      <trans-unit id="SbV3wJi" resname="File format">
+        <source>File format</source>
+        <target>File format</target>
+      </trans-unit>
+      <trans-unit id="ZC4DBwd" resname="File location">
+        <source>File location</source>
+        <target>File location</target>
+      </trans-unit>
+      <trans-unit id="zf3eL0D" resname="File name">
+        <source>File name</source>
+        <target>File name</target>
+      </trans-unit>
+      <trans-unit id="waIQysO" resname="File size">
+        <source>File size</source>
+        <target>File size</target>
+      </trans-unit>
+      <trans-unit id="apnwtk2" resname="Folders">
+        <source>Folders</source>
+        <target>Folders</target>
+      </trans-unit>
+      <trans-unit id="sKtVh73" resname="Image height">
+        <source>Image height</source>
+        <target>Image height</target>
+      </trans-unit>
+      <trans-unit id="u2oxdiJ" resname="Image width">
+        <source>Image width</source>
+        <target>Image width</target>
+      </trans-unit>
+      <trans-unit id="fQdHKPd" resname="Images">
+        <source>Images</source>
+        <target>Images</target>
+      </trans-unit>
+      <trans-unit id="RmohzHH" resname="MIME type">
+        <source>MIME type</source>
+        <target>MIME type</target>
+      </trans-unit>
+      <trans-unit id="F36rI29" resname="Music">
+        <source>Music</source>
+        <target>Music</target>
+      </trans-unit>
+      <trans-unit id="aiFSOsy" resname="Other">
+        <source>Other</source>
+        <target>Other</target>
+      </trans-unit>
+      <trans-unit id="SdNWA5t" resname="Search">
+        <source>Search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="TDDFMCv" resname="Search folder...">
+        <source>Search folder...</source>
+        <target>Search folder...</target>
+      </trans-unit>
+      <trans-unit id="Coc0Gni" resname="Share">
+        <source>Share</source>
+        <target>Share</target>
+      </trans-unit>
+      <trans-unit id="HwzZ1pg" resname="Updated by">
+        <source>Updated by</source>
+        <target>Updated by</target>
+      </trans-unit>
+      <trans-unit id="r9C5I54" resname="Updated date">
+        <source>Updated date</source>
+        <target>Updated date</target>
+      </trans-unit>
+      <trans-unit id="kTPfUY7" resname="Uploaded by">
+        <source>Uploaded by</source>
+        <target>Uploaded by</target>
+      </trans-unit>
+      <trans-unit id=".0K4zSR" resname="Uploaded date">
+        <source>Uploaded date</source>
+        <target>Uploaded date</target>
+      </trans-unit>
+      <trans-unit id="6mwy73x" resname="Videos">
+        <source>Videos</source>
+        <target>Videos</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
