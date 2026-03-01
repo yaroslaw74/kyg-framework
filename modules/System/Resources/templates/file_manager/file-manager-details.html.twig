@@ -10,7 +10,7 @@
 {% trans_default_domain 'system' %}
 
 {% block page_header %}
-    {{ include('partials/page-header.html.twig', {title: 'File Manager Details'|trans, subtitle: 'Administration'|trans}) }}
+    {{ include('partials/page-header.html.twig', {title: 'File Details'|trans, subtitle: 'Administration'|trans}) }}
 {% endblock %}
 
 {% block body_content %}
@@ -79,16 +79,18 @@
                                             <th scope="row"><span class="text-dark">{% trans %}Updated by{% endtrans %}</span></th>
                                             <td><span class="text-secondary">{{ file.updatedBy }}</span></td>
                                         </tr>
+                                        {% if file.format == 'image' %}
+                                            <tr>
+                                                <th scope="row"><span class="text-dark">{% trans %}Image width{% endtrans %}</span></th>
+                                                <td><span class="text-secondary">{{ file.width }}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><span class="text-dark">{% trans %}Image height{% endtrans %}</span></th>
+                                                <td><span class="text-secondary">{{ file.height }}</span></td>
+                                            </tr>
+                                        {% endif %}
                                         <tr>
-                                            <th scope="row"><span class="text-dark">{% trans %}Image width{% endtrans %}</span></th>
-                                            <td><span class="text-secondary">{{ file.width }}</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><span class="text-dark">{% trans %}Image height{% endtrans %}</span></th>
-                                            <td><span class="text-secondary">{{ file.height }}</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><span class="text-dark">{% trans %}File formate{% endtrans %}</span></th>
+                                            <th scope="row"><span class="text-dark">{% trans %}File format{% endtrans %}</span></th>
                                             <td><span class="text-secondary">{{ file.format }}</span></td>
                                         </tr>
                                         <tr>
