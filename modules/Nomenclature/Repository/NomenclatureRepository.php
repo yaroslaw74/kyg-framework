@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -9,13 +10,12 @@
  * @copyright  Copyright (c) Kataev Yaroslav
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
-declare(strict_types=1);
+
 namespace App\Modules\Nomenclature\Repository;
 
 use App\Modules\Nomenclature\Entity\Nomenclature;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
 
 /**
  * @extends ServiceEntityRepository<Nomenclature>
