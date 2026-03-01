@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="card-body pt-0 text-center">
                                     <div class="file-manger-icon">
-                                        <a href="file-manager-list.html"><img src="{{ asset('images/file-manager/files/' ~ article.logo) }}" alt="img" class="rounded-7"></a>
+                                        <a href="{{ path('app_admin_file_manager_detalis', {name: article.name, path: list}) }}"><img src="{{ asset('images/file-manager/files/' ~ article.logo) }}" alt="img" class="rounded-7"></a>
                                     </div>
                                     <h6 class="mb-1 fw-semibold fs-14">{{ article.name }}</h6>
                                     <span class="text-muted fs-11">{{ article.size }}</span>
