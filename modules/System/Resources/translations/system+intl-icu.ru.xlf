@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="mpHDX6N" resname="Administration">
+        <source>Administration</source>
+        <target>ААдминистрирование</target>
+      </trans-unit>
+      <trans-unit id="OB4tG_V" resname="All Files">
+        <source>All Files</source>
+        <target>Все файлы</target>
+      </trans-unit>
+      <trans-unit id="Z_crX_u" resname="Delete">
+        <source>Delete</source>
+        <target>Удалить</target>
+      </trans-unit>
+      <trans-unit id="Ahtz04L" resname="Documents">
+        <source>Documents</source>
+        <target>Документы</target>
+      </trans-unit>
+      <trans-unit id="iMlLPDz" resname="Download">
+        <source>Download</source>
+        <target>Скачать</target>
+      </trans-unit>
+      <trans-unit id="0u3lHHZ" resname="Downloads">
+        <source>Downloads</source>
+        <target>Загрузки</target>
+      </trans-unit>
+      <trans-unit id="M.l1CPU" resname="Edit">
+        <source>Edit</source>
+        <target>Редактировать</target>
+      </trans-unit>
+      <trans-unit id="tUDpWs0" resname="FILE MANAGER">
+        <source>FILE MANAGER</source>
+        <target>МЕНЕДЖЕР ФАЙЛОВ</target>
+      </trans-unit>
+      <trans-unit id="r2JETox" resname="FILES LIST">
+        <source>FILES LIST</source>
+        <target>СПИСОК ФАЙЛОВ</target>
+      </trans-unit>
+      <trans-unit id="VQ9mySy" resname="File Manager">
+        <source>File Manager</source>
+        <target>Менеджер файлов</target>
+      </trans-unit>
+      <trans-unit id="z3VEKZ." resname="File Details">
+        <source>File Details</source>
+        <target>Сведения о файле</target>
+      </trans-unit>
+      <trans-unit id="pYcsIS9" resname="File List">
+        <source>File List</source>
+        <target>Список файлов</target>
+      </trans-unit>
+      <trans-unit id="um4Iri8" resname="File details:">
+        <source>File details:</source>
+        <target>Подробности файла:</target>
+      </trans-unit>
+      <trans-unit id="SbV3wJi" resname="File format">
+        <source>File format</source>
+        <target>Формат файла</target>
+      </trans-unit>
+      <trans-unit id="ZC4DBwd" resname="File location">
+        <source>File location</source>
+        <target>Расположение файла</target>
+      </trans-unit>
+      <trans-unit id="zf3eL0D" resname="File name">
+        <source>File name</source>
+        <target>Имя файла</target>
+      </trans-unit>
+      <trans-unit id="waIQysO" resname="File size">
+        <source>File size</source>
+        <target>Размер файла</target>
+      </trans-unit>
+      <trans-unit id="apnwtk2" resname="Folders">
+        <source>Folders</source>
+        <target>Папки</target>
+      </trans-unit>
+      <trans-unit id="sKtVh73" resname="Image height">
+        <source>Image height</source>
+        <target>Высота изображения</target>
+      </trans-unit>
+      <trans-unit id="u2oxdiJ" resname="Image width">
+        <source>Image width</source>
+        <target>Ширина изображения</target>
+      </trans-unit>
+      <trans-unit id="fQdHKPd" resname="Images">
+        <source>Images</source>
+        <target>Изображения</target>
+      </trans-unit>
+      <trans-unit id="RmohzHH" resname="MIME type">
+        <source>MIME type</source>
+        <target>MIME-тип</target>
+      </trans-unit>
+      <trans-unit id="F36rI29" resname="Music">
+        <source>Music</source>
+        <target>Музыка</target>
+      </trans-unit>
+      <trans-unit id="aiFSOsy" resname="Other">
+        <source>Other</source>
+        <target>Другие</target>
+      </trans-unit>
+      <trans-unit id="SdNWA5t" resname="Search">
+        <source>Search</source>
+        <target>Поиск</target>
+      </trans-unit>
+      <trans-unit id="TDDFMCv" resname="Search folder...">
+        <source>Search folder...</source>
+        <target>Искать папку...</target>
+      </trans-unit>
+      <trans-unit id="Coc0Gni" resname="Share">
+        <source>Share</source>
+        <target>Поделиться</target>
+      </trans-unit>
+      <trans-unit id="HwzZ1pg" resname="Updated by">
+        <source>Updated by</source>
+        <target>Обновлено пользователем</target>
+      </trans-unit>
+      <trans-unit id="r9C5I54" resname="Updated date">
+        <source>Updated date</source>
+        <target>Дата обновления</target>
+      </trans-unit>
+      <trans-unit id="kTPfUY7" resname="Uploaded by">
+        <source>Uploaded by</source>
+        <target>Загружено пользователем</target>
+      </trans-unit>
+      <trans-unit id=".0K4zSR" resname="Uploaded date">
+        <source>Uploaded date</source>
+        <target>Дата загрузки</target>
+      </trans-unit>
+      <trans-unit id="6mwy73x" resname="Videos">
+        <source>Videos</source>
+        <target>Видео</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
