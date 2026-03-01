@@ -197,7 +197,7 @@
         <source>In this settings we can change the region and language manually.</source>
         <target>В этих настройках мы можем вручную изменить регион и язык.</target>
       </trans-unit>
-       <trans-unit id="ybqiXt5" resname="Inactive">
+      <trans-unit id="ybqiXt5" resname="Inactive">
         <source>Inactive</source>
         <target>Неактивный</target>
       </trans-unit>
@@ -297,7 +297,7 @@
         <source>Profile</source>
         <target>Профиль</target>
       </trans-unit>
-      <trans-unit id="aC5lObQ" resname="Region and Language">
+      <trans-unit id="m15o3ih" resname="Region and Language">
         <source>Region and Language</source>
         <target>Регион и язык</target>
       </trans-unit>
@@ -337,7 +337,7 @@
         <source>Set Avatar</source>
         <target>Установить аватар</target>
       </trans-unit>
-      <trans-unit id="iDb9v0e" resname="Set Region and Language">
+      <trans-unit id="7UbLNvI" resname="Set Region and Language">
         <source>Set Region and Language</source>
         <target>Установить регион и язык</target>
       </trans-unit>
