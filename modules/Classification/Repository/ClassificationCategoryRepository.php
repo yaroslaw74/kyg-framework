@@ -35,6 +35,7 @@ class ClassificationCategoryRepository extends ServiceEntityRepository
      */
     public function findByExampleField($value): array
     {
+        /* @phpstan-ignore doctrine.dql */
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
@@ -50,6 +51,7 @@ class ClassificationCategoryRepository extends ServiceEntityRepository
      */
     public function findOneBySomeField($value): ?ClassificationCategory
     {
+        /* @phpstan-ignore doctrine.dql */
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
