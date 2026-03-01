@@ -10,6 +10,7 @@
  * @copyright  Copyright (c) Kataev Yaroslav
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
+declare(strict_types=1);
 
 namespace App\Modules\Nomenclature\Repository;
 
