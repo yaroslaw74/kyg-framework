@@ -61,7 +61,7 @@ final class FileManagerController extends AbstractController
     }
 
     #[Route('/app/admin/file/manager/detalis/{path}/{name}', name: 'app_admin_file_manager_detalis')]
-    public function fileDetails(Request $request, ?string $path = null, ?string $name = null): Response
+    public function fileManagerDetails(Request $request, ?string $path = null, ?string $name = null): Response
     {
         $repository = $this->entityManager->getRepository(Files::class);
         $files = $repository->findBy(['path' => $path]);
