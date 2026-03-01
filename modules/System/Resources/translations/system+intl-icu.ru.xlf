@@ -13,6 +13,10 @@
         <source>All Files</source>
         <target>Все файлы</target>
       </trans-unit>
+      <trans-unit id="OOBrapw" resname="Create Folder">
+        <source>Create Folder</source>
+        <target>Создать папку</target>
+      </trans-unit>
       <trans-unit id="Z_crX_u" resname="Delete">
         <source>Delete</source>
         <target>Удалить</target>
@@ -41,23 +45,23 @@
         <source>FILES LIST</source>
         <target>СПИСОК ФАЙЛОВ</target>
       </trans-unit>
-      <trans-unit id="VQ9mySy" resname="File Manager">
-        <source>File Manager</source>
-        <target>Менеджер файлов</target>
-      </trans-unit>
-      <trans-unit id="z3VEKZ." resname="File Details">
+      <trans-unit id="rfXXlEp" resname="File Details">
         <source>File Details</source>
         <target>Сведения о файле</target>
       </trans-unit>
-      <trans-unit id="pYcsIS9" resname="File List">
+      <trans-unit id="J60anew" resname="File List">
         <source>File List</source>
         <target>Список файлов</target>
+      </trans-unit>
+      <trans-unit id="VQ9mySy" resname="File Manager">
+        <source>File Manager</source>
+        <target>Менеджер файлов</target>
       </trans-unit>
       <trans-unit id="um4Iri8" resname="File details:">
         <source>File details:</source>
         <target>Подробности файла:</target>
       </trans-unit>
-      <trans-unit id="SbV3wJi" resname="File format">
+      <trans-unit id="tbLpzNm" resname="File format">
         <source>File format</source>
         <target>Формат файла</target>
       </trans-unit>
@@ -76,6 +80,10 @@
       <trans-unit id="apnwtk2" resname="Folders">
         <source>Folders</source>
         <target>Папки</target>
+      </trans-unit>
+      <trans-unit id="ExFLJqx" resname="Home">
+        <source>Home</source>
+        <target>Главная</target>
       </trans-unit>
       <trans-unit id="sKtVh73" resname="Image height">
         <source>Image height</source>
@@ -113,6 +121,10 @@
         <source>Share</source>
         <target>Поделиться</target>
       </trans-unit>
+      <trans-unit id=".bgrmny" resname="Storage">
+        <source>Storage</source>
+        <target>Хранилище</target>
+      </trans-unit>
       <trans-unit id="HwzZ1pg" resname="Updated by">
         <source>Updated by</source>
         <target>Обновлено пользователем</target>
@@ -121,6 +133,10 @@
         <source>Updated date</source>
         <target>Дата обновления</target>
       </trans-unit>
+      <trans-unit id="g2Dfy1S" resname="Upgrade Storage">
+        <source>Upgrade Storage</source>
+        <target>Обновить хранилище</target>
+      </trans-unit>
       <trans-unit id="kTPfUY7" resname="Uploaded by">
         <source>Uploaded by</source>
         <target>Загружено пользователем</target>
@@ -128,6 +144,10 @@
       <trans-unit id=".0K4zSR" resname="Uploaded date">
         <source>Uploaded date</source>
         <target>Дата загрузки</target>
+      </trans-unit>
+      <trans-unit id="UDyOGbi" resname="Used of">
+        <source>Used of</source>
+        <target>Используется для</target>
       </trans-unit>
       <trans-unit id="6mwy73x" resname="Videos">
         <source>Videos</source>
