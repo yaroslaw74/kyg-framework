@@ -33,4 +33,12 @@ final class FileManagerControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
     }
+
+    public function testFileManagerDetails(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/app/admin/file/manager/detalis/{path}/{name}');
+
+        self::assertResponseIsSuccessful();
+    }
 }
