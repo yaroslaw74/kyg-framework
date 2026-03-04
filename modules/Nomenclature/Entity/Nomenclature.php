@@ -15,12 +15,22 @@ declare(strict_types=1);
 namespace App\Modules\Nomenclature\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Classification\Entity\ClassificationCategory;
+use App\Modules\Classification\Entity\ClassificationCollection;
+use App\Modules\Classification\Entity\ClassificationTag;
+use App\Modules\Nomenclature\Entity\Translation\NomenclatureTranslation;
 use App\Modules\Nomenclature\Repository\NomenclatureRepository;
+use App\Modules\System\Entity\Files;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Sortable\Sortable;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Translatable\Translatable;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
@@ -28,11 +38,13 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Entity(repositoryClass: NomenclatureRepository::class)]
 #[ORM\Table(name: 'nomenclature__nomenclature')]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\TranslationEntity(class: NomenclatureTranslation::class)]
 #[ApiResource]
-class Nomenclature
+class Nomenclature implements Sortable, Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
+    use TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -41,16 +53,58 @@ class Nomenclature
     private ?Uuid $id = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[Gedmo\Translatable]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Gedmo\Translatable]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $createdAt = null;
+    #[ORM\Column(type: Types::INTEGER, nullable: true)]
+    #[Gedmo\SortablePosition]
+    private ?int $position = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $updatedAt = null;
+    /**
+     * @var Collection<int, Files>
+     */
+    #[ORM\ManyToMany(targetEntity: Files::class)]
+    private Collection $images;
+
+    #[ORM\ManyToOne(targetEntity: ClassificationCategory::class)]
+    #[ORM\JoinColumn(onDelete: 'RESTRICT')]
+    #[Gedmo\SortableGroup]
+    private ?ClassificationCategory $category = null;
+
+    /**
+     * @var Collection<int, ClassificationCollection>
+     */
+    #[ORM\ManyToMany(targetEntity: ClassificationCollection::class)]
+    #[ORM\JoinColumn(onDelete: 'RESTRICT')]
+    private Collection $collection;
+
+    /**
+     * @var Collection<int, ClassificationTag>
+     */
+    #[ORM\ManyToMany(targetEntity: ClassificationTag::class)]
+    #[ORM\JoinColumn(onDelete: 'RESTRICT')]
+    private Collection $tag;
+
+    #[Gedmo\Locale]
+    private string $locale;
+
+    /**
+     * @var Collection<int, NomenclatureTranslation>
+     */
+    #[ORM\OneToMany(targetEntity: NomenclatureTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+        $this->collection = new ArrayCollection();
+        $this->tag = new ArrayCollection();
+        $this->translations = new ArrayCollection();
+    }
 
     public function __toString(): string
     {
@@ -72,11 +126,19 @@ class Nomenclature
         [
             $this->id,
             $this->name,
+            $this->description,
+            $this->position,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->images,
+            $this->category,
+            $this->collection,
+            $this->tag,
+            $this->locale,
+            $this->translations,
         ] = $data;
     }
 
@@ -118,34 +180,124 @@ class Nomenclature
         return $this;
     }
 
-    public function prePersist(): void
+    public function setPosition(?int $position): static
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
+        $this->position = $position;
+
+        return $this;
     }
 
-    public function preUpdate(): void
+    public function getPosition(): ?int
     {
-        $this->setUpdatedAt(new \DateTime());
+        return $this->position;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $createdAt = null): void
+    /**
+     * @return Collection<int, Files>
+     */
+    public function getImages(): Collection
     {
-        $this->createdAt = $createdAt;
+        return $this->images;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function addImage(Files $image): static
     {
-        return $this->createdAt;
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+        }
+
+        return $this;
     }
 
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt = null): void
+    public function removeImage(Files $image): static
     {
-        $this->updatedAt = $updatedAt;
+        $this->images->removeElement($image);
+
+        return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getCategory(): ?ClassificationCategory
     {
-        return $this->updatedAt;
+        return $this->category;
+    }
+
+    public function setCategory(?ClassificationCategory $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ClassificationCollection>
+     */
+    public function getCollection(): Collection
+    {
+        return $this->collection;
+    }
+
+    public function addCollection(ClassificationCollection $collection): static
+    {
+        if (!$this->collection->contains($collection)) {
+            $this->collection->add($collection);
+        }
+
+        return $this;
+    }
+
+    public function removeCollection(ClassificationCollection $collection): static
+    {
+        $this->collection->removeElement($collection);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ClassificationTag>
+     */
+    public function getTag(): Collection
+    {
+        return $this->tag;
+    }
+
+    public function addTag(ClassificationTag $tag): static
+    {
+        if (!$this->tag->contains($tag)) {
+            $this->tag->add($tag);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(ClassificationTag $tag): static
+    {
+        $this->tag->removeElement($tag);
+
+        return $this;
+    }
+
+    public function setTranslatableLocale(string $locale): static
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, NomenclatureTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(NomenclatureTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
+
+        return $this;
     }
 }
