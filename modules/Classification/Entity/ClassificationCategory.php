@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Classification\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Modules\Classification\Repository\ClassificationCategoryRepository;
+use App\Modules\Classification\Entity\Translation\CategoryTranslation;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -23,18 +23,24 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Sortable\Entity\Repository\SortableRepository;
+use Gedmo\Sortable\Sortable;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Translatable\Translatable;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 
-#[ORM\Entity(repositoryClass: ClassificationCategoryRepository::class)]
+#[ORM\Entity(repositoryClass: SortableRepository::class)]
 #[ORM\Table(name: 'classification__category')]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\TranslationEntity(class: CategoryTranslation::class)]
 #[ApiResource]
-class ClassificationCategory
+class ClassificationCategory implements Sortable, Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
+    use TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -43,6 +49,7 @@ class ClassificationCategory
     private ?Uuid $id = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[Gedmo\Translatable]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
@@ -50,14 +57,11 @@ class ClassificationCategory
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[Gedmo\Translatable]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $updatedAt = null;
-
+    #[ORM\Column(type: Types::INTEGER, nullable: true)]
+    #[Gedmo\SortablePosition]
     private ?int $position = null;
 
     /**
@@ -67,14 +71,26 @@ class ClassificationCategory
     private Collection $children;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'children')]
+    #[Gedmo\SortableGroup]
     private ?self $parent = null;
 
-    #[ORM\ManyToOne(inversedBy: 'categories')]
-    private ?ClassificationContext $context = null;
+    #[ORM\ManyToOne(targetEntity: ClassificationContext::class, inversedBy: 'categories')]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'RESTRICT')]
+    private ClassificationContext $context;
+
+    #[Gedmo\Locale]
+    private string $locale;
+
+    /**
+     * @var Collection<int, CategoryTranslation>
+     */
+    #[ORM\OneToMany(targetEntity: CategoryTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
 
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -108,6 +124,8 @@ class ClassificationCategory
             $this->children,
             $this->parent,
             $this->context,
+            $this->locale,
+            $this->translations,
         ] = $data;
     }
 
@@ -125,9 +143,11 @@ class ClassificationCategory
         return $this->id;
     }
 
-    public function setName(?string $name): void
+    public function setName(?string $name): static
     {
         $this->name = $name;
+
+        return $this;
     }
 
     public function getName(): ?string
@@ -140,9 +160,11 @@ class ClassificationCategory
         return $this->slug;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -150,40 +172,11 @@ class ClassificationCategory
         return $this->description;
     }
 
-    public function prePersist(): void
-    {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function preUpdate(): void
-    {
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function setCreatedAt(?\DateTimeInterface $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setPosition(?int $position): void
+    public function setPosition(?int $position): static
     {
         $this->position = $position;
+
+        return $this;
     }
 
     public function getPosition(): ?int
@@ -240,14 +233,32 @@ class ClassificationCategory
         return $this;
     }
 
-    public function getContext(): ?ClassificationContext
+    public function getContext(): ClassificationContext
     {
         return $this->context;
     }
 
-    public function setContext(?ClassificationContext $context): static
+    public function setContext(ClassificationContext $context): static
     {
         $this->context = $context;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CategoryTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(CategoryTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
 
         return $this;
     }
