@@ -15,12 +15,17 @@ declare(strict_types=1);
 namespace App\Modules\Classification\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Classification\Entity\Translation\CollectionTranslation;
 use App\Modules\Classification\Repository\ClassificationCollectionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Translatable\Translatable;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
@@ -28,11 +33,13 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Entity(repositoryClass: ClassificationCollectionRepository::class)]
 #[ORM\Table(name: 'classification__collection')]
 #[Gedmo\SoftDeleteable]
+#[Gedmo\TranslationEntity(class: CollectionTranslation::class)]
 #[ApiResource]
-class ClassificationCollection
+class ClassificationCollection implements Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
+    use TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -41,6 +48,7 @@ class ClassificationCollection
     private ?Uuid $id = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[Gedmo\Translatable]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
@@ -48,16 +56,26 @@ class ClassificationCollection
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[Gedmo\Translatable]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $createdAt = null;
+    #[ORM\ManyToOne(targetEntity: ClassificationContext::class, inversedBy: 'collections')]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'RESTRICT')]
+    private ClassificationContext $context;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $updatedAt = null;
+    #[Gedmo\Locale]
+    private string $locale;
 
-    #[ORM\ManyToOne(inversedBy: 'collections')]
-    private ?ClassificationContext $context = null;
+    /**
+     * @var Collection<int, CollectionTranslation>
+     */
+    #[ORM\OneToMany(targetEntity: CollectionTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     public function __toString(): string
     {
@@ -87,6 +105,8 @@ class ClassificationCollection
             $this->updatedBy,
             $this->deletedAt,
             $this->context,
+            $this->locale,
+            $this->translations,
         ] = $data;
     }
 
@@ -104,9 +124,11 @@ class ClassificationCollection
         return $this->id;
     }
 
-    public function setName(?string $name): void
+    public function setName(?string $name): static
     {
         $this->name = $name;
+
+        return $this;
     }
 
     public function getName(): ?string
@@ -119,9 +141,11 @@ class ClassificationCollection
         return $this->slug;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -129,45 +153,39 @@ class ClassificationCollection
         return $this->description;
     }
 
-    public function prePersist(): void
-    {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function preUpdate(): void
-    {
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function setCreatedAt(?\DateTimeInterface $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function getContext(): ?ClassificationContext
+    public function getContext(): ClassificationContext
     {
         return $this->context;
     }
 
-    public function setContext(?ClassificationContext $context): static
+    public function setContext(ClassificationContext $context): static
     {
         $this->context = $context;
+
+        return $this;
+    }
+
+    public function setTranslatableLocale(string $locale): static
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CollectionTranslation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(CollectionTranslation $translation): static
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setObject($this);
+        }
 
         return $this;
     }
