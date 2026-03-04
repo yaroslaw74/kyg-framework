@@ -23,6 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
@@ -44,6 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
     use BlameableEntity;
+    use TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -123,12 +125,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
     private ?string $mobile = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $updatedAt = null;
 
     public function __toString(): string
     {
@@ -500,36 +496,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         $this->mobile = $mobile;
 
         return $this;
-    }
-
-    public function prePersist(): void
-    {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function preUpdate(): void
-    {
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function setCreatedAt(?\DateTimeInterface $createdAt = null): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt = null): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
     }
 }
