@@ -22,6 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
@@ -33,6 +34,7 @@ class ClassificationContext
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
+    use TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -43,28 +45,22 @@ class ClassificationContext
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $updatedAt = null;
-
     /**
      * @var Collection<int, ClassificationCategory>
      */
-    #[ORM\OneToMany(targetEntity: ClassificationCategory::class, mappedBy: 'context')]
+    #[ORM\OneToMany(targetEntity: ClassificationCategory::class, mappedBy: 'context', cascade: ['remove'])]
     private Collection $categories;
 
     /**
      * @var Collection<int, ClassificationCollection>
      */
-    #[ORM\OneToMany(targetEntity: ClassificationCollection::class, mappedBy: 'context')]
+    #[ORM\OneToMany(targetEntity: ClassificationCollection::class, mappedBy: 'context', cascade: ['remove'])]
     private Collection $collections;
 
     /**
      * @var Collection<int, ClassificationTag>
      */
-    #[ORM\OneToMany(targetEntity: ClassificationTag::class, mappedBy: 'context')]
+    #[ORM\OneToMany(targetEntity: ClassificationTag::class, mappedBy: 'context', cascade: ['remove'])]
     private Collection $tags;
 
     public function __construct()
@@ -129,37 +125,6 @@ class ClassificationContext
         return $this->name;
     }
 
-    public function prePersist(): void
-    {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function preUpdate(): void
-    {
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function setCreatedAt(?\DateTimeInterface $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
     /**
      * @return Collection<int, ClassificationCategory>
      */
@@ -180,12 +145,7 @@ class ClassificationContext
 
     public function removeCategory(ClassificationCategory $category): static
     {
-        if ($this->categories->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getContext() === $this) {
-                $category->setContext(null);
-            }
-        }
+        $this->categories->removeElement($category);
 
         return $this;
     }
@@ -210,12 +170,7 @@ class ClassificationContext
 
     public function removeCollection(ClassificationCollection $collection): static
     {
-        if ($this->collections->removeElement($collection)) {
-            // set the owning side to null (unless already changed)
-            if ($collection->getContext() === $this) {
-                $collection->setContext(null);
-            }
-        }
+        $this->collections->removeElement($collection);
 
         return $this;
     }
@@ -240,12 +195,7 @@ class ClassificationContext
 
     public function removeTag(ClassificationTag $tag): static
     {
-        if ($this->tags->removeElement($tag)) {
-            // set the owning side to null (unless already changed)
-            if ($tag->getContext() === $this) {
-                $tag->setContext(null);
-            }
-        }
+        $this->tags->removeElement($tag);
 
         return $this;
     }
