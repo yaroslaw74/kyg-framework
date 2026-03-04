@@ -20,6 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Rekalogika\Contracts\File\FileInterface;
 use Rekalogika\Domain\File\Association\Entity\FileTrait;
 use Rekalogika\File\Association\Attribute\WithFileAssociation;
@@ -33,6 +34,7 @@ class Files implements FileInterface
     use SoftDeleteableEntity;
     use BlameableEntity;
     use FileTrait;
+    use TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -41,12 +43,6 @@ class Files implements FileInterface
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $path = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    protected ?\DateTimeInterface $updatedAt = null;
 
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
@@ -91,36 +87,5 @@ class Files implements FileInterface
         $this->path = $path;
 
         return $this;
-    }
-
-    public function prePersist(): void
-    {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function preUpdate(): void
-    {
-        $this->setUpdatedAt(new \DateTime());
-    }
-
-    public function setCreatedAt(?\DateTimeInterface $createdAt = null): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt = null): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
     }
 }
