@@ -45,7 +45,7 @@
         "knplabs/knp-paginator-bundle": "^6.10",
         "league/flysystem-bundle": "^3.6.2",
         "monolog/monolog": "^3.10",
-        "nelmio/api-doc-bundle": "^5.9.4",
+        "nelmio/api-doc-bundle": "^5.9.5",
         "nelmio/cors-bundle": "^2.6.1",
         "nelmio/js-logger-bundle": "^1.11.1",
         "nyholm/psr7": "^1.8.2",
