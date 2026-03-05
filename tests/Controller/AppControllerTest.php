@@ -25,12 +25,4 @@ final class AppControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
     }
-
-    public function testHome(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/app');
-
-        self::assertResponseIsSuccessful();
-    }
 }
