@@ -20,7 +20,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-
     #[Route('/app/home', name: 'app_home')]
     public function index(): Response
     {
