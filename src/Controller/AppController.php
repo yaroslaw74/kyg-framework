@@ -26,12 +26,4 @@ final class AppController extends AbstractController
     {
         return $this->redirectToRoute('app_home');
     }
-
-    #[Route('/app/home', name: 'app_home')]
-    public function home(): Response
-    {
-        return $this->render('app/index.html.twig', [
-            'controller_name' => 'AppController',
-        ]);
-    }
 }
