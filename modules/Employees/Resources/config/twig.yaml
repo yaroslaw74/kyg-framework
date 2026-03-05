@@ -1,0 +1,3 @@
+twig:
+    paths:
+        "modules/Employees/Resources/templates": "Employees"
