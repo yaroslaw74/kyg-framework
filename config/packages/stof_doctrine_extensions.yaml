@@ -19,4 +19,3 @@ stof_doctrine_extensions:
             sortable: true
             softdeleteable: true
             uploadable: true
-            reference_integrity: true
