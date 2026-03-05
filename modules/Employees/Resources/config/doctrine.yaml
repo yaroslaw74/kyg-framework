@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Employees:
+                type: attribute
+                is_bundle: false
+                dir: "%kernel.project_dir%/modules/Employees/Entity"
+                prefix: 'App\Modules\Employees\Entity'
+                alias: Employees
