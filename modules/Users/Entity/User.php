@@ -18,6 +18,8 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Users\Enum\StatusUsers;
 use App\Modules\Users\Enumeration\UsersStatus;
 use App\Modules\Users\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -126,6 +128,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
     private ?string $mobile = null;
 
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'friendOf')]
+    #[ORM\JoinTable(name: 'user__friendships')]
+    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'friend_id', referencedColumnName: 'id')]
+    private Collection $friends;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
+    private Collection $friendOf;
+
+    public function __construct()
+    {
+        $this->friends = new ArrayCollection();
+        $this->friendOf = new ArrayCollection();
+    }
+
     public function __toString(): string
     {
         return $this->getUserIdentifier();
@@ -177,6 +200,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->timezone,
             $this->status,
             $this->isVerified,
+            $this->friends,
+            $this->friendOf,
         ] = $data;
     }
 
@@ -494,6 +519,59 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function setMobile(?string $mobile): static
     {
         $this->mobile = $mobile;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFriends(): Collection
+    {
+        return $this->friends;
+    }
+
+    public function addFriend(self $friend): static
+    {
+        if (!$this->friends->contains($friend)) {
+            $this->friends->add($friend);
+            $friend->addFriendOf($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriend(self $friend): static
+    {
+        $this->friends->removeElement($friend);
+        $friend->removeFriendOf($this);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFriendOf(): Collection
+    {
+        return $this->friendOf;
+    }
+
+    public function addFriendOf(self $friendOf): static
+    {
+        if (!$this->friendOf->contains($friendOf)) {
+            $this->friendOf->add($friendOf);
+            $friendOf->addFriend($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendOf(self $friendOf): static
+    {
+        if ($this->friendOf->removeElement($friendOf)) {
+            $friendOf->removeFriend($this);
+        }
 
         return $this;
     }
