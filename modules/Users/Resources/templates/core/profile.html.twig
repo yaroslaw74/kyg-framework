@@ -522,7 +522,7 @@
                             <div class="row">
                                 {% if pageUser %}
                                     {% if pageUser.friends %}
-                                        {% for pageUser.friends in friends %}
+                                        {% for friends in pageUser.friends %}
                                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
                                                 <div class="card custom-card border shadow-none">
                                                     <div class="card-body  user-lock text-center">
@@ -566,6 +566,7 @@
                                                                         {{ friends.firstName }} {{ friends.middleName }} {{ friends.lastName }}
                                                                     {% else %}
                                                                         {{ friends.firstName }} {{ friends.lastName }}
+                                                                    {% endif %}
                                                                 {% endif %}
                                                             </h5>
                                                             <span class="text-muted">Web designer</span>
