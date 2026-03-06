@@ -15,9 +15,6 @@ declare(strict_types=1);
 namespace App\Modules\Nomenclature\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Modules\Classification\Entity\ClassificationCategory;
-use App\Modules\Classification\Entity\ClassificationCollection;
-use App\Modules\Classification\Entity\ClassificationTag;
 use App\Modules\Nomenclature\Entity\Translation\NomenclatureTranslation;
 use App\Modules\Nomenclature\Repository\NomenclatureRepository;
 use App\Modules\System\Entity\Files;
@@ -70,25 +67,6 @@ class Nomenclature implements Sortable, Translatable
     #[ORM\ManyToMany(targetEntity: Files::class)]
     private Collection $images;
 
-    #[ORM\ManyToOne(targetEntity: ClassificationCategory::class)]
-    #[ORM\JoinColumn(onDelete: 'RESTRICT')]
-    #[Gedmo\SortableGroup]
-    private ?ClassificationCategory $category = null;
-
-    /**
-     * @var Collection<int, ClassificationCollection>
-     */
-    #[ORM\ManyToMany(targetEntity: ClassificationCollection::class)]
-    #[ORM\JoinColumn(onDelete: 'RESTRICT')]
-    private Collection $collection;
-
-    /**
-     * @var Collection<int, ClassificationTag>
-     */
-    #[ORM\ManyToMany(targetEntity: ClassificationTag::class)]
-    #[ORM\JoinColumn(onDelete: 'RESTRICT')]
-    private Collection $tag;
-
     #[Gedmo\Locale]
     private string $locale;
 
@@ -98,12 +76,27 @@ class Nomenclature implements Sortable, Translatable
     #[ORM\OneToMany(targetEntity: NomenclatureTranslation::class, mappedBy: 'object', cascade: ['persist', 'remove'])]
     private Collection $translations;
 
+    #[ORM\ManyToOne(targetEntity: Categories::class, inversedBy: 'nomenclatures')]
+    private ?Categories $category = null;
+
+    /**
+     * @var Collection<int, Collections>
+     */
+    #[ORM\ManyToMany(targetEntity: Collections::class, inversedBy: 'nomenclatures')]
+    private Collection $collections;
+
+    /**
+     * @var Collection<int, Tags>
+     */
+    #[ORM\ManyToMany(targetEntity: Tags::class, inversedBy: 'nomenclatures')]
+    private Collection $tags;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
-        $this->collection = new ArrayCollection();
-        $this->tag = new ArrayCollection();
         $this->translations = new ArrayCollection();
+        $this->collections = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -134,11 +127,11 @@ class Nomenclature implements Sortable, Translatable
             $this->updatedBy,
             $this->deletedAt,
             $this->images,
-            $this->category,
-            $this->collection,
-            $this->tag,
             $this->locale,
             $this->translations,
+            $this->category,
+            $this->collections,
+            $this->tags,
         ] = $data;
     }
 
@@ -216,64 +209,9 @@ class Nomenclature implements Sortable, Translatable
         return $this;
     }
 
-    public function getCategory(): ?ClassificationCategory
+    public function getTranslatableLocale(): string
     {
-        return $this->category;
-    }
-
-    public function setCategory(?ClassificationCategory $category): static
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ClassificationCollection>
-     */
-    public function getCollection(): Collection
-    {
-        return $this->collection;
-    }
-
-    public function addCollection(ClassificationCollection $collection): static
-    {
-        if (!$this->collection->contains($collection)) {
-            $this->collection->add($collection);
-        }
-
-        return $this;
-    }
-
-    public function removeCollection(ClassificationCollection $collection): static
-    {
-        $this->collection->removeElement($collection);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ClassificationTag>
-     */
-    public function getTag(): Collection
-    {
-        return $this->tag;
-    }
-
-    public function addTag(ClassificationTag $tag): static
-    {
-        if (!$this->tag->contains($tag)) {
-            $this->tag->add($tag);
-        }
-
-        return $this;
-    }
-
-    public function removeTag(ClassificationTag $tag): static
-    {
-        $this->tag->removeElement($tag);
-
-        return $this;
+        return $this->locale;
     }
 
     public function setTranslatableLocale(string $locale): static
@@ -297,6 +235,66 @@ class Nomenclature implements Sortable, Translatable
             $this->translations->add($translation);
             $translation->setObject($this);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Categories
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Categories $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Collections>
+     */
+    public function getCollections(): Collection
+    {
+        return $this->collections;
+    }
+
+    public function addCollection(Collections $collection): static
+    {
+        if (!$this->collections->contains($collection)) {
+            $this->collections->add($collection);
+        }
+
+        return $this;
+    }
+
+    public function removeCollection(Collections $collection): static
+    {
+        $this->collections->removeElement($collection);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tags>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tags $tag): static
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tags $tag): static
+    {
+        $this->tags->removeElement($tag);
 
         return $this;
     }
