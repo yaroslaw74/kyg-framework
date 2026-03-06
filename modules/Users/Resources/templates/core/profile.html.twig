@@ -349,7 +349,7 @@
                             <li class="">
                                 <a href="#friends01" data-bs-toggle="tab" aria-expanded="false">
                                     <span class="visible-xs"><i class="las la-life-ring fs-16 me-1"></i></span>
-                                    <span class="hidden-xs">FRIENDS</span>
+                        <span class="hidden-xs">{% trans %}FRIENDS{% endtrans %}</span>
                                 </a>
                             </li>
                             <li class="">
@@ -520,264 +520,62 @@
                         </div>
                         <div class="tab-pane border-0 p-0" id="friends01" role="tabpanel">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                    <div class="card custom-card border shadow-none">
-                                        <div class="card-body  user-lock text-center">
-                                            <div class="dropdown float-end">
-                                                <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                            <a href="profile.html">
-                                                <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">James Thomas</h5>
-                                                <span class="text-muted">Web designer</span>
-                                                <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                        <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                    <div class="card custom-card border shadow-none">
-                                        <div class="card-body  user-lock text-center">
-                                            <div class="dropdown float-end">
-                                                <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fe fe-more-vertical"></i></a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                            <a href="profile.html">
-                                                <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Reynante Labares</h5>
-                                                <span class="text-muted">Web designer</span>
-                                                <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                        <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                    <div class="card custom-card border shadow-none">
-                                        <div class="card-body  user-lock text-center">
-                                            <div class="dropdown float-end">
-                                                <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                            <a href="profile.html">
-                                                <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Owen Bongcaras</h5>
-                                                <span class="text-muted">Web designer</span>
-                                                <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                        <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                    <div class="card custom-card border shadow-none">
-                                        <div class="card-body  user-lock text-center">
-                                            <div class="dropdown float-end">
-                                                <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Stephen
-                                                                Metcalfe</h5>
-                                                            <span class="text-muted">Administrator</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                {% if pageUser %}
+                                    {% if pageUser.friends %}
+                                        {% for pageUser.friends in friends %}
                                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
                                                 <div class="card custom-card border shadow-none">
                                                     <div class="card-body  user-lock text-center">
                                                         <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fe fe-more-vertical"></i></a>
+                                                            <div class="dropdown-menu shadow">
+                                                                <a class="dropdown-item" href="{{ path('app_user_editprofile', {id: friends.id}) }}"><i class="fe fe-eye me-2"></i>{% trans %}View{% endtrans %}</a>
+                                                                 {% if not user %}
+                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>{% trans %}Message{% endtrans %}</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                                                {% endif %}
                                                             </div>
                                                         </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Socrates
-                                                                Itumay</h5>
-                                                            <span class="text-muted">Project Manager</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
+                                                        <a href="{{ path('app_user_editprofile', {id: friends.id}) }}">
+                                                            {% if friends.gravatar %}
+                                                                {% if gravatar_exists(friends.gravatar) %}
+                                                                    <img src="{{ gravatar(friends.gravatar) }}" alt="avatar" class="rounded-circle">
+                                                                {% else %}
+                                                                    {% if friends.avatar %}
+                                                                        <img src="{{ asset('uploads/avatar/' ~ friends.avatar) }}" alt="avatar" class="rounded-circle">
+                                                                    {% else %}
+                                                                        <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar" class="rounded-circle">
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% else %}
+                                                                {% if friends.avatar %}
+                                                                    <img src="{{ asset('uploads/avatar/' ~ friends.avatar) }}" alt="avatar" class="rounded-circle">
+                                                                {% else %}
+                                                                    <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar" class="rounded-circle">
+                                                                {% endif %}
+                                                            {% endif %}
+                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">
+                                                                {% if settings_instance('name').getFirstLastName %}
+                                                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                                                        {{ friends.lastName }} {{ friends.firstName }} {{ friends.middleName }}
+                                                                    {% else %}
+                                                                        {{ friends.lastName }} {{ friends.firstName }}
+                                                                    {% endif %}
+                                                                {% else %}
+                                                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                                                        {{ friends.firstName }} {{ friends.middleName }} {{ friends.lastName }}
+                                                                    {% else %}
+                                                                        {{ friends.firstName }} {{ friends.lastName }}
+                                                                {% endif %}
+                                                            </h5>
+                                                            <span class="text-muted">Web designer</span>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Reynante
-                                                                Labares</h5>
-                                                            <span class="text-muted">Web Designer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none mb-xxl-0">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Owen
-                                                                Bongcaras</h5>
-                                                            <span class="text-muted">App Developer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none mb-xxl-0">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Stephen
-                                                                Metcalfe</h5>
-                                                            <span class="text-muted">Administrator</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none mb-0">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="{{ asset('bundles/KYG-Framework/avatar/pngwing.com.png') }}">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Michel
-                                                                Mathew</h5>
-                                                            <span class="text-muted">Ui Developer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
                             </div>
                         </div>
                         <div class="tab-pane border-0 p-0" id="settings">
@@ -821,7 +619,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                        <h6 class="modal-title" id="profileEditModalLabel">{% trans %}Edit Avatar{% endtrans %}</h6>
+                    <h6 class="modal-title" id="profileEditModalLabel">{% trans %}Edit Avatar{% endtrans %}</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
