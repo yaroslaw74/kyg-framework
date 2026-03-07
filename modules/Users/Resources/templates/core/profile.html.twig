@@ -532,7 +532,7 @@
                                                                 <a class="dropdown-item" href="{{ path('app_user_editprofile', {id: friends.id}) }}"><i class="fe fe-eye me-2"></i>{% trans %}View{% endtrans %}</a>
                                                                  {% if not user %}
                                                                     <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>{% trans %}Message{% endtrans %}</a>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                                                    <a class="dropdown-item" href="{{ path('app_user_editprofile', {id: pageUser.id, friend_id: friends.id}) }}"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
                                                                 {% endif %}
                                                             </div>
                                                         </div>
