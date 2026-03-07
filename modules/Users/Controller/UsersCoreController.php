@@ -21,6 +21,7 @@ use App\Modules\Users\Form\Type\SetAvatarUserForm;
 use App\Modules\Users\Form\Type\UserLanguageFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Pyrrah\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,7 +31,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Pyrrah\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 
 final class UsersCoreController extends AbstractController
 {
@@ -180,14 +180,13 @@ final class UsersCoreController extends AbstractController
             }
 
             $gravatar = $formProfile->get('gravatar')->getData();
-            /** @var string $mobile */
+            /* @var string $mobile */
             if ('' !== $gravatar) {
                 if ($helper->exists($gravatar)) {
                     $user->setGravatar($gravatar);
                 } else {
                     $this->addFlash('error', $this->translator->trans('Gravatar not found', [], 'users'));
                 }
-
             }
 
             $this->entityManager->persist($user);
@@ -212,7 +211,7 @@ final class UsersCoreController extends AbstractController
     #[Route('/app/user/delite/{id}', name: 'app_user_delite', methods: ['GET'])]
     public function delete(Request $request, ?int $id = null): RedirectResponse
     {
-        if ($id !== null) {
+        if (null !== $id) {
             $this->entityManager->getFilters()->disable('softdeleteable');
             $repository = $this->entityManager->getRepository(User::class);
             $users = $repository->find($id);
@@ -259,7 +258,7 @@ final class UsersCoreController extends AbstractController
     #[Route('/app/user/friend/delite/{id}/{friend_id}', name: 'app_user_friend_delite', methods: ['GET'])]
     public function friendsDelite(Request $request, ?int $id = null, ?int $friend_id = null): RedirectResponse
     {
-        if ($id !== null and $friend_id !== null) {
+        if (null !== $id and null !== $friend_id) {
             $repository = $this->entityManager->getRepository(User::class);
             $user = $repository->find($id);
             $friend = $repository->find($friend_id);
