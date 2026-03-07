@@ -19,6 +19,7 @@ use App\Settings\NameSettings;
 use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -86,6 +87,27 @@ class ProfileFormType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => $this->translator->trans('Enter Phone', [], 'users'),
+                ],
+            ])
+            ->add('gravatar', EmailType::class, [
+                'label' => 'Gravatar',
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter Gravatar', [], 'users'),
+                ],
+            ])
+            ->add('address', TextareaType::class, [
+                'label' => $this->translator->trans('Address', [], 'users'),
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter Address', [], 'users'),
+                    'rows' => '2',
                 ],
             ]);
 
