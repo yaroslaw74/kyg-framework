@@ -212,11 +212,15 @@ final class UsersCoreController extends AbstractController
     #[Route('/app/user/delite/{id}', name: 'app_user_delite', methods: ['GET'])]
     public function delete(Request $request, ?int $id = null): RedirectResponse
     {
-        $this->entityManager->getFilters()->disable('softdeleteable');
-        $repository = $this->entityManager->getRepository(User::class);
-        $users = $repository->find($id);
-        $this->entityManager->remove($users);
-        $this->entityManager->flush();
+        if ($id !== null) {
+            $this->entityManager->getFilters()->disable('softdeleteable');
+            $repository = $this->entityManager->getRepository(User::class);
+            $users = $repository->find($id);
+            $this->entityManager->remove($users);
+            $this->entityManager->flush();
+
+            $this->addFlash('success', $this->translator->trans('The user has been deleted.', [], 'users'));
+        }
 
         $referer = $request->headers->get('referer');
 
@@ -263,6 +267,8 @@ final class UsersCoreController extends AbstractController
             $this->entityManager->persist($user);
             $this->entityManager->persist($friend);
             $this->entityManager->flush();
+
+            $this->addFlash('success', $this->translator->trans('The friend has been deleted.', [], 'users'));
         }
 
         $referer = $request->headers->get('referer');
