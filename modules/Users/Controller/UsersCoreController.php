@@ -239,4 +239,22 @@ final class UsersCoreController extends AbstractController
             'LangugeForm' => $formLanguage,
         ]);
     }
+
+    #[Route('/app/user/friend/delite/{id}/{friend_id}', name: 'app_user_friend_delite', methods: ['GET'])]
+    public function friendsDelite(Request $request, $id = null, $friend_id = null): RedirectResponse
+    {
+        if ($id !== null and $friend_id !== null) {
+            $repository = $this->entityManager->getRepository(User::class);
+            $user = $repository->find($id);
+            $friend = $repository->find($friend_id);
+            $user->removeFriend($friend);
+            $this->entityManager->persist($user);
+            $this->entityManager->persist($friend);
+            $this->entityManager->flush();
+        }
+
+        $referer = $request->headers->get('referer');
+
+        return $this->redirect($referer ?? $this->generateUrl('app'));
+    }
 }
