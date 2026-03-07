@@ -30,6 +30,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Pyrrah\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 
 final class UsersCoreController extends AbstractController
 {
@@ -121,7 +122,7 @@ final class UsersCoreController extends AbstractController
     }
 
     #[Route('/app/user/editprofile/{id}', name: 'app_user_editprofile', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ?int $id = null): Response
+    public function edit(Request $request, GravatarHelperInterface $helper, ?int $id = null): Response
     {
         $user = new User();
         $formAvatar = $this->createForm(SetAvatarUserForm::class, $user);
@@ -178,6 +179,17 @@ final class UsersCoreController extends AbstractController
                 $user->setMobile($mobile);
             }
 
+            $gravatar = $formProfile->get('gravatar')->getData();
+            /** @var string $mobile */
+            if ('' !== $gravatar) {
+                if ($helper->exists($gravatar)) {
+                    $user->setGravatar($gravatar);
+                } else {
+                    $this->addFlash('error', $this->translator->trans('Gravatar not found', [], 'users'));
+                }
+
+            }
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
@@ -211,7 +223,7 @@ final class UsersCoreController extends AbstractController
         return $this->redirect($referer ?? $this->generateUrl('app'));
     }
 
-    #[Route('/app/user/settings', name: 'app_user_settings')]
+    #[Route('/app/user/settings', name: 'app_user_settings', methods: ['POST'])]
     public function settings(Request $request): Response
     {
         $user = new User();
@@ -241,7 +253,7 @@ final class UsersCoreController extends AbstractController
     }
 
     #[Route('/app/user/friend/delite/{id}/{friend_id}', name: 'app_user_friend_delite', methods: ['GET'])]
-    public function friendsDelite(Request $request, $id = null, $friend_id = null): RedirectResponse
+    public function friendsDelite(Request $request, ?int $id = null, ?int $friend_id = null): RedirectResponse
     {
         if ($id !== null and $friend_id !== null) {
             $repository = $this->entityManager->getRepository(User::class);
