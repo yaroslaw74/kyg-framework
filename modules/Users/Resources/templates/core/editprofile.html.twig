@@ -305,8 +305,10 @@
                                 <i class="icon ion-md-locate"></i>
                             </div>
                             <div class="media-body">
-                                <span>Current Address</span>
-                                <div>San Francisco, CA</div>
+                                <span>{% trans %}Current Address{% endtrans %}</span>
+                                 {% if pageUser and pageUser.address %}
+                                    <div>{{ pageUser.address }}</div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -316,9 +318,9 @@
         </div>
         <div class="col-xl-8 col-lg-7">
             <div class="card">
-                <div class="card-body">
-                    <div class="mb-4 main-content-label">{% trans %}Personal Information{% endtrans %}</div>
-                    {{ form_start(ProfileForm) }}
+                {{ form_start(ProfileForm) }}
+                    <div class="card-body">
+                        <div class="mb-4 main-content-label">{% trans %}Personal Information{% endtrans %}</div>
                         <div class="mb-4 main-content-label">{% trans %}Name{% endtrans %}</div>
                         {% if settings_instance('name').getFirstLastName %}
                             <div class="form-group mb-3">
@@ -443,16 +445,6 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">Website</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="Website" value="@spruko.w">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
                                     {{ form_label(ProfileForm.mobile) }}
                                 </div>
                                 <div class="col-md-9">
@@ -467,61 +459,29 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">Address</label>
+                                    {{ form_label(ProfileForm.address) }}
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" name="example-textarea-input" rows="2"  placeholder="Address">San Francisco, CA</textarea>
+                                    {% if pageUser and pageUser.address %}
+                                        {{ form_widget(ProfileForm.address, {attr: {value: pageUser.address}}) }}
+                                    {% else %}
+                                        {{ form_widget(ProfileForm.address) }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-4 main-content-label">Social Info</div>
+                        <div class="mb-4 main-content-label">{% trans %}Other Info{% endtrans %}</div>
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">Twitter</label>
+                                    {{ form_label(ProfileForm.gravatar) }}
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="twitter" value="twitter.com/spruko.me">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Facebook</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="facebook" value="https://www.facebook.com/Redash">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Google+</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="google" value="spruko.com">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Linked in</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control"  placeholder="linkedin" value="linkedin.com/in/spruko">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">Github</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="github" value="github.com/sprukos">
+                                    {% if pageUser and pageUser.gravatar %}
+                                        {{ form_widget(ProfileForm.gravatar, {attr: {value: pageUser.gravatar}}) }}
+                                    {% else %}
+                                        {{ form_widget(ProfileForm.gravatar) }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -550,11 +510,10 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary waves-effect waves-light">{% trans %}Update Profile{% endtrans %}</button>
-                </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">{% trans %}Update Profile{% endtrans %}</button>
+                    </div>
                 {{ form_end(ProfileForm) }}
             </div>
         </div>
