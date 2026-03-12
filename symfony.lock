@@ -214,9 +214,6 @@
     "nelmio/js-logger-bundle": {
         "version": "1.11.0"
     },
-    "php-flasher/flasher-symfony": {
-        "version": "v2.4.0"
-    },
     "php-http/discovery": {
         "version": "1.20",
         "recipe": {
