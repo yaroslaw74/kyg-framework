@@ -46,7 +46,6 @@ return [
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
     Nelmio\ApiDocBundle\NelmioApiDocBundle::class => ['all' => true],
     Nelmio\JsLoggerBundle\NelmioJsLoggerBundle::class => ['all' => true],
-    Flasher\Symfony\FlasherSymfonyBundle::class => ['all' => true],
     Rekalogika\DirectPropertyAccess\RekalogikaDirectPropertyAccessBundle::class => ['all' => true],
     Rekalogika\Reconstitutor\RekalogikaReconstitutorBundle::class => ['all' => true],
     Rekalogika\TemporaryUrl\RekalogikaTemporaryUrlBundle::class => ['all' => true],
