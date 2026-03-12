@@ -49,7 +49,6 @@
         "nelmio/cors-bundle": "^2.6.1",
         "nelmio/js-logger-bundle": "^1.11.1",
         "nyholm/psr7": "^1.8.2",
-        "php-flasher/flasher-symfony": "^2.4",
         "phpdocumentor/reflection-common": "^2.2",
         "phpdocumentor/reflection-docblock": "^5.6.6",
         "phpdocumentor/type-resolver": "^1.12",
@@ -173,7 +172,7 @@
         "neronmoon/scriptsdev": "^0.1.9",
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.40",
-        "phpstan/phpstan-doctrine": "^2.0.18",
+        "phpstan/phpstan-doctrine": "^2.0.19",
         "phpstan/phpstan-phpunit": "^2.0.16",
         "phpstan/phpstan-symfony": "^2.0.15",
         "phpunit/phpunit": "^13.0.5",
@@ -305,8 +304,7 @@
             "cache:warmup": "symfony-cmd",
             "ckeditor:install --clear=drop --release=full": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd",
-            "flasher:install": "symfony-cmd"
+            "importmap:install": "symfony-cmd"
         }
     }
 }
