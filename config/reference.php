@@ -2246,35 +2246,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         path?: scalar|Param|null, // Default: "https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"
  *     },
  * }
- * @psalm-type FlasherConfig = array{
- *     default?: scalar|Param|null, // Default notification library (e.g., "flasher", "toastr", "noty", "notyf", "sweetalert") // Default: "flasher"
- *     main_script?: scalar|Param|null, // Path to the main PHPFlasher JavaScript file // Default: "/vendor/flasher/flasher.min.js"
- *     inject_assets?: bool|Param, // Automatically inject assets into HTML pages // Default: true
- *     translate?: bool|Param, // Enable message translation // Default: true
- *     excluded_paths?: list<scalar|Param|null>,
- *     filter?: list<mixed>,
- *     scripts?: list<scalar|Param|null>,
- *     styles?: list<scalar|Param|null>,
- *     options?: list<mixed>,
- *     flash_bag?: mixed, // Map Symfony flash messages to notification types // Default: true
- *     presets?: array<string, array{ // Default: []
- *         type?: scalar|Param|null, // Notification type (e.g., "success", "error")
- *         title?: scalar|Param|null, // Default title
- *         message?: scalar|Param|null, // Default message
- *         options?: list<mixed>,
- *     }>,
- *     plugins?: array<string, array{ // Default: []
- *         view?: scalar|Param|null, // Custom twig view template
- *         styles?: list<scalar|Param|null>,
- *         scripts?: list<scalar|Param|null>,
- *         options?: list<mixed>,
- *     }>,
- *     themes?: array<string, array{ // Default: []
- *         styles?: list<scalar|Param|null>,
- *         scripts?: list<scalar|Param|null>,
- *         options?: list<mixed>,
- *     }>,
- * }
  * @psalm-type RekalogikaFileConfig = array{
  *     filesystems?: array<string, scalar|Param|null>,
  *     default_filesystem_directory?: scalar|Param|null, // The storage directory used by the default filesystem. // Default: "%kernel.project_dir%/var/storage/default"
@@ -2385,7 +2356,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     flysystem?: FlysystemConfig,
  *     nelmio_api_doc?: NelmioApiDocConfig,
  *     nelmio_js_logger?: NelmioJsLoggerConfig,
- *     flasher?: FlasherConfig,
  *     rekalogika_file?: RekalogikaFileConfig,
  *     scheb_two_factor?: SchebTwoFactorConfig,
  *     shapecode_cron?: ShapecodeCronConfig,
@@ -2431,7 +2401,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         flysystem?: FlysystemConfig,
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         nelmio_js_logger?: NelmioJsLoggerConfig,
- *         flasher?: FlasherConfig,
  *         rekalogika_file?: RekalogikaFileConfig,
  *         scheb_two_factor?: SchebTwoFactorConfig,
  *         shapecode_cron?: ShapecodeCronConfig,
@@ -2475,7 +2444,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         flysystem?: FlysystemConfig,
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         nelmio_js_logger?: NelmioJsLoggerConfig,
- *         flasher?: FlasherConfig,
  *         rekalogika_file?: RekalogikaFileConfig,
  *         scheb_two_factor?: SchebTwoFactorConfig,
  *         shapecode_cron?: ShapecodeCronConfig,
