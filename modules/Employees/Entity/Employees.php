@@ -16,6 +16,8 @@ namespace App\Modules\Employees\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Employees\Repository\EmployeesRepository;
+use App\Modules\Persons\Entity\Natural;
+use App\Modules\Users\Entity\User;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -64,6 +66,12 @@ class Employees
     #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
     private ?string $mobile = null;
 
+    #[ORM\OneToOne(mappedBy: 'employee', cascade: ['persist'])]
+    private ?Natural $individual = null;
+
+    #[ORM\OneToOne(inversedBy: 'employees', cascade: ['persist'])]
+    private ?User $user = null;
+
     public function __serialize(): array
     {
         $data = (array) $this;
@@ -89,6 +97,8 @@ class Employees
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->individual,
+            $this->user,
         ] = $data;
     }
 
@@ -179,6 +189,40 @@ class Employees
     public function setMobile(?string $mobile): static
     {
         $this->mobile = $mobile;
+
+        return $this;
+    }
+
+    public function getIndividual(): ?Natural
+    {
+        return $this->individual;
+    }
+
+    public function setIndividual(?Natural $individual): static
+    {
+        // unset the owning side of the relation if necessary
+        if (null === $individual && null !== $this->individual) {
+            $this->individual->setEmployee(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if (null !== $individual && $individual->getEmployee() !== $this) {
+            $individual->setEmployee($this);
+        }
+
+        $this->individual = $individual;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
