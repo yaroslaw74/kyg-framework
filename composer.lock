@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae81f8e60ad5ee6750248c6fc6d1edfd",
+    "content-hash": "c1492a45772105e2c993af7ab5a7c498",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -98,23 +98,25 @@
         },
         {
             "name": "api-platform/doctrine-orm",
-            "version": "v4.2.20",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/doctrine-orm.git",
-                "reference": "a7d4c255519ac0438f9293b3e97d2b3bd9ca43d7"
+                "reference": "1f120e701de7514b558f4987085ebb1b096abf99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/doctrine-orm/zipball/a7d4c255519ac0438f9293b3e97d2b3bd9ca43d7",
-                "reference": "a7d4c255519ac0438f9293b3e97d2b3bd9ca43d7",
+                "url": "https://api.github.com/repos/api-platform/doctrine-orm/zipball/1f120e701de7514b558f4987085ebb1b096abf99",
+                "reference": "1f120e701de7514b558f4987085ebb1b096abf99",
                 "shasum": ""
             },
             "require": {
                 "api-platform/doctrine-common": "^4.2.9",
                 "api-platform/metadata": "^4.2",
+                "api-platform/serializer": "^4.2.16",
                 "api-platform/state": "^4.2.4",
-                "doctrine/orm": "^2.17 || ^3.0",
+                "composer/semver": "^3.4",
+                "doctrine/orm": "^2.17 || ^3.0.1",
                 "php": ">=8.2"
             },
             "require-dev": {
@@ -146,7 +148,7 @@
                     "dev-3.4": "3.4.x-dev",
                     "dev-4.1": "4.1.x-dev",
                     "dev-4.2": "4.2.x-dev",
-                    "dev-main": "4.3.x-dev"
+                    "dev-main": "4.4.x-dev"
                 }
             },
             "autoload": {
@@ -179,9 +181,9 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/api-platform/doctrine-orm/tree/v4.2.20"
+                "source": "https://github.com/api-platform/doctrine-orm/tree/v4.3.0"
             },
-            "time": "2026-02-25T15:52:40+00:00"
+            "time": "2026-03-06T15:07:49+00:00"
         },
         {
             "name": "api-platform/documentation",
@@ -248,22 +250,22 @@
         },
         {
             "name": "api-platform/graphql",
-            "version": "v4.2.20",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/graphql.git",
-                "reference": "25b44ca446d86b50b5bc412a093f387f1994390e"
+                "reference": "bfbd6d36108b98b1534e37a92a13ee2e245132ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/graphql/zipball/25b44ca446d86b50b5bc412a093f387f1994390e",
-                "reference": "25b44ca446d86b50b5bc412a093f387f1994390e",
+                "url": "https://api.github.com/repos/api-platform/graphql/zipball/bfbd6d36108b98b1534e37a92a13ee2e245132ab",
+                "reference": "bfbd6d36108b98b1534e37a92a13ee2e245132ab",
                 "shasum": ""
             },
             "require": {
-                "api-platform/metadata": "^4.2",
-                "api-platform/serializer": "^4.2.4",
-                "api-platform/state": "^4.2.4",
+                "api-platform/metadata": "^4.3",
+                "api-platform/serializer": "^4.3",
+                "api-platform/state": "^4.3",
                 "php": ">=8.2",
                 "symfony/property-info": "^7.1 || ^8.0",
                 "symfony/serializer": "^6.4 || ^7.1 || ^8.0",
@@ -276,7 +278,7 @@
                 "symfony/http-client": "<6.4"
             },
             "require-dev": {
-                "api-platform/validator": "^4.2.4",
+                "api-platform/validator": "^4.3",
                 "phpspec/prophecy-phpunit": "^2.2",
                 "phpunit/phpunit": "^12.2",
                 "symfony/mercure-bundle": "*",
@@ -301,7 +303,7 @@
                     "dev-3.4": "3.4.x-dev",
                     "dev-4.1": "4.1.x-dev",
                     "dev-4.2": "4.2.x-dev",
-                    "dev-main": "4.3.x-dev"
+                    "dev-main": "4.4.x-dev"
                 }
             },
             "autoload": {
@@ -334,9 +336,9 @@
                 "graphql"
             ],
             "support": {
-                "source": "https://github.com/api-platform/graphql/tree/v4.2.20"
+                "source": "https://github.com/api-platform/graphql/tree/v4.3.0"
             },
-            "time": "2026-02-25T15:52:40+00:00"
+            "time": "2026-03-06T15:07:49+00:00"
         },
         {
             "name": "api-platform/http-cache",
@@ -1048,29 +1050,29 @@
         },
         {
             "name": "api-platform/symfony",
-            "version": "v4.2.20",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/symfony.git",
-                "reference": "8e47b4429a2c41dd9a8865b1f42f93f9beac99c2"
+                "reference": "3b9b39f03250494ac4f3415c3d43c5678082b4d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/symfony/zipball/8e47b4429a2c41dd9a8865b1f42f93f9beac99c2",
-                "reference": "8e47b4429a2c41dd9a8865b1f42f93f9beac99c2",
+                "url": "https://api.github.com/repos/api-platform/symfony/zipball/3b9b39f03250494ac4f3415c3d43c5678082b4d0",
+                "reference": "3b9b39f03250494ac4f3415c3d43c5678082b4d0",
                 "shasum": ""
             },
             "require": {
-                "api-platform/documentation": "^4.2.12",
-                "api-platform/http-cache": "^4.2.12",
-                "api-platform/hydra": "^4.2.12",
-                "api-platform/json-schema": "^4.2.12",
-                "api-platform/jsonld": "^4.2.12",
-                "api-platform/metadata": "^4.2.12",
-                "api-platform/openapi": "^4.2.12",
-                "api-platform/serializer": "^4.2.12",
-                "api-platform/state": "^4.2.12",
-                "api-platform/validator": "^4.2.12",
+                "api-platform/documentation": "^4.3",
+                "api-platform/http-cache": "^4.3",
+                "api-platform/hydra": "^4.3",
+                "api-platform/json-schema": "^4.3",
+                "api-platform/jsonld": "^4.3",
+                "api-platform/metadata": "^4.3",
+                "api-platform/openapi": "^4.3",
+                "api-platform/serializer": "^4.3",
+                "api-platform/state": "^4.3",
+                "api-platform/validator": "^4.3",
                 "php": ">=8.2",
                 "symfony/asset": "^6.4 || ^7.0 || ^8.0",
                 "symfony/finder": "^6.4 || ^7.0 || ^8.0",
@@ -1081,12 +1083,12 @@
                 "willdurand/negotiation": "^3.1"
             },
             "require-dev": {
-                "api-platform/doctrine-common": "^4.2.12",
-                "api-platform/doctrine-odm": "^4.2.12",
-                "api-platform/doctrine-orm": "^4.2.12",
-                "api-platform/elasticsearch": "^4.2.12",
-                "api-platform/graphql": "^4.2.12",
-                "api-platform/hal": "^4.2.12",
+                "api-platform/doctrine-common": "^4.3",
+                "api-platform/doctrine-odm": "^4.3",
+                "api-platform/doctrine-orm": "^4.3",
+                "api-platform/elasticsearch": "^4.3",
+                "api-platform/graphql": "^4.3",
+                "api-platform/hal": "^4.3",
                 "phpspec/prophecy-phpunit": "^2.2",
                 "phpunit/phpunit": "^12.2",
                 "symfony/expression-language": "^6.4 || ^7.0 || ^8.0",
@@ -1129,7 +1131,7 @@
                     "require": "^6.4 || ^7.0 || ^8.0"
                 },
                 "branch-alias": {
-                    "dev-main": "4.3.x-dev"
+                    "dev-main": "4.4.x-dev"
                 }
             },
             "autoload": {
@@ -1170,9 +1172,9 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/api-platform/symfony/tree/v4.2.20"
+                "source": "https://github.com/api-platform/symfony/tree/v4.3.0"
             },
-            "time": "2026-03-03T08:06:46+00:00"
+            "time": "2026-03-13T11:03:46+00:00"
         },
         {
             "name": "api-platform/validator",
@@ -6161,16 +6163,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.6.6",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8"
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/5cee1d3dfc2d2aa6599834520911d246f656bcb8",
-                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/897b5986ece6b4f9d8413fea345c7d49c757d6bf",
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf",
                 "shasum": ""
             },
             "require": {
@@ -6178,8 +6180,8 @@
                 "ext-filter": "*",
                 "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.2",
-                "phpdocumentor/type-resolver": "^1.7",
-                "phpstan/phpdoc-parser": "^1.7|^2.0",
+                "phpdocumentor/type-resolver": "^2.0",
+                "phpstan/phpdoc-parser": "^2.0",
                 "webmozart/assert": "^1.9.1 || ^2"
             },
             "require-dev": {
@@ -6189,7 +6191,8 @@
                 "phpstan/phpstan-mockery": "^1.1",
                 "phpstan/phpstan-webmozart-assert": "^1.2",
                 "phpunit/phpunit": "^9.5",
-                "psalm/phar": "^5.26"
+                "psalm/phar": "^5.26",
+                "shipmonk/dead-code-detector": "^0.5.1"
             },
             "type": "library",
             "extra": {
@@ -6219,44 +6222,44 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.6"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.2"
             },
-            "time": "2025-12-22T21:13:58+00:00"
+            "time": "2026-03-01T18:43:49+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.12.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "92a98ada2b93d9b201a613cb5a33584dde25f195"
+                "reference": "327a05bbee54120d4786a0dc67aad30226ad4cf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/92a98ada2b93d9b201a613cb5a33584dde25f195",
-                "reference": "92a98ada2b93d9b201a613cb5a33584dde25f195",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/327a05bbee54120d4786a0dc67aad30226ad4cf9",
+                "reference": "327a05bbee54120d4786a0dc67aad30226ad4cf9",
                 "shasum": ""
             },
             "require": {
                 "doctrine/deprecations": "^1.0",
-                "php": "^7.3 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0",
-                "phpstan/phpdoc-parser": "^1.18|^2.0"
+                "phpstan/phpdoc-parser": "^2.0"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^1.8",
-                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5",
-                "rector/rector": "^0.13.9",
-                "vimeo/psalm": "^4.25"
+                "psalm/phar": "^4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                    "dev-1.x": "1.x-dev",
+                    "dev-2.x": "2.x-dev"
                 }
             },
             "autoload": {
@@ -6277,9 +6280,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.12.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/2.0.0"
             },
-            "time": "2025-11-21T15:09:14+00:00"
+            "time": "2026-01-06T21:53:42+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
