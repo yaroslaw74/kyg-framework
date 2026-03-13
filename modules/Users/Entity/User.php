@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Employees\Entity\Employees;
+use App\Modules\Persons\Entity\Natural;
 use App\Modules\Users\Enum\StatusUsers;
 use App\Modules\Users\Enumeration\UsersStatus;
 use App\Modules\Users\Repository\UserRepository;
@@ -146,6 +148,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
     private Collection $friendOf;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist'])]
+    private ?Natural $individual = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist'])]
+    private ?Employees $employees = null;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
@@ -205,6 +213,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->isVerified,
             $this->friends,
             $this->friendOf,
+            $this->individual,
+            $this->employees,
         ] = $data;
     }
 
@@ -263,7 +273,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string) $this->lastName;
     }
 
     /**
@@ -587,6 +597,50 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         if ($this->friendOf->removeElement($friendOf)) {
             $friendOf->removeFriend($this);
         }
+
+        return $this;
+    }
+
+    public function getIndividual(): ?Natural
+    {
+        return $this->individual;
+    }
+
+    public function setIndividual(?Natural $individual): static
+    {
+        // unset the owning side of the relation if necessary
+        if (null === $individual && null !== $this->individual) {
+            $this->individual->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if (null !== $individual && $individual->getUser() !== $this) {
+            $individual->setUser($this);
+        }
+
+        $this->individual = $individual;
+
+        return $this;
+    }
+
+    public function getEmployees(): ?Employees
+    {
+        return $this->employees;
+    }
+
+    public function setEmployees(?Employees $employees): static
+    {
+        // unset the owning side of the relation if necessary
+        if (null === $employees && null !== $this->employees) {
+            $this->employees->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if (null !== $employees && $employees->getUser() !== $this) {
+            $employees->setUser($this);
+        }
+
+        $this->employees = $employees;
 
         return $this;
     }
