@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Persons\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Contacts\Entity\NaturalsContacts;
 use App\Modules\Employees\Entity\Employees;
 use App\Modules\Persons\Repository\NaturalRepository;
 use App\Modules\Users\Entity\User;
@@ -77,9 +78,16 @@ class Natural
     #[ORM\OneToMany(targetEntity: Officials::class, mappedBy: 'individual', cascade: ['persist', 'remove'])]
     private Collection $legals;
 
+    /**
+     * @var Collection<int, NaturalsContacts>
+     */
+    #[ORM\OneToMany(targetEntity: NaturalsContacts::class, mappedBy: 'individual', cascade: ['remove'])]
+    private Collection $contacts;
+
     public function __construct()
     {
         $this->legals = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -113,6 +121,7 @@ class Natural
             $this->deletedAt,
             $this->employee,
             $this->user,
+            $this->contacts,
         ] = $data;
     }
 
@@ -243,6 +252,36 @@ class Natural
             // set the owning side to null (unless already changed)
             if ($legal->getIndividual() === $this) {
                 $legal->setIndividual(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, NaturalsContacts>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(NaturalsContacts $contact): static
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setIndividual($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(NaturalsContacts $contact): static
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getIndividual() === $this) {
+                $contact->setIndividual(null);
             }
         }
 
