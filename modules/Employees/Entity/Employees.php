@@ -15,9 +15,12 @@ declare(strict_types=1);
 namespace App\Modules\Employees\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Contacts\Entity\EmployeesContacts;
 use App\Modules\Employees\Repository\EmployeesRepository;
 use App\Modules\Persons\Entity\Natural;
 use App\Modules\Users\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -72,6 +75,17 @@ class Employees
     #[ORM\OneToOne(inversedBy: 'employees', cascade: ['persist'])]
     private ?User $user = null;
 
+    /**
+     * @var Collection<int, EmployeesContacts>
+     */
+    #[ORM\OneToMany(targetEntity: EmployeesContacts::class, mappedBy: 'employee', cascade: ['remove'])]
+    private Collection $contacts;
+
+    public function __construct()
+    {
+        $this->contacts = new ArrayCollection();
+    }
+
     public function __serialize(): array
     {
         $data = (array) $this;
@@ -99,6 +113,7 @@ class Employees
             $this->deletedAt,
             $this->individual,
             $this->user,
+            $this->contacts,
         ] = $data;
     }
 
@@ -223,6 +238,36 @@ class Employees
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EmployeesContacts>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(EmployeesContacts $contact): static
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setEmployee($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(EmployeesContacts $contact): static
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getEmployee() === $this) {
+                $contact->setEmployee(null);
+            }
+        }
 
         return $this;
     }
