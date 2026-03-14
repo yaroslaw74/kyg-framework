@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Persons\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Contacts\Entity\LegalsContacts;
 use App\Modules\Persons\Repository\LegalRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -78,10 +79,17 @@ class Legal
     #[ORM\OneToMany(targetEntity: Officials::class, mappedBy: 'legal', cascade: ['persist', 'remove'])]
     private Collection $officials;
 
+    /**
+     * @var Collection<int, LegalsContacts>
+     */
+    #[ORM\OneToMany(targetEntity: LegalsContacts::class, mappedBy: 'legal', cascade: ['remove'])]
+    private Collection $contacts;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
         $this->officials = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -116,6 +124,7 @@ class Legal
             $this->parent,
             $this->children,
             $this->officials,
+            $this->contacts,
         ] = $data;
     }
 
@@ -264,6 +273,36 @@ class Legal
             // set the owning side to null (unless already changed)
             if ($official->getLegal() === $this) {
                 $official->setLegal(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LegalsContacts>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(LegalsContacts $contact): static
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setLegal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(LegalsContacts $contact): static
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getLegal() === $this) {
+                $contact->setLegal(null);
             }
         }
 
