@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Contacts\Entity\UsersContacts;
 use App\Modules\Employees\Entity\Employees;
 use App\Modules\Persons\Entity\Natural;
 use App\Modules\Users\Enum\StatusUsers;
@@ -154,10 +155,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist'])]
     private ?Employees $employees = null;
 
+    /**
+     * @var Collection<int, UsersContacts>
+     */
+    #[ORM\OneToMany(targetEntity: UsersContacts::class, mappedBy: 'user', cascade: ['remove'])]
+    private Collection $contacts;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
         $this->friendOf = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -215,6 +223,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->friendOf,
             $this->individual,
             $this->employees,
+            $this->contacts,
         ] = $data;
     }
 
@@ -641,6 +650,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         }
 
         $this->employees = $employees;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UsersContacts>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(UsersContacts $contact): static
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(UsersContacts $contact): static
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getUser() === $this) {
+                $contact->setUser(null);
+            }
+        }
 
         return $this;
     }
