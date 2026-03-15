@@ -1,3 +1,4 @@
+import "./plugin.js";
 import "./stimulus_bootstrap.js";
 import "./icons-fonts.js";
 import "./valex.js";
