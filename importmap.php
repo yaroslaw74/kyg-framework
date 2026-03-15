@@ -61,18 +61,18 @@ return [
         'version' => '0.4.0',
     ],
     'tom-select' => [
-        'version' => '2.5.1',
+        'version' => '2.5.2',
     ],
     'tom-select/dist/css/tom-select.bootstrap5.css' => [
-        'version' => '2.5.1',
+        'version' => '2.5.2',
         'type' => 'css',
     ],
     'tom-select/dist/css/tom-select.bootstrap4.css' => [
-        'version' => '2.5.1',
+        'version' => '2.5.2',
         'type' => 'css',
     ],
     'tom-select/dist/css/tom-select.default.css' => [
-        'version' => '2.5.1',
+        'version' => '2.5.2',
         'type' => 'css',
     ],
     '@orchidjs/sifter' => [
@@ -118,7 +118,7 @@ return [
         'type' => 'css',
     ],
     '@tabler/icons-webfont/dist/tabler-icons.min.css' => [
-        'version' => '3.36.1',
+        'version' => '3.40.0',
         'type' => 'css',
     ],
     '@icon/themify-icons/themify-icons.css' => [
@@ -210,108 +210,108 @@ return [
         'version' => '2.0.0',
     ],
     'choices.js' => [
-        'version' => '11.1.0',
+        'version' => '11.2.1',
     ],
     'choices.js/public/assets/styles/choices.min.css' => [
-        'version' => '11.1.0',
+        'version' => '11.2.1',
         'type' => 'css',
     ],
     'filepond' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/dist/filepond.min.css' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
         'type' => 'css',
     ],
     'filepond/locale/ar-ar.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/cs-cz.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/da-dk.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/de-de.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/el-el.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/en-en.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/es-es.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/fa_ir.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/fi-fi.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/fr-fr.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/he-he.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/hr-hr.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/hu-hu.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/id-id.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/it-it.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/ja-ja.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/lt-lt.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/nl-nl.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/no_nb.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/pl-pl.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/pt-br.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/ro-ro.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/ru-ru.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/sk-sk.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/sv_se.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/tr-tr.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/uk-ua.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/vi-vi.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/zh-cn.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond/locale/zh-tw.js' => [
-        'version' => '4.32.11',
+        'version' => '4.32.12',
     ],
     'filepond-plugin-file-encode' => [
         'version' => '2.1.14',
@@ -362,10 +362,10 @@ return [
         'version' => '1.2.7',
     ],
     'apexcharts' => [
-        'version' => '5.4.0',
+        'version' => '5.10.4',
     ],
     'apexcharts/dist/apexcharts.css' => [
-        'version' => '5.4.0',
+        'version' => '5.10.4',
         'type' => 'css',
     ],
     'echarts' => [
