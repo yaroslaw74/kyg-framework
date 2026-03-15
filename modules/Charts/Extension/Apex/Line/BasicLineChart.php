@@ -68,7 +68,7 @@ class BasicLineChart extends AbstractCharts
     }
 
     /**
-     * @param array<\DateTimeImmutable|string|int, int|float> $data
+     * @param array<\DateTime|string|int, int|float> $data
      */
     public function setData(array $data): void
     {
@@ -76,27 +76,33 @@ class BasicLineChart extends AbstractCharts
             $this->options['xaxis']['categories'][] = $key;
             $this->options['series']['data'][] = $value;
 
-            if ($value < $this->options['yaxis']['min']) {
-                $this->options['yaxis']['min'] = $value;
-            }
-
             if ($value > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $value;
+                if (0 == $this->options['yaxis']['min']) {
+                    $this->options['yaxis']['min'] = $value;
+                }
+            }
+
+            if ($value < $this->options['yaxis']['min']) {
+                $this->options['yaxis']['min'] = $value;
             }
         }
     }
 
-    public function addDate(\DateTimeImmutable|string|int $categories, int|float $data): void
+    public function addDate(\DateTime|string|int $categories, int|float $data): void
     {
         $this->options['xaxis']['categories'][] = $categories;
         $this->options['series']['data'][] = $data;
 
-        if ($data < $this->options['yaxis']['min']) {
-            $this->options['yaxis']['min'] = $data;
-        }
-
         if ($data > $this->options['yaxis']['max']) {
             $this->options['yaxis']['max'] = $data;
+            if (0 == $this->options['yaxis']['min']) {
+                $this->options['yaxis']['min'] = $data;
+            }
+        }
+
+        if ($data < $this->options['yaxis']['min']) {
+            $this->options['yaxis']['min'] = $data;
         }
     }
 
