@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace App\Modules\Charts\Extension;
 
-use App\Modules\Charts\Extension\ChartsInterface;
-
 abstract class AbstractCharts implements ChartsInterface
 {
     protected string $script;
