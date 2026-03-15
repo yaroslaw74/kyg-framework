@@ -89,7 +89,7 @@ class LineChartWithDataLabels extends AbstractCharts
     }
 
     /**
-     * @param array<\DateTimeImmutable|string|int, mixed> $data
+     * @param array<\DateTime|string|int, mixed> $data
      */
     public function setData(array $data): void
     {
@@ -102,12 +102,15 @@ class LineChartWithDataLabels extends AbstractCharts
             $this->options['series']['top']['data'][] = $dataTop;
             $this->options['series']['botom']['data'][] = $dataBotom;
 
-            if ($dataTop < $this->options['yaxis']['min']) {
-                $this->options['yaxis']['min'] = $dataTop;
-            }
-
             if ($dataTop > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $dataTop;
+                if (0 == $this->options['yaxis']['min']) {
+                    $this->options['yaxis']['min'] = $dataTop;
+                }
+            }
+
+            if ($dataTop < $this->options['yaxis']['min']) {
+                $this->options['yaxis']['min'] = $dataTop;
             }
 
             if ($dataBotom < $this->options['yaxis']['min']) {
@@ -120,18 +123,21 @@ class LineChartWithDataLabels extends AbstractCharts
         }
     }
 
-    public function addDate(\DateTimeImmutable|string|int $categories, int|float $dataTop, int|float $dataBotom): void
+    public function addDate(\DateTime|string|int $categories, int|float $dataTop, int|float $dataBotom): void
     {
         $this->options['xaxis']['categories'][] = $categories;
         $this->options['series']['top']['data'][] = $dataTop;
         $this->options['series']['botom']['data'][] = $dataBotom;
 
-        if ($dataBotom < $this->options['yaxis']['min']) {
-            $this->options['yaxis']['min'] = $dataBotom;
-        }
-
         if ($dataBotom > $this->options['yaxis']['max']) {
             $this->options['yaxis']['max'] = $dataBotom;
+            if (0 == $this->options['yaxis']['min']) {
+                $this->options['yaxis']['min'] = $dataBotom;
+            }
+        }
+
+        if ($dataBotom < $this->options['yaxis']['min']) {
+            $this->options['yaxis']['min'] = $dataBotom;
         }
 
         if ($dataTop < $this->options['yaxis']['min']) {
