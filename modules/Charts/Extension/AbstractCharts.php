@@ -14,9 +14,13 @@ declare(strict_types=1);
 
 namespace App\Modules\Charts\Extension;
 
+use App\Modules\Charts\Extension\ChartsInterface;
+
 abstract class AbstractCharts implements ChartsInterface
 {
     protected string $script;
+
+    protected string $name;
 
     /**
      * @var array<string, mixed>
@@ -26,6 +30,16 @@ abstract class AbstractCharts implements ChartsInterface
     public function getScript(): string
     {
         return $this->script;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     /**
