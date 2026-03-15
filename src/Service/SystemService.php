@@ -59,4 +59,32 @@ class SystemService
 
         return $html;
     }
+
+    /**
+     * @param string[] $locales
+     */
+    public function getLocaleJS(string $locale, array $locales): string
+    {
+        $language = $this->getLocaleHTML(mb_strtolower($locale));
+
+        if (\in_array($language, $locales)) {
+            return $language;
+        }
+        $poz = strrpos($language, '-');
+        if (false !== $poz) {
+            $language = substr($language, 0, $poz);
+            if (\in_array($language, $locales)) {
+                return $language;
+            }
+            $poz = strrpos($language, '-');
+            if (false !== $poz) {
+                $language = substr($language, 0, $poz);
+                if (\in_array($language, $locales)) {
+                    return $language;
+                }
+            }
+        }
+
+        return 'en';
+    }
 }
