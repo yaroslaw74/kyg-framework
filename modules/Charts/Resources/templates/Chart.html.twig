@@ -1,0 +1,19 @@
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+<div class="col-xl-6">
+    <div class="card custom-card">
+        <div class="card-header">
+            <div class="card-title">{{ chart.options.name }}</div>
+        </div>
+        <div class="card-body">
+            <div id="{{ chart.script }}" data-options="{{ chart.options|json_encode|raw }}"></div>
+        </div>
+    </div>
+</div>
+<script async type="module" src="{{ asset('js/charts/' ~ chart.script ~ '.js') }}"></script>
