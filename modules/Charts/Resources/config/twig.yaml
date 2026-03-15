@@ -1,0 +1,3 @@
+twig:
+    paths:
+        "modules/Charts/Resources/templates": "Charts"
