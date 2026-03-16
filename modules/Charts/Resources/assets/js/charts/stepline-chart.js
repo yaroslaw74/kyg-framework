@@ -64,6 +64,7 @@ import ApexCharts from "apexcharts";
                 }
             },
             labels: {
+                formatter: (val) => (val / CHART_OPTIONS.dec).toFixed(0),
                 show: true,
                 style: {
                     colors: "#8c9097",
