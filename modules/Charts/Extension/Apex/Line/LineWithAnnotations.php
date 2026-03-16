@@ -137,7 +137,7 @@ class LineWithAnnotations extends AbstractCharts
     {
         /** @phpstan-ignore method.notFound */
         $avatar = $user->getAvatar();
-        $avatar ? $path = $packages->getUrl("uploads/avatar/{$avatar}") : $path = $packages->getUrl('images/avatar/pngwing.com.png');
+        $avatar ? $path = $packages->getUrl("public/uploads/avatar/{$avatar}") : $path = $packages->getUrl('images/avatar/pngwing.com.png');
 
         $this->options['annotations']['points']['image']['path'] = $path;
         $this->options['annotations']['points']['image']['x'] = $x;
