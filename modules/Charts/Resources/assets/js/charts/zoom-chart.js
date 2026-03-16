@@ -75,6 +75,14 @@ import ApexCharts from "apexcharts";
             }
         },
         yaxis: {
+            title: {
+                text: CHART_OPTIONS.yaxis.title,
+                fontSize: "13px",
+                fontWeight: "bold",
+                style: {
+                    color: "#8c9097"
+                }
+            },
             labels: {
                 formatter: (val) => (val / CHART_OPTIONS.dec).toFixed(0),
                 show: true,
@@ -83,14 +91,6 @@ import ApexCharts from "apexcharts";
                     fontSize: "11px",
                     fontWeight: 600,
                     cssClass: "apexcharts-yaxis-label"
-                }
-            },
-            title: {
-                text: CHART_OPTIONS.yaxis.title,
-                fontSize: "13px",
-                fontWeight: "bold",
-                style: {
-                    color: "#8c9097"
                 }
             }
         },
