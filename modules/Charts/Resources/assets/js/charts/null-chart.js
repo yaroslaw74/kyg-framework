@@ -1,7 +1,7 @@
 import ApexCharts from "apexcharts";
 
 (() => {
-    const ELEMENT = document.getElementById("line-chart");
+    const ELEMENT = document.getElementById("null-chart");
     const CHART_OPTIONS = JSON.parse(ELEMENT.dataset.chartOptions);
 
     /* missing/null values chart */
