@@ -18,7 +18,7 @@ use App\Modules\Charts\Extension\AbstractCharts;
 
 class MissingNullValuesChart extends AbstractCharts
 {
-    protected string $script = 'line-chart';
+    protected string $script = 'null-chart';
 
     protected array $options = [
         'series' => [
