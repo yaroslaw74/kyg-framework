@@ -368,34 +368,53 @@
                     <li>
                         <div class="main-header-profile bg-primary menu-header-content text-fixed-white">
                             <div class="my-auto">
-                                <h6 class="mb-0 lh-1 text-fixed-white">Petey Cruiser</h6><span class="fs-11 op-7 lh-1">Premium Member</span>
+                                <h6 class="mb-0 lh-1 text-fixed-white">
+                                     {% if app.user %}
+                                        {% if settings_instance('name').getFirstLastName %}
+                                            {% if settings_instance('name').getMiddleNameEnable %}
+                                                {{ app.user.lastName }} {{ app.user.firstName }} {{ app.user.middleName }}
+                                            {% else %}
+                                                {{ app.user.lastName }} {{ app.user.firstName }}
+                                            {% endif %}
+                                        {% else %}
+                                            {% if settings_instance('name').getMiddleNameEnable %}
+                                                {{ app.user.firstName }} {{ app.user.middleName }} {{ app.user.lastName }}
+                                            {% else %}
+                                                {{ app.user.firstName }} {{ app.user.lastName }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% trans %}User{% endtrans %}
+                                    {% endif %}
+                                </h6>
+                                <span class="fs-11 op-7 lh-1">Premium Member</span>
                             </div>
                         </div>
                     </li>
                     <li>
                         <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_profile') }}">
                             <i class="bx bx-user-circle fs-18 me-2 op-7"></i>
-                            {% trans %}Profile{% endtrans %}
+                            <span class="no-wrap">{% trans %}Profile{% endtrans %}</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_editprofile') }}">
                             <i class="bx bx-cog fs-18 me-2 op-7"></i>
-                            {% trans %}Edit Profile{% endtrans %}
+                            <span class="no-wrap">{% trans %}Edit Profile{% endtrans %}</span>
                         </a>
                     </li>
-                    <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="bx bxs-inbox fs-18 me-2 op-7"></i>{% trans %}Inbox{% endtrans %}</a></li>
-                    <li><a class="dropdown-item d-flex border-block-end" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i>{% trans %}Messages{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="bx bxs-inbox fs-18 me-2 op-7"></i><span class="no-wrap">{% trans %}Inbox{% endtrans %}</span></a></li>
+                    <li><a class="dropdown-item d-flex border-block-end" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i><span class="no-wrap">{% trans %}Messages{% endtrans %}</span></a></li>
                     <li>
                         <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_settings') }}">
                             <i class="bx bx-slider-alt fs-18 me-2 op-7"></i>
-                            {% trans %}Account Settings{% endtrans %}
+                            <span class="no-wrap">{% trans %}Account Settings{% endtrans %}</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item d-flex border-block-end" href="{{ path('app_logout') }}">
                             <i class="bx bx-log-out fs-18 me-2 op-7"></i>
-                            {% trans %}Sign Out{% endtrans %}
+                            <span class="no-wrap">{% trans %}Sign Out{% endtrans %}</span>
                         </a>
                     </li>
                 </ul>
@@ -854,10 +873,10 @@
                                 <i class="fe fe-more-vertical"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;{% trans %}View profile{% endtrans %}</a></li>
-                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;{% trans %}Add friends{% endtrans %}</a></li>
-                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;{% trans %}Add to group{% endtrans %}</a></li>
-                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-ban"></i>&nbsp;&nbsp;&nbsp;{% trans %}Block{% endtrans %}</a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-user-circle"></i><span class="no-wrap">&nbsp;&nbsp;&nbsp;{% trans %}View profile{% endtrans %}</span></a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-users"></i><span class="no-wrap">&nbsp;&nbsp;&nbsp;{% trans %}Add friends{% endtrans %}</span></a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-plus"></i><span class="no-wrap">&nbsp;&nbsp;&nbsp;{% trans %}Add to group{% endtrans %}</span></a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-ban"></i><span class="no-wrap">&nbsp;&nbsp;&nbsp;{% trans %}Block{% endtrans %}</span></a></li>
                             </ul>
                         </li>
                         <li>
