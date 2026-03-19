@@ -373,19 +373,19 @@
                         </div>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex" href="{{ path('app_user_profile') }}">
+                        <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_profile') }}">
                             <i class="bx bx-user-circle fs-18 me-2 op-7"></i>
                             {% trans %}Profile{% endtrans %}
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex" href="{{ path('app_user_editprofile') }}">
+                        <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_editprofile') }}">
                             <i class="bx bx-cog fs-18 me-2 op-7"></i>
                             {% trans %}Edit Profile{% endtrans %}
                         </a>
                     </li>
                     <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="bx bxs-inbox fs-18 me-2 op-7"></i>{% trans %}Inbox{% endtrans %}</a></li>
-                    <li><a class="dropdown-item d-flex" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i>{% trans %}Messages{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex border-block-end" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i>{% trans %}Messages{% endtrans %}</a></li>
                     <li>
                         <a class="dropdown-item d-flex border-block-end" href="{{ path('app_user_settings') }}">
                             <i class="bx bx-slider-alt fs-18 me-2 op-7"></i>
@@ -393,7 +393,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex" href="{{ path('app_logout') }}">
+                        <a class="dropdown-item d-flex border-block-end" href="{{ path('app_logout') }}">
                             <i class="bx bx-log-out fs-18 me-2 op-7"></i>
                             {% trans %}Sign Out{% endtrans %}
                         </a>
@@ -854,10 +854,10 @@
                                 <i class="fe fe-more-vertical"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li class="dropdown-item"><i class="fa fa-user-circle"></i>{% trans %}View profile{% endtrans %}</li>
-                                <li class="dropdown-item"><i class="fa fa-users"></i>{% trans %}Add friends{% endtrans %}</li>
-                                <li class="dropdown-item"><i class="fa fa-plus"></i>{% trans %}Add to group{% endtrans %}</li>
-                                <li class="dropdown-item"><i class="fa fa-ban"></i>{% trans %}Block{% endtrans %}</li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;{% trans %}View profile{% endtrans %}</a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;{% trans %}Add friends{% endtrans %}</a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;{% trans %}Add to group{% endtrans %}</a></li>
+                                <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="fa fa-ban"></i>&nbsp;&nbsp;&nbsp;{% trans %}Block{% endtrans %}</a></li>
                             </ul>
                         </li>
                         <li>
