@@ -3,6 +3,11 @@ label.required::after {
     color: red;
 }
 
+.no-wrap {
+    white-space: nowrap;
+    /* Перенос запрещен */
+}
+
 /* Start::main-footer-container */
 .main-footer-container {
     display: flex;
