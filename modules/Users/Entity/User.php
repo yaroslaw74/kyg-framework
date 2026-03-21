@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Config\Entity\UsersSettings;
 use App\Modules\Contacts\Entity\UsersContacts;
 use App\Modules\Employees\Entity\Employees;
 use App\Modules\Persons\Entity\Natural;
@@ -161,11 +162,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\OneToMany(targetEntity: UsersContacts::class, mappedBy: 'user', cascade: ['remove'])]
     private Collection $contacts;
 
+    /**
+     * @var Collection<int, UsersSettings>
+     */
+    #[ORM\OneToMany(targetEntity: UsersSettings::class, mappedBy: 'user', cascade: ['remove'])]
+    private Collection $settings;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
         $this->friendOf = new ArrayCollection();
         $this->contacts = new ArrayCollection();
+        $this->settings = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -224,6 +232,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->individual,
             $this->employees,
             $this->contacts,
+            $this->settings,
         ] = $data;
     }
 
@@ -282,7 +291,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->lastName;
+        return (string) $this->id;
     }
 
     /**
@@ -679,6 +688,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             if ($contact->getUser() === $this) {
                 $contact->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UsersSettings>
+     */
+    public function getSettings(): Collection
+    {
+        return $this->settings;
+    }
+
+    public function addSetting(UsersSettings $setting): static
+    {
+        if (!$this->settings->contains($setting)) {
+            $this->settings->add($setting);
+            $setting->setUser($this);
         }
 
         return $this;
