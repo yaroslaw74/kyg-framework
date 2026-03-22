@@ -43,7 +43,11 @@
             {{ importmap([locale_dir(app.locale), 'app']) }}
         {% endblock %}
         {% block javascripts %}{% endblock %}
-    <body {%- block body_attributes -%}{%- endblock -%}>
+    <body {{ stimulus_controller('swup', {
+            theme: settings_instance('users').getSwup,
+            debug: app.debug,
+        }) }}
+        {%- block body_attributes -%}{%- endblock -%}>
         {{ component('Flashes', {style: 'position: absolute; top: 4rem; right: 0.5rem; z-index: 999999', loading: 'defer'}) }}
         {% block body %}{% endblock %}
     </body>
