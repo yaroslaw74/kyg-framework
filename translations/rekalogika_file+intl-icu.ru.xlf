@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <unit id="name-only" name="{name}">
+      <segment>
+        <source>{name}</source>
+        <target>{name}</target>
+      </segment>
+    </unit>
+    <unit id="name-extension" name="{name}.{extension}">
+      <segment>
+        <source>{name}.{extension}</source>
+        <target>{name}.{extension}</target>
+      </segment>
+    </unit>
+    <unit id="untitled" name="Untitled">
+      <segment>
+        <source>Untitled</source>
+        <target>Без названия</target>
+      </segment>
+    </unit>
+    <unit id="untitled-extension" name="Untitled.{extension}">
+      <segment>
+        <source>Untitled.{extension}</source>
+        <target>Untitled.{extension}</target>
+      </segment>
+    </unit>
+    <unit id="unknown-file-type" name="Unknown file type ({type})">
+      <segment>
+        <source>Unknown file type ({type})</source>
+        <target>Неизвестный тип файла ({type})</target>
+      </segment>
+    </unit>
+    <unit id="null" name="Null">
+      <segment>
+        <source>Null</source>
+        <target>Null</target>
+      </segment>
+    </unit>
+    <unit id="null-file" name="Null file">
+      <segment>
+        <source>Null file</source>
+        <target>Нулевой файл</target>
+      </segment>
+    </unit>
+    <unit id="invalid" name="Invalid">
+      <segment>
+        <source>Invalid</source>
+        <target>Недействительный</target>
+      </segment>
+    </unit>
+    <unit id="invalid-file" name="Invalid file">
+      <segment>
+        <source>Invalid file</source>
+        <target>Недействительный файл</target>
+      </segment>
+    </unit>
+    <unit id="missing" name="Missing">
+      <segment>
+        <source>(missing)</source>
+        <target>(missing)</target>
+      </segment>
+    </unit>
+    <unit id="missing-file" name="The file is missing">
+      <segment>
+        <source>The file is missing in the storage media</source>
+        <target>Файл отсутствует на носителе информации.</target>
+      </segment>
+    </unit>
+    <unit id="unset" name="Unset">
+      <segment>
+        <source>(unset)</source>
+        <target>(unset)</target>
+      </segment>
+    </unit>
+    <unit id="unset-file" name="The file is unset">
+      <segment>
+        <source>The file is unset due to an error</source>
+        <target>Файл не задан из-за ошибки.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
