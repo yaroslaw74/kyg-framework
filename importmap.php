@@ -42,6 +42,37 @@ return [
     '@googlemaps/js-api-loader' => [
         'version' => '1.16.10',
     ],
+    '@symfony/ux-toggle-password' => [
+        'version' => '2.33.0',
+    ],
+    '@symfony/ux-toggle-password/dist/style.min.css' => [
+        'version' => '2.33.0',
+        'type' => 'css',
+    ],
+    '@symfony/ux-swup' => [
+        'version' => '2.33.0',
+    ],
+    '@swup/debug-plugin' => [
+        'version' => '4.1.0',
+    ],
+    '@swup/fade-theme' => [
+        'version' => '2.0.2',
+    ],
+    '@swup/forms-plugin' => [
+        'version' => '3.6.0',
+    ],
+    '@swup/slide-theme' => [
+        'version' => '2.0.2',
+    ],
+    'swup' => [
+        'version' => '4.8.3',
+    ],
+    '@swup/plugin' => [
+        'version' => '4.0.0',
+    ],
+    'delegate-it' => [
+        'version' => '6.3.0',
+    ],
     'es-module-shims' => [
         'version' => '2.8.0',
     ],
@@ -131,13 +162,6 @@ return [
     ],
     'weather-icons/css/weather-icons.min.css' => [
         'version' => '1.3.2',
-        'type' => 'css',
-    ],
-    '@symfony/ux-toggle-password' => [
-        'version' => '2.32.0',
-    ],
-    '@symfony/ux-toggle-password/dist/style.min.css' => [
-        'version' => '2.32.0',
         'type' => 'css',
     ],
     'bootstrap' => [
