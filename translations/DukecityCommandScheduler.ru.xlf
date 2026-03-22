@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <body>
+
+      <!-- Bundle -->
+      <trans-unit id="1">
+        <source>name</source>
+        <target>Планировщик Symfony</target>
+      </trans-unit>
+
+      <trans-unit id="2">
+        <source>dateFormat</source>
+        <target>Y-m-d H:i</target>
+      </trans-unit>
+
+      <trans-unit id="3">
+        <source>list.title</source>
+        <target>Запланированные команды</target>
+      </trans-unit>
+
+      <!-- Actions -->
+      <trans-unit id="100">
+        <source>action.delete</source>
+        <target>Удалить</target>
+      </trans-unit>
+      <trans-unit id="101">
+        <source>action.execute</source>
+        <target>Выполнить</target>
+      </trans-unit>
+      <trans-unit id="102">
+        <source>action.edit</source>
+        <target>Редактировать</target>
+      </trans-unit>
+      <trans-unit id="103">
+        <source>action.new</source>
+        <target>Новое расписание</target>
+      </trans-unit>
+      <trans-unit id="104">
+        <source>confirm.delete</source>
+        <target>Удалить эту задачу навсегда?</target>
+      </trans-unit>
+      <trans-unit id="105">
+        <source>confirm.execute</source>
+        <target>Принудительное выполнение этой задачи?</target>
+      </trans-unit>
+      <trans-unit id="106">
+        <source>action.unlock</source>
+        <target>Разблокировать задачу</target>
+      </trans-unit>
+      <trans-unit id="107">
+        <source>confirm.unlock</source>
+        <target>Возможно, задача уже выполняется. Вы уверены, что хотите её разблокировать?</target>
+      </trans-unit>
+      <trans-unit id="108">
+        <source>action.search</source>
+        <target>Поиск</target>
+      </trans-unit>
+      <trans-unit id="109">
+        <source>action.list</source>
+        <target>Вернуться к списку</target>
+      </trans-unit>
+      <trans-unit id="110">
+        <source>action.cancel</source>
+        <target>Отмена</target>
+      </trans-unit>
+      <trans-unit id="111">
+        <source>confirm.disable</source>
+        <target>Возможно, задача уже выполняется. Вы уверены, что хотите её отключить?</target>
+      </trans-unit>
+      <trans-unit id="112">
+        <source>action.disable</source>
+        <target>Отключить задачу</target>
+      </trans-unit>
+
+      <!-- Detail  -->
+      <trans-unit id="201">
+        <source>detail.title</source>
+        <target>Запланированная команда</target>
+      </trans-unit>
+      <trans-unit id="202">
+        <source>detail.name</source>
+        <target>Наименование</target>
+      </trans-unit>
+      <trans-unit id="203">
+        <source>detail.command</source>
+        <target>Командование</target>
+      </trans-unit>
+      <trans-unit id="204">
+        <source>detail.arguments</source>
+        <target>Аргументы</target>
+      </trans-unit>
+      <trans-unit id="205">
+        <source>detail.cronExpression</source>
+        <target>Выражение Cron</target>
+      </trans-unit>
+      <trans-unit id="206">
+        <source>detail.logFile</source>
+        <target>Выходной файл</target>
+      </trans-unit>
+      <trans-unit id="207">
+        <source>detail.priority</source>
+        <target>Приоритет</target>
+      </trans-unit>
+      <trans-unit id="208">
+        <source>detail.executeImmediately</source>
+        <target>Выполнить сейчас</target>
+      </trans-unit>
+      <trans-unit id="209">
+        <source>detail.disabled</source>
+        <target>Отключить</target>
+      </trans-unit>
+      <trans-unit id="210">
+        <source>action.save</source>
+        <target>Сохранить</target>
+      </trans-unit>
+      <trans-unit id="211">
+        <source>detail.lastExecution</source>
+        <target>Последний запуск</target>
+      </trans-unit>
+      <trans-unit id="212">
+        <source>detail.lastReturnCode</source>
+        <target>Последний код возврата</target>
+      </trans-unit>
+      <trans-unit id="213">
+        <source>detail.actions</source>
+        <target>Действия</target>
+      </trans-unit>
+      <trans-unit id="214">
+        <source>detail.locked</source>
+        <target>Заблокировано</target>
+      </trans-unit>
+      <trans-unit id="215">
+        <source>detail.nextRun</source>
+        <target>Следующий запуск</target>
+      </trans-unit>
+      <trans-unit id="216">
+        <source>detail.pingBackUrl</source>
+        <target>PingBackUrl</target>
+      </trans-unit>
+      <trans-unit id="217">
+        <source>detail.pingBackFailedUrl</source>
+        <target>PingBackFailedUrl</target>
+      </trans-unit>
+      <trans-unit id="218">
+        <source>detail.notes</source>
+        <target>примечания</target>
+      </trans-unit>
+      <trans-unit id="219">
+        <source>detail.executeImmediately.help</source>
+        <target>Пожалуйста, запустите cron-задание один раз, чтобы убедиться в его корректном выполнении.</target>
+      </trans-unit>
+      <trans-unit id="221">
+        <source>detail.card.header.title</source>
+        <target>Команда</target>
+      </trans-unit>
+
+      <!-- Flashs messages -->
+      <trans-unit id="300">
+        <source>flash.success</source>
+        <target>Планирование успешно сохранено.</target>
+      </trans-unit>
+      <trans-unit id="301">
+        <source>flash.deleted</source>
+        <target>Запись в расписании успешно удалена.</target>
+      </trans-unit>
+      <trans-unit id="302">
+        <source>flash.execute</source>
+        <target>Команда "%name%" будет выполнена в течение следующего "scheduler:execute".</target>
+      </trans-unit>
+      <trans-unit id="303">
+        <source>flash.unlocked</source>
+        <target>Процесс планирования успешно разблокирован.</target>
+      </trans-unit>
+
+      <!-- admin label -->
+      <trans-unit id="400">
+        <source>label.null</source>
+        <target>Null</target>
+      </trans-unit>
+      <trans-unit id="401">
+        <source>label.true</source>
+        <target>True</target>
+      </trans-unit>
+      <trans-unit id="402">
+        <source>label.false</source>
+        <target>False</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
