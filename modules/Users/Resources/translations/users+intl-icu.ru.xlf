@@ -17,6 +17,10 @@
         <source>Add User</source>
         <target>Добавить пользователя</target>
       </trans-unit>
+      <trans-unit id="jPtXcgB" resname="Address">
+        <source>Address</source>
+        <target>Адрес</target>
+      </trans-unit>
       <trans-unit id="9QMZdkf" resname="Already have an account?">
         <source>Already have an account?</source>
         <target>У Вас уже есть аккаунт?</target>
@@ -65,6 +69,10 @@
         <source>Created</source>
         <target>Создан</target>
       </trans-unit>
+      <trans-unit id="waZdI9t" resname="Current Address">
+        <source>Current Address</source>
+        <target>Текущий адрес</target>
+      </trans-unit>
       <trans-unit id="xHsbIh6" resname="Dashboard">
         <source>Dashboard</source>
         <target>Панель управления</target>
@@ -72,6 +80,10 @@
       <trans-unit id="vlDWULV" resname="Dashboard Settings such as sidemenu, header and main page can be Controlled.">
         <source>Dashboard Settings such as sidemenu, header and main page can be Controlled.</source>
         <target>Настройки панели управления, такие как боковое меню, заголовок и главная страница могут быть изменены.</target>
+      </trans-unit>
+      <trans-unit id="Z_crX_u" resname="Delete">
+        <source>Delete</source>
+        <target>Удалить</target>
       </trans-unit>
       <trans-unit id="l9KZflr" resname="Deleted">
         <source>Deleted</source>
@@ -101,6 +113,10 @@
         <source>Email</source>
         <target>Email</target>
       </trans-unit>
+      <trans-unit id="XD_srxF" resname="Enter Address">
+        <source>Enter Address</source>
+        <target>Введите адрес</target>
+      </trans-unit>
       <trans-unit id="RdM1twG" resname="Enter Email">
         <source>Enter Email</source>
         <target>Введите адрес электронной почты</target>
@@ -108,6 +124,10 @@
       <trans-unit id="tDokmjn" resname="Enter First Name">
         <source>Enter First Name</source>
         <target>Введите имя</target>
+      </trans-unit>
+      <trans-unit id="3siKMF9" resname="Enter Gravatar">
+        <source>Enter Gravatar</source>
+        <target>Введите Gravatar</target>
       </trans-unit>
       <trans-unit id="RVt1jCQ" resname="Enter Last Name">
         <source>Enter Last Name</source>
@@ -149,6 +169,10 @@
         <source>Enter your email address, and we will send you a link to reset your password.</source>
         <target>Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.</target>
       </trans-unit>
+      <trans-unit id="W7cu7IY" resname="FRIENDS">
+        <source>FRIENDS</source>
+        <target>ДРУЗЬЯ</target>
+      </trans-unit>
       <trans-unit id="BQjGS3q" resname="First Name">
         <source>First Name</source>
         <target>Имя</target>
@@ -172,6 +196,10 @@
       <trans-unit id="Rrjl0wD" resname="Go to Settings">
         <source>Go to Settings</source>
         <target>Перейти к настройкам</target>
+      </trans-unit>
+      <trans-unit id="pwVp958" resname="Gravatar not found">
+        <source>Gravatar not found</source>
+        <target>Gravatar не найден</target>
       </trans-unit>
       <trans-unit id="1PPDBCa" resname="Hi!">
         <source>Hi!</source>
@@ -221,6 +249,10 @@
         <source>Main</source>
         <target>Главная</target>
       </trans-unit>
+      <trans-unit id="vtsk56f" resname="Message">
+        <source>Message</source>
+        <target>Сообщение</target>
+      </trans-unit>
       <trans-unit id="oOY49tw" resname="Middle Name">
         <source>Middle Name</source>
         <target>Отчество</target>
@@ -240,6 +272,10 @@
       <trans-unit id="K69AU92" resname="New Password">
         <source>New Password</source>
         <target>Новый пароль</target>
+      </trans-unit>
+      <trans-unit id="f6QPnPE" resname="Other Info">
+        <source>Other Info</source>
+        <target>Дополнительная информация</target>
       </trans-unit>
       <trans-unit id="HmgPmMV" resname="Overview">
         <source>Overview</source>
@@ -357,9 +393,17 @@
         <source>Status</source>
         <target>Статус</target>
       </trans-unit>
+      <trans-unit id="ag_XONR" resname="The friend has been deleted.">
+        <source>The friend has been deleted.</source>
+        <target>Друг удален.</target>
+      </trans-unit>
       <trans-unit id="vErMzxq" resname="The user has been added.">
         <source>The user has been added.</source>
         <target>Пользователь был добавлен.</target>
+      </trans-unit>
+      <trans-unit id="GGERtZI" resname="The user has been deleted.">
+        <source>The user has been deleted.</source>
+        <target>Пользователь был удален.</target>
       </trans-unit>
       <trans-unit id="BRJuStP" resname="This link will expire in">
         <source>This link will expire in</source>
@@ -412,6 +456,10 @@
       <trans-unit id="OQ2VAxf" resname="Validated">
         <source>Validated</source>
         <target>Проверен</target>
+      </trans-unit>
+      <trans-unit id=".EmYZIu" resname="View">
+        <source>View</source>
+        <target>Вид</target>
       </trans-unit>
       <trans-unit id="wRXXUbi" resname="Welcome back!">
         <source>Welcome back!</source>
