@@ -55,6 +55,9 @@ return [
     '@swup/debug-plugin' => [
         'version' => '4.1.0',
     ],
+    '@swup/theme' => [
+        'version' => '2.1.0',
+    ],
     '@swup/fade-theme' => [
         'version' => '2.0.2',
     ],
@@ -73,10 +76,16 @@ return [
     'delegate-it' => [
         'version' => '6.3.0',
     ],
+    'path-to-regexp' => [
+        'version' => '8.3.0',
+    ],
     'es-module-shims' => [
         'version' => '2.8.0',
     ],
     'chart.js' => [
+        'version' => '4.5.1',
+    ],
+    'chart.js/helpers' => [
         'version' => '4.5.1',
     ],
     'chartjs-plugin-annotation' => [
@@ -89,7 +98,10 @@ return [
         'version' => '2.2.0',
     ],
     '@kurkle/color' => [
-        'version' => '0.4.0',
+        'version' => '0.3.4',
+    ],
+    'hammerjs' => [
+        'version' => '2.0.8',
     ],
     'tom-select' => [
         'version' => '2.5.2',
