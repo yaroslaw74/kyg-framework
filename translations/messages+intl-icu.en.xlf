@@ -9,6 +9,10 @@
         <source>Back to Home</source>
         <target>Back to Home</target>
       </trans-unit>
+      <trans-unit id="QiUtAia" resname="Danger Alert">
+        <source>Danger Alert</source>
+        <target>Danger Alert</target>
+      </trans-unit>
       <trans-unit id="xHsbIh6" resname="Dashboard">
         <source>Dashboard</source>
         <target>Dashboard</target>
@@ -21,6 +25,10 @@
         <source>Home</source>
         <target>Home</target>
       </trans-unit>
+      <trans-unit id="NcV7xGQ" resname="Information Alert">
+        <source>Information Alert</source>
+        <target>Information Alert</target>
+      </trans-unit>
       <trans-unit id="kn8v24H" resname="Oopps. The page you were looking for doesn't exist.">
         <source>Oopps. The page you were looking for doesn't exist.</source>
         <target>Oopps. The page you were looking for doesn't exist.</target>
@@ -28,6 +36,14 @@
       <trans-unit id="PVuB1wf" resname="Show password">
         <source>Show password</source>
         <target>Show password</target>
+      </trans-unit>
+      <trans-unit id="OiNISUM" resname="Success Alert">
+        <source>Success Alert</source>
+        <target>Success Alert</target>
+      </trans-unit>
+      <trans-unit id="L1pRaVa" resname="Warning Alert">
+        <source>Warning Alert</source>
+        <target>Warning Alert</target>
       </trans-unit>
       <trans-unit id="gNPnRTl" resname="You may have mistyped the address or the page may have moved.">
         <source>You may have mistyped the address or the page may have moved.</source>
