@@ -1,83 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
-    <unit id="name-only" name="{name}">
-      <segment>
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="name-only" name="{name}">
         <source>{name}</source>
         <target>{name}</target>
-      </segment>
-    </unit>
-    <unit id="name-extension" name="{name}.{extension}">
-      <segment>
+      </trans-unit>
+      <trans-unit id="name-extension" name="{name}.{extension}">
         <source>{name}.{extension}</source>
         <target>{name}.{extension}</target>
-      </segment>
-    </unit>
-    <unit id="untitled" name="Untitled">
-      <segment>
+      </trans-unit>
+      <trans-unit id="untitled" name="Untitled">
         <source>Untitled</source>
         <target>Без названия</target>
-      </segment>
-    </unit>
-    <unit id="untitled-extension" name="Untitled.{extension}">
-      <segment>
+      </trans-unit>
+      <trans-unit id="untitled-extension" name="Untitled.{extension}">
         <source>Untitled.{extension}</source>
         <target>Untitled.{extension}</target>
-      </segment>
-    </unit>
-    <unit id="unknown-file-type" name="Unknown file type ({type})">
-      <segment>
+      </trans-unit>
+      <trans-unit id="unknown-file-type" name="Unknown file type ({type})">
         <source>Unknown file type ({type})</source>
         <target>Неизвестный тип файла ({type})</target>
-      </segment>
-    </unit>
-    <unit id="null" name="Null">
-      <segment>
+      </trans-unit>
+      <trans-unit id="null" name="Null">
         <source>Null</source>
         <target>Null</target>
-      </segment>
-    </unit>
-    <unit id="null-file" name="Null file">
-      <segment>
+      </trans-unit>
+      <trans-unit id="null-file" name="Null file">
         <source>Null file</source>
         <target>Нулевой файл</target>
-      </segment>
-    </unit>
-    <unit id="invalid" name="Invalid">
-      <segment>
+      </trans-unit>
+      <trans-unit id="invalid" name="Invalid">
         <source>Invalid</source>
         <target>Недействительный</target>
-      </segment>
-    </unit>
-    <unit id="invalid-file" name="Invalid file">
-      <segment>
+      </trans-unit>
+      <trans-unit id="invalid-file" name="Invalid file">
         <source>Invalid file</source>
         <target>Недействительный файл</target>
-      </segment>
-    </unit>
-    <unit id="missing" name="Missing">
-      <segment>
+      </trans-unit>
+      <trans-unit id="missing" name="Missing">
         <source>(missing)</source>
         <target>(missing)</target>
-      </segment>
-    </unit>
-    <unit id="missing-file" name="The file is missing">
-      <segment>
+      </trans-unit>
+      <trans-unit id="missing-file" name="The file is missing">
         <source>The file is missing in the storage media</source>
         <target>Файл отсутствует на носителе информации.</target>
-      </segment>
-    </unit>
-    <unit id="unset" name="Unset">
-      <segment>
+      </trans-unit>
+      <trans-unit id="unset" name="Unset">
         <source>(unset)</source>
         <target>(unset)</target>
-      </segment>
-    </unit>
-    <unit id="unset-file" name="The file is unset">
-      <segment>
+      </trans-unit>
+      <trans-unit id="unset-file" name="The file is unset">
         <source>The file is unset due to an error</source>
         <target>Файл не задан из-за ошибки.</target>
-      </segment>
-    </unit>
+      </trans-unit>
+    </body>
   </file>
 </xliff>
