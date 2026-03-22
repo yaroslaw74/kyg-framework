@@ -17,6 +17,10 @@
         <source>Add User</source>
         <target>Add User</target>
       </trans-unit>
+      <trans-unit id="jPtXcgB" resname="Address">
+        <source>Address</source>
+        <target>Address</target>
+      </trans-unit>
       <trans-unit id="9QMZdkf" resname="Already have an account?">
         <source>Already have an account?</source>
         <target>Already have an account?</target>
@@ -65,6 +69,10 @@
         <source>Created</source>
         <target>Created</target>
       </trans-unit>
+      <trans-unit id="waZdI9t" resname="Current Address">
+        <source>Current Address</source>
+        <target>Current Address</target>
+      </trans-unit>
       <trans-unit id="xHsbIh6" resname="Dashboard">
         <source>Dashboard</source>
         <target>Dashboard</target>
@@ -72,6 +80,10 @@
       <trans-unit id="vlDWULV" resname="Dashboard Settings such as sidemenu, header and main page can be Controlled.">
         <source>Dashboard Settings such as sidemenu, header and main page can be Controlled.</source>
         <target>Dashboard Settings such as sidemenu, header and main page can be Controlled.</target>
+      </trans-unit>
+      <trans-unit id="Z_crX_u" resname="Delete">
+        <source>Delete</source>
+        <target>Delete</target>
       </trans-unit>
       <trans-unit id="l9KZflr" resname="Deleted">
         <source>Deleted</source>
@@ -101,6 +113,10 @@
         <source>Email</source>
         <target>Email</target>
       </trans-unit>
+      <trans-unit id="XD_srxF" resname="Enter Address">
+        <source>Enter Address</source>
+        <target>Enter Address</target>
+      </trans-unit>
       <trans-unit id="RdM1twG" resname="Enter Email">
         <source>Enter Email</source>
         <target>Enter Email</target>
@@ -108,6 +124,10 @@
       <trans-unit id="tDokmjn" resname="Enter First Name">
         <source>Enter First Name</source>
         <target>Enter First Name</target>
+      </trans-unit>
+      <trans-unit id="3siKMF9" resname="Enter Gravatar">
+        <source>Enter Gravatar</source>
+        <target>Enter Gravatar</target>
       </trans-unit>
       <trans-unit id="RVt1jCQ" resname="Enter Last Name">
         <source>Enter Last Name</source>
@@ -147,8 +167,11 @@
       </trans-unit>
       <trans-unit id="ifotYH6" resname="Enter your email address, and we will send you a link to reset your password.">
         <source>Enter your email address, and we will send you a link to reset your password.</source>
-        <target>Enter your email address, and we will send you a link to reset your
-          password.</target>
+        <target>Enter your email address, and we will send you a link to reset your password.</target>
+      </trans-unit>
+      <trans-unit id="W7cu7IY" resname="FRIENDS">
+        <source>FRIENDS</source>
+        <target>FRIENDS</target>
       </trans-unit>
       <trans-unit id="BQjGS3q" resname="First Name">
         <source>First Name</source>
@@ -173,6 +196,10 @@
       <trans-unit id="Rrjl0wD" resname="Go to Settings">
         <source>Go to Settings</source>
         <target>Go to Settings</target>
+      </trans-unit>
+      <trans-unit id="pwVp958" resname="Gravatar not found">
+        <source>Gravatar not found</source>
+        <target>Gravatar not found</target>
       </trans-unit>
       <trans-unit id="1PPDBCa" resname="Hi!">
         <source>Hi!</source>
@@ -222,6 +249,10 @@
         <source>Main</source>
         <target>Main</target>
       </trans-unit>
+      <trans-unit id="vtsk56f" resname="Message">
+        <source>Message</source>
+        <target>Message</target>
+      </trans-unit>
       <trans-unit id="oOY49tw" resname="Middle Name">
         <source>Middle Name</source>
         <target>Middle Name</target>
@@ -241,6 +272,10 @@
       <trans-unit id="K69AU92" resname="New Password">
         <source>New Password</source>
         <target>New Password</target>
+      </trans-unit>
+      <trans-unit id="f6QPnPE" resname="Other Info">
+        <source>Other Info</source>
+        <target>Other Info</target>
       </trans-unit>
       <trans-unit id="HmgPmMV" resname="Overview">
         <source>Overview</source>
@@ -358,9 +393,17 @@
         <source>Status</source>
         <target>Status</target>
       </trans-unit>
+      <trans-unit id="ag_XONR" resname="The friend has been deleted.">
+        <source>The friend has been deleted.</source>
+        <target>The friend has been deleted.</target>
+      </trans-unit>
       <trans-unit id="vErMzxq" resname="The user has been added.">
         <source>The user has been added.</source>
         <target>The user has been added.</target>
+      </trans-unit>
+      <trans-unit id="GGERtZI" resname="The user has been deleted.">
+        <source>The user has been deleted.</source>
+        <target>The user has been deleted.</target>
       </trans-unit>
       <trans-unit id="BRJuStP" resname="This link will expire in">
         <source>This link will expire in</source>
@@ -413,6 +456,10 @@
       <trans-unit id="OQ2VAxf" resname="Validated">
         <source>Validated</source>
         <target>Validated</target>
+      </trans-unit>
+      <trans-unit id=".EmYZIu" resname="View">
+        <source>View</source>
+        <target>View</target>
       </trans-unit>
       <trans-unit id="wRXXUbi" resname="Welcome back!">
         <source>Welcome back!</source>
