@@ -73,6 +73,10 @@
         <source>Typing....</source>
         <target>Печатает....</target>
       </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>Пользователь</target>
+      </trans-unit>
       <trans-unit id="q6DYwLc" resname="VIEW ALL">
         <source>VIEW ALL</source>
         <target>ПРОСМОТРЬ ВСЁ</target>
