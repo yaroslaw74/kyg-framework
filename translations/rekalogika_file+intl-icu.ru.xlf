@@ -5,57 +5,57 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="name-only" name="{name}">
-        <source>{name}</source>
-        <target>{name}</target>
-      </trans-unit>
-      <trans-unit id="name-extension" name="{name}.{extension}">
-        <source>{name}.{extension}</source>
-        <target>{name}.{extension}</target>
-      </trans-unit>
-      <trans-unit id="untitled" name="Untitled">
-        <source>Untitled</source>
-        <target>Без названия</target>
-      </trans-unit>
-      <trans-unit id="untitled-extension" name="Untitled.{extension}">
-        <source>Untitled.{extension}</source>
-        <target>Untitled.{extension}</target>
-      </trans-unit>
-      <trans-unit id="unknown-file-type" name="Unknown file type ({type})">
-        <source>Unknown file type ({type})</source>
-        <target>Неизвестный тип файла ({type})</target>
-      </trans-unit>
-      <trans-unit id="null" name="Null">
-        <source>Null</source>
-        <target>Null</target>
-      </trans-unit>
-      <trans-unit id="null-file" name="Null file">
-        <source>Null file</source>
-        <target>Нулевой файл</target>
-      </trans-unit>
-      <trans-unit id="invalid" name="Invalid">
-        <source>Invalid</source>
-        <target>Недействительный</target>
-      </trans-unit>
-      <trans-unit id="invalid-file" name="Invalid file">
-        <source>Invalid file</source>
-        <target>Недействительный файл</target>
-      </trans-unit>
-      <trans-unit id="missing" name="Missing">
+      <trans-unit id="3QNbvj1" resname="(missing)">
         <source>(missing)</source>
         <target>(missing)</target>
       </trans-unit>
-      <trans-unit id="missing-file" name="The file is missing">
-        <source>The file is missing in the storage media</source>
-        <target>Файл отсутствует на носителе информации.</target>
-      </trans-unit>
-      <trans-unit id="unset" name="Unset">
+      <trans-unit id="LJ17mAJ" resname="(unset)">
         <source>(unset)</source>
         <target>(unset)</target>
       </trans-unit>
-      <trans-unit id="unset-file" name="The file is unset">
+      <trans-unit id="bSMN.ew" resname="Invalid">
+        <source>Invalid</source>
+        <target>Недействительный</target>
+      </trans-unit>
+      <trans-unit id="4sYd8yP" resname="Invalid file">
+        <source>Invalid file</source>
+        <target>Недействительный файл</target>
+      </trans-unit>
+      <trans-unit id="pVb9OnQ" resname="Null">
+        <source>Null</source>
+        <target>Null</target>
+      </trans-unit>
+      <trans-unit id="4SKGS7T" resname="Null file">
+        <source>Null file</source>
+        <target>Нулевой файл</target>
+      </trans-unit>
+      <trans-unit id="mMX9jJJ" resname="The file is missing in the storage media">
+        <source>The file is missing in the storage media</source>
+        <target>Файл отсутствует на носителе информации.</target>
+      </trans-unit>
+      <trans-unit id="ym12nC0" resname="The file is unset due to an error">
         <source>The file is unset due to an error</source>
         <target>Файл не задан из-за ошибки.</target>
+      </trans-unit>
+      <trans-unit id="l__7ltc" resname="Unknown file type ({type})">
+        <source>Unknown file type ({type})</source>
+        <target>Неизвестный тип файла ({type})</target>
+      </trans-unit>
+      <trans-unit id="4.HmyTy" resname="Untitled">
+        <source>Untitled</source>
+        <target>Без названия</target>
+      </trans-unit>
+      <trans-unit id="uG74spI" resname="Untitled.{extension}">
+        <source>Untitled.{extension}</source>
+        <target>Untitled.{extension}</target>
+      </trans-unit>
+      <trans-unit id="8MjLTkR" resname="{name}">
+        <source>{name}</source>
+        <target>{name}</target>
+      </trans-unit>
+      <trans-unit id="A0AIi9p" resname="{name}.{extension}">
+        <source>{name}.{extension}</source>
+        <target>{name}.{extension}</target>
       </trans-unit>
     </body>
   </file>
