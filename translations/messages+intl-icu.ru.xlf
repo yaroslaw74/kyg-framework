@@ -9,6 +9,10 @@
         <source>Back to Home</source>
         <target>Вернуться на главную</target>
       </trans-unit>
+      <trans-unit id="QiUtAia" resname="Danger Alert">
+        <source>Danger Alert</source>
+        <target>Опасность</target>
+      </trans-unit>
       <trans-unit id="xHsbIh6" resname="Dashboard">
         <source>Dashboard</source>
         <target>Панель управления</target>
@@ -21,6 +25,10 @@
         <source>Home</source>
         <target>Главная</target>
       </trans-unit>
+      <trans-unit id="NcV7xGQ" resname="Information Alert">
+        <source>Information Alert</source>
+        <target>Информационное Сообщение</target>
+      </trans-unit>
       <trans-unit id="kn8v24H" resname="Oopps. The page you were looking for doesn't exist.">
         <source>Oopps. The page you were looking for doesn't exist.</source>
         <target>Ой. Страница, которую вы искали, не существует.</target>
@@ -28,6 +36,14 @@
       <trans-unit id="PVuB1wf" resname="Show password">
         <source>Show password</source>
         <target>Показать пароль</target>
+      </trans-unit>
+      <trans-unit id="OiNISUM" resname="Success Alert">
+        <source>Success Alert</source>
+        <target>Уведомление об Успехе</target>
+      </trans-unit>
+      <trans-unit id="L1pRaVa" resname="Warning Alert">
+        <source>Warning Alert</source>
+        <target>Предупреждение</target>
       </trans-unit>
       <trans-unit id="gNPnRTl" resname="You may have mistyped the address or the page may have moved.">
         <source>You may have mistyped the address or the page may have moved.</source>
