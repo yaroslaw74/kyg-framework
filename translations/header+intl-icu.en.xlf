@@ -73,6 +73,10 @@
         <source>Typing....</source>
         <target>Typing....</target>
       </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>User</target>
+      </trans-unit>
       <trans-unit id="q6DYwLc" resname="VIEW ALL">
         <source>VIEW ALL</source>
         <target>VIEW ALL</target>
