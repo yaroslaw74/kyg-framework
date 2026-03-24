@@ -8303,7 +8303,7 @@
         },
         {
             "name": "scheb/2fa-backup-code",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-backup-code.git",
@@ -8346,22 +8346,22 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-backup-code/tree/v8.4.0"
+                "source": "https://github.com/scheb/2fa-backup-code/tree/v8.5.0"
             },
             "time": "2026-01-24T13:26:10+00:00"
         },
         {
             "name": "scheb/2fa-bundle",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-bundle.git",
-                "reference": "d648139d0f8f6445fc8f1e83364833efd1124fbc"
+                "reference": "ae26ae91723685e3a8622f2f3b9119016de23e20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scheb/2fa-bundle/zipball/d648139d0f8f6445fc8f1e83364833efd1124fbc",
-                "reference": "d648139d0f8f6445fc8f1e83364833efd1124fbc",
+                "url": "https://api.github.com/repos/scheb/2fa-bundle/zipball/ae26ae91723685e3a8622f2f3b9119016de23e20",
+                "reference": "ae26ae91723685e3a8622f2f3b9119016de23e20",
                 "shasum": ""
             },
             "require": {
@@ -8414,13 +8414,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-bundle/tree/v8.4.0"
+                "source": "https://github.com/scheb/2fa-bundle/tree/v8.5.0"
             },
-            "time": "2026-02-25T18:14:10+00:00"
+            "time": "2026-03-24T18:33:45+00:00"
         },
         {
             "name": "scheb/2fa-email",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-email.git",
@@ -8466,13 +8466,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-email/tree/v8.4.0"
+                "source": "https://github.com/scheb/2fa-email/tree/v8.5.0"
             },
             "time": "2026-01-24T13:26:10+00:00"
         },
         {
             "name": "scheb/2fa-google-authenticator",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-google-authenticator.git",
@@ -8519,13 +8519,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-google-authenticator/tree/v8.4.0"
+                "source": "https://github.com/scheb/2fa-google-authenticator/tree/v8.5.0"
             },
             "time": "2026-01-24T13:27:55+00:00"
         },
         {
             "name": "scheb/2fa-totp",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-totp.git",
@@ -8572,13 +8572,13 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-totp/tree/v8.4.0"
+                "source": "https://github.com/scheb/2fa-totp/tree/v8.5.0"
             },
             "time": "2026-01-24T13:27:55+00:00"
         },
         {
             "name": "scheb/2fa-trusted-device",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/2fa-trusted-device.git",
@@ -8623,7 +8623,7 @@
                 "two-step"
             ],
             "support": {
-                "source": "https://github.com/scheb/2fa-trusted-device/tree/v8.4.0"
+                "source": "https://github.com/scheb/2fa-trusted-device/tree/v8.5.0"
             },
             "time": "2026-01-24T13:26:10+00:00"
         },
@@ -19444,16 +19444,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "f292e283edce44f53300320488d33bc367e2b202"
+                "reference": "adf06b38984b02ce29297b1489f0c757c56bff15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/f292e283edce44f53300320488d33bc367e2b202",
-                "reference": "f292e283edce44f53300320488d33bc367e2b202",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/adf06b38984b02ce29297b1489f0c757c56bff15",
+                "reference": "adf06b38984b02ce29297b1489f0c757c56bff15",
                 "shasum": ""
             },
             "require": {
@@ -19499,11 +19499,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-16T14:19:51+00:00"
+            "time": "2026-03-23T14:32:36+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -19549,16 +19549,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "2b4789bc4bbe5a23e1726e2e24f1391cd160a76a"
+                "reference": "6728b11fd8748dea0206e0b21c993cb8ae7ce426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/2b4789bc4bbe5a23e1726e2e24f1391cd160a76a",
-                "reference": "2b4789bc4bbe5a23e1726e2e24f1391cd160a76a",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/6728b11fd8748dea0206e0b21c993cb8ae7ce426",
+                "reference": "6728b11fd8748dea0206e0b21c993cb8ae7ce426",
                 "shasum": ""
             },
             "require": {
@@ -19593,11 +19593,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-10T20:04:12+00:00"
+            "time": "2026-03-20T15:16:26+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -19643,7 +19643,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -19695,7 +19695,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -19746,16 +19746,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "a61b5675ac92bbbcb22a40e5904c4b8f09480588"
+                "reference": "4ae94d59ea40bc6293ef3c087fc53a1f35619576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/a61b5675ac92bbbcb22a40e5904c4b8f09480588",
-                "reference": "a61b5675ac92bbbcb22a40e5904c4b8f09480588",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/4ae94d59ea40bc6293ef3c087fc53a1f35619576",
+                "reference": "4ae94d59ea40bc6293ef3c087fc53a1f35619576",
                 "shasum": ""
             },
             "require": {
@@ -19821,7 +19821,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-18T17:04:23+00:00"
+            "time": "2026-03-21T01:01:22+00:00"
         },
         {
             "name": "jawira/db-draw",
