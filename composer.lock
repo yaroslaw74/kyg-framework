@@ -4891,16 +4891,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.32.0",
+            "version": "3.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725"
+                "reference": "570b8871e0ce693764434b29154c54b434905350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/254b1595b16b22dbddaaef9ed6ca9fdac4956725",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/570b8871e0ce693764434b29154c54b434905350",
+                "reference": "570b8871e0ce693764434b29154c54b434905350",
                 "shasum": ""
             },
             "require": {
@@ -4968,9 +4968,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.32.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.33.0"
             },
-            "time": "2026-02-25T17:01:41+00:00"
+            "time": "2026-03-25T07:59:30+00:00"
         },
         {
             "name": "league/flysystem-bundle",
@@ -8915,16 +8915,16 @@
         },
         {
             "name": "shivas/versioning-bundle",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shivas/versioning-bundle.git",
-                "reference": "fd89e3501ff1b0d3e6abe61eb7a878d1d4746868"
+                "reference": "766600f3f81551b6366d5a4db6cf97d5bfa47b2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shivas/versioning-bundle/zipball/fd89e3501ff1b0d3e6abe61eb7a878d1d4746868",
-                "reference": "fd89e3501ff1b0d3e6abe61eb7a878d1d4746868",
+                "url": "https://api.github.com/repos/shivas/versioning-bundle/zipball/766600f3f81551b6366d5a4db6cf97d5bfa47b2c",
+                "reference": "766600f3f81551b6366d5a4db6cf97d5bfa47b2c",
                 "shasum": ""
             },
             "require": {
@@ -8968,10 +8968,10 @@
             ],
             "support": {
                 "issues": "https://github.com/shivas/versioning-bundle/issues",
-                "source": "https://github.com/shivas/versioning-bundle/tree/4.1.1",
+                "source": "https://github.com/shivas/versioning-bundle/tree/4.1.2",
                 "wiki": "https://github.com/shivas/versioning-bundle/wiki"
             },
-            "time": "2024-08-14T19:33:15+00:00"
+            "time": "2026-03-25T12:32:10+00:00"
         },
         {
             "name": "slowprog/composer-copy-file",
@@ -21367,11 +21367,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.42",
+            "version": "2.1.43",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1279e1ce86ba768f0780c9d889852b4e02ff40d0",
-                "reference": "1279e1ce86ba768f0780c9d889852b4e02ff40d0",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d01bebe3edfd4d49b9666ee5b8271ddca561042f",
+                "reference": "d01bebe3edfd4d49b9666ee5b8271ddca561042f",
                 "shasum": ""
             },
             "require": {
@@ -21416,7 +21416,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-17T14:58:32+00:00"
+            "time": "2026-03-24T20:40:50+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
