@@ -1,5 +1,5 @@
-users:
+structure:
     resource:
         path: "../../../Controller/"
-        namespace: App\Modules\Users\Controller
+        namespace: App\Modules\Structure\Controller
     type: attribute
