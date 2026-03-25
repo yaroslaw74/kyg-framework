@@ -65,6 +65,9 @@ class Nomenclature implements Sortable, Translatable
      * @var Collection<int, Files>
      */
     #[ORM\ManyToMany(targetEntity: Files::class)]
+    #[ORM\JoinTable(name: 'nomenclature__images')]
+    #[ORM\JoinColumn(name: 'nomenclature_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'images_id', referencedColumnName: 'id')]
     private Collection $images;
 
     #[Gedmo\Locale]
@@ -83,12 +86,18 @@ class Nomenclature implements Sortable, Translatable
      * @var Collection<int, Collections>
      */
     #[ORM\ManyToMany(targetEntity: Collections::class, inversedBy: 'nomenclatures')]
+    #[ORM\JoinTable(name: 'nomenclature__collections_nomenclature')]
+    #[ORM\JoinColumn(name: 'nomenclature_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'collections_id', referencedColumnName: 'id')]
     private Collection $collections;
 
     /**
      * @var Collection<int, Tags>
      */
     #[ORM\ManyToMany(targetEntity: Tags::class, inversedBy: 'nomenclatures')]
+    #[ORM\JoinTable(name: 'nomenclature__tags_nomenclature')]
+    #[ORM\JoinColumn(name: 'nomenclature_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'tags_id', referencedColumnName: 'id')]
     private Collection $tags;
 
     public function __construct()
