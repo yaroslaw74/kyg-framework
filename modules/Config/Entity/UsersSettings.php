@@ -20,7 +20,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UsersSettingsRepository::class)]
-#[ORM\Table(name: 'config__settings')]
+#[ORM\Table(name: 'setings__users_settings')]
 class UsersSettings
 {
     #[ORM\Id]
