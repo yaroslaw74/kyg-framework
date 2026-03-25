@@ -18,6 +18,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Contacts\Entity\EmployeesContacts;
 use App\Modules\Employees\Repository\EmployeesRepository;
 use App\Modules\Persons\Entity\Natural;
+use App\Modules\Structure\Entity\Positions;
 use App\Modules\Users\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -81,9 +82,16 @@ class Employees
     #[ORM\OneToMany(targetEntity: EmployeesContacts::class, mappedBy: 'employee', cascade: ['remove'])]
     private Collection $contacts;
 
+    /**
+     * @var Collection<int, Positions>
+     */
+    #[ORM\OneToMany(targetEntity: Positions::class, mappedBy: 'employee')]
+    private Collection $positions;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->positions = new ArrayCollection();
     }
 
     public function __serialize(): array
@@ -114,12 +122,13 @@ class Employees
             $this->individual,
             $this->user,
             $this->contacts,
+            $this->positions,
         ] = $data;
     }
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir').'/public/uploads/photo';
+        return $params->get('kernel.project_dir') . '/public/uploads/photo';
     }
 
     public function getId(): ?string
@@ -266,6 +275,36 @@ class Employees
             // set the owning side to null (unless already changed)
             if ($contact->getEmployee() === $this) {
                 $contact->setEmployee(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Positions>
+     */
+    public function getPositions(): Collection
+    {
+        return $this->positions;
+    }
+
+    public function addPosition(Positions $position): static
+    {
+        if (!$this->positions->contains($position)) {
+            $this->positions->add($position);
+            $position->setEmployee($this);
+        }
+
+        return $this;
+    }
+
+    public function removePosition(Positions $position): static
+    {
+        if ($this->positions->removeElement($position)) {
+            // set the owning side to null (unless already changed)
+            if ($position->getEmployee() === $this) {
+                $position->setEmployee(null);
             }
         }
 
