@@ -128,7 +128,7 @@ class Employees
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir') . '/public/uploads/photo';
+        return $params->get('kernel.project_dir').'/public/uploads/photo';
     }
 
     public function getId(): ?string
