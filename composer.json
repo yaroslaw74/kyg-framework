@@ -148,7 +148,7 @@
         "symfony/webhook": "7.4.*",
         "symfony/workflow": "7.4.*",
         "symfony/yaml": "7.4.*",
-        "symfonycasts/reset-password-bundle": "^1.24",
+        "symfonycasts/reset-password-bundle": "^1.25",
         "symfonycasts/verify-email-bundle": "^1.18",
         "twig/cache-extra": "^3.24",
         "twig/cssinliner-extra": "^3.24",
