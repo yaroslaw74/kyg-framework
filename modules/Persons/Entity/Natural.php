@@ -28,6 +28,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
+use Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
@@ -60,7 +61,7 @@ class Natural
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
+    #[ORM\Column(type: PhoneNumberType::NAME, length: 20, nullable: true)]
     private ?string $phone = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
