@@ -285,7 +285,7 @@
                             <div class="media-body">
                                 <span>{% trans %}Mobile{% endtrans %}</span>
                                 {% if pageUser and pageUser.mobile %}
-                                    <div>{{ pageUser.mobile }}</div>
+                                    <div>{{ pageUser.mobile|phone_number_format('INTERNATIONAL') }}</div>
                                 {% endif %}
                             </div>
                         </div>
@@ -449,7 +449,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     {% if pageUser and pageUser.mobile %}
-                                        {{ form_widget(ProfileForm.mobile, {attr: {value: pageUser.mobile}}) }}
+                                        {{ form_widget(ProfileForm.mobile, {attr: {value: pageUser.mobile|phone_number_format('INTERNATIONAL')}}) }}
                                     {% else %}
                                         {{ form_widget(ProfileForm.mobile) }}
                                     {% endif %}
