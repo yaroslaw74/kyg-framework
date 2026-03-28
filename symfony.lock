@@ -214,6 +214,18 @@
     "nelmio/js-logger-bundle": {
         "version": "1.11.0"
     },
+    "odolbeau/phone-number-bundle": {
+        "version": "4.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "0d4442802a90dd2d1d6c18618998b43f69af0d95"
+        },
+        "files": [
+            "./config/packages/misd_phone_number.yaml"
+        ]
+    },
     "php-http/discovery": {
         "version": "1.20",
         "recipe": {
