@@ -17,6 +17,8 @@ namespace App\Modules\Users\Form\Type;
 use App\Modules\Users\Entity\User;
 use App\Settings\NameSettings;
 use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
+use libphonenumber\PhoneNumberFormat;
+use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -79,8 +81,12 @@ class ProfileFormType extends AbstractType
                     'placeholder' => $this->translator->trans('Enter Email', [], 'users'),
                 ],
             ])
-            ->add('mobile', TextType::class, [
+            ->add('mobile', PhoneNumberType::class, [
                 'label' => $this->translator->trans('Phone', [], 'users'),
+                'format' => PhoneNumberFormat::INTERNATIONAL,
+                'number_type' => PhoneNumberType::NUMBER_TYPE_TEL,
+                'widget' => PhoneNumberType::WIDGET_COUNTRY_CHOICE,
+                'country_display_type' => 'display_country_full',
                 'required' => false,
                 'row_attr' => [
                     'class' => 'form-group mb-3',
