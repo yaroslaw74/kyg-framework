@@ -2362,6 +2362,26 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         locales?: array<string, scalar|Param|null>,
  *     },
  * }
+ * @psalm-type MisdPhoneNumberConfig = array{
+ *     twig?: array{
+ *         enabled?: scalar|Param|null, // Default: true
+ *         default_region?: scalar|Param|null, // Default: "ZZ"
+ *         format?: \libphonenumber\PhoneNumberFormat::E164|\libphonenumber\PhoneNumberFormat::INTERNATIONAL|\libphonenumber\PhoneNumberFormat::NATIONAL|\libphonenumber\PhoneNumberFormat::RFC3966|Param, // Default: 0
+ *     },
+ *     form?: array{
+ *         enabled?: scalar|Param|null, // Default: true
+ *     },
+ *     serializer?: array{
+ *         enabled?: scalar|Param|null, // Default: true
+ *         default_region?: scalar|Param|null, // Default: "ZZ"
+ *         format?: \libphonenumber\PhoneNumberFormat::E164|\libphonenumber\PhoneNumberFormat::INTERNATIONAL|\libphonenumber\PhoneNumberFormat::NATIONAL|\libphonenumber\PhoneNumberFormat::RFC3966|Param, // Default: 0
+ *     },
+ *     validator?: array{
+ *         enabled?: scalar|Param|null, // Default: true
+ *         default_region?: scalar|Param|null, // Default: "ZZ"
+ *         format?: \libphonenumber\PhoneNumberFormat::E164|\libphonenumber\PhoneNumberFormat::INTERNATIONAL|\libphonenumber\PhoneNumberFormat::NATIONAL|\libphonenumber\PhoneNumberFormat::RFC3966|Param, // Default: 1
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2403,6 +2423,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     scheb_two_factor?: SchebTwoFactorConfig,
  *     shapecode_cron?: ShapecodeCronConfig,
  *     sonata_intl?: SonataIntlConfig,
+ *     misd_phone_number?: MisdPhoneNumberConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2448,6 +2469,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         scheb_two_factor?: SchebTwoFactorConfig,
  *         shapecode_cron?: ShapecodeCronConfig,
  *         sonata_intl?: SonataIntlConfig,
+ *         misd_phone_number?: MisdPhoneNumberConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2491,6 +2513,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         scheb_two_factor?: SchebTwoFactorConfig,
  *         shapecode_cron?: ShapecodeCronConfig,
  *         sonata_intl?: SonataIntlConfig,
+ *         misd_phone_number?: MisdPhoneNumberConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
