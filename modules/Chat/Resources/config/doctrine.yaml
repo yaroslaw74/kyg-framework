@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Chat:
+                type: attribute
+                is_bundle: false
+                dir: "%kernel.project_dir%/modules/Chat/Entity"
+                prefix: 'App\Modules\Chat\Entity'
+                alias: Chat
