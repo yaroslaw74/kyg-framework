@@ -2059,7 +2059,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         name?: scalar|Param|null, // The pretty name to show for these log files
  *         finder?: array{
  *             in?: scalar|Param|null, // The symfony/finder pattern to iterate through directories. Example: %kernel.logs_dir%
- *             name?: scalar|Param|null, // The symfony/finder pattern to filter files. Example: *.log // Default: null
+ *             name?: scalar|Param|null, // The symfony/finder pattern to filter files. Example: *.log or [*.log, *.log.gz] // Default: null
  *             depth?: scalar|Param|null, // The symfony/finder directory depth to search files for. Example: '> 0' // Default: null
  *             ignoreUnreadableDirs?: scalar|Param|null, // Whether to ignore unreadable directories // Default: true
  *             followLinks?: scalar|Param|null, // Whether to follow symlinks // Default: false
