@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d9f3b48fcdfef47e5f61e72ae55c229",
+    "content-hash": "78af27d89dd437f8f56ba14f78912b4a",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -3541,16 +3541,16 @@
         },
         {
             "name": "fdekker/log-viewer-bundle",
-            "version": "v2.7.1",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/frankdekker/symfony-log-viewer-bundle.git",
-                "reference": "b5c14d44026488100662c2c9b9696de94bd981c4"
+                "reference": "99bc1a1591b2b908f38928d77d438964f230941d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frankdekker/symfony-log-viewer-bundle/zipball/b5c14d44026488100662c2c9b9696de94bd981c4",
-                "reference": "b5c14d44026488100662c2c9b9696de94bd981c4",
+                "url": "https://api.github.com/repos/frankdekker/symfony-log-viewer-bundle/zipball/99bc1a1591b2b908f38928d77d438964f230941d",
+                "reference": "99bc1a1591b2b908f38928d77d438964f230941d",
                 "shasum": ""
             },
             "require": {
@@ -3596,6 +3596,7 @@
             },
             "suggest": {
                 "ext-zip": "To use the zip download feature",
+                "ext-zlib": "Required to read .gz compressed log files",
                 "symfony/http-client": "Required for the remote hosts feature"
             },
             "type": "symfony-bundle",
@@ -3625,9 +3626,9 @@
             ],
             "support": {
                 "issues": "https://github.com/frankdekker/symfony-log-viewer-bundle/issues",
-                "source": "https://github.com/frankdekker/symfony-log-viewer-bundle/tree/v2.7.1"
+                "source": "https://github.com/frankdekker/symfony-log-viewer-bundle/tree/v2.8.0"
             },
-            "time": "2026-02-14T10:20:08+00:00"
+            "time": "2026-03-28T20:20:14+00:00"
         },
         {
             "name": "fileeye/mimemap",
