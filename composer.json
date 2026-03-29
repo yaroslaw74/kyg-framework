@@ -328,7 +328,8 @@
         },
         "scripts-dev": {
             "post-install-cmd": [
-                "@php bin/console biomejs:download"
+                "@php bin/console biomejs:download",
+                "php -r copy('.env.example', '.env.local');"
             ],
             "post-update-cmd": [
                 "@php bin/console doctrine:diagram:er",
