@@ -1004,7 +1004,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             use_underscore?: bool|Param, // Default: true
  *             unordered_list_markers?: list<scalar|Param|null>,
  *         },
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
  * }
  * @psalm-type SecurityConfig = array{
@@ -2007,7 +2007,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             cast_fn?: mixed,
  *             default?: mixed,
  *             filter_class?: mixed,
- *             ...<mixed>
+ *             ...<string, mixed>
  *         }>,
  *         strict_query_parameter_validation?: mixed,
  *         hide_hydra_operation?: mixed,
@@ -2027,7 +2027,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         name?: mixed,
  *         allow_create?: mixed,
  *         item_uri_template?: mixed,
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
  * }
  * @psalm-type PyrrahGravatarConfig = array{
@@ -2158,7 +2158,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         use_authorization_to_get_token?: scalar|Param|null,
  *         paths?: array<string, mixed>,
  *         options?: array<string, scalar|Param|null>,
- *         ...<mixed>
+ *         ...<string, mixed>
  *     }>,
  * }
  * @psalm-type JbtronicsSettingsConfig = array{
@@ -2258,7 +2258,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             name?: scalar|Param|null,
  *             description?: scalar|Param|null,
  *             openIdConnectUrl?: scalar|Param|null,
- *             ...<mixed>
+ *             ...<string, mixed>
  *         }>,
  *         with_attribute?: bool|Param, // whether to filter by attributes // Default: false
  *         disable_default_routes?: bool|Param, // if set disables default routes without attributes // Default: false
