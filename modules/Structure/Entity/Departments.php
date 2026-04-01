@@ -24,9 +24,6 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
-use Symfony\Bridge\Doctrine\Types\UuidType;
-use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: DepartmentsRepository::class)]
 #[ORM\Table(name: 'structure__departments')]
@@ -39,10 +36,9 @@ class Departments
     use TimestampableEntity;
 
     #[ORM\Id]
-    #[ORM\Column(type: UuidType::NAME, unique: true)]
-    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
-    private ?Uuid $id = null;
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: Types::INTEGER)]
+    private ?int $id = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $name = null;
@@ -103,16 +99,7 @@ class Departments
         ] = $data;
     }
 
-    public function getId(): ?string
-    {
-        if (null !== $this->id) {
-            return $this->id->toString();
-        }
-
-        return null;
-    }
-
-    public function getUuid(): ?Uuid
+    public function getId(): ?int
     {
         return $this->id;
     }
