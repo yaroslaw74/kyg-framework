@@ -30,10 +30,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType;
-use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
-use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
-use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: EmployeesRepository::class)]
 #[ORM\Table(name: 'employees__employees')]
@@ -47,10 +44,9 @@ class Employees
     use TimestampableEntity;
 
     #[ORM\Id]
-    #[ORM\Column(type: UuidType::NAME, unique: true)]
-    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
-    private ?Uuid $id = null;
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: Types::INTEGER)]
+    private ?int $id = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $firstName = null;
@@ -132,16 +128,7 @@ class Employees
         return $params->get('kernel.project_dir').'/public/uploads/photo';
     }
 
-    public function getId(): ?string
-    {
-        if (null !== $this->id) {
-            return $this->id->toString();
-        }
-
-        return null;
-    }
-
-    public function getUuid(): ?Uuid
+    public function getId(): ?int
     {
         return $this->id;
     }
