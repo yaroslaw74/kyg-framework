@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Interfaces\CodeInterface;
 use App\Modules\Config\Entity\UsersSettings;
 use App\Modules\Contacts\Entity\UsersContacts;
 use App\Modules\Employees\Entity\Employees;
@@ -22,6 +23,7 @@ use App\Modules\Persons\Entity\Natural;
 use App\Modules\Users\Enum\StatusUsers;
 use App\Modules\Users\Enumeration\UsersStatus;
 use App\Modules\Users\Repository\UserRepository;
+use App\Traits\CodeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -47,12 +49,13 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface
 {
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
+    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -175,6 +178,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         $this->friendOf = new ArrayCollection();
         $this->contacts = new ArrayCollection();
         $this->settings = new ArrayCollection();
+        $this->addCode();
     }
 
     public function __toString(): string
@@ -226,6 +230,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->updatedBy,
             $this->deletedAt,
             $this->timezone,
+            $this->code,
             $this->status,
             $this->isVerified,
             $this->friends,
