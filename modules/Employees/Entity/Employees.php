@@ -15,11 +15,13 @@ declare(strict_types=1);
 namespace App\Modules\Employees\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Interfaces\CodeInterface;
 use App\Modules\Contacts\Entity\EmployeesContacts;
 use App\Modules\Employees\Repository\EmployeesRepository;
 use App\Modules\Persons\Entity\Natural;
 use App\Modules\Structure\Entity\Positions;
 use App\Modules\Users\Entity\User;
+use App\Traits\CodeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -37,11 +39,12 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[Gedmo\SoftDeleteable]
 #[ApiResource]
-class Employees
+class Employees implements CodeInterface
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
+    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -89,6 +92,7 @@ class Employees
     {
         $this->contacts = new ArrayCollection();
         $this->positions = new ArrayCollection();
+        $this->addCode();
     }
 
     public function __serialize(): array
@@ -120,6 +124,7 @@ class Employees
             $this->user,
             $this->contacts,
             $this->positions,
+            $this->code,
         ] = $data;
     }
 
