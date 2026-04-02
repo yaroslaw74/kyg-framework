@@ -28,9 +28,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 #[Gedmo\SoftDeleteable]
 class UsersContacts
 {
-    use SoftDeleteableEntity;
-    use BlameableEntity;
-    use TimestampableEntity;
+    use SoftDeleteableEntity, BlameableEntity, TimestampableEntity;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
