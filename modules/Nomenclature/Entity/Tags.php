@@ -15,8 +15,10 @@ declare(strict_types=1);
 namespace App\Modules\Nomenclature\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Interfaces\CodeInterface;
 use App\Modules\Nomenclature\Entity\Translation\TagsTranslation;
 use App\Modules\Nomenclature\Repository\TagsRepository;
+use App\Traits\CodeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -32,11 +34,12 @@ use Gedmo\Translatable\Translatable;
 #[Gedmo\SoftDeleteable]
 #[Gedmo\TranslationEntity(class: TagsTranslation::class)]
 #[ApiResource]
-class Tags implements Translatable
+class Tags implements Translatable, CodeInterface
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
+    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -70,6 +73,7 @@ class Tags implements Translatable
     {
         $this->translations = new ArrayCollection();
         $this->nomenclatures = new ArrayCollection();
+        $this->addCode();
     }
 
     public function __toString(): string
@@ -104,6 +108,7 @@ class Tags implements Translatable
             $this->locale,
             $this->translations,
             $this->nomenclatures,
+            $this->code,
         ] = $data;
     }
 
