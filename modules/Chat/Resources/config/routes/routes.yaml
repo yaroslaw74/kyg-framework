@@ -1,0 +1,5 @@
+chat:
+    resource:
+        path: "../../../Controller/"
+        namespace: App\Modules\Chat\Controller
+    type: attribute
