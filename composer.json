@@ -176,7 +176,7 @@
         "phpstan/phpstan-doctrine": "^2.0.20",
         "phpstan/phpstan-phpunit": "^2.0.16",
         "phpstan/phpstan-symfony": "^2.0.15",
-        "phpunit/phpunit": "^13.0.6",
+        "phpunit/phpunit": "^13.1.0",
         "psalm/plugin-symfony": "^5.3",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
         "spatie/symfony-ignition-bundle": "^1.3",
