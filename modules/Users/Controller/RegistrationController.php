@@ -58,6 +58,8 @@ class RegistrationController extends AbstractController
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             $this->workflow->apply($user, 'pending');
+            $user->setCreatedAt(new \DateTime());
+            $user->setCreatedBy((string) $user);
 
             $entityManager->persist($user);
             $entityManager->flush();
