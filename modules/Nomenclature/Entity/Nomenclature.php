@@ -17,6 +17,8 @@ namespace App\Modules\Nomenclature\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Interfaces\CodeInterface;
 use App\Modules\Nomenclature\Entity\Translation\NomenclatureTranslation;
+use App\Modules\Nomenclature\Enum\TypeNomenclature;
+use App\Modules\Nomenclature\Enumeration\NomenclatureType;
 use App\Modules\Nomenclature\Repository\NomenclatureRepository;
 use App\Modules\System\Entity\Files;
 use App\Traits\CodeTrait;
@@ -30,7 +32,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Sortable\Sortable;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Translatable\Translatable;
-use App\Modules\Nomenclature\Enum\TypeNomenclature;
+use Yokai\EnumBundle\Validator\Constraints\Enum;
 
 #[ORM\Entity(repositoryClass: NomenclatureRepository::class)]
 #[ORM\Table(name: 'nomenclature__nomenclature')]
@@ -53,9 +55,9 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
     #[Gedmo\Translatable]
     private ?string $name = null;
 
-    #[ORM\Column(nullable: false, options: ['default' => TypeNomenclature::TYPE_PRODUCT])]
+    #[ORM\Column(nullable: false, options: ['default' => NomenclatureType::TYPE_PRODUCT])]
     #[Enum(enum: TypeNomenclature::class)]
-    private TypeNomenclature $type = TypeNomenclature::TYPE_PRODUCT;
+    private NomenclatureType $type = NomenclatureType::TYPE_PRODUCT;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Gedmo\Translatable]
@@ -168,12 +170,12 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
         return $this;
     }
 
-    public function getType(): TypeNomenclature
+    public function getType(): NomenclatureType
     {
         return $this->type;
     }
 
-    public function setType(TypeNomenclature $type): static
+    public function setType(NomenclatureType $type): static
     {
         $this->type = $type;
 
