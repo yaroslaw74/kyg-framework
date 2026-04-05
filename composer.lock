@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4820adca55e69d9b14baeefdea5700cf",
+    "content-hash": "8277e6b909181ad1b6a8b86e94bf763a",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -6005,6 +6005,51 @@
                 "source": "https://github.com/nelmio/NelmioJsLoggerBundle/tree/1.11.1"
             },
             "time": "2026-02-23T08:56:43+00:00"
+        },
+        {
+            "name": "nicmart/numbers",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicmart/Numbers.git",
+                "reference": "409638f0a7d3ea556990026c37c0ea05b27a8ded"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicmart/Numbers/zipball/409638f0a7d3ea556990026c37c0ea05b27a8ded",
+                "reference": "409638f0a7d3ea556990026c37c0ea05b27a8ded",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Numbers": "src/",
+                    "Numbers\\Test": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolò Martini",
+                    "email": "nicmartnic@gmail.com",
+                    "homepage": "http://nicolo.martini.io"
+                }
+            ],
+            "description": "Format numbers in various formats, like scientific notation or unit-suffix notation",
+            "support": {
+                "issues": "https://github.com/nicmart/Numbers/issues",
+                "source": "https://github.com/nicmart/Numbers/tree/master"
+            },
+            "time": "2013-09-15T19:12:52+00:00"
         },
         {
             "name": "nikic/php-parser",
