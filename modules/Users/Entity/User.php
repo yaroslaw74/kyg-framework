@@ -17,6 +17,7 @@ namespace App\Modules\Users\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Interfaces\CodeInterface;
 use App\Modules\Chat\Entity\Thread;
+use App\Modules\Chat\Model\ParticipantInterface;
 use App\Modules\Config\Entity\UsersSettings;
 use App\Modules\Contacts\Entity\UsersContacts;
 use App\Modules\Employees\Entity\Employees;
@@ -50,7 +51,7 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface, ParticipantInterface
 {
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
@@ -194,10 +195,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         }
 
         if ($this->getFirstName()) {
-            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
+            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
         }
         if ($this->getMiddleName()) {
-            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
+            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
         }
 
         if (!$name) {
@@ -213,7 +214,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -266,7 +267,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
+        return $params->get('kernel.project_dir').'/public/uploads/avatar';
     }
 
     /**
