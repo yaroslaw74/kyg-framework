@@ -106,6 +106,9 @@ final class UsersCoreController extends AbstractController
                 $user->setAvatar($avatar);
             }
 
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
@@ -194,6 +197,9 @@ final class UsersCoreController extends AbstractController
                     $this->addFlash('error', $this->translator->trans('Gravatar not found', [], 'users'));
                 }
             }
+
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
