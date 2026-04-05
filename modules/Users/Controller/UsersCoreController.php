@@ -73,6 +73,9 @@ final class UsersCoreController extends AbstractController
                 $this->workflow->apply($user, 'pending');
             }
 
+            $user->setCreatedAt(new \DateTime());
+            $user->setCreatedBy((string) $this->getUser());
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 
@@ -134,6 +137,9 @@ final class UsersCoreController extends AbstractController
             if ('' !== $avatar) {
                 $user->setAvatar($avatar);
             }
+
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -263,6 +269,7 @@ final class UsersCoreController extends AbstractController
             $user = $repository->find($id);
             $friend = $repository->find($friend_id);
             $user->removeFriend($friend);
+
             $this->entityManager->persist($user);
             $this->entityManager->persist($friend);
             $this->entityManager->flush();
