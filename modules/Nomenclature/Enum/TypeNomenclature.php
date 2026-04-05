@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace App\Modules\Nomenclature\Enum;
 
+use App\Modules\Nomenclature\Enumeration\NomenclatureType;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Yokai\EnumBundle\NativeTranslatedEnum;
-use App\Modules\Nomenclature\Enumeration\NomenclatureType;
 
 class TypeNomenclature extends NativeTranslatedEnum
 {
