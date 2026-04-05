@@ -50,6 +50,7 @@
         "nelmio/api-doc-bundle": "^5.9.5",
         "nelmio/cors-bundle": "^2.6.1",
         "nelmio/js-logger-bundle": "^1.11.1",
+        "nicmart/numbers": "^0.1.0",
         "nyholm/psr7": "^1.8.2",
         "odolbeau/phone-number-bundle": "^4.2.5",
         "php-units-of-measure/php-units-of-measure": "^2.2",
