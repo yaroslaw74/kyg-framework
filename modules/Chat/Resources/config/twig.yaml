@@ -1,3 +1,0 @@
-twig:
-    paths:
-        "modules/Chat/Resources/templates": "Chat"
