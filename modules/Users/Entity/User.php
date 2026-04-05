@@ -187,7 +187,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function __toString(): string
     {
-        return $this->getUserIdentifier();
+        $name = '';
+
+        if ($this->getLastName()) {
+            $name .= $this->getLastName();
+        }
+
+        if ($this->getFirstName()) {
+            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
+        }
+        if ($this->getMiddleName()) {
+            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
+        }
+
+        if (!$name) {
+            $name = $this->getUsername();
+        }
+
+        return $name;
     }
 
     /**
@@ -196,7 +213,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -249,7 +266,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir').'/public/uploads/avatar';
+        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
     }
 
     /**
