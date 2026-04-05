@@ -16,8 +16,6 @@ namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Interfaces\CodeInterface;
-use App\Modules\Chat\Entity\Thread;
-use App\Modules\Chat\Model\ParticipantInterface;
 use App\Modules\Config\Entity\UsersSettings;
 use App\Modules\Contacts\Entity\UsersContacts;
 use App\Modules\Employees\Entity\Employees;
@@ -51,7 +49,7 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface, ParticipantInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface
 {
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
@@ -174,9 +172,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\OneToMany(targetEntity: UsersSettings::class, mappedBy: 'user', cascade: ['remove'])]
     private Collection $settings;
 
-    #[ORM\ManyToOne(inversedBy: 'participants')]
-    private ?Thread $thread = null;
-
     public function __construct()
     {
         $this->friends = new ArrayCollection();
@@ -261,7 +256,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->employees,
             $this->contacts,
             $this->settings,
-            $this->thread,
         ] = $data;
     }
 
@@ -736,18 +730,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->settings->add($setting);
             $setting->setUser($this);
         }
-
-        return $this;
-    }
-
-    public function getThread(): ?Thread
-    {
-        return $this->thread;
-    }
-
-    public function setThread(?Thread $thread): static
-    {
-        $this->thread = $thread;
 
         return $this;
     }
