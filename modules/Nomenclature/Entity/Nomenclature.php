@@ -30,6 +30,7 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Sortable\Sortable;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Translatable\Translatable;
+use App\Modules\Nomenclature\Enum\TypeNomenclature;
 
 #[ORM\Entity(repositoryClass: NomenclatureRepository::class)]
 #[ORM\Table(name: 'nomenclature__nomenclature')]
@@ -51,6 +52,10 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
     #[ORM\Column(type: Types::STRING, nullable: true)]
     #[Gedmo\Translatable]
     private ?string $name = null;
+
+    #[ORM\Column(nullable: false, options: ['default' => TypeNomenclature::TYPE_PRODUCT])]
+    #[Enum(enum: TypeNomenclature::class)]
+    private TypeNomenclature $type = TypeNomenclature::TYPE_PRODUCT;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Gedmo\Translatable]
@@ -128,6 +133,7 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
         [
             $this->id,
             $this->name,
+            $this->type,
             $this->description,
             $this->position,
             $this->createdAt,
@@ -158,6 +164,18 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
     public function setName(?string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getType(): TypeNomenclature
+    {
+        return $this->type;
+    }
+
+    public function setType(TypeNomenclature $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
