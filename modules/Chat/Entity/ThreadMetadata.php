@@ -18,16 +18,11 @@ use App\Modules\Chat\Repository\ThreadMetadataRepository;
 use App\Modules\Users\Entity\User;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Blameable\Traits\BlameableEntity;
-use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: ThreadMetadataRepository::class)]
 #[ORM\Table(name: 'chat__thread_metadata')]
 class ThreadMetadata
 {
-    use BlameableEntity;
-    use TimestampableEntity;
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER)]
