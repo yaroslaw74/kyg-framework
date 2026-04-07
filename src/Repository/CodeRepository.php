@@ -35,9 +35,7 @@ class CodeRepository extends ServiceEntityRepository
      */
     public function findByExampleField($value): array
     {
-        /*
-         * @phpstan-ignore doctrine.dql
-         */
+        /* @phpstan-ignore doctrine.dql */
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
@@ -53,9 +51,7 @@ class CodeRepository extends ServiceEntityRepository
      */
     public function findOneBySomeField($value): ?Code
     {
-        /*
-         * @phpstan-ignore doctrine.dql
-         */
+        /* @phpstan-ignore doctrine.dql */
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
