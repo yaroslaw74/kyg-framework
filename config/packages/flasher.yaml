@@ -28,7 +28,7 @@ flasher:
             animation: true
 
             # Close button on notifications
-            close_button: false
+            close_button: true
 
             # Display progress bar
             progress_bar: true
