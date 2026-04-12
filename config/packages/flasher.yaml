@@ -20,7 +20,7 @@ flasher:
         use_tailwind: false
 
         # Use bootstrap CSS framework
-        use_bootstrap: true
+        use_bootstrap: false
 
         # Default flash notification options
         options:
