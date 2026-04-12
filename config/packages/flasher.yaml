@@ -1,0 +1,55 @@
+flasher:
+    main:
+        filter:
+            # Filter flash messages by priority or criteria
+            priority: ~
+
+        # Limit the number of flash messages displayed
+        limit: ~
+
+        # Map Flash messages to specific criteria
+        map: []
+
+        # Automatically inject Flasher scripts into your HTML
+        inject_assets: true
+
+        # Use bulma CSS framework
+        use_bulma: false
+
+        # Use tailwind CSS framework
+        use_tailwind: false
+
+        # Use bootstrap CSS framework
+        use_bootstrap: true
+
+        # Default flash notification options
+        options:
+            # Animation: fade, slide, zoom, flip, bounce, etc.
+            animation: true
+
+            # Close button on notifications
+            close_button: false
+
+            # Display progress bar
+            progress_bar: true
+
+            # Notification position: top-right, top-left, bottom-right, bottom-left, top-center, bottom-center
+            position: top-right
+
+            # Right-to-left support
+            rtl: false
+
+            # Time before notification auto-hides (in milliseconds)
+            timeout: 5000
+
+        # Translate flash messages
+        translate: false
+
+        # Flash messages translation domain
+        translation_domain: flasher
+
+        # Default rendering context
+        default_context: ~
+
+        # Available rendering contexts
+        contexts: []
