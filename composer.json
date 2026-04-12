@@ -53,6 +53,7 @@
         "nicmart/numbers": "^0.1.0",
         "nyholm/psr7": "^1.8.2",
         "odolbeau/phone-number-bundle": "^4.2.5",
+        "php-flasher/flasher-symfony": "^2.5",
         "php-units-of-measure/php-units-of-measure": "^2.2",
         "phpdocumentor/reflection-common": "^2.2",
         "phpdocumentor/reflection-docblock": "^6.0.3",
