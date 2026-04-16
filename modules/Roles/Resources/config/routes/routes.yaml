@@ -1,0 +1,5 @@
+users:
+    resource:
+        path: "../../../Controller/"
+        namespace: App\Modules\Roles\Controller
+    type: attribute
