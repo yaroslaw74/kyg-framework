@@ -57,4 +57,5 @@ return [
     Zenstruck\Mailer\Test\ZenstruckMailerTestBundle::class => ['dev' => true, 'test' => true],
     Zenstruck\Messenger\Test\ZenstruckMessengerTestBundle::class => ['test' => true],
     Systemsdk\Bundle\EasyLogBundle\EasyLogBundle::class => ['dev' => true, 'test' => true],
+    PhpRbacBundle\PhpRbacBundle::class => ['all' => true],
 ];
