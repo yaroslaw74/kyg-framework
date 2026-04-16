@@ -1,0 +1,7 @@
+php_rbac:
+    no_authentication_section:
+        default: deny
+    resolve_target_entities:
+        user: App\Modules\Users\Entity\User
+        role: App\Modules\Roles\Entity\Role
+        permission: App\Modules\Roles\Entity\Permission
