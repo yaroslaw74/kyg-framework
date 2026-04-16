@@ -17,9 +17,18 @@ namespace App\Modules\Roles\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use PhpRbacBundle\Entity\Role as EntityRole;
 use PhpRbacBundle\Repository\RoleRepository;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+
 
 #[ORM\Entity(repositoryClass: RoleRepository::class)]
 #[ORM\Table('roles__roles')]
+#[Gedmo\SoftDeleteable]
 class Role extends EntityRole
 {
+    use SoftDeleteableEntity;
+    use BlameableEntity;
+    use TimestampableEntity;
 }
