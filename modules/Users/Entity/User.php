@@ -41,6 +41,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
+use PhpRbacBundle\Entity\UserRoleTrait;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -56,6 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     use BlameableEntity;
     use TimestampableEntity;
     use CodeTrait;
+    use UserRoleTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -190,10 +192,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
         }
 
         if ($this->getFirstName()) {
-            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
         }
         if ($this->getMiddleName()) {
-            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
         }
 
         if (!$name) {
@@ -209,7 +211,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -248,6 +250,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->deletedAt,
             $this->timezone,
             $this->code,
+            $this->rbacRoles,
             $this->status,
             $this->isVerified,
             $this->friends,
@@ -261,7 +264,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir').'/public/uploads/avatar';
+        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
     }
 
     /**
