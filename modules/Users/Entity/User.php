@@ -42,6 +42,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
 use PhpRbacBundle\Entity\UserRoleTrait;
+use PhpRbacBundle\Entity\UserRoleInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -50,7 +51,7 @@ use PhpRbacBundle\Entity\UserRoleTrait;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, CodeInterface, UserRoleInterface
 {
     use TimezoneAwareTrait;
     use SoftDeleteableEntity;
