@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "591638eb23172879729f72396e63e54d",
+    "content-hash": "41e70e2830c106899cb8462d6740e9a3",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -18776,6 +18776,70 @@
                 "source": "https://github.com/DaveRandom/LibDNS/tree/v2.1.0"
             },
             "time": "2024-04-12T12:12:48+00:00"
+        },
+        {
+            "name": "debesha/doctrine-hydration-profiler-bundle",
+            "version": "1.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/debesha/DoctrineProfileExtraBundle.git",
+                "reference": "352cd203e9b69d2f7b5a46f27ebe1557bd05e876"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/debesha/DoctrineProfileExtraBundle/zipball/352cd203e9b69d2f7b5a46f27ebe1557bd05e876",
+                "reference": "352cd203e9b69d2f7b5a46f27ebe1557bd05e876",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^2.11",
+                "doctrine/orm": "^2.19|^3.0",
+                "php": ">=8.0",
+                "symfony/framework-bundle": "^5.4|^6.0|^7.0",
+                "symfony/twig-bundle": "^5.4|^6.0|^7.0",
+                "twig/twig": "^3.11"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.64",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpstan": "^1.11",
+                "phpstan/phpstan-doctrine": "^1.4",
+                "phpstan/phpstan-symfony": "^1.4",
+                "phpunit/phpunit": "^10.0",
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Debesha\\DoctrineProfileExtraBundle\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmytro Malyshenko",
+                    "homepage": "http://malyshenko.com"
+                }
+            ],
+            "description": "Information about hydration of doctrine entities at the profiler",
+            "homepage": "https://github.com/debesha/DoctrineProfileExtraBundle",
+            "keywords": [
+                "bundle",
+                "debesha",
+                "dev",
+                "doctrine",
+                "extra",
+                "profiler",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/debesha/DoctrineProfileExtraBundle/issues",
+                "source": "https://github.com/debesha/DoctrineProfileExtraBundle/tree/1.4.6"
+            },
+            "time": "2026-01-19T13:51:44+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
