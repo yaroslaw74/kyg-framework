@@ -75,7 +75,7 @@ final class UsersCoreControllerTest extends WebTestCase
 
         self::assertSame(1, $this->userRepository->count([]));
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testShow(): void
@@ -98,7 +98,7 @@ final class UsersCoreControllerTest extends WebTestCase
         self::assertPageTitleContains('User');
 
         // Use assertions to check that the properties are properly displayed.
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testEdit(): void
@@ -141,7 +141,7 @@ final class UsersCoreControllerTest extends WebTestCase
         self::assertSame('MiddleName', $fixture[0]->getMiddleName());
         self::assertSame('Something New', $fixture[0]->getMobile());
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testDelete(): void
@@ -163,7 +163,7 @@ final class UsersCoreControllerTest extends WebTestCase
         self::assertResponseRedirects('/app/user/list');
         self::assertSame(0, $this->userRepository->count([]));
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testSettings(): void
@@ -210,6 +210,6 @@ final class UsersCoreControllerTest extends WebTestCase
         self::assertSame('en_001', $fixture[0]->getLocale());
         self::assertSame('UTC', $fixture[0]->getTimezone());
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 }
