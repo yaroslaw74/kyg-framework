@@ -104,7 +104,7 @@ class LineChartWithDataLabels extends AbstractCharts
 
             if ($dataTop > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $dataTop;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $dataTop;
                 }
             }
@@ -131,7 +131,7 @@ class LineChartWithDataLabels extends AbstractCharts
 
         if ($dataBotom > $this->options['yaxis']['max']) {
             $this->options['yaxis']['max'] = $dataBotom;
-            if (0 == $this->options['yaxis']['min']) {
+            if (0 === $this->options['yaxis']['min']) {
                 $this->options['yaxis']['min'] = $dataBotom;
             }
         }
