@@ -89,17 +89,29 @@ class DashedLineChart extends AbstractCharts
 
     public function setTooltipOne(?string $one): void
     {
-        $one ? $this->options['tooltip']['one'] = " {$one}" : $this->options['tooltip']['one'] = null;
+        if ($one !== null) {
+            $this->options['tooltip']['one'] = " {$one}";
+        } else {
+            $this->options['tooltip']['one'] = null;
+        }
     }
 
     public function setTooltipTwo(?string $two): void
     {
-        $two ? $this->options['tooltip']['two'] = " {$two}" : $this->options['tooltip']['two'] = null;
+        if ($two !== null) {
+            $this->options['tooltip']['two'] = " {$two}";
+        } else {
+            $this->options['tooltip']['two'] = null;
+        }
     }
 
     public function setTooltipThree(?string $three): void
     {
-        $three ? $this->options['tooltip']['three'] = " {$three}" : $this->options['tooltip']['three'] = null;
+        if ($three !== null) {
+            $this->options['tooltip']['three'] = " {$three}";
+        } else {
+            $this->options['tooltip']['three'] = null;
+        }
     }
 
     public function setDec(int $dec): void
@@ -121,10 +133,10 @@ class DashedLineChart extends AbstractCharts
             $this->options['series']['two']['data'][] = $two[$key];
             $this->options['series']['three']['data'][] = $three[$key];
 
-            if (null != $value) {
+            if (null !== $value) {
                 if ($value > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $value;
-                    if (0 == $this->options['yaxis']['min']) {
+                    if (0 === $this->options['yaxis']['min']) {
                         $this->options['yaxis']['min'] = $value;
                     }
                 }
@@ -137,7 +149,7 @@ class DashedLineChart extends AbstractCharts
             if (null != $two[$key]) {
                 if ($two[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $two[$key];
-                    if (0 == $this->options['yaxis']['min']) {
+                    if (0 === $this->options['yaxis']['min']) {
                         $this->options['yaxis']['min'] = $two[$key];
                     }
                 }
@@ -147,10 +159,10 @@ class DashedLineChart extends AbstractCharts
                 }
             }
 
-            if (null != $three[$key]) {
+            if (null !== $three[$key]) {
                 if ($three[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $three[$key];
-                    if (0 == $this->options['yaxis']['min']) {
+                    if (0 === $this->options['yaxis']['min']) {
                         $this->options['yaxis']['min'] = $three[$key];
                     }
                 }
@@ -172,7 +184,7 @@ class DashedLineChart extends AbstractCharts
         if (null !== $one) {
             if ($one > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $one;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $one;
                 }
             }
@@ -185,7 +197,7 @@ class DashedLineChart extends AbstractCharts
         if (null !== $two) {
             if ($two > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $two;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $two;
                 }
             }
@@ -198,7 +210,7 @@ class DashedLineChart extends AbstractCharts
         if (null !== $three) {
             if ($three > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $three;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $three;
                 }
             }
