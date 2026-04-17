@@ -159,7 +159,7 @@ class DashedLineChart extends AbstractCharts
                 }
             }
 
-            if (null !== $three[$key]) {
+            if (null != $three[$key]) {
                 if ($three[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $three[$key];
                     if (0 === $this->options['yaxis']['min']) {
