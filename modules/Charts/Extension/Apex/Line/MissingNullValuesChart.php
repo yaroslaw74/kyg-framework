@@ -104,7 +104,7 @@ class MissingNullValuesChart extends AbstractCharts
             if (null !== $value) {
                 if ($value > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $value;
-                    if (0 == $this->options['yaxis']['min']) {
+                    if (0 === $this->options['yaxis']['min']) {
                         $this->options['yaxis']['min'] = $value;
                     }
                 }
@@ -117,7 +117,7 @@ class MissingNullValuesChart extends AbstractCharts
             if (null !== $two[$key]) {
                 if ($two[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $two[$key];
-                    if (0 == $this->options['yaxis']['min']) {
+                    if (0 === $this->options['yaxis']['min']) {
                         $this->options['yaxis']['min'] = $two[$key];
                     }
                 }
@@ -130,7 +130,7 @@ class MissingNullValuesChart extends AbstractCharts
             if (null !== $three[$key]) {
                 if ($three[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $three[$key];
-                    if (0 == $this->options['yaxis']['min']) {
+                    if (0 === $this->options['yaxis']['min']) {
                         $this->options['yaxis']['min'] = $three[$key];
                     }
                 }
@@ -152,7 +152,7 @@ class MissingNullValuesChart extends AbstractCharts
         if (null !== $one) {
             if ($one > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $one;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $one;
                 }
             }
@@ -165,7 +165,7 @@ class MissingNullValuesChart extends AbstractCharts
         if (null !== $two) {
             if ($two > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $two;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $two;
                 }
             }
@@ -178,7 +178,7 @@ class MissingNullValuesChart extends AbstractCharts
         if (null !== $three) {
             if ($three > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $three;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $three;
                 }
             }
