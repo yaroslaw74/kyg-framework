@@ -93,7 +93,7 @@ class StepLineChart extends AbstractCharts
 
         if ($data > $this->options['yaxis']['max']) {
             $this->options['yaxis']['max'] = $data;
-            if (0 == $this->options['yaxis']['min']) {
+            if (0 === $this->options['yaxis']['min']) {
                 $this->options['yaxis']['min'] = $data;
             }
         }
