@@ -58,4 +58,5 @@ return [
     Zenstruck\Messenger\Test\ZenstruckMessengerTestBundle::class => ['test' => true],
     Systemsdk\Bundle\EasyLogBundle\EasyLogBundle::class => ['dev' => true, 'test' => true],
     PhpRbacBundle\PhpRbacBundle::class => ['all' => true],
+    Debesha\DoctrineProfileExtraBundle\DebeshaDoctrineProfileExtraBundle::class => ['dev' => true, 'test' => true],
 ];
