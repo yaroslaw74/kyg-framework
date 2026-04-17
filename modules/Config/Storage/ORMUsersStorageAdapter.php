@@ -51,7 +51,7 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
             return $this->cache['UsersSettings'][$key];
         }
 
-        if (null == $this->user) {
+        if (null === $this->user) {
             return null;
         }
 
@@ -74,14 +74,14 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
      */
     public function save(string $key, array $data, array $options = []): void
     {
-        if (null == $this->user) {
+        if (null === $this->user) {
             return;
         }
 
         // Retrieve the entity object
         $settings = $this->getEntityObject($key);
 
-        if (null == $settings) {
+        if (null === $settings) {
             $settings = new UsersSettings($key);
 
             /**
@@ -111,13 +111,13 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
     /**
      * @param mixed[] $options
      *
-     * @return mixed[]
+     * @return array<string, array|bool|float|int|string|null>|null
      */
     public function load(string $key, array $options = []): ?array
     {
         $settings = $this->getEntityObject($key);
 
-        if (null == $settings) {
+        if (null === $settings) {
             return null;
         }
 
