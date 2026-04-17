@@ -78,7 +78,7 @@ class BasicLineChart extends AbstractCharts
 
             if ($value > $this->options['yaxis']['max']) {
                 $this->options['yaxis']['max'] = $value;
-                if (0 == $this->options['yaxis']['min']) {
+                if (0 === $this->options['yaxis']['min']) {
                     $this->options['yaxis']['min'] = $value;
                 }
             }
@@ -96,7 +96,7 @@ class BasicLineChart extends AbstractCharts
 
         if ($data > $this->options['yaxis']['max']) {
             $this->options['yaxis']['max'] = $data;
-            if (0 == $this->options['yaxis']['min']) {
+            if (0 === $this->options['yaxis']['min']) {
                 $this->options['yaxis']['min'] = $data;
             }
         }
