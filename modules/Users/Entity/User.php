@@ -177,7 +177,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function __construct()
     {
-        parent::__construct();
+        $this->rbacRoles = new ArrayCollection();
         $this->friends = new ArrayCollection();
         $this->friendOf = new ArrayCollection();
         $this->contacts = new ArrayCollection();
