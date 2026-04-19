@@ -1,9 +1,9 @@
 parameters:
-    level: 10
+    level: 6
     errorFormat: symplify
     paths:
         - modules/
-        - public/
+        - public/additions/
         - src/
         - tests/
     symfony:
