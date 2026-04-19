@@ -48,7 +48,7 @@ final class FileManagerController extends AbstractController
     #[Route('/app/admin/file/manager/list/{list}', name: 'app_admin_file_manager_list')]
     public function fileManagerList(Request $request, ?string $list = null): Response
     {
-        $dir = $this->fileManagerService->getStoragePath().'/'.$list;
+        $dir = $this->fileManagerService->getStoragePath() . '/' . $list;
 
         $listDir = $this->fileManagerService->getFoldersList($dir, $list);
 
@@ -66,6 +66,7 @@ final class FileManagerController extends AbstractController
         $repository = $this->entityManager->getRepository(Files::class);
         $files = $repository->findBy(['path' => $path]);
         $id = null;
+        /** @phpstan-ignore notEqual.notAllowed */
         if (null != $files) {
             foreach ($files as $value) {
                 if ((string) $value->getName() === $name) {
@@ -73,20 +74,20 @@ final class FileManagerController extends AbstractController
                 }
             }
         }
-        if (null == $id) {
+        if (null === $id) {
             return $this->render('@System/file_manager/file-manager-details.html.twig', [
                 'file' => [
                     'path' => $path,
                     'name' => $name,
-                    'size' => $this->fileManagerService->formatBytes(filesize($this->fileManagerService->getStoragePath().'/{$path}/{$name}')),
+                    'size' => $this->fileManagerService->formatBytes(filesize($this->fileManagerService->getStoragePath() . '/{$path}/{$name}')),
                     'createdAt' => '',
                     'createdBy' => '',
                     'updatedAt' => '',
                     'updatedBy' => '',
                     'width' => '',
                     'height' => '',
-                    'format' => mime_content_type($this->fileManagerService->getStoragePath().'/{$path}/{$name}'),
-                    'type' => finfo_file(finfo_open(FILEINFO_MIME_ENCODING), $this->fileManagerService->getStoragePath().'/{$path}/{$name}'),
+                    'format' => mime_content_type($this->fileManagerService->getStoragePath() . '/{$path}/{$name}'),
+                    'type' => finfo_file(finfo_open(FILEINFO_MIME_ENCODING), $this->fileManagerService->getStoragePath() . '/{$path}/{$name}'),
                 ],
             ]);
         }
