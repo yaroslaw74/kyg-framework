@@ -72,7 +72,7 @@ final class TogglePasswordTypeExtension extends AbstractTypeExtension
     {
         $view->vars['toggle'] = $options['toggle'];
 
-        if ($options['toggle'] == null) {
+        if ($options['toggle'] === null) {
             return;
         }
 
