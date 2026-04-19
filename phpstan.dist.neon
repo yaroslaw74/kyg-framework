@@ -8,6 +8,9 @@ parameters:
         - public/
         - src/
         - tests/
+    excludePaths:
+        analyse:
+		    - config/reference.php
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
         consoleApplicationLoader: tests/console-application.php
