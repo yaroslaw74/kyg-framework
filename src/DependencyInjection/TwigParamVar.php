@@ -25,7 +25,7 @@ final class TwigParamVar implements EnvVarLoaderInterface
     }
 
     /**
-     * @return array<string, int|string>
+     * @return array<string|\Stringable>
      */
     public function loadEnvVars(): array
     {
@@ -33,7 +33,7 @@ final class TwigParamVar implements EnvVarLoaderInterface
 
         return [
             'ENV_DATE_FORMAT' => $settings->getFormatDateTime(),
-            'ENV_DECIMALS' => $settings->getNumberFormatDecimals(),
+            'ENV_DECIMALS' => (string) $settings->getNumberFormatDecimals(),
             'ENV_DECIMAL_POINT' => $settings->getNumberFormatDecimalPoint(),
             'ENV_THOUSANDS_SEPARATOR' => $settings->getNumberFormatThousandsSeparator(),
         ];
