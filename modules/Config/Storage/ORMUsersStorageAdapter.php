@@ -70,7 +70,7 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
 
     /**
      * @param mixed[] $options
-     * @param mixed[] $data
+     * @param array<string, mixed[]|bool|float|int|string|null> $data
      */
     public function save(string $key, array $data, array $options = []): void
     {
@@ -111,7 +111,7 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
     /**
      * @param mixed[] $options
      *
-     * @return mixed[]|null
+     * @return array<string, mixed[]|bool|float|int|string|null>|null
      */
     public function load(string $key, array $options = []): ?array
     {
