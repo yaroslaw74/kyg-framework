@@ -42,7 +42,7 @@ class UserLanguageFormType extends AbstractType
         $locale_choices = [];
         $locale_attr = [];
         foreach ($locales as $key => $value) {
-            if (\in_array($key, $lang)) {
+            if (\in_array($key, $lang, true)) {
                 $locale_choices[$value['name']] = $key;
                 $locale_attr[$value['name']] = ['dir' => $value['dir']];
             }
