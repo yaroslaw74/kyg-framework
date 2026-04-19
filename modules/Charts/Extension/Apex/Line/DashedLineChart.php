@@ -133,7 +133,8 @@ class DashedLineChart extends AbstractCharts
             $this->options['series']['two']['data'][] = $two[$key];
             $this->options['series']['three']['data'][] = $three[$key];
 
-            if (null !== $value) {
+            /** @phpstan-ignore notEqual.notAllowed */
+            if (null != $value) {
                 if ($value > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $value;
                     if (0 === $this->options['yaxis']['min']) {
@@ -146,6 +147,7 @@ class DashedLineChart extends AbstractCharts
                 }
             }
 
+            /** @phpstan-ignore notEqual.notAllowed */
             if (null != $two[$key]) {
                 if ($two[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $two[$key];
@@ -159,6 +161,7 @@ class DashedLineChart extends AbstractCharts
                 }
             }
 
+            /** @phpstan-ignore notEqual.notAllowed */
             if (null != $three[$key]) {
                 if ($three[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $three[$key];
