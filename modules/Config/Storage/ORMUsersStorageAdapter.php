@@ -111,7 +111,7 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
     /**
      * @param mixed[] $options
      *
-     * @return array<string, array|bool|float|int|string|null>|null
+     * @return mixed[]|null
      */
     public function load(string $key, array $options = []): ?array
     {
