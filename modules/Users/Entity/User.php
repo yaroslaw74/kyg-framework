@@ -188,18 +188,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     {
         $name = '';
 
-        if ($this->getLastName()) {
+        if ($this->getLastName() !== null) {
             $name .= $this->getLastName();
         }
 
-        if ($this->getFirstName()) {
+        if ($this->getFirstName() !== null) {
             $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
         }
-        if ($this->getMiddleName()) {
+        if ($this->getMiddleName() !== null) {
             $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
         }
 
-        if (!$name) {
+        if ($name !== '') {
             $name = $this->getUsername();
         }
 
