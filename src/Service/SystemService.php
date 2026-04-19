@@ -67,19 +67,19 @@ class SystemService
     {
         $language = $this->getLocaleHTML(mb_strtolower($locale));
 
-        if (\in_array($language, $locales, false)) {
+        if (\in_array($language, $locales, true)) {
             return $language;
         }
         $poz = strrpos($language, '-');
         if (false !== $poz) {
             $language = substr($language, 0, $poz);
-            if (\in_array($language, $locales, false)) {
+            if (\in_array($language, $locales, true)) {
                 return $language;
             }
             $poz = strrpos($language, '-');
             if (false !== $poz) {
                 $language = substr($language, 0, $poz);
-                if (\in_array($language, $locales, false)) {
+                if (\in_array($language, $locales, true)) {
                     return $language;
                 }
             }
