@@ -69,7 +69,7 @@ final class ORMUsersStorageAdapter implements StorageAdapterInterface
     }
 
     /**
-     * @param mixed[] $options
+     * @param mixed[]                                           $options
      * @param array<string, mixed[]|bool|float|int|string|null> $data
      */
     public function save(string $key, array $data, array $options = []): void
