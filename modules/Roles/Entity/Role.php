@@ -15,13 +15,12 @@ declare(strict_types=1);
 namespace App\Modules\Roles\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PhpRbacBundle\Entity\Role as EntityRole;
-use PhpRbacBundle\Repository\RoleRepository;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-
+use PhpRbacBundle\Entity\Role as EntityRole;
+use PhpRbacBundle\Repository\RoleRepository;
 
 #[ORM\Entity(repositoryClass: RoleRepository::class)]
 #[ORM\Table('roles__roles')]
