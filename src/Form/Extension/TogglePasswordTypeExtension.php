@@ -50,7 +50,7 @@ final class TogglePasswordTypeExtension extends AbstractTypeExtension
 
         $resolver->setNormalizer(
             'toggle_translation_domain',
-            static fn(Options $options, $labelTranslationDomain): mixed => $labelTranslationDomain ?? $options['translation_domain'],
+            static fn (Options $options, $labelTranslationDomain): mixed => $labelTranslationDomain ?? $options['translation_domain'],
         );
 
         $resolver->setAllowedTypes('toggle', ['bool']);
@@ -72,11 +72,11 @@ final class TogglePasswordTypeExtension extends AbstractTypeExtension
     {
         $view->vars['toggle'] = $options['toggle'];
 
-        if ($options['toggle'] === null) {
+        if (null === $options['toggle']) {
             return;
         }
 
-        if ($options['use_toggle_form_theme'] !== null) {
+        if (null !== $options['use_toggle_form_theme']) {
             array_splice($view->vars['block_prefixes'], -1, 0, 'toggle_password');
         }
 
