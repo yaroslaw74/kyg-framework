@@ -34,6 +34,8 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType;
+use PhpRbacBundle\Entity\UserRoleInterface;
+use PhpRbacBundle\Entity\UserRoleTrait;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -41,8 +43,6 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Yokai\EnumBundle\Validator\Constraints\Enum;
-use PhpRbacBundle\Entity\UserRoleTrait;
-use PhpRbacBundle\Entity\UserRoleInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
@@ -189,18 +189,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     {
         $name = '';
 
-        if ($this->getLastName() !== null) {
+        if (null !== $this->getLastName()) {
             $name .= $this->getLastName();
         }
 
-        if ($this->getFirstName() !== null) {
-            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
+        if (null !== $this->getFirstName()) {
+            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
         }
-        if ($this->getMiddleName() !== null) {
-            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
+        if (null !== $this->getMiddleName()) {
+            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
         }
 
-        if ($name !== '') {
+        if ('' !== $name) {
             $name = $this->getUsername();
         }
 
@@ -213,7 +213,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -266,7 +266,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function path(ContainerBagInterface $params): string
     {
-        return $params->get('kernel.project_dir') . '/public/uploads/avatar';
+        return $params->get('kernel.project_dir').'/public/uploads/avatar';
     }
 
     /**
