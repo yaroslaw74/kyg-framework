@@ -89,7 +89,7 @@ class DashedLineChart extends AbstractCharts
 
     public function setTooltipOne(?string $one): void
     {
-        if ($one !== null) {
+        if (null !== $one) {
             $this->options['tooltip']['one'] = " {$one}";
         } else {
             $this->options['tooltip']['one'] = null;
@@ -98,7 +98,7 @@ class DashedLineChart extends AbstractCharts
 
     public function setTooltipTwo(?string $two): void
     {
-        if ($two !== null) {
+        if (null !== $two) {
             $this->options['tooltip']['two'] = " {$two}";
         } else {
             $this->options['tooltip']['two'] = null;
@@ -107,7 +107,7 @@ class DashedLineChart extends AbstractCharts
 
     public function setTooltipThree(?string $three): void
     {
-        if ($three !== null) {
+        if (null !== $three) {
             $this->options['tooltip']['three'] = " {$three}";
         } else {
             $this->options['tooltip']['three'] = null;
@@ -133,7 +133,7 @@ class DashedLineChart extends AbstractCharts
             $this->options['series']['two']['data'][] = $two[$key];
             $this->options['series']['three']['data'][] = $three[$key];
 
-            /** @phpstan-ignore notEqual.notAllowed */
+            /* @phpstan-ignore notEqual.notAllowed */
             if (null != $value) {
                 if ($value > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $value;
@@ -147,7 +147,7 @@ class DashedLineChart extends AbstractCharts
                 }
             }
 
-            /** @phpstan-ignore notEqual.notAllowed */
+            /* @phpstan-ignore notEqual.notAllowed */
             if (null != $two[$key]) {
                 if ($two[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $two[$key];
@@ -161,7 +161,7 @@ class DashedLineChart extends AbstractCharts
                 }
             }
 
-            /** @phpstan-ignore notEqual.notAllowed */
+            /* @phpstan-ignore notEqual.notAllowed */
             if (null != $three[$key]) {
                 if ($three[$key] > $this->options['yaxis']['max']) {
                     $this->options['yaxis']['max'] = $three[$key];
