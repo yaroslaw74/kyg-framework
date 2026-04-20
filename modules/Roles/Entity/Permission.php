@@ -15,12 +15,12 @@ declare(strict_types=1);
 namespace App\Modules\Roles\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PhpRbacBundle\Entity\Permission as EntityPermission;
-use PhpRbacBundle\Repository\PermissionRepository;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use PhpRbacBundle\Entity\Permission as EntityPermission;
+use PhpRbacBundle\Repository\PermissionRepository;
 
 #[ORM\Entity(repositoryClass: PermissionRepository::class)]
 #[ORM\Table('roles__permissions')]
