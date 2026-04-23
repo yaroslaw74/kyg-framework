@@ -3803,16 +3803,16 @@
         },
         {
             "name": "jbtronics/settings-bundle",
-            "version": "v3.2.1",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jbtronics/settings-bundle.git",
-                "reference": "9cce5f59482e66417166354072c7e24790495b9b"
+                "reference": "9cce001eef4570ca3b2766da6a8a4abd327ea438"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/9cce5f59482e66417166354072c7e24790495b9b",
-                "reference": "9cce5f59482e66417166354072c7e24790495b9b",
+                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/9cce001eef4570ca3b2766da6a8a4abd327ea438",
+                "reference": "9cce001eef4570ca3b2766da6a8a4abd327ea438",
                 "shasum": ""
             },
             "require": {
@@ -3841,11 +3841,13 @@
                 "symfony/console": "^6.4|^7.0|^8.0",
                 "symfony/phpunit-bridge": "^6.4|^7.0|^8.0",
                 "symfony/security-csrf": "^7.0|^6.4|^8.0",
-                "symfony/twig-bridge": "^6.4|^7.0|^8.0"
+                "symfony/twig-bridge": "^6.4|^7.0|^8.0",
+                "symfony/yaml": "^6.4|^7.0|^8.0"
             },
             "suggest": {
                 "doctrine/doctrine-bundle": "To use the doctrine ORM storage",
-                "symfony/twig-bridge": "Allows to access settings in twig templates"
+                "symfony/twig-bridge": "Allows to access settings in twig templates",
+                "symfony/yaml": "To use the YAML metadata driver for settings configuration"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -3860,20 +3862,30 @@
             "authors": [
                 {
                     "name": "Jan Böhmer",
-                    "email": "mail@jan-boehmer.de"
+                    "email": "mail@jan-boehmer.de",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Github Contributors",
+                    "homepage": "https://github.com/jbtronics/settings-bundle/graphs/contributors"
                 }
             ],
             "description": "A symfony bundle to easily create typesafe, user-configurable settings for symfony applications",
             "keywords": [
                 "Settings",
                 "config",
+                "configuration",
+                "dynamic-settings",
+                "options",
+                "preferences",
                 "symfony",
                 "symfony-bundle",
+                "user-config",
                 "user-configurable"
             ],
             "support": {
                 "issues": "https://github.com/jbtronics/settings-bundle/issues",
-                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.2.1"
+                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.3.0"
             },
             "funding": [
                 {
@@ -3885,7 +3897,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-28T16:30:47+00:00"
+            "time": "2026-04-21T21:26:26+00:00"
         },
         {
             "name": "jordanbrauer/unit-converter",
@@ -16681,16 +16693,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v15.32.0",
+            "version": "v15.32.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "e7ff849803e471c93edf9396ccde549bf8002373"
+                "reference": "e8f77f81dbe5de75551137955dd0fd3f779235cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/e7ff849803e471c93edf9396ccde549bf8002373",
-                "reference": "e7ff849803e471c93edf9396ccde549bf8002373",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/e8f77f81dbe5de75551137955dd0fd3f779235cf",
+                "reference": "e8f77f81dbe5de75551137955dd0fd3f779235cf",
                 "shasum": ""
             },
             "require": {
@@ -16745,7 +16757,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v15.32.0"
+                "source": "https://github.com/webonyx/graphql-php/tree/v15.32.1"
             },
             "funding": [
                 {
@@ -16757,7 +16769,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2026-04-20T16:19:33+00:00"
+            "time": "2026-04-21T09:42:39+00:00"
         },
         {
             "name": "willdurand/negotiation",
@@ -19919,16 +19931,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "389c5008087f8c48d35b85585b4315107b5a0f9e"
+                "reference": "8337eab46f512633d36df6b2f0ee54bf309c1da1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/389c5008087f8c48d35b85585b4315107b5a0f9e",
-                "reference": "389c5008087f8c48d35b85585b4315107b5a0f9e",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/8337eab46f512633d36df6b2f0ee54bf309c1da1",
+                "reference": "8337eab46f512633d36df6b2f0ee54bf309c1da1",
                 "shasum": ""
             },
             "require": {
@@ -19974,11 +19986,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-30T19:06:46+00:00"
+            "time": "2026-04-18T13:28:59+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -20024,7 +20036,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -20072,7 +20084,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -20118,7 +20130,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -20170,7 +20182,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -20221,16 +20233,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v13.5.0",
+            "version": "v13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "0e8642a79d385c644a75400cad176b042242c894"
+                "reference": "5394e4b6008175f5a42c1227b5c4b959aa1be963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/0e8642a79d385c644a75400cad176b042242c894",
-                "reference": "0e8642a79d385c644a75400cad176b042242c894",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/5394e4b6008175f5a42c1227b5c4b959aa1be963",
+                "reference": "5394e4b6008175f5a42c1227b5c4b959aa1be963",
                 "shasum": ""
             },
             "require": {
@@ -20296,7 +20308,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-04-13T14:52:53+00:00"
+            "time": "2026-04-20T13:42:58+00:00"
         },
         {
             "name": "jawira/db-draw",
@@ -22048,11 +22060,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.50",
+            "version": "2.1.51",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d452086fb4cf648c6b2d8cf3b639351f79e4f3e2",
-                "reference": "d452086fb4cf648c6b2d8cf3b639351f79e4f3e2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dc3b523c45e714c70de2ac5113b958223b55dc59",
+                "reference": "dc3b523c45e714c70de2ac5113b958223b55dc59",
                 "shasum": ""
             },
             "require": {
@@ -22097,7 +22109,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-17T13:10:32+00:00"
+            "time": "2026-04-21T18:22:01+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
