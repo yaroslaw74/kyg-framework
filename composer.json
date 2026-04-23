@@ -39,7 +39,7 @@
         "fdekker/log-viewer-bundle": "^2.8",
         "friendsofsymfony/ckeditor-bundle": "^2.8",
         "hwi/oauth-bundle": "^2.5",
-        "jbtronics/settings-bundle": "^3.2.1",
+        "jbtronics/settings-bundle": "^3.3.0",
         "jordanbrauer/unit-converter": "^0.9",
         "knplabs/knp-menu-bundle": "^3.7",
         "knplabs/knp-paginator-bundle": "^6.10",
@@ -176,7 +176,7 @@
         "matthiasnoback/symfony-config-test": "^6.2",
         "neronmoon/scriptsdev": "^0.1.9",
         "phpstan/extension-installer": "^1.4.3",
-        "phpstan/phpstan": "^2.1.50",
+        "phpstan/phpstan": "^2.1.51",
         "phpstan/phpstan-doctrine": "^2.0.21",
         "phpstan/phpstan-phpunit": "^2.0.16",
         "phpstan/phpstan-strict-rules": "^2.0.10",
@@ -334,7 +334,6 @@
                 "@php bin/console biomejs:download"
             ],
             "post-update-cmd": [
-                "@php bin/console doctrine:diagram:er",
                 "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
                 "vendor/bin/twig-cs-fixer fix",
                 "bin/biome lint --write assets modules public/additions",
@@ -342,7 +341,9 @@
                 "bin/biome format --write assets modules public/additions",
                 "vendor/bin/phpstan analyse --error-format friendly",
                 "vendor/bin/psalm --alter --issues=MismatchingDocblockParamType,UnusedMethod --dry-run",
-                "vendor/bin/php-cs-fixer fix"
+                "vendor/bin/php-cs-fixer fix",
+                "@php bin/console doctrine:diagram:er",
+                "@php bin/console doctrine:diagram:class"
             ]
         },
         "symfony": {
