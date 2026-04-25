@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30d1cc9bb5a32c55a07effd1de3bd2cd",
+    "content-hash": "d46132d9618a9ff807a6e6f8f12ad00a",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -16828,6 +16828,59 @@
             "time": "2022-01-30T20:08:53+00:00"
         },
         {
+            "name": "yokai/dependency-injection",
+            "version": "v1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yokai-php/dependency-injection.git",
+                "reference": "84d4357e95d74033474909bceb7df968f8c126b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yokai-php/dependency-injection/zipball/84d4357e95d74033474909bceb7df968f8c126b8",
+                "reference": "84d4357e95d74033474909bceb7df968f8c126b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/dependency-injection": "^2.7|^3.0|^4.0|^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yokai\\DependencyInjection\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Eugoné",
+                    "email": "yann.eugone@gmail.com"
+                }
+            ],
+            "description": "Provide util classes to manipulate Dependency Injection in Symfony",
+            "keywords": [
+                "dependency injection",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/yokai-php/dependency-injection/issues",
+                "source": "https://github.com/yokai-php/dependency-injection/tree/v1.5"
+            },
+            "time": "2024-09-05T08:42:47+00:00"
+        },
+        {
             "name": "yokai/enum-bundle",
             "version": "v5.1.0",
             "source": {
@@ -16897,6 +16950,63 @@
                 "source": "https://github.com/yokai-php/enum-bundle/tree/v5.1.0"
             },
             "time": "2025-09-02T13:45:17+00:00"
+        },
+        {
+            "name": "yokai/security-token-bundle",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yokai-php/security-token-bundle.git",
+                "reference": "105deb57f59ab1679e0cc4aa2dbb6c9d206f12e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yokai-php/security-token-bundle/zipball/105deb57f59ab1679e0cc4aa2dbb6c9d206f12e1",
+                "reference": "105deb57f59ab1679e0cc4aa2dbb6c9d206f12e1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^3.0",
+                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/orm": "^2.7|^3.0",
+                "ext-openssl": "*",
+                "php": "^7.4|^8.0",
+                "symfony/framework-bundle": "^4.4|^5.0|^6.0|^7.0",
+                "yokai/dependency-injection": "^1.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.7",
+                "phpunit/phpunit": "^9.5",
+                "symfony/yaml": "^4.4|^5.2|^6.0|^7.0",
+                "symplify/easy-coding-standard": "^11.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yokai\\SecurityTokenBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Eugoné",
+                    "email": "eugone.yann@gmail.com"
+                }
+            ],
+            "description": "Handle security token manipulation in a Symfony application",
+            "support": {
+                "issues": "https://github.com/yokai-php/security-token-bundle/issues",
+                "source": "https://github.com/yokai-php/security-token-bundle/tree/v3.4.0"
+            },
+            "time": "2024-06-03T12:22:21+00:00"
         },
         {
             "name": "zircote/swagger-php",
