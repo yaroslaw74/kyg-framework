@@ -809,6 +809,9 @@
     "yokai/enum-bundle": {
         "version": "v5.1.0"
     },
+    "yokai/security-token-bundle": {
+        "version": "v3.4.0"
+    },
     "zenstruck/browser": {
         "version": "1.10",
         "recipe": {
