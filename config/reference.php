@@ -2556,6 +2556,22 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         permission?: scalar|Param|null, // Set the class which implements PermissionInterface
  *     },
  * }
+ * @psalm-type YokaiSecurityTokenConfig = array{
+ *     tokens?: array<string, array{ // Default: []
+ *         generator?: scalar|Param|null, // Default: "yokai_security_token.open_ssl_token_generator"
+ *         duration?: scalar|Param|null, // Default: "+2 days"
+ *         usages?: int|Param, // Default: 1
+ *         keep?: scalar|Param|null, // Default: "+1 month"
+ *         unique?: bool|Param, // Default: false
+ *     }>,
+ *     services?: array{
+ *         information_guesser?: scalar|Param|null, // Default: "yokai_security_token.default_information_guesser"
+ *         token_factory?: scalar|Param|null, // Default: "yokai_security_token.default_token_factory"
+ *         token_repository?: scalar|Param|null, // Default: "yokai_security_token.default_token_repository"
+ *         token_manager?: scalar|Param|null, // Default: "yokai_security_token.default_token_manager"
+ *         archivist?: scalar|Param|null, // Default: "yokai_security_token.delete_archivist"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2599,6 +2615,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
  *     easy_log?: EasyLogConfig,
  *     php_rbac?: PhpRbacConfig,
+ *     yokai_security_token?: YokaiSecurityTokenConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2646,6 +2663,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         easy_log?: EasyLogConfig,
  *         php_rbac?: PhpRbacConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2691,6 +2709,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         easy_log?: EasyLogConfig,
  *         php_rbac?: PhpRbacConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
