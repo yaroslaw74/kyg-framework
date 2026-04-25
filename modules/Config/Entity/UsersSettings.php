@@ -29,13 +29,13 @@ class UsersSettings
     private ?int $id = null;
 
     #[ORM\Column(type: Types::STRING, nullable: false)]
-    protected string $key;
+    private string $key;
 
     /**
      * @var mixed[] $data
      */
     #[ORM\Column(type: Types::JSON, nullable: true)]
-    protected ?array $data = null;
+    private ?array $data = null;
 
     #[ORM\ManyToOne(inversedBy: 'settings')]
     private ?User $user = null;
