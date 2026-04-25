@@ -159,7 +159,6 @@
         "twig/markdown-extra": "^3.24",
         "twig/string-extra": "^3.24",
         "twig/twig": "^3.24",
-        "webmozart/assert": "^1.12.1",
         "yokai/enum-bundle": "^5.1",
         "yokai/security-token-bundle": "^3.4"
     },
@@ -343,8 +342,7 @@
                 "vendor/bin/phpstan analyse --error-format friendly",
                 "vendor/bin/psalm --alter --issues=MismatchingDocblockParamType,UnusedMethod --dry-run",
                 "vendor/bin/php-cs-fixer fix",
-                "@php bin/console doctrine:diagram:er",
-                "@php bin/console doctrine:diagram:class"
+                "@php bin/console doctrine:diagram:er"
             ]
         },
         "symfony": {
