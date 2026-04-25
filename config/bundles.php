@@ -59,4 +59,5 @@ return [
     Systemsdk\Bundle\EasyLogBundle\EasyLogBundle::class => ['dev' => true, 'test' => true],
     PhpRbacBundle\PhpRbacBundle::class => ['all' => true],
     Debesha\DoctrineProfileExtraBundle\DebeshaDoctrineProfileExtraBundle::class => ['dev' => true, 'test' => true],
+    Yokai\SecurityTokenBundle\YokaiSecurityTokenBundle::class => ['all' => true],
 ];
