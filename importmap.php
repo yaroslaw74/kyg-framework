@@ -43,14 +43,14 @@ return [
         'version' => '2.0.2',
     ],
     '@symfony/ux-toggle-password' => [
-        'version' => '2.33.0',
+        'version' => '2.34.0',
     ],
     '@symfony/ux-toggle-password/dist/style.min.css' => [
-        'version' => '2.33.0',
+        'version' => '2.34.0',
         'type' => 'css',
     ],
     '@symfony/ux-swup' => [
-        'version' => '2.33.0',
+        'version' => '2.34.0',
     ],
     '@swup/debug-plugin' => [
         'version' => '4.1.0',
@@ -77,7 +77,7 @@ return [
         'version' => '6.3.0',
     ],
     'path-to-regexp' => [
-        'version' => '8.3.0',
+        'version' => '8.4.2',
     ],
     'es-module-shims' => [
         'version' => '2.8.0',
@@ -104,18 +104,18 @@ return [
         'version' => '2.0.8',
     ],
     'tom-select' => [
-        'version' => '2.5.2',
+        'version' => '2.6.0',
     ],
     'tom-select/dist/css/tom-select.bootstrap5.css' => [
-        'version' => '2.5.2',
+        'version' => '2.6.0',
         'type' => 'css',
     ],
     'tom-select/dist/css/tom-select.bootstrap4.css' => [
-        'version' => '2.5.2',
+        'version' => '2.6.0',
         'type' => 'css',
     ],
     'tom-select/dist/css/tom-select.default.css' => [
-        'version' => '2.5.2',
+        'version' => '2.6.0',
         'type' => 'css',
     ],
     '@orchidjs/sifter' => [
@@ -134,10 +134,6 @@ return [
     ],
     '@fortawesome/fontawesome-free/css/all.min.css' => [
         'version' => '7.2.0',
-        'type' => 'css',
-    ],
-    'ionicons/dist/css/ionicons.min.css' => [
-        'version' => '4.6.4-1',
         'type' => 'css',
     ],
     'line-awesome/dist/line-awesome/css/line-awesome.min.css' => [
@@ -161,7 +157,7 @@ return [
         'type' => 'css',
     ],
     '@tabler/icons-webfont/dist/tabler-icons.min.css' => [
-        'version' => '3.40.0',
+        'version' => '3.41.1',
         'type' => 'css',
     ],
     '@icon/themify-icons/themify-icons.css' => [
@@ -208,10 +204,10 @@ return [
         'type' => 'css',
     ],
     'lodash-es/debounce.js' => [
-        'version' => '4.17.23',
+        'version' => '4.18.1',
     ],
     'lodash-es/throttle.js' => [
-        'version' => '4.17.23',
+        'version' => '4.18.1',
     ],
     'resize-observer-polyfill' => [
         'version' => '1.5.1',
@@ -246,10 +242,10 @@ return [
         'version' => '2.0.0',
     ],
     'choices.js' => [
-        'version' => '11.2.1',
+        'version' => '11.2.2',
     ],
     'choices.js/public/assets/styles/choices.min.css' => [
-        'version' => '11.2.1',
+        'version' => '11.2.2',
         'type' => 'css',
     ],
     'filepond' => [
@@ -398,10 +394,10 @@ return [
         'version' => '1.2.7',
     ],
     'apexcharts' => [
-        'version' => '5.10.4',
+        'version' => '5.10.6',
     ],
     'apexcharts/dist/apexcharts.css' => [
-        'version' => '5.10.4',
+        'version' => '5.10.6',
         'type' => 'css',
     ],
     'echarts' => [
@@ -571,5 +567,13 @@ return [
     ],
     'zrender/lib/tool/morphPath.js' => [
         'version' => '6.0.0',
+    ],
+    'tom-select/dist/css/tom-select.default.min.css' => [
+        'version' => '2.6.0',
+        'type' => 'css',
+    ],
+    'simplebar-core/dist/simplebar.min.css' => [
+        'version' => '1.3.2',
+        'type' => 'css',
     ],
 ];
