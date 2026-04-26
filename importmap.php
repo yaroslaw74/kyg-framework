@@ -40,7 +40,7 @@ return [
         'version' => '8.0.23',
     ],
     '@googlemaps/js-api-loader' => [
-        'version' => '1.16.10',
+        'version' => '2.0.2',
     ],
     '@symfony/ux-toggle-password' => [
         'version' => '2.33.0',
