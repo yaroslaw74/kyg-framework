@@ -15,9 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Structure\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Interfaces\CodeInterface;
 use App\Modules\Structure\Repository\DepartmentsRepository;
-use App\Traits\CodeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -31,12 +29,11 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 #[ORM\Table(name: 'structure__departments')]
 #[Gedmo\SoftDeleteable]
 #[ApiResource]
-class Departments implements CodeInterface
+class Departments
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
-    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -68,7 +65,6 @@ class Departments implements CodeInterface
     public function __construct()
     {
         $this->positions = new ArrayCollection();
-        $this->addCode();
     }
 
     public function __toString(): string
@@ -100,7 +96,6 @@ class Departments implements CodeInterface
             $this->parent,
             $this->enterprise,
             $this->positions,
-            $this->code,
         ] = $data;
     }
 
