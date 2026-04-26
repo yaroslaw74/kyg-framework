@@ -14,9 +14,7 @@ declare(strict_types=1);
 
 namespace App\Modules\System\Entity;
 
-use App\Interfaces\CodeInterface;
 use App\Modules\System\Repository\FilesRepository;
-use App\Traits\CodeTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -31,13 +29,12 @@ use Rekalogika\File\Association\Attribute\WithFileAssociation;
 #[ORM\Table(name: 'files')]
 #[Gedmo\SoftDeleteable]
 #[WithFileAssociation]
-class Files implements FileInterface, CodeInterface
+class Files implements FileInterface
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use FileTrait;
     use TimestampableEntity;
-    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -46,11 +43,6 @@ class Files implements FileInterface, CodeInterface
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $path = null;
-
-    public function __construct()
-    {
-        $this->addCode();
-    }
 
     /**
      * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
@@ -77,7 +69,6 @@ class Files implements FileInterface, CodeInterface
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
-            $this->code,
         ] = $data;
     }
 
