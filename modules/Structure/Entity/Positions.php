@@ -15,10 +15,8 @@ declare(strict_types=1);
 namespace App\Modules\Structure\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Interfaces\CodeInterface;
 use App\Modules\Employees\Entity\Employees;
 use App\Modules\Structure\Repository\PositionsRepository;
-use App\Traits\CodeTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -30,12 +28,11 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 #[ORM\Table(name: 'structure__positions')]
 #[Gedmo\SoftDeleteable]
 #[ApiResource]
-class Positions implements CodeInterface
+class Positions
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
-    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -50,11 +47,6 @@ class Positions implements CodeInterface
 
     #[ORM\ManyToOne(inversedBy: 'positions')]
     private ?Employees $employee = null;
-
-    public function __construct()
-    {
-        $this->addCode();
-    }
 
     public function __toString(): string
     {
@@ -83,7 +75,6 @@ class Positions implements CodeInterface
             $this->deletedAt,
             $this->department,
             $this->employee,
-            $this->code,
         ] = $data;
     }
 
