@@ -342,7 +342,8 @@
                 "vendor/bin/phpstan analyse --error-format friendly",
                 "vendor/bin/psalm --alter --issues=MismatchingDocblockParamType,UnusedMethod --dry-run",
                 "vendor/bin/php-cs-fixer fix",
-                "@php bin/console doctrine:diagram:er"
+                "@php bin/console doctrine:diagram:er",
+                "@php bin/console doctrine:diagram:class"
             ]
         },
         "symfony": {
