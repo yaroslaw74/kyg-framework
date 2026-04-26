@@ -21,7 +21,7 @@ import "./vendor/@fortawesome/fontawesome-free/css/all.min.css";
 /*
  * Ionicons
  */
-import "./vendor/ionicons/dist/css/ionicons.min.css";
+import "./icon-fonts/ionicons/dist/css/ionicons.min.css";
 
 /*
  * Icons8 Line Awesome
