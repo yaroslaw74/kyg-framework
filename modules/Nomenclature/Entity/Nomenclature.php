@@ -15,13 +15,11 @@ declare(strict_types=1);
 namespace App\Modules\Nomenclature\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Interfaces\CodeInterface;
 use App\Modules\Nomenclature\Entity\Translation\NomenclatureTranslation;
 use App\Modules\Nomenclature\Enum\TypeNomenclature;
 use App\Modules\Nomenclature\Enumeration\NomenclatureType;
 use App\Modules\Nomenclature\Repository\NomenclatureRepository;
 use App\Modules\System\Entity\Files;
-use App\Traits\CodeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -39,12 +37,11 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\SoftDeleteable]
 #[Gedmo\TranslationEntity(class: NomenclatureTranslation::class)]
 #[ApiResource]
-class Nomenclature implements Sortable, Translatable, CodeInterface
+class Nomenclature implements Sortable, Translatable
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
-    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -112,7 +109,6 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
         $this->translations = new ArrayCollection();
         $this->collections = new ArrayCollection();
         $this->tags = new ArrayCollection();
-        $this->addCode();
     }
 
     public function __toString(): string
@@ -149,7 +145,6 @@ class Nomenclature implements Sortable, Translatable, CodeInterface
             $this->category,
             $this->collections,
             $this->tags,
-            $this->code,
         ] = $data;
     }
 
