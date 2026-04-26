@@ -15,12 +15,10 @@ declare(strict_types=1);
 namespace App\Modules\Persons\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Interfaces\CodeInterface;
 use App\Modules\Contacts\Entity\NaturalsContacts;
 use App\Modules\Employees\Entity\Employees;
 use App\Modules\Persons\Repository\NaturalRepository;
 use App\Modules\Users\Entity\User;
-use App\Traits\CodeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -38,12 +36,11 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 #[Gedmo\SoftDeleteable]
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
-class Natural implements CodeInterface
+class Natural
 {
     use SoftDeleteableEntity;
     use BlameableEntity;
     use TimestampableEntity;
-    use CodeTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -88,7 +85,6 @@ class Natural implements CodeInterface
     {
         $this->legals = new ArrayCollection();
         $this->contacts = new ArrayCollection();
-        $this->addCode();
     }
 
     public function __toString(): string
@@ -123,7 +119,6 @@ class Natural implements CodeInterface
             $this->employee,
             $this->user,
             $this->contacts,
-            $this->code,
         ] = $data;
     }
 
