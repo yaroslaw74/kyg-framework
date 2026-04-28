@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e812a0088191f214f96b825b8f8d86aa",
+    "content-hash": "3699b60023bbba5de8070149b7db1e7d",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -3802,16 +3802,16 @@
         },
         {
             "name": "jbtronics/settings-bundle",
-            "version": "v3.3.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jbtronics/settings-bundle.git",
-                "reference": "9cce001eef4570ca3b2766da6a8a4abd327ea438"
+                "reference": "ca90a8b2255482d11f10cb30c49791a7dabd5d40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/9cce001eef4570ca3b2766da6a8a4abd327ea438",
-                "reference": "9cce001eef4570ca3b2766da6a8a4abd327ea438",
+                "url": "https://api.github.com/repos/jbtronics/settings-bundle/zipball/ca90a8b2255482d11f10cb30c49791a7dabd5d40",
+                "reference": "ca90a8b2255482d11f10cb30c49791a7dabd5d40",
                 "shasum": ""
             },
             "require": {
@@ -3884,7 +3884,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jbtronics/settings-bundle/issues",
-                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.3.0"
+                "source": "https://github.com/jbtronics/settings-bundle/tree/v3.3.1"
             },
             "funding": [
                 {
@@ -3896,7 +3896,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-21T21:26:26+00:00"
+            "time": "2026-04-28T10:57:15+00:00"
         },
         {
             "name": "jordanbrauer/unit-converter",
@@ -21930,11 +21930,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.51",
+            "version": "2.1.53",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dc3b523c45e714c70de2ac5113b958223b55dc59",
-                "reference": "dc3b523c45e714c70de2ac5113b958223b55dc59",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ef67586798c003274797b288a68b221e4270dca7",
+                "reference": "ef67586798c003274797b288a68b221e4270dca7",
                 "shasum": ""
             },
             "require": {
@@ -21979,7 +21979,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-21T18:22:01+00:00"
+            "time": "2026-04-28T16:09:00+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
