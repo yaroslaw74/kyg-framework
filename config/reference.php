@@ -1559,33 +1559,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     generate_final_classes?: bool|Param, // Default: true
  *     generate_final_entities?: bool|Param, // Default: false
  * }
- * @psalm-type NelmioCorsConfig = array{
- *     defaults?: array{
- *         allow_credentials?: bool|Param, // Default: false
- *         allow_origin?: list<scalar|Param|null>,
- *         allow_headers?: list<scalar|Param|null>,
- *         allow_methods?: list<scalar|Param|null>,
- *         allow_private_network?: bool|Param, // Default: false
- *         expose_headers?: list<scalar|Param|null>,
- *         max_age?: scalar|Param|null, // Default: 0
- *         hosts?: list<scalar|Param|null>,
- *         origin_regex?: bool|Param, // Default: false
- *         forced_allow_origin_value?: scalar|Param|null, // Default: null
- *         skip_same_as_origin?: bool|Param, // Default: true
- *     },
- *     paths?: array<string, array{ // Default: []
- *         allow_credentials?: bool|Param,
- *         allow_origin?: list<scalar|Param|null>,
- *         allow_headers?: list<scalar|Param|null>,
- *         allow_methods?: list<scalar|Param|null>,
- *         allow_private_network?: bool|Param,
- *         expose_headers?: list<scalar|Param|null>,
- *         max_age?: scalar|Param|null, // Default: 0
- *         hosts?: list<scalar|Param|null>,
- *         origin_regex?: bool|Param,
- *         forced_allow_origin_value?: scalar|Param|null, // Default: null
- *         skip_same_as_origin?: bool|Param,
- *     }>,
+ * @psalm-type RekalogikaFileConfig = array{
+ *     filesystems?: array<string, scalar|Param|null>,
+ *     default_filesystem_directory?: scalar|Param|null, // The storage directory used by the default filesystem. // Default: "%kernel.project_dir%/var/storage/default"
  * }
  * @psalm-type ApiPlatformConfig = array{
  *     title?: scalar|Param|null, // The title of the API. // Default: ""
@@ -1883,6 +1859,26 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ...<string, mixed>
  *     },
  * }
+ * @psalm-type DamaDoctrineTestConfig = array{
+ *     enable_static_connection?: mixed, // Default: true
+ *     enable_static_meta_data_cache?: bool|Param, // Default: true
+ *     enable_static_query_cache?: bool|Param, // Default: true
+ *     connection_keys?: list<mixed>,
+ * }
+ * @psalm-type DukecityCommandSchedulerConfig = array{
+ *     scheduled_command_class?: scalar|Param|null, // The entity class to use for scheduled commands. Must implement ScheduledCommandInterface. // Default: "Dukecity\\CommandSchedulerBundle\\Entity\\ScheduledCommand"
+ *     doctrine_manager?: scalar|Param|null, // Default: "default"
+ *     log_path?: scalar|Param|null, // Default: "%kernel.logs_dir%"
+ *     lock_timeout?: scalar|Param|null, // Default: false
+ *     ping_back_provider?: scalar|Param|null, // Default: null
+ *     ping_back?: bool|Param, // Default: true
+ *     ping_back_failed?: bool|Param, // Default: true
+ *     monitor_mail?: list<scalar|Param|null>,
+ *     monitor_mail_subject?: scalar|Param|null, // Default: "cronjob monitoring %%s, %%s"
+ *     send_ok?: bool|Param, // Default: false
+ *     excluded_command_namespaces?: mixed, // Default: []
+ *     included_command_namespaces?: mixed, // Default: []
+ * }
  * @psalm-type FdLogViewerConfig = array{
  *     home_route?: scalar|Param|null, // The name of the route to redirect to when clicking the back button
  *     show_performance_details?: scalar|Param|null, // Will toggle if the performance information and version will be shown. Default true // Default: true
@@ -1993,6 +1989,28 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ...<string, mixed>
  *     }>,
  * }
+ * @psalm-type DoctrineDiagramConfig = array{
+ *     er?: array{
+ *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/er"
+ *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
+ *         theme?: scalar|Param|null, // Default: "_none_"
+ *         connection?: scalar|Param|null, // Default: null
+ *         exclude?: list<scalar|Param|null>,
+ *     },
+ *     class?: array{
+ *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/class"
+ *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
+ *         theme?: scalar|Param|null, // Default: "_none_"
+ *         em?: scalar|Param|null, // Default: null
+ *         exclude?: list<scalar|Param|null>,
+ *     },
+ *     convert?: array{
+ *         format?: "puml"|"png"|"svg"|Param, // Default: "svg"
+ *         converter?: "auto"|"jar"|"server"|Param, // Default: "auto"
+ *         jar?: scalar|Param|null, // Default: null
+ *         server?: scalar|Param|null, // Default: "http://www.plantuml.com/plantuml"
+ *     },
+ * }
  * @psalm-type JbtronicsSettingsConfig = array{
  *     search_paths?: list<scalar|Param|null>,
  *     proxy_dir?: scalar|Param|null, // Default: "%kernel.cache_dir%/jbtronics_settings/proxies"
@@ -2048,6 +2066,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     page_limit?: scalar|Param|null, // Default: null
  *     convert_exception?: bool|Param, // Default: false
  *     remove_first_page_param?: bool|Param, // Default: false
+ * }
+ * @psalm-type KocalBiomeJsConfig = array{
+ *     binary_version?: scalar|Param|null, // Biome.js CLI version to download.
  * }
  * @psalm-type FlysystemConfig = array{
  *     storages?: array<string, array{ // Default: []
@@ -2181,55 +2202,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         read_only?: bool|Param, // Converts a file system to read-only // Default: false
  *     }>,
  * }
- * @psalm-type UxMapConfig = array{
- *     renderer?: scalar|Param|null, // Default: null
- *     google_maps?: array{
- *         default_map_id?: scalar|Param|null, // Default: null
- *     },
- * }
- * @psalm-type UxIconsConfig = array{
- *     icon_dir?: scalar|Param|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
- *     default_icon_attributes?: array<string, scalar|Param|null>,
- *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
- *         path?: scalar|Param|null, // The local icon set directory path. (cannot be used with 'alias')
- *         alias?: scalar|Param|null, // The remote icon set identifier. (cannot be used with 'path')
- *         icon_attributes?: array<string, scalar|Param|null>,
- *         suffixes?: array<string, array{ // The suffix name (e.g. "solid", "20-solid") // Default: []
- *             icon_attributes?: array<string, scalar|Param|null>,
- *         }>,
- *     }>,
- *     aliases?: array<string, string|Param>,
- *     iconify?: bool|array{ // Configuration for the remote icon service.
- *         enabled?: bool|Param, // Default: true
- *         on_demand?: bool|Param, // Whether to download icons "on demand". // Default: true
- *         endpoint?: scalar|Param|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
- *     },
- *     ignore_not_found?: bool|Param, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
- * }
- * @psalm-type TwigComponentConfig = array{
- *     defaults?: array<string, string|array{ // Default: []
- *         template_directory?: scalar|Param|null, // Default: "components"
- *         name_prefix?: scalar|Param|null, // Default: ""
- *     }>,
- *     anonymous_template_directory?: scalar|Param|null, // Defaults to `components`
- *     profiler?: bool|array{ // Enables the profiler for Twig Component
- *         enabled?: bool|Param, // Default: "%kernel.debug%"
- *         collect_components?: bool|Param, // Collect components instances // Default: true
- *     },
- * }
- * @psalm-type LiveComponentConfig = array{
- *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
- *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
- * }
- * @psalm-type SymfonycastsResetPasswordConfig = array{
- *     request_password_repository?: scalar|Param|null, // A class that implements ResetPasswordRequestRepositoryInterface - usually your ResetPasswordRequestRepository.
- *     lifetime?: int|Param, // The length of time in seconds that a password reset request is valid for after it is created. // Default: 3600
- *     throttle_limit?: int|Param, // Another password reset cannot be made faster than this throttle time in seconds. // Default: 3600
- *     enable_garbage_collection?: bool|Param, // Enable/Disable automatic garbage collection. // Default: true
- * }
- * @psalm-type SymfonycastsVerifyEmailConfig = array{
- *     lifetime?: int|Param, // The length of time in seconds that a signed URI is valid for after it is created. // Default: 3600
- * }
  * @psalm-type NelmioApiDocConfig = array{
  *     type_info?: bool|Param, // Use the symfony/type-info component for determining types. // Default: true
  *     use_validation_groups?: bool|Param, // If true, `groups` passed to #[Model] attributes will be used to limit validation constraints // Default: false
@@ -2280,6 +2252,34 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         }>,
  *     },
  * }
+ * @psalm-type NelmioCorsConfig = array{
+ *     defaults?: array{
+ *         allow_credentials?: bool|Param, // Default: false
+ *         allow_origin?: list<scalar|Param|null>,
+ *         allow_headers?: list<scalar|Param|null>,
+ *         allow_methods?: list<scalar|Param|null>,
+ *         allow_private_network?: bool|Param, // Default: false
+ *         expose_headers?: list<scalar|Param|null>,
+ *         max_age?: scalar|Param|null, // Default: 0
+ *         hosts?: list<scalar|Param|null>,
+ *         origin_regex?: bool|Param, // Default: false
+ *         forced_allow_origin_value?: scalar|Param|null, // Default: null
+ *         skip_same_as_origin?: bool|Param, // Default: true
+ *     },
+ *     paths?: array<string, array{ // Default: []
+ *         allow_credentials?: bool|Param,
+ *         allow_origin?: list<scalar|Param|null>,
+ *         allow_headers?: list<scalar|Param|null>,
+ *         allow_methods?: list<scalar|Param|null>,
+ *         allow_private_network?: bool|Param,
+ *         expose_headers?: list<scalar|Param|null>,
+ *         max_age?: scalar|Param|null, // Default: 0
+ *         hosts?: list<scalar|Param|null>,
+ *         origin_regex?: bool|Param,
+ *         forced_allow_origin_value?: scalar|Param|null, // Default: null
+ *         skip_same_as_origin?: bool|Param,
+ *     }>,
+ * }
  * @psalm-type NelmioJsLoggerConfig = array{
  *     allowed_levels?: list<scalar|Param|null>,
  *     ignore_messages?: list<scalar|Param|null>,
@@ -2315,10 +2315,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     default?: "404"|"mp"|"identicon"|"monsterid"|"wavatar"|"retro"|"robohash"|"mm"|Param, // Default: "mp"
  *     format?: "url"|"base64"|Param, // Default: "url"
  *     secure?: bool|Param, // Deprecated: The child node "secure" at path "pyrrah_gravatar.secure" is deprecated. // Default: true
- * }
- * @psalm-type RekalogikaFileConfig = array{
- *     filesystems?: array<string, scalar|Param|null>,
- *     default_filesystem_directory?: scalar|Param|null, // The storage directory used by the default filesystem. // Default: "%kernel.project_dir%/var/storage/default"
  * }
  * @psalm-type SchebTwoFactorConfig = array{
  *     persister?: scalar|Param|null, // Default: "scheb_two_factor.persister.doctrine"
@@ -2377,20 +2373,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         template?: scalar|Param|null, // Default: "@SchebTwoFactor/Authentication/form.html.twig"
  *     },
  * }
- * @psalm-type DukecityCommandSchedulerConfig = array{
- *     scheduled_command_class?: scalar|Param|null, // The entity class to use for scheduled commands. Must implement ScheduledCommandInterface. // Default: "Dukecity\\CommandSchedulerBundle\\Entity\\ScheduledCommand"
- *     doctrine_manager?: scalar|Param|null, // Default: "default"
- *     log_path?: scalar|Param|null, // Default: "%kernel.logs_dir%"
- *     lock_timeout?: scalar|Param|null, // Default: false
- *     ping_back_provider?: scalar|Param|null, // Default: null
- *     ping_back?: bool|Param, // Default: true
- *     ping_back_failed?: bool|Param, // Default: true
- *     monitor_mail?: list<scalar|Param|null>,
- *     monitor_mail_subject?: scalar|Param|null, // Default: "cronjob monitoring %%s, %%s"
- *     send_ok?: bool|Param, // Default: false
- *     excluded_command_namespaces?: mixed, // Default: []
- *     included_command_namespaces?: mixed, // Default: []
- * }
  * @psalm-type ShapecodeCronConfig = array{
  *     timeout?: float|Param, // Default: null
  * }
@@ -2402,6 +2384,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         default?: scalar|Param|null, // Default: "Asia/Muscat"
  *         locales?: array<string, scalar|Param|null>,
  *     },
+ * }
+ * @psalm-type IgnitionConfig = array{
+ *     application_path?: scalar|Param|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
+ *     dark_mode?: bool|Param, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
+ *     should_display_exception?: bool|Param, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
+ *     force_html_response?: bool|Param, // When true, Ignition always renders HTML errors regardless of request format. When false, non-HTML requests (e.g. JSON) are handled by Symfony. // Default: false
+ *     openai_key?: scalar|Param|null, // if you want AI solutions to your app's errors. // Default: ""
  * }
  * @psalm-type StofDoctrineExtensionsConfig = array{
  *     orm?: array<string, array{ // Default: []
@@ -2457,43 +2446,76 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     skip_translation_on_load?: bool|Param, // Default: false
  *     metadata_cache_pool?: scalar|Param|null, // Default: null
  * }
- * @psalm-type DamaDoctrineTestConfig = array{
- *     enable_static_connection?: mixed, // Default: true
- *     enable_static_meta_data_cache?: bool|Param, // Default: true
- *     enable_static_query_cache?: bool|Param, // Default: true
- *     connection_keys?: list<mixed>,
- * }
- * @psalm-type DoctrineDiagramConfig = array{
- *     er?: array{
- *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/er"
- *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
- *         theme?: scalar|Param|null, // Default: "_none_"
- *         connection?: scalar|Param|null, // Default: null
- *         exclude?: list<scalar|Param|null>,
- *     },
- *     class?: array{
- *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/class"
- *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
- *         theme?: scalar|Param|null, // Default: "_none_"
- *         em?: scalar|Param|null, // Default: null
- *         exclude?: list<scalar|Param|null>,
- *     },
- *     convert?: array{
- *         format?: "puml"|"png"|"svg"|Param, // Default: "svg"
- *         converter?: "auto"|"jar"|"server"|Param, // Default: "auto"
- *         jar?: scalar|Param|null, // Default: null
- *         server?: scalar|Param|null, // Default: "http://www.plantuml.com/plantuml"
+ * @psalm-type UxMapConfig = array{
+ *     renderer?: scalar|Param|null, // Default: null
+ *     google_maps?: array{
+ *         default_map_id?: scalar|Param|null, // Default: null
  *     },
  * }
- * @psalm-type KocalBiomeJsConfig = array{
- *     binary_version?: scalar|Param|null, // Biome.js CLI version to download.
+ * @psalm-type UxIconsConfig = array{
+ *     icon_dir?: scalar|Param|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
+ *     default_icon_attributes?: array<string, scalar|Param|null>,
+ *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
+ *         path?: scalar|Param|null, // The local icon set directory path. (cannot be used with 'alias')
+ *         alias?: scalar|Param|null, // The remote icon set identifier. (cannot be used with 'path')
+ *         icon_attributes?: array<string, scalar|Param|null>,
+ *         suffixes?: array<string, array{ // The suffix name (e.g. "solid", "20-solid") // Default: []
+ *             icon_attributes?: array<string, scalar|Param|null>,
+ *         }>,
+ *     }>,
+ *     aliases?: array<string, string|Param>,
+ *     iconify?: bool|array{ // Configuration for the remote icon service.
+ *         enabled?: bool|Param, // Default: true
+ *         on_demand?: bool|Param, // Whether to download icons "on demand". // Default: true
+ *         endpoint?: scalar|Param|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
+ *     },
+ *     ignore_not_found?: bool|Param, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
  * }
- * @psalm-type IgnitionConfig = array{
- *     application_path?: scalar|Param|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
- *     dark_mode?: bool|Param, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
- *     should_display_exception?: bool|Param, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
- *     force_html_response?: bool|Param, // When true, Ignition always renders HTML errors regardless of request format. When false, non-HTML requests (e.g. JSON) are handled by Symfony. // Default: false
- *     openai_key?: scalar|Param|null, // if you want AI solutions to your app's errors. // Default: ""
+ * @psalm-type TwigComponentConfig = array{
+ *     defaults?: array<string, string|array{ // Default: []
+ *         template_directory?: scalar|Param|null, // Default: "components"
+ *         name_prefix?: scalar|Param|null, // Default: ""
+ *     }>,
+ *     anonymous_template_directory?: scalar|Param|null, // Defaults to `components`
+ *     profiler?: bool|array{ // Enables the profiler for Twig Component
+ *         enabled?: bool|Param, // Default: "%kernel.debug%"
+ *         collect_components?: bool|Param, // Collect components instances // Default: true
+ *     },
+ * }
+ * @psalm-type LiveComponentConfig = array{
+ *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
+ *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
+ * }
+ * @psalm-type SymfonycastsResetPasswordConfig = array{
+ *     request_password_repository?: scalar|Param|null, // A class that implements ResetPasswordRequestRepositoryInterface - usually your ResetPasswordRequestRepository.
+ *     lifetime?: int|Param, // The length of time in seconds that a password reset request is valid for after it is created. // Default: 3600
+ *     throttle_limit?: int|Param, // Another password reset cannot be made faster than this throttle time in seconds. // Default: 3600
+ *     enable_garbage_collection?: bool|Param, // Enable/Disable automatic garbage collection. // Default: true
+ * }
+ * @psalm-type SymfonycastsVerifyEmailConfig = array{
+ *     lifetime?: int|Param, // The length of time in seconds that a signed URI is valid for after it is created. // Default: 3600
+ * }
+ * @psalm-type EasyLogConfig = array{
+ *     log_path?: scalar|Param|null, // Path where readable log file will be located // Default: "%kernel.logs_dir%/%kernel.environment%-readable.log"
+ *     max_line_length?: int|Param, // Max line length in log file // Default: 120
+ *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
+ *     ignored_routes?: list<scalar|Param|null>,
+ * }
+ * @psalm-type YokaiSecurityTokenConfig = array{
+ *     tokens?: array<string, array{ // Default: []
+ *         generator?: scalar|Param|null, // Default: "yokai_security_token.open_ssl_token_generator"
+ *         duration?: scalar|Param|null, // Default: "+2 days"
+ *         usages?: int|Param, // Default: 1
+ *         keep?: scalar|Param|null, // Default: "+1 month"
+ *         unique?: bool|Param, // Default: false
+ *     }>,
+ *     services?: array{
+ *         information_guesser?: scalar|Param|null, // Default: "yokai_security_token.default_information_guesser"
+ *         token_factory?: scalar|Param|null, // Default: "yokai_security_token.default_token_factory"
+ *         token_repository?: scalar|Param|null, // Default: "yokai_security_token.default_token_repository"
+ *         token_manager?: scalar|Param|null, // Default: "yokai_security_token.default_token_manager"
+ *         archivist?: scalar|Param|null, // Default: "yokai_security_token.delete_archivist"
+ *     },
  * }
  * @psalm-type ZenstruckFoundryConfig = array{
  *     auto_refresh_proxies?: bool|Param|null, // Deprecated: Since 2.0 auto_refresh_proxies defaults to true and this configuration has no effect. // Whether to auto-refresh proxies by default (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#auto-refresh) // Default: null
@@ -2539,38 +2561,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         default_namespace?: scalar|Param|null, // Default namespace where stories will be created by maker. // Default: "Story"
  *     },
  * }
- * @psalm-type EasyLogConfig = array{
- *     log_path?: scalar|Param|null, // Path where readable log file will be located // Default: "%kernel.logs_dir%/%kernel.environment%-readable.log"
- *     max_line_length?: int|Param, // Max line length in log file // Default: 120
- *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
- *     ignored_routes?: list<scalar|Param|null>,
- * }
- * @psalm-type PhpRbacConfig = array{
- *     no_authentication_section?: array{
- *         default?: scalar|Param|null, // Set default deny or allow if access control attribute is missing with aurhorized user // Default: "deny"
- *     },
- *     resolve_target_entities?: array{
- *         user?: scalar|Param|null, // Set the class which implements UserInterface
- *         role?: scalar|Param|null, // Set the class which implements RoleInterface
- *         permission?: scalar|Param|null, // Set the class which implements PermissionInterface
- *     },
- * }
- * @psalm-type YokaiSecurityTokenConfig = array{
- *     tokens?: array<string, array{ // Default: []
- *         generator?: scalar|Param|null, // Default: "yokai_security_token.open_ssl_token_generator"
- *         duration?: scalar|Param|null, // Default: "+2 days"
- *         usages?: int|Param, // Default: 1
- *         keep?: scalar|Param|null, // Default: "+1 month"
- *         unique?: bool|Param, // Default: false
- *     }>,
- *     services?: array{
- *         information_guesser?: scalar|Param|null, // Default: "yokai_security_token.default_information_guesser"
- *         token_factory?: scalar|Param|null, // Default: "yokai_security_token.default_token_factory"
- *         token_repository?: scalar|Param|null, // Default: "yokai_security_token.default_token_repository"
- *         token_manager?: scalar|Param|null, // Default: "yokai_security_token.default_token_manager"
- *         archivist?: scalar|Param|null, // Default: "yokai_security_token.delete_archivist"
- *     },
- * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2579,14 +2569,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     doctrine?: DoctrineConfig,
  *     doctrine_migrations?: DoctrineMigrationsConfig,
  *     twig?: TwigConfig,
- *     web_profiler?: WebProfilerConfig,
  *     stimulus?: StimulusConfig,
  *     turbo?: TurboConfig,
  *     twig_extra?: TwigExtraConfig,
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
- *     nelmio_cors?: NelmioCorsConfig,
+ *     rekalogika_file?: RekalogikaFileConfig,
  *     api_platform?: ApiPlatformConfig,
+ *     dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *     fd_log_viewer?: FdLogViewerConfig,
  *     fos_ck_editor?: FosCkEditorConfig,
  *     hwi_oauth?: HwiOauthConfig,
@@ -2594,26 +2584,21 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     knp_menu?: KnpMenuConfig,
  *     knp_paginator?: KnpPaginatorConfig,
  *     flysystem?: FlysystemConfig,
+ *     nelmio_api_doc?: NelmioApiDocConfig,
+ *     nelmio_cors?: NelmioCorsConfig,
+ *     nelmio_js_logger?: NelmioJsLoggerConfig,
+ *     misd_phone_number?: MisdPhoneNumberConfig,
+ *     pyrrah_gravatar?: PyrrahGravatarConfig,
+ *     scheb_two_factor?: SchebTwoFactorConfig,
+ *     shapecode_cron?: ShapecodeCronConfig,
+ *     sonata_intl?: SonataIntlConfig,
+ *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *     ux_map?: UxMapConfig,
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *     nelmio_api_doc?: NelmioApiDocConfig,
- *     nelmio_js_logger?: NelmioJsLoggerConfig,
- *     misd_phone_number?: MisdPhoneNumberConfig,
- *     pyrrah_gravatar?: PyrrahGravatarConfig,
- *     rekalogika_file?: RekalogikaFileConfig,
- *     scheb_two_factor?: SchebTwoFactorConfig,
- *     dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
- *     shapecode_cron?: ShapecodeCronConfig,
- *     sonata_intl?: SonataIntlConfig,
- *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *     doctrine_diagram?: DoctrineDiagramConfig,
- *     zenstruck_foundry?: ZenstruckFoundryConfig,
- *     easy_log?: EasyLogConfig,
- *     php_rbac?: PhpRbacConfig,
  *     yokai_security_token?: YokaiSecurityTokenConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
@@ -2631,8 +2616,54 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
- *         nelmio_cors?: NelmioCorsConfig,
+ *         rekalogika_file?: RekalogikaFileConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
+ *         fd_log_viewer?: FdLogViewerConfig,
+ *         fos_ck_editor?: FosCkEditorConfig,
+ *         hwi_oauth?: HwiOauthConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
+ *         knp_menu?: KnpMenuConfig,
+ *         knp_paginator?: KnpPaginatorConfig,
+ *         kocal_biome_js?: KocalBiomeJsConfig,
+ *         flysystem?: FlysystemConfig,
+ *         nelmio_api_doc?: NelmioApiDocConfig,
+ *         nelmio_cors?: NelmioCorsConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
+ *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
+ *         scheb_two_factor?: SchebTwoFactorConfig,
+ *         shapecode_cron?: ShapecodeCronConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         ignition?: IgnitionConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         ux_map?: UxMapConfig,
+ *         ux_icons?: UxIconsConfig,
+ *         twig_component?: TwigComponentConfig,
+ *         live_component?: LiveComponentConfig,
+ *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
+ *         easy_log?: EasyLogConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
+ *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *     },
+ *     "when@prod"?: array{
+ *         imports?: ImportsConfig,
+ *         parameters?: ParametersConfig,
+ *         services?: ServicesConfig,
+ *         framework?: FrameworkConfig,
+ *         doctrine?: DoctrineConfig,
+ *         doctrine_migrations?: DoctrineMigrationsConfig,
+ *         twig?: TwigConfig,
+ *         stimulus?: StimulusConfig,
+ *         turbo?: TurboConfig,
+ *         twig_extra?: TwigExtraConfig,
+ *         security?: SecurityConfig,
+ *         monolog?: MonologConfig,
+ *         rekalogika_file?: RekalogikaFileConfig,
+ *         api_platform?: ApiPlatformConfig,
+ *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *         fd_log_viewer?: FdLogViewerConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
  *         hwi_oauth?: HwiOauthConfig,
@@ -2640,28 +2671,21 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         knp_menu?: KnpMenuConfig,
  *         knp_paginator?: KnpPaginatorConfig,
  *         flysystem?: FlysystemConfig,
+ *         nelmio_api_doc?: NelmioApiDocConfig,
+ *         nelmio_cors?: NelmioCorsConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
+ *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
+ *         scheb_two_factor?: SchebTwoFactorConfig,
+ *         shapecode_cron?: ShapecodeCronConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         ux_map?: UxMapConfig,
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *         nelmio_api_doc?: NelmioApiDocConfig,
- *         nelmio_js_logger?: NelmioJsLoggerConfig,
- *         misd_phone_number?: MisdPhoneNumberConfig,
- *         pyrrah_gravatar?: PyrrahGravatarConfig,
- *         rekalogika_file?: RekalogikaFileConfig,
- *         scheb_two_factor?: SchebTwoFactorConfig,
- *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
- *         shapecode_cron?: ShapecodeCronConfig,
- *         sonata_intl?: SonataIntlConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *         doctrine_diagram?: DoctrineDiagramConfig,
- *         kocal_biome_js?: KocalBiomeJsConfig,
- *         ignition?: IgnitionConfig,
- *         zenstruck_foundry?: ZenstruckFoundryConfig,
- *         easy_log?: EasyLogConfig,
- *         php_rbac?: PhpRbacConfig,
  *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     "when@test"?: array{
@@ -2678,37 +2702,36 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
- *         nelmio_cors?: NelmioCorsConfig,
+ *         rekalogika_file?: RekalogikaFileConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         dama_doctrine_test?: DamaDoctrineTestConfig,
+ *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *         fd_log_viewer?: FdLogViewerConfig,
  *         fos_ck_editor?: FosCkEditorConfig,
  *         hwi_oauth?: HwiOauthConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         knp_menu?: KnpMenuConfig,
  *         knp_paginator?: KnpPaginatorConfig,
  *         flysystem?: FlysystemConfig,
+ *         nelmio_api_doc?: NelmioApiDocConfig,
+ *         nelmio_cors?: NelmioCorsConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
+ *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
+ *         scheb_two_factor?: SchebTwoFactorConfig,
+ *         shapecode_cron?: ShapecodeCronConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         ux_map?: UxMapConfig,
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *         nelmio_api_doc?: NelmioApiDocConfig,
- *         nelmio_js_logger?: NelmioJsLoggerConfig,
- *         misd_phone_number?: MisdPhoneNumberConfig,
- *         pyrrah_gravatar?: PyrrahGravatarConfig,
- *         rekalogika_file?: RekalogikaFileConfig,
- *         scheb_two_factor?: SchebTwoFactorConfig,
- *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
- *         shapecode_cron?: ShapecodeCronConfig,
- *         sonata_intl?: SonataIntlConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *         dama_doctrine_test?: DamaDoctrineTestConfig,
- *         doctrine_diagram?: DoctrineDiagramConfig,
- *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         easy_log?: EasyLogConfig,
- *         php_rbac?: PhpRbacConfig,
  *         yokai_security_token?: YokaiSecurityTokenConfig,
+ *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
@@ -2793,6 +2816,7 @@ namespace Symfony\Component\Routing\Loader\Configurator;
  * }
  * @psalm-type RoutesConfig = array{
  *     "when@dev"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
+ *     "when@prod"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     "when@test"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     ...<string, RouteConfig|ImportConfig|AliasConfig>
  * }
