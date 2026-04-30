@@ -2561,6 +2561,16 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         default_namespace?: scalar|Param|null, // Default namespace where stories will be created by maker. // Default: "Story"
  *     },
  * }
+ * @psalm-type PhpRbacConfig = array{
+ *     no_authentication_section?: array{
+ *         default?: scalar|Param|null, // Set default deny or allow if access control attribute is missing with aurhorized user // Default: "deny"
+ *     },
+ *     resolve_target_entities?: array{
+ *         user?: scalar|Param|null, // Set the class which implements UserInterface
+ *         role?: scalar|Param|null, // Set the class which implements RoleInterface
+ *         permission?: scalar|Param|null, // Set the class which implements PermissionInterface
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2604,6 +2614,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     easy_log?: EasyLogConfig,
  *     yokai_security_token?: YokaiSecurityTokenConfig,
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
+ *     php_rbac?: PhpRbacConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2651,6 +2662,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         yokai_security_token?: YokaiSecurityTokenConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *         php_rbac?: PhpRbacConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2696,6 +2708,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         yokai_security_token?: YokaiSecurityTokenConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *         php_rbac?: PhpRbacConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
