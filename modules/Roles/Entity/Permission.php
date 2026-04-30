@@ -27,7 +27,7 @@ use PhpRbacBundle\Repository\PermissionRepository;
 #[Gedmo\SoftDeleteable]
 class Permission extends EntityPermission
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 }
