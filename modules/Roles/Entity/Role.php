@@ -27,7 +27,7 @@ use PhpRbacBundle\Repository\RoleRepository;
 #[Gedmo\SoftDeleteable]
 class Role extends EntityRole
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 }
