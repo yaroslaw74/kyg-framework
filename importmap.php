@@ -242,10 +242,10 @@ return [
         'version' => '2.0.0',
     ],
     'choices.js' => [
-        'version' => '11.2.2',
+        'version' => '11.2.3',
     ],
     'choices.js/public/assets/styles/choices.min.css' => [
-        'version' => '11.2.2',
+        'version' => '11.2.3',
         'type' => 'css',
     ],
     'filepond' => [
