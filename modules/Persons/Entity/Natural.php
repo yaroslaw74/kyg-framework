@@ -38,8 +38,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 #[ApiResource]
 class Natural
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -105,17 +105,17 @@ class Natural
     public function __unserialize(array $data): void
     {
         [
+            $this->createdAt,
+            $this->createdBy,
+            $this->updatedAt,
+            $this->updatedBy,
+            $this->deletedAt,
             $this->id,
             $this->name,
             $this->photo,
             $this->email,
             $this->phone,
             $this->address,
-            $this->createdAt,
-            $this->createdBy,
-            $this->updatedAt,
-            $this->updatedBy,
-            $this->deletedAt,
             $this->employee,
             $this->user,
             $this->contacts,
