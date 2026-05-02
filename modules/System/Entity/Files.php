@@ -31,9 +31,9 @@ use Rekalogika\File\Association\Attribute\WithFileAssociation;
 #[WithFileAssociation]
 class Files implements FileInterface
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
     use FileTrait;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -60,15 +60,15 @@ class Files implements FileInterface
     public function __unserialize(array $data): void
     {
         [
-            $this->id,
-            $this->path,
-            $this->file,
             $this->metadata,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->file,
+            $this->id,
+            $this->path,
         ] = $data;
     }
 
