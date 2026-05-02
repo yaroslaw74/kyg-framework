@@ -31,8 +31,8 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 #[ApiResource]
 class Enterprises
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -72,13 +72,13 @@ class Enterprises
     public function __unserialize(array $data): void
     {
         [
-            $this->id,
-            $this->name,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->id,
+            $this->name,
             $this->departments,
         ] = $data;
     }
