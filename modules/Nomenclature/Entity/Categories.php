@@ -35,8 +35,8 @@ use Gedmo\Translatable\Translatable;
 #[ApiResource]
 class Categories implements Sortable, Translatable
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -109,15 +109,15 @@ class Categories implements Sortable, Translatable
     public function __unserialize(array $data): void
     {
         [
-            $this->id,
-            $this->name,
-            $this->slug,
-            $this->description,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->id,
+            $this->name,
+            $this->slug,
+            $this->description,
             $this->position,
             $this->children,
             $this->parent,
