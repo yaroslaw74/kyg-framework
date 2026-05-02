@@ -39,8 +39,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 #[ApiResource]
 class Employees
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -104,6 +104,11 @@ class Employees
     public function __unserialize(array $data): void
     {
         [
+            $this->createdAt,
+            $this->createdBy,
+            $this->updatedAt,
+            $this->updatedBy,
+            $this->deletedAt,
             $this->id,
             $this->firstName,
             $this->lastName,
@@ -111,11 +116,6 @@ class Employees
             $this->photo,
             $this->email,
             $this->mobile,
-            $this->createdAt,
-            $this->createdBy,
-            $this->updatedAt,
-            $this->updatedBy,
-            $this->deletedAt,
             $this->individual,
             $this->user,
             $this->contacts,
