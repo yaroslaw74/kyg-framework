@@ -36,8 +36,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 #[ApiResource]
 class Legal
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -107,17 +107,17 @@ class Legal
     public function __unserialize(array $data): void
     {
         [
+            $this->createdAt,
+            $this->createdBy,
+            $this->updatedAt,
+            $this->updatedBy,
+            $this->deletedAt,
             $this->id,
             $this->name,
             $this->logo,
             $this->email,
             $this->phone,
             $this->address,
-            $this->createdAt,
-            $this->createdBy,
-            $this->updatedAt,
-            $this->updatedBy,
-            $this->deletedAt,
             $this->parent,
             $this->children,
             $this->officials,
