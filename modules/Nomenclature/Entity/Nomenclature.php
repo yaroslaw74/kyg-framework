@@ -39,8 +39,8 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[ApiResource]
 class Nomenclature implements Sortable, Translatable
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -129,16 +129,16 @@ class Nomenclature implements Sortable, Translatable
     public function __unserialize(array $data): void
     {
         [
-            $this->id,
-            $this->name,
-            $this->type,
-            $this->description,
-            $this->position,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->id,
+            $this->name,
+            $this->type,
+            $this->description,
+            $this->position,
             $this->images,
             $this->locale,
             $this->translations,
