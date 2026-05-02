@@ -51,10 +51,10 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, UserRoleInterface
 {
-    use TimezoneAwareTrait;
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
+    use TimezoneAwareTrait;
     use UserRoleTrait;
 
     #[ORM\Id]
@@ -126,7 +126,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $github = null;
 
-    #[ORM\Column(nullable: false, options: ['default' => UsersStatus::STATUS_NEW])]
+    #[ORM\Column(enumType: UsersStatus::class, nullable: false, options: ['default' => UsersStatus::STATUS_NEW])]
     #[Enum(enum: StatusUsers::class)]
     private UsersStatus $status = UsersStatus::STATUS_NEW;
 
@@ -220,6 +220,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
     public function __unserialize(array $data): void
     {
         [
+            $this->createdAt,
+            $this->createdBy,
+            $this->updatedAt,
+            $this->updatedBy,
+            $this->deletedAt,
+            $this->timezone,
+            $this->rbacRoles,
             $this->id,
             $this->username,
             $this->email,
@@ -241,13 +248,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->vkontakte,
             $this->github,
             $this->mobile,
-            $this->createdAt,
-            $this->createdBy,
-            $this->updatedAt,
-            $this->updatedBy,
-            $this->deletedAt,
-            $this->timezone,
-            $this->rbacRoles,
             $this->status,
             $this->isVerified,
             $this->friends,
