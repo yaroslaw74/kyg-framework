@@ -74,7 +74,7 @@ return [
         'version' => '4.0.0',
     ],
     'delegate-it' => [
-        'version' => '6.3.0',
+        'version' => '6.4.0',
     ],
     'path-to-regexp' => [
         'version' => '8.4.2',
