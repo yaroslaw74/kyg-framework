@@ -29,8 +29,8 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 #[Gedmo\SoftDeleteable]
 class Contacts
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -86,13 +86,13 @@ class Contacts
     public function __unserialize(array $data): void
     {
         [
-            $this->id,
-            $this->name,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->id,
+            $this->name,
             $this->users,
             $this->employees,
             $this->legals,
