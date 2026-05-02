@@ -34,8 +34,8 @@ use Gedmo\Translatable\Translatable;
 #[ApiResource]
 class Tags implements Translatable
 {
-    use SoftDeleteableEntity;
     use BlameableEntity;
+    use SoftDeleteableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
@@ -93,14 +93,14 @@ class Tags implements Translatable
     public function __unserialize(array $data): void
     {
         [
-            $this->id,
-            $this->name,
-            $this->slug,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->id,
+            $this->name,
+            $this->slug,
             $this->locale,
             $this->translations,
             $this->nomenclatures,
