@@ -1,0 +1,10 @@
+jose:
+    # Configure the algorithm manager
+    jws:
+        builders:
+            jws_builder:
+                signature_algorithms: ["RS256"]
+
+        verifiers:
+            jws_verifier:
+                signature_algorithms: ["RS256"]
