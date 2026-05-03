@@ -71,9 +71,9 @@ class Positions
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
-            $this->department,
             $this->id,
             $this->name,
+            $this->department,
             $this->employee,
         ] = $data;
     }
