@@ -164,7 +164,6 @@
         "twig/string-extra": "^3.24",
         "twig/twig": "^3.24",
         "web-token/jwt-bundle": "^4.1.6",
-        "webmozart/assert": "^1.12.1",
         "yokai/enum-bundle": "^5.1"
     },
     "require-dev": {
