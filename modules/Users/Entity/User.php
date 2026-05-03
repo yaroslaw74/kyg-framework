@@ -32,8 +32,6 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType;
-use PhpRbacBundle\Entity\UserRoleInterface;
-use PhpRbacBundle\Entity\UserRoleTrait;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -49,13 +47,12 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\Uploadable(pathMethod: 'path', filenameGenerator: Validator::FILENAME_GENERATOR_SHA1, allowOverwrite: true, appendNumber: true)]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, UserRoleInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface
 {
     use BlameableEntity;
     use SoftDeleteableEntity;
     use TimestampableEntity;
     use TimezoneAwareTrait;
-    use UserRoleTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -174,7 +171,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
 
     public function __construct()
     {
-        $this->rbacRoles = new ArrayCollection();
         $this->friends = new ArrayCollection();
         $this->friendOf = new ArrayCollection();
         $this->contacts = new ArrayCollection();
@@ -226,7 +222,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timezon
             $this->updatedBy,
             $this->deletedAt,
             $this->timezone,
-            $this->rbacRoles,
             $this->id,
             $this->username,
             $this->email,
