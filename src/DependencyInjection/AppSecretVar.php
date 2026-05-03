@@ -33,6 +33,7 @@ final class AppSecretVar implements EnvVarLoaderInterface
 
         return [
             'APP_SECRET' => $settings->getAppSecret(),
+            'JWT_PASSPHRASE' => $settings->getJwtSecret(),
         ];
     }
 }
