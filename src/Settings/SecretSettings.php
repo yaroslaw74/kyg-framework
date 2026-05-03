@@ -28,6 +28,9 @@ class SecretSettings
     #[SettingsParameter(type: StringType::class, envVar: 'string:APP_SECRET')]
     private ?string $appSecret = null;
 
+    #[SettingsParameter(type: StringType::class, envVar: 'string:JWT_PASSPHRASE')]
+    private ?string $jwtSecret = null;
+
     public function getAppSecret(): ?string
     {
         return $this->appSecret;
@@ -36,5 +39,15 @@ class SecretSettings
     public function setAppSecret(string $appSecret): void
     {
         $this->appSecret = $appSecret;
+    }
+
+    public function getJwtSecret(): ?string
+    {
+        return $this->jwtSecret;
+    }
+
+    public function setJwtSecret(string $jwtSecret): void
+    {
+        $this->jwtSecret = $jwtSecret;
     }
 }
