@@ -57,5 +57,4 @@ return [
     Sonata\IntlBundle\SonataIntlBundle::class => ['all' => true],
     Yokai\EnumBundle\YokaiEnumBundle::class => ['all' => true],
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
-    Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
 ];
