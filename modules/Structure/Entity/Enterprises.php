@@ -77,9 +77,9 @@ class Enterprises
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
+            $this->departments,
             $this->id,
             $this->name,
-            $this->departments,
         ] = $data;
     }
 
