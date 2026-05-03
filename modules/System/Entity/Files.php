@@ -60,13 +60,13 @@ class Files implements FileInterface
     public function __unserialize(array $data): void
     {
         [
-            $this->metadata,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
             $this->file,
+            $this->metadata,
             $this->id,
             $this->path,
         ] = $data;
