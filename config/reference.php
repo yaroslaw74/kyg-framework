@@ -1061,6 +1061,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                 filter?: scalar|Param|null, // Default: "({uid_key}={user_identifier})"
  *                 password_attribute?: scalar|Param|null, // Default: null
  *             },
+ *             lexik_jwt?: array{
+ *                 class?: scalar|Param|null, // Default: "Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\User\\JWTUser"
+ *             },
  *         }>,
  *     firewalls?: array<string, array{ // Default: []
  *             pattern?: scalar|Param|null,
@@ -1144,6 +1147,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             remote_user?: array{
  *                 provider?: scalar|Param|null,
  *                 user?: scalar|Param|null, // Default: "REMOTE_USER"
+ *             },
+ *             jwt?: array{
+ *                 provider?: scalar|Param|null, // Default: null
+ *                 authenticator?: scalar|Param|null, // Default: "lexik_jwt_authentication.security.jwt_authenticator"
  *             },
  *             login_link?: array{
  *                 check_route?: scalar|Param|null, // Route that will validate the login link - e.g. "app_login_link_verify".
@@ -1327,6 +1334,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                 samesite?: null|"lax"|"strict"|"none"|Param, // Default: null
  *                 always_remember_me?: bool|Param, // Default: false
  *                 remember_me_parameter?: scalar|Param|null, // Default: "_remember_me"
+ *             },
+ *             refresh_jwt?: array{
+ *                 check_path?: scalar|Param|null, // Default: "/login_check"
+ *                 provider?: scalar|Param|null,
+ *                 success_handler?: scalar|Param|null,
+ *                 failure_handler?: scalar|Param|null,
+ *                 invalidate_token_on_logout?: bool|Param, // When enabled, the refresh token will be invalided on logout. // Default: true
  *             },
  *             two_factor?: array{
  *                 check_path?: scalar|Param|null, // Default: "/2fa_check"
@@ -2500,6 +2514,295 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         format?: \libphonenumber\PhoneNumberFormat::E164|\libphonenumber\PhoneNumberFormat::INTERNATIONAL|\libphonenumber\PhoneNumberFormat::NATIONAL|\libphonenumber\PhoneNumberFormat::RFC3966|Param, // Default: 1
  *     },
  * }
+ * @psalm-type LexikJwtAuthenticationConfig = array{
+ *     public_key?: scalar|Param|null, // The key used to sign tokens (useless for HMAC). If not set, the key will be automatically computed from the secret key. // Default: null
+ *     additional_public_keys?: list<scalar|Param|null>,
+ *     secret_key?: scalar|Param|null, // The key used to sign tokens. It can be a raw secret (for HMAC), a raw RSA/ECDSA key or the path to a file itself being plaintext or PEM. // Default: null
+ *     pass_phrase?: scalar|Param|null, // The key passphrase (useless for HMAC) // Default: ""
+ *     token_ttl?: scalar|Param|null, // Default: 3600
+ *     allow_no_expiration?: bool|Param, // Allow tokens without "exp" claim (i.e. indefinitely valid, no lifetime) to be considered valid. Caution: usage of this should be rare. // Default: false
+ *     clock_skew?: scalar|Param|null, // Default: 0
+ *     encoder?: array{
+ *         service?: scalar|Param|null, // Default: "lexik_jwt_authentication.encoder.lcobucci"
+ *         signature_algorithm?: scalar|Param|null, // Default: "RS256"
+ *     },
+ *     user_id_claim?: scalar|Param|null, // Default: "username"
+ *     token_extractors?: array{
+ *         authorization_header?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             prefix?: scalar|Param|null, // Default: "Bearer"
+ *             name?: scalar|Param|null, // Default: "Authorization"
+ *         },
+ *         cookie?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             name?: scalar|Param|null, // Default: "BEARER"
+ *         },
+ *         query_parameter?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             name?: scalar|Param|null, // Default: "bearer"
+ *         },
+ *         split_cookie?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             cookies?: list<scalar|Param|null>,
+ *         },
+ *     },
+ *     remove_token_from_body_when_cookies_used?: scalar|Param|null, // Default: true
+ *     set_cookies?: array<string, array{ // Default: []
+ *             lifetime?: scalar|Param|null, // The cookie lifetime. If null, the "token_ttl" option value will be used // Default: null
+ *             samesite?: "none"|"lax"|"strict"|Param, // Default: "lax"
+ *             path?: scalar|Param|null, // Default: "/"
+ *             domain?: scalar|Param|null, // Default: null
+ *             secure?: scalar|Param|null, // Default: true
+ *             httpOnly?: scalar|Param|null, // Default: true
+ *             partitioned?: scalar|Param|null, // Default: false
+ *             split?: list<scalar|Param|null>,
+ *         }>,
+ *     api_platform?: bool|array{ // API Platform compatibility: add check_path in OpenAPI documentation.
+ *         enabled?: bool|Param, // Default: false
+ *         check_path?: scalar|Param|null, // The login check path to add in OpenAPI. // Default: null
+ *         username_path?: scalar|Param|null, // The path to the username in the JSON body. // Default: null
+ *         password_path?: scalar|Param|null, // The path to the password in the JSON body. // Default: null
+ *     },
+ *     access_token_issuance?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         signature?: array{
+ *             algorithm?: scalar|Param|null, // The algorithm use to sign the access tokens.
+ *             key?: scalar|Param|null, // The signature key. It shall be JWK encoded.
+ *         },
+ *         encryption?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             key_encryption_algorithm?: scalar|Param|null, // The key encryption algorithm is used to encrypt the token.
+ *             content_encryption_algorithm?: scalar|Param|null, // The key encryption algorithm is used to encrypt the token.
+ *             key?: scalar|Param|null, // The encryption key. It shall be JWK encoded.
+ *         },
+ *     },
+ *     access_token_verification?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         signature?: array{
+ *             header_checkers?: list<scalar|Param|null>,
+ *             claim_checkers?: list<scalar|Param|null>,
+ *             mandatory_claims?: list<scalar|Param|null>,
+ *             allowed_algorithms?: list<scalar|Param|null>,
+ *             keyset?: scalar|Param|null, // The signature keyset. It shall be JWKSet encoded.
+ *         },
+ *         encryption?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             continue_on_decryption_failure?: bool|Param, // If enable, non-encrypted tokens or tokens that failed during decryption or verification processes are accepted. // Default: false
+ *             header_checkers?: list<scalar|Param|null>,
+ *             allowed_key_encryption_algorithms?: list<scalar|Param|null>,
+ *             allowed_content_encryption_algorithms?: list<scalar|Param|null>,
+ *             keyset?: scalar|Param|null, // The encryption keyset. It shall be JWKSet encoded.
+ *         },
+ *     },
+ *     blocklist_token?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         cache?: scalar|Param|null, // Storage to track blocked tokens // Default: "cache.app"
+ *     },
+ * }
+ * @psalm-type GesdinetJwtRefreshTokenConfig = array{
+ *     ttl?: int|Param, // The default TTL for all authenticators. // Default: 2592000
+ *     ttl_update?: bool|Param, // The default update TTL flag for all authenticators. // Default: false
+ *     manager_type?: scalar|Param|null, // Set the type of object manager to use (default: orm) // Default: "orm"
+ *     refresh_token_class?: scalar|Param|null, // Set the refresh token class to use
+ *     object_manager?: scalar|Param|null, // Set the object manager to use (default: doctrine.orm.entity_manager) // Default: null
+ *     single_use?: scalar|Param|null, // When true, generate a new refresh token on consumption (deleting the old one) // Default: false
+ *     token_parameter_name?: scalar|Param|null, // The default request parameter name containing the refresh token for all authenticators. // Default: "refresh_token"
+ *     cookie?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         same_site?: "none"|"lax"|"strict"|Param, // Default: "lax"
+ *         path?: scalar|Param|null, // Default: "/"
+ *         domain?: scalar|Param|null, // Default: null
+ *         http_only?: scalar|Param|null, // Default: true
+ *         secure?: scalar|Param|null, // Default: true
+ *         partitioned?: scalar|Param|null, // Default: false
+ *         remove_token_from_body?: scalar|Param|null, // Default: true
+ *     },
+ *     return_expiration?: scalar|Param|null, // When true, the response will include the token expiration timestamp // Default: false
+ *     return_expiration_parameter_name?: scalar|Param|null, // The default response parameter name containing the refresh token expiration timestamp // Default: "refresh_token_expiration"
+ *     default_invalid_batch_size?: int|Param, // The default batch size when clearing invalid tokens // Default: 1000
+ * }
+ * @psalm-type JoseConfig = array{
+ *     clock?: scalar|Param|null, // PSR-20 clock // Default: "jose.internal_clock"
+ *     checkers?: array{
+ *         claims?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 claims?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         headers?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 headers?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *     },
+ *     jws?: array{
+ *         builders?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 signature_algorithms?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         verifiers?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 signature_algorithms?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         serializers?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 serializers?: list<scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         loaders?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 signature_algorithms?: array<string, scalar|Param|null>,
+ *                 serializers?: array<string, scalar|Param|null>,
+ *                 header_checkers?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *     },
+ *     jwe?: array{
+ *         builders?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 encryption_algorithms?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         decrypters?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 encryption_algorithms?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         serializers?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 serializers?: list<scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         loaders?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 encryption_algorithms?: array<string, scalar|Param|null>,
+ *                 serializers?: array<string, scalar|Param|null>,
+ *                 header_checkers?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *     },
+ *     nested_token?: array{
+ *         loaders?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 signature_algorithms?: array<string, scalar|Param|null>,
+ *                 encryption_algorithms?: array<string, scalar|Param|null>,
+ *                 jws_serializers?: array<string, scalar|Param|null>,
+ *                 jwe_serializers?: array<string, scalar|Param|null>,
+ *                 jws_header_checkers?: array<string, scalar|Param|null>,
+ *                 jwe_header_checkers?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *         builders?: array<string, array{ // Default: []
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 signature_algorithms?: array<string, scalar|Param|null>,
+ *                 encryption_algorithms?: array<string, scalar|Param|null>,
+ *                 jws_serializers?: array<string, scalar|Param|null>,
+ *                 jwe_serializers?: array<string, scalar|Param|null>,
+ *                 tags?: array<string, mixed>,
+ *             }>,
+ *     },
+ *     key_sets?: array<string, array{ // Default: []
+ *             jwkset?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 value?: scalar|Param|null, // The JWKSet object.
+ *             },
+ *             jku?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 url?: scalar|Param|null, // URL of the key set.
+ *                 headers?: array<string, mixed>,
+ *             },
+ *             x5u?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 url?: scalar|Param|null, // URL of the key set.
+ *                 headers?: array<string, mixed>,
+ *             },
+ *         }>,
+ *     keys?: array<string, array{ // Default: []
+ *             file?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 path?: scalar|Param|null, // Path of the key file.
+ *                 password?: scalar|Param|null, // Password used to decrypt the key (optional). // Default: null
+ *                 additional_values?: array<string, mixed>,
+ *             },
+ *             p12?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 path?: scalar|Param|null, // Path of the key file.
+ *                 password?: scalar|Param|null, // Password used to decrypt the key (optional). // Default: null
+ *                 additional_values?: array<string, mixed>,
+ *             },
+ *             certificate?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 path?: scalar|Param|null, // Path of the certificate file.
+ *                 additional_values?: array<string, mixed>,
+ *             },
+ *             values?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 values?: array<string, mixed>,
+ *             },
+ *             secret?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 secret?: scalar|Param|null, // The shared secret.
+ *                 additional_values?: array<string, mixed>,
+ *             },
+ *             jwk?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 value?: scalar|Param|null, // The JWK object
+ *             },
+ *             x5c?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 value?: scalar|Param|null, // X509 certificate
+ *                 additional_values?: array<string, mixed>,
+ *             },
+ *             jwkset?: array{
+ *                 is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *                 tags?: array<string, mixed>,
+ *                 key_set?: scalar|Param|null, // The key set service.
+ *                 index?: mixed, // The index of the key in the key set.
+ *             },
+ *         }>,
+ *     jwk_uris?: array<string, array{ // Default: []
+ *             id?: scalar|Param|null, // The service ID of the Key Set to share.
+ *             path?: scalar|Param|null, // To share the JWKSet, then set a valid path (e.g. "/jwkset.json").
+ *             tags?: array<string, mixed>,
+ *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
+ *         }>,
+ *     jku_factory?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         client?: scalar|Param|null, // HTTP Client used to retrieve key sets.
+ *     },
+ * }
+ * @psalm-type NelmioAliceConfig = array{
+ *     locale?: scalar|Param|null, // Default locale for the Faker Generator // Default: "en_US"
+ *     seed?: scalar|Param|null, // Value used make sure Faker generates data consistently across runs, set to null to disable. // Default: 1
+ *     functions_blacklist?: list<scalar|Param|null>,
+ *     loading_limit?: int|Param, // Alice may do some recursion to resolve certain values. This parameter defines a limit which will stop the resolution once reached. // Default: 5
+ *     max_unique_values_retry?: int|Param, // Maximum number of time Alice can try to generate a unique value before stopping and failing. // Default: 150
+ * }
+ * @psalm-type FidryAliceDataFixturesConfig = array{
+ *     default_purge_mode?: scalar|Param|null, // Default: "delete"
+ *     db_drivers?: array{ // The list of enabled drivers.
+ *         doctrine_orm?: bool|Param|null, // Default: null
+ *         doctrine_mongodb_odm?: bool|Param|null, // Default: null
+ *         doctrine_phpcr_odm?: bool|Param|null, // Default: null
+ *         eloquent_orm?: bool|Param|null, // Default: null
+ *     },
+ * }
+ * @psalm-type HautelookAliceConfig = array{
+ *     fixtures_path?: list<scalar|Param|null>,
+ *     root_dirs?: list<scalar|Param|null>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2542,6 +2845,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     shapecode_cron?: ShapecodeCronConfig,
  *     sonata_intl?: SonataIntlConfig,
  *     misd_phone_number?: MisdPhoneNumberConfig,
+ *     lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
+ *     gesdinet_jwt_refresh_token?: GesdinetJwtRefreshTokenConfig,
+ *     jose?: JoseConfig,
+ *     nelmio_alice?: NelmioAliceConfig,
+ *     fidry_alice_data_fixtures?: FidryAliceDataFixturesConfig,
+ *     hautelook_alice?: HautelookAliceConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2588,6 +2897,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         shapecode_cron?: ShapecodeCronConfig,
  *         sonata_intl?: SonataIntlConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
+ *         gesdinet_jwt_refresh_token?: GesdinetJwtRefreshTokenConfig,
+ *         jose?: JoseConfig,
+ *         nelmio_alice?: NelmioAliceConfig,
+ *         fidry_alice_data_fixtures?: FidryAliceDataFixturesConfig,
+ *         hautelook_alice?: HautelookAliceConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2632,6 +2947,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         shapecode_cron?: ShapecodeCronConfig,
  *         sonata_intl?: SonataIntlConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
+ *         gesdinet_jwt_refresh_token?: GesdinetJwtRefreshTokenConfig,
+ *         jose?: JoseConfig,
+ *         nelmio_alice?: NelmioAliceConfig,
+ *         fidry_alice_data_fixtures?: FidryAliceDataFixturesConfig,
+ *         hautelook_alice?: HautelookAliceConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
