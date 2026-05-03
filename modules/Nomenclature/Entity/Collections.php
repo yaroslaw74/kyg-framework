@@ -34,8 +34,8 @@ use Gedmo\Translatable\Translatable;
 #[ApiResource]
 class Collections implements Translatable
 {
-    use BlameableEntity;
     use SoftDeleteableEntity;
+    use BlameableEntity;
     use TimestampableEntity;
 
     #[ORM\Id]
