@@ -2,10 +2,15 @@ parameters:
     level: 6
     errorFormat: symplify
     paths:
-        - modules/
+        - bin/
+        - config/
         - public/additions/
         - src/
         - tests/
+        - modules/
+    excludePaths:
+        - config/bootstrap.php
+        - config/reference.php
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
         consoleApplicationLoader: tests/console-application.php
