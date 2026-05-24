@@ -8,14 +8,14 @@
  * @version    1.0.0
  *
  * @copyright  Copyright (c) Kataev Yaroslav
- * @license    GNU General Public License version 3 or later, see LICENSE
+ * @license    The MIT License, see LICENSE
  */
 use Symfony\Component\Dotenv\Dotenv;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 $dotenv = new Dotenv();
-$dotenv->bootEnv(dirname(__DIR__).'/.env');
+$dotenv->bootEnv(dirname(__DIR__) . '/.env');
 
 if ((bool) $_SERVER['APP_DEBUG']) {
     umask(0000);
