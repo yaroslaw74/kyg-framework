@@ -95,7 +95,7 @@
         "symfony/event-dispatcher": "7.4.*",
         "symfony/event-dispatcher-contracts": "^3.6",
         "symfony/expression-language": "7.4.*",
-        "symfony/filesystem": "7.4.*",
+        "symfony/filesystem": "8.0.*",
         "symfony/finder": "7.4.*",
         "symfony/flex": "^2.10",
         "symfony/form": "7.4.*",
