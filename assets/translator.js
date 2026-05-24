@@ -1,5 +1,5 @@
-import { createTranslator } from '@symfony/ux-translator';
-import { messages, localeFallbacks } from '../var/translations/index.js';
+import { createTranslator } from "@symfony/ux-translator";
+import { localeFallbacks, messages } from "../var/translations/index.js";
 
 /*
  * This file is part of the Symfony UX Translator package.
@@ -11,8 +11,8 @@ import { messages, localeFallbacks } from '../var/translations/index.js';
  */
 
 const translator = createTranslator({
-    messages,
-    localeFallbacks,
+  messages,
+  localeFallbacks
 });
 
 export const { trans } = translator;
