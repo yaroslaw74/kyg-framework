@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3cf09e1605c7582e18f7260ad1b9eb52",
+    "content-hash": "6afb1dcac5fdfb916521f6bcdd9a72e8",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -6411,6 +6411,69 @@
             "time": "2026-01-02T08:56:05+00:00"
         },
         {
+            "name": "myclabs/php-enum",
+            "version": "1.8.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/myclabs/php-enum.git",
+                "reference": "e7be26966b7398204a234f8673fdad5ac6277802"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/e7be26966b7398204a234f8673fdad5ac6277802",
+                "reference": "e7be26966b7398204a234f8673fdad5ac6277802",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "1.*",
+                "vimeo/psalm": "^4.6.2 || ^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MyCLabs\\Enum\\": "src/"
+                },
+                "classmap": [
+                    "stubs/Stringable.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP Enum contributors",
+                    "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
+                }
+            ],
+            "description": "PHP Enum implementation",
+            "homepage": "https://github.com/myclabs/php-enum",
+            "keywords": [
+                "enum"
+            ],
+            "support": {
+                "issues": "https://github.com/myclabs/php-enum/issues",
+                "source": "https://github.com/myclabs/php-enum/tree/1.8.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/mnapoli",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/myclabs/php-enum",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-01-14T11:49:03+00:00"
+        },
+        {
             "name": "nyholm/psr7",
             "version": "1.8.2",
             "source": {
@@ -10016,6 +10079,112 @@
                 }
             ],
             "time": "2026-03-18T11:33:47+00:00"
+        },
+        {
+            "name": "sylius/refund-plugin",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/RefundPlugin.git",
+                "reference": "5161e116d02ee7398182858be0e892d7f6a31172"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sylius/RefundPlugin/zipball/5161e116d02ee7398182858be0e892d7f6a31172",
+                "reference": "5161e116d02ee7398182858be0e892d7f6a31172",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-snappy-bundle": "^1.10",
+                "myclabs/php-enum": "^1.8",
+                "php": "^8.2",
+                "php-http/discovery": "^1.20",
+                "sylius/pdf-generation-bundle": "^1.0",
+                "sylius/resource-bundle": "^1.12",
+                "sylius/sylius": "^2.0",
+                "sylius/telemetry": "^1.0",
+                "symfony/messenger": "^6.4 || ^7.4"
+            },
+            "require-dev": {
+                "behat/behat": "^3.6.1",
+                "dmore/behat-chrome-extension": "^1.3",
+                "dmore/chrome-mink-driver": "^2.7",
+                "friends-of-behat/mink": "^1.8",
+                "friends-of-behat/mink-browserkit-driver": "^1.4",
+                "friends-of-behat/mink-debug-extension": "^2.0",
+                "friends-of-behat/mink-extension": "^2.4",
+                "friends-of-behat/page-object-extension": "^0.3",
+                "friends-of-behat/suite-settings-extension": "^1.0",
+                "friends-of-behat/symfony-extension": "^2.1",
+                "friends-of-behat/variadic-extension": "^1.3",
+                "matthiasnoback/symfony-config-test": "^5.1",
+                "matthiasnoback/symfony-dependency-injection-test": "^5.1",
+                "phpstan/phpstan": "^1.6",
+                "phpstan/phpstan-webmozart-assert": "^1.1",
+                "phpunit/phpunit": "^10.5",
+                "sylius-labs/coding-standard": "^4.2",
+                "sylius/test-application": "^2.0.0@alpha",
+                "symfony/browser-kit": "^6.4 || ^7.4",
+                "symfony/debug-bundle": "^6.4 || ^7.4",
+                "symfony/dotenv": "^6.4 || ^7.4",
+                "symfony/intl": "^6.4 || ^7.4",
+                "symfony/web-profiler-bundle": "^6.4 || ^7.4",
+                "symfony/webpack-encore-bundle": "^2.2"
+            },
+            "type": "sylius-plugin",
+            "extra": {
+                "symfony": {
+                    "require": "~7.4.0",
+                    "allow-contrib": false
+                },
+                "public-dir": "vendor/sylius/test-application/public",
+                "branch-alias": {
+                    "dev-2.0": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sylius\\RefundPlugin\\": "src/",
+                    "Tests\\Sylius\\RefundPlugin\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mateusz Zalewski",
+                    "homepage": "http://mpzalewski.com.pl"
+                },
+                {
+                    "name": "Bartosz Pietrzak",
+                    "homepage": "https://github.com/bartoszpietrzak1994"
+                },
+                {
+                    "name": "Sylius Team",
+                    "email": "team@sylius.com"
+                }
+            ],
+            "description": "Plugin provides basic refunds functionality for Sylius application.",
+            "keywords": [
+                "e-commerce",
+                "refunds",
+                "sylius",
+                "sylius-plugin",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/Sylius/RefundPlugin/issues",
+                "source": "https://github.com/Sylius/RefundPlugin/tree/v2.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sylius",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-06T06:07:12+00:00"
         },
         {
             "name": "sylius/registry",
