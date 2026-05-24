@@ -1,9 +1,10 @@
-# see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: "%env(APP_SECRET)%"
-
-    # Note that the session will be started ONLY if you read or write from it.
-    session: true
-
-    #esi: true
-    #fragments: true
+    form:
+        enabled: true
+    http_method_override: true
+    session:
+        handler_id: ~
+    serializer:
+        mapping:
+            paths: ["%kernel.project_dir%/config/serialization"]
