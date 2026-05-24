@@ -1,24 +1,5 @@
 {
     "controllers": {
-        "@rekalogika/file-filepond": {
-            "filepond": {
-                "enabled": true,
-                "fetch": "eager",
-                "autoimport": {
-                    "filepond/dist/filepond.min.css": true,
-                    "filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css": true,
-                    "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css": true,
-                    "filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css": true
-                }
-            }
-        },
-        "@rekalogika/temporary-url-bundle": {
-            "autoexpire": {
-                "enabled": true,
-                "fetch": "eager",
-                "autoimport": []
-            }
-        },
         "@symfony/ux-autocomplete": {
             "autocomplete": {
                 "enabled": true,
@@ -34,6 +15,16 @@
             "chart": {
                 "enabled": true,
                 "fetch": "eager"
+            }
+        },
+        "@symfony/ux-cropperjs": {
+            "cropper": {
+                "enabled": true,
+                "fetch": "eager",
+                "autoimport": {
+                    "cropperjs/dist/cropper.min.css": true,
+                    "@symfony/ux-cropperjs/dist/style.min.css": true
+                }
             }
         },
         "@symfony/ux-dropzone": {
@@ -60,6 +51,21 @@
                 }
             }
         },
+        "@symfony/ux-swup": {
+            "swup": {
+                "enabled": true,
+                "fetch": "eager"
+            }
+        },
+        "@symfony/ux-toggle-password": {
+            "toggle-password": {
+                "enabled": true,
+                "fetch": "eager",
+                "autoimport": {
+                    "@symfony/ux-toggle-password/dist/style.min.css": true
+                }
+            }
+        },
         "@symfony/ux-turbo": {
             "turbo-core": {
                 "enabled": true,
@@ -67,6 +73,12 @@
             },
             "mercure-turbo-stream": {
                 "enabled": false,
+                "fetch": "eager"
+            }
+        },
+        "@symfony/ux-typed": {
+            "typed": {
+                "enabled": true,
                 "fetch": "eager"
             }
         }
