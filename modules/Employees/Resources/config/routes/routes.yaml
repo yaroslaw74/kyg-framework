@@ -1,5 +1,0 @@
-employees:
-    resource:
-        path: "../../../Controller/"
-        namespace: App\Modules\Employees\Controller
-    type: attribute

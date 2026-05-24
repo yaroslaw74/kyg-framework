@@ -1,3 +1,0 @@
-twig:
-    paths:
-        "modules/Home/Resources/templates": "Home"
