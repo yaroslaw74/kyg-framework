@@ -4180,6 +4180,85 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         legacy?: bool|Param, // Deprecated: The "legacy" option is deprecated and will be removed in 3.0. The "sylius/pdf-generation-bundle" integration will become the only supported PDF generation mode. // Default: true
  *     },
  * }
+ * @psalm-type SyliusRefundConfig = array{
+ *     resources?: array{
+ *         credit_memo?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\CreditMemo"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\CreditMemoInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 repository?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Doctrine\\ORM\\CreditMemoRepository"
+ *             },
+ *         },
+ *         line_item?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\LineItem"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\LineItemInterface"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         tax_item?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\TaxItem"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\TaxItemInterface"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         refund?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\Refund"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\RefundInterface"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Factory\\RefundFactory"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         refund_payment?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\RefundPayment"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\RefundPaymentInterface"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Factory\\RefundPaymentFactory"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         customer_billing_data?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\CustomerBillingData"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\CustomerBillingDataInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         shop_billing_data?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\ShopBillingData"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\RefundPlugin\\Entity\\ShopBillingDataInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *     },
+ *     pdf_generator?: array{
+ *         allowed_files?: array<string, mixed>,
+ *         enabled?: bool|Param, // Default: true
+ *         legacy?: bool|Param, // Deprecated: The "legacy" option is deprecated and will be removed in 3.0. The "sylius/pdf-generation-bundle" integration will become the only supported PDF generation mode. // Default: true
+ *     },
+ * }
  * @psalm-type WhiteOctoberPagerfantaConfig = array{ // Deprecated: The "white_october_pagerfanta" configuration node is deprecated, migrate your configuration to the "babdev_pagerfanta" configuration node.
  *     exceptions_strategy?: array{
  *         out_of_range_page?: scalar|Param|null, // Default: "to_http_not_found"
@@ -4259,6 +4338,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sylius_pdf_generation?: SyliusPdfGenerationConfig,
  *     knp_snappy?: KnpSnappyConfig,
  *     sylius_invoicing?: SyliusInvoicingConfig,
+ *     sylius_refund?: SyliusRefundConfig,
  *     white_october_pagerfanta?: WhiteOctoberPagerfantaConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
@@ -4338,6 +4418,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sylius_pdf_generation?: SyliusPdfGenerationConfig,
  *         knp_snappy?: KnpSnappyConfig,
  *         sylius_invoicing?: SyliusInvoicingConfig,
+ *         sylius_refund?: SyliusRefundConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -4415,6 +4496,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sylius_pdf_generation?: SyliusPdfGenerationConfig,
  *         knp_snappy?: KnpSnappyConfig,
  *         sylius_invoicing?: SyliusInvoicingConfig,
+ *         sylius_refund?: SyliusRefundConfig,
  *     },
  *     "when@test_cached"?: array{
  *         imports?: ImportsConfig,
@@ -4488,6 +4570,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sylius_pdf_generation?: SyliusPdfGenerationConfig,
  *         knp_snappy?: KnpSnappyConfig,
  *         sylius_invoicing?: SyliusInvoicingConfig,
+ *         sylius_refund?: SyliusRefundConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
