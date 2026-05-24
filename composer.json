@@ -136,7 +136,7 @@
         "symfony/twig-bridge": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
         "symfony/type-info": "7.4.*",
-        "symfony/uid": "7.4.*",
+        "symfony/uid": "8.0.*",
         "symfony/ux-autocomplete": "^3.0",
         "symfony/ux-chartjs": "^3.0",
         "symfony/ux-dropzone": "^3.0",
