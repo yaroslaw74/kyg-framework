@@ -8,7 +8,7 @@
  * @version    1.0.0
  *
  * @copyright  Copyright (c) Kataev Yaroslav
- * @license    GNU General Public License version 3 or later, see LICENSE
+ * @license    The MIT License, see LICENSE
  */
 declare(strict_types=1);
 
@@ -24,12 +24,12 @@ final class Kernel extends BaseKernel
 
     private function getModulesDir(): string
     {
-        return $this->getProjectDir().'/modules';
+        return $this->getProjectDir() . '/modules';
     }
 
     private function getAdditionssDir(): string
     {
-        return $this->getProjectDir().'/public/additions';
+        return $this->getProjectDir() . '/public/additions';
     }
 
     /**
