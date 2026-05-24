@@ -4070,6 +4070,116 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         blocks?: list<scalar|Param|null>,
  *     },
  * }
+ * @psalm-type SyliusPdfGenerationConfig = array{
+ *     gotenberg?: array{
+ *         base_url?: scalar|Param|null, // Default: "http://localhost:3000"
+ *     },
+ *     default?: array{
+ *         adapter?: scalar|Param|null, // Default: null
+ *         storage?: array{
+ *             type?: "flysystem"|"filesystem"|"gaufrette"|Param, // Default: "filesystem"
+ *             filesystem?: scalar|Param|null, // Default: null
+ *             prefix?: scalar|Param|null, // Default: "pdf"
+ *             directory?: scalar|Param|null, // Default: "%kernel.project_dir%/var/pdf"
+ *             local_cache_directory?: scalar|Param|null, // Default: "%kernel.cache_dir%/pdf"
+ *         },
+ *     },
+ *     contexts?: array<string, array{ // Default: []
+ *         adapter?: scalar|Param|null,
+ *         storage?: array{
+ *             type?: "flysystem"|"filesystem"|"gaufrette"|Param,
+ *             filesystem?: scalar|Param|null, // Default: null
+ *             prefix?: scalar|Param|null, // Default: null
+ *             directory?: scalar|Param|null, // Default: null
+ *             local_cache_directory?: scalar|Param|null, // Default: null
+ *         },
+ *     }>,
+ * }
+ * @psalm-type KnpSnappyConfig = array{
+ *     temporary_folder?: scalar|Param|null,
+ *     process_timeout?: int|Param, // Generator process timeout in seconds.
+ *     pdf?: array{
+ *         enabled?: bool|Param, // Default: true
+ *         binary?: scalar|Param|null, // Default: "wkhtmltopdf"
+ *         options?: array<string, scalar|Param|null>,
+ *         env?: list<scalar|Param|null>,
+ *     },
+ *     image?: array{
+ *         enabled?: bool|Param, // Default: true
+ *         binary?: scalar|Param|null, // Default: "wkhtmltoimage"
+ *         options?: array<string, scalar|Param|null>,
+ *         env?: list<scalar|Param|null>,
+ *     },
+ * }
+ * @psalm-type SyliusInvoicingConfig = array{
+ *     resources?: array{
+ *         invoice?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\Invoice"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\InvoiceInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 repository?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Doctrine\\ORM\\InvoiceRepository"
+ *             },
+ *         },
+ *         billing_data?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\BillingData"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\BillingDataInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Factory\\BillingDataFactory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         shop_billing_data?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\InvoiceShopBillingData"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\InvoiceShopBillingDataInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Factory\\InvoiceShopBillingDataFactory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         line_item?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\LineItem"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\LineItemInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Factory\\LineItemFactory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         tax_item?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\TaxItem"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\TaxItemInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Factory\\TaxItemFactory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *         invoice_sequence?: array{
+ *             options?: mixed,
+ *             classes?: array{
+ *                 model?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\InvoiceSequence"
+ *                 interface?: scalar|Param|null, // Default: "Sylius\\InvoicingPlugin\\Entity\\InvoiceSequenceInterface"
+ *                 controller?: scalar|Param|null, // Default: "Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController"
+ *                 factory?: scalar|Param|null, // Default: "Sylius\\Component\\Resource\\Factory\\Factory"
+ *                 repository?: scalar|Param|null,
+ *             },
+ *         },
+ *     },
+ *     pdf_generator?: array{
+ *         allowed_files?: array<string, mixed>,
+ *         enabled?: bool|Param, // Default: true
+ *         legacy?: bool|Param, // Deprecated: The "legacy" option is deprecated and will be removed in 3.0. The "sylius/pdf-generation-bundle" integration will become the only supported PDF generation mode. // Default: true
+ *     },
+ * }
  * @psalm-type WhiteOctoberPagerfantaConfig = array{ // Deprecated: The "white_october_pagerfanta" configuration node is deprecated, migrate your configuration to the "babdev_pagerfanta" configuration node.
  *     exceptions_strategy?: array{
  *         out_of_range_page?: scalar|Param|null, // Default: "to_http_not_found"
@@ -4146,6 +4256,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     ux_translator?: UxTranslatorConfig,
  *     turbo?: TurboConfig,
  *     sylius_cms?: SyliusCmsConfig,
+ *     sylius_pdf_generation?: SyliusPdfGenerationConfig,
+ *     knp_snappy?: KnpSnappyConfig,
+ *     sylius_invoicing?: SyliusInvoicingConfig,
  *     white_october_pagerfanta?: WhiteOctoberPagerfantaConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
@@ -4222,6 +4335,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         sylius_cms?: SyliusCmsConfig,
+ *         sylius_pdf_generation?: SyliusPdfGenerationConfig,
+ *         knp_snappy?: KnpSnappyConfig,
+ *         sylius_invoicing?: SyliusInvoicingConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -4296,6 +4412,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         sylius_cms?: SyliusCmsConfig,
+ *         sylius_pdf_generation?: SyliusPdfGenerationConfig,
+ *         knp_snappy?: KnpSnappyConfig,
+ *         sylius_invoicing?: SyliusInvoicingConfig,
  *     },
  *     "when@test_cached"?: array{
  *         imports?: ImportsConfig,
@@ -4366,6 +4485,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_translator?: UxTranslatorConfig,
  *         turbo?: TurboConfig,
  *         sylius_cms?: SyliusCmsConfig,
+ *         sylius_pdf_generation?: SyliusPdfGenerationConfig,
+ *         knp_snappy?: KnpSnappyConfig,
+ *         sylius_invoicing?: SyliusInvoicingConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
