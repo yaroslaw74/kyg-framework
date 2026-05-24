@@ -24,12 +24,12 @@ final class Kernel extends BaseKernel
 
     private function getModulesDir(): string
     {
-        return $this->getProjectDir() . '/modules';
+        return $this->getProjectDir().'/modules';
     }
 
     private function getAdditionssDir(): string
     {
-        return $this->getProjectDir() . '/public/additions';
+        return $this->getProjectDir().'/public/additions';
     }
 
     /**
