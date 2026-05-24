@@ -1,4 +1,5 @@
 import "@vendor/sylius/mollie-plugin/assets/shop/entrypoint";
+import "@vendor/sylius/cms-plugin/assets/shop/entrypoint";
 import "./stimulus_bootstrap.js";
 import "../stimulus_bootstrap.js";
 
