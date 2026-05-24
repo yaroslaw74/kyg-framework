@@ -1,4 +1,0 @@
-ux_translator:
-    # Control whether TypeScript types are dumped alongside translations.
-    # Disable this if you do not use TypeScript (e.g. in production when using AssetMapper), to speed up cache warmup.
-    # dump_typescript: false
