@@ -41,6 +41,12 @@
         "enabled": true,
         "fetch": "lazy"
       }
+    },
+    "@sylius-cms-plugin/admin": {
+      "preview": {
+        "enabled": true,
+        "fetch": "lazy"
+      }
     }
   },
   "entrypoints": []
