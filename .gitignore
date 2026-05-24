@@ -68,5 +68,5 @@ phpstan.neon
 ###< doctrine/migrations ###
 
 ###> kocal/biome-js-bundle ###
-/bin/biome
+/bin/biome*
 ###< kocal/biome-js-bundle ###
