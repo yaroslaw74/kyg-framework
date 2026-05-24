@@ -2,123 +2,130 @@ security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: "auto"
+        Sylius\Component\User\Model\UserInterface: "argon2i"
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
-            entity:
-                class: App\Modules\Users\Entity\User
-                property: username
-        # used to reload user from session & other features (e.g. switch_user)
+        sylius_admin_user_provider:
+            id: sylius.admin_user_provider.email_or_name_based
+        sylius_api_admin_user_provider:
+            id: sylius.admin_user_provider.email_or_name_based
+        sylius_shop_user_provider:
+            id: sylius.shop_user_provider.email_or_name_based
+        sylius_api_shop_user_provider:
+            id: sylius.shop_user_provider.email_or_name_based
 
     firewalls:
-        dev:
-            # Ensure dev tools and static assets are always allowed
-            pattern: ^/(_profiler|_wdt|assets|build)/
-            security: false
-        api:
-            pattern: ^/api(.*)
-            stateless: true
-            entry_point: jwt
-            provider: app_user_provider
-            json_login:
-                check_path: /api/login
-                success_handler: lexik_jwt_authentication.handler.authentication_success
-                failure_handler: lexik_jwt_authentication.handler.authentication_failure
-            jwt: ~
-            refresh_jwt:
-                check_path: /api/token/refresh # or, you may use the `api_refresh_token` route name
-                # or if you have more than one user provider
-                # provider: app_user_provider
-        main:
-            lazy: true
-            provider: app_user_provider
-            oauth:
-                resource_owners:
-                    facebook: "/login/check-facebook"
-                    google: "/login/check-google"
-                    yandex: "/login/check-yandex"
-                    github: "/login/check-github"
-                    linkedin: "/login/check-linkedin"
-                    mailru: "/login/check-mailru"
-                    odnoklassniki: "/login/check-odnoklassniki"
-                    XTwitter: "/login/check-xTwitter"
-                    vkontakte: "/login/check-vkontakte"
-                login_path: /login
-                use_forward: false
-                failure_path: hwi_oauth_connect_registration
-
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.entity
-        app:
-            lazy: true
-            pattern: /app(.*)
-            provider: app_user_provider
-            entry_point: "form_login"
+        admin:
+            switch_user: true
+            context: admin
+            pattern: "%sylius.security.admin_regex%"
+            provider: sylius_admin_user_provider
+            user_checker: security.user_checker.chain.admin
             form_login:
-                login_path: app_login
-                check_path: app_login
+                provider: sylius_admin_user_provider
+                login_path: sylius_admin_login
+                check_path: sylius_admin_login_check
+                failure_path: sylius_admin_login
+                default_target_path: sylius_admin_dashboard
+                use_forward: false
+                use_referer: true
                 enable_csrf: true
-            logout:
-                path: app_logout
-                # where to redirect after logout
-                target: app
+                csrf_parameter: _csrf_admin_security_token
+                csrf_token_id: admin_authenticate
             remember_me:
                 secret: "%env(APP_SECRET)%"
-                lifetime: 2629746
-                path: app
-            login_throttling:
-                max_attempts: 5
-                interval: "15 minutes"
-            oauth:
-                resource_owners:
-                    facebook: "/login/check-facebook"
-                    google: "/login/check-google"
-                    yandex: "/login/check-yandex"
-                    github: "/login/check-github"
-                    linkedin: "/login/check-linkedin"
-                    mailru: "/login/check-mailru"
-                    odnoklassniki: "/login/check-odnoklassniki"
-                    xTwitter: "/login/check-xTwitter"
-                    vkontakte: "/login/check-vkontakte"
-                login_path: /app/login
+                path: "/%sylius_admin.path_name%"
+                name: APP_ADMIN_REMEMBER_ME
+                lifetime: 31536000
+                remember_me_parameter: _remember_me
+            logout:
+                path: sylius_admin_logout
+                target: sylius_admin_login
+
+        api_admin:
+            pattern: "%sylius.security.api_admin_regex%/.*"
+            provider: sylius_api_admin_user_provider
+            user_checker: security.user_checker.chain.api_admin
+            stateless: true
+            entry_point: jwt
+            json_login:
+                check_path: "%sylius.security.api_admin_route%/administrators/token"
+                username_path: email
+                password_path: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            jwt: true
+
+        api_shop:
+            pattern: "%sylius.security.api_shop_regex%/.*"
+            provider: sylius_api_shop_user_provider
+            user_checker: security.user_checker.chain.api_shop
+            stateless: true
+            entry_point: jwt
+            json_login:
+                check_path: "%sylius.security.api_shop_route%/customers/token"
+                username_path: email
+                password_path: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            jwt: true
+
+        shop:
+            switch_user: { role: ROLE_ALLOWED_TO_SWITCH }
+            context: shop
+            pattern: "%sylius.security.shop_regex%"
+            provider: sylius_shop_user_provider
+            user_checker: security.user_checker.chain.shop
+            form_login:
+                success_handler: sylius.authentication.success_handler
+                failure_handler: sylius.authentication.failure_handler
+                provider: sylius_shop_user_provider
+                login_path: sylius_shop_login
+                check_path: sylius_shop_login_check
+                failure_path: sylius_shop_login
+                default_target_path: sylius_shop_homepage
                 use_forward: false
-                failure_path: hwi_oauth_connect_registration
-                check_path: /app/login-check
+                use_referer: true
+                enable_csrf: true
+                csrf_parameter: _csrf_shop_security_token
+                csrf_token_id: shop_authenticate
+            json_login:
+                check_path: sylius_shop_json_login_check
+                username_path: _username
+                password_path: _password
+                success_handler: sylius.authentication.success_handler
+                failure_handler: sylius.authentication.failure_handler
+            remember_me:
+                secret: "%env(APP_SECRET)%"
+                name: APP_SHOP_REMEMBER_ME
+                lifetime: 31536000
+                remember_me_parameter: _remember_me
+            logout:
+                path: sylius_shop_logout
+                target: sylius_shop_homepage
+                invalidate_session: false
 
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.entity
+        image_resolver:
+            pattern: ^/media/cache/resolve
+            security: false
 
-            # Activate different ways to authenticate:
-            # https://symfony.com/doc/current/security.html#the-firewall
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js|build)/
+            security: false
 
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            switch_user: true
-
-    role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER]
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-
-    # Note: Only the *first* matching rule is applied
     access_control:
-        - { path: ^/.*, role: PUBLIC_ACCESS }
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: "%sylius.security.admin_regex%/forgotten-password", role: PUBLIC_ACCESS }
+        - { path: "%sylius.security.admin_regex%/login", role: PUBLIC_ACCESS }
+        - { path: "%sylius.security.shop_regex%/login", role: PUBLIC_ACCESS }
+        - { path: "%sylius.security.shop_regex%/register", role: PUBLIC_ACCESS }
+        - { path: "%sylius.security.shop_regex%/verify", role: PUBLIC_ACCESS }
+        #- { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
+        #- { path: "%sylius.security.shop_regex%/account", role: ROLE_USER }
 
-        # App login page needs to be accessed without credential
-        - { path: ^/app/login$, role: PUBLIC_ACCESS }
-        - { path: ^/app/logout$, role: PUBLIC_ACCESS }
-        - { path: ^/app/login_check$, role: PUBLIC_ACCESS }
-        - { path: ^/app/request$, role: PUBLIC_ACCESS }
-        - { path: ^/app/check-email$, role: PUBLIC_ACCESS }
-        - { path: ^/app/verify$, role: PUBLIC_ACCESS }
-        - { path: ^/app/reset/.*$, role: PUBLIC_ACCESS }
-
-        # Secured part of the site
-        # This config requires being logged for the whole site and having the admin role for the admin part.
-        # Change these rules to adapt them to your needs
-
-        - { path: ^/api/login$, roles: PUBLIC_ACCESS }
-        - { path: ^/api/token/refresh$, roles: PUBLIC_ACCESS }
-        - { path: ^/api/doc$, roles: PUBLIC_ACCESS }
-        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: "%sylius.security.api_admin_route%/administrators/reset-password", role: PUBLIC_ACCESS }
+        #- { path: "%sylius.security.api_admin_regex%/.*", role: ROLE_API_ACCESS }
+        - { path: "%sylius.security.api_admin_route%/administrators/token", role: PUBLIC_ACCESS }
+        #- { path: "%sylius.security.api_shop_account_regex%/.*", role: ROLE_USER }
+        - { path: "%sylius.security.api_shop_route%/customers/token", role: PUBLIC_ACCESS }
+        - { path: "%sylius.security.api_shop_regex%/.*", role: PUBLIC_ACCESS }
