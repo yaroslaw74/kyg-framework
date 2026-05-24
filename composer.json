@@ -71,6 +71,7 @@
         "sylius/mailer-bundle": "^2.2",
         "sylius/mollie-plugin": "^3.2.3",
         "sylius/paypal-plugin": "^2.0.8",
+        "sylius/refund-plugin": "^2.1",
         "sylius/registry": "^1.6",
         "sylius/resource-bundle": "^1.14.1",
         "sylius/sylius": "^2.2.5",
