@@ -21,8 +21,6 @@
         "source": "https://github.com/yaroslaw74/kyg-framework",
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
     "require": {
         "php": ">=8.4",
         "ext-ctype": "*",
@@ -64,7 +62,7 @@
         "scheb/2fa-google-authenticator": "^8.5",
         "scheb/2fa-totp": "^8.5",
         "scheb/2fa-trusted-device": "^8.5",
-        "shapecode/cron-bundle": "^7.3|^8.0",
+        "shapecode/cron-bundle": "^7.3 || ^8.0",
         "shivas/versioning-bundle": "^4.2",
         "slowprog/composer-copy-file": "^0.3.3",
         "sonata-project/intl-bundle": "^3.3",
@@ -120,7 +118,7 @@
         "symfony/security-http": "^7.4.12",
         "symfony/serializer": "^7.4.10",
         "symfony/service-contracts": "^3.7.0",
-        "symfony/stimulus-bundle": "^2.35|^3.0",
+        "symfony/stimulus-bundle": "^2.35 || ^3.0",
         "symfony/stopwatch": "^7.4.8",
         "symfony/string": "^7.4.11",
         "symfony/translation": "^7.4.10",
@@ -148,41 +146,28 @@
         "symfony/yaml": "^7.4.12",
         "symfonycasts/reset-password-bundle": "^1.25",
         "symfonycasts/verify-email-bundle": "^1.18",
-        "twig/cache-extra": "^3.24|^4.0",
-        "twig/cssinliner-extra": "^3.26|^4.0",
-        "twig/extra-bundle": "^3.24|^4.0",
-        "twig/html-extra": "^3.24|^4.0",
-        "twig/inky-extra": "^3.26|^4.0",
-        "twig/markdown-extra": "^3.26|^4.0",
-        "twig/string-extra": "^3.24|^4.0",
-        "twig/twig": "^3.26|^4.0",
+        "twig/cache-extra": "^3.24 || ^4.0",
+        "twig/cssinliner-extra": "^3.26 || ^4.0",
+        "twig/extra-bundle": "^3.24 || ^4.0",
+        "twig/html-extra": "^3.24 || ^4.0",
+        "twig/inky-extra": "^3.26 || ^4.0",
+        "twig/markdown-extra": "^3.26 || ^4.0",
+        "twig/string-extra": "^3.24 || ^4.0",
+        "twig/twig": "^3.26 || ^4.0",
         "yokai/enum-bundle": "^5.1",
         "yokai/security-token-bundle": "^3.4"
     },
-    "config": {
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true,
-            "liborm85/composer-vendor-cleaner": true,
-            "neronmoon/scriptsdev": true,
-            "php-http/discovery": true,
-            "symfony/flex": true,
-            "symfony/runtime": true
-        },
-        "bump-after-update": true,
-        "sort-packages": true,
-        "apcu-autoloader": true,
-        "optimize-autoloader": true,
-        "process-timeout": 3000
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "App\\Tests\\": "tests/"
-        }
+    "require-dev": {
+        "composer/composer": "^2.9.8",
+        "ergebnis/composer-normalize": "^2.52",
+        "neronmoon/scriptsdev": "^0.1.9",
+        "php-http/guzzle7-adapter": "^1.1",
+        "phpunit/phpunit": "^13.1.12",
+        "shipmonk/composer-dependency-analyser": "^1.8.4",
+        "symfony/browser-kit": "^7.4.8",
+        "symfony/debug-bundle": "^7.4.8",
+        "symfony/maker-bundle": "^1.67",
+        "symfony/web-profiler-bundle": "^7.4.12"
     },
     "replace": {
         "symfony/polyfill-iconv": "*",
@@ -201,7 +186,49 @@
         "symfony/polyfill-php83": "*",
         "symfony/polyfill-php84": "*"
     },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "liborm85/composer-vendor-cleaner": true,
+            "neronmoon/scriptsdev": true,
+            "php-http/discovery": true,
+            "symfony/flex": true,
+            "symfony/runtime": true
+        },
+        "apcu-autoloader": true,
+        "bump-after-update": true,
+        "optimize-autoloader": true,
+        "process-timeout": 3000,
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "^7.4"
+        }
+    },
     "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
         "auto-scripts": {
             "requirements-checker": "script",
             "cache:clear": "symfony-cmd",
@@ -210,33 +237,6 @@
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
             "importmap:update": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true,
-            "require": "^7.4"
         }
-    },
-    "require-dev": {
-        "composer/composer": "^2.9.8",
-        "ergebnis/composer-normalize": "^2.52",
-        "neronmoon/scriptsdev": "^0.1.9",
-        "php-http/guzzle7-adapter": "^1.1",
-        "phpunit/phpunit": "^13.1.12",
-        "shipmonk/composer-dependency-analyser": "^1.8.4",
-        "symfony/browser-kit": "^7.4.8",
-        "symfony/debug-bundle": "^7.4.8",
-        "symfony/maker-bundle": "^1.67",
-        "symfony/web-profiler-bundle": "^7.4.12"
     }
 }
