@@ -1,0 +1,4 @@
+# Full configuration reference: https://symfony.com/bundles/ux-icons/current/index.html#configuration
+ux_icons:
+    # Suppress exceptions for missing icons in production
+    ignore_not_found: true
