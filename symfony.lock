@@ -321,5 +321,11 @@
     },
     "twig/extra-bundle": {
         "version": "v3.24.0"
+    },
+    "yokai/enum-bundle": {
+        "version": "v5.1.0"
+    },
+    "yokai/security-token-bundle": {
+        "version": "v3.4.0"
     }
 }
