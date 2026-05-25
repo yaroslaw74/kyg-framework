@@ -15,4 +15,5 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Yokai\EnumBundle\YokaiEnumBundle::class => ['all' => true],
     Yokai\SecurityTokenBundle\YokaiSecurityTokenBundle::class => ['all' => true],
+    Symfony\UX\Cropperjs\CropperjsBundle::class => ['all' => true],
 ];
