@@ -1881,6 +1881,252 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
  *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
  * }
+ * @psalm-type HttplugConfig = array{
+ *     clients?: array<string, array{ // Default: []
+ *         factory?: scalar|Param|null, // The service id of a factory to use when creating the adapter. // Default: "httplug.factory.auto"
+ *         service?: scalar|Param|null, // The service id of the client to use. // Default: null
+ *         public?: bool|Param|null, // Set to true if you really cannot use dependency injection and need to make the client service public. // Default: null
+ *         flexible_client?: bool|Param, // Set to true to get the client wrapped in a FlexibleHttpClient which emulates async or sync behavior. // Default: false
+ *         http_methods_client?: bool|Param, // Set to true to get the client wrapped in a HttpMethodsClient which emulates provides functions for HTTP verbs. // Default: false
+ *         batch_client?: bool|Param, // Set to true to get the client wrapped in a BatchClient which allows you to send multiple request at the same time. // Default: false
+ *         config?: mixed, // Default: []
+ *         plugins?: list<array{ // Default: []
+ *             authentication?: array<string, array{ // Default: []
+ *                 type?: "basic"|"bearer"|"wsse"|"service"|"query_param"|"header"|Param,
+ *                 username?: scalar|Param|null,
+ *                 password?: scalar|Param|null,
+ *                 token?: scalar|Param|null,
+ *                 service?: scalar|Param|null,
+ *                 header_name?: scalar|Param|null,
+ *                 header_value?: scalar|Param|null,
+ *                 params?: list<scalar|Param|null>,
+ *             }>,
+ *             cache?: bool|array{ // Configure HTTP caching, requires the php-http/cache-plugin package
+ *                 enabled?: bool|Param, // Default: false
+ *                 cache_pool?: scalar|Param|null, // This must be a service id to a service implementing Psr\Cache\CacheItemPoolInterface
+ *                 stream_factory?: scalar|Param|null, // This must be a service id to a service implementing Psr\Http\Message\StreamFactoryInterface // Default: "httplug.psr17_stream_factory"
+ *                 config?: array{
+ *                     cache_key_generator?: scalar|Param|null, // This must be a service id to a service implementing Http\Client\Common\Plugin\Cache\Generator\CacheKeyGenerator
+ *                     cache_lifetime?: scalar|Param|null, // The minimum time we should store a cache item
+ *                     default_ttl?: scalar|Param|null, // The default max age of a Response
+ *                     blacklisted_paths?: list<scalar|Param|null>,
+ *                     hash_algo?: "md2"|"md4"|"md5"|"sha1"|"sha224"|"sha256"|"sha384"|"sha512/224"|"sha512/256"|"sha512"|"sha3-224"|"sha3-256"|"sha3-384"|"sha3-512"|"ripemd128"|"ripemd160"|"ripemd256"|"ripemd320"|"whirlpool"|"tiger128,3"|"tiger160,3"|"tiger192,3"|"tiger128,4"|"tiger160,4"|"tiger192,4"|"snefru"|"snefru256"|"gost"|"gost-crypto"|"adler32"|"crc32"|"crc32b"|"crc32c"|"fnv132"|"fnv1a32"|"fnv164"|"fnv1a64"|"joaat"|"murmur3a"|"murmur3c"|"murmur3f"|"xxh32"|"xxh64"|"xxh3"|"xxh128"|"haval128,3"|"haval160,3"|"haval192,3"|"haval224,3"|"haval256,3"|"haval128,4"|"haval160,4"|"haval192,4"|"haval224,4"|"haval256,4"|"haval128,5"|"haval160,5"|"haval192,5"|"haval224,5"|"haval256,5"|Param, // Hashing algorithm to use
+ *                     methods?: list<scalar|Param|null>,
+ *                     cache_listeners?: list<scalar|Param|null>,
+ *                     respect_response_cache_directives?: mixed, // A list of cache directives to respect when caching responses. Omit or set to null to respect the default set of directives.
+ *                 },
+ *             },
+ *             cookie?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 cookie_jar?: scalar|Param|null, // This must be a service id to a service implementing Http\Message\CookieJar
+ *             },
+ *             history?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 journal?: scalar|Param|null, // This must be a service id to a service implementing Http\Client\Common\Plugin\Journal
+ *             },
+ *             decoder?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 use_content_encoding?: scalar|Param|null, // Default: true
+ *             },
+ *             logger?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 logger?: scalar|Param|null, // This must be a service id to a service implementing Psr\Log\LoggerInterface // Default: "logger"
+ *                 formatter?: scalar|Param|null, // This must be a service id to a service implementing Http\Message\Formatter // Default: null
+ *             },
+ *             redirect?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 preserve_header?: scalar|Param|null, // Default: true
+ *                 use_default_for_multiple?: scalar|Param|null, // Default: true
+ *             },
+ *             retry?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 retry?: scalar|Param|null, // Default: 1
+ *             },
+ *             stopwatch?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 stopwatch?: scalar|Param|null, // This must be a service id to a service extending Symfony\Component\Stopwatch\Stopwatch // Default: "debug.stopwatch"
+ *             },
+ *             error?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 only_server_exception?: scalar|Param|null, // Default: false
+ *             },
+ *             throttle?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 name?: scalar|Param|null, // Rate limiter service name from symfony/rate-limiter configuration. E.g. for a rate limiter http_client you specify limiter.http_client here
+ *                 key?: scalar|Param|null, // Key to avoid sharing this rate limiter with other clients or other services. You can use the name of the client for example. // Default: null
+ *                 tokens?: int|Param, // How many tokens spending per request // Default: 1
+ *                 max_time?: float|Param, // Maximum accepted waiting time in seconds // Default: null
+ *             },
+ *             reference?: bool|array{ // Reference to a plugin service
+ *                 enabled?: bool|Param, // Default: false
+ *                 id?: scalar|Param|null, // Service id of a plugin
+ *             },
+ *             configurator?: bool|array{ // Configure a plugin with a configurator
+ *                 enabled?: bool|Param, // Default: false
+ *                 id?: scalar|Param|null, // Service id of a plugin configurator
+ *                 config?: list<mixed>,
+ *             },
+ *             add_host?: bool|array{ // Set scheme, host and port in the request URI.
+ *                 enabled?: bool|Param, // Default: false
+ *                 host?: scalar|Param|null, // Host name including protocol and optionally the port number, e.g. https://api.local:8000
+ *                 replace?: scalar|Param|null, // Whether to replace the host if request already specifies one // Default: false
+ *             },
+ *             add_path?: bool|array{ // Add a base path to the request.
+ *                 enabled?: bool|Param, // Default: false
+ *                 path?: scalar|Param|null, // Path to be added, e.g. /api/v1
+ *             },
+ *             base_uri?: bool|array{ // Set a base URI to the request.
+ *                 enabled?: bool|Param, // Default: false
+ *                 uri?: scalar|Param|null, // Base Uri including protocol, optionally the port number and prepend path, e.g. https://api.local:8000/api
+ *                 replace?: scalar|Param|null, // Whether to replace the host if request already specifies one // Default: false
+ *             },
+ *             content_type?: bool|array{ // Detect the content type of a request body and set the Content-Type header if it is not already set.
+ *                 enabled?: bool|Param, // Default: false
+ *                 skip_detection?: bool|Param, // Whether to skip detection when request body is larger than size_limit // Default: false
+ *                 size_limit?: scalar|Param|null, // Skip content type detection if request body is larger than size_limit bytes
+ *             },
+ *             header_append?: bool|array{ // Append headers to the request. If the header already exists the value will be appended to the current value.
+ *                 enabled?: bool|Param, // Default: false
+ *                 headers?: array<string, scalar|Param|null>,
+ *             },
+ *             header_defaults?: bool|array{ // Set header to default value if it does not exist.
+ *                 enabled?: bool|Param, // Default: false
+ *                 headers?: array<string, scalar|Param|null>,
+ *             },
+ *             header_set?: bool|array{ // Set headers to requests. If the header does not exist it wil be set, if the header already exists it will be replaced.
+ *                 enabled?: bool|Param, // Default: false
+ *                 headers?: array<string, scalar|Param|null>,
+ *             },
+ *             header_remove?: bool|array{ // Remove headers from requests.
+ *                 enabled?: bool|Param, // Default: false
+ *                 headers?: list<scalar|Param|null>,
+ *             },
+ *             query_defaults?: bool|array{ // Sets query parameters to default value if they are not present in the request.
+ *                 enabled?: bool|Param, // Default: false
+ *                 parameters?: array<string, scalar|Param|null>,
+ *             },
+ *             request_seekable_body?: bool|array{ // Ensure that the request body is seekable so that several plugins can look into it.
+ *                 enabled?: bool|Param, // Default: false
+ *                 use_file_buffer?: bool|Param, // Whether to use a file buffer if the stream is too big for a memory buffer // Default: true
+ *                 memory_buffer_size?: scalar|Param|null, // Maximum memory size in bytes before using a file buffer if use_file_buffer is true. Defaults to 2097152 (2 MB)
+ *             },
+ *             response_seekable_body?: bool|array{ // Ensure that the response body is seekable so that several plugins can look into it.
+ *                 enabled?: bool|Param, // Default: false
+ *                 use_file_buffer?: bool|Param, // Whether to use a file buffer if the stream is too big for a memory buffer // Default: true
+ *                 memory_buffer_size?: scalar|Param|null, // Maximum memory size in bytes before using a file buffer if use_file_buffer is true. Defaults to 2097152 (2 MB)
+ *             },
+ *             vcr?: bool|array{ // Record response to be replayed during tests or development cycle.
+ *                 enabled?: bool|Param, // Default: false
+ *                 mode?: "record"|"replay"|"replay_or_record"|Param, // What should be the behavior of the plugin?
+ *                 recorder?: scalar|Param|null, // Which recorder to use. Can be "in_memory", "filesystem" or the ID of your service implementing Http\Client\Plugin\Vcr\Recorder\RecorderInterface and Http\Client\Plugin\Vcr\Recorder\PlayerInterface. When using filesystem, specify "fixtures_directory" as well. // Default: "filesystem"
+ *                 naming_strategy?: scalar|Param|null, // Which naming strategy to use. Add the ID of your service implementing Http\Client\Plugin\Vcr\NamingStrategy\NamingStrategyInterface to override the default one. // Default: "default"
+ *                 naming_strategy_options?: array{ // See http://docs.php-http.org/en/latest/plugins/vcr.html#the-naming-strategy for more details
+ *                     hash_headers?: list<scalar|Param|null>,
+ *                     hash_body_methods?: list<scalar|Param|null>,
+ *                 },
+ *                 fixtures_directory?: scalar|Param|null, // Where the responses will be stored and replay from when using the filesystem recorder. Should be accessible to your VCS.
+ *             },
+ *         }>,
+ *     }>,
+ *     plugins?: array{ // Global plugin configuration. Plugins need to be explicitly added to clients.
+ *         authentication?: array<string, array{ // Default: []
+ *             type?: "basic"|"bearer"|"wsse"|"service"|"query_param"|"header"|Param,
+ *             username?: scalar|Param|null,
+ *             password?: scalar|Param|null,
+ *             token?: scalar|Param|null,
+ *             service?: scalar|Param|null,
+ *             header_name?: scalar|Param|null,
+ *             header_value?: scalar|Param|null,
+ *             params?: list<scalar|Param|null>,
+ *         }>,
+ *         cache?: bool|array{ // Configure HTTP caching, requires the php-http/cache-plugin package
+ *             enabled?: bool|Param, // Default: false
+ *             cache_pool?: scalar|Param|null, // This must be a service id to a service implementing Psr\Cache\CacheItemPoolInterface
+ *             stream_factory?: scalar|Param|null, // This must be a service id to a service implementing Psr\Http\Message\StreamFactoryInterface // Default: "httplug.psr17_stream_factory"
+ *             config?: array{
+ *                 cache_key_generator?: scalar|Param|null, // This must be a service id to a service implementing Http\Client\Common\Plugin\Cache\Generator\CacheKeyGenerator
+ *                 cache_lifetime?: scalar|Param|null, // The minimum time we should store a cache item
+ *                 default_ttl?: scalar|Param|null, // The default max age of a Response
+ *                 blacklisted_paths?: list<scalar|Param|null>,
+ *                 hash_algo?: "md2"|"md4"|"md5"|"sha1"|"sha224"|"sha256"|"sha384"|"sha512/224"|"sha512/256"|"sha512"|"sha3-224"|"sha3-256"|"sha3-384"|"sha3-512"|"ripemd128"|"ripemd160"|"ripemd256"|"ripemd320"|"whirlpool"|"tiger128,3"|"tiger160,3"|"tiger192,3"|"tiger128,4"|"tiger160,4"|"tiger192,4"|"snefru"|"snefru256"|"gost"|"gost-crypto"|"adler32"|"crc32"|"crc32b"|"crc32c"|"fnv132"|"fnv1a32"|"fnv164"|"fnv1a64"|"joaat"|"murmur3a"|"murmur3c"|"murmur3f"|"xxh32"|"xxh64"|"xxh3"|"xxh128"|"haval128,3"|"haval160,3"|"haval192,3"|"haval224,3"|"haval256,3"|"haval128,4"|"haval160,4"|"haval192,4"|"haval224,4"|"haval256,4"|"haval128,5"|"haval160,5"|"haval192,5"|"haval224,5"|"haval256,5"|Param, // Hashing algorithm to use
+ *                 methods?: list<scalar|Param|null>,
+ *                 cache_listeners?: list<scalar|Param|null>,
+ *                 respect_response_cache_directives?: mixed, // A list of cache directives to respect when caching responses. Omit or set to null to respect the default set of directives.
+ *             },
+ *         },
+ *         cookie?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             cookie_jar?: scalar|Param|null, // This must be a service id to a service implementing Http\Message\CookieJar
+ *         },
+ *         history?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             journal?: scalar|Param|null, // This must be a service id to a service implementing Http\Client\Common\Plugin\Journal
+ *         },
+ *         decoder?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             use_content_encoding?: scalar|Param|null, // Default: true
+ *         },
+ *         logger?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             logger?: scalar|Param|null, // This must be a service id to a service implementing Psr\Log\LoggerInterface // Default: "logger"
+ *             formatter?: scalar|Param|null, // This must be a service id to a service implementing Http\Message\Formatter // Default: null
+ *         },
+ *         redirect?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             preserve_header?: scalar|Param|null, // Default: true
+ *             use_default_for_multiple?: scalar|Param|null, // Default: true
+ *         },
+ *         retry?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             retry?: scalar|Param|null, // Default: 1
+ *         },
+ *         stopwatch?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             stopwatch?: scalar|Param|null, // This must be a service id to a service extending Symfony\Component\Stopwatch\Stopwatch // Default: "debug.stopwatch"
+ *         },
+ *         error?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             only_server_exception?: scalar|Param|null, // Default: false
+ *         },
+ *         throttle?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *             name?: scalar|Param|null, // Rate limiter service name from symfony/rate-limiter configuration. E.g. for a rate limiter http_client you specify limiter.http_client here
+ *             key?: scalar|Param|null, // Key to avoid sharing this rate limiter with other clients or other services. You can use the name of the client for example. // Default: null
+ *             tokens?: int|Param, // How many tokens spending per request // Default: 1
+ *             max_time?: float|Param, // Maximum accepted waiting time in seconds // Default: null
+ *         },
+ *     },
+ *     default_client_autowiring?: bool|Param, // Set to false to not autowire ClientInterface and HttpAsyncClient. // Default: true
+ *     main_alias?: array{ // Configure which service the main alias point to.
+ *         client?: scalar|Param|null, // Default: "httplug.client.default"
+ *         psr18_client?: scalar|Param|null, // Default: "httplug.psr18_client.default"
+ *         psr17_request_factory?: scalar|Param|null, // Default: "httplug.psr17_request_factory.default"
+ *         psr17_response_factory?: scalar|Param|null, // Default: "httplug.psr17_response_factory.default"
+ *         psr17_stream_factory?: scalar|Param|null, // Default: "httplug.psr17_stream_factory.default"
+ *         psr17_uri_factory?: scalar|Param|null, // Default: "httplug.psr17_uri_factory.default"
+ *         psr17_uploaded_file_factory?: scalar|Param|null, // Default: "httplug.psr17_uploaded_file_factory.default"
+ *         psr17_server_request_factory?: scalar|Param|null, // Default: "httplug.psr17_server_request_factory.default"
+ *     },
+ *     classes?: array{ // Overwrite a service class instead of using the discovery mechanism.
+ *         client?: scalar|Param|null, // Default: null
+ *         psr18_client?: scalar|Param|null, // Default: null
+ *         psr17_request_factory?: scalar|Param|null, // Default: null
+ *         psr17_response_factory?: scalar|Param|null, // Default: null
+ *         psr17_stream_factory?: scalar|Param|null, // Default: null
+ *         psr17_uri_factory?: scalar|Param|null, // Default: null
+ *         psr17_uploaded_file_factory?: scalar|Param|null, // Default: null
+ *         psr17_server_request_factory?: scalar|Param|null, // Default: null
+ *     },
+ *     profiling?: bool|array{ // Extend the debug profiler with information about requests.
+ *         enabled?: bool|Param, // Turn the toolbar on or off. Defaults to kernel debug mode. // Default: true
+ *         formatter?: scalar|Param|null, // Default: null
+ *         captured_body_length?: scalar|Param|null, // Limit long HTTP message bodies to x characters. If set to 0 we do not read the message body. If null the body will not be truncated. Only available with the default formatter (FullHttpMessageFormatter). // Default: 0
+ *     },
+ *     discovery?: array{ // Control what clients should be found by the discovery.
+ *         client?: scalar|Param|null, // Set to "auto" to see auto discovered client in the web profiler. If provided a service id for a client then this client will be found by auto discovery. // Default: "auto"
+ *         async_client?: scalar|Param|null, // Set to "auto" to see auto discovered client in the web profiler. If provided a service id for a client then this client will be found by auto discovery. // Default: null
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1907,6 +2153,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
+ *     httplug?: HttplugConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1936,6 +2183,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         httplug?: HttplugConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1963,6 +2211,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         httplug?: HttplugConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1991,6 +2240,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         httplug?: HttplugConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
