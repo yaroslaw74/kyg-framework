@@ -27,3 +27,7 @@
 ###> doctrine/migrations ###
 /migrations/
 ###< doctrine/migrations ###
+
+###> kocal/biome-js-bundle ###
+/bin/biome*
+###< kocal/biome-js-bundle ###
