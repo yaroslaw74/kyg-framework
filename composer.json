@@ -148,20 +148,22 @@
         "symfony/yaml": "^7.4.12",
         "symfonycasts/reset-password-bundle": "^1.25",
         "symfonycasts/verify-email-bundle": "^1.18",
-        "twig/cache-extra": "^3.24",
-        "twig/cssinliner-extra": "^3.26",
-        "twig/extra-bundle": "^3.24",
-        "twig/html-extra": "^3.24",
-        "twig/inky-extra": "^3.26",
-        "twig/markdown-extra": "^3.26",
-        "twig/string-extra": "^3.24",
-        "twig/twig": "^3.26",
+        "twig/cache-extra": "^3.24|^4.0",
+        "twig/cssinliner-extra": "^3.26|^4.0",
+        "twig/extra-bundle": "^3.24|^4.0",
+        "twig/html-extra": "^3.24|^4.0",
+        "twig/inky-extra": "^3.26|^4.0",
+        "twig/markdown-extra": "^3.26|^4.0",
+        "twig/string-extra": "^3.24|^4.0",
+        "twig/twig": "^3.26|^4.0",
         "yokai/enum-bundle": "^5.1",
         "yokai/security-token-bundle": "^3.4"
     },
     "config": {
         "allow-plugins": {
+            "ergebnis/composer-normalize": true,
             "liborm85/composer-vendor-cleaner": true,
+            "neronmoon/scriptsdev": true,
             "php-http/discovery": true,
             "symfony/flex": true,
             "symfony/runtime": true
@@ -226,8 +228,12 @@
         }
     },
     "require-dev": {
+        "composer/composer": "^2.9.8",
+        "ergebnis/composer-normalize": "^2.52",
+        "neronmoon/scriptsdev": "^0.1.9",
         "php-http/guzzle7-adapter": "^1.1",
         "phpunit/phpunit": "^13.1.12",
+        "shipmonk/composer-dependency-analyser": "^1.8.4",
         "symfony/browser-kit": "^7.4.8",
         "symfony/debug-bundle": "^7.4.8",
         "symfony/maker-bundle": "^1.67",
