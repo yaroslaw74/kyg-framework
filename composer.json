@@ -166,6 +166,7 @@
         "symfony/browser-kit": "^7.4.8",
         "symfony/debug-bundle": "^7.4.8",
         "symfony/maker-bundle": "^1.67",
+        "symfony/thanks": "^1.4",
         "symfony/web-profiler-bundle": "^7.4.12"
     },
     "replace": {
@@ -192,8 +193,13 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
-        }
+            "App\\": "src/",
+            "App\\Additions\\": "public/additions/",
+            "App\\Modules\\": "modules/"
+        },
+        "classmap": [
+            "config/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -207,7 +213,8 @@
             "neronmoon/scriptsdev": true,
             "php-http/discovery": true,
             "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "symfony/thanks": true
         },
         "apcu-autoloader": true,
         "bump-after-update": true,
@@ -216,6 +223,72 @@
         "sort-packages": true
     },
     "extra": {
+        "dev-files": {
+            "*/*": [
+                ".git/",
+                ".github/",
+                ".phive/",
+                "docs/",
+                "test/",
+                "tests/",
+                "*.md",
+                "CHANGELOG",
+                "CREDITS",
+                "LICENCE",
+                "LICENSE",
+                "LICENSE.*",
+                "NOTICE",
+                "README",
+                "README.*",
+                "Makefile",
+                ".deepsource.toml",
+                ".gitattributes",
+                ".editorconfig",
+                ".gitignore",
+                ".gitmodules",
+                ".phpstorm.meta.php",
+                ".php_cs.php",
+                ".php_cs.dist",
+                ".php-cs-fixer.php",
+                ".php-cs-fixer.dist.php",
+                ".prettierrc",
+                ".roave-backward-compatibility-check.xml",
+                ".travis.yml",
+                ".valgrindrc",
+                "biome.json",
+                "composer.json",
+                "composer.lock",
+                "composer-require-check.json",
+                "phpbench.json",
+                "phpcs.xml",
+                "phpdoc.dist.xml",
+                "phpstan.dist.neon",
+                "phpstan.neon",
+                "phpstan.neon.dist",
+                "phpunit.xml",
+                "phpunit.dist.xml",
+                "phpunit.xml.dist",
+                "phpunit-deprecation-baseline.xml",
+                "phpunit-rector.xml.dist",
+                "phpunit11.dist.xml",
+                "phpstan-baseline.neon",
+                "psalm.xml",
+                "psalm-baseline.xml"
+            ]
+        },
+        "mkdir": {
+            "migrations": "0644",
+            "public/additions": "0777",
+            "public/storage": "0777",
+            "public/storage/Documents": "0777",
+            "public/storage/Downloads": "0777",
+            "public/storage/Images": "0777",
+            "public/storage/Music": "0777",
+            "public/storage/Other": "0777",
+            "public/storage/Videos": "0777",
+            "public/translations": "0777",
+            "public/uploads": "0777"
+        },
         "symfony": {
             "allow-contrib": true,
             "require": "^7.4"
@@ -223,6 +296,8 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
+            "SlowProg\\CopyFile\\ScriptHandler::copy",
             "@auto-scripts"
         ],
         "post-update-cmd": [
