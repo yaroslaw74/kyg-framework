@@ -1,48 +1,70 @@
 {
+    "name": "yaroslaw74/kyg-framework",
+    "description": "KYG Framework for Business",
+    "license": [
+        "GPL-3.0-or-later",
+        "MIT"
+    ],
     "type": "project",
-    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Kataev Yaroslav",
+            "email": "yaroslaw74@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "yaroslaw74@gmail.com",
+        "issues": "https://github.com/yaroslaw74/kyg-framework/issues",
+        "forum": "https://github.com/yaroslaw74/kyg-framework/discussions",
+        "wiki": "https://github.com/yaroslaw74/kyg-framework/wiki",
+        "source": "https://github.com/yaroslaw74/kyg-framework",
+        "security": "https://github.com/yaroslaw74/kyg-framework/security"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/doctrine-bundle": "^2.18",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "doctrine/doctrine-bundle": "^2.18.2",
         "doctrine/doctrine-migrations-bundle": "^3.7",
-        "doctrine/orm": "^3.6",
-        "phpdocumentor/reflection-docblock": "^6.0",
-        "phpstan/phpdoc-parser": "^2.3",
-        "symfony/asset": "7.4.*",
-        "symfony/asset-mapper": "7.4.*",
-        "symfony/console": "7.4.*",
-        "symfony/doctrine-messenger": "7.4.*",
-        "symfony/dotenv": "7.4.*",
-        "symfony/expression-language": "7.4.*",
-        "symfony/flex": "^2",
-        "symfony/form": "7.4.*",
-        "symfony/framework-bundle": "7.4.*",
-        "symfony/http-client": "7.4.*",
-        "symfony/intl": "7.4.*",
-        "symfony/mailer": "7.4.*",
-        "symfony/mime": "7.4.*",
-        "symfony/monolog-bundle": "^3.0|^4.0",
-        "symfony/notifier": "7.4.*",
-        "symfony/process": "7.4.*",
-        "symfony/property-access": "7.4.*",
-        "symfony/property-info": "7.4.*",
-        "symfony/runtime": "7.4.*",
-        "symfony/security-bundle": "7.4.*",
-        "symfony/serializer": "7.4.*",
+        "doctrine/orm": "^3.6.6",
+        "phpdocumentor/reflection-docblock": "^6.0.3",
+        "phpstan/phpdoc-parser": "^2.3.2",
+        "symfony/asset": "^7.4.8",
+        "symfony/asset-mapper": "^7.4.11",
+        "symfony/console": "^7.4.11",
+        "symfony/doctrine-messenger": "^7.4.6",
+        "symfony/dotenv": "^7.4.11",
+        "symfony/expression-language": "^7.4.8",
+        "symfony/flex": "^2.10",
+        "symfony/form": "^7.4.9",
+        "symfony/framework-bundle": "^7.4.11",
+        "symfony/http-client": "^7.4.9",
+        "symfony/intl": "^7.4.8",
+        "symfony/mailer": "^7.4.12",
+        "symfony/mime": "^7.4.12",
+        "symfony/monolog-bundle": "^4.0.2",
+        "symfony/notifier": "^7.4.8",
+        "symfony/process": "^7.4.11",
+        "symfony/property-access": "^7.4.8",
+        "symfony/property-info": "^7.4.8",
+        "symfony/runtime": "^7.4.12",
+        "symfony/security-bundle": "^7.4.12",
+        "symfony/serializer": "^7.4.10",
         "symfony/stimulus-bundle": "^2.35",
-        "symfony/string": "7.4.*",
-        "symfony/translation": "7.4.*",
-        "symfony/twig-bundle": "7.4.*",
+        "symfony/string": "^7.4.11",
+        "symfony/translation": "^7.4.10",
+        "symfony/twig-bundle": "^7.4.8",
         "symfony/ux-turbo": "^2.35",
-        "symfony/validator": "7.4.*",
-        "symfony/web-link": "7.4.*",
-        "symfony/yaml": "7.4.*",
-        "twig/extra-bundle": "^3.0",
-        "twig/twig": "^3.0"
+        "symfony/validator": "^7.4.10",
+        "symfony/web-link": "^7.4.8",
+        "symfony/yaml": "^7.4.12",
+        "twig/extra-bundle": "^3.24",
+        "twig/twig": "^3.26"
     },
     "config": {
         "allow-plugins": {
@@ -51,7 +73,10 @@
             "symfony/runtime": true
         },
         "bump-after-update": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "apcu-autoloader": true,
+        "optimize-autoloader": true,
+        "process-timeout": 3000
     },
     "autoload": {
         "psr-4": {
@@ -64,20 +89,29 @@
         }
     },
     "replace": {
-        "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-intl": "*",
+        "symfony/polyfill-intl-grapheme": "*",
+        "symfony/polyfill-intl-icu": "*",
+        "symfony/polyfill-intl-idn": "*",
+        "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
-        "symfony/polyfill-php82": "*"
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
     },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd"
+            "cache:warmup": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd",
+            "importmap:update": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -96,12 +130,12 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^12.5",
-        "symfony/browser-kit": "7.4.*",
-        "symfony/css-selector": "7.4.*",
-        "symfony/debug-bundle": "7.4.*",
-        "symfony/maker-bundle": "^1.0",
-        "symfony/stopwatch": "7.4.*",
-        "symfony/web-profiler-bundle": "7.4.*"
+        "phpunit/phpunit": "^13.1.11",
+        "symfony/browser-kit": "^7.4.8",
+        "symfony/css-selector": "^7.4.9",
+        "symfony/debug-bundle": "^7.4.8",
+        "symfony/maker-bundle": "^1.67",
+        "symfony/stopwatch": "^7.4.8",
+        "symfony/web-profiler-bundle": "^7.4.12"
     }
 }
