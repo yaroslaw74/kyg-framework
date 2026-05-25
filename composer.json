@@ -230,6 +230,10 @@
         "sort-packages": true
     },
     "extra": {
+        "copy-file": {
+            "modules/Config/Resources/data/config/": "var/config/",
+            "modules/Config/Resources/data/theme/": "public/theme/"
+        },
         "dev-files": {
             "*/*": [
                 ".git/",
