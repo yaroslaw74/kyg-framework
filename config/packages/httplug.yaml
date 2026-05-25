@@ -4,11 +4,11 @@ httplug:
             retry: 1
 
     discovery:
-        client: 'auto'
+        client: "auto"
 
     clients:
         app:
             http_methods_client: true
             plugins:
-                - 'httplug.plugin.content_length'
-                - 'httplug.plugin.redirect'
+                - "httplug.plugin.content_length"
+                - "httplug.plugin.redirect"
