@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="7"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="true"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="config"/>
+        <directory name="tests"/>
+        <directory name="modules"/>
+        <directory name="public/additions/"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <plugins>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin">
+            <containerXml>var/cache/dev/App_KernelDevDebugContainer.xml</containerXml>
+            <containerXml>var/cache/dev/App_KernelTestDebugContainer.xml</containerXml>
+        </pluginClass>
+    </plugins>
+    <extraFiles>
+        <directory name="var/cache/dev/Symfony/Config" />
+        <!-- https://github.com/psalm/psalm-plugin-symfony/issues/201 -->
+    </extraFiles>
+    <stubs>
+        <file name="vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php" />
+    </stubs>
+    <issueHandlers>
+        <MissingFile>
+        <!-- https://github.com/psalm/psalm-plugin-symfony/issues/205 -->
+            <errorLevel type="suppress">
+                <file name="config/preload.php" />
+            </errorLevel>
+        </MissingFile>
+    </issueHandlers>
+    <fileExtensions>
+        <extension name=".php" />
+        <extension name=".twig" checker="/vendor/psalm/plugin-symfony/src/Twig/TemplateFileAnalyzer.php"/>
+    </fileExtensions>
+</psalm>
