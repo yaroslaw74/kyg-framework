@@ -168,7 +168,8 @@
         "symfony/debug-bundle": "^7.4.8",
         "symfony/maker-bundle": "^1.67",
         "symfony/thanks": "^1.4.1",
-        "symfony/web-profiler-bundle": "^7.4.12"
+        "symfony/web-profiler-bundle": "^7.4.12",
+        "zenstruck/foundry": "^2.10"
     },
     "replace": {
         "symfony/polyfill-iconv": "*",
