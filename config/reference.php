@@ -2731,6 +2731,41 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * @psalm-type KocalBiomeJsConfig = array{
  *     binary_version?: scalar|Param|null, // Biome.js CLI version to download.
  * }
+ * @psalm-type DoctrineDiagramConfig = array{
+ *     er?: array{
+ *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/er"
+ *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
+ *         theme?: scalar|Param|null, // Default: "_none_"
+ *         connection?: scalar|Param|null, // Default: null
+ *         exclude?: list<scalar|Param|null>,
+ *     },
+ *     class?: array{
+ *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/class"
+ *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
+ *         theme?: scalar|Param|null, // Default: "_none_"
+ *         em?: scalar|Param|null, // Default: null
+ *         exclude?: list<scalar|Param|null>,
+ *     },
+ *     convert?: array{
+ *         format?: "puml"|"png"|"svg"|Param, // Default: "svg"
+ *         converter?: "auto"|"jar"|"server"|Param, // Default: "auto"
+ *         jar?: scalar|Param|null, // Default: null
+ *         server?: scalar|Param|null, // Default: "http://www.plantuml.com/plantuml"
+ *     },
+ * }
+ * @psalm-type IgnitionConfig = array{
+ *     application_path?: scalar|Param|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
+ *     dark_mode?: bool|Param, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
+ *     should_display_exception?: bool|Param, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
+ *     force_html_response?: bool|Param, // When true, Ignition always renders HTML errors regardless of request format. When false, non-HTML requests (e.g. JSON) are handled by Symfony. // Default: false
+ *     openai_key?: scalar|Param|null, // if you want AI solutions to your app's errors. // Default: ""
+ * }
+ * @psalm-type EasyLogConfig = array{
+ *     log_path?: scalar|Param|null, // Path where readable log file will be located // Default: "%kernel.logs_dir%/%kernel.environment%-readable.log"
+ *     max_line_length?: int|Param, // Max line length in log file // Default: 120
+ *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
+ *     ignored_routes?: list<scalar|Param|null>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2771,6 +2806,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     nelmio_api_doc?: NelmioApiDocConfig,
  *     nelmio_cors?: NelmioCorsConfig,
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
+ *     doctrine_diagram?: DoctrineDiagramConfig,
+ *     easy_log?: EasyLogConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2814,6 +2851,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_cors?: NelmioCorsConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         kocal_biome_js?: KocalBiomeJsConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
+ *         ignition?: IgnitionConfig,
+ *         easy_log?: EasyLogConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2856,6 +2896,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_cors?: NelmioCorsConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         dama_doctrine_test?: DamaDoctrineTestConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
+ *         easy_log?: EasyLogConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
