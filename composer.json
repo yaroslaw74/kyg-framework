@@ -165,6 +165,7 @@
         "kocal/biome-js-bundle": "^2.1.2",
         "neronmoon/scriptsdev": "^0.1.9",
         "php-http/guzzle7-adapter": "^1.1",
+        "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^13.1.12",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
         "symfony/browser-kit": "^7.4.8",
@@ -172,6 +173,7 @@
         "symfony/maker-bundle": "^1.67",
         "symfony/thanks": "^1.4.1",
         "symfony/web-profiler-bundle": "^7.4.12",
+        "vincentlanglet/twig-cs-fixer": "^3.14",
         "zenstruck/browser": "^1.10",
         "zenstruck/foundry": "^2.10.1",
         "zenstruck/mailer-test": "^1.5",
@@ -234,17 +236,6 @@
         "copy-file": {
             "modules/Config/Resources/data/config/": "var/config/",
             "modules/Config/Resources/data/theme/": "public/theme/"
-        },
-        "scripts-dev": {
-            "post-install-cmd": [
-                "@php bin/console biomejs:download"
-            ],
-            "post-update-cmd": [
-                "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
-                "bin/biome lint --write assets modules public/additions",
-                "bin/biome check --write assets modules public/additions",
-                "bin/biome format --write assets modules public/additions"
-            ]
         },
         "dev-files": {
             "*/*": [
@@ -311,6 +302,18 @@
             "public/storage/Videos": "0777",
             "public/translations": "0777",
             "public/uploads": "0777"
+        },
+        "scripts-dev": {
+            "post-install-cmd": [
+                "@php bin/console biomejs:download"
+            ],
+            "post-update-cmd": [
+                "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
+                "vendor/bin/twig-cs-fixer fix",
+                "bin/biome lint --write assets modules public/additions",
+                "bin/biome check --write assets modules public/additions",
+                "bin/biome format --write assets modules public/additions"
+            ]
         },
         "symfony": {
             "allow-contrib": true,
