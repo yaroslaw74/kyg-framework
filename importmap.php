@@ -152,6 +152,13 @@ return [
     '@orchidjs/unicode-variants' => [
         'version' => '1.1.2',
     ],
+    'cropperjs' => [
+        'version' => '1.5.9'
+    ],
+    'cropperjs/dist/cropper.min.css' => [
+        'version' => '1.5.9',
+        'type' => 'css',
+    ],
     'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.13.1',
         'type' => 'css',
