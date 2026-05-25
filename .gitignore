@@ -1,3 +1,8 @@
+/public/additions/
+/public/storage/
+/public/theme/
+/public/translations/
+/public/uploads/
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -18,3 +23,7 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+###> doctrine/migrations ###
+/migrations/
+###< doctrine/migrations ###
