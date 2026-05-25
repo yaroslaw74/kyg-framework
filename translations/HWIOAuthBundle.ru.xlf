@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ToUWBpM" resname="connect.confirm.cancel">
+        <source>connect.confirm.cancel</source>
+        <target>Отмена</target>
+      </trans-unit>
+      <trans-unit id="KjtPgcb" resname="connect.confirm.submit">
+        <source>connect.confirm.submit</source>
+        <target>Соединить</target>
+      </trans-unit>
+      <trans-unit id="kwhH9aC" resname="connect.confirm.text">
+        <source>connect.confirm.text</source>
+        <target>Вы уверены что хотите соединить "%service%" аккаунт "%name%" с текущим пользователем?</target>
+      </trans-unit>
+      <trans-unit id="l.4.Qpv" resname="connect.registration.cancel">
+        <source>connect.registration.cancel</source>
+        <target>Отмена</target>
+      </trans-unit>
+      <trans-unit id="9qLryAg" resname="connect.registration.submit">
+        <source>connect.registration.submit</source>
+        <target>Регистрация</target>
+      </trans-unit>
+      <trans-unit id="LLggA8e" resname="facebook">
+        <source>facebook</source>
+        <target>facebook</target>
+      </trans-unit>
+      <trans-unit id="8ibIMXH" resname="github">
+        <source>github</source>
+        <target>github</target>
+      </trans-unit>
+      <trans-unit id="cjWCMi4" resname="google">
+        <source>google</source>
+        <target>google</target>
+      </trans-unit>
+      <trans-unit id="xFcD5cP" resname="header.connecting">
+        <source>header.connecting</source>
+        <target>Соединение</target>
+      </trans-unit>
+      <trans-unit id="FCq2RsZ" resname="header.register">
+        <source>header.register</source>
+        <target>Регистрация с аккаунтом "%name%"</target>
+      </trans-unit>
+      <trans-unit id="uHPueSh" resname="header.registration_success">
+        <source>header.registration_success</source>
+        <target>Успешная регистрация и соединение с аккаунтом "%username%"!</target>
+      </trans-unit>
+      <trans-unit id="BO9fH69" resname="header.success">
+        <source>header.success</source>
+        <target>Успешное соединение с аккаунтом "%name%"!</target>
+      </trans-unit>
+      <trans-unit id="5z3BgcQ" resname="linkedin">
+        <source>linkedin</source>
+        <target>linkedin</target>
+      </trans-unit>
+      <trans-unit id=".f97Z9c" resname="mailru">
+        <source>mailru</source>
+        <target>mailru</target>
+      </trans-unit>
+      <trans-unit id="vs75Qy7" resname="odnoklassniki">
+        <source>odnoklassniki</source>
+        <target>odnoklassniki</target>
+      </trans-unit>
+      <trans-unit id="VmkOkLV" resname="vkontakte">
+        <source>vkontakte</source>
+        <target>vkontakte</target>
+      </trans-unit>
+      <trans-unit id="2LTTwE8" resname="xTwitter">
+        <source>xTwitter</source>
+        <target>xTwitter</target>
+      </trans-unit>
+      <trans-unit id="k1.F1hd" resname="yandex">
+        <source>yandex</source>
+        <target>yandex</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
