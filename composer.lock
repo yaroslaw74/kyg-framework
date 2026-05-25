@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "913b7502e763c27f0f78fd0fd2748ef4",
+    "content-hash": "85e3ed28737b86fc6364b27c31bafa0d",
     "packages": [
         {
             "name": "composer/semver",
@@ -168,6 +168,97 @@
                 }
             ],
             "time": "2026-01-15T10:01:58+00:00"
+        },
+        {
+            "name": "doctrine/common",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/common.git",
+                "reference": "d9ea4a54ca2586db781f0265d36bea731ac66ec5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/d9ea4a54ca2586db781f0265d36bea731ac66ec5",
+                "reference": "d9ea4a54ca2586db781f0265d36bea731ac66ec5",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/persistence": "^2.0 || ^3.0 || ^4.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9.0 || ^10.0",
+                "doctrine/collections": "^1",
+                "phpstan/phpstan": "^1.4.1",
+                "phpstan/phpstan-phpunit": "^1",
+                "phpunit/phpunit": "^7.5.20 || ^8.5 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.0",
+                "symfony/phpunit-bridge": "^6.1",
+                "vimeo/psalm": "^4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                }
+            ],
+            "description": "PHP Doctrine Common project is a library that provides additional functionality that other Doctrine projects depend on such as better reflection support, proxies and much more.",
+            "homepage": "https://www.doctrine-project.org/projects/common.html",
+            "keywords": [
+                "common",
+                "doctrine",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/common/issues",
+                "source": "https://github.com/doctrine/common/tree/3.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcommon",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-01-01T22:12:03+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -7420,6 +7511,187 @@
                 "source": "https://github.com/webmozarts/assert/tree/2.4.0"
             },
             "time": "2026-05-20T13:07:01+00:00"
+        },
+        {
+            "name": "yokai/dependency-injection",
+            "version": "v1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yokai-php/dependency-injection.git",
+                "reference": "84d4357e95d74033474909bceb7df968f8c126b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yokai-php/dependency-injection/zipball/84d4357e95d74033474909bceb7df968f8c126b8",
+                "reference": "84d4357e95d74033474909bceb7df968f8c126b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/dependency-injection": "^2.7|^3.0|^4.0|^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yokai\\DependencyInjection\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Eugoné",
+                    "email": "yann.eugone@gmail.com"
+                }
+            ],
+            "description": "Provide util classes to manipulate Dependency Injection in Symfony",
+            "keywords": [
+                "dependency injection",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/yokai-php/dependency-injection/issues",
+                "source": "https://github.com/yokai-php/dependency-injection/tree/v1.5"
+            },
+            "time": "2024-09-05T08:42:47+00:00"
+        },
+        {
+            "name": "yokai/enum-bundle",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yokai-php/enum-bundle.git",
+                "reference": "96342ae4bc932a4d8dbd962d15095326c383f9d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yokai-php/enum-bundle/zipball/96342ae4bc932a4d8dbd962d15095326c383f9d0",
+                "reference": "96342ae4bc932a4d8dbd962d15095326c383f9d0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "symfony/framework-bundle": "^7.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.14",
+                "myclabs/php-enum": "^1.8",
+                "phpstan/phpstan": "^1.11",
+                "phpunit/phpunit": "^9.6",
+                "symfony/form": "^7.0",
+                "symfony/http-kernel": "^7.0",
+                "symfony/phpunit-bridge": "^7.3",
+                "symfony/translation": "^7.0",
+                "symfony/twig-bundle": "^7.0",
+                "symfony/validator": "^7.0",
+                "symfony/yaml": "^7.0",
+                "symplify/easy-coding-standard": "^12.3",
+                "twig/twig": "^2.0|^3.0"
+            },
+            "suggest": {
+                "myclabs/php-enum": "Integrate with enum object",
+                "symfony/form": "Add enum form type",
+                "symfony/framework-bundle": "Integrate with Symfony Framework",
+                "symfony/validator": "Add enum validation",
+                "twig/twig": "Add enum util functions"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev",
+                    "dev-3.x": "3.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-5.x": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yokai\\EnumBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Eugoné",
+                    "email": "eugone.yann@gmail.com"
+                }
+            ],
+            "description": "Simple enumeration system with Symfony integration",
+            "support": {
+                "issues": "https://github.com/yokai-php/enum-bundle/issues",
+                "source": "https://github.com/yokai-php/enum-bundle/tree/v5.1.0"
+            },
+            "time": "2025-09-02T13:45:17+00:00"
+        },
+        {
+            "name": "yokai/security-token-bundle",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yokai-php/security-token-bundle.git",
+                "reference": "105deb57f59ab1679e0cc4aa2dbb6c9d206f12e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yokai-php/security-token-bundle/zipball/105deb57f59ab1679e0cc4aa2dbb6c9d206f12e1",
+                "reference": "105deb57f59ab1679e0cc4aa2dbb6c9d206f12e1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^3.0",
+                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/orm": "^2.7|^3.0",
+                "ext-openssl": "*",
+                "php": "^7.4|^8.0",
+                "symfony/framework-bundle": "^4.4|^5.0|^6.0|^7.0",
+                "yokai/dependency-injection": "^1.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.7",
+                "phpunit/phpunit": "^9.5",
+                "symfony/yaml": "^4.4|^5.2|^6.0|^7.0",
+                "symplify/easy-coding-standard": "^11.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yokai\\SecurityTokenBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Eugoné",
+                    "email": "eugone.yann@gmail.com"
+                }
+            ],
+            "description": "Handle security token manipulation in a Symfony application",
+            "support": {
+                "issues": "https://github.com/yokai-php/security-token-bundle/issues",
+                "source": "https://github.com/yokai-php/security-token-bundle/tree/v3.4.0"
+            },
+            "time": "2024-06-03T12:22:21+00:00"
         }
     ],
     "packages-dev": [
