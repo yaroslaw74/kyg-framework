@@ -39,9 +39,6 @@ return [
     '@symfony/ux-chartjs' => [
         'path' => './vendor/symfony/ux-chartjs/assets/dist/controller.js',
     ],
-    '@symfony/ux-cropperjs' => [
-        'path' => './vendor/symfony/ux-cropperjs/assets/dist/controller.js',
-    ],
     '@symfony/ux-dropzone' => [
         'path' => './vendor/symfony/ux-dropzone/assets/dist/controller.js',
     ],
@@ -151,13 +148,6 @@ return [
     ],
     '@orchidjs/unicode-variants' => [
         'version' => '1.1.2',
-    ],
-    'cropperjs' => [
-        'version' => '1.5.9'
-    ],
-    'cropperjs/dist/cropper.min.css' => [
-        'version' => '1.5.9',
-        'type' => 'css',
     ],
     'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.13.1',
