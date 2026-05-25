@@ -2728,6 +2728,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     enable_static_query_cache?: bool|Param, // Default: true
  *     connection_keys?: list<mixed>,
  * }
+ * @psalm-type KocalBiomeJsConfig = array{
+ *     binary_version?: scalar|Param|null, // Biome.js CLI version to download.
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2810,6 +2813,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *         kocal_biome_js?: KocalBiomeJsConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
