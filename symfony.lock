@@ -538,9 +538,6 @@
     "symfony/ux-chartjs": {
         "version": "v3.0.0"
     },
-    "symfony/ux-cropperjs": {
-        "version": "v3.0.0"
-    },
     "symfony/ux-dropzone": {
         "version": "v3.0.0"
     },
