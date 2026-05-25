@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="3QNbvj1" resname="(missing)">
+        <source>(missing)</source>
+        <target>(missing)</target>
+      </trans-unit>
+      <trans-unit id="LJ17mAJ" resname="(unset)">
+        <source>(unset)</source>
+        <target>(unset)</target>
+      </trans-unit>
+      <trans-unit id="bSMN.ew" resname="Invalid">
+        <source>Invalid</source>
+        <target>Недействительный</target>
+      </trans-unit>
+      <trans-unit id="4sYd8yP" resname="Invalid file">
+        <source>Invalid file</source>
+        <target>Недействительный файл</target>
+      </trans-unit>
+      <trans-unit id="pVb9OnQ" resname="Null">
+        <source>Null</source>
+        <target>Null</target>
+      </trans-unit>
+      <trans-unit id="4SKGS7T" resname="Null file">
+        <source>Null file</source>
+        <target>Нулевой файл</target>
+      </trans-unit>
+      <trans-unit id="mMX9jJJ" resname="The file is missing in the storage media">
+        <source>The file is missing in the storage media</source>
+        <target>Файл отсутствует на носителе информации.</target>
+      </trans-unit>
+      <trans-unit id="ym12nC0" resname="The file is unset due to an error">
+        <source>The file is unset due to an error</source>
+        <target>Файл не задан из-за ошибки.</target>
+      </trans-unit>
+      <trans-unit id="l__7ltc" resname="Unknown file type ({type})">
+        <source>Unknown file type ({type})</source>
+        <target>Неизвестный тип файла ({type})</target>
+      </trans-unit>
+      <trans-unit id="4.HmyTy" resname="Untitled">
+        <source>Untitled</source>
+        <target>Без названия</target>
+      </trans-unit>
+      <trans-unit id="uG74spI" resname="Untitled.{extension}">
+        <source>Untitled.{extension}</source>
+        <target>Untitled.{extension}</target>
+      </trans-unit>
+      <trans-unit id="8MjLTkR" resname="{name}">
+        <source>{name}</source>
+        <target>{name}</target>
+      </trans-unit>
+      <trans-unit id="A0AIi9p" resname="{name}.{extension}">
+        <source>{name}.{extension}</source>
+        <target>{name}.{extension}</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
