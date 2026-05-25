@@ -24,6 +24,18 @@ return [
         'path' => './assets/rtl.js',
         'entrypoint' => true,
     ],
+    'icons' => [
+        'path' => './assets/icons-fonts.js',
+        'entrypoint' => true,
+    ],
+    'plugins' => [
+        'path' => './assets/plugins.js',
+        'entrypoint' => true,
+    ],
+    'valex' => [
+        'path' => './assets/valex.js',
+        'entrypoint' => true,
+    ],
     '@rekalogika/file-filepond' => [
         'path' => './vendor/rekalogika/file-filepond/assets/dist/filepond.js',
     ],
