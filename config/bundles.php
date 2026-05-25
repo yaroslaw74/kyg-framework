@@ -40,4 +40,6 @@ return [
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
+    Knp\Bundle\TimeBundle\KnpTimeBundle::class => ['all' => true],
+    Dukecity\CommandSchedulerBundle\DukecityCommandSchedulerBundle::class => ['all' => true],
 ];
