@@ -4,7 +4,12 @@
             "filepond": {
                 "enabled": true,
                 "fetch": "eager",
-                "autoimport": []
+                "autoimport": {
+                    "filepond/dist/filepond.min.css": true,
+                    "filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css": true,
+                    "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css": true,
+                    "filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css": true
+                }
             }
         },
         "@rekalogika/temporary-url-bundle": {
@@ -29,16 +34,6 @@
             "chart": {
                 "enabled": true,
                 "fetch": "eager"
-            }
-        },
-        "@symfony/ux-cropperjs": {
-            "cropper": {
-                "enabled": true,
-                "fetch": "eager",
-                "autoimport": {
-                    "cropperjs/dist/cropper.min.css": true,
-                    "@symfony/ux-cropperjs/dist/style.min.css": true
-                }
             }
         },
         "@symfony/ux-dropzone": {
