@@ -158,6 +158,7 @@
     },
     "require-dev": {
         "composer/composer": "^2.9.8",
+        "doctrine/doctrine-fixtures-bundle": "^4.3",
         "ergebnis/composer-normalize": "^2.52",
         "neronmoon/scriptsdev": "^0.1.9",
         "php-http/guzzle7-adapter": "^1.1",
