@@ -162,7 +162,7 @@
         "dama/doctrine-test-bundle": "^8.6",
         "doctrine/doctrine-fixtures-bundle": "^4.3.1",
         "ergebnis/composer-normalize": "^2.52",
-        "kocal/biome-js-bundle": "^2.1",
+        "kocal/biome-js-bundle": "^2.1.2",
         "neronmoon/scriptsdev": "^0.1.9",
         "php-http/guzzle7-adapter": "^1.1",
         "phpunit/phpunit": "^13.1.12",
@@ -240,7 +240,10 @@
                 "@php bin/console biomejs:download"
             ],
             "post-update-cmd": [
-                "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations"
+                "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
+                "bin/biome lint --write assets modules public/additions",
+                "bin/biome check --write assets modules public/additions",
+                "bin/biome format --write assets modules public/additions"
             ]
         },
         "dev-files": {
