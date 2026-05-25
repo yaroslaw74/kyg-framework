@@ -1,5 +1,19 @@
 {
     "controllers": {
+        "@rekalogika/file-filepond": {
+            "filepond": {
+                "enabled": true,
+                "fetch": "eager",
+                "autoimport": []
+            }
+        },
+        "@rekalogika/temporary-url-bundle": {
+            "autoexpire": {
+                "enabled": true,
+                "fetch": "eager",
+                "autoimport": []
+            }
+        },
         "@symfony/ux-cropperjs": {
             "cropper": {
                 "enabled": true,
