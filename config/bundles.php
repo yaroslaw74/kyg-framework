@@ -15,7 +15,6 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Yokai\EnumBundle\YokaiEnumBundle::class => ['all' => true],
     Yokai\SecurityTokenBundle\YokaiSecurityTokenBundle::class => ['all' => true],
-    Symfony\UX\Cropperjs\CropperjsBundle::class => ['all' => true],
     Rekalogika\DirectPropertyAccess\RekalogikaDirectPropertyAccessBundle::class => ['all' => true],
     Rekalogika\Reconstitutor\RekalogikaReconstitutorBundle::class => ['all' => true],
     Rekalogika\TemporaryUrl\RekalogikaTemporaryUrlBundle::class => ['all' => true],
