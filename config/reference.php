@@ -418,7 +418,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: true
  *     },
  *     lock?: bool|string|array{ // Lock configuration
- *         enabled?: bool|Param, // Default: false
+ *         enabled?: bool|Param, // Default: true
  *         resources?: string|array<string, string|list<scalar|Param|null>>,
  *     },
  *     semaphore?: bool|string|array{ // Semaphore configuration
@@ -2156,6 +2156,20 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         format?: \libphonenumber\PhoneNumberFormat::E164|\libphonenumber\PhoneNumberFormat::INTERNATIONAL|\libphonenumber\PhoneNumberFormat::NATIONAL|\libphonenumber\PhoneNumberFormat::RFC3966|Param, // Default: 1
  *     },
  * }
+ * @psalm-type DukecityCommandSchedulerConfig = array{
+ *     scheduled_command_class?: scalar|Param|null, // The entity class to use for scheduled commands. Must implement ScheduledCommandInterface. // Default: "Dukecity\\CommandSchedulerBundle\\Entity\\ScheduledCommand"
+ *     doctrine_manager?: scalar|Param|null, // Default: "default"
+ *     log_path?: scalar|Param|null, // Default: "%kernel.logs_dir%"
+ *     lock_timeout?: scalar|Param|null, // Default: false
+ *     ping_back_provider?: scalar|Param|null, // Default: null
+ *     ping_back?: bool|Param, // Default: true
+ *     ping_back_failed?: bool|Param, // Default: true
+ *     monitor_mail?: list<scalar|Param|null>,
+ *     monitor_mail_subject?: scalar|Param|null, // Default: "cronjob monitoring %%s, %%s"
+ *     send_ok?: bool|Param, // Default: false
+ *     excluded_command_namespaces?: mixed, // Default: []
+ *     included_command_namespaces?: mixed, // Default: []
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2186,6 +2200,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *     misd_phone_number?: MisdPhoneNumberConfig,
+ *     dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2219,6 +2234,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -2250,6 +2266,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2282,6 +2299,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         dukecity_command_scheduler?: DukecityCommandSchedulerConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
