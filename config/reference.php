@@ -1511,6 +1511,22 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     generate_final_classes?: bool|Param, // Default: true
  *     generate_final_entities?: bool|Param, // Default: false
  * }
+ * @psalm-type YokaiSecurityTokenConfig = array{
+ *     tokens?: array<string, array{ // Default: []
+ *         generator?: scalar|Param|null, // Default: "yokai_security_token.open_ssl_token_generator"
+ *         duration?: scalar|Param|null, // Default: "+2 days"
+ *         usages?: int|Param, // Default: 1
+ *         keep?: scalar|Param|null, // Default: "+1 month"
+ *         unique?: bool|Param, // Default: false
+ *     }>,
+ *     services?: array{
+ *         information_guesser?: scalar|Param|null, // Default: "yokai_security_token.default_information_guesser"
+ *         token_factory?: scalar|Param|null, // Default: "yokai_security_token.default_token_factory"
+ *         token_repository?: scalar|Param|null, // Default: "yokai_security_token.default_token_repository"
+ *         token_manager?: scalar|Param|null, // Default: "yokai_security_token.default_token_manager"
+ *         archivist?: scalar|Param|null, // Default: "yokai_security_token.delete_archivist"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1524,6 +1540,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig_extra?: TwigExtraConfig,
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
+ *     yokai_security_token?: YokaiSecurityTokenConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1540,6 +1557,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1554,6 +1572,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1569,6 +1588,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
