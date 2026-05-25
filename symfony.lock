@@ -86,6 +86,18 @@
             "./config/routes/scheduler.yaml"
         ]
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.95",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.39",
+            "ref": "97aaf9026490db73b86c23d49e5774bc89d2b232"
+        },
+        "files": [
+            "./.php-cs-fixer.dist.php"
+        ]
+    },
     "friendsofsymfony/ckeditor-bundle": {
         "version": "2.8",
         "recipe": {
@@ -109,6 +121,18 @@
         "files": [
             "./config/packages/hwi_oauth.yaml",
             "./config/routes/hwi_oauth_routing.yaml"
+        ]
+    },
+    "jawira/doctrine-diagram-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "85fa28662e332ab5da7a48802517e8313500add5"
+        },
+        "files": [
+            "./config/packages/doctrine_diagram.yaml"
         ]
     },
     "jbtronics/settings-bundle": {
@@ -285,6 +309,18 @@
     },
     "sonata-project/intl-bundle": {
         "version": "3.3.0"
+    },
+    "spatie/symfony-ignition-bundle": {
+        "version": "1.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.0",
+            "ref": "3c8f56bc1d755d7164726116b3c4572ff05977b5"
+        },
+        "files": [
+            "./config/packages/ignition.yaml"
+        ]
     },
     "stof/doctrine-extensions-bundle": {
         "version": "1.15",
@@ -735,6 +771,18 @@
     },
     "symfonycasts/verify-email-bundle": {
         "version": "v1.18.0"
+    },
+    "systemsdk/easy-log-bundle": {
+        "version": "2.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.1",
+            "ref": "ca2356442e0ef60e0b15d56e7bb77562d72a608f"
+        },
+        "files": [
+            "./config/packages/systemsdk_easy_log.yaml"
+        ]
     },
     "twig/extra-bundle": {
         "version": "v3.24.0"
