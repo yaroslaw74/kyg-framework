@@ -35,6 +35,53 @@
             "./migrations/.gitignore"
         ]
     },
+    "hwi/oauth-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "20154480d558409ad3eb9de3644817c81fad2268"
+        },
+        "files": [
+            "./config/packages/hwi_oauth.yaml",
+            "./config/routes/hwi_oauth_routing.yaml"
+        ]
+    },
+    "jbtronics/settings-bundle": {
+        "version": "v3.3.1"
+    },
+    "knplabs/knp-menu-bundle": {
+        "version": "v3.7.0"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v6.10.0"
+    },
+    "league/flysystem-bundle": {
+        "version": "3.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "913dc3d7a5a1af0d2b044c5ac3a16e2f851d7380"
+        },
+        "files": [
+            "./config/packages/flysystem.yaml",
+            "./var/storage/.gitignore"
+        ]
+    },
+    "php-http/discovery": {
+        "version": "1.20",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.18",
+            "ref": "f45b5dd173a27873ab19f5e3180b2f661c21de02"
+        },
+        "files": [
+            "./config/packages/http_discovery.yaml"
+        ]
+    },
     "phpunit/phpunit": {
         "version": "12.5",
         "recipe": {
@@ -48,6 +95,45 @@
             "./phpunit.dist.xml",
             "./tests/bootstrap.php",
             "./bin/phpunit"
+        ]
+    },
+    "pyrrah/gravatar-bundle": {
+        "version": "v1.5.2"
+    },
+    "rekalogika/direct-property-access": {
+        "version": "1.4.0"
+    },
+    "rekalogika/file-bundle": {
+        "version": "1.14.0"
+    },
+    "rekalogika/file-filepond": {
+        "version": "1.8.0"
+    },
+    "rekalogika/reconstitutor": {
+        "version": "1.4.0"
+    },
+    "rekalogika/temporary-url-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.8",
+            "ref": "156ced700842c2a91e61679932d9c4ada5b296e0"
+        },
+        "files": [
+            "./config/routes/rekalogika_temporary_url.yaml"
+        ]
+    },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.15",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.2",
+            "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
+        },
+        "files": [
+            "./config/packages/stof_doctrine_extensions.yaml"
         ]
     },
     "symfony/asset-mapper": {
