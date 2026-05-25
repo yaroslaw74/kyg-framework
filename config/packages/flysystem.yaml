@@ -2,6 +2,18 @@
 flysystem:
     storages:
         default.storage:
-            adapter: 'local'
+            adapter: "local"
             options:
-                directory: '%kernel.project_dir%/var/storage/default'
+                directory: "%kernel.project_dir%/public/storage"
+        theme.storage:
+            adapter: "local"
+            options:
+                directory: "%kernel.project_dir%/public/theme"
+        uploads.storage:
+            adapter: "local"
+            options:
+                directory: "%kernel.project_dir%/public/uploads"
+        translations.storage:
+            adapter: "local"
+            options:
+                directory: "%kernel.project_dir%/public/translations"
