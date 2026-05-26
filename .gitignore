@@ -3,6 +3,7 @@
 /public/theme/
 /public/translations/
 /public/uploads/
+/drivers/
 
 ###> symfony/framework-bundle ###
 /.env.local
