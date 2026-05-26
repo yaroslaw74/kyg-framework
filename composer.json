@@ -171,6 +171,7 @@
         "matthiasnoback/symfony-config-test": "^6.2",
         "neronmoon/scriptsdev": "^0.1.9",
         "orklah/psalm-insane-comparison": "^2.4",
+        "orklah/psalm-strict-equality": "^3.1",
         "patchlevel/event-sourcing-psalm-plugin": "^3.2",
         "php-http/guzzle7-adapter": "^1.1",
         "php-standard-library/psalm-plugin": "^2.4",
