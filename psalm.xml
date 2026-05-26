@@ -29,6 +29,7 @@
         <pluginClass class="Patchlevel\EventSourcingPsalmPlugin\Plugin"/>
         <pluginClass class="Lctrs\PsalmPsrContainerPlugin\Plugin"/>
         <pluginClass class="Orklah\PsalmInsaneComparison\Plugin"/>
+        <pluginClass class="Orklah\StrictEquality\Plugin"/>
     </plugins>
     <extraFiles>
         <directory name="var/cache/dev/Symfony/Config"/>
