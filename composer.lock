@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f1b47c4fff71e1e28cd1aa31423453e",
+    "content-hash": "b4e38af0a0c0d866f255ffb34a3267c3",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -22356,6 +22356,60 @@
             "time": "2026-05-11T20:49:54+00:00"
         },
         {
+            "name": "orklah/psalm-insane-comparison",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orklah/psalm-insane-comparison.git",
+                "reference": "b31246ecb3e78034e5f937ad1bfad007cf541375"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orklah/psalm-insane-comparison/zipball/b31246ecb3e78034e5f937ad1bfad007cf541375",
+                "reference": "b31246ecb3e78034e5f937ad1bfad007cf541375",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "php": "^7.3|^8.0",
+                "vimeo/psalm": "^4|^5|^6|dev-master"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^4.0|^5"
+            },
+            "type": "psalm-plugin",
+            "extra": {
+                "psalm": {
+                    "pluginClass": "Orklah\\PsalmInsaneComparison\\Plugin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orklah\\PsalmInsaneComparison\\": [
+                        "."
+                    ],
+                    "Orklah\\PsalmInsaneComparison\\Hooks\\": [
+                        "hooks"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "orklah"
+                }
+            ],
+            "description": "Detects possible insane comparison (\"string\" == 0) to help migrate to PHP8",
+            "support": {
+                "issues": "https://github.com/orklah/psalm-insane-comparison/issues",
+                "source": "https://github.com/orklah/psalm-insane-comparison/tree/v2.4.0"
+            },
+            "time": "2025-01-31T17:00:11+00:00"
+        },
+        {
             "name": "patchlevel/event-sourcing-psalm-plugin",
             "version": "3.2.0",
             "source": {
@@ -22793,11 +22847,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.55",
+            "version": "2.1.56",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9eaac3826ed5e9b8427350a43cac825eeca3f566",
-                "reference": "9eaac3826ed5e9b8427350a43cac825eeca3f566",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/93a603c9fc3be8c3c93bbc8d22170ad766685537",
+                "reference": "93a603c9fc3be8c3c93bbc8d22170ad766685537",
                 "shasum": ""
             },
             "require": {
@@ -22842,7 +22896,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-18T11:57:34+00:00"
+            "time": "2026-05-26T17:04:57+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
