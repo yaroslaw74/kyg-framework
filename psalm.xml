@@ -26,7 +26,9 @@
         <pluginClass class="Weirdan\DoctrinePsalmPlugin\Plugin"/>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
         <pluginClass class="Psl\Psalm\Plugin"/>
-        <pluginClass class="Patchlevel\\EventSourcingPsalmPlugin\\Plugin"/>
+        <pluginClass class="Patchlevel\EventSourcingPsalmPlugin\Plugin"/>
+        <pluginClass class="Lctrs\PsalmPsrContainerPlugin\Plugin"/>
+        <pluginClass class="Orklah\PsalmInsaneComparison\Plugin"/>
     </plugins>
     <extraFiles>
         <directory name="var/cache/dev/Symfony/Config"/>
