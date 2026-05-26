@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4e38af0a0c0d866f255ffb34a3267c3",
+    "content-hash": "f1abe5a2f1712b225f06c2947201dd87",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -22408,6 +22408,61 @@
                 "source": "https://github.com/orklah/psalm-insane-comparison/tree/v2.4.0"
             },
             "time": "2025-01-31T17:00:11+00:00"
+        },
+        {
+            "name": "orklah/psalm-strict-equality",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orklah/psalm-strict-equality.git",
+                "reference": "ab6ae670d4befcd3678ac2fc02387b1eb9bc793d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orklah/psalm-strict-equality/zipball/ab6ae670d4befcd3678ac2fc02387b1eb9bc793d",
+                "reference": "ab6ae670d4befcd3678ac2fc02387b1eb9bc793d",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^4.0|^5.0",
+                "php": "^7.3|^8.0",
+                "vimeo/psalm": "^4.6.1|^5.0|^6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "psalm/plugin-phpunit": "^0.15.0"
+            },
+            "type": "psalm-plugin",
+            "extra": {
+                "psalm": {
+                    "pluginClass": "Orklah\\StrictEquality\\Plugin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orklah\\StrictEquality\\": [
+                        "./src"
+                    ],
+                    "Orklah\\StrictEquality\\Tests\\": [
+                        "./tests"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "orklah"
+                }
+            ],
+            "description": "Automatically change == into === when safe ",
+            "support": {
+                "issues": "https://github.com/orklah/psalm-strict-equality/issues",
+                "source": "https://github.com/orklah/psalm-strict-equality/tree/v3.1.0"
+            },
+            "time": "2025-01-31T18:01:26+00:00"
         },
         {
             "name": "patchlevel/event-sourcing-psalm-plugin",
