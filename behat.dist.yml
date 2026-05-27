@@ -22,7 +22,7 @@ default:
         DMarynicz\BehatParallelExtension\Extension: ~
 
         FriendsOfBehat\MinkDebugExtension:
-            directory: etc/build
+            directory: var/etc/build
             clean_start: false
             screenshot: true
 
