@@ -191,6 +191,9 @@
             "./var/storage/.gitignore"
         ]
     },
+    "macpaw/behat-orm-context": {
+        "version": "v2.0.0"
+    },
     "nelmio/api-doc-bundle": {
         "version": "5.10",
         "recipe": {
