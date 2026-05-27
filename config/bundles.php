@@ -59,4 +59,5 @@ return [
     Systemsdk\Bundle\EasyLogBundle\EasyLogBundle::class => ['dev' => true, 'test' => true],
     Debesha\DoctrineProfileExtraBundle\DebeshaDoctrineProfileExtraBundle::class => ['dev' => true, 'test' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
+    BehatOrmContext\BehatOrmContextBundle::class => ['dev' => true, 'test' => true],
 ];
