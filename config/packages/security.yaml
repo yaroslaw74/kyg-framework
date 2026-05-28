@@ -5,7 +5,12 @@ security:
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        users_in_memory: { memory: null }
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Modules\Users\Entity\User
+                property: username
+        # used to reload user from session & other features (e.g. switch_user)
 
     firewalls:
         dev:
@@ -14,15 +19,90 @@ security:
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+            provider: app_user_provider
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    google: "/login/check-google"
+                    yandex: "/login/check-yandex"
+                    github: "/login/check-github"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    XTwitter: "/login/check-xTwitter"
+                    vkontakte: "/login/check-vkontakte"
+                login_path: /login
+                use_forward: false
+                failure_path: hwi_oauth_connect_registration
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+        app:
+            lazy: true
+            pattern: /app(.*)
+            provider: app_user_provider
+            entry_point: "form_login"
+            json_login:
+                check_path: app_api_login
+            access_token:
+                token_handler: App\Modules\Api\Security\AccessTokenHandler
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                enable_csrf: true
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: app
+            remember_me:
+                secret: "%env(APP_SECRET)%"
+                lifetime: 2629746
+                path: app
+            login_throttling:
+                max_attempts: 5
+                interval: "15 minutes"
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    google: "/login/check-google"
+                    yandex: "/login/check-yandex"
+                    github: "/login/check-github"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    xTwitter: "/login/check-xTwitter"
+                    vkontakte: "/login/check-vkontakte"
+                login_path: /app/login
+                use_forward: false
+                failure_path: hwi_oauth_connect_registration
+                check_path: /app/login-check
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            switch_user: true
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
 
     # Note: Only the *first* matching rule is applied
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/.*, role: PUBLIC_ACCESS }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # App login page needs to be accessed without credential
+        - { path: ^/app/login$, role: PUBLIC_ACCESS }
+        - { path: ^/app/logout$, role: PUBLIC_ACCESS }
+        - { path: ^/app/login_check$, role: PUBLIC_ACCESS }
+        - { path: ^/app/request$, role: PUBLIC_ACCESS }
+        - { path: ^/app/check-email$, role: PUBLIC_ACCESS }
+        - { path: ^/app/verify$, role: PUBLIC_ACCESS }
+        - { path: ^/app/reset/.*$, role: PUBLIC_ACCESS }
+
+        # Secured part of the site
+        # This config requires being logged for the whole site and having the admin role for the admin part.
+        # Change these rules to adapt them to your needs
