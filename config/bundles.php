@@ -62,4 +62,5 @@ return [
     BehatOrmContext\BehatOrmContextBundle::class => ['dev' => true, 'test' => true],
     Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true],
     Payum\Bundle\PayumBundle\PayumBundle::class => ['all' => true],
+    Nelmio\JsLoggerBundle\NelmioJsLoggerBundle::class => ['all' => true],
 ];
