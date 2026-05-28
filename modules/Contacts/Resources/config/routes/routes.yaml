@@ -1,0 +1,5 @@
+contacts:
+    resource:
+        path: "../../../Controller/"
+        namespace: App\Modules\Contacts\Controller
+    type: attribute
