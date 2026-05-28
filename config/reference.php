@@ -2862,6 +2862,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         propel2?: array<mixed>,
  *     }>,
  * }
+ * @psalm-type NelmioJsLoggerConfig = array{
+ *     allowed_levels?: list<scalar|Param|null>,
+ *     ignore_messages?: list<scalar|Param|null>,
+ *     ignore_url_prefixes?: list<scalar|Param|null>,
+ *     use_stacktrace_js?: bool|array{ // add StackTrace.js as logging provider
+ *         enabled?: bool|Param, // Default: false
+ *         path?: scalar|Param|null, // Default: "https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2906,6 +2915,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     easy_log?: EasyLogConfig,
  *     cmf_routing?: CmfRoutingConfig,
  *     payum?: PayumConfig,
+ *     nelmio_js_logger?: NelmioJsLoggerConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2954,6 +2964,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         cmf_routing?: CmfRoutingConfig,
  *         payum?: PayumConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3000,6 +3011,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         cmf_routing?: CmfRoutingConfig,
  *         payum?: PayumConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
