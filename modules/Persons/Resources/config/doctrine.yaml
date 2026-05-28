@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Persons:
+                type: attribute
+                is_bundle: false
+                dir: "%kernel.project_dir%/modules/Persons/Entity"
+                prefix: 'App\Modules\Persons\Entity'
+                alias: Persons
