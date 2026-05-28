@@ -1,0 +1,6 @@
+yokai_security_token:
+    tokens:
+        api_key:
+            duration: +1 days
+            usages: 0
+            unique: true
