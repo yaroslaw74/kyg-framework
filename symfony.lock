@@ -231,6 +231,18 @@
             "./config/packages/misd_phone_number.yaml"
         ]
     },
+    "payum/payum-bundle": {
+        "version": "2.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.4",
+            "ref": "518ac22defa04a8a1d82479ed362e2921487adf0"
+        },
+        "files": [
+            "./config/packages/payum.yaml"
+        ]
+    },
     "php-http/discovery": {
         "version": "1.20",
         "recipe": {
@@ -354,6 +366,9 @@
         "files": [
             "./config/packages/stof_doctrine_extensions.yaml"
         ]
+    },
+    "symfony-cmf/routing-bundle": {
+        "version": "3.2.0"
     },
     "symfony/apache-pack": {
         "version": "1.0",
