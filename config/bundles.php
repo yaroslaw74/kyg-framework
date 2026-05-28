@@ -60,4 +60,6 @@ return [
     Debesha\DoctrineProfileExtraBundle\DebeshaDoctrineProfileExtraBundle::class => ['dev' => true, 'test' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     BehatOrmContext\BehatOrmContextBundle::class => ['dev' => true, 'test' => true],
+    Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true],
+    Payum\Bundle\PayumBundle\PayumBundle::class => ['all' => true],
 ];
