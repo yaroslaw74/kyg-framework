@@ -1,5 +1,0 @@
-api:
-    resource:
-        path: "../../../Controller/"
-        namespace: App\Modules\Api\Controller
-    type: attribute

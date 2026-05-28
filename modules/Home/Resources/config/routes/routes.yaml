@@ -1,5 +1,0 @@
-home:
-    resource:
-        path: "../../../Controller/"
-        namespace: App\Modules\Home\Controller
-    type: attribute

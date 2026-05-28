@@ -1,3 +1,0 @@
-twig:
-    paths:
-        "modules/Roles/Resources/templates": "Roles"

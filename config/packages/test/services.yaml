@@ -1,4 +1,0 @@
-services:
-    BehatOrmContext\Context\ORMContext:
-        arguments:
-            $manager: "@doctrine.orm.other_entity_manager"

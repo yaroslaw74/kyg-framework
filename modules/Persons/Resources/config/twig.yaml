@@ -1,3 +1,0 @@
-twig:
-    paths:
-        "modules/Persons/Resources/templates": "Persons"

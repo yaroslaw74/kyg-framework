@@ -25,9 +25,18 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-###> doctrine/migrations ###
-/migrations/
-###< doctrine/migrations ###
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
 
 ###> kocal/biome-js-bundle ###
 /bin/biome*
@@ -37,15 +46,6 @@
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
 
-###> phpstan/phpstan ###
-phpstan.neon
-###< phpstan/phpstan ###
-
-###> friendsofphp/php-cs-fixer ###
-/.php-cs-fixer.php
-/.php-cs-fixer.cache
-###< friendsofphp/php-cs-fixer ###
-
-###> friends-of-behat/symfony-extension ###
-/behat.yml
-###< friends-of-behat/symfony-extension ###
+###> doctrine/migrations ###
+/migrations/
+###< doctrine/migrations ###

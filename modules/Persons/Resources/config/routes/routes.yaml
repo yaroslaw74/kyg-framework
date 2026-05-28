@@ -1,5 +1,0 @@
-persons:
-    resource:
-        path: "../../../Controller/"
-        namespace: App\Modules\Persons\Controller
-    type: attribute

@@ -1,3 +1,0 @@
-NelmioJsLoggerBundle:
-    resource: "@NelmioJsLoggerBundle/Resources/config/routing.xml"
-    prefix: /nelmio-js-logger

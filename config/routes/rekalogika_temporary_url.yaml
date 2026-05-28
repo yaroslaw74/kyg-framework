@@ -1,3 +1,0 @@
-rekalogika_temporary_url:
-    resource: "@RekalogikaTemporaryUrlBundle/config/routes.xml"
-    prefix: /_temporary
