@@ -2766,6 +2766,102 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
  *     ignored_routes?: list<scalar|Param|null>,
  * }
+ * @psalm-type CmfRoutingConfig = array{
+ *     chain?: array{
+ *         routers_by_id?: array<string, scalar|Param|null>,
+ *         replace_symfony_router?: bool|Param, // Default: true
+ *     },
+ *     dynamic?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         route_collection_limit?: scalar|Param|null, // Default: 0
+ *         generic_controller?: scalar|Param|null, // Default: null
+ *         default_controller?: scalar|Param|null, // Default: null
+ *         controllers_by_type?: array<string, scalar|Param|null>,
+ *         controllers_by_class?: array<string, scalar|Param|null>,
+ *         templates_by_class?: array<string, scalar|Param|null>,
+ *         persistence?: array{
+ *             phpcr?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 manager_name?: scalar|Param|null, // Default: null
+ *                 route_basepaths?: string|list<scalar|Param|null>,
+ *                 enable_initializer?: bool|Param, // Default: true
+ *             },
+ *             orm?: bool|array{
+ *                 enabled?: bool|Param, // Default: false
+ *                 manager_name?: scalar|Param|null, // Default: null
+ *                 route_class?: scalar|Param|null, // Default: "Symfony\\Cmf\\Bundle\\RoutingBundle\\Doctrine\\Orm\\Route"
+ *             },
+ *         },
+ *         uri_filter_regexp?: scalar|Param|null, // Default: ""
+ *         route_provider_service_id?: scalar|Param|null,
+ *         route_filters_by_id?: array<string, scalar|Param|null>,
+ *         content_repository_service_id?: scalar|Param|null,
+ *         locales?: list<scalar|Param|null>,
+ *         limit_candidates?: int|Param, // Default: 20
+ *         match_implicit_locale?: bool|Param, // Default: true
+ *         redirectable_url_matcher?: bool|Param, // Default: false
+ *         auto_locale_pattern?: bool|Param, // Default: false
+ *         url_generator?: scalar|Param|null, // URL generator service ID // Default: "cmf_routing.generator"
+ *     },
+ * }
+ * @psalm-type PayumConfig = array{
+ *     security?: array{
+ *         token_storage?: array<string, array{ // Default: []
+ *             filesystem?: array{
+ *                 storage_dir?: scalar|Param|null,
+ *                 id_property?: scalar|Param|null, // Default: null
+ *             },
+ *             doctrine?: string|array{
+ *                 driver?: scalar|Param|null,
+ *             },
+ *             custom?: string|array{
+ *                 service?: scalar|Param|null,
+ *             },
+ *             propel1?: array<mixed>,
+ *             propel2?: array<mixed>,
+ *         }>,
+ *     },
+ *     dynamic_gateways?: array{
+ *         sonata_admin?: bool|Param, // Default: false
+ *         config_storage?: array<string, array{ // Default: []
+ *             filesystem?: array{
+ *                 storage_dir?: scalar|Param|null,
+ *                 id_property?: scalar|Param|null, // Default: null
+ *             },
+ *             doctrine?: string|array{
+ *                 driver?: scalar|Param|null,
+ *             },
+ *             custom?: string|array{
+ *                 service?: scalar|Param|null,
+ *             },
+ *             propel1?: array<mixed>,
+ *             propel2?: array<mixed>,
+ *         }>,
+ *         encryption?: array{
+ *             defuse_secret_key?: scalar|Param|null,
+ *         },
+ *     },
+ *     gateways?: array<string, mixed>,
+ *     storages?: array<string, array{ // Default: []
+ *         extension?: array{
+ *             all?: bool|Param, // Default: true
+ *             gateways?: array<string, scalar|Param|null>,
+ *             factories?: array<string, scalar|Param|null>,
+ *         },
+ *         filesystem?: array{
+ *             storage_dir?: scalar|Param|null,
+ *             id_property?: scalar|Param|null, // Default: null
+ *         },
+ *         doctrine?: string|array{
+ *             driver?: scalar|Param|null,
+ *         },
+ *         custom?: string|array{
+ *             service?: scalar|Param|null,
+ *         },
+ *         propel1?: array<mixed>,
+ *         propel2?: array<mixed>,
+ *     }>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2808,6 +2904,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
  *     doctrine_diagram?: DoctrineDiagramConfig,
  *     easy_log?: EasyLogConfig,
+ *     cmf_routing?: CmfRoutingConfig,
+ *     payum?: PayumConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2854,6 +2952,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         ignition?: IgnitionConfig,
  *         easy_log?: EasyLogConfig,
+ *         cmf_routing?: CmfRoutingConfig,
+ *         payum?: PayumConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2898,6 +2998,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         dama_doctrine_test?: DamaDoctrineTestConfig,
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         easy_log?: EasyLogConfig,
+ *         cmf_routing?: CmfRoutingConfig,
+ *         payum?: PayumConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
