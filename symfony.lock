@@ -219,6 +219,9 @@
             "./config/packages/nelmio_cors.yaml"
         ]
     },
+    "nelmio/js-logger-bundle": {
+        "version": "1.12.0"
+    },
     "odolbeau/phone-number-bundle": {
         "version": "4.2",
         "recipe": {
