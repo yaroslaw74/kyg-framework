@@ -609,4 +609,13 @@ return [
     'zrender/lib/tool/morphPath.js' => [
         'version' => '6.1.0',
     ],
+    'idiomorph' => [
+        'version' => '0.7.4',
+    ],
+    'idiomorph/dist/idiomorph.min.js' => [
+        'version' => '0.7.4',
+    ],
+    'frankenphp-hot-reload' => [
+        'version' => '1.0.1',
+    ],
 ];
