@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Config:
+                type: attribute
+                is_bundle: false
+                dir: "%kernel.project_dir%/modules/Config/Entity"
+                prefix: 'App\Modules\Config\Entity'
+                alias: Config
