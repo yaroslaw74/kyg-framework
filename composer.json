@@ -63,8 +63,14 @@
         "symfony/validator": "^7.4",
         "symfony/web-link": "^7.4",
         "symfony/yaml": "^7.4",
-        "twig/extra-bundle": "^3.0",
-        "twig/twig": "^3.0"
+        "twig/cache-extra": "^3.24",
+        "twig/cssinliner-extra": "^3.26",
+        "twig/extra-bundle": "^3.24",
+        "twig/html-extra": "^3.24",
+        "twig/inky-extra": "^3.26",
+        "twig/markdown-extra": "^3.26",
+        "twig/string-extra": "^3.24",
+        "twig/twig": "^3.24"
     },
     "require-dev": {
         "behat/behat": "^3.31",
@@ -142,6 +148,7 @@
         "zenstruck/messenger-test": "^1.14"
     },
     "replace": {
+        "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-intl": "*",
         "symfony/polyfill-intl-grapheme": "*",

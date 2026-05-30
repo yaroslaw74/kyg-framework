@@ -25,4 +25,7 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.23',
     ],
+    '@symfony/ux-turbo' => [
+        'path' => './vendor/symfony/ux-turbo/assets/dist/turbo_controller.js',
+    ]
 ];
