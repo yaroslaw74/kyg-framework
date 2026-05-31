@@ -40,10 +40,11 @@
             <div class="header-element">
                 <!-- Start::header-link -->
                 <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle" data-bs-toggle="sidebar" href="javascript:void(0);">
-                    <i class="header-icon fe fe-align-left"></i>
+                    {{ ux_icon('feather:align-left', {class: 'header-icon'}) }}
                 </a>
                 <div class="main-header-center d-none d-lg-block">
-                    <input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"><i class="fa fa-search d-none d-md-block"></i></button>
+                    <input class="form-control" placeholder="Search for anything..." type="search">
+                    <button class="btn"><i class="fa fa-search d-none d-md-block"></i></button>
                 </div>
                 <!-- End::header-link -->
             </div>
