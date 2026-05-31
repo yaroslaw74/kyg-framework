@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae7558f551b89af29ac1adc76a21c1c2",
+    "content-hash": "39251a0161753e93f00670493cc6d732",
     "packages": [
         {
             "name": "balrok/composer-mkdir",
@@ -1466,6 +1466,71 @@
                 }
             ],
             "time": "2026-01-02T08:56:05+00:00"
+        },
+        {
+            "name": "nelmio/js-logger-bundle",
+            "version": "1.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelmio/NelmioJsLoggerBundle.git",
+                "reference": "0654a7bec480e84abfbe97d4a5810a9c60b55008"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelmio/NelmioJsLoggerBundle/zipball/0654a7bec480e84abfbe97d4a5810a9c60b55008",
+                "reference": "0654a7bec480e84abfbe97d4a5810a9c60b55008",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.2.5",
+                "psr/log": "^1.0 || ^2.0 || ^3.0",
+                "symfony/config": "^5.4 || ^6.4 || ^7.4 || ^8.0",
+                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.4 || ^8.0",
+                "symfony/http-foundation": "^5.4 || ^6.4 || ^7.4 || ^8.0",
+                "symfony/http-kernel": "^5.4 || ^6.4 || ^7.4 || ^8.0",
+                "symfony/routing": "^5.4 || ^6.4 || ^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "twig/twig": "^1.40 || ^2.10 || ^3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nelmio\\JsLoggerBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nelmio",
+                    "homepage": "http://nelm.io"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/nelmio/NelmioJsLoggerBundle/contributors"
+                }
+            ],
+            "description": "Adds logging of JS errors in your Symfony application",
+            "keywords": [
+                "JS",
+                "javascript",
+                "log",
+                "logging"
+            ],
+            "support": {
+                "issues": "https://github.com/nelmio/NelmioJsLoggerBundle/issues",
+                "source": "https://github.com/nelmio/NelmioJsLoggerBundle/tree/1.12.0"
+            },
+            "time": "2026-04-07T19:57:59+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
