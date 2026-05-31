@@ -24,6 +24,18 @@ return [
         'path' => './assets/rtl.js',
         'entrypoint' => true,
     ],
+    'icons' => [
+        'path' => './assets/icons-fonts.js',
+        'entrypoint' => true,
+    ],
+    'plugins' => [
+        'path' => './assets/plugins.js',
+        'entrypoint' => true,
+    ],
+    'valex' => [
+        'path' => './assets/valex.js',
+        'entrypoint' => true,
+    ],
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
@@ -91,5 +103,53 @@ return [
     ],
     '@swup/plugin' => [
         'version' => '4.0.0',
+    ],
+    'bootstrap-icons/font/bootstrap-icons.min.css' => [
+        'version' => '1.13.1',
+        'type' => 'css',
+    ],
+    'boxicons/css/boxicons.min.css' => [
+        'version' => '2.1.4',
+        'type' => 'css',
+    ],
+    '@fortawesome/fontawesome-free/css/all.min.css' => [
+        'version' => '7.2.0',
+        'type' => 'css',
+    ],
+    'line-awesome/dist/line-awesome/css/line-awesome.min.css' => [
+        'version' => '1.3.0',
+        'type' => 'css',
+    ],
+    '@mdi/font/css/materialdesignicons.min.css' => [
+        'version' => '7.4.47',
+        'type' => 'css',
+    ],
+    'pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css' => [
+        'version' => '1.2.3',
+        'type' => 'css',
+    ],
+    'remixicon/fonts/remixicon.css' => [
+        'version' => '4.9.1',
+        'type' => 'css',
+    ],
+    'simple-line-icons/css/simple-line-icons.css' => [
+        'version' => '2.5.5',
+        'type' => 'css',
+    ],
+    '@tabler/icons-webfont/dist/tabler-icons.min.css' => [
+        'version' => '3.44.0',
+        'type' => 'css',
+    ],
+    '@icon/themify-icons/themify-icons.css' => [
+        'version' => '1.0.1-alpha.3',
+        'type' => 'css',
+    ],
+    'typicons.font/src/font/typicons.css' => [
+        'version' => '2.1.2',
+        'type' => 'css',
+    ],
+    'weather-icons/css/weather-icons.min.css' => [
+        'version' => '1.3.2',
+        'type' => 'css',
     ],
 ];
