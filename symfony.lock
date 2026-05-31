@@ -101,6 +101,9 @@
             "./config/packages/doctrine_diagram.yaml"
         ]
     },
+    "jbtronics/settings-bundle": {
+        "version": "v3.3.1"
+    },
     "kocal/biome-js-bundle": {
         "version": "2.1",
         "recipe": {
