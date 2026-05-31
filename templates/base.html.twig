@@ -55,7 +55,10 @@
 
         {{ nelmio_js_error_logger() }}
     </head>
-    <body>
+    <body {{ stimulus_controller('swup', {
+            theme: 'fade',
+            debug: app.debug,
+        }) }}>
         {% block body %}{% endblock %}
     </body>
 </html>
