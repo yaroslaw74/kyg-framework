@@ -1833,6 +1833,90 @@
     }
 }
 
+.btn-vk {
+    background-color: $vk;
+    color           : $white;
+    border          : 1px solid $vk;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $vk !important;
+        color           : $white !important;
+        border          : 1px solid $vk !important;
+    }
+}
+
+.btn-odnoklassniki {
+    background-color: $odnoklassniki;
+    color           : $white;
+    border          : 1px solid $odnoklassniki;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $odnoklassniki !important;
+        color           : $white !important;
+        border          : 1px solid $odnoklassniki !important;
+    }
+}
+
+.btn-x-twitter {
+    background-color: $x-twitter;
+    color           : $white;
+    border          : 1px solid $x-twitter;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $x-twitter !important;
+        color           : $white !important;
+        border          : 1px solid $x-twitter !important;
+    }
+}
+
+.btn-yandex {
+    background-color: $yandex;
+    color           : $white;
+    border          : 1px solid $yandex;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $yandex !important;
+        color           : $white !important;
+        border          : 1px solid $yandex !important;
+    }
+}
+
+.btn-linkedin {
+    background-color: $linkedin;
+    color           : $white;
+    border          : 1px solid $linkedin;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $linkedin !important;
+        color           : $white !important;
+        border          : 1px solid $linkedin !important;
+    }
+}
+
+.btn-mail-ru {
+    background-color: $mail-ru;
+    color           : $white;
+    border          : 1px solid $mail-ru;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $mail-ru !important;
+        color           : $white !important;
+        border          : 1px solid $mail-ru !important;
+    }
+}
+
 .btn-google {
     background-color: $google;
     color           : $white;
