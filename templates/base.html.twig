@@ -41,7 +41,7 @@
         {% block stylesheets %}{% endblock %}
 
         {% block importmap %}
-            {{ importmap([locale_dir(app.locale), 'app']) }}
+            {{ importmap([locale_dir(app.locale), 'icons', 'plugins', 'valex', 'app']) }}
         {% endblock %}
 
         {% block javascripts %}{% endblock %}
