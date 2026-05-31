@@ -31,4 +31,13 @@ return [
     'es-module-shims' => [
         'version' => '2.8.1',
     ],
+    'idiomorph' => [
+        'version' => '0.7.4',
+    ],
+    'idiomorph/dist/idiomorph.min.js' => [
+        'version' => '0.7.4',
+    ],
+    'frankenphp-hot-reload' => [
+        'version' => '1.0.1',
+    ],
 ];
