@@ -28,4 +28,5 @@ return [
     Nelmio\JsLoggerBundle\NelmioJsLoggerBundle::class => ['all' => true],
     Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
     Symfonycasts\SassBundle\SymfonycastsSassBundle::class => ['all' => true],
+    Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
 ];
