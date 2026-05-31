@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CoreController!{% endblock %}
+{% block title %}
+    {{ parent() }}
+    Hello CoreController!
+{% endblock %}
 
 {% block body %}
 <style>
