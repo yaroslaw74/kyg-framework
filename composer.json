@@ -70,6 +70,7 @@
         "symfony/process": "^7.4",
         "symfony/property-access": "^7.4",
         "symfony/property-info": "^7.4",
+        "symfony/requirements-checker": "*",
         "symfony/routing": "^7.4",
         "symfony/runtime": "^7.4",
         "symfony/security-bundle": "^7.4",
@@ -265,10 +266,12 @@
             "@auto-scripts"
         ],
         "auto-scripts": {
+            "requirements-checker": "script",
             "cache:clear": "symfony-cmd",
             "cache:warmup": "symfony-cmd",
             "assets:install  --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd"
+            "importmap:install": "symfony-cmd",
+            "sass:build": "symfony-cmd"
         }
     }
 }
