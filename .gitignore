@@ -49,3 +49,7 @@ phpstan.neon
 ###> doctrine/migrations ###
 /migrations/
 ###< doctrine/migrations ###
+
+###> symfonycasts/sass-bundle ###
+/public/assets/
+###< symfonycasts/sass-bundle ###
