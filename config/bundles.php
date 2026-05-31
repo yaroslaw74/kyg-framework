@@ -26,4 +26,5 @@ return [
     Zenstruck\Mailer\Test\ZenstruckMailerTestBundle::class => ['dev' => true, 'test' => true],
     Zenstruck\Messenger\Test\ZenstruckMessengerTestBundle::class => ['test' => true],
     Nelmio\JsLoggerBundle\NelmioJsLoggerBundle::class => ['all' => true],
+    Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
 ];
