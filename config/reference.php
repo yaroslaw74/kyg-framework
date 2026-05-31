@@ -1608,6 +1608,30 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         path?: scalar|Param|null, // Default: "https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"
  *     },
  * }
+ * @psalm-type JbtronicsSettingsConfig = array{
+ *     search_paths?: list<scalar|Param|null>,
+ *     proxy_dir?: scalar|Param|null, // Default: "%kernel.cache_dir%/jbtronics_settings/proxies"
+ *     proxy_namespace?: scalar|Param|null, // Default: "Jbtronics\\SettingsBundle\\Proxies"
+ *     default_storage_adapter?: scalar|Param|null, // Default: null
+ *     save_after_migration?: bool|Param, // Default: true
+ *     yaml_mapping_paths?: list<scalar|Param|null>,
+ *     metadata_compiler_providers?: list<scalar|Param|null>,
+ *     file_storage?: array{
+ *         storage_directory?: scalar|Param|null, // Default: "%kernel.project_dir%/var/jbtronics_settings/"
+ *         default_filename?: scalar|Param|null, // Default: "settings"
+ *     },
+ *     orm_storage?: array{
+ *         default_entity_class?: scalar|Param|null, // Default: null
+ *         prefetch_all?: bool|Param, // Default: true
+ *     },
+ *     cache?: array{
+ *         metadata_service?: scalar|Param|null, // Default: "cache.system"
+ *         service?: scalar|Param|null, // Default: "cache.app.taggable"
+ *         default_cacheable?: bool|Param, // Default: false
+ *         ttl?: int|Param, // Default: 0
+ *         invalidate_on_env_change?: bool|Param, // Default: true
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1626,6 +1650,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     easy_log?: EasyLogConfig,
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
  *     nelmio_js_logger?: NelmioJsLoggerConfig,
+ *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1648,6 +1673,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         nelmio_js_logger?: NelmioJsLoggerConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1668,6 +1694,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         nelmio_js_logger?: NelmioJsLoggerConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
