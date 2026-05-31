@@ -7,7 +7,7 @@
  #  @License    GNU General Public License version 3 or later, see LICENSE
  #}
 <!DOCTYPE html>
-<html>
+<html lang="{{ locale_HTML(app.locale) }}" dir="{{ locale_dir(app.locale) }}" data-nav-layout="vertical" data-bs-theme="light" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +40,9 @@
 
         {% block stylesheets %}{% endblock %}
 
-        {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% block importmap %}
+            {{ importmap([locale_dir(app.locale), 'app']) }}
+        {% endblock %}
 
         {% block javascripts %}{% endblock %}
 
