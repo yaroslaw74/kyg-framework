@@ -11,7 +11,7 @@ import "./vendor/boxicons/css/boxicons.min.css";
 /*
  * Feather Icons
  */
-import "./icon-fonts/feather/feather.css";
+import "./vendor/@icon/feather/feather.css";
 
 /*
  * Font Awesome
@@ -21,7 +21,7 @@ import "./vendor/@fortawesome/fontawesome-free/css/all.min.css";
 /*
  * Ionicons
  */
-import "./icon-fonts/ionicons/css/ionicons.min.css";
+import "./vendor/ionicons/dist/css/ionicons.min.css";
 
 /*
  * Icons8 Line Awesome

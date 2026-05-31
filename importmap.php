@@ -112,10 +112,19 @@ return [
         'version' => '2.1.4',
         'type' => 'css',
     ],
+    '@icon/feather/feather.css' => [
+        'version' => '4.28.0-alpha.0',
+        'type' => 'css',
+    ],
     '@fortawesome/fontawesome-free/css/all.min.css' => [
         'version' => '7.2.0',
         'type' => 'css',
     ],
+    'ionicons/dist/css/ionicons.min.css' => [
+        'version' => '4.6.4-1',
+        'type' => 'css',
+    ],
+
     'line-awesome/dist/line-awesome/css/line-awesome.min.css' => [
         'version' => '1.3.0',
         'type' => 'css',
