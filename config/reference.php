@@ -1599,6 +1599,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         default_namespace?: scalar|Param|null, // Default namespace where stories will be created by maker. // Default: "Story"
  *     },
  * }
+ * @psalm-type NelmioJsLoggerConfig = array{
+ *     allowed_levels?: list<scalar|Param|null>,
+ *     ignore_messages?: list<scalar|Param|null>,
+ *     ignore_url_prefixes?: list<scalar|Param|null>,
+ *     use_stacktrace_js?: bool|array{ // add StackTrace.js as logging provider
+ *         enabled?: bool|Param, // Default: false
+ *         path?: scalar|Param|null, // Default: "https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1616,6 +1625,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     doctrine_diagram?: DoctrineDiagramConfig,
  *     easy_log?: EasyLogConfig,
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
+ *     nelmio_js_logger?: NelmioJsLoggerConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1637,6 +1647,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ignition?: IgnitionConfig,
  *         easy_log?: EasyLogConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1656,6 +1667,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         easy_log?: EasyLogConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *         nelmio_js_logger?: NelmioJsLoggerConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
