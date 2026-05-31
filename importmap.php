@@ -63,7 +63,7 @@ return [
         'type' => 'css',
     ],
     '@symfony/ux-swup' => [
-        'version' => '2.34.0',
+        'version' => '2.36.0',
     ],
     'swup' => [
         'version' => '4.9.0',
@@ -84,7 +84,7 @@ return [
         'version' => '6.4.0',
     ],
     'path-to-regexp' => [
-        'version' => '6.3.0',
+        'version' => '8.4.2',
     ],
     '@swup/theme' => [
         'version' => '2.1.0',
