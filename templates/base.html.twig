@@ -42,7 +42,7 @@
 
         {% block importmap %}
             {{ importmap([locale_dir(app.locale), 'icons', 'plugins', 'valex', 'app']) }}
-        {% endblock %}
+        {% endblock importmap %}
 
         {% block javascripts %}{% endblock %}
 
