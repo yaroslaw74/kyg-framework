@@ -117,6 +117,9 @@
     "macpaw/behat-orm-context": {
         "version": "v2.0.0"
     },
+    "nelmio/js-logger-bundle": {
+        "version": "1.12.0"
+    },
     "phpstan/phpstan": {
         "version": "2.2",
         "recipe": {
