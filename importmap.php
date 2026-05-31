@@ -16,6 +16,14 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'ltr' => [
+        'path' => './assets/ltr.js',
+        'entrypoint' => true,
+    ],
+    'rtl' => [
+        'path' => './assets/rtl.js',
+        'entrypoint' => true,
+    ],
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
@@ -39,5 +47,19 @@ return [
     ],
     'stacktrace-js/dist/stacktrace.min.js' => [
         'version' => '2.0.2',
+    ],
+    'bootstrap' => [
+        'version' => '5.3.8',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '5.3.8',
+        'type' => 'css',
+    ],
+    'bootstrap/dist/css/bootstrap.rtl.min.css' => [
+        'version' => '5.3.8',
+        'type' => 'css',
     ],
 ];
