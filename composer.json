@@ -36,6 +36,7 @@
         "phpdocumentor/reflection-docblock": "^6.0",
         "phpstan/phpdoc-parser": "^2.3",
         "slowprog/composer-copy-file": "^0.3",
+        "shivas/versioning-bundle": "^4.2",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "^7.4",
         "symfony/asset-mapper": "^7.4",

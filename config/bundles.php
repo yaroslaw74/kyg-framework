@@ -29,4 +29,5 @@ return [
     Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     Symfonycasts\SassBundle\SymfonycastsSassBundle::class => ['all' => true],
+    Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
 ];
