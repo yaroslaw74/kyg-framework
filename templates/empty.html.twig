@@ -6,6 +6,7 @@
  #  @E-mail     yaroslaw74@gmail.com
  #  @License    GNU General Public License version 3 or later, see LICENSE
  #}
+
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
@@ -41,7 +42,7 @@
         {{ include('partials/sidebar.html.twig') }}
 
         <!-- Start::app-content -->
-        <main class="main-content app-content" id="swap">
+        <main class="main-content app-content transition-fade" id="swup">
             <div class="container-fluid">
                 {% block main_header %}
                     {{ include('partials/page-header.html.twig', {title: 'Empty', subtitle: 'Pages'}) }}

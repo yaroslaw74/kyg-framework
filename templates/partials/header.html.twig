@@ -1,5 +1,16 @@
- <!-- app-header -->
- <header class="app-header">
+{#
+ #  @Project    KYG Framework for business
+ #  @Version    1.0.0
+ #
+ #  @Copyright  (C) Kataev Yaroslav
+ #  @E-mail     yaroslaw74@gmail.com
+ #  @License    GNU General Public License version 3 or later, see LICENSE
+ #}
+
+{% trans_default_domain 'header' %}
+
+<!-- app-header -->
+<header class="app-header">
 
     <!-- Start::main-header-container -->
     <div class="main-header-container container-fluid">
@@ -39,11 +50,11 @@
             <!-- Start::header-element -->
             <div class="header-element">
                 <!-- Start::header-link -->
-                <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle" data-bs-toggle="sidebar" href="javascript:void(0);">
+                <a aria-label="{% trans %}Hide Sidebar{% endtrans %}" class="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle" data-bs-toggle="sidebar" href="javascript:void(0);">
                     {{ ux_icon('feather:align-left', {class: 'header-icon'}) }}
                 </a>
                 <div class="main-header-center d-none d-lg-block">
-                    <input class="form-control" placeholder="Search for anything..." type="search">
+                    <input class="form-control" placeholder="{% trans %}Search for anything...{% endtrans %}" type="search">
                     <button class="btn"><i class="fa fa-search d-none d-md-block"></i></button>
                 </div>
                 <!-- End::header-link -->
@@ -65,7 +76,7 @@
                 <ul class="main-header-dropdown dropdown-menu dropdown-menu-end Search-element-dropdown" data-popper-placement="none">
                     <li>
                         <div class="input-group w-100 p-2">
-                            <input type="text" class="form-control" placeholder="Search....">
+                            <input type="text" class="form-control" placeholder="{% trans %}Search....{% endtrans %}">
                             <div class="btn btn-primary">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </div>
@@ -105,8 +116,8 @@
                 <div class="main-header-dropdown dropdown-menu dropdown-menu-end main-header-message" data-popper-placement="none">
                     <div class="menu-header-content bg-primary text-fixed-white">
                         <div class="d-flex align-items-center justify-content-between">
-                            <h6 class="mb-0 fs-15 fw-semibold text-fixed-white">Messages</h6>
-                            <span class="badge rounded-pill bg-warning pt-1 text-fixed-black">Mark All Read</span>
+                            <h6 class="mb-0 fs-15 fw-semibold text-fixed-white">{% trans %}Messages{% endtrans %}</h6>
+                            <span class="badge rounded-pill bg-warning pt-1 text-fixed-black">{% trans %}Mark All Read{% endtrans %}</span>
                         </div>
                         <p class="dropdown-title-text subtext mb-0 text-fixed-white op-6 pb-0 fs-12 ">You have 4 unread messages</p>
                     </div>
@@ -184,7 +195,7 @@
                         </li>
                     </ul>
                     <div class="text-center dropdown-footer">
-                        <a href="checkout.html" class="text-primary fs-13">VIEW ALL</a>
+                        <a href="checkout.html" class="text-primary fs-13">{% trans %}VIEW ALL{% endtrans %}</a>
                     </div>
                 </div>
                 <!-- End::main-header-dropdown -->
@@ -203,8 +214,8 @@
                 <div class="main-header-dropdown dropdown-menu dropdown-menu-end main-header-message" data-popper-placement="none">
                     <div class="menu-header-content bg-primary text-fixed-white">
                         <div class="d-flex align-items-center justify-content-between">
-                            <h6 class="mb-0 fs-15 fw-semibold text-fixed-white">Notifications</h6>
-                            <span class="badge rounded-pill bg-warning pt-1 text-fixed-black">Mark All Read</span>
+                            <h6 class="mb-0 fs-15 fw-semibold text-fixed-white">{% trans %}Notifications{% endtrans %}</h6>
+                            <span class="badge rounded-pill bg-warning pt-1 text-fixed-black">{% trans %}Mark All Read{% endtrans %}</span>
                         </div>
                         <p class="dropdown-title-text subtext mb-0 text-fixed-white op-6 pb-0 fs-12 ">You have 4 unread Notifications</p>
                     </div>
@@ -296,7 +307,7 @@
                         </li>
                     </ul>
                     <div class="text-center dropdown-footer">
-                        <a href="checkout.html" class="text-primary fs-13">VIEW ALL</a>
+                        <a href="checkout.html" class="text-primary fs-13">{% trans %}VIEW ALL{% endtrans %}</a>
                     </div>
                 </div>
                 <!-- End::main-header-dropdown -->
@@ -339,12 +350,12 @@
                             </div>
                         </div>
                     </li>
-                    <li><a class="dropdown-item d-flex" href="profile.html"><i class="bx bx-user-circle fs-18 me-2 op-7"></i>Profile</a></li>
-                    <li><a class="dropdown-item d-flex" href="editprofile.html"><i class="bx bx-cog fs-18 me-2 op-7"></i>Edit Profile </a></li>
-                    <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="bx bxs-inbox fs-18 me-2 op-7"></i>Inbox</a></li>
-                    <li><a class="dropdown-item d-flex" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i>Messages</a></li>
-                    <li><a class="dropdown-item d-flex border-block-end" href="editprofile.html"><i class="bx bx-slider-alt fs-18 me-2 op-7"></i>Account Settings</a></li>
-                    <li><a class="dropdown-item d-flex" href="signin.html"><i class="bx bx-log-out fs-18 me-2 op-7"></i>Sign Out</a></li>
+                    <li><a class="dropdown-item d-flex" href="profile.html"><i class="bx bx-user-circle fs-18 me-2 op-7"></i>{% trans %}Profile{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex" href="editprofile.html"><i class="bx bx-cog fs-18 me-2 op-7"></i>{% trans %}Edit Profile{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex border-block-end" href="mail.html"><i class="bx bxs-inbox fs-18 me-2 op-7"></i>{% trans %}Inbox{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex" href="chat.html"><i class="bx bx-envelope fs-18 me-2 op-7"></i>{% trans %}Messages{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex border-block-end" href="editprofile.html"><i class="bx bx-slider-alt fs-18 me-2 op-7"></i>{% trans %}Account Settings{% endtrans %}</a></li>
+                    <li><a class="dropdown-item d-flex" href="signin.html"><i class="bx bx-log-out fs-18 me-2 op-7"></i>{% trans %}Sign Out{% endtrans %}</a></li>
                 </ul>
             </div>
             <!-- End::header-element -->
@@ -371,19 +382,28 @@
 <!-- Start::Off-canvas sidebar-->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="header-sidebar" aria-labelledby="sidebarLabel">
     <div class="offcanvas-header rounded-0">
-        <h5 class="fs-14 text-uppercase mb-0 fw-semibold" id="sidebarLabel">Notifications</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h5 class="fs-14 text-uppercase mb-0 fw-semibold" id="sidebarLabel">{% trans %}Notifications{% endtrans %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{% trans %}Close{% endtrans %}"></button>
     </div>
     <div class="offcanvas-body rounded-0 p-0">
         <ul class="nav nav-tabs tab-style-1 d-block" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#chat" aria-current="page" href="#chat" aria-selected="false" role="tab" tabindex="-1"><i class="fe fe-message-circle fs-15 me-2"></i>Chat</a>
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#chat" aria-current="page" href="#chat" aria-selected="false" role="tab" tabindex="-1">
+                    {{ ux_icon('feather:message-circle', {class: 'fs-15 me-2'}) }}
+                    {% trans %}Chat{% endtrans %}
+                </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#notifications" href="#notifications" aria-selected="false" role="tab" tabindex="-1"><i class="fe fe-bell fs-15 me-2"></i> Notifications</a>
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#notifications" href="#notifications" aria-selected="false" role="tab" tabindex="-1">
+                    {{ ux_icon('feather:bell', {class: 'fs-15 me-2'}) }}
+                    {% trans %}Notifications{% endtrans %}
+                </a>
             </li>
             <li class="nav-item mb-0" role="presentation">
-                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#friends" href="#friends" aria-selected="true" role="tab"><i class="fe fe-users fs-15 me-2"></i>Friends</a>
+                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#friends" href="#friends" aria-selected="true" role="tab">
+                    {{ ux_icon('feather:users', {class: 'fs-15 me-2'}) }}
+                    {% trans %}Friends{% endtrans %}
+                </a>
             </li>
         </ul>
         <div class="tab-content">
@@ -782,34 +802,34 @@
                         </div>
                         <div class="align-items-center mt-2">
                             <h5 class="text-fixed-white mb-0">Daneil Scott</h5>
-                            <span class="dot-label bg-success"></span><span class="me-3 text-fixed-white">online</span>
+                            <span class="dot-label bg-success"></span><span class="me-3 text-fixed-white">{% trans %}online{% endtrans %}</span>
                         </div>
                     </div>
                     <ul class="ah-actions actions align-items-center float-end">
                         <li class="call-icon">
                             <a href="" class="d-done d-md-block phone-button" data-bs-toggle="modal" data-bs-target="#audiomodal">
-                                <i class="fe fe-phone"></i>
+                                {{ ux_icon('feather:phone') }}
                             </a>
                         </li>
                         <li class="video-icon">
                             <a href="" class="d-done d-md-block phone-button" data-bs-toggle="modal" data-bs-target="#videomodal">
-                                <i class="fe fe-video"></i>
+                                {{ ux_icon('feather:video') }}
                             </a>
                         </li>
                         <li class="dropdown">
                             <a href="" data-bs-toggle="dropdown" aria-expanded="true">
-                                <i class="fe fe-more-vertical"></i>
+                                {{ ux_icon('feather:more-vertical') }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li class="dropdown-item"><i class="fa fa-user-circle"></i> View profile</li>
-                                <li class="dropdown-item"><i class="fa fa-users"></i>Add friends</li>
-                                <li class="dropdown-item"><i class="fa fa-plus"></i> Add to group</li>
-                                <li class="dropdown-item"><i class="fa fa-ban"></i> Block</li>
+                                <li class="dropdown-item"><i class="fa fa-user-circle me-2"></i>{% trans %}View profile{% endtrans %}</li>
+                                <li class="dropdown-item"><i class="fa fa-users me-2"></i>{% trans %}Add friends{% endtrans %}</li>
+                                <li class="dropdown-item"><i class="fa fa-plus me-2"></i>{% trans %}Add to group{% endtrans %}</li>
+                                <li class="dropdown-item"><i class="fa fa-ban me-2"></i>{% trans %}Block{% endtrans %}</li>
                             </ul>
                         </li>
                         <li>
-                            <a href=""  class="" data-bs-dismiss="modal" aria-label="Close">
-                                <i class="fe fe-x-circle text-fixed-white"></i>
+                            <a href=""  class="" data-bs-dismiss="modal" aria-label="{% trans %}Close{% endtrans %}">
+                                {{ ux_icon('feather:x-circle', {class: 'text-fixed-white'}) }}
                             </a>
                         </li>
                     </ul>
@@ -926,7 +946,7 @@
                 <div class="card-footer border-top">
                     <div class="msb-reply d-flex">
                         <div class="input-group">
-                            <input type="text" class="form-control " placeholder="Typing....">
+                            <input type="text" class="form-control " placeholder="{% trans %}Typing....{% endtrans %}">
                             <button type="button" class="btn btn-primary ">
                                 <i class="far fa-paper-plane" aria-hidden="true"></i>
                             </button>
@@ -944,10 +964,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content bg-fixed-dark border-0">
             <div class="modal-body mx-auto text-center p-5">
-                <h5 class="text-fixed-white">Valex Video call</h5>
+                <h5 class="text-fixed-white">{% trans %}Video call{% endtrans %}</h5>
                 <img src="../assets/images/faces/6.jpg" class="rounded-circle user-img-circle h-8 w-8 mt-4 mb-3" alt="img">
                 <h4 class="mb-1 fw-semibold text-fixed-white">Daneil Scott</h4>
-                <h6 class="loading text-fixed-white">Calling...</h6>
+                <h6 class="loading text-fixed-white">{% trans %}Calling...{% endtrans %}</h6>
                 <div class="mt-5">
                     <div class="row">
                         <div class="col-4">
@@ -956,7 +976,7 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a class="icon icon-shape rounded-circle text-fixed-white mb-0" href="javascript:void(0);" data-bs-dismiss="modal" aria-label="Close">
+                            <a class="icon icon-shape rounded-circle text-fixed-white mb-0" href="javascript:void(0);" data-bs-dismiss="modal" aria-label="{% trans %}Close{% endtrans %}">
                                 <i class="fas fa-phone bg-danger text-fixed-white"></i>
                             </a>
                         </div>
@@ -978,10 +998,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content border-0">
             <div class="modal-body mx-auto text-center p-5">
-                <h6>Valex Voice call</h6>
+                <h6>{% trans %}Voice call{% endtrans %}</h6>
                 <img src="../assets/images/faces/6.jpg" class="rounded-circle user-img-circle h-8 w-8 mt-4 mb-3" alt="img">
                 <h5 class="mb-1 fw-medium">Daneil Scott</h5>
-                <h6 class="loading">Calling...</h6>
+                <h6 class="loading">{% trans %}Calling...{% endtrans %}</h6>
                 <div class="mt-5">
                     <div class="row">
                         <div class="col-4">
@@ -990,7 +1010,7 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <a class="icon icon-shape rounded-circle text-fixed-white mb-0" href="javascript:void(0);" data-bs-dismiss="modal" aria-label="Close">
+                            <a class="icon icon-shape rounded-circle text-fixed-white mb-0" href="javascript:void(0);" data-bs-dismiss="modal" aria-label="{% trans %}Close{% endtrans %}">
                                 <i class="fas fa-phone text-fixed-white bg-success"></i>
                             </a>
                         </div>
