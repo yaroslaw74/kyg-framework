@@ -146,7 +146,7 @@
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/php-code-coverage": "^12.5",
+        "phpunit/php-code-coverage": "^12.5.7",
         "phpunit/php-file-iterator": "^6.0",
         "phpunit/php-invoker": "^6.0",
         "phpunit/php-text-template": "^5.0",
