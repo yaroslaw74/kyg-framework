@@ -55,7 +55,7 @@ import "./js/functions/iconTextFn.js";
 import "./js/functions/menuClickFn.js";
 import "./js/functions/menuhoverFn.js";
 import "./js/functions/ResizeMenu.js";
-import "./js/functions/toggleTheme,js";
+import "./js/functions/toggleTheme.js";
 import "./js/functions/updateColors.js"; //
 import "./js/functions/darkFn.js";
 import "./js/functions/lightFn.js";
