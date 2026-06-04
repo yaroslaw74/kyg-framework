@@ -20,5 +20,8 @@ parameters:
         - vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php
     doctrine:
         objectManagerLoader: tests/object-manager.php
+        reportDynamicQueryBuilders: true
+        reportUnknownTypes: true
+        literalString: true
     friendly:
         editorUrl: 'vscode://file/%%file%%:%%line%%'
