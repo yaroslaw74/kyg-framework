@@ -10,26 +10,13 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <!-- Node Waves Css -->
-    <link href="{{ asset('libs/node-waves/waves.min.css') }}" rel="stylesheet" >
-
-    <!-- Simplebar Css -->
-    <link href="{{ asset('libs/simplebar/simplebar.min.css') }}" rel="stylesheet" >
-
-    <!-- Color Picker Css -->
+    <!-- Flatpickr Css -->
     <link rel="stylesheet" href="{{ asset('libs/flatpickr/flatpickr.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/@simonwep/pickr/themes/nano.min.css') }}">
-
-    <!-- Choices Css -->
-    <link rel="stylesheet" href="{{ asset('libs/choices.js/public/assets/styles/choices.min.css') }}">
 {% endblock %}
 
 {% block javascripts %}
-    <!-- Choices JS -->
-    <script src="{{ asset('libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
-
     <!-- Main Theme Js -->
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/modules/main.js') }}" type="module" async></script>
 {% endblock %}
 
 {% block body %}
@@ -60,34 +47,29 @@
 
     {{ include('partials/commonjs.html.twig') }}
 
-    <!-- Popper JS -->
-    <script src="{{ asset('libs/@popperjs/core/umd/popper.min.js') }}"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
     <!-- Defaultmenu JS -->
-    <script src="{{ asset('js/defaultmenu.min.js') }}"></script>
-
-    <!-- Node Waves JS-->
-    <script src="{{ asset('libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('js/modules/defaultmenu.js') }}" type="module" async></script>
 
     <!-- Sticky JS -->
-    <script src="{{ asset('js/sticky.js') }}"></script>
+    <script src="{{ asset('js/modules/sticky.js') }}" type="module" async></script>
 
     <!-- Simplebar JS -->
-    <script src="{{ asset('libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('js/simplebar.js') }}"></script>
-
-    <!-- Color Picker JS -->
-    <script src="{{ asset('libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
+    <script src="{{ asset('js/modules/simplebar.js') }}" type="module" async></script>
 
     <!-- Custom-Switcher JS -->
-    <script src="{{ asset('js/custom-switcher.min.js') }}"></script>
+    <script src="{{ asset('js/modules/custom-switcher.js') }}" type="module" async></script>
 
     {% block body_javascript %}{% endblock %}
 
     <!-- Custom JS -->
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/modules/custom.js') }}" type="module" async></script>
 
+     <!-- Card JS -->
+    <script src="{{ asset('js/card.js') }}"></script> {##}
+
+    <!-- Count-up JS -->
+    <script src="{{ asset('js/count-up.js') }}"></script> {##}
+
+    <!-- Toggle Switches JS -->
+    <script src="{{ asset('js/toggle-switches.js') }}"></script> {##}
 {% endblock body %}

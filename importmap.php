@@ -124,7 +124,6 @@ return [
         'version' => '4.6.4-1',
         'type' => 'css',
     ],
-
     'line-awesome/dist/line-awesome/css/line-awesome.min.css' => [
         'version' => '1.3.0',
         'type' => 'css',
@@ -160,5 +159,49 @@ return [
     'weather-icons/css/weather-icons.min.css' => [
         'version' => '1.3.2',
         'type' => 'css',
+    ],
+    '@simonwep/pickr/dist/pickr.es5.min.js' => [
+        'version' => '1.9.1',
+    ],
+    '@simonwep/pickr/dist/themes/nano.min.css' => [
+        'version' => '1.9.1',
+        'type' => 'css',
+    ],
+    'choices.js' => [
+        'version' => '11.2.3',
+    ],
+    'choices.js/public/assets/styles/choices.min.css' => [
+        'version' => '11.2.3',
+        'type' => 'css',
+    ],
+    'node-waves' => [
+        'version' => '0.7.6',
+    ],
+    'node-waves/dist/waves.min.css' => [
+        'version' => '0.7.6',
+        'type' => 'css',
+    ],
+    'simplebar' => [
+        'version' => '6.3.3',
+    ],
+    'simplebar-core' => [
+        'version' => '1.3.2',
+    ],
+    'simplebar/dist/simplebar.min.css' => [
+        'version' => '6.3.3',
+        'type' => 'css',
+    ],
+    'lodash-es/debounce.js' => [
+        'version' => '4.17.21',
+    ],
+    'lodash-es/throttle.js' => [
+        'version' => '4.17.21',
+    ],
+    'simplebar-core/dist/simplebar.min.css' => [
+        'version' => '1.3.2',
+        'type' => 'css',
+    ],
+    'resize-observer-polyfill' => [
+        'version' => '1.5.1',
     ],
 ];
