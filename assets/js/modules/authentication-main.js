@@ -1,4 +1,4 @@
-import { localStorageBackup } from "../functions/localStorageBackup3.js";
+import { localStorageBackup } from "../functions/localStorageBackup.js";
 
 (() => {
     const HTML = document.querySelector("html");
