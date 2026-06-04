@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,13 +11,14 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Modules\Users\Entity;
 
 use App\Modules\Users\Repository\UsersRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\Table(name: 'users__users')]
@@ -64,10 +66,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         if (null !== $this->getFirstName()) {
-            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
+            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
         }
         if (null !== $this->getMiddleName()) {
-            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
+            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
         }
 
         if ('' !== $name) {
@@ -83,7 +85,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
