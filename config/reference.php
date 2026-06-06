@@ -1670,6 +1670,30 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     embed_sourcemap?: bool|Param|null, // Deprecated: Option "embed_sourcemap" at "symfonycasts_sass.embed_sourcemap" is deprecated. Use "sass_options.embed_source_map" instead". // Default: null
  * }
+ * @psalm-type OptimizationAdvisorConfig = array{
+ *     thresholds?: array{
+ *         slow_query_ms?: float|Param, // Default: 30.0
+ *         n_plus_one_count?: int|Param, // Default: 10
+ *         slow_listener_ms?: float|Param, // Default: 10.0
+ *         max_items?: int|Param, // Default: 200
+ *     },
+ *     app_namespace_prefix?: scalar|Param|null, // Default: "App\\"
+ *     redact_sensitive_data?: bool|Param, // Default: true
+ *     sensitive_param_patterns?: list<scalar|Param|null>,
+ *     sensitive_value_patterns?: list<scalar|Param|null>,
+ *     sensitive_query_params?: list<scalar|Param|null>,
+ *     infra_db_tables?: list<scalar|Param|null>,
+ *     app_cache_pool_prefixes?: list<scalar|Param|null>,
+ *     profiler_cache_pool_prefixes?: list<scalar|Param|null>,
+ *     profiler_template_prefixes?: list<scalar|Param|null>,
+ *     profiler_event_namespace_prefixes?: list<scalar|Param|null>,
+ *     profiler_event_classes?: list<scalar|Param|null>,
+ * }
+ * @psalm-type ResponseProfilerConfig = array{
+ *     enabled?: bool|Param, // Default: true
+ *     max_length?: int|Param, // Default: 262144
+ *     allowed_mime_types?: list<scalar|Param|null>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1691,6 +1715,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     ux_icons?: UxIconsConfig,
  *     symfonycasts_sass?: SymfonycastsSassConfig,
+ *     optimization_advisor?: OptimizationAdvisorConfig,
+ *     response_profiler?: ResponseProfilerConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1716,6 +1742,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         ux_icons?: UxIconsConfig,
  *         symfonycasts_sass?: SymfonycastsSassConfig,
+ *         optimization_advisor?: OptimizationAdvisorConfig,
+ *         response_profiler?: ResponseProfilerConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1739,6 +1767,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         ux_icons?: UxIconsConfig,
  *         symfonycasts_sass?: SymfonycastsSassConfig,
+ *         optimization_advisor?: OptimizationAdvisorConfig,
+ *         response_profiler?: ResponseProfilerConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

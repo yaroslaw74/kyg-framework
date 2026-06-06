@@ -30,4 +30,6 @@ return [
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     Symfonycasts\SassBundle\SymfonycastsSassBundle::class => ['all' => true],
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
+    MartinKup\OptimizationAdvisorBundle\OptimizationAdvisorBundle::class => ['dev' => true, 'test' => true],
+    SavinMikhail\ResponseProfilerBundle\ResponseProfilerBundle::class => ['dev' => true, 'test' => true],
 ];
