@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd23fe91bf425525f14fbdb366529ac8",
+    "content-hash": "7e813da3ede3e2f1530c946f3ac2a9f8",
     "packages": [
         {
             "name": "balrok/composer-mkdir",
@@ -12982,7 +12982,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -13042,7 +13042,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -13088,7 +13088,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -13136,7 +13136,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -13182,7 +13182,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -13234,7 +13234,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -13285,16 +13285,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v13.13.0",
+            "version": "v13.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "6354b6d6888397752d3fe205404d10edc4299e01"
+                "reference": "f6a7548501831fbdd28e0e0883e72343a6d16e7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/6354b6d6888397752d3fe205404d10edc4299e01",
-                "reference": "6354b6d6888397752d3fe205404d10edc4299e01",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/f6a7548501831fbdd28e0e0883e72343a6d16e7e",
+                "reference": "f6a7548501831fbdd28e0e0883e72343a6d16e7e",
                 "shasum": ""
             },
             "require": {
@@ -13360,7 +13360,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-05-31T22:09:29+00:00"
+            "time": "2026-06-03T14:31:28+00:00"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -13870,16 +13870,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "6.8.2",
+            "version": "6.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "2c89ebb95ca9cedc9347f780333f7b25792dcb76"
+                "reference": "bd1bda2ebfc8bff418565941771ea8f03c557886"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/2c89ebb95ca9cedc9347f780333f7b25792dcb76",
-                "reference": "2c89ebb95ca9cedc9347f780333f7b25792dcb76",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/bd1bda2ebfc8bff418565941771ea8f03c557886",
+                "reference": "bd1bda2ebfc8bff418565941771ea8f03c557886",
                 "shasum": ""
             },
             "require": {
@@ -13889,7 +13889,7 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "3.3.0",
-                "json-schema/json-schema-test-suite": "dev-main",
+                "json-schema/json-schema-test-suite": "^23.2",
                 "marc-mabe/php-enum-phpstan": "^2.0",
                 "phpspec/prophecy": "^1.19",
                 "phpstan/phpstan": "^1.12",
@@ -13939,9 +13939,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/6.8.2"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/6.9.0"
             },
-            "time": "2026-05-05T05:39:01+00:00"
+            "time": "2026-06-05T14:05:24+00:00"
         },
         {
             "name": "kelunik/certificate",
@@ -16058,11 +16058,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dea9c8f2d25cc849391042b71e429c1a4bf82660",
-                "reference": "dea9c8f2d25cc849391042b71e429c1a4bf82660",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
+                "reference": "e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
                 "shasum": ""
             },
             "require": {
@@ -16118,7 +16118,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-28T14:44:12+00:00"
+            "time": "2026-06-05T09:00:01+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
@@ -18233,6 +18233,71 @@
                 "source": "https://github.com/robertfausk/mink-panther-driver/tree/v1.1.2"
             },
             "time": "2025-04-03T21:55:18+00:00"
+        },
+        {
+            "name": "rodoud/profiler-assistant-bundle",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rodoudcom/profiler-assistant-bundle.git",
+                "reference": "02d3139c4eb68bdfe709fe49055f47e3fbecf515"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rodoudcom/profiler-assistant-bundle/zipball/02d3139c4eb68bdfe709fe49055f47e3fbecf515",
+                "reference": "02d3139c4eb68bdfe709fe49055f47e3fbecf515",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/config": "^7.0",
+                "symfony/dependency-injection": "^7.0",
+                "symfony/framework-bundle": "^7.0",
+                "symfony/http-client": "^7.0",
+                "symfony/http-kernel": "^7.0",
+                "symfony/twig-bundle": "^7.0",
+                "symfony/web-profiler-bundle": "^7.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^7.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rodoud\\ProfilerAssistantBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adnen Chouibi",
+                    "email": "adnen.chouibi@gmail.com",
+                    "homepage": "https://rodoud.com"
+                }
+            ],
+            "description": "AI-powered profiler assistant for Symfony applications - helps beginners understand and fix errors",
+            "homepage": "https://rodoud.com",
+            "keywords": [
+                "ai",
+                "assistant",
+                "bundle",
+                "debugging",
+                "profiler",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/rodoudcom/profiler-assistant-bundle/issues",
+                "source": "https://github.com/rodoudcom/profiler-assistant-bundle/tree/v1.0.1"
+            },
+            "time": "2025-06-03T22:54:23+00:00"
         },
         {
             "name": "savinmikhail/symfony-profiler-response-bundle",

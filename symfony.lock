@@ -153,6 +153,9 @@
             "./bin/phpunit"
         ]
     },
+    "rodoud/profiler-assistant-bundle": {
+        "version": "v1.0.1"
+    },
     "savinmikhail/symfony-profiler-response-bundle": {
         "version": "v0.1.3"
     },

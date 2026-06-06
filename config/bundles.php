@@ -32,4 +32,5 @@ return [
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
     MartinKup\OptimizationAdvisorBundle\OptimizationAdvisorBundle::class => ['dev' => true, 'test' => true],
     SavinMikhail\ResponseProfilerBundle\ResponseProfilerBundle::class => ['dev' => true, 'test' => true],
+    Rodoud\ProfilerAssistantBundle\RodoudProfilerAssistantBundle::class => ['dev' => true, 'test' => true],
 ];

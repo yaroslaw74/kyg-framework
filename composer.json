@@ -158,6 +158,7 @@
         "psalm/plugin-phpunit": "^0.19",
         "psalm/plugin-symfony": "^5.3",
         "robertfausk/behat-panther-extension": "^1.2",
+        "rodoud/profiler-assistant-bundle": "^1.0",
         "savinmikhail/symfony-profiler-response-bundle": "^0.1",
         "shipmonk/composer-dependency-analyser": "^1.8",
         "spatie/symfony-ignition-bundle": "^1.3",
