@@ -33,4 +33,5 @@ return [
     MartinKup\OptimizationAdvisorBundle\OptimizationAdvisorBundle::class => ['dev' => true, 'test' => true],
     SavinMikhail\ResponseProfilerBundle\ResponseProfilerBundle::class => ['dev' => true, 'test' => true],
     Rodoud\ProfilerAssistantBundle\RodoudProfilerAssistantBundle::class => ['dev' => true, 'test' => true],
+    Nowo\TwigInspectorBundle\NowoTwigInspectorBundle::class => ['dev' => true, 'test' => true],
 ];

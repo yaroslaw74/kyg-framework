@@ -126,6 +126,9 @@
     "nelmio/js-logger-bundle": {
         "version": "1.12.0"
     },
+    "nowo-tech/twig-inspector-bundle": {
+        "version": "v1.0.31"
+    },
     "phpstan/phpstan": {
         "version": "2.2",
         "recipe": {

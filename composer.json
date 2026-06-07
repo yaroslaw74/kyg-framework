@@ -137,6 +137,7 @@
         "matthiasnoback/symfony-config-test": "^6.2",
         "matthiasnoback/symfony-dependency-injection-test": "^6.3",
         "neronmoon/scriptsdev": "^0.1",
+        "nowo-tech/twig-inspector-bundle": "^1.0",
         "orklah/psalm-insane-comparison": "^2.4",
         "orklah/psalm-strict-equality": "^3.1",
         "patchlevel/event-sourcing-psalm-plugin": "^3.2",
