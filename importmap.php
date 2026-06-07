@@ -213,4 +213,7 @@ return [
     'workbox-window' => [
         'version' => '7.4.1',
     ],
+    'idb' => [
+        'version' => '8.0.3',
+    ],
 ];
