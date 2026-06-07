@@ -207,4 +207,10 @@ return [
     'resize-observer-polyfill' => [
         'version' => '1.5.1',
     ],
+    'idb-keyval' => [
+        'version' => '6.2.5',
+    ],
+    'workbox-window' => [
+        'version' => '7.4.1',
+    ],
 ];
