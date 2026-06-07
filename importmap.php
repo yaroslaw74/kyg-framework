@@ -42,6 +42,9 @@ return [
     '@symfony/ux-turbo' => [
         'path' => './vendor/symfony/ux-turbo/assets/dist/turbo_controller.js',
     ],
+    '@spomky-labs/pwa/helpers' => [
+        'path' => './vendor/spomky-labs/pwa-bundle/assets/src/helpers.js',
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
