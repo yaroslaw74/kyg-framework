@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a317a7a121234c305b205c8b873f509",
+    "content-hash": "c1ea3408f2467855110dc007c37598e9",
     "packages": [
         {
             "name": "balrok/composer-mkdir",
@@ -5612,166 +5612,6 @@
                 }
             ],
             "time": "2026-03-24T13:12:05+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php84",
-            "version": "v1.38.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php84.git",
-                "reference": "f4e1dfaee5b74aba5964fe1fd4dfc7ba5e3085fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php84/zipball/f4e1dfaee5b74aba5964fe1fd4dfc7ba5e3085fa",
-                "reference": "f4e1dfaee5b74aba5964fe1fd4dfc7ba5e3085fa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php84\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.4+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php84/tree/v1.38.1"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-05-26T12:51:13+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php85",
-            "version": "v1.38.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "ba2ba04f3352cfa2dcbbcb90aee13ed967f505b1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/ba2ba04f3352cfa2dcbbcb90aee13ed967f505b1",
-                "reference": "ba2ba04f3352cfa2dcbbcb90aee13ed967f505b1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php85\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.5+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.38.1"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-05-26T02:25:22+00:00"
         },
         {
             "name": "symfony/process",
@@ -12658,16 +12498,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.95.4",
+            "version": "v3.95.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "3f8f68856837a77e1f1d870354eca3c8747f2f72"
+                "reference": "7f86d8763063f5d2e2e2d0e1e45bb2f15895361d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/3f8f68856837a77e1f1d870354eca3c8747f2f72",
-                "reference": "3f8f68856837a77e1f1d870354eca3c8747f2f72",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/7f86d8763063f5d2e2e2d0e1e45bb2f15895361d",
+                "reference": "7f86d8763063f5d2e2e2d0e1e45bb2f15895361d",
                 "shasum": ""
             },
             "require": {
@@ -12685,7 +12525,7 @@
                 "react/event-loop": "^1.5",
                 "react/socket": "^1.16",
                 "react/stream": "^1.4",
-                "sebastian/diff": "^4.0.6 || ^5.1.1 || ^6.0.2 || ^7.0 || ^8.0",
+                "sebastian/diff": "^4.0.6 || ^5.1.1 || ^6.0.2 || ^7.0 || ^8.0 || ^9.0",
                 "symfony/console": "^5.4.47 || ^6.4.24 || ^7.0 || ^8.0",
                 "symfony/event-dispatcher": "^5.4.45 || ^6.4.24 || ^7.0 || ^8.0",
                 "symfony/filesystem": "^5.4.45 || ^6.4.24 || ^7.0 || ^8.0",
@@ -12751,7 +12591,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.4"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.5"
             },
             "funding": [
                 {
@@ -12759,7 +12599,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-03T18:02:44+00:00"
+            "time": "2026-06-09T14:55:16+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -13094,7 +12934,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -13154,7 +12994,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -13200,7 +13040,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -13248,7 +13088,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -13294,7 +13134,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -13346,7 +13186,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -13397,16 +13237,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "f6a7548501831fbdd28e0e0883e72343a6d16e7e"
+                "reference": "1283a6f6e6b6b28e17bb92280a71a832294814c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/f6a7548501831fbdd28e0e0883e72343a6d16e7e",
-                "reference": "f6a7548501831fbdd28e0e0883e72343a6d16e7e",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/1283a6f6e6b6b28e17bb92280a71a832294814c0",
+                "reference": "1283a6f6e6b6b28e17bb92280a71a832294814c0",
                 "shasum": ""
             },
             "require": {
@@ -13472,7 +13312,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-06-03T14:31:28+00:00"
+            "time": "2026-06-08T13:47:24+00:00"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -14221,85 +14061,6 @@
                 "source": "https://github.com/Kocal/phpstan-symfony-ux/tree/v1.3.0"
             },
             "time": "2026-02-25T20:48:36+00:00"
-        },
-        {
-            "name": "lctrs/psalm-psr-container-plugin",
-            "version": "1.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Lctrs/psalm-psr-container-plugin.git",
-                "reference": "07f62846ad46ddb3a78a507f2645c849c9cd7b09"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Lctrs/psalm-psr-container-plugin/zipball/07f62846ad46ddb3a78a507f2645c849c9cd7b09",
-                "reference": "07f62846ad46ddb3a78a507f2645c849c9cd7b09",
-                "shasum": ""
-            },
-            "require": {
-                "ext-simplexml": "*",
-                "nikic/php-parser": "^5.4.0",
-                "php": "~8.2.27 || ~8.3.16 || ~8.4.3",
-                "psr/container": "^1.1.2 || ^2.0.2",
-                "symfony/polyfill-php84": "^1.31.0",
-                "vimeo/psalm": "^6.8.8"
-            },
-            "require-dev": {
-                "codeception/codeception": "5.2.1",
-                "codeception/module-asserts": "3.0.0",
-                "codeception/module-cli": "2.0.1",
-                "codeception/module-filesystem": "3.0.1",
-                "doctrine/coding-standard": "12.0.0",
-                "ergebnis/composer-normalize": "2.45.0",
-                "ergebnis/license": "2.6.0",
-                "maglnet/composer-require-checker": "4.16.1",
-                "phpstan/extension-installer": "1.4.3",
-                "phpstan/phpstan": "2.1.6",
-                "phpstan/phpstan-deprecation-rules": "2.0.1",
-                "phpstan/phpstan-phpunit": "2.0.4",
-                "phpstan/phpstan-strict-rules": "2.0.3",
-                "phpunit/phpunit": "11.5.10",
-                "psalm/plugin-phpunit": "0.19.2",
-                "weirdan/codeception-psalm-module": "0.14.0"
-            },
-            "type": "psalm-plugin",
-            "extra": {
-                "psalm": {
-                    "pluginClass": "Lctrs\\PsalmPsrContainerPlugin\\Plugin"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Lctrs\\PsalmPsrContainerPlugin\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jérôme Parmentier",
-                    "email": "jerome@prmntr.me"
-                }
-            ],
-            "description": "Let Psalm understand better psr11 containers",
-            "homepage": "https://github.com/Lctrs/psalm-psr-container-plugin",
-            "keywords": [
-                "code",
-                "container",
-                "inspection",
-                "php",
-                "psalm",
-                "psalm-plugin",
-                "psr",
-                "psr11"
-            ],
-            "support": {
-                "issues": "https://github.com/Lctrs/psalm-psr-container-plugin/issues",
-                "source": "https://github.com/Lctrs/psalm-psr-container-plugin"
-            },
-            "time": "2025-02-27T22:31:28+00:00"
         },
         {
             "name": "league/uri",
@@ -21041,6 +20802,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": "symplify/phpstan-rules",
             "time": "2025-11-12T16:46:04+00:00"
         },
         {
@@ -22096,7 +21858,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.3",
+        "php": ">=8.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
