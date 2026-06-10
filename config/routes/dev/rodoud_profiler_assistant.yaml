@@ -1,4 +1,0 @@
-rodoud_profiler_assistant:
-    resource: "@RodoudProfilerAssistantBundle/src/Controller/"
-    type: attribute
-    prefix: /_rodoud
