@@ -30,10 +30,6 @@
         <pluginClass class="Orklah\PsalmInsaneComparison\Plugin"/>
         <pluginClass class="Orklah\StrictEquality\Plugin"/>
     </plugins>
-    <extraFiles>
-        <directory name="var/cache/dev/Symfony/Config"/>
-        <!-- https://github.com/psalm/psalm-plugin-symfony/issues/201 -->
-    </extraFiles>
     <stubs>
         <file name="vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php"/>
     </stubs>
