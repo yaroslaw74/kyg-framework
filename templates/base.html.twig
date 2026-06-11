@@ -23,7 +23,7 @@
 
         <title>{% block title %}{% if app_name %}{{ app_name }}|{% endif %}KYG Framevork{% endblock %}</title>
 
-        {{ pwa() }}
+        {{ pwa(locale: app.locale) }}
 
         {% block stylesheets %}{% endblock %}
 
