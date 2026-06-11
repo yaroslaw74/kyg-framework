@@ -81,7 +81,7 @@ return [
         'version' => '2.36.0',
     ],
     'swup' => [
-        'version' => '4.9.0',
+        'version' => '4.9.1',
     ],
     '@swup/fade-theme' => [
         'version' => '2.0.2',
@@ -195,10 +195,10 @@ return [
         'type' => 'css',
     ],
     'lodash-es/debounce.js' => [
-        'version' => '4.17.21',
+        'version' => '4.18.1',
     ],
     'lodash-es/throttle.js' => [
-        'version' => '4.17.21',
+        'version' => '4.18.1',
     ],
     'simplebar-core/dist/simplebar.min.css' => [
         'version' => '1.3.2',
