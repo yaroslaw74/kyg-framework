@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08e2c4385be909c4daf8f96a94cd7be4",
+    "content-hash": "ed02e292bf11d77130942dbf189f5126",
     "packages": [
         {
             "name": "balrok/composer-mkdir",
