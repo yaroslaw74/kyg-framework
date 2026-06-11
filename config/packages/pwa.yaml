@@ -1,49 +1,48 @@
 # Documentation available at https://pwa.spomky-labs.com/
 ## Please add the favicons, manifest or serviceworker sections depending on your needs.
 pwa:
-    logger: "monolog.logger.pwa"
     asset_compiler: false # Default to true. Will change to false in 2.0.0.
     image_processor: "pwa.image_processor.gd" # 'pwa.image_processor.imagick' Or 'pwa.image_processor.gd'
+
     favicons:
         enabled: true
         default:
-            src: "icons/kyg.svg"
-        safari_pinned_tab_color: "#526cf7"
-        use_silhouette: true
+            src: images/kyg.png
+            background_color: "#ffffff"
+            image_scale: 95
+            border_radius: 10
+        dark:
+            src: images/kyg.png
+            background_color: "#000000"
+            image_scale: 95
+            border_radius: 10
         tile_color: "#526cf7"
-        use_start_image: true
         low_resolution: true
+        use_start_image: true
 
     manifest:
         enabled: true
         name: "KYG Framevork"
         short_name: "KYG"
         description: "KYG Framework for Business"
-        scope: "/"
         start_url: "index"
         display: "standalone"
         background_color: "#ecf0fa"
         dark_theme_color: "#19202f"
         theme_color: "#ecf0fa"
+        orientation: "landscape"
+        display_override: ["window-controls-overlay", "fullscreen", "minimal-ui"]
+        use_credentials: true
         icons:
-            - src: "icons/kyg.svg"
-              sizes: 0
+            - src: images/kyg.png
+              sizes: [48, 72, 96, 144, 168, 192, 256, 512]
+
     serviceworker:
         enabled: true
         src: "sw.js"
         dest: "/js/service-worker.js"
-        workbox:
-            background_fetch:
-                enabled: true
-                #success_url: "app_download_success" # Route name or URL
-                #progress_url: "app_download_progress"
-
-monolog:
-    channels: ["pwa"]
-
-    handlers:
-        pwa:
-            type: stream
-            path: "%kernel.logs_dir%/pwa.log"
-            level: debug
-            channels: ["pwa"]
+        #workbox:
+        #    background_fetch:
+        #        enabled: true
+        #        #success_url: "app_download_success" # Route name or URL
+        #        #progress_url: "app_download_progress"
