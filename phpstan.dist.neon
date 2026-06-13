@@ -4,16 +4,18 @@ parameters:
     paths:
         - bin/
         - config/
+        - modules/
+        - public/
         - src/
         - tests/
-        - modules/
-        - public/additions/
     excludePaths:
         - config/reference.php
         - vendor/
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
         consoleApplicationLoader: tests/console-application.php
+    scanDirectories:
+        - var/cache/dev/Symfony/Config
     scanFiles:
         - vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php
     doctrine:
