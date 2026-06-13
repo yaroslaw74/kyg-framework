@@ -2,4 +2,5 @@ web_profiler:
     toolbar: true
 
 framework:
-    profiler: true
+    profiler:
+        collect_serializer_data: true
