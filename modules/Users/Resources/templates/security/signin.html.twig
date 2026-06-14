@@ -16,10 +16,6 @@
     Log in!
 {% endblock %}
 
-{% block stylesheets %}
-    <link id="style" href="{{ asset('vendor/@symfony/ux-toggle-password/dist/style.min.css') }}" rel="stylesheet" >
-{% endblock %}
-
 {% block content %}
     <div class="row">
         <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
@@ -56,8 +52,9 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label required" for="password">{% trans %}Password{% endtrans %}</label>
-                                <div class="toggle-password-container">
-                                    <input class="form-control" placeholder="{% trans %}Enter your Password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required {{ stimulus_controller('toggle-password', {visibleLabel: 'Show password'|trans({}, 'messages'), hiddenLabel: 'Hide password'|trans({}, 'messages'), buttonClasses: ['toggle-password-button']}) }}>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" placeholder="{% trans %}Enter your Password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required>
+                                    <button class="btn-weve bth-light bg-transparent btn btn-primary" type="button" id="togglePassword"><i class="ri-eye-off-line"></i></button>
                                 </div>
                             </div>
                             <div class="checkbox mb-3">
@@ -69,35 +66,35 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block w-100">{% trans %}Sign In{% endtrans %}</button>
                         </form>
-                        <div class="mt-3 auth-container">
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-facebook"><i class="fa-brands fa-facebook-f fa-xl"></i></a>
+                            <div class="mt-3 auth-container">
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-facebook"><i class="fa-brands fa-facebook-f fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-google"><i class="fa-brands fa-google fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-github"><i class="fa-brands fa-github fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-vk"><i class="fa-brands fa-vk fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-odnoklassniki"><i class="fa-brands fa-odnoklassniki fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-yandex"><i class="fa-brands fa-yandex fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-linkedin"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-x-twitter"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+                                    </div>
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-mail-ru"><i class="fa-solid fa-at fa-xl"></i></a>
+                                    </div>
                             </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-google"><i class="fa-brands fa-google fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-github"><i class="fa-brands fa-github fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-vk"><i class="fa-brands fa-vk fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-odnoklassniki"><i class="fa-brands fa-odnoklassniki fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-yandex"><i class="fa-brands fa-yandex fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-linkedin"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-x-twitter"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
-                            </div>
-                            <div class="auth-container-element">
-                                <a href="#" class="btn btn-block w-100 btn-mail-ru"><i class="fa-solid fa-at fa-xl"></i></a>
-                            </div>
-                        </div>
                         <div class="main-signin-footer mt-5">
                             <p class="mb-1"><a href="#">{% trans %}Forgot password?{% endtrans %}</a></p>
                             <p>{% trans %}Don't have an account?{% endtrans %} <a href="#">{% trans %}Create an Account{% endtrans %}</a></p>
