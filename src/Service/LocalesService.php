@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class LocalesService
 {
-    public function __construct(private ContainerBagInterface $params)
+    public function __construct(private readonly ContainerBagInterface $params)
     {
     }
 
