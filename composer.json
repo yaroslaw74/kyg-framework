@@ -31,6 +31,7 @@
         "doctrine/doctrine-bundle": "^2.18.3",
         "doctrine/doctrine-migrations-bundle": "^3.7.0",
         "doctrine/orm": "^3.6.7",
+        "hwi/oauth-bundle": "^2.5.0",
         "jbtronics/settings-bundle": "^3.3",
         "liborm85/composer-vendor-cleaner": "^1.7.1",
         "nelmio/js-logger-bundle": "^1.12.0",
