@@ -25,6 +25,10 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
+###> doctrine/migrations ###
+/migrations/
+###< doctrine/migrations ###
+
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
@@ -41,21 +45,3 @@ phpstan.neon
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
-
-###> doctrine/migrations ###
-/migrations/
-###< doctrine/migrations ###
-
-###> symfonycasts/sass-bundle ###
-/public/assets/
-###< symfonycasts/sass-bundle ###
-
-###> spomky-labs/pwa-bundle ###
-/public/idb
-/public/pwa
-/public/workbox
-/public/favicon.ico
-/public/site.webmanifest
-/public/site.*.webmanifest
-/public/sw.js
-###< spomky-labs/pwa-bundle ###
