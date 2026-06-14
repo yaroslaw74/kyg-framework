@@ -78,34 +78,34 @@ export function switcherClick() {
     const LOADER_DISABLE_BTN = document.querySelector("#switcher-loader-disable");
 
     // primary theme
-    const _primaryColor1Var = PRIMARY_DEFAULT_COLOR_1_BTN.addEventListener("click", () => {
+    const _PRIMARY_COLOR_1_VAR = PRIMARY_DEFAULT_COLOR_1_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "58, 88, 146");
         HTML.style.setProperty("--primary-rgb", "58, 88, 146");
         updateColors();
     });
-    const _primaryColor2Var = PRIMARY_DEFAULT_COLOR_2_BTN.addEventListener("click", () => {
+    const _PRIMARY_COLOR_2_VAR = PRIMARY_DEFAULT_COLOR_2_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "49, 176, 176");
         HTML.style.setProperty("--primary-rgb", "49, 176, 176");
         updateColors();
     });
-    const _primaryColor3Var = PRIMARY_DEFAULT_COLOR_3_BTN.addEventListener("click", () => {
+    const _PRIMARY_COLOR_3_VAR = PRIMARY_DEFAULT_COLOR_3_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "170, 82, 216");
         HTML.style.setProperty("--primary-rgb", "170, 82, 216");
         updateColors();
     });
-    const _primaryColor4Var = PRIMARY_DEFAULT_COLOR_4_BTN.addEventListener("click", () => {
+    const _PRIMARY_COLOR_4_VAR = PRIMARY_DEFAULT_COLOR_4_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "80, 198, 118");
         HTML.style.setProperty("--primary-rgb", "80, 198, 118");
         updateColors();
     });
-    const _primaryColor5Var = PRIMARY_DEFAULT_COLOR_5_BTN.addEventListener("click", () => {
+    const _PRIMARY_COLOR_5_VAR = PRIMARY_DEFAULT_COLOR_5_BTN.addEventListener("click", () => {
         localStorage.setItem("primaryRGB", "244, 86, 86");
         HTML.style.setProperty("--primary-rgb", "244, 86, 86");
         updateColors();
     });
 
     // Background theme
-    const _backgroundColor1Var = BG_DEFAULT_COLOR_1_BTN.addEventListener("click", () => {
+    const _BACKGROUND_COLOR_1_VAR = BG_DEFAULT_COLOR_1_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "20, 30, 96");
         localStorage.setItem("bodylightRGB", "25, 38, 101");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -121,7 +121,7 @@ export function switcherClick() {
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
     });
-    const _backgroundColor2Var = BG_DEFAULT_COLOR_2_BTN.addEventListener("click", () => {
+    const _BACKGROUND_COLOR_2_VAR = BG_DEFAULT_COLOR_2_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "15, 95, 95");
         localStorage.setItem("bodylightRGB", "16, 104, 104");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -137,7 +137,7 @@ export function switcherClick() {
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
     });
-    const _backgroundColor3Var = BG_DEFAULT_COLOR_3_BTN.addEventListener("click", () => {
+    const _BACKGROUND_COLOR_3_VAR = BG_DEFAULT_COLOR_3_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "87, 48, 121");
         localStorage.setItem("bodylightRGB", "98, 51, 140");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -153,7 +153,7 @@ export function switcherClick() {
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
     });
-    const _backgroundColor4Var = BG_DEFAULT_COLOR_4_BTN.addEventListener("click", () => {
+    const _BACKGROUND_COLOR_4_VAR = BG_DEFAULT_COLOR_4_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "26, 93, 48");
         localStorage.setItem("bodylightRGB", "28, 103, 53");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -169,7 +169,7 @@ export function switcherClick() {
         DARK_MENU_BTN.checked = true;
         DARK_HEADER_BTN.checked = true;
     });
-    const _backgroundColor5Var = BG_DEFAULT_COLOR_5_BTN.addEventListener("click", () => {
+    const _BACKGROUND_COLOR_5_VAR = BG_DEFAULT_COLOR_5_BTN.addEventListener("click", () => {
         localStorage.setItem("bodyBgRGB", "157, 41, 41");
         localStorage.setItem("bodylightRGB", "172, 56, 56");
         HTML.setAttribute("data-bs-theme", "dark");
@@ -187,29 +187,29 @@ export function switcherClick() {
     });
 
     // Bg image
-    const _bgImg1Var = BG_IMAGE_1_BTN.addEventListener("click", () => {
+    const _BG_IMG_1_VAR = BG_IMAGE_1_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg1");
         localStorage.setItem("bgimg", "bgimg1");
     });
-    const _bgImg2Var = BG_IMAGE_2_BTN.addEventListener("click", () => {
+    const _BG_IMG_2_VAR = BG_IMAGE_2_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg2");
         localStorage.setItem("bgimg", "bgimg2");
     });
-    const _bgImg3Var = BG_IMAGE_3_BTN.addEventListener("click", () => {
+    const _BG_IMG_3_VAR = BG_IMAGE_3_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg3");
         localStorage.setItem("bgimg", "bgimg3");
     });
-    const _bgImg4Var = BG_IMAGE_4_BTN.addEventListener("click", () => {
+    const _BG_IMG_4_VAR = BG_IMAGE_4_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg4");
         localStorage.setItem("bgimg", "bgimg4");
     });
-    const _bgImg5Var = BG_IMAGE_5_BTN.addEventListener("click", () => {
+    const _BG_IMG_5_VAR = BG_IMAGE_5_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-bg-img", "bgimg5");
         localStorage.setItem("bgimg", "bgimg5");
     });
 
     /* Light Layout Start */
-    const _lightThemeVar = LIGHT_BTN.addEventListener("click", () => {
+    const _LIGHT_THEME_VAR = LIGHT_BTN.addEventListener("click", () => {
         lightFn();
         localStorage.setItem("valexHeader", "light");
         // localStorage.setItem("valexMenu", 'light');
@@ -220,7 +220,7 @@ export function switcherClick() {
     /* Light Layout End */
 
     /* Dark Layout Start */
-    const _darkThemeVar = DARK_BTN.addEventListener("click", () => {
+    const _DARK_THEME_VAR = DARK_BTN.addEventListener("click", () => {
         darkFn();
         localStorage.setItem("valexMenu", "dark");
         localStorage.setItem("valexHeader", "dark");
@@ -229,77 +229,77 @@ export function switcherClick() {
     /* Dark Layout End */
 
     /* Light Menu Start */
-    const _lightMenuVar = LIGHT_MENU_BTN.addEventListener("click", () => {
+    const _LIGHT_MENU_VAR = LIGHT_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "light");
         localStorage.setItem("valexMenu", "light");
     });
     /* Light Menu End */
 
     /* Color Menu Start */
-    const _colorMenuVar = COLOR_MENU_BTN.addEventListener("click", () => {
+    const _COLOR_MENU_VAR = COLOR_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "color");
         localStorage.setItem("valexMenu", "color");
     });
     /* Color Menu End */
 
     /* Dark Menu Start */
-    const _darkMenuVar = DARK_MENU_BTN.addEventListener("click", () => {
+    const _DARK_MENU_VAR = DARK_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "dark");
         localStorage.setItem("valexMenu", "dark");
     });
     /* Dark Menu End */
 
     /* Gradient Menu Start */
-    const _gradientMenuVar = GRADIENT_MENU_BTN.addEventListener("click", () => {
+    const _GRADIENT_MENU_VAR = GRADIENT_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "gradient");
         localStorage.setItem("valexMenu", "gradient");
     });
     /* Gradient Menu End */
 
     /* Transparent Menu Start */
-    const _transparentMenuVar = TRANSPARENT_MENU_BTN.addEventListener("click", () => {
+    const _TRANSPARENT_MENU_VAR = TRANSPARENT_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-styles", "transparent");
         localStorage.setItem("valexMenu", "transparent");
     });
     /* Transparent Menu End */
 
     /* Light Header Start */
-    const _lightHeaderVar = LIGHT_HEADER_BTN.addEventListener("click", () => {
+    const _LIGHT_HEADER_VAR = LIGHT_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "light");
         localStorage.setItem("valexHeader", "light");
     });
     /* Light Header End */
 
     /* Color Header Start */
-    const _colorHeaderVar = COLOR_HEADER_BTN.addEventListener("click", () => {
+    const _COLOR_HEADER_VAR = COLOR_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "color");
         localStorage.setItem("valexHeader", "color");
     });
     /* Color Header End */
 
     /* Dark Header Start */
-    const _darkHeaderVar = DARK_HEADER_BTN.addEventListener("click", () => {
+    const _DARK_HEADER_VAR = DARK_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "dark");
         localStorage.setItem("valexHeader", "dark");
     });
     /* Dark Header End */
 
     /* Gradient Header Start */
-    const _gradientHeaderVar = GRADIENT_HEADER_BTN.addEventListener("click", () => {
+    const _GRADIENT_HEADER_VAR = GRADIENT_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "gradient");
         localStorage.setItem("valexHeader", "gradient");
     });
     /* Gradient Header End */
 
     /* Transparent Header Start */
-    const _transparentHeaderVar = TRANSPARENT_HEADER_BTN.addEventListener("click", () => {
+    const _TRANSPARENT_HEADER_VAR = TRANSPARENT_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-styles", "transparent");
         localStorage.setItem("valexHeader", "transparent");
     });
     /* Transparent Header End */
 
     /* Full Width Layout Start */
-    const _fullwidthVar = FULL_WIDTH_BTN.addEventListener("click", () => {
+    const _FULLWIDTH_VAR = FULL_WIDTH_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-width", "fullwidth");
         localStorage.setItem("valexfullwidth", "true");
         localStorage.removeItem("valexboxed");
@@ -307,7 +307,7 @@ export function switcherClick() {
     /* Full Width Layout End */
 
     /* Boxed Layout Start */
-    const _boxedVar = BOXED_BTN.addEventListener("click", () => {
+    const _BOXED_VAR = BOXED_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-width", "boxed");
         localStorage.setItem("valexboxed", "true");
         localStorage.removeItem("valexfullwidth");
@@ -317,7 +317,7 @@ export function switcherClick() {
     /* Boxed Layout End */
 
     /* Regular page style Start */
-    const _shadowVar = REGULAR_BTN.addEventListener("click", () => {
+    const _SHADOW_VAR = REGULAR_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-page-style", "regular");
         localStorage.setItem("valexregular", "true");
         localStorage.removeItem("valexclassic");
@@ -326,7 +326,7 @@ export function switcherClick() {
     /* Regular page style End */
 
     /* Classic page style Start */
-    const _noShadowVar = CLASSIC_BTN.addEventListener("click", () => {
+    const _NO_SHADOW_VAR = CLASSIC_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-page-style", "classic");
         localStorage.setItem("valexclassic", "true");
         localStorage.removeItem("valexregular");
@@ -335,7 +335,7 @@ export function switcherClick() {
     /* Classic page style End */
 
     /* modern page style Start */
-    const _modernVar = MODERN_BTN.addEventListener("click", () => {
+    const _MODERN_VAR = MODERN_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-page-style", "modern");
         localStorage.setItem("valexmodern", "true");
         localStorage.removeItem("valexregular");
@@ -344,13 +344,13 @@ export function switcherClick() {
     /* modern page style End */
 
     /* Header-Position Styles Start */
-    const _fixedHeaderVar = FIXED_HEADER_BTN.addEventListener("click", () => {
+    const _FIXED_HEADER_VAR = FIXED_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-position", "fixed");
         localStorage.setItem("valexHeaderfixed", "true");
         localStorage.removeItem("valexHeaderscrollable");
     });
 
-    const _scrollHeaderVar = SCROLL_HEADER_BTN.addEventListener("click", () => {
+    const _SCROLL_HEADER_VAR = SCROLL_HEADER_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-header-position", "scrollable");
         localStorage.setItem("valexHeaderscrollable", "true");
         localStorage.removeItem("valexHeaderfixed");
@@ -358,13 +358,13 @@ export function switcherClick() {
     /* Header-Position Styles End */
 
     /* Menu-Position Styles Start */
-    const _fixedMenuVar = FIXED_MENU_BTN.addEventListener("click", () => {
+    const _FIXED_MENU_VAR = FIXED_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-position", "fixed");
         localStorage.setItem("valexMenufixed", "true");
         localStorage.removeItem("valexMenuscrollable");
     });
 
-    const _scrollMenuVar = SCROLL_MENU_BTN.addEventListener("click", () => {
+    const _SCROLL_MENU_VAR = SCROLL_MENU_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-menu-position", "scrollable");
         localStorage.setItem("valexMenuscrollable", "true");
         localStorage.removeItem("valexMenufixed");
@@ -372,7 +372,7 @@ export function switcherClick() {
     /* Menu-Position Styles End */
 
     /* Default Sidemenu Start */
-    const _defaultVar = DEFAULT_BTN.addEventListener("click", () => {
+    const _DEFAULT_VAR = DEFAULT_BTN.addEventListener("click", () => {
         HTML.setAttribute("data-vertical-style", "default");
         HTML.setAttribute("data-nav-layout", "vertical");
         toggleSidemenu();
@@ -387,7 +387,7 @@ export function switcherClick() {
     /* Default Sidemenu End */
 
     /* Closed Sidemenu Start */
-    const _closedVar = CLOSED_BTN.addEventListener("click", () => {
+    const _CLOSED_VAR = CLOSED_BTN.addEventListener("click", () => {
         closedSidemenuFn();
         localStorage.setItem("valexverticalstyles", "closed");
         MAIN_MENU.forEach((ele) => {
@@ -400,21 +400,21 @@ export function switcherClick() {
     /* Closed Sidemenu End */
 
     /* Hover Submenu Start */
-    const _detachedVar = DETACHED_BTN.addEventListener("click", () => {
+    const _DETACHED_VAR = DETACHED_BTN.addEventListener("click", () => {
         detachedFn();
         localStorage.setItem("valexverticalstyles", "detached");
     });
     /* Hover Submenu End */
 
     /* Icon Text Sidemenu Start */
-    const _iconTextVar = ICON_TEXT_BTN.addEventListener("click", () => {
+    const _ICON_TEXT_VAR = ICON_TEXT_BTN.addEventListener("click", () => {
         iconTextFn();
         localStorage.setItem("valexverticalstyles", "icontext");
     });
     /* Icon Text Sidemenu End */
 
     /* Icon Overlay Sidemenu Start */
-    const _overlayVar = OVERLAY_BTN.addEventListener("click", () => {
+    const _OVERLAY_VAR = OVERLAY_BTN.addEventListener("click", () => {
         iconOverayFn();
         localStorage.setItem("valexverticalstyles", "overlay");
         MAIN_MENU.forEach((ele) => {
@@ -427,14 +427,14 @@ export function switcherClick() {
     /* Icon Overlay Sidemenu End */
 
     /* doublemenu Sidemenu Start */
-    const _doubleVar = DOUBLE_BTN.addEventListener("click", () => {
+    const _DOUBLE_VAR = DOUBLE_BTN.addEventListener("click", () => {
         doubletFn();
         localStorage.setItem("valexverticalstyles", "doublemenu");
     });
     /* doublemenu Sidemenu End */
 
     /* Menu Click Sidemenu Start */
-    const _menuClickVar = MENU_CLICK_BTN.addEventListener("click", () => {
+    const _MENU_CLICK_VAR = MENU_CLICK_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         menuClickFn();
         localStorage.setItem("valexnavstyles", "menu-click");
@@ -455,7 +455,7 @@ export function switcherClick() {
     /* Menu Click Sidemenu End */
 
     /* Menu Hover Sidemenu Start */
-    const _menuhoverVar = MENU_HOVER_BTN.addEventListener("click", () => {
+    const _MENU_HOVER_VAR = MENU_HOVER_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         menuhoverFn();
         localStorage.setItem("valexnavstyles", "menu-hover");
@@ -470,7 +470,7 @@ export function switcherClick() {
     /* Menu Hover Sidemenu End */
 
     /* icon Click Sidemenu Start */
-    const _iconClickVar = ICON_CLICK_BTN.addEventListener("click", () => {
+    const _ICON_CLICK_VAR = ICON_CLICK_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         iconClickFn();
         localStorage.setItem("valexnavstyles", "icon-click");
@@ -492,7 +492,7 @@ export function switcherClick() {
     /* icon Click Sidemenu End */
 
     /* icon hover Sidemenu Start */
-    const _iconhoverVar = ICON_HOVER_BTN.addEventListener("click", () => {
+    const _ICON_HOVER_VAR = ICON_HOVER_BTN.addEventListener("click", () => {
         HTML.removeAttribute("data-vertical-style");
         iconHoverFn();
         localStorage.setItem("valexnavstyles", "icon-hover");
@@ -508,7 +508,7 @@ export function switcherClick() {
     /* icon hover Sidemenu End */
 
     /* Sidemenu start*/
-    const _verticalVar = VERTICAL_BTN.addEventListener("click", () => {
+    const _VERTICAL_VAR = VERTICAL_BTN.addEventListener("click", () => {
         const mainContent = document.querySelector(".main-content");
         // local storage
         localStorage.removeItem("valexlayout");
@@ -530,7 +530,7 @@ export function switcherClick() {
     /* Sidemenu end */
 
     /* horizontal start*/
-    const _horiVar = HORI_BTN.addEventListener("click", () => {
+    const _HORI_VAR = HORI_BTN.addEventListener("click", () => {
         const mainContent = document.querySelector(".main-content");
         HTML.removeAttribute("data-vertical-style");
         //    local storage
@@ -544,7 +544,7 @@ export function switcherClick() {
     /* horizontal end*/
 
     // reset all start
-    const _resetVar = RESET_ALL_BTN.addEventListener("click", () => {
+    const _RESET_VAR = RESET_ALL_BTN.addEventListener("click", () => {
         ResetAllFn();
         setNavActive();
         HTML.setAttribute("data-menu-styles", "light");
@@ -558,14 +558,14 @@ export function switcherClick() {
     // reset all end
 
     /* loader start */
-    LOADER_ENABLE_BTN.onclick = () => {
+    const _LOADER_ENABLE_VAR = LOADER_ENABLE_BTN.addEventListener("click", () => {
         HTML.setAttribute("loader", "enable");
         localStorage.setItem("loaderEnable", "true");
-    };
+    });
 
-    LOADER_DISABLE_BTN.onclick = () => {
+    const _LOADER_DISABLE_VAR = LOADER_DISABLE_BTN.addEventListener("click", () => {
         HTML.setAttribute("loader", "disable");
         localStorage.setItem("loaderEnable", "false");
-    };
+    });
     /* loader end */
 }
