@@ -66,35 +66,100 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block w-100">{% trans %}Sign In{% endtrans %}</button>
                         </form>
-                            <div class="mt-3 auth-container">
+                        {% if settings_instance('hwi').hwiOauth %}
+                            <div class="mt-3 auth-container d-flex flex-wrap">
+                                {% if settings_instance('hwi').facebook %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-facebook"><i class="fa-brands fa-facebook-f fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').google %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-google"><i class="fa-brands fa-google fa-xl"></i></a>
                                     </div>
-                                    <div class="auth-container-element">
-                                        <a href="#" class="btn btn-block w-100 btn-github"><i class="fa-brands fa-github fa-xl"></i></a>
-                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').vkontakte %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-vk"><i class="fa-brands fa-vk fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').odnoklassniki %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-odnoklassniki"><i class="fa-brands fa-odnoklassniki fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').windowsLive %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-windows"><i class="fa-brands fa-windows fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').yandex %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-yandex"><i class="fa-brands fa-yandex fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').linkedin %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-linkedin"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').xTwitter %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-x-twitter"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').mailru %}
                                     <div class="auth-container-element">
                                         <a href="#" class="btn btn-block w-100 btn-mail-ru"><i class="fa-solid fa-at fa-xl"></i></a>
                                     </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').instagram %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-instagram"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').amazon %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-amazon"><i class="fa-brands fa-amazon fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').yahoo %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-yahoo"><i class="fa-brands fa-yahoo fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').dropbox %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-dropbox"><i class="fa-brands fa-dropbox fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').github %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-github"><i class="fa-brands fa-github fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').trello %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-trello"><i class="fa-brands fa-trello fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').spotify %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-spotify"><i class="fa-brands fa-spotify fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').flickr %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-flickr"><i class="fa-brands fa-flickr fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
+                                {% if settings_instance('hwi').twitch %}
+                                    <div class="auth-container-element">
+                                        <a href="#" class="btn btn-block w-100 btn-twitch"><i class="fa-brands fa-twitch fa-xl"></i></a>
+                                    </div>
+                                {% endif %}
                             </div>
+                        {% endif %}
                         <div class="main-signin-footer mt-5">
                             <p class="mb-1"><a href="#">{% trans %}Forgot password?{% endtrans %}</a></p>
                             <p>{% trans %}Don't have an account?{% endtrans %} <a href="#">{% trans %}Create an Account{% endtrans %}</a></p>
