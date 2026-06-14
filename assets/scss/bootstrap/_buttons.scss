@@ -1973,6 +1973,118 @@
     }
 }
 
+.btn-amazon {
+    background-color: $amazon;
+    color           : $black;
+    border          : 1px solid $amazon;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $amazon !important;
+        color           : $black !important;
+        border          : 1px solid $amazon !important;
+    }
+}
+
+.btn-twitch {
+    background-color: $twitch;
+    color           : $twitch-text;
+    border          : 1px solid $twitch;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $twitch !important;
+        color           : $twitch-text !important;
+        border          : 1px solid $twitch !important;
+    }
+}
+
+.btn-yahoo {
+    background-color: $yahoo;
+    color           : $white;
+    border          : 1px solid $yahoo;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $yahoo !important;
+        color           : $white !important;
+        border          : 1px solid $yahoo !important;
+    }
+}
+
+.btn-spotify {
+    background-color: $spotify;
+    color           : $white;
+    border          : 1px solid $spotify;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $spotify !important;
+        color           : $white !important;
+        border          : 1px solid $spotify !important;
+    }
+}
+
+.btn-trello {
+    background-color: $trello;
+    color           : $white;
+    border          : 1px solid $trello;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $trello !important;
+        color           : $white !important;
+        border          : 1px solid $trello !important;
+    }
+}
+
+.btn-dropbox {
+    background-color: $dropbox;
+    color           : $white;
+    border          : 1px solid $dropbox;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $dropbox !important;
+        color           : $white !important;
+        border          : 1px solid $dropbox !important;
+    }
+}
+
+.btn-flickr {
+    background-color: $flickr;
+    color           : $flickr-text;
+    border          : 1px solid $flickr;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $flickr !important;
+        color           : $flickr-text !important;
+        border          : 1px solid $flickr !important;
+    }
+}
+
+.btn-windows {
+    background-color: $windows;
+    color           : $white;
+    border          : 1px solid $windows;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $windows !important;
+        color           : $white !important;
+        border          : 1px solid $windows !important;
+    }
+}
+
 .btn-instagram {
     background: #f09433;
     background: -moz-linear-gradient(45deg,
