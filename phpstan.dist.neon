@@ -1,6 +1,5 @@
 parameters:
     level: 6
-    errorFormat: symplify
     paths:
         - bin/
         - config/
