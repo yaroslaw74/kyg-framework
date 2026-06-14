@@ -41,7 +41,6 @@ class LoginControllerTest extends WebTestCase
 
         $user = new Users();
         $user->setEmail('email@example.com');
-        $user->setUsername('username');
         $user->setPassword($passwordHasher->hashPassword($user, 'password'));
 
         $em->persist($user);
@@ -66,7 +65,7 @@ class LoginControllerTest extends WebTestCase
         self::assertSelectorTextContains('.alert-danger', 'Invalid credentials.');
 
         // Denied - Can't login with invalid password.
-        $this->client->request('GET', '/app/login');
+        $this->client->request('GET', '/login');
         self::assertResponseIsSuccessful();
 
         $this->client->submitForm('Sign in', [
@@ -86,7 +85,7 @@ class LoginControllerTest extends WebTestCase
             '_password' => 'password',
         ]);
 
-        self::assertResponseRedirects('/app/home');
+        self::assertResponseRedirects('/app');
         $this->client->followRedirect();
 
         self::assertSelectorNotExists('.alert-danger');
