@@ -11,11 +11,13 @@ return RectorConfig::configure()
         __DIR__.'/src',
         __DIR__.'/tests',
     ])
-
+    ->withSkip([
+        __DIR__.'/config/bundles.php',
+    ])
     ->withRootFiles()
     ->withPhpSets()
     ->withComposerBased(twig: true, doctrine: true, phpunit: true, symfony: true)
-    ->withPreparedSets(deadCode: true)
+    ->withPreparedSets(deadCode: true, codeQuality: true)
     ->withCache(__DIR__.'/var/rector')
     ->withSymfonyContainerPhp(
         __DIR__.'/var/cache/dev/App_KernelDevDebugContainer.php'
