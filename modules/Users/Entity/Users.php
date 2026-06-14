@@ -21,19 +21,18 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-#[ORM\Table(name: 'users__users')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
-class Users implements UserInterface, PasswordAuthenticatedUserInterface
+class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Stringable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER)]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::STRING, length: 180, nullable: true, unique: true)]
+    #[ORM\Column(type: Types::STRING, length: 180, unique: true, nullable: true)]
     private ?string $username = null;
 
-    #[ORM\Column(type: Types::STRING, nullable: true, unique: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $email = null;
 
     /**
@@ -76,7 +75,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             $name = $this->getUsername();
         }
 
-        return $name;
+        return (string) $name;
     }
 
     /**
@@ -85,7 +84,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
 
         return $data;
     }
