@@ -34,4 +34,5 @@ return [
     Nelmio\JsLoggerBundle\NelmioJsLoggerBundle::class => ['all' => true],
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
     Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
+    HWI\Bundle\OAuthBundle\HWIOAuthBundle::class => ['all' => true],
 ];
