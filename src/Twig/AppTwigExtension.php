@@ -25,24 +25,9 @@ use Twig\TwigFunction;
 class AppTwigExtension extends AbstractExtension implements ExtensionInterface, GlobalsInterface
 {
     public function __construct(
-        private LocalesService $localesService,
-        private SettingsManagerInterface $settingsManager,
+        private readonly LocalesService $localesService,
+        private readonly SettingsManagerInterface $settingsManager,
     ) {
-    }
-
-    public function LocaleDirExtension(string $locale): string
-    {
-        return $this->localesService->getLocaleDir($locale);
-    }
-
-    public function LocaleHTMLExtension(string $locale): string
-    {
-        return $this->localesService->getLocaleHTML($locale);
-    }
-
-    public function LocaleIsFullExtension(string $locale): bool
-    {
-        return $this->localesService->isFull($locale);
     }
 
     /**
@@ -51,9 +36,9 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface, 
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('locale_dir', [$this, 'LocaleDirExtension']),
-            new TwigFunction('locale_HTML', [$this, 'LocaleHTMLExtension']),
-            new TwigFunction('locale_Full', [$this, 'LocaleIsFullExtension']),
+            new TwigFunction('locale_dir', fn (string $locale): string => $this->localesService->getLocaleDir($locale)),
+            new TwigFunction('locale_HTML', fn (string $locale): string => $this->localesService->getLocaleHTML($locale)),
+            new TwigFunction('locale_Full', fn (string $locale): bool => $this->localesService->isFull($locale)),
         ];
     }
 
