@@ -1,3 +1,0 @@
-nelmio_js_logger:
-    use_stacktrace_js:
-        path: "%kernel.project_dir%/assets/vendor/stacktrace-js/dist/stacktrace.min.js"
