@@ -11,8 +11,6 @@
  *
  * The "importmap:require" command can be used to add new entries to this file.
  */
-declare(strict_types=1);
-
 return [
     'app' => [
         'path' => './assets/app.js',
@@ -58,9 +56,6 @@ return [
     ],
     'frankenphp-hot-reload' => [
         'version' => '1.0.1',
-    ],
-    'stacktrace-js/dist/stacktrace.min.js' => [
-        'version' => '2.0.2',
     ],
     'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.13.1',
@@ -150,6 +145,14 @@ return [
     ],
     'bootstrap' => [
         'version' => '5.3.8',
+    ],
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '5.3.8',
+        'type' => 'css',
+    ],
+    'bootstrap/dist/css/bootstrap.rtl.min.css' => [
+        'version' => '5.3.8',
+        'type' => 'css',
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
