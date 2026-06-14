@@ -21,9 +21,9 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class LocaleSubscriber implements EventSubscriberInterface
 {
-    private string $defaultLocale;
+    private readonly string $defaultLocale;
 
-    public function __construct(private ContainerBagInterface $params)
+    public function __construct(private readonly ContainerBagInterface $params)
     {
         $this->defaultLocale = $this->params->get('kernel.default_locale');
     }
