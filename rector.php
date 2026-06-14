@@ -13,6 +13,7 @@ return RectorConfig::configure()
     ])
     ->withSkip([
         __DIR__.'/config/bundles.php',
+        __DIR__.'/importmap.php',
     ])
     ->withRootFiles()
     ->withPhpSets()
