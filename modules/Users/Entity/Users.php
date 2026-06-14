@@ -21,6 +21,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
+#[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Stringable
 {
@@ -55,6 +56,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $middleName = null;
+
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?OAuthUsers $oauth = null;
 
     public function __toString(): string
     {
@@ -103,6 +107,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->firstName,
             $this->lastName,
             $this->middleName,
+            $this->oauth,
         ] = $data;
     }
 
@@ -228,6 +233,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setMiddleName(?string $middle_name): static
     {
         $this->middleName = $middle_name;
+
+        return $this;
+    }
+
+    public function getOauth(): ?OAuthUsers
+    {
+        return $this->oauth;
+    }
+
+    public function setOauth(?OAuthUsers $oauth): static
+    {
+        $this->oauth = $oauth;
 
         return $this;
     }
