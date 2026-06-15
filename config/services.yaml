@@ -29,6 +29,29 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\EntityUserProvider
+        arguments:
+            $class: App\Modules\Users\Entity\OAuthUsers
+            $properties:
+                "facebook": "facebook"
+                "yandex": "yandex"
+                "google": "google"
+                "linkedin": "linkedin"
+                "mailru": "mailru"
+                "odnoklassniki": "odnoklassniki"
+                "xtwitter": "xTwitter"
+                "vkontakte": "vkontakte"
+                "github": "github"
+                "amazon": "amazon"
+                "instagram": "instagram"
+                "twitch": "twitch"
+                "yahoo": "yahoo"
+                "spotify": "spotify"
+                "trello": "trello"
+                "dropbox": "dropbox"
+                "flickr": "flickr"
+                "windows_live": "windowsLive"
 
 imports:
     - { resource: "locales.php" }
