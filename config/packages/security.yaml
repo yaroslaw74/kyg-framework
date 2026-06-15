@@ -15,13 +15,42 @@ security:
             # Ensure dev tools and static assets are always allowed
             pattern: ^/(_profiler|_wdt|assets|build)/
             security: false
+
         main:
             lazy: true
             provider: app_user_provider
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    yandex: "/login/check-yandex"
+                    google: "/login/check-google"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    xtwitter: "/login/check-xtwitter"
+                    vkontakte: "/login/check-vkontakte"
+                    github: "/login/check-github"
+                    amazon: "/login/check-amazon"
+                    instagram: "/login/check-instagram"
+                    twitch: "/login/check-twitch"
+                    yahoo: "/login/check-yahoo"
+                    spotify: "/login/check-spotify"
+                    trello: "/login/check-trello"
+                    dropbox: "/login/check-dropbox"
+                    flickr: "/login/check-flickr"
+                    windows_live: "/login/check-windows-live"
+                login_path: /login
+                use_forward: false
+                failure_path: /login
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+
         app:
             lazy: true
             pattern: /app(.*)
             provider: app_user_provider
+            entry_point: "form_login"
             form_login:
                 login_path: app_login
                 check_path: app_login
@@ -30,14 +59,58 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    yandex: "/login/check-yandex"
+                    google: "/login/check-google"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    xtwitter: "/login/check-xtwitter"
+                    vkontakte: "/login/check-vkontakte"
+                    github: "/login/check-github"
+                    amazon: "/login/check-amazon"
+                    instagram: "/login/check-instagram"
+                    twitch: "/login/check-twitch"
+                    yahoo: "/login/check-yahoo"
+                    spotify: "/login/check-spotify"
+                    trello: "/login/check-trello"
+                    dropbox: "/login/check-dropbox"
+                    flickr: "/login/check-flickr"
+                    windows_live: "/login/check-windows-live"
+                login_path: /app/login
+                use_forward: false
+                failure_path: /app/login
+                check_path: /app/login-check
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            switch_user: true
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
 
     # Note: Only the *first* matching rule is applied
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/.*, role: PUBLIC_ACCESS }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/_rodoud, roles: PUBLIC_ACCESS }
+
+        # App login page needs to be accessed without credential
+        - { path: ^/app/login$, role: PUBLIC_ACCESS }
+        - { path: ^/app/logout$, role: PUBLIC_ACCESS }
+        - { path: ^/app/login_check$, role: PUBLIC_ACCESS }
+        - { path: ^/app/request$, role: PUBLIC_ACCESS }
+        - { path: ^/app/check-email$, role: PUBLIC_ACCESS }
+        - { path: ^/app/verify$, role: PUBLIC_ACCESS }
+        - { path: ^/app/reset/.*$, role: PUBLIC_ACCESS }
+
+        # Secured part of the site
+        # This config requires being logged for the whole site and having the admin role for the admin part.
+        # Change these rules to adapt them to your needs
