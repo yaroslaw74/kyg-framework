@@ -29,11 +29,11 @@ return [
         'entrypoint' => true,
     ],
     'plugins' => [
-        'path' => './assets/plugins.js',
+        'path' => './assets/valex-plugins.js',
         'entrypoint' => true,
     ],
     'valex' => [
-        'path' => './assets/valex.js',
+        'path' => './modules/Core/Resources/assets/valex.js',
         'entrypoint' => true,
     ],
     '@symfony/stimulus-bundle' => [
