@@ -524,6 +524,9 @@
             "./assets/styles/app.scss"
         ]
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.18.0"
+    },
     "systemsdk/easy-log-bundle": {
         "version": "2.1",
         "recipe": {
