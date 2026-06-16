@@ -17,12 +17,14 @@ namespace App\Modules\Users\Entity;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\Table(name: 'user__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
+#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Stringable
 {
     #[ORM\Id]
@@ -60,6 +62,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
     private ?OAuthUsers $oauth = null;
 
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    private bool $isVerified = false;
+
     public function __toString(): string
     {
         $name = '';
@@ -69,10 +74,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
         }
 
         if (null !== $this->getFirstName()) {
-            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
         }
         if (null !== $this->getMiddleName()) {
-            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
         }
 
         if ('' !== $name) {
@@ -88,7 +93,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', (string) $this->password);
 
         return $data;
     }
@@ -108,6 +113,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->lastName,
             $this->middleName,
             $this->oauth,
+            $this->isVerified,
         ] = $data;
     }
 
@@ -245,6 +251,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setOauth(?OAuthUsers $oauth): static
     {
         $this->oauth = $oauth;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
