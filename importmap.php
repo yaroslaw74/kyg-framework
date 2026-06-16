@@ -28,7 +28,7 @@ return [
         'path' => './assets/icons-fonts.js',
         'entrypoint' => true,
     ],
-    'plugins' => [
+    'valex-plugins' => [
         'path' => './assets/valex-plugins.js',
         'entrypoint' => true,
     ],
