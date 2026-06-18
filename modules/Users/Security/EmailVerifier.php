@@ -1,6 +1,18 @@
 <?php
 
-namespace App\Security;
+/**
+ * KYG Framework for Business.
+ *
+ * @category   Security
+ *
+ * @version    1.0.0
+ *
+ * @copyright  Copyright (c) Kataev Yaroslav
+ * @license    GNU General Public License version 3 or later, see LICENSE
+ */
+declare(strict_types=1);
+
+namespace App\Modules\Users\Security;
 
 use App\Modules\Users\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,9 +25,9 @@ use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 class EmailVerifier
 {
     public function __construct(
-        private VerifyEmailHelperInterface $verifyEmailHelper,
-        private MailerInterface $mailer,
-        private EntityManagerInterface $entityManager,
+        private readonly VerifyEmailHelperInterface $verifyEmailHelper,
+        private readonly MailerInterface $mailer,
+        private readonly EntityManagerInterface $entityManager,
     ) {
     }
 

@@ -41,7 +41,8 @@ security:
                     windows_live: "/login/check-windows-live"
                 login_path: /login
                 use_forward: false
-                failure_path: /login
+                failure_path: hwi_oauth_connect_registration
+                check_path: /login-check
 
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.entity
@@ -81,7 +82,7 @@ security:
                     windows_live: "/login/check-windows-live"
                 login_path: /app/login
                 use_forward: false
-                failure_path: /app/login
+                failure_path: hwi_oauth_connect_registration
                 check_path: /app/login-check
 
                 oauth_user_provider:
@@ -99,8 +100,16 @@ security:
     # Note: Only the *first* matching rule is applied
     access_control:
         - { path: ^/.*, role: PUBLIC_ACCESS }
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/_rodoud, roles: PUBLIC_ACCESS }
+        - { path: ^/_rodoud, role: PUBLIC_ACCESS }
+
+        # login page needs to be accessed without credential
+        - { path: ^/login$, role: PUBLIC_ACCESS }
+        - { path: ^/logout$, role: PUBLIC_ACCESS }
+        - { path: ^/login_check$, role: PUBLIC_ACCESS }
+        - { path: ^/request$, role: PUBLIC_ACCESS }
+        - { path: ^/check-email$, role: PUBLIC_ACCESS }
+        - { path: ^/verify$, role: PUBLIC_ACCESS }
+        - { path: ^/reset/.*$, role: PUBLIC_ACCESS }
 
         # App login page needs to be accessed without credential
         - { path: ^/app/login$, role: PUBLIC_ACCESS }
