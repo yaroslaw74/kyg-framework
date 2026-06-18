@@ -59,6 +59,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $middleName = null;
 
+    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
+    private ?string $locale = null;
+
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
@@ -163,6 +166,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->firstName,
             $this->lastName,
             $this->middleName,
+            $this->locale,
             $this->isVerified,
             $this->facebook,
             $this->yandex,
@@ -307,6 +311,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setMiddleName(?string $middle_name): static
     {
         $this->middleName = $middle_name;
+
+        return $this;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(?string $locale): static
+    {
+        $this->locale = $locale;
 
         return $this;
     }
