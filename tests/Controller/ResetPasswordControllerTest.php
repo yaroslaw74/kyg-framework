@@ -80,7 +80,7 @@ class ResetPasswordControllerTest extends WebTestCase
         self::assertEmailAddressContains($messages[0], 'to', 'me@example.com');
         self::assertEmailTextBodyContains($messages[0], 'This link will expire in 1 hour.');
 
-        self::assertResponseRedirects('/app/reset-password/check-email');
+        self::assertResponseRedirects('/app/check-email');
 
         // Test check email landing page shows correct "expires at" time
         $crawler = $this->client->followRedirect();
@@ -90,11 +90,11 @@ class ResetPasswordControllerTest extends WebTestCase
 
         // Test the link sent in the email is valid
         $email = $messages[0]->toString();
-        preg_match('#(/app/reset-password/reset/[a-zA-Z0-9]+)#', $email, $resetLink);
+        preg_match('#(/app/reset/[a-zA-Z0-9]+)#', $email, $resetLink);
 
         $this->client->request('GET', $resetLink[1]);
 
-        self::assertResponseRedirects('/app/reset-password/reset');
+        self::assertResponseRedirects('/app/reset');
 
         $this->client->followRedirect();
 
