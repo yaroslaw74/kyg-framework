@@ -14,6 +14,7 @@ return RectorConfig::configure()
     ->withSkip([
         __DIR__.'/config/bundles.php',
         __DIR__.'/importmap.php',
+        __DIR__.'/modules/Users/Entity/ResetPasswordRequest.php',
     ])
     ->withRootFiles()
     ->withPhpSets()
