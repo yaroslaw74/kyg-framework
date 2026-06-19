@@ -8,13 +8,13 @@ const _CREATEPASSWORD = BUTTON.addEventListener("click", () => {
         if (INPUT.getAttribute("type") === "password") {
             INPUT.removeAttribute("type");
             INPUT.setAttribute("type", "text");
-            BUTTON.children[0].classList.remove("ri-eye-off-line");
-            BUTTON.children[0].classList.add("ri-eye-line");
+            BUTTON.children[0].classList.remove("ri-eye-line");
+            BUTTON.children[0].classList.add("ri-eye-off-line");
         } else {
             INPUT.removeAttribute("type");
             INPUT.setAttribute("type", "password");
-            BUTTON.children[0].classList.remove("ri-eye-line");
-            BUTTON.children[0].classList.add("ri-eye-off-line");
+            BUTTON.children[0].classList.remove("ri-eye-off-line");
+            BUTTON.children[0].classList.add("ri-eye-line");
         }
     }
 
@@ -22,13 +22,13 @@ const _CREATEPASSWORD = BUTTON.addEventListener("click", () => {
         if (INPUT1.getAttribute("type") === "password") {
             INPUT1.removeAttribute("type");
             INPUT1.setAttribute("type", "text");
-            BUTTON.children[0].classList.remove("ri-eye-off-line");
-            BUTTON.children[0].classList.add("ri-eye-line");
+            BUTTON.children[0].classList.remove("ri-eye-line");
+            BUTTON.children[0].classList.add("ri-eye-off-line");
         } else {
             INPUT1.removeAttribute("type");
             INPUT1.setAttribute("type", "password");
-            BUTTON.children[0].classList.remove("ri-eye-line");
-            BUTTON.children[0].classList.add("ri-eye-off-line");
+            BUTTON.children[0].classList.remove("ri-eye-off-line");
+            BUTTON.children[0].classList.add("ri-eye-line");
         }
     }
 
@@ -36,13 +36,13 @@ const _CREATEPASSWORD = BUTTON.addEventListener("click", () => {
         if (INPUT2.getAttribute("type") === "password") {
             INPUT2.removeAttribute("type");
             INPUT2.setAttribute("type", "text");
-            BUTTON.children[0].classList.remove("ri-eye-off-line");
-            BUTTON.children[0].classList.add("ri-eye-line");
+            BUTTON.children[0].classList.remove("ri-eye-line");
+            BUTTON.children[0].classList.add("ri-eye-off-line");
         } else {
             INPUT2.removeAttribute("type");
             INPUT2.setAttribute("type", "password");
-            BUTTON.children[0].classList.remove("ri-eye-line");
-            BUTTON.children[0].classList.add("ri-eye-off-line");
+            BUTTON.children[0].classList.remove("ri-eye-off-line");
+            BUTTON.children[0].classList.add("ri-eye-line");
         }
     }
 });
