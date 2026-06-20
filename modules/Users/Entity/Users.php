@@ -134,10 +134,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
         }
 
         if (null !== $this->getFirstName()) {
-            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
+            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
         }
         if (null !== $this->getMiddleName()) {
-            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
+            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
         }
 
         if ('' !== $name) {
@@ -153,7 +153,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0" . self::class . "\0password"] = hash('crc32c', (string) $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
 
         return $data;
     }
