@@ -1780,6 +1780,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     throttle_limit?: int|Param, // Another password reset cannot be made faster than this throttle time in seconds. // Default: 3600
  *     enable_garbage_collection?: bool|Param, // Enable/Disable automatic garbage collection. // Default: true
  * }
+ * @psalm-type PyrrahGravatarConfig = array{
+ *     size?: int|Param, // Default: "80"
+ *     rating?: "g"|"pg"|"r"|"x"|Param, // Default: "g"
+ *     default?: "404"|"mp"|"identicon"|"monsterid"|"wavatar"|"retro"|"robohash"|"mm"|Param, // Default: "mp"
+ *     format?: "url"|"base64"|Param, // Default: "url"
+ *     secure?: bool|Param, // Deprecated: The child node "secure" at path "pyrrah_gravatar.secure" is deprecated. // Default: true
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1807,6 +1814,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     hwi_oauth?: HwiOauthConfig,
  *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1838,6 +1846,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         hwi_oauth?: HwiOauthConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1867,6 +1876,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         hwi_oauth?: HwiOauthConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

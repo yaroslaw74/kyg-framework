@@ -119,6 +119,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $windowsLive = null;
 
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $gravatar = null;
+
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $avatar = null;
+
     public function __toString(): string
     {
         $name = '';
@@ -128,10 +134,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
         }
 
         if (null !== $this->getFirstName()) {
-            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
         }
         if (null !== $this->getMiddleName()) {
-            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
         }
 
         if ('' !== $name) {
@@ -147,7 +153,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', (string) $this->password);
 
         return $data;
     }
@@ -186,6 +192,8 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->dropbox,
             $this->flickr,
             $this->windowsLive,
+            $this->gravatar,
+            $this->avatar,
         ] = $data;
     }
 
@@ -551,6 +559,30 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setWindowsLive(?string $windowsLive): static
     {
         $this->windowsLive = $windowsLive;
+
+        return $this;
+    }
+
+    public function getGravatar(): ?string
+    {
+        return $this->gravatar;
+    }
+
+    public function setGravatar(?string $gravatar): static
+    {
+        $this->gravatar = $gravatar;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): static
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

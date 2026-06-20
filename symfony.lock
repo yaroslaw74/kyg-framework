@@ -169,6 +169,9 @@
             "./bin/phpunit"
         ]
     },
+    "pyrrah/gravatar-bundle": {
+        "version": "v1.5.2"
+    },
     "rodoud/profiler-assistant-bundle": {
         "version": "v1.0.1"
     },
