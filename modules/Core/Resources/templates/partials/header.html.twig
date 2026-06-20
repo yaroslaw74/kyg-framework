@@ -366,7 +366,26 @@
                     <li>
                         <div class="main-header-profile bg-primary menu-header-content text-fixed-white">
                             <div class="my-auto">
-                                <h6 class="mb-0 lh-1 text-fixed-white">Petey Cruiser</h6><span class="fs-11 op-7 lh-1">Premium Member</span>
+                                <h6 class="mb-0 lh-1 text-fixed-white">
+                                    {% if app.user %}
+                                        {% if settings_instance('name').getFirstLastName %}
+                                            {% if settings_instance('name').getMiddleNameEnable %}
+                                                {{ app.user.lastName }} {{ app.user.firstName }} {{ app.user.middleName }}
+                                            {% else %}
+                                                {{ app.user.lastName }} {{ app.user.firstName }}
+                                            {% endif %}
+                                        {% else %}
+                                            {% if settings_instance('name').getMiddleNameEnable %}
+                                                {{ app.user.firstName }} {{ app.user.middleName }} {{ app.user.lastName }}
+                                            {% else %}
+                                                {{ app.user.firstName }} {{ app.user.lastName }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% trans %}User{% endtrans %}
+                                    {% endif %}
+                                </h6>
+                                <span class="fs-11 op-7 lh-1">Premium Member</span>
                             </div>
                         </div>
                     </li>
