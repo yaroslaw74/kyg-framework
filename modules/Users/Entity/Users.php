@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use App\Modules\Users\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -125,6 +127,30 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $avatar = null;
 
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'friendOf')]
+    #[ORM\JoinTable(name: 'users__friendships')]
+    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'friend_id', referencedColumnName: 'id')]
+    private Collection $friends;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
+    private Collection $friendOf;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $about = null;
+
+    public function __construct()
+    {
+        $this->friends = new ArrayCollection();
+        $this->friendOf = new ArrayCollection();
+    }
+
     public function __toString(): string
     {
         $name = '';
@@ -134,10 +160,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
         }
 
         if (null !== $this->getFirstName()) {
-            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
         }
         if (null !== $this->getMiddleName()) {
-            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
         }
 
         if ('' !== $name) {
@@ -153,7 +179,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', (string) $this->password);
 
         return $data;
     }
@@ -194,6 +220,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->windowsLive,
             $this->gravatar,
             $this->avatar,
+            $this->friends,
+            $this->friendOf,
+            $this->about,
         ] = $data;
     }
 
@@ -583,6 +612,69 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setAvatar(?string $avatar): static
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFriends(): Collection
+    {
+        return $this->friends;
+    }
+
+    public function addFriend(self $friend): static
+    {
+        if (!$this->friends->contains($friend)) {
+            $this->friends->add($friend);
+        }
+
+        return $this;
+    }
+
+    public function removeFriend(self $friend): static
+    {
+        $this->friends->removeElement($friend);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFriendOf(): Collection
+    {
+        return $this->friendOf;
+    }
+
+    public function addFriendOf(self $friendOf): static
+    {
+        if (!$this->friendOf->contains($friendOf)) {
+            $this->friendOf->add($friendOf);
+            $friendOf->addFriend($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendOf(self $friendOf): static
+    {
+        if ($this->friendOf->removeElement($friendOf)) {
+            $friendOf->removeFriend($this);
+        }
+
+        return $this;
+    }
+
+    public function getAbout(): ?string
+    {
+        return $this->about;
+    }
+
+    public function setAbout(?string $about): static
+    {
+        $this->about = $about;
 
         return $this;
     }

@@ -32,8 +32,8 @@ final class UsersControllerTest extends WebTestCase
 
     protected function setUp(): void
     {
-        $this->client = static::createClient();
-        $this->manager = static::getContainer()->get('doctrine')->getManager();
+        $this->client = self::createClient();
+        $this->manager = self::getContainer()->get('doctrine')->getManager();
         $this->userRepository = $this->manager->getRepository(Users::class);
 
         foreach ($this->userRepository->findAll() as $object) {
@@ -46,7 +46,7 @@ final class UsersControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $this->client->followRedirects();
-        $crawler = $this->client->request('GET', '/app/user');
+        $crawler = $this->client->request('GET', '/app/user/list');
 
         self::assertResponseStatusCodeSame(200);
         self::assertPageTitleContains('User index');
@@ -89,13 +89,14 @@ final class UsersControllerTest extends WebTestCase
             'user[windowsLive]' => 'Testing',
             'user[gravatar]' => 'Testing',
             'user[avatar]' => 'Testing',
+            'user[about]' => 'Testing',
         ]);
 
-        self::assertResponseRedirects('/app/user');
+        self::assertResponseRedirects('/app');
 
         self::assertSame(1, $this->userRepository->count([]));
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testShow(): void
@@ -138,7 +139,7 @@ final class UsersControllerTest extends WebTestCase
         self::assertPageTitleContains('User');
 
         // Use assertions to check that the properties are properly displayed.
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testEdit(): void
@@ -240,7 +241,7 @@ final class UsersControllerTest extends WebTestCase
         self::assertSame('Something New', $fixture[0]->getGravatar());
         self::assertSame('Something New', $fixture[0]->getAvatar());
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 
     public function testRemove(): void
@@ -283,6 +284,6 @@ final class UsersControllerTest extends WebTestCase
         self::assertResponseRedirects('/app/user');
         self::assertSame(0, $this->userRepository->count([]));
 
-        $this->markTestIncomplete('This test was generated');
+        self::markTestIncomplete('This test was generated');
     }
 }

@@ -24,7 +24,7 @@ use Symfony\UX\Dropzone\Form\DropzoneType;
 /**
  * @template-extends AbstractType<Users>
  */
-class SetAvatarUserForm extends AbstractType
+class SetAvatarUserFormType extends AbstractType
 {
     public function __construct(private TranslatorInterface $translator)
     {

@@ -11,7 +11,9 @@
 
 {% trans_default_domain 'users' %}
 
-{% form_theme SetAvatarUserForm 'bootstrap_5_layout.html.twig' %}
+{% form_theme setAvatarUserForm 'bootstrap_5_layout.html.twig' %}
+
+{% form_theme profileForm 'bootstrap_5_layout.html.twig' %}
 
 {% if user %}
     {% set pageUser = user %}
@@ -562,16 +564,20 @@
                                     <span class="hidden-xs">GALLERY</span>
                                 </a>
                             </li>
-                            <li class="">
-                                <a href="#friends01" data-bs-toggle="tab" aria-expanded="false">
-                                    <span class="visible-xs"><i class="las la-life-ring fs-16 me-1"></i></span>
-                                    <span class="hidden-xs">FRIENDS</span>
-                                </a>
-                            </li>
+                            {% if pageUser %}
+                                {% if pageUser.friends %}
+                                    <li class="">
+                                        <a href="#user_friends" data-bs-toggle="tab" aria-expanded="false">
+                                            <span class="visible-xs"><i class="las la-life-ring fs-16 me-1"></i></span>
+                                            <span class="hidden-xs">{% trans %}FRIENDS{% endtrans %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
                             <li class="">
                                 <a href="#settings" data-bs-toggle="tab" aria-expanded="false">
                                     <span class="visible-xs"><i class="las la-cog fs-16 me-1"></i></span>
-                                    <span class="hidden-xs">SETTINGS</span>
+                                    <span class="hidden-xs">{% trans %}SETTINGS{% endtrans %}</span>
                                 </a>
                             </li>
                         </ul>
@@ -734,307 +740,98 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane border-0 p-0" id="friends01" role="tabpanel">
+                        <div class="tab-pane border-0 p-0" id="user_friends" role="tabpanel">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                    <div class="card custom-card border shadow-none">
-                                        <div class="card-body  user-lock text-center">
-                                            <div class="dropdown float-end">
-                                                <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>Message</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i>Edit</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i>View</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>Delete</a>
-                                                </div>
-                                            </div>
-                                            <a href="profile.html">
-                                                <img alt="avatar" class="rounded-circle" src="../assets/images/faces/1.jpg">
-                                                <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">James Thomas</h5>
-                                                <span class="text-muted">Web designer</span>
-                                                <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                        <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                    <div class="card custom-card border shadow-none">
-                                        <div class="card-body  user-lock text-center">
-                                            <div class="dropdown float-end">
-                                                <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
+                                {% if pageUser %}
+                                    {% if pageUser.friends %}
+                                        {% for friend in pageUser.friends %}
+                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
+                                                <div class="card custom-card border shadow-none">
+                                                    <div class="card-body user-lock text-center">
+                                                        <div class="dropdown float-end">
+                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
+                                                            <div class="dropdown-menu shadow">
+                                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>{% trans %}Message{% endtrans %}</a>
+                                                                {% if not user %}
+                                                                    <a class="dropdown-item" href="{{ path('app_user_edit', {id: friend.id}) }}"><i class="fe fe-edit-2 me-2"></i>{% trans %}Edit{% endtrans %}</a>
+                                                                    <a class="dropdown-item" href="{{ path('app_user_show', {id: friend.id}) }}"><i class="fe fe-eye me-2"></i>{% trans %}View{% endtrans %}</a>
+                                                                {% endif %}
+                                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
                                                             </div>
                                                         </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/3.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Reynante
-                                                                Labares</h5>
+                                                        <a href="{{ path('app_user_show', {id: friend.id}) }}">
+                                                            {% if friend.gravatar %}
+                                                                {% if gravatar_exists(friend.gravatar) %}
+                                                                    <img src="{{ gravatar(friend.gravatar) }}" alt="avatar" class="rounded-circle">
+                                                                {% else %}
+                                                                    {% if friend.avatar %}
+                                                                        <img src="{{ asset('uploads/avatar/' ~ friend.avatar) }}" alt="avatar" class="rounded-circle">
+                                                                    {% else %}
+                                                                        <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar" class="rounded-circle">
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% else %}
+                                                                {% if friend.avatar %}
+                                                                    <img src="{{ asset('uploads/avatar/' ~ friend.avatar) }}" alt="avatar" class="rounded-circle">
+                                                                {% else %}
+                                                                    <img src="{{ asset('images/avatar/pngwing.com.png') }}" alt="avatar" class="rounded-circle">
+                                                                {% endif %}
+                                                            {% endif %}
+                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">
+                                                                {% if settings_instance('name').getFirstLastName %}
+                                                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                                                        {{ friend.lastName }} {{ friend.firstName }} {{ friend.middleName }}
+                                                                    {% else %}
+                                                                        {{ friend.lastName }} {{ friend.firstName }}
+                                                                    {% endif %}
+                                                                {% else %}
+                                                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                                                        {{ friend.firstName }} {{ friend.middleName }} {{ friend.lastName }}
+                                                                    {% else %}
+                                                                        {{ friend.firstName }} {{ friend.lastName }}
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            </h5>
                                                             <span class="text-muted">Web designer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/4.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Owen
-                                                                Bongcaras</h5>
-                                                            <span class="text-muted">Web designer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/8.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Stephen
-                                                                Metcalfe</h5>
-                                                            <span class="text-muted">Administrator</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/2.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Socrates
-                                                                Itumay</h5>
-                                                            <span class="text-muted">Project Manager</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/3.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Reynante
-                                                                Labares</h5>
-                                                            <span class="text-muted">Web Designer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none mb-xxl-0">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/4.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Owen
-                                                                Bongcaras</h5>
-                                                            <span class="text-muted">App Developer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none mb-xxl-0">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/8.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Stephen
-                                                                Metcalfe</h5>
-                                                            <span class="text-muted">Administrator</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                                    <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                                </span>
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                                    <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-                                                <div class="card custom-card border shadow-none mb-0">
-                                                    <div class="card-body  user-lock text-center">
-                                                        <div class="dropdown float-end">
-                                                            <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
-                                                            <div class="dropdown-menu shadow"> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>
-                                                                    Message</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-edit-2 me-2"></i> Edit</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                        <a href="profile.html">
-                                                            <img alt="avatar" class="rounded-circle" src="../assets/images/faces/11.jpg">
-                                                            <h5 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Michel
-                                                                Mathew</h5>
-                                                            <span class="text-muted">Ui Developer</span>
-                                                            <div class="mt-3 d-flex mx-auto text-center justify-content-center">
-                                                                <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-facebook fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border me-3">
-                                                        <i class="bx bxl-twitter fs-18 align-middle"></i>
-                                                    </span>
-                                                    <span class="btn btn-icon btn-outline-primary rounded-circle border">
-                                                        <i class="bx bxl-linkedin fs-18 align-middle"></i>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
                             </div>
                         </div>
                         <div class="tab-pane border-0 p-0" id="settings">
-                            <form>
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="FullName">Full Name</label>
-                                    <input type="text" value="John Doe" id="FullName" class="form-control">
+                            {% if pageUser %}
+                                {% set id = pageUser %}
+                            {% else %}
+                                {% set id = null %}
+                            {% endif %}
+                            {{ form_start(profileForm, {action: path('app_user_show', {id: id})}) }}
+                                {{ form_row(profileForm.username) }}
+                                {% if settings_instance('name').getFirstLastName %}
+                                    {{ form_row(profileForm.lastName) }}
+                                    {{ form_row(profileForm.firstName) }}
+                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                        {{ form_row(profileForm.middleName) }}
+                                    {% endif %}
+                                {% else %}
+                                    {{ form_row(profileForm.firstName) }}
+                                    {% if settings_instance('name').getMiddleNameEnable %}
+                                        {{ form_row(profileForm.middleName) }}
+                                    {% endif %}
+                                    {{ form_row(profileForm.lastName) }}
+                                {% endif %}
+                                {{ form_row(profileForm.email) }}
+                                {{ form_label(profileForm.plainPassword) }}
+                                <div class="input-group mb-3">
+                                    {{ form_widget(profileForm.plainPassword) }}
+                                    <button class="btn-weve bth-light bg-transparent btn btn-primary" type="button" id="togglePassword"><i class="ri-eye-line"></i></button>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="Email">Email</label>
-                                    <input type="email" value="first.last@example.com" id="Email"
-                                                    class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="Username">Username</label>
-                                    <input type="text" value="john" id="Username" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="Password">Password</label>
-                                    <input type="password" placeholder="6 - 15 Characters" id="Password"
-                                                    class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="RePassword">Re-Password</label>
-                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword"
-                                                    class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="AboutMe">About Me</label>
-                                    <textarea id="AboutMe"
-                                                    class="form-control">Loren gypsum dolor sit mate, consecrate disciplining lit, tied diam nonunion nib modernism tincidunt it Loretta dolor manga Amalia erst volute. Ur wise denim ad minim venial, quid nostrum exercise ration perambulator suspicious cortisol nil it applique ex ea commodore consequent.</textarea>
-                                </div>
-                                <button class="btn btn-primary waves-effect waves-light w-md"
-                                                type="submit">Save</button>
-                            </form>
+                                {{ form_row(profileForm.about) }}
+                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+                            {{ form_end(profileForm) }}
                         </div>
                     </div>
                 </div>
@@ -1054,16 +851,16 @@
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-body">
-                            {% if pageUser %}
-                                {% set id = pageUser  %}
-                            {% else %}
-                                {% set id = null %}
-                            {% endif %}
                             <div class="main-signup-header mt-3">
-                                {{ form_start(SetAvatarUserForm, {'action': path('app_user_show', {id: id})}) }}
-                                    {{ form_row(SetAvatarUserForm.avatar) }}
+                                {% if pageUser %}
+                                    {% set id = pageUser %}
+                                {% else %}
+                                    {% set id = null %}
+                                {% endif %}
+                                {{ form_start(setAvatarUserForm, {action: path('app_user_show', {id: id})}) }}
+                                    {{ form_row(setAvatarUserForm.avatar) }}
                                     <button type="submit" class="btn btn-primary btn-block w-100 mt-3 mb-3">{% trans %}Set Avatar{% endtrans %}</button>
-                                {{ form_end(SetAvatarUserForm) }}
+                                {{ form_end(setAvatarUserForm) }}
                             </div>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank(message: $this->translator->trans('Please enter your Password', [], 'users')),
-                    new Length(min: 6, max: 4096, minMessage: $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users')),
+                    new Length(min: 6, max: 30, minMessage: $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users')),
                 ],
             ])
         ;

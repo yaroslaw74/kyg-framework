@@ -41,7 +41,6 @@ class ChangePasswordFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
-                'toggle' => true,
                 'type' => PasswordType::class,
                 'options' => [
                     'attr' => [
@@ -51,7 +50,7 @@ class ChangePasswordFormType extends AbstractType
                 'first_options' => [
                     'constraints' => [
                         new NotBlank(message: $this->translator->trans('Please enter a Password', [], 'users')),
-                        new Length(min: 12, max: 4096, minMessage: $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users')),
+                        new Length(min: 6, max: 30, minMessage: $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users')),
                         new PasswordStrength(),
                         new NotCompromisedPassword(),
                     ],
@@ -66,7 +65,7 @@ class ChangePasswordFormType extends AbstractType
                 'attr' => [
                     'placeholder' => $this->translator->trans('Enter your Confirm Password', [], 'users'),
                 ],
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => $this->translator->trans('The password fields must match.', [], 'users'),
                 // Instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,

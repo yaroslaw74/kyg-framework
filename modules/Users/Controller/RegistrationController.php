@@ -32,8 +32,10 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
 {
-    public function __construct(private readonly EmailVerifier $emailVerifier, private readonly TranslatorInterface $translator)
-    {
+    public function __construct(
+        private readonly EmailVerifier $emailVerifier,
+        private readonly TranslatorInterface $translator
+    ) {
     }
 
     #[Route('/app/register', name: 'app_register', methods: ['GET', 'POST'])]
