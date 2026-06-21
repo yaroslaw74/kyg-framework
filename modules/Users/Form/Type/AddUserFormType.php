@@ -88,7 +88,6 @@ class AddUserFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
                 'required' => false,
-                'toggle' => true,
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
