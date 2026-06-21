@@ -145,6 +145,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $about = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $bio = null;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
@@ -223,6 +226,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->friends,
             $this->friendOf,
             $this->about,
+            $this->bio,
         ] = $data;
     }
 
@@ -675,6 +679,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setAbout(?string $about): static
     {
         $this->about = $about;
+
+        return $this;
+    }
+
+    public function getBio(): ?string
+    {
+        return $this->bio;
+    }
+
+    public function setBio(?string $bio): static
+    {
+        $this->bio = $bio;
 
         return $this;
     }

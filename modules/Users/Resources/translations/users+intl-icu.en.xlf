@@ -361,10 +361,6 @@
         <source>Your email address has been verified.</source>
         <target>Your email address has been verified.</target>
       </trans-unit>
-      <trans-unit id="_OmnKuR" resname="Your password should be at least {{ limit }} characters">
-        <source>Your password should be at least {{ limit }} characters</source>
-        <target>Your password should be at least {{ limit }} characters</target>
-      </trans-unit>
       <trans-unit id="m8_BFMv" resname="connect">
         <source>connect</source>
         <target>connect</target>

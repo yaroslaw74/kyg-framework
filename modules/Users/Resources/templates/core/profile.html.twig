@@ -93,12 +93,15 @@
                                     <p class="main-profile-name-text text-muted">Web Designer</p>
                                 </div>
                             </div>
-                            <h6 class="fs-14">Bio</h6>
-                            <div class="main-profile-bio">
-                                pleasure rationally encounter but because pursue consequences that are
-                                extremely painful.occur in which toil and pain can procure him some great
-                                pleasure.. <a href="javascript:void(0);" class="text-primary">More</a>
-                            </div><!-- main-profile-bio -->
+                            {% if pageUser %}
+                                {% if pageUser.about %}
+                                    <h6 class="fs-14">{% trans %}About Me{% endtrans %}</h6>
+                                    <div class="main-profile-bio">
+                                        {{ pageUser.about }}
+                                        <a href="javascript:void(0);" class="text-primary">{% trans %}More{% endtrans %}</a>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
                             <div class="row">
                                 <div class="col-md-4 col mb20">
                                     <h5 class="fs-17">947</h5>
@@ -491,7 +494,8 @@
                                 </div>
                             </div>
                             <!--skill bar-->
-                        </div><!-- main-profile-overview -->
+                        </div>
+                        <!-- main-profile-overview -->
                     </div>
                 </div>
             </div>
@@ -552,12 +556,16 @@
                     <div class="tabs-menu ">
                         <!-- Tabs -->
                         <ul class="nav nav-tabs profile navtab-custom panel-tabs">
-                            <li class="">
-                                <a href="#home" data-bs-toggle="tab" class="active" aria-expanded="true">
-                                    <span class="visible-xs"><i class="las la-user-circle fs-16 me-1"></i></span>
-                                    <span class="hidden-xs">ABOUT ME</span>
-                                </a>
-                            </li>
+                            {% if pageUser %}
+                                {% if pageUser.bio %}
+                                    <li class="">
+                                        <a href="#home" data-bs-toggle="tab" class="active" aria-expanded="true">
+                                            <span class="visible-xs"><i class="las la-user-circle fs-16 me-1"></i></span>
+                                            <span class="hidden-xs">{% trans %}BIOGRAPHY{% endtrans %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
                             <li class="">
                                 <a href="#gallery" data-bs-toggle="tab" aria-expanded="false">
                                     <span class="visible-xs"><i class="las la-images fs-15 me-1"></i></span>
@@ -565,7 +573,7 @@
                                 </a>
                             </li>
                             {% if pageUser %}
-                                {% if pageUser.friends %}
+                                {% if pageUser.frends %}
                                     <li class="">
                                         <a href="#user_friends" data-bs-toggle="tab" aria-expanded="false">
                                             <span class="visible-xs"><i class="las la-life-ring fs-16 me-1"></i></span>
@@ -574,47 +582,30 @@
                                     </li>
                                 {% endif %}
                             {% endif %}
-                            <li class="">
-                                <a href="#settings" data-bs-toggle="tab" aria-expanded="false">
-                                    <span class="visible-xs"><i class="las la-cog fs-16 me-1"></i></span>
-                                    <span class="hidden-xs">{% trans %}SETTINGS{% endtrans %}</span>
-                                </a>
-                            </li>
+                            {% if user %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="">
+                                        <a href="#settings" data-bs-toggle="tab" aria-expanded="false">
+                                            <span class="visible-xs"><i class="las la-cog fs-16 me-1"></i></span>
+                                            <span class="hidden-xs">{% trans %}SETTINGS{% endtrans %}</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% else %}
+                                <li class="">
+                                    <a href="#settings" data-bs-toggle="tab" aria-expanded="false">
+                                        <span class="visible-xs"><i class="las la-cog fs-16 me-1"></i></span>
+                                        <span class="hidden-xs">{% trans %}SETTINGS{% endtrans %}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="tab-content border border-top-0 p-4 br-dark">
                         <div class="tab-pane border-0 p-0 active" id="home">
-                            <h4 class="fs-15 text-uppercase mb-3">BIO Data</h4>
-                            <p>Hi I'm Petey Cruiser,has been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type.
-                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
-                            justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
-                            eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum
-                            semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor
-                            eu, consequat vitae, eleifend ac, enim.</p>
-                            <div>
-                                <h4 class="fs-15 text-uppercase mt-3">Experience</h4>
-                                <div class=" p-t-10">
-                                    <h5 class="text-primary fs-14">Lead designer / Developer</h5>
-                                    <p class="">websitename.com</p>
-                                    <p><b>2010-2015</b></p>
-                                    <p class="text-muted fs-13">Lorem Ipsum is simply dummy text of
-                                        the printing and typesetting industry. Lorem Ipsum has been the
-                                        industry's standard dummy text ever since the 1500s, when an unknown
-                                        printer took a galley of type and scrambled it to make a type
-                                        specimen book.</p>
-                                </div>
-                                <div class="">
-                                    <h5 class="text-primary fs-14">Senior Graphic Designer</h5>
-                                    <p class="">coderthemes.com</p>
-                                    <p><b>2007-2009</b></p>
-                                    <p class="text-muted fs-13 mb-0">Lorem Ipsum is simply dummy text of the
-                                        printing and typesetting industry. Lorem Ipsum has been the
-                                        industry's standard dummy text ever since the 1500s, when an unknown
-                                        printer took a galley of type and scrambled it to make a type
-                                        specimen book.</p>
-                                </div>
-                            </div>
+                            {% if pageUser %}
+                                {{ pageUser.bio }}
+                            {% endif %}
                         </div>
                         <div class="tab-pane border-0 p-0" id="gallery">
                             <div class="row">
@@ -824,13 +815,9 @@
                                     {{ form_row(profileForm.lastName) }}
                                 {% endif %}
                                 {{ form_row(profileForm.email) }}
-                                {{ form_label(profileForm.plainPassword) }}
-                                <div class="input-group mb-3">
-                                    {{ form_widget(profileForm.plainPassword) }}
-                                    <button class="btn-weve bth-light bg-transparent btn btn-primary" type="button" id="togglePassword"><i class="ri-eye-line"></i></button>
-                                </div>
+                                {{ form_row(profileForm.plainPassword) }}
                                 {{ form_row(profileForm.about) }}
-                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">{% trans %}Save{% endtrans %}</button>
                             {{ form_end(profileForm) }}
                         </div>
                     </div>
