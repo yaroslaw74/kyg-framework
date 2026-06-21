@@ -13,7 +13,6 @@
 declare(strict_types=1);
 
 namespace App\Tests\Controller;
-;
 
 use App\Modules\Users\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,6 +32,7 @@ final class UsersControllerTest extends WebTestCase
     protected function setUp(): void
     {
         $this->client = self::createClient();
+        /* @phpstan-ignore assign.propertyType */
         $this->manager = self::getContainer()->get('doctrine')->getManager();
         $this->userRepository = $this->manager->getRepository(Users::class);
 
@@ -46,7 +46,7 @@ final class UsersControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $this->client->followRedirects();
-        $crawler = $this->client->request('GET', '/app/user/list');
+        $this->client->request('GET', '/app/user/list');
 
         self::assertResponseStatusCodeSame(200);
         self::assertPageTitleContains('User index');

@@ -19,17 +19,17 @@ use App\Settings\NameSettings;
 use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotCompromisedPassword;
 use Symfony\Component\Validator\Constraints\PasswordStrength;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @template-extends AbstractType<Users>
@@ -37,8 +37,8 @@ use Symfony\Component\Validator\Constraints\PasswordStrength;
 class ProfileFormType extends AbstractType
 {
     public function __construct(
-        private TranslatorInterface $translator,
-        private SettingsManagerInterface $settingsManager,
+        private readonly TranslatorInterface $translator,
+        private readonly SettingsManagerInterface $settingsManager,
     ) {
     }
 

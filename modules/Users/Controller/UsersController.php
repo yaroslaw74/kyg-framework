@@ -14,25 +14,25 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Controller;
 
-use App\Modules\Users\Form\Type\UsersType;
-use App\Modules\Users\Form\Type\ProfileFormType;
 use App\Modules\Users\Entity\Users;
+use App\Modules\Users\Form\Type\ProfileFormType;
+use App\Modules\Users\Form\Type\SetAvatarUserFormType;
+use App\Modules\Users\Form\Type\UsersType;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
-use App\Modules\Users\Form\Type\SetAvatarUserFormType;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Attribute\Route;
 
 final class UsersController extends AbstractController
 {
     public function __construct(
-        private EntityManagerInterface $entityManager,
-        private UsersRepository $usersRepository,
-        private UserPasswordHasherInterface $userPasswordHasher
+        private readonly EntityManagerInterface $entityManager,
+        private readonly UsersRepository $usersRepository,
+        private readonly UserPasswordHasherInterface $userPasswordHasher,
     ) {
     }
 
@@ -68,7 +68,7 @@ final class UsersController extends AbstractController
     public function show(Request $request, ?int $id = null): Response
     {
         /** @var Users $user */
-        $user = ($id === null) ? $this->getUser() : $this->usersRepository->find($id);
+        $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
         $form_avatar = $this->createForm(SetAvatarUserFormType::class, $user);
         $form_avatar->handleRequest($request);
@@ -131,7 +131,7 @@ final class UsersController extends AbstractController
 
         $getUser = null;
 
-        if ($id !== null) {
+        if (null !== $id) {
             $getUser = $this->usersRepository->find($id);
         }
 
@@ -146,7 +146,7 @@ final class UsersController extends AbstractController
     public function edit(Request $request, ?int $id = null): Response
     {
         /** @var Users $user */
-        $user = ($id === null) ? $this->getUser() : $this->usersRepository->find($id);
+        $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
@@ -159,7 +159,7 @@ final class UsersController extends AbstractController
 
         $getUser = null;
 
-        if ($id !== null) {
+        if (null !== $id) {
             $getUser = $this->usersRepository->find($id);
         }
 
@@ -172,7 +172,7 @@ final class UsersController extends AbstractController
     #[Route('/app/user/delete/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, Users $user): RedirectResponse
     {
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {
             $this->entityManager->remove($user);
             $this->entityManager->flush();
         }

@@ -32,8 +32,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class AddUserFormType extends AbstractType
 {
     public function __construct(
-        private TranslatorInterface $translator,
-        private SettingsManagerInterface $settingsManager,
+        private readonly TranslatorInterface $translator,
+        private readonly SettingsManagerInterface $settingsManager,
     ) {
     }
 
@@ -79,9 +79,7 @@ class AddUserFormType extends AbstractType
                     'placeholder' => $this->translator->trans('Enter Email', [], 'users'),
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => $this->translator->trans('Please enter Email', [], 'users'),
-                    ]),
+                    new NotBlank(message: $this->translator->trans('Please enter Email', [], 'users')),
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
