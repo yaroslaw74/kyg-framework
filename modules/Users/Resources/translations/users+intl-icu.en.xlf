@@ -5,9 +5,21 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <trans-unit id="BUNgZnm" resname="About Me">
+        <source>About Me</source>
+        <target>About Me</target>
+      </trans-unit>
       <trans-unit id="9QMZdkf" resname="Already have an account?">
         <source>Already have an account?</source>
         <target>Already have an account?</target>
+      </trans-unit>
+      <trans-unit id="C.w.4eS" resname="Amazon">
+        <source>Amazon</source>
+        <target>Amazon</target>
+      </trans-unit>
+      <trans-unit id="m7V4I9G" resname="Avatar">
+        <source>Avatar</source>
+        <target>Avatar</target>
       </trans-unit>
       <trans-unit id="TLYBGV6" resname="Cheers!">
         <source>Cheers!</source>
@@ -25,13 +37,57 @@
         <source>Create an Account</source>
         <target>Create an Account</target>
       </trans-unit>
+      <trans-unit id="Z_crX_u" resname="Delete">
+        <source>Delete</source>
+        <target>Delete</target>
+      </trans-unit>
       <trans-unit id="8IvMqPn" resname="Don't have an account?">
         <source>Don't have an account?</source>
         <target>Don't have an account?</target>
       </trans-unit>
+      <trans-unit id="gqvgN2P" resname="Drag and drop or browse image">
+        <source>Drag and drop or browse image</source>
+        <target>Drag and drop or browse image</target>
+      </trans-unit>
+      <trans-unit id="cuHTb2q" resname="Dropbox">
+        <source>Dropbox</source>
+        <target>Dropbox</target>
+      </trans-unit>
+      <trans-unit id="M.l1CPU" resname="Edit">
+        <source>Edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="r7qFsWz" resname="Edit Avatar">
+        <source>Edit Avatar</source>
+        <target>Edit Avatar</target>
+      </trans-unit>
       <trans-unit id="JZi_tm0" resname="Email">
         <source>Email</source>
         <target>Email</target>
+      </trans-unit>
+      <trans-unit id="RdM1twG" resname="Enter Email">
+        <source>Enter Email</source>
+        <target>Enter Email</target>
+      </trans-unit>
+      <trans-unit id="tDokmjn" resname="Enter First Name">
+        <source>Enter First Name</source>
+        <target>Enter First Name</target>
+      </trans-unit>
+      <trans-unit id="RVt1jCQ" resname="Enter Last Name">
+        <source>Enter Last Name</source>
+        <target>Enter Last Name</target>
+      </trans-unit>
+      <trans-unit id="KulMBox" resname="Enter Middle Name">
+        <source>Enter Middle Name</source>
+        <target>Enter Middle Name</target>
+      </trans-unit>
+      <trans-unit id="1zBfZPQ" resname="Enter Password">
+        <source>Enter Password</source>
+        <target>Enter Password</target>
+      </trans-unit>
+      <trans-unit id="m.duQI8" resname="Enter Username">
+        <source>Enter Username</source>
+        <target>Enter Username</target>
       </trans-unit>
       <trans-unit id="N91eXoE" resname="Enter your Confirm Password">
         <source>Enter your Confirm Password</source>
@@ -53,6 +109,22 @@
         <source>Enter your email address, and we will send you a link to reset your password.</source>
         <target>Enter your email address, and we will send you a link to reset your password.</target>
       </trans-unit>
+      <trans-unit id="W7cu7IY" resname="FRIENDS">
+        <source>FRIENDS</source>
+        <target>FRIENDS</target>
+      </trans-unit>
+      <trans-unit id="b0.h8g7" resname="Facebook">
+        <source>Facebook</source>
+        <target>Facebook</target>
+      </trans-unit>
+      <trans-unit id="BQjGS3q" resname="First Name">
+        <source>First Name</source>
+        <target>First Name</target>
+      </trans-unit>
+      <trans-unit id="B.RyiXp" resname="Flickr">
+        <source>Flickr</source>
+        <target>Flickr</target>
+      </trans-unit>
       <trans-unit id="mcyh89V" resname="Forget it,">
         <source>Forget it,</source>
         <target>Forget it,</target>
@@ -68,6 +140,14 @@
       <trans-unit id="L0rykdc" resname="Get Started">
         <source>Get Started</source>
         <target>Get Started</target>
+      </trans-unit>
+      <trans-unit id="gZpOHvU" resname="Github">
+        <source>Github</source>
+        <target>Github</target>
+      </trans-unit>
+      <trans-unit id="UQoiiPg" resname="Google">
+        <source>Google</source>
+        <target>Google</target>
       </trans-unit>
       <trans-unit id="1PPDBCa" resname="Hi!">
         <source>Hi!</source>
@@ -89,17 +169,41 @@
         <source>If you don't receive an email please check your spam folder or</source>
         <target>If you don't receive an email please check your spam folder or</target>
       </trans-unit>
+      <trans-unit id="3pbuzG." resname="Instagram">
+        <source>Instagram</source>
+        <target>Instagram</target>
+      </trans-unit>
       <trans-unit id="KisA1uf" resname="It's free to signup and only takes a minute.">
         <source>It's free to signup and only takes a minute.</source>
         <target>It's free to signup and only takes a minute.</target>
+      </trans-unit>
+      <trans-unit id="0jsx_LN" resname="Last Name">
+        <source>Last Name</source>
+        <target>Last Name</target>
+      </trans-unit>
+      <trans-unit id="QBRyADC" resname="Linkedin">
+        <source>Linkedin</source>
+        <target>Linkedin</target>
       </trans-unit>
       <trans-unit id="JKl2Twv" resname="Logout">
         <source>Logout</source>
         <target>Logout</target>
       </trans-unit>
+      <trans-unit id="vtsk56f" resname="Message">
+        <source>Message</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="oOY49tw" resname="Middle Name">
+        <source>Middle Name</source>
+        <target>Middle Name</target>
+      </trans-unit>
       <trans-unit id="K69AU92" resname="New Password">
         <source>New Password</source>
         <target>New Password</target>
+      </trans-unit>
+      <trans-unit id="9cDnY13" resname="OK">
+        <source>OK</source>
+        <target>OK</target>
       </trans-unit>
       <trans-unit id="GqmFSHc" resname="Password">
         <source>Password</source>
@@ -117,6 +221,10 @@
         <source>Please confirm your email address by clicking the following link:</source>
         <target>Please confirm your email address by clicking the following link:</target>
       </trans-unit>
+      <trans-unit id="u6Xt3kn" resname="Please enter Email">
+        <source>Please enter Email</source>
+        <target>Please enter Email</target>
+      </trans-unit>
       <trans-unit id="8JKrX1p" resname="Please enter a Password">
         <source>Please enter a Password</source>
         <target>Please enter a Password</target>
@@ -132,6 +240,10 @@
       <trans-unit id="0N4x_Ri" resname="Please sign in to continue.">
         <source>Please sign in to continue.</source>
         <target>Please sign in to continue.</target>
+      </trans-unit>
+      <trans-unit id="5Y34z39" resname="Profile">
+        <source>Profile</source>
+        <target>Profile</target>
       </trans-unit>
       <trans-unit id="WevL4T_" resname="Remember me">
         <source>Remember me</source>
@@ -149,6 +261,10 @@
         <source>Reset Your Password</source>
         <target>Reset Your Password</target>
       </trans-unit>
+      <trans-unit id="euctZ5A" resname="SETTINGS">
+        <source>SETTINGS</source>
+        <target>SETTINGS</target>
+      </trans-unit>
       <trans-unit id="avHhpap" resname="Send me back">
         <source>Send me back</source>
         <target>Send me back</target>
@@ -157,9 +273,25 @@
         <source>Send password reset email</source>
         <target>Send password reset email</target>
       </trans-unit>
+      <trans-unit id="Bk_YwKX" resname="Set Avatar">
+        <source>Set Avatar</source>
+        <target>Set Avatar</target>
+      </trans-unit>
       <trans-unit id="hXquTtV" resname="Sign In">
         <source>Sign In</source>
         <target>Sign In</target>
+      </trans-unit>
+      <trans-unit id=".KmYrxx" resname="Social">
+        <source>Social</source>
+        <target>Social</target>
+      </trans-unit>
+      <trans-unit id="Jk7f6_4" resname="Spotify">
+        <source>Spotify</source>
+        <target>Spotify</target>
+      </trans-unit>
+      <trans-unit id="_z4el3Z" resname="The password fields must match.">
+        <source>The password fields must match.</source>
+        <target>The password fields must match.</target>
       </trans-unit>
       <trans-unit id="BRJuStP" resname="This link will expire in">
         <source>This link will expire in</source>
@@ -169,13 +301,53 @@
         <source>To reset your password, please visit the following link</source>
         <target>To reset your password, please visit the following link</target>
       </trans-unit>
+      <trans-unit id="MtqbXsQ" resname="Trello">
+        <source>Trello</source>
+        <target>Trello</target>
+      </trans-unit>
+      <trans-unit id="djBTl4g" resname="Twitch">
+        <source>Twitch</source>
+        <target>Twitch</target>
+      </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>User</target>
+      </trans-unit>
       <trans-unit id="VhxhtYo" resname="Username">
         <source>Username</source>
         <target>Username</target>
       </trans-unit>
+      <trans-unit id="BCGjfox" resname="Users">
+        <source>Users</source>
+        <target>Users</target>
+      </trans-unit>
+      <trans-unit id="N_jpXmw" resname="VK">
+        <source>VK</source>
+        <target>VK</target>
+      </trans-unit>
+      <trans-unit id=".EmYZIu" resname="View">
+        <source>View</source>
+        <target>View</target>
+      </trans-unit>
       <trans-unit id="wRXXUbi" resname="Welcome back!">
         <source>Welcome back!</source>
         <target>Welcome back!</target>
+      </trans-unit>
+      <trans-unit id="A9X1E5t" resname="Windows Live">
+        <source>Windows Live</source>
+        <target>Windows Live</target>
+      </trans-unit>
+      <trans-unit id="ksNFOWk" resname="X">
+        <source>X</source>
+        <target>X</target>
+      </trans-unit>
+      <trans-unit id="TLe5mQU" resname="Yahoo">
+        <source>Yahoo</source>
+        <target>Yahoo</target>
+      </trans-unit>
+      <trans-unit id="toGQgkc" resname="Yandex">
+        <source>Yandex</source>
+        <target>Yandex</target>
       </trans-unit>
       <trans-unit id="_vpO.88" resname="You are logged in as">
         <source>You are logged in as</source>
@@ -192,6 +364,18 @@
       <trans-unit id="_OmnKuR" resname="Your password should be at least {{ limit }} characters">
         <source>Your password should be at least {{ limit }} characters</source>
         <target>Your password should be at least {{ limit }} characters</target>
+      </trans-unit>
+      <trans-unit id="m8_BFMv" resname="connect">
+        <source>connect</source>
+        <target>connect</target>
+      </trans-unit>
+      <trans-unit id="lr6d0Ih" resname="connected">
+        <source>connected</source>
+        <target>connected</target>
+      </trans-unit>
+      <trans-unit id="tRYHCWn" resname="mail.ru">
+        <source>mail.ru</source>
+        <target>mail.ru</target>
       </trans-unit>
       <trans-unit id="FTO0d6Z" resname="to the sign in screen">
         <source>to the sign in screen</source>

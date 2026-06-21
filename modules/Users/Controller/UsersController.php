@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Modules\Users\Form\Type\SetAvatarUserFormType;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 final class UsersController extends AbstractController
 {
@@ -35,8 +36,8 @@ final class UsersController extends AbstractController
     ) {
     }
 
-    #[Route('/app/user/list', name: 'app_user_list', methods: ['GET'])]
-    public function index(Request $request): Response
+    #[Route('/app/user/list/{page}', name: 'app_user_list', methods: ['GET'])]
+    public function index(Request $request, int $page = 1): Response
     {
         return $this->render('app/modules/users/entity/users/index.html.twig', [
             'users' => $this->usersRepository->findAll(),
@@ -72,9 +73,6 @@ final class UsersController extends AbstractController
         $form_avatar = $this->createForm(SetAvatarUserFormType::class, $user);
         $form_avatar->handleRequest($request);
 
-        $form_profile = $this->createForm(ProfileFormType::class, $user);
-        $form_profile->handleRequest($request);
-
         if ($form_avatar->isSubmitted() && $form_avatar->isValid()) {
             /** @var string $avatar */
             $avatar = $form_avatar->get('avatar')->getData();
@@ -87,10 +85,13 @@ final class UsersController extends AbstractController
             $this->entityManager->flush();
         }
 
+        $form_profile = $this->createForm(ProfileFormType::class, $user);
+        $form_profile->handleRequest($request);
+
         if ($form_profile->isSubmitted() && $form_profile->isValid()) {
             $username = $form_profile->get('username')->getData();
-            $lastName = $form_profile->get('last_name')->getData();
-            $firstName = $form_profile->get('first_name')->getData();
+            $lastName = $form_profile->get('lastName')->getData();
+            $firstName = $form_profile->get('firstName')->getData();
             $middleName = $form_profile->get('middleName')->getData();
             $email = $form_profile->get('email')->getData();
             $plainPassword = $form_profile->get('plainPassword')->getData();
@@ -169,13 +170,15 @@ final class UsersController extends AbstractController
     }
 
     #[Route('/app/user/delete/{id}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, Users $user): Response
+    public function delete(Request $request, Users $user): RedirectResponse
     {
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->getPayload()->getString('_token'))) {
             $this->entityManager->remove($user);
             $this->entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_user', [], Response::HTTP_SEE_OTHER);
+        $referer = $request->headers->get('referer');
+
+        return $this->redirectToRoute($referer ?? $this->generateUrl('app'), [], Response::HTTP_SEE_OTHER);
     }
 }
