@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+
+{% block body %}
+    <h1>Users index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>MiddleName</th>
+                <th>Locale</th>
+                <th>IsVerified</th>
+                <th>Facebook</th>
+                <th>Yandex</th>
+                <th>Google</th>
+                <th>Linkedin</th>
+                <th>Mailru</th>
+                <th>Odnoklassniki</th>
+                <th>XTwitter</th>
+                <th>Vkontakte</th>
+                <th>Github</th>
+                <th>Amazon</th>
+                <th>Instagram</th>
+                <th>Twitch</th>
+                <th>Yahoo</th>
+                <th>Spotify</th>
+                <th>Trello</th>
+                <th>Dropbox</th>
+                <th>Flickr</th>
+                <th>WindowsLive</th>
+                <th>Gravatar</th>
+                <th>Avatar</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.middleName }}</td>
+                <td>{{ user.locale }}</td>
+                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
+                <td>{{ user.facebook }}</td>
+                <td>{{ user.yandex }}</td>
+                <td>{{ user.google }}</td>
+                <td>{{ user.linkedin }}</td>
+                <td>{{ user.mailru }}</td>
+                <td>{{ user.odnoklassniki }}</td>
+                <td>{{ user.xTwitter }}</td>
+                <td>{{ user.vkontakte }}</td>
+                <td>{{ user.github }}</td>
+                <td>{{ user.amazon }}</td>
+                <td>{{ user.instagram }}</td>
+                <td>{{ user.twitch }}</td>
+                <td>{{ user.yahoo }}</td>
+                <td>{{ user.spotify }}</td>
+                <td>{{ user.trello }}</td>
+                <td>{{ user.dropbox }}</td>
+                <td>{{ user.flickr }}</td>
+                <td>{{ user.windowsLive }}</td>
+                <td>{{ user.gravatar }}</td>
+                <td>{{ user.avatar }}</td>
+                <td>
+                    <a href="{{ path('app_modules_users_entity_users_show', {id: user.id}) }}">show</a>
+                    <a href="{{ path('app_modules_users_entity_users_edit', {id: user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="31">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_modules_users_entity_users_new') }}">Create new</a>
+{% endblock %}
