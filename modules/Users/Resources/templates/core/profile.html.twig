@@ -778,26 +778,36 @@
                         </div>
                         <div class="tab-pane border-0 p-0" id="settings">
                             {% if pageUser %}
-                                {% set id = pageUser %}
+                                {% set value_id = pageUser.id %}
+                                {% set value_username = pageUser.username %}
+                                {% set value_lastName = pageUser.lastName %}
+                                {% set value_firstName = pageUser.firstName %}
+                                {% set value_middleName = pageUser.middleName %}
+                                {% set value_email = pageUser.email %}
                             {% else %}
-                                {% set id = null %}
+                                {% set value_id = null %}
+                                {% set value_username = '' %}
+                                {% set value_lastName = '' %}
+                                {% set value_firstName = '' %}
+                                {% set value_middleName = '' %}
+                                {% set value_email = '' %}
                             {% endif %}
-                            {{ form_start(profileForm, {action: path('app_user_show', {id: id})}) }}
-                                {{ form_row(profileForm.username) }}
+                            {{ form_start(profileForm, {action: path('app_user_show', {id: value_id})}) }}
+                                {{ form_row(profileForm.username, {attr: {value: value_username}}) }}
                                 {% if settings_instance('name').getFirstLastName %}
-                                    {{ form_row(profileForm.lastName) }}
-                                    {{ form_row(profileForm.firstName) }}
+                                    {{ form_row(profileForm.lastName, {attr: {value: value_lastName}}) }}
+                                    {{ form_row(profileForm.firstName, {attr: {value: value_firstName}}) }}
                                     {% if settings_instance('name').getMiddleNameEnable %}
-                                        {{ form_row(profileForm.middleName) }}
+                                        {{ form_row(profileForm.middleName, {attr: {value: value_middleName}}) }}
                                     {% endif %}
                                 {% else %}
-                                    {{ form_row(profileForm.firstName) }}
+                                    {{ form_row(profileForm.firstName, {attr: {value: value_firstName}}) }}
                                     {% if settings_instance('name').getMiddleNameEnable %}
-                                        {{ form_row(profileForm.middleName) }}
+                                        {{ form_row(profileForm.middleName, {attr: {value:value_middleName}}) }}
                                     {% endif %}
-                                    {{ form_row(profileForm.lastName) }}
+                                    {{ form_row(profileForm.lastName, {attr: {value: value_lastName}}) }}
                                 {% endif %}
-                                {{ form_row(profileForm.email) }}
+                                {{ form_row(profileForm.email, {attr: {value: value_email}}) }}
                                 {{ form_row(profileForm.plainPassword) }}
                                 <button class="btn btn-primary waves-effect waves-light w-md" type="submit">{% trans %}Save{% endtrans %}</button>
                             {{ form_end(profileForm) }}

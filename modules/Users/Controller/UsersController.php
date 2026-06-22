@@ -65,10 +65,8 @@ final class UsersController extends AbstractController
     }
 
     #[Route('/app/user/show/{id}', name: 'app_user_show', methods: ['GET', 'POST'])]
-    public function show(Request $request): Response
+    public function show(Request $request, ?int $id = null): Response
     {
-        $id = $request->query->get('id');
-
         /** @var Users $user */
         $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
@@ -140,10 +138,8 @@ final class UsersController extends AbstractController
     }
 
     #[Route('/app/user/edit/{id}', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request): Response
+    public function edit(Request $request, ?int $id = null): Response
     {
-        $id = $request->query->get('id');
-
         /** @var Users $user */
         $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
@@ -151,9 +147,8 @@ final class UsersController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->persist($user);
             $this->entityManager->flush();
-
-            return $this->redirectToRoute('app_user', [], Response::HTTP_SEE_OTHER);
         }
 
         $getUser = null;
@@ -162,7 +157,7 @@ final class UsersController extends AbstractController
             $getUser = $this->usersRepository->find($id);
         }
 
-        return $this->render('app/modules/users/entity/users/edit.html.twig', [
+        return $this->render('@Users/core/editprofile.html.twig', [
             'user' => $getUser,
             'form' => $form,
         ]);
