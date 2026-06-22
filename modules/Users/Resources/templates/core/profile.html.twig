@@ -93,15 +93,6 @@
                                     <p class="main-profile-name-text text-muted">Web Designer</p>
                                 </div>
                             </div>
-                            {% if pageUser %}
-                                {% if pageUser.about %}
-                                    <h6 class="fs-14">{% trans %}About Me{% endtrans %}</h6>
-                                    <div class="main-profile-bio">
-                                        {{ pageUser.about }}
-                                        <a href="javascript:void(0);" class="text-primary">{% trans %}More{% endtrans %}</a>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
                             <div class="row">
                                 <div class="col-md-4 col mb20">
                                     <h5 class="fs-17">947</h5>
@@ -556,16 +547,6 @@
                     <div class="tabs-menu ">
                         <!-- Tabs -->
                         <ul class="nav nav-tabs profile navtab-custom panel-tabs">
-                            {% if pageUser %}
-                                {% if pageUser.bio %}
-                                    <li class="">
-                                        <a href="#home" data-bs-toggle="tab" class="active" aria-expanded="true">
-                                            <span class="visible-xs"><i class="las la-user-circle fs-16 me-1"></i></span>
-                                            <span class="hidden-xs">{% trans %}BIOGRAPHY{% endtrans %}</span>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            {% endif %}
                             <li class="">
                                 <a href="#gallery" data-bs-toggle="tab" aria-expanded="false">
                                     <span class="visible-xs"><i class="las la-images fs-15 me-1"></i></span>
@@ -743,11 +724,13 @@
                                                             <a href="javascript:void(0);" class="option-dots" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical"></i> </a>
                                                             <div class="dropdown-menu shadow">
                                                                 <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-message-square me-2"></i>{% trans %}Message{% endtrans %}</a>
-                                                                {% if not user %}
+                                                                {% if is_granted('ROLE_ADMIN') %}
                                                                     <a class="dropdown-item" href="{{ path('app_user_edit', {id: friend.id}) }}"><i class="fe fe-edit-2 me-2"></i>{% trans %}Edit{% endtrans %}</a>
-                                                                    <a class="dropdown-item" href="{{ path('app_user_show', {id: friend.id}) }}"><i class="fe fe-eye me-2"></i>{% trans %}View{% endtrans %}</a>
                                                                 {% endif %}
-                                                                <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                                                <a class="dropdown-item" href="{{ path('app_user_show', {id: friend.id}) }}"><i class="fe fe-eye me-2"></i>{% trans %}View{% endtrans %}</a>
+                                                                {% if not user %}
+                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                                                {% endif %}
                                                             </div>
                                                         </div>
                                                         <a href="{{ path('app_user_show', {id: friend.id}) }}">
@@ -816,7 +799,6 @@
                                 {% endif %}
                                 {{ form_row(profileForm.email) }}
                                 {{ form_row(profileForm.plainPassword) }}
-                                {{ form_row(profileForm.about) }}
                                 <button class="btn btn-primary waves-effect waves-light w-md" type="submit">{% trans %}Save{% endtrans %}</button>
                             {{ form_end(profileForm) }}
                         </div>

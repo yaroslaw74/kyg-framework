@@ -95,7 +95,6 @@ final class UsersController extends AbstractController
             $middleName = $form_profile->get('middleName')->getData();
             $email = $form_profile->get('email')->getData();
             $plainPassword = $form_profile->get('plainPassword')->getData();
-            $about = $form_profile->get('about')->getData();
 
             if ('' !== $username) {
                 $user->setUsername($username);
@@ -119,10 +118,6 @@ final class UsersController extends AbstractController
 
             if ('' !== $plainPassword) {
                 $user->setPassword($this->userPasswordHasher->hashPassword($user, $plainPassword));
-            }
-
-            if ('' !== $about) {
-                $user->setAbout($about);
             }
 
             $this->entityManager->persist($user);

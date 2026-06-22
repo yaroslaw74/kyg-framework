@@ -62,34 +62,12 @@ final class UsersControllerTest extends WebTestCase
         self::assertResponseStatusCodeSame(200);
 
         $this->client->submitForm('Save', [
-            'user[username]' => 'Testing',
-            'user[email]' => 'Testing',
-            'user[password]' => 'Testing',
-            'user[firstName]' => 'Testing',
-            'user[lastName]' => 'Testing',
-            'user[middleName]' => 'Testing',
-            'user[locale]' => 'Testing',
-            'user[facebook]' => 'Testing',
-            'user[yandex]' => 'Testing',
-            'user[google]' => 'Testing',
-            'user[linkedin]' => 'Testing',
-            'user[mailru]' => 'Testing',
-            'user[odnoklassniki]' => 'Testing',
-            'user[xTwitter]' => 'Testing',
-            'user[vkontakte]' => 'Testing',
-            'user[github]' => 'Testing',
-            'user[amazon]' => 'Testing',
-            'user[instagram]' => 'Testing',
-            'user[twitch]' => 'Testing',
-            'user[yahoo]' => 'Testing',
-            'user[spotify]' => 'Testing',
-            'user[trello]' => 'Testing',
-            'user[dropbox]' => 'Testing',
-            'user[flickr]' => 'Testing',
-            'user[windowsLive]' => 'Testing',
-            'user[gravatar]' => 'Testing',
-            'user[avatar]' => 'Testing',
-            'user[about]' => 'Testing',
+            'user[username]' => 'Testing username',
+            'user[email]' => 'testing@example.com',
+            'user[password]' => 'Testing password',
+            'user[firstName]' => 'Testing First Name',
+            'user[lastName]' => 'Testing Last Name',
+            'user[middleName]' => 'Testing Middle Name',
         ]);
 
         self::assertResponseRedirects('/app');
@@ -102,33 +80,12 @@ final class UsersControllerTest extends WebTestCase
     public function testShow(): void
     {
         $fixture = new Users();
-        $fixture->setUsername('My Title');
-        $fixture->setEmail('My Title');
-        $fixture->setPassword('My Title');
-        $fixture->setFirstName('My Title');
-        $fixture->setLastName('My Title');
-        $fixture->setMiddleName('My Title');
-        $fixture->setLocale('My Title');
-        $fixture->setFacebook('My Title');
-        $fixture->setYandex('My Title');
-        $fixture->setGoogle('My Title');
-        $fixture->setLinkedin('My Title');
-        $fixture->setMailru('My Title');
-        $fixture->setOdnoklassniki('My Title');
-        $fixture->setXTwitter('My Title');
-        $fixture->setVkontakte('My Title');
-        $fixture->setGithub('My Title');
-        $fixture->setAmazon('My Title');
-        $fixture->setInstagram('My Title');
-        $fixture->setTwitch('My Title');
-        $fixture->setYahoo('My Title');
-        $fixture->setSpotify('My Title');
-        $fixture->setTrello('My Title');
-        $fixture->setDropbox('My Title');
-        $fixture->setFlickr('My Title');
-        $fixture->setWindowsLive('My Title');
-        $fixture->setGravatar('My Title');
-        $fixture->setAvatar('My Title');
+        $fixture->setUsername('username');
+        $fixture->setEmail('email@example.com');
+        $fixture->setPassword('password');
+        $fixture->setFirstName('First Name');
+        $fixture->setLastName('Last Name');
+        $fixture->setMiddleName('Middle Name');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
@@ -145,33 +102,12 @@ final class UsersControllerTest extends WebTestCase
     public function testEdit(): void
     {
         $fixture = new Users();
-        $fixture->setUsername('Value');
-        $fixture->setEmail('Value');
-        $fixture->setPassword('Value');
-        $fixture->setFirstName('Value');
-        $fixture->setLastName('Value');
-        $fixture->setMiddleName('Value');
-        $fixture->setLocale('Value');
-        $fixture->setFacebook('Value');
-        $fixture->setYandex('Value');
-        $fixture->setGoogle('Value');
-        $fixture->setLinkedin('Value');
-        $fixture->setMailru('Value');
-        $fixture->setOdnoklassniki('Value');
-        $fixture->setXTwitter('Value');
-        $fixture->setVkontakte('Value');
-        $fixture->setGithub('Value');
-        $fixture->setAmazon('Value');
-        $fixture->setInstagram('Value');
-        $fixture->setTwitch('Value');
-        $fixture->setYahoo('Value');
-        $fixture->setSpotify('Value');
-        $fixture->setTrello('Value');
-        $fixture->setDropbox('Value');
-        $fixture->setFlickr('Value');
-        $fixture->setWindowsLive('Value');
-        $fixture->setGravatar('Value');
-        $fixture->setAvatar('Value');
+        $fixture->setUsername('username');
+        $fixture->setEmail('email@example.com');
+        $fixture->setPassword('password');
+        $fixture->setFirstName('First Name');
+        $fixture->setLastName('Last Name');
+        $fixture->setMiddleName('Middle Name');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
@@ -179,34 +115,12 @@ final class UsersControllerTest extends WebTestCase
         $this->client->request('GET', \sprintf('/app/user/edit/%s', $fixture->getId()));
 
         $this->client->submitForm('Update', [
-            'user[username]' => 'Something New',
-            'user[email]' => 'Something New',
-            'user[password]' => 'Something New',
-            'user[firstName]' => 'Something New',
-            'user[lastName]' => 'Something New',
-            'user[middleName]' => 'Something New',
-            'user[locale]' => 'Something New',
-            'user[isVerified]' => 'Something New',
-            'user[facebook]' => 'Something New',
-            'user[yandex]' => 'Something New',
-            'user[google]' => 'Something New',
-            'user[linkedin]' => 'Something New',
-            'user[mailru]' => 'Something New',
-            'user[odnoklassniki]' => 'Something New',
-            'user[xTwitter]' => 'Something New',
-            'user[vkontakte]' => 'Something New',
-            'user[github]' => 'Something New',
-            'user[amazon]' => 'Something New',
-            'user[instagram]' => 'Something New',
-            'user[twitch]' => 'Something New',
-            'user[yahoo]' => 'Something New',
-            'user[spotify]' => 'Something New',
-            'user[trello]' => 'Something New',
-            'user[dropbox]' => 'Something New',
-            'user[flickr]' => 'Something New',
-            'user[windowsLive]' => 'Something New',
-            'user[gravatar]' => 'Something New',
-            'user[avatar]' => 'Something New',
+            'user[username]' => 'edit username',
+            'user[email]' => 'edit@example.com',
+            'user[password]' => 'edit password',
+            'user[firstName]' => 'edit First Name',
+            'user[lastName]' => 'edit Last Name',
+            'user[middleName]' => 'edit Middle Name',
         ]);
 
         self::assertResponseRedirects('/app/user');
@@ -220,26 +134,6 @@ final class UsersControllerTest extends WebTestCase
         self::assertSame('Something New', $fixture[0]->getLastName());
         self::assertSame('Something New', $fixture[0]->getMiddleName());
         self::assertSame('Something New', $fixture[0]->getLocale());
-        self::assertSame('Something New', $fixture[0]->getFacebook());
-        self::assertSame('Something New', $fixture[0]->getYandex());
-        self::assertSame('Something New', $fixture[0]->getGoogle());
-        self::assertSame('Something New', $fixture[0]->getLinkedin());
-        self::assertSame('Something New', $fixture[0]->getMailru());
-        self::assertSame('Something New', $fixture[0]->getOdnoklassniki());
-        self::assertSame('Something New', $fixture[0]->getXTwitter());
-        self::assertSame('Something New', $fixture[0]->getVkontakte());
-        self::assertSame('Something New', $fixture[0]->getGithub());
-        self::assertSame('Something New', $fixture[0]->getAmazon());
-        self::assertSame('Something New', $fixture[0]->getInstagram());
-        self::assertSame('Something New', $fixture[0]->getTwitch());
-        self::assertSame('Something New', $fixture[0]->getYahoo());
-        self::assertSame('Something New', $fixture[0]->getSpotify());
-        self::assertSame('Something New', $fixture[0]->getTrello());
-        self::assertSame('Something New', $fixture[0]->getDropbox());
-        self::assertSame('Something New', $fixture[0]->getFlickr());
-        self::assertSame('Something New', $fixture[0]->getWindowsLive());
-        self::assertSame('Something New', $fixture[0]->getGravatar());
-        self::assertSame('Something New', $fixture[0]->getAvatar());
 
         self::markTestIncomplete('This test was generated');
     }
@@ -254,26 +148,6 @@ final class UsersControllerTest extends WebTestCase
         $fixture->setLastName('Value');
         $fixture->setMiddleName('Value');
         $fixture->setLocale('Value');
-        $fixture->setFacebook('Value');
-        $fixture->setYandex('Value');
-        $fixture->setGoogle('Value');
-        $fixture->setLinkedin('Value');
-        $fixture->setMailru('Value');
-        $fixture->setOdnoklassniki('Value');
-        $fixture->setXTwitter('Value');
-        $fixture->setVkontakte('Value');
-        $fixture->setGithub('Value');
-        $fixture->setAmazon('Value');
-        $fixture->setInstagram('Value');
-        $fixture->setTwitch('Value');
-        $fixture->setYahoo('Value');
-        $fixture->setSpotify('Value');
-        $fixture->setTrello('Value');
-        $fixture->setDropbox('Value');
-        $fixture->setFlickr('Value');
-        $fixture->setWindowsLive('Value');
-        $fixture->setGravatar('Value');
-        $fixture->setAvatar('Value');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
