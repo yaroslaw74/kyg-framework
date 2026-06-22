@@ -729,7 +729,7 @@
                                                                 {% endif %}
                                                                 <a class="dropdown-item" href="{{ path('app_user_show', {id: friend.id}) }}"><i class="fe fe-eye me-2"></i>{% trans %}View{% endtrans %}</a>
                                                                 {% if not user %}
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
+                                                                    <a class="dropdown-item" href="{{ path('app_user_show', {id: pageUser.id, frend: friend.id}) }}"><i class="fe fe-trash-2 me-2"></i>{% trans %}Delete{% endtrans %}</a>
                                                                 {% endif %}
                                                             </div>
                                                         </div>

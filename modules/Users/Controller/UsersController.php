@@ -65,8 +65,10 @@ final class UsersController extends AbstractController
     }
 
     #[Route('/app/user/show/{id}', name: 'app_user_show', methods: ['GET', 'POST'])]
-    public function show(Request $request, ?int $id = null): Response
+    public function show(Request $request): Response
     {
+        $id = $request->query->get('id');
+
         /** @var Users $user */
         $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
@@ -138,8 +140,10 @@ final class UsersController extends AbstractController
     }
 
     #[Route('/app/user/edit/{id}', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ?int $id = null): Response
+    public function edit(Request $request): Response
     {
+        $id = $request->query->get('id');
+
         /** @var Users $user */
         $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
@@ -164,13 +168,38 @@ final class UsersController extends AbstractController
         ]);
     }
 
-    #[Route('/app/user/delete/{id}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, Users $user): RedirectResponse
+    #[Route('/app/user/delete/{id}', name: 'app_user_delete', methods: ['GET'])]
+    public function delete(Request $request): RedirectResponse
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {
+        $id = $request->query->get('id');
+
+        /** @var Users $user */
+        $user = $this->usersRepository->find($id);
+
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->getPayload()->getString('_token'))) {
             $this->entityManager->remove($user);
             $this->entityManager->flush();
         }
+
+        $referer = $request->headers->get('referer');
+
+        return $this->redirectToRoute($referer ?? $this->generateUrl('app'), [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/app/user/frend/delete/{id}/{frend}', name: 'app_user_frend_delete', methods: ['GET'])]
+    public function frendDelite(Request $request): RedirectResponse
+    {
+        $id = $request->query->get('id');
+        $frend = $request->query->get('frend');
+
+        /** @var Users $user */
+        $user = $this->usersRepository->find($id);
+        $user_frend = $this->usersRepository->find($frend);
+
+        $user->removeFriend($user_frend);
+
+        $this->entityManager->remove($user);
+        $this->entityManager->flush();
 
         $referer = $request->headers->get('referer');
 
