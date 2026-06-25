@@ -22,6 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use libphonenumber\PhoneNumber;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\Table(name: 'users__user')]
@@ -142,6 +143,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
     private Collection $friendOf;
 
+    #[ORM\Column(type: 'phone_number', nullable: true)]
+    private ?PhoneNumber $mobile = null;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
@@ -157,10 +161,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
         }
 
         if (null !== $this->getFirstName()) {
-            $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getFirstName(), 0, 1) . '.';
         }
         if (null !== $this->getMiddleName()) {
-            $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
+            $name .= ' ' . mb_substr($this->getMiddleName(), 0, 1) . '.';
         }
 
         if ('' !== $name) {
@@ -176,7 +180,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', (string) $this->password);
 
         return $data;
     }
@@ -219,6 +223,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->avatar,
             $this->friends,
             $this->friendOf,
+            $this->mobile,
         ] = $data;
     }
 
@@ -659,6 +664,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
         if ($this->friendOf->removeElement($friendOf)) {
             $friendOf->removeFriend($this);
         }
+
+        return $this;
+    }
+
+    public function getMobile(): ?PhoneNumber
+    {
+        return $this->mobile;
+    }
+
+    public function setMobile(?PhoneNumber $mobile): static
+    {
+        $this->mobile = $mobile;
 
         return $this;
     }

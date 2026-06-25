@@ -16,8 +16,9 @@ namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\Users;
 use App\Modules\Users\Form\Type\ProfileFormType;
+use App\Modules\Users\Form\Type\AddUserFormType;
 use App\Modules\Users\Form\Type\SetAvatarUserFormType;
-use App\Modules\Users\Form\Type\UsersType;
+use App\Modules\Users\Form\Type\EditProfileFormType;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,7 +49,7 @@ final class UsersController extends AbstractController
     public function new(Request $request): Response
     {
         $user = new Users();
-        $form = $this->createForm(UsersType::class, $user);
+        $form = $this->createForm(AddUserFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -143,10 +144,56 @@ final class UsersController extends AbstractController
         /** @var Users $user */
         $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
-        $form = $this->createForm(UsersType::class, $user);
-        $form->handleRequest($request);
+        $form_avatar = $this->createForm(SetAvatarUserFormType::class, $user);
+        $form_avatar->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form_avatar->isSubmitted() && $form_avatar->isValid()) {
+            /** @var string $avatar */
+            $avatar = $form_avatar->get('avatar')->getData();
+
+            if ('' !== $avatar) {
+                $user->setAvatar($avatar);
+            }
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        $form_profile = $this->createForm(EditProfileFormType::class, $user);
+        $form_profile->handleRequest($request);
+
+        if ($form_profile->isSubmitted() && $form_profile->isValid()) {
+            $username = $form_profile->get('username')->getData();
+            $lastName = $form_profile->get('lastName')->getData();
+            $firstName = $form_profile->get('firstName')->getData();
+            $middleName = $form_profile->get('middleName')->getData();
+            $email = $form_profile->get('email')->getData();
+            $gravatar = $form_profile->get('gravatar')->getData();
+
+            if ('' !== $username) {
+                $user->setUsername($username);
+            }
+
+            if ('' !== $lastName) {
+                $user->setLastName($lastName);
+            }
+
+            if ('' !== $firstName) {
+                $user->setFirstName($firstName);
+            }
+
+            if ('' !== $middleName) {
+                $user->setMiddleName($middleName);
+            }
+
+            if ('' !== $email) {
+                $user->setEmail($email);
+            }
+
+            if ('' !== $gravatar) {
+                $user->setGravatar($gravatar);
+            }
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
@@ -158,8 +205,9 @@ final class UsersController extends AbstractController
         }
 
         return $this->render('@Users/core/editprofile.html.twig', [
+            'setAvatarUserForm' => $form_avatar,
+            'profileForm' => $form_profile,
             'user' => $getUser,
-            'form' => $form,
         ]);
     }
 
