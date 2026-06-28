@@ -15,10 +15,10 @@ declare(strict_types=1);
 namespace App\Modules\Users\Controller;
 
 use App\Modules\Users\Entity\Users;
-use App\Modules\Users\Form\Type\ProfileFormType;
 use App\Modules\Users\Form\Type\AddUserFormType;
-use App\Modules\Users\Form\Type\SetAvatarUserFormType;
 use App\Modules\Users\Form\Type\EditProfileFormType;
+use App\Modules\Users\Form\Type\ProfileFormType;
+use App\Modules\Users\Form\Type\SetAvatarUserFormType;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -219,7 +219,7 @@ final class UsersController extends AbstractController
         /** @var Users $user */
         $user = $this->usersRepository->find($id);
 
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {
             $this->entityManager->remove($user);
             $this->entityManager->flush();
         }
