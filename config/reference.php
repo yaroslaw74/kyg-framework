@@ -1562,6 +1562,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
  *         theme?: scalar|Param|null, // Default: "_none_"
  *         connection?: scalar|Param|null, // Default: null
+ *         include?: list<scalar|Param|null>,
  *         exclude?: list<scalar|Param|null>,
  *     },
  *     class?: array{
@@ -1569,6 +1570,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
  *         theme?: scalar|Param|null, // Default: "_none_"
  *         em?: scalar|Param|null, // Default: null
+ *         include?: list<scalar|Param|null>,
  *         exclude?: list<scalar|Param|null>,
  *     },
  *     convert?: array{
