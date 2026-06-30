@@ -147,6 +147,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     /** @phpstan-ignore doctrine.descriptorNotFound */
     private ?PhoneNumber $mobile = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $address = null;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
@@ -225,6 +228,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->friends,
             $this->friendOf,
             $this->mobile,
+            $this->address,
         ] = $data;
     }
 
@@ -677,6 +681,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setMobile(?PhoneNumber $mobile): static
     {
         $this->mobile = $mobile;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): static
+    {
+        $this->address = $address;
 
         return $this;
     }

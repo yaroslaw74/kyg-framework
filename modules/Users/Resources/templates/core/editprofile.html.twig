@@ -515,8 +515,10 @@
                                 <i class="icon ion-md-locate"></i>
                             </div>
                             <div class="media-body">
-                                <span>Current Address</span>
-                                <div>San Francisco, CA</div>
+                                <span>{% trans %}Current Address{% endtrans %}</span>
+                                 {% if pageUser and pageUser.address %}
+                                    <div>{{ pageUser.address }}</div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -536,6 +538,7 @@
                         {% set value_email = pageUser.email %}
                         {% set value_gravatar = pageUser.gravatar %}
                         {% set value_mobile = pageUser.mobile %}
+                        {% set value_mobile = pageUser.address %}
                     {% else %}
                         {% set value_id = null %}
                         {% set value_username = '' %}
@@ -544,6 +547,7 @@
                         {% set value_middleName = '' %}
                         {% set value_email = '' %}
                         {% set value_gravatar = '' %}
+                        {% set value_mobile = '' %}
                         {% set value_mobile = '' %}
                     {% endif %}
                     {{ form_start(profileForm, {action: path('app_user_edit', {id: value_id})}) }}
@@ -658,11 +662,10 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label class="form-label">Address</label>
+                                    {{ form_label(profileForm.address) }}
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" name="example-textarea-input" rows="2"  placeholder="Address">San Francisco, CA</textarea>
-                                </div>
+                                    {{ form_widget(profileForm.address, {attr: {value: value_address}}) }}
                             </div>
                         </div>
                         <div class="mb-4 main-content-label">{% trans %}Other Info{% endtrans %}</div>

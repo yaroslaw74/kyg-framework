@@ -20,6 +20,7 @@ use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -98,7 +99,17 @@ class EditProfileFormType extends AbstractType
                     'class' => 'form-group mb-3',
                 ],
             ])
-        ;
+            ->add('address', TextareaType::class, [
+                'label' => $this->translator->trans('Address', [], 'users'),
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+                'attr' => [
+                    'placeholder' => $this->translator->trans('Enter Address', [], 'users'),
+                    'rows' => '2',
+                ],
+            ]);
 
         $settings = $this->settingsManager->get(NameSettings::class);
 
