@@ -40,4 +40,5 @@ return [
     Pyrrah\GravatarBundle\PyrrahGravatarBundle::class => ['all' => true],
     Symfony\UX\Dropzone\DropzoneBundle::class => ['all' => true],
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
+    Sonata\IntlBundle\SonataIntlBundle::class => ['all' => true],
 ];
