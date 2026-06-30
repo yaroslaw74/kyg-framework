@@ -193,6 +193,9 @@
     "shivas/versioning-bundle": {
         "version": "4.2.0"
     },
+    "sonata-project/intl-bundle": {
+        "version": "3.3.0"
+    },
     "spatie/symfony-ignition-bundle": {
         "version": "1.3",
         "recipe": {
