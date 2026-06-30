@@ -538,7 +538,7 @@
                         {% set value_email = pageUser.email %}
                         {% set value_gravatar = pageUser.gravatar %}
                         {% set value_mobile = pageUser.mobile %}
-                        {% set value_mobile = pageUser.address %}
+                        {% set value_address = pageUser.address %}
                     {% else %}
                         {% set value_id = null %}
                         {% set value_username = '' %}
@@ -548,7 +548,7 @@
                         {% set value_email = '' %}
                         {% set value_gravatar = '' %}
                         {% set value_mobile = '' %}
-                        {% set value_mobile = '' %}
+                        {% set value_address = '' %}
                     {% endif %}
                     {{ form_start(profileForm, {action: path('app_user_edit', {id: value_id})}) }}
                         <div class="mb-4 main-content-label">{% trans %}Personal Information{% endtrans %}</div>
