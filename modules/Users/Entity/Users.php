@@ -20,6 +20,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use libphonenumber\PhoneNumber;
+use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
+use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -28,8 +30,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Table(name: 'users__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Stringable
+class Users implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, \Stringable
 {
+    use TimezoneAwareTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER)]
@@ -150,6 +154,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $address = null;
 
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $timezone = null;
+
     public function __construct()
     {
         $this->friends = new ArrayCollection();
@@ -229,6 +236,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
             $this->friendOf,
             $this->mobile,
             $this->address,
+            $this->timezone,
         ] = $data;
     }
 
@@ -693,6 +701,13 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, \Strin
     public function setAddress(?string $address): static
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function setTimezone(string $timezone): static
+    {
+        $this->timezone = $timezone;
 
         return $this;
     }
