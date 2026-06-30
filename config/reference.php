@@ -1809,6 +1809,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         format?: \libphonenumber\PhoneNumberFormat::E164|\libphonenumber\PhoneNumberFormat::INTERNATIONAL|\libphonenumber\PhoneNumberFormat::NATIONAL|\libphonenumber\PhoneNumberFormat::RFC3966|Param, // Default: 1
  *     },
  * }
+ * @psalm-type SonataIntlConfig = array{
+ *     locale?: scalar|Param|null, // Default: null
+ *     timezone?: array{
+ *         service?: scalar|Param|null,
+ *         detectors?: list<scalar|Param|null>,
+ *         default?: scalar|Param|null, // Default: "Asia/Muscat"
+ *         locales?: array<string, scalar|Param|null>,
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1838,6 +1847,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     misd_phone_number?: MisdPhoneNumberConfig,
+ *     sonata_intl?: SonataIntlConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1871,6 +1881,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         sonata_intl?: SonataIntlConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1902,6 +1913,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         sonata_intl?: SonataIntlConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
