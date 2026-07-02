@@ -41,4 +41,5 @@ return [
     Symfony\UX\Dropzone\DropzoneBundle::class => ['all' => true],
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
     Sonata\IntlBundle\SonataIntlBundle::class => ['all' => true],
+    Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
 ];
