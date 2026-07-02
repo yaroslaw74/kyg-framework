@@ -123,7 +123,7 @@ final class UsersControllerTest extends WebTestCase
             'user[middleName]' => 'edit Middle Name',
         ]);
 
-        self::assertResponseRedirects('/app/user');
+        self::assertResponseRedirects('/app');
 
         $fixture = $this->userRepository->findAll();
 
@@ -155,8 +155,52 @@ final class UsersControllerTest extends WebTestCase
         $this->client->request('GET', \sprintf('/app/user/delete/%s', $fixture->getId()));
         $this->client->submitForm('Delete');
 
-        self::assertResponseRedirects('/app/user');
+        self::assertResponseRedirects('/app');
         self::assertSame(0, $this->userRepository->count([]));
+
+        self::markTestIncomplete('This test was generated');
+    }
+
+    public function testSetSettings(): void
+    {
+        $fixture = new Users();
+        $fixture->setUsername('username');
+        $fixture->setEmail('email@example.com');
+        $fixture->setPassword('password');
+        $fixture->setFirstName('First Name');
+        $fixture->setLastName('Last Name');
+        $fixture->setMiddleName('Middle Name');
+        $fixture->setLocale('en');
+        $fixture->setTimezone(date_default_timezone_get());
+
+        $this->manager->persist($fixture);
+        $this->manager->flush();
+
+        $this->client->request('GET', '/app/user/settings');
+
+        $this->client->submitForm('Update', [
+            'user[username]' => 'edit username',
+            'user[email]' => 'edit@example.com',
+            'user[password]' => 'edit password',
+            'user[firstName]' => 'edit First Name',
+            'user[lastName]' => 'edit Last Name',
+            'user[middleName]' => 'edit Middle Name',
+            'user[locale]' => 'ru',
+            'user[timezone]' => 'Asia/Muscat',
+        ]);
+
+        self::assertResponseRedirects('/app');
+
+        $fixture = $this->userRepository->findAll();
+
+        self::assertSame('Something New', $fixture[0]->getUsername());
+        self::assertSame('Something New', $fixture[0]->getEmail());
+        self::assertSame('Something New', $fixture[0]->getPassword());
+        self::assertSame('Something New', $fixture[0]->getFirstName());
+        self::assertSame('Something New', $fixture[0]->getLastName());
+        self::assertSame('Something New', $fixture[0]->getMiddleName());
+        self::assertSame('Something New', $fixture[0]->getLocale());
+        self::assertSame('Something New', $fixture[0]->getTimezone());
 
         self::markTestIncomplete('This test was generated');
     }
