@@ -42,7 +42,6 @@ class AddUserFormType extends AbstractType
         $builder
             ->add('username', TextType::class, [
                 'label' => $this->translator->trans('Username', [], 'users'),
-                'required' => false,
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
@@ -87,7 +86,6 @@ class AddUserFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'form-group mb-3',
                 ],
-                'required' => false,
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
