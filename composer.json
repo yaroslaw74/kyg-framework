@@ -33,6 +33,7 @@
         "doctrine/orm": "^3.6.7",
         "hwi/oauth-bundle": "^2.5",
         "jbtronics/settings-bundle": "^3.3.1",
+        "knplabs/knp-paginator-bundle": "^6.10",
         "liborm85/composer-vendor-cleaner": "^1.7.1",
         "nelmio/js-logger-bundle": "^1.12",
         "odolbeau/phone-number-bundle": "^4.2.5",
