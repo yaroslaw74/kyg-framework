@@ -43,6 +43,7 @@
         "shivas/versioning-bundle": "^4.2",
         "slowprog/composer-copy-file": "^0.3.3",
         "sonata-project/intl-bundle": "^3.3",
+        "stof/doctrine-extensions-bundle": "^1.15.3",
         "symfony/apache-pack": "^1.0.1",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
