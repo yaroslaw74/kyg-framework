@@ -19,6 +19,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Uploadable\Mapping\Validator;
 use libphonenumber\PhoneNumber;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
@@ -29,107 +34,113 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\Table(name: 'users__user')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
+#[Gedmo\SoftDeleteable]
+#[Gedmo\Uploadable(allowOverwrite: true, appendNumber: true, filenameGenerator: Validator::FILENAME_GENERATOR_SHA1)]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, \Stringable
 {
+    use BlameableEntity;
+    use SoftDeleteableEntity;
+    use TimestampableEntity;
     use TimezoneAwareTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: Types::INTEGER)]
+    #[ORM\Column(name: 'id', type: Types::INTEGER)]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::STRING, length: 180, unique: true, nullable: true)]
+    #[ORM\Column(name: 'username', type: Types::STRING, length: 180, unique: true, nullable: true)]
     private ?string $username = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'email', type: Types::STRING, unique: true, nullable: true)]
     private ?string $email = null;
 
     /**
      * @var list<string> The user roles
      */
-    #[ORM\Column(type: Types::JSON)]
+    #[ORM\Column(name: 'roles', type: Types::JSON)]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
-    #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[ORM\Column(name: 'password', type: Types::STRING, nullable: true)]
     private ?string $password = null;
 
-    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
+    #[ORM\Column(name: 'first_name', type: Types::STRING, length: 100, nullable: true)]
     private ?string $firstName = null;
 
-    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
+    #[ORM\Column(name: 'last_name', type: Types::STRING, length: 100, nullable: true)]
     private ?string $lastName = null;
 
-    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
+    #[ORM\Column(name: 'middle_name', type: Types::STRING, length: 100, nullable: true)]
     private ?string $middleName = null;
 
-    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
+    #[ORM\Column(name: 'locale', type: Types::STRING, length: 20, nullable: true)]
     private ?string $locale = null;
 
-    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    #[ORM\Column(name: 'is_verified', type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'facebook', type: Types::STRING, unique: true, nullable: true)]
     private ?string $facebook = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'yandex', type: Types::STRING, unique: true, nullable: true)]
     private ?string $yandex = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'google', type: Types::STRING, unique: true, nullable: true)]
     private ?string $google = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'linkedin', type: Types::STRING, unique: true, nullable: true)]
     private ?string $linkedin = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'mailru', type: Types::STRING, unique: true, nullable: true)]
     private ?string $mailru = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'odnoklassniki', type: Types::STRING, unique: true, nullable: true)]
     private ?string $odnoklassniki = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'x_twitter', type: Types::STRING, unique: true, nullable: true)]
     private ?string $xTwitter = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'vkontakte', type: Types::STRING, unique: true, nullable: true)]
     private ?string $vkontakte = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'github', type: Types::STRING, unique: true, nullable: true)]
     private ?string $github = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'amazon', type: Types::STRING, unique: true, nullable: true)]
     private ?string $amazon = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'instagram', type: Types::STRING, unique: true, nullable: true)]
     private ?string $instagram = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'twitch', type: Types::STRING, unique: true, nullable: true)]
     private ?string $twitch = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'yahoo', type: Types::STRING, unique: true, nullable: true)]
     private ?string $yahoo = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'spotify', type: Types::STRING, unique: true, nullable: true)]
     private ?string $spotify = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'trello', type: Types::STRING, unique: true, nullable: true)]
     private ?string $trello = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'dropbox', type: Types::STRING, unique: true, nullable: true)]
     private ?string $dropbox = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'flickr', type: Types::STRING, unique: true, nullable: true)]
     private ?string $flickr = null;
 
-    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(name: 'windows_live', type: Types::STRING, unique: true, nullable: true)]
     private ?string $windowsLive = null;
 
-    #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[ORM\Column(name: 'gravatar', type: Types::STRING, nullable: true)]
     private ?string $gravatar = null;
 
-    #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[ORM\Column(name: 'avatar', type: Types::STRING, nullable: true)]
+    #[Gedmo\UploadableFileName]
     private ?string $avatar = null;
 
     /**
@@ -147,14 +158,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
     #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
     private Collection $friendOf;
 
-    #[ORM\Column(type: 'phone_number', nullable: true)]
+    #[ORM\Column(name: 'mobile', type: 'phone_number', nullable: true)]
     /** @phpstan-ignore doctrine.descriptorNotFound */
     private ?PhoneNumber $mobile = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name: 'address', type: Types::TEXT, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[ORM\Column(name: 'timezone', type: Types::STRING, nullable: true)]
     private ?string $timezone = null;
 
     public function __construct()
@@ -237,6 +248,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
             $this->mobile,
             $this->address,
             $this->timezone,
+            $this->createdAt,
+            $this->createdBy,
+            $this->updatedAt,
+            $this->updatedBy,
+            $this->deletedAt,
         ] = $data;
     }
 
