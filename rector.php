@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -23,4 +24,7 @@ return RectorConfig::configure()
     ->withCache(__DIR__.'/var/rector')
     ->withSymfonyContainerPhp(
         __DIR__.'/var/cache/dev/App_KernelDevDebugContainer.php'
-    );
+    )
+    ->withRules([
+        CompleteDynamicPropertiesRector::class,
+    ]);
