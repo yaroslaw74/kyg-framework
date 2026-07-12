@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Entity;
 
+use App\Modules\Users\Enum\UsersStatus;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -46,100 +47,100 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(name: 'id', type: Types::INTEGER)]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $id = null;
 
-    #[ORM\Column(name: 'username', type: Types::STRING, length: 180, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 180, unique: true, nullable: true)]
     private ?string $username = null;
 
-    #[ORM\Column(name: 'email', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $email = null;
 
     /**
      * @var list<string> The user roles
      */
-    #[ORM\Column(name: 'roles', type: Types::JSON)]
+    #[ORM\Column(type: Types::JSON)]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
-    #[ORM\Column(name: 'password', type: Types::STRING, nullable: true)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $password = null;
 
-    #[ORM\Column(name: 'first_name', type: Types::STRING, length: 100, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $firstName = null;
 
-    #[ORM\Column(name: 'last_name', type: Types::STRING, length: 100, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $lastName = null;
 
-    #[ORM\Column(name: 'middle_name', type: Types::STRING, length: 100, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     private ?string $middleName = null;
 
-    #[ORM\Column(name: 'locale', type: Types::STRING, length: 20, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
     private ?string $locale = null;
 
-    #[ORM\Column(name: 'is_verified', type: Types::BOOLEAN, options: ['default' => false])]
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     private bool $isVerified = false;
 
-    #[ORM\Column(name: 'facebook', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $facebook = null;
 
-    #[ORM\Column(name: 'yandex', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $yandex = null;
 
-    #[ORM\Column(name: 'google', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $google = null;
 
-    #[ORM\Column(name: 'linkedin', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $linkedin = null;
 
-    #[ORM\Column(name: 'mailru', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $mailru = null;
 
-    #[ORM\Column(name: 'odnoklassniki', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $odnoklassniki = null;
 
-    #[ORM\Column(name: 'x_twitter', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $xTwitter = null;
 
-    #[ORM\Column(name: 'vkontakte', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $vkontakte = null;
 
-    #[ORM\Column(name: 'github', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $github = null;
 
-    #[ORM\Column(name: 'amazon', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $amazon = null;
 
-    #[ORM\Column(name: 'instagram', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $instagram = null;
 
-    #[ORM\Column(name: 'twitch', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $twitch = null;
 
-    #[ORM\Column(name: 'yahoo', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $yahoo = null;
 
-    #[ORM\Column(name: 'spotify', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $spotify = null;
 
-    #[ORM\Column(name: 'trello', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $trello = null;
 
-    #[ORM\Column(name: 'dropbox', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $dropbox = null;
 
-    #[ORM\Column(name: 'flickr', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $flickr = null;
 
-    #[ORM\Column(name: 'windows_live', type: Types::STRING, unique: true, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $windowsLive = null;
 
-    #[ORM\Column(name: 'gravatar', type: Types::STRING, nullable: true)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $gravatar = null;
 
-    #[ORM\Column(name: 'avatar', type: Types::STRING, nullable: true)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     #[Gedmo\UploadableFileName]
     private ?string $avatar = null;
 
@@ -158,15 +159,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
     #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
     private Collection $friendOf;
 
-    #[ORM\Column(name: 'mobile', type: 'phone_number', nullable: true)]
+    #[ORM\Column(type: 'phone_number', nullable: true)]
     /** @phpstan-ignore doctrine.descriptorNotFound */
     private ?PhoneNumber $mobile = null;
 
-    #[ORM\Column(name: 'address', type: Types::TEXT, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\Column(name: 'timezone', type: Types::STRING, nullable: true)]
-    private ?string $timezone = null;
+    #[ORM\Column(enumType: UsersStatus::class, options: ['default' => UsersStatus::STATUS_NEW])]
+    private UsersStatus $status = UsersStatus::STATUS_NEW;
 
     public function __construct()
     {
@@ -247,6 +248,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
             $this->friendOf,
             $this->mobile,
             $this->address,
+            $this->status,
             $this->timezone,
             $this->createdAt,
             $this->createdBy,
@@ -724,6 +726,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
     public function setTimezone(string $timezone): static
     {
         $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    public function getStatus(): UsersStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(UsersStatus $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }
