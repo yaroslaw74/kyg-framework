@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21ef19da105490e0a2ac99d1b712d602",
+    "content-hash": "8fb3cc251088ed83c9a64e61299e65be",
     "packages": [
         {
             "name": "balrok/composer-mkdir",
@@ -10059,6 +10059,77 @@
                 "source": "https://github.com/webmozarts/assert/tree/2.4.1"
             },
             "time": "2026-06-15T15:31:57+00:00"
+        },
+        {
+            "name": "yokai/enum-bundle",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yokai-php/enum-bundle.git",
+                "reference": "96342ae4bc932a4d8dbd962d15095326c383f9d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yokai-php/enum-bundle/zipball/96342ae4bc932a4d8dbd962d15095326c383f9d0",
+                "reference": "96342ae4bc932a4d8dbd962d15095326c383f9d0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "symfony/framework-bundle": "^7.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.14",
+                "myclabs/php-enum": "^1.8",
+                "phpstan/phpstan": "^1.11",
+                "phpunit/phpunit": "^9.6",
+                "symfony/form": "^7.0",
+                "symfony/http-kernel": "^7.0",
+                "symfony/phpunit-bridge": "^7.3",
+                "symfony/translation": "^7.0",
+                "symfony/twig-bundle": "^7.0",
+                "symfony/validator": "^7.0",
+                "symfony/yaml": "^7.0",
+                "symplify/easy-coding-standard": "^12.3",
+                "twig/twig": "^2.0|^3.0"
+            },
+            "suggest": {
+                "myclabs/php-enum": "Integrate with enum object",
+                "symfony/form": "Add enum form type",
+                "symfony/framework-bundle": "Integrate with Symfony Framework",
+                "symfony/validator": "Add enum validation",
+                "twig/twig": "Add enum util functions"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev",
+                    "dev-3.x": "3.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-5.x": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yokai\\EnumBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Eugoné",
+                    "email": "eugone.yann@gmail.com"
+                }
+            ],
+            "description": "Simple enumeration system with Symfony integration",
+            "support": {
+                "issues": "https://github.com/yokai-php/enum-bundle/issues",
+                "source": "https://github.com/yokai-php/enum-bundle/tree/v5.1.0"
+            },
+            "time": "2025-09-02T13:45:17+00:00"
         }
     ],
     "packages-dev": [
