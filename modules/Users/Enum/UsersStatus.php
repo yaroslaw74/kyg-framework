@@ -16,12 +16,12 @@ namespace App\Modules\Users\Enum;
 
 enum UsersStatus: string
 {
-    case STATUS_NEW = 'New';
-    case STATUS_PENDING = 'Pending';
-    case STATUS_VALIDATED = 'Validated';
-    case STATUS_INACTIVE = 'Inactive';
-    case STATUS_ACTIVE = 'Active';
-    case STATUS_BANNED = 'Banned';
-    case STATUS_DISABLED = 'Disabled';
-    case STATUS_DELETED = 'Deleted';
+    case New = 'New';
+    case Pending = 'Pending';
+    case Validated = 'Validated';
+    case Inactive = 'Inactive';
+    case Active = 'Active';
+    case Banned = 'Banned';
+    case Disabled = 'Disabled';
+    case Deleted = 'Deleted';
 }
