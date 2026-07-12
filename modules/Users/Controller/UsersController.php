@@ -19,8 +19,10 @@ use App\Modules\Users\Form\Type\AddUserFormType;
 use App\Modules\Users\Form\Type\EditProfileFormType;
 use App\Modules\Users\Form\Type\ProfileFormType;
 use App\Modules\Users\Form\Type\SetAvatarUserFormType;
+use App\Modules\Users\Form\Type\UserLanguageFormType;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,33 +36,70 @@ final class UsersController extends AbstractController
         private readonly EntityManagerInterface $entityManager,
         private readonly UsersRepository $usersRepository,
         private readonly UserPasswordHasherInterface $userPasswordHasher,
+        private readonly PaginatorInterface $paginator,
     ) {
     }
 
     #[Route('/app/user/list/{page}', name: 'app_user_list', methods: ['GET'])]
     public function index(Request $request, int $page = 1): Response
     {
-        return $this->render('app/modules/users/entity/users/index.html.twig', [
-            'users' => $this->usersRepository->findAll(),
+        $this->entityManager->getFilters()->disable('softdeleteable');
+        $users = $this->usersRepository->findAll();
+        $pagination = $this->paginator->paginate($users, $request->query->getInt('page', $page));
+
+        return $this->render('@Users/core/userlist.html.twig', [
+            'pagination' => $pagination,
         ]);
     }
 
     #[Route('/app/user/new', name: 'app_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request): Response|RedirectResponse
     {
         $user = new Users();
         $form = $this->createForm(AddUserFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $username = $form->get('username')->getData();
+            $lastName = $form->get('lastName')->getData();
+            $firstName = $form->get('firstName')->getData();
+            $middleName = $form->get('middleName')->getData();
+            $email = $form->get('email')->getData();
+            $plainPassword = $form->get('plainPassword')->getData();
+
+            if ('' !== $username) {
+                $user->setUsername($username);
+            }
+
+            if ('' !== $lastName) {
+                $user->setLastName($lastName);
+            }
+
+            if ('' !== $firstName) {
+                $user->setFirstName($firstName);
+            }
+
+            if ('' !== $middleName) {
+                $user->setMiddleName($middleName);
+            }
+
+            if ('' !== $email) {
+                $user->setEmail($email);
+            }
+
+            if ('' !== $plainPassword) {
+                $user->setPassword($this->userPasswordHasher->hashPassword($user, $plainPassword));
+            }
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 
-            return $this->redirectToRoute('app_user', [], Response::HTTP_SEE_OTHER);
+            $referer = $request->headers->get('referer');
+
+            return $this->redirectToRoute($referer ?? $this->generateUrl('app'), [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('app/modules/users/entity/users/new.html.twig', [
-            'user' => $user,
+        return $this->render('@Users/core/add_user.html.twig', [
             'form' => $form,
         ]);
     }
@@ -68,6 +107,8 @@ final class UsersController extends AbstractController
     #[Route('/app/user/show/{id}', name: 'app_user_show', methods: ['GET', 'POST'])]
     public function show(Request $request, ?int $id = null): Response
     {
+        $this->entityManager->getFilters()->disable('softdeleteable');
+
         /** @var Users $user */
         $user = (null === $id) ? $this->getUser() : $this->usersRepository->find($id);
 
@@ -201,6 +242,7 @@ final class UsersController extends AbstractController
         $getUser = null;
 
         if (null !== $id) {
+            $this->entityManager->getFilters()->disable('softdeleteable');
             $getUser = $this->usersRepository->find($id);
         }
 
@@ -215,6 +257,8 @@ final class UsersController extends AbstractController
     public function delete(Request $request): RedirectResponse
     {
         $id = $request->query->get('id');
+
+        $this->entityManager->getFilters()->disable('softdeleteable');
 
         /** @var Users $user */
         $user = $this->usersRepository->find($id);
@@ -247,5 +291,38 @@ final class UsersController extends AbstractController
         $referer = $request->headers->get('referer');
 
         return $this->redirectToRoute($referer ?? $this->generateUrl('app'), [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/app/user/settings', name: 'app_user_settings', methods: ['POST', 'GET'])]
+    public function setSettings(Request $request): Response
+    {
+        $user = $this->getUser();
+        if (!$user instanceof Users) {
+            $user = new Users();
+        }
+
+        $formLanguage = $this->createForm(UserLanguageFormType::class, $user);
+        $formLanguage->handleRequest($request);
+
+        if ($formLanguage->isSubmitted() && $formLanguage->isValid()) {
+            /** @var string $locale */
+            $locale = $formLanguage->get('locale')->getData();
+            if ('' !== $locale) {
+                $user->setLocale($locale);
+            }
+
+            /** @var string $timezone */
+            $timezone = $formLanguage->get('timezone')->getData();
+            if ('' !== $timezone) {
+                $user->setTimezone($timezone);
+            }
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        return $this->render('@Users/core/settings.html.twig', [
+            'langugeForm' => $formLanguage,
+        ]);
     }
 }
