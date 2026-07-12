@@ -171,7 +171,7 @@ final class UsersControllerTest extends WebTestCase
         $fixture->setLastName('Last Name');
         $fixture->setMiddleName('Middle Name');
         $fixture->setLocale('en');
-        $fixture->setTimezone(date_default_timezone_get());
+        $fixture->setTimezone('UTC');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
@@ -186,7 +186,7 @@ final class UsersControllerTest extends WebTestCase
             'user[lastName]' => 'edit Last Name',
             'user[middleName]' => 'edit Middle Name',
             'user[locale]' => 'ru',
-            'user[timezone]' => 'Asia/Muscat',
+            'user[timezone]' => 'UTC',
         ]);
 
         self::assertResponseRedirects('/app');
