@@ -29,6 +29,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Workflow\WorkflowInterface;
 
 final class UsersController extends AbstractController
 {
@@ -37,6 +38,7 @@ final class UsersController extends AbstractController
         private readonly UsersRepository $usersRepository,
         private readonly UserPasswordHasherInterface $userPasswordHasher,
         private readonly PaginatorInterface $paginator,
+        private readonly WorkflowInterface $userStatusStateMachine,
     ) {
     }
 
@@ -89,7 +91,11 @@ final class UsersController extends AbstractController
 
             if ('' !== $plainPassword) {
                 $user->setPassword($this->userPasswordHasher->hashPassword($user, $plainPassword));
+                $this->userStatusStateMachine->apply($user, 'pending');
             }
+
+            $user->setCreatedAt(new \DateTime());
+            $user->setCreatedBy((string) $this->getUser());
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -122,6 +128,9 @@ final class UsersController extends AbstractController
             if ('' !== $avatar) {
                 $user->setAvatar($avatar);
             }
+
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -162,6 +171,9 @@ final class UsersController extends AbstractController
                 $user->setPassword($this->userPasswordHasher->hashPassword($user, $plainPassword));
             }
 
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
@@ -195,6 +207,9 @@ final class UsersController extends AbstractController
             if ('' !== $avatar) {
                 $user->setAvatar($avatar);
             }
+
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -235,6 +250,9 @@ final class UsersController extends AbstractController
                 $user->setGravatar($gravatar);
             }
 
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
+
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
@@ -264,6 +282,7 @@ final class UsersController extends AbstractController
         $user = $this->usersRepository->find($id);
 
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {
+            $this->userStatusStateMachine->apply($user, 'deleted');
             $this->entityManager->remove($user);
             $this->entityManager->flush();
         }
@@ -284,6 +303,9 @@ final class UsersController extends AbstractController
         $user_frend = $this->usersRepository->find($frend);
 
         $user->removeFriend($user_frend);
+
+        $user->setUpdatedAt(new \DateTime());
+        $user->setUpdatedBy((string) $this->getUser());
 
         $this->entityManager->remove($user);
         $this->entityManager->flush();
@@ -316,6 +338,9 @@ final class UsersController extends AbstractController
             if ('' !== $timezone) {
                 $user->setTimezone($timezone);
             }
+
+            $user->setUpdatedAt(new \DateTime());
+            $user->setUpdatedBy((string) $this->getUser());
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
