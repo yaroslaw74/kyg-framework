@@ -1,0 +1,57 @@
+framework:
+    workflows:
+        user_status:
+            type: "state_machine"
+            marking_store:
+                type: "method"
+                property: "status"
+            supports:
+                - App\Modules\Users\Entity\User
+            initial_marking: !php/enum App\Modules\Users\Enum\UsersStatus::New
+            places: !php/enum App\Modules\Users\Enum\UsersStatus
+            transitions:
+                validated:
+                    from: !php/enum App\Modules\Users\Enum\UsersStatus::New
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Validated
+                pending:
+                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Validated
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Pending
+                active:
+                    from:
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::New
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Pending
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Validated
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Active
+                inactive:
+                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Active
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
+                banned:
+                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Active
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Banned
+                deleted:
+                    from:
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::New
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Pending
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Active
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Banned
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Validated
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Deleted
+                disabled:
+                    from:
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::New
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Pending
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Active
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Banned
+                        - !php/enum App\Modules\Users\Enum\UsersStatus::Validated
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                not_banned:
+                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Banned
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                not_deleted:
+                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Deleted
+                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
