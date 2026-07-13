@@ -6,7 +6,7 @@ framework:
                 type: "method"
                 property: "status"
             supports:
-                - App\Modules\Users\Entity\User
+                - App\Modules\Users\Entity\Users
             initial_marking: !php/enum App\Modules\Users\Enum\UsersStatus::New
             places: !php/enum App\Modules\Users\Enum\UsersStatus
             transitions:
