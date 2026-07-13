@@ -27,6 +27,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
@@ -35,6 +36,7 @@ class RegistrationController extends AbstractController
     public function __construct(
         private readonly EmailVerifier $emailVerifier,
         private readonly TranslatorInterface $translator,
+        private readonly WorkflowInterface $userStatusStateMachine,
     ) {
     }
 
@@ -51,6 +53,10 @@ class RegistrationController extends AbstractController
 
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+
+            $this->userStatusStateMachine->apply($user, 'pending');
+            $user->setCreatedAt(new \DateTime());
+            $user->setCreatedBy((string) $user);
 
             $entityManager->persist($user);
             $entityManager->flush();
