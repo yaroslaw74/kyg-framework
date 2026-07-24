@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -14,17 +13,29 @@ return RectorConfig::configure()
     ])
     ->withSkip([
         __DIR__.'/config/bundles.php',
+        __DIR__.'/config/preload.php',
+        __DIR__.'/config/reference.php',
+        __DIR__.'/src/Kernel.php',
         __DIR__.'/importmap.php',
-        __DIR__.'/modules/Users/Entity/ResetPasswordRequest.php',
     ])
     ->withRootFiles()
     ->withPhpSets()
-    ->withComposerBased(twig: true, doctrine: true, phpunit: true, symfony: true)
-    ->withPreparedSets(deadCode: true, codeQuality: true)
+    ->withComposerBased(
+        twig: true,
+        doctrine: true,
+        phpunit: true,
+        symfony: true
+    )
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        codingStyle: true,
+        typeDeclarations: true,
+        privatization: true,
+        naming: true,
+        rectorPreset: true
+    )
     ->withCache(__DIR__.'/var/rector')
     ->withSymfonyContainerPhp(
         __DIR__.'/var/cache/dev/App_KernelDevDebugContainer.php'
-    )
-    ->withRules([
-        CompleteDynamicPropertiesRector::class,
-    ]);
+    );
