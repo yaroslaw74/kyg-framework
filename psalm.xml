@@ -9,6 +9,10 @@
         <directory name="modules"/>
         <directory name="public"/>
         <ignoreFiles>
+            <file name="config/bundles.php"/>
+            <file name="config/preload.php"/>
+            <file name="config/reference.php"/>
+            <file name="src\Kernel.php"/>
             <directory name="vendor"/>
         </ignoreFiles>
     </projectFiles>
@@ -17,17 +21,13 @@
             <containerXml>var/cache/dev/App_KernelDevDebugContainer.xml</containerXml>
             <containerXml>var/cache/dev/App_KernelTestDebugContainer.xml</containerXml>
         </pluginClass>
-        <pluginClass class="Weirdan\DoctrinePsalmPlugin\Plugin"/>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
         <pluginClass class="Psl\Psalm\Plugin"/>
+        <pluginClass class="Weirdan\DoctrinePsalmPlugin\Plugin"/>
+        <pluginClass class="Lctrs\PsalmPsrContainerPlugin\Plugin"/>
         <pluginClass class="Orklah\PsalmInsaneComparison\Plugin"/>
         <pluginClass class="Orklah\StrictEquality\Plugin"/>
-        <pluginClass class="Lctrs\PsalmPsrContainerPlugin\Plugin"/>
     </plugins>
-    <extraFiles>
-        <directory name="var/cache/dev/Symfony/Config"/>
-        <!-- https://github.com/psalm/psalm-plugin-symfony/issues/201 -->
-    </extraFiles>
     <stubs>
         <file name="vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php"/>
     </stubs>
