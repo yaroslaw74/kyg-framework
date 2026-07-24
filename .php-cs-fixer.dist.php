@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$finder = (new PhpCsFixer\Finder())
+$finder = new PhpCsFixer\Finder()
     ->in(__DIR__)
     ->exclude('var')
     ->notPath([
@@ -11,7 +11,7 @@ $finder = (new PhpCsFixer\Finder())
     ])
 ;
 
-return (new PhpCsFixer\Config())
+return new PhpCsFixer\Config()
     ->setRules([
         '@Symfony' => true,
     ])
