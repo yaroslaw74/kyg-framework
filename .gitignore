@@ -33,23 +33,15 @@
 phpstan.neon
 ###< phpstan/phpstan ###
 
+###> kocal/biome-js-bundle ###
+/bin/biome*
+###< kocal/biome-js-bundle ###
+
 ###> friendsofphp/php-cs-fixer ###
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 
-###> kocal/biome-js-bundle ###
-/bin/biome*
-###< kocal/biome-js-bundle ###
-
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
-
-###> friends-of-behat/symfony-extension ###
-/behat.yml
-###< friends-of-behat/symfony-extension ###
-
-###> symfonycasts/sass-bundle ###
-/public/assets/
-###< symfonycasts/sass-bundle ###
