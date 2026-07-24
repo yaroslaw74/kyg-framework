@@ -20,16 +20,16 @@ final class AppControllerTest extends WebTestCase
 {
     public function testIndex(): void
     {
-        $client = self::createClient();
-        $client->request('GET', '/app');
+        $kernelBrowser = self::createClient();
+        $kernelBrowser->request('GET', '/app');
 
         self::assertResponseIsSuccessful();
     }
 
     public function testHome(): void
     {
-        $client = self::createClient();
-        $client->request('GET', '/app/home');
+        $kernelBrowser = self::createClient();
+        $kernelBrowser->request('GET', '/app/home');
 
         self::assertResponseIsSuccessful();
     }
