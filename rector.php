@@ -33,7 +33,7 @@ return RectorConfig::configure()
         typeDeclarations: true,
         privatization: true,
         naming: true,
-        rectorPreset: true
+        rectorPreset: false
     )
     ->withCache(__DIR__.'/var/rector')
     ->withSymfonyContainerPhp(
