@@ -23,14 +23,14 @@ class LocaleSubscriber implements EventSubscriberInterface
 {
     private readonly string $defaultLocale;
 
-    public function __construct(private readonly ContainerBagInterface $params)
+    public function __construct(private readonly ContainerBagInterface $containerBag)
     {
-        $this->defaultLocale = $this->params->get('kernel.default_locale');
+        $this->defaultLocale = $this->containerBag->get('kernel.default_locale');
     }
 
-    public function onKernelRequest(RequestEvent $event): void
+    public function onKernelRequest(RequestEvent $requestEvent): void
     {
-        $request = $event->getRequest();
+        $request = $requestEvent->getRequest();
         if (!$request->hasPreviousSession()) {
             return;
         }
