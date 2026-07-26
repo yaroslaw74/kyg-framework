@@ -10,6 +10,10 @@ hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.php"
     prefix: /login
 
+hwi_oauth_app_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.php"
+    prefix: /app/login
+
 facebook-login:
     path: /login/check-facebook
 
@@ -63,3 +67,57 @@ flickr-login:
 
 windows-live-login:
     path: /login/check-windows-live
+
+facebook-app-login:
+    path: /app/login/check-facebook
+
+yandex-app-login:
+    path: /app/login/check-yandex
+
+google-app-login:
+    path: /app/login/check-google
+
+linkedin-app-login:
+    path: /app/login/check-linkedin
+
+mailru-app-login:
+    path: /app/login/check-mailru
+
+odnoklassniki-app-login:
+    path: /app/login/check-odnoklassniki
+
+xtwitter-app-login:
+    path: /app/login/check-xtwitter
+
+vkontakte-app-login:
+    path: /app/login/check-vkontakte
+
+github-app-login:
+    path: /app/login/check-github
+
+amazon-app-login:
+    path: /app/login/check-amazon
+
+instagram-app-login:
+    path: /app/login/check-instagram
+
+twitch-app-login:
+    path: /app/login/check-twitch
+
+yahoo-app-login:
+    path: /app/login/check-yahoo
+
+spotify-app-login:
+    path: /app/login/check-spotify
+
+trello-app-login:
+    path: /app/login/check-trello
+
+dropbox-app-login:
+    path: /app/login/check-dropbox
+
+flickr-app-login:
+    path: /app/login/check-flickr
+
+windows-live-app-login:
+    path: /app/login/check-windows-live
