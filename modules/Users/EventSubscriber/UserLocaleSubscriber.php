@@ -28,9 +28,9 @@ class UserLocaleSubscriber implements EventSubscriberInterface
     {
     }
 
-    public function onLoginSuccess(LoginSuccessEvent $event): void
+    public function onLoginSuccess(LoginSuccessEvent $loginSuccessEvent): void
     {
-        $user = $event->getUser();
+        $user = $loginSuccessEvent->getUser();
 
         if (null !== $user->getLocale()) { // @phpstan-ignore method.notFound
             $this->requestStack->getSession()->set('_locale', $user->getLocale()); // @phpstan-ignore method.notFound
