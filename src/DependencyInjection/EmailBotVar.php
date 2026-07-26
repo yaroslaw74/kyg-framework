@@ -29,11 +29,11 @@ class EmailBotVar implements EnvVarLoaderInterface
      */
     public function loadEnvVars(): array
     {
-        $settings = $this->settingsManager->get(EmailBotSettings::class);
+        $emailBotSettings = $this->settingsManager->get(EmailBotSettings::class);
 
         return [
-            'ENV_BOT_EMAIL' => $settings->getBotEmail(),
-            'ENV_BOT_NAME' => $settings->getBotName(),
+            'ENV_BOT_EMAIL' => $emailBotSettings->getBotEmail(),
+            'ENV_BOT_NAME' => $emailBotSettings->getBotName(),
         ];
     }
 }
