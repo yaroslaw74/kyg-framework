@@ -18,14 +18,14 @@ use App\Modules\Users\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class LoginControllerTest extends WebTestCase
+final class LoginControllerTest extends WebTestCase
 {
-    private KernelBrowser $client;
+    private KernelBrowser $kernelBrowser;
 
     protected function setUp(): void
     {
-        $this->client = static::createClient();
-        $container = static::getContainer();
+        $this->kernelBrowser = self::createClient();
+        $container = self::getContainer();
         $em = $container->get('doctrine.orm.entity_manager');
         $userRepository = $em->getRepository(Users::class);
 
@@ -40,7 +40,7 @@ class LoginControllerTest extends WebTestCase
         $passwordHasher = $container->get('security.user_password_hasher');
 
         $user = new Users();
-        $user->setEmail('email@example.com');
+        $user->setUsername('username');
         $user->setPassword($passwordHasher->hashPassword($user, 'password'));
 
         $em->persist($user);
@@ -50,43 +50,43 @@ class LoginControllerTest extends WebTestCase
     public function testLogin(): void
     {
         // Denied - Can't login with invalid email address.
-        $this->client->request('GET', '/app/login');
+        $this->kernelBrowser->request('GET', '/app/login');
         self::assertResponseIsSuccessful();
 
-        $this->client->submitForm('Sign in', [
+        $this->kernelBrowser->submitForm('Sign in', [
             '_username' => 'username',
             '_password' => 'password',
         ]);
 
         self::assertResponseRedirects('/app/login');
-        $this->client->followRedirect();
+        $this->kernelBrowser->followRedirect();
 
         // Ensure we do not reveal if the user exists or not.
         self::assertSelectorTextContains('.alert-danger', 'Invalid credentials.');
 
         // Denied - Can't login with invalid password.
-        $this->client->request('GET', '/login');
+        $this->kernelBrowser->request('GET', '/login');
         self::assertResponseIsSuccessful();
 
-        $this->client->submitForm('Sign in', [
-            '_username' => 'username',
+        $this->kernelBrowser->submitForm('Sign in', [
+            '_username' => 'bad-username',
             '_password' => 'bad-password',
         ]);
 
         self::assertResponseRedirects('/app/login');
-        $this->client->followRedirect();
+        $this->kernelBrowser->followRedirect();
 
         // Ensure we do not reveal the user exists but the password is wrong.
         self::assertSelectorTextContains('.alert-danger', 'Invalid credentials.');
 
         // Success - Login with valid credentials is allowed.
-        $this->client->submitForm('Sign in', [
+        $this->kernelBrowser->submitForm('Sign in', [
             '_username' => 'username',
             '_password' => 'password',
         ]);
 
         self::assertResponseRedirects('/app');
-        $this->client->followRedirect();
+        $this->kernelBrowser->followRedirect();
 
         self::assertSelectorNotExists('.alert-danger');
     }
