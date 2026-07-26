@@ -1,4 +1,4 @@
-import Pickr from "@simonwep/pickr/dist/pickr.es5.min.js";
+import Pickr from "@simonwep/pickr";
 import * as bootstrap from "bootstrap";
 import Choices from "choices.js";
 import Waves from "node-waves";
