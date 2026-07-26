@@ -48,14 +48,14 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface, 
      */
     public function getGlobals(): array
     {
-        $settings = $this->settingsManager->get(TwigGlobalsSettings::class);
+        $twigGlobalsSettings = $this->settingsManager->get(TwigGlobalsSettings::class);
 
         return [
-            'app_name' => $settings->getName(),
-            'app_desktop_logo' => $settings->getDesktopLogo(),
-            'app_toggle_logo' => $settings->getToggleLogo(),
-            'app_desktop_white' => $settings->getDesktopWhite(),
-            'app_toggle_white' => $settings->getToggleWhite(),
+            'app_name' => $twigGlobalsSettings->getName(),
+            'app_desktop_logo' => $twigGlobalsSettings->getDesktopLogo(),
+            'app_toggle_logo' => $twigGlobalsSettings->getToggleLogo(),
+            'app_desktop_white' => $twigGlobalsSettings->getDesktopWhite(),
+            'app_toggle_white' => $twigGlobalsSettings->getToggleWhite(),
         ];
     }
 }
