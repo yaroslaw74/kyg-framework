@@ -19,6 +19,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * @see \App\Tests\Controller\LoginControllerTest
+ */
 class SecurityController extends AbstractController
 {
     #[Route(path: '/app/login', name: 'app_login', methods: ['GET', 'POST'])]
