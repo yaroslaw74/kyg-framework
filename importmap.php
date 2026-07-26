@@ -65,6 +65,8 @@ return [
     '@popperjs/core' => ['version' => '2.11.8'],
     '@simonwep/pickr' => ['version' => '1.10.0'],
     '@simonwep/pickr/dist/themes/nano.min.css' => ['version' => '1.10.0', 'type' => 'css'],
+    'choices.js' => ['version' => '11.2.3'],
+    'choices.js/public/assets/styles/choices.min.css' => ['version' => '11.2.3', 'type' => 'css'],
     'node-waves' => ['version' => '0.7.6'],
     'node-waves/dist/waves.min.css' => ['version' => '0.7.6', 'type' => 'css'],
     'simplebar' => ['version' => '6.3.3'],
