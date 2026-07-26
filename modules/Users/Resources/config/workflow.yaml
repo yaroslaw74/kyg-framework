@@ -7,51 +7,51 @@ framework:
                 property: "status"
             supports:
                 - App\Modules\Users\Entity\Users
-            initial_marking: !php/enum App\Modules\Users\Enum\UsersStatus::New
-            places: !php/enum App\Modules\Users\Enum\UsersStatus
+            initial_marking: !php/enum App\Modules\Users\Enum\Status::New
+            places: !php/enum App\Modules\Users\Enum\Status
             transitions:
                 validated:
-                    from: !php/enum App\Modules\Users\Enum\UsersStatus::New
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Validated
+                    from: !php/enum App\Modules\Users\Enum\Status::New
+                    to: !php/enum App\Modules\Users\Enum\Status::Validated
                 pending:
-                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Validated
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Pending
+                    from: !php/enum App\Modules\Users\Enum\Status::Validated
+                    to: !php/enum App\Modules\Users\Enum\Status::Pending
                 active:
                     from:
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::New
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Pending
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Validated
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Active
+                        - !php/enum App\Modules\Users\Enum\Status::New
+                        - !php/enum App\Modules\Users\Enum\Status::Pending
+                        - !php/enum App\Modules\Users\Enum\Status::Inactive
+                        - !php/enum App\Modules\Users\Enum\Status::Disabled
+                        - !php/enum App\Modules\Users\Enum\Status::Validated
+                    to: !php/enum App\Modules\Users\Enum\Status::Active
                 inactive:
-                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Active
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
+                    from: !php/enum App\Modules\Users\Enum\Status::Active
+                    to: !php/enum App\Modules\Users\Enum\Status::Inactive
                 banned:
-                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Active
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Banned
+                    from: !php/enum App\Modules\Users\Enum\Status::Active
+                    to: !php/enum App\Modules\Users\Enum\Status::Banned
                 deleted:
                     from:
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::New
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Pending
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Active
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Banned
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Validated
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Deleted
+                        - !php/enum App\Modules\Users\Enum\Status::New
+                        - !php/enum App\Modules\Users\Enum\Status::Pending
+                        - !php/enum App\Modules\Users\Enum\Status::Active
+                        - !php/enum App\Modules\Users\Enum\Status::Inactive
+                        - !php/enum App\Modules\Users\Enum\Status::Banned
+                        - !php/enum App\Modules\Users\Enum\Status::Disabled
+                        - !php/enum App\Modules\Users\Enum\Status::Validated
+                    to: !php/enum App\Modules\Users\Enum\Status::Deleted
                 disabled:
                     from:
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::New
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Pending
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Active
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Inactive
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Banned
-                        - !php/enum App\Modules\Users\Enum\UsersStatus::Validated
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                        - !php/enum App\Modules\Users\Enum\Status::New
+                        - !php/enum App\Modules\Users\Enum\Status::Pending
+                        - !php/enum App\Modules\Users\Enum\Status::Active
+                        - !php/enum App\Modules\Users\Enum\Status::Inactive
+                        - !php/enum App\Modules\Users\Enum\Status::Banned
+                        - !php/enum App\Modules\Users\Enum\Status::Validated
+                    to: !php/enum App\Modules\Users\Enum\Status::Disabled
                 not_banned:
-                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Banned
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                    from: !php/enum App\Modules\Users\Enum\Status::Banned
+                    to: !php/enum App\Modules\Users\Enum\Status::Disabled
                 not_deleted:
-                    from: !php/enum App\Modules\Users\Enum\UsersStatus::Deleted
-                    to: !php/enum App\Modules\Users\Enum\UsersStatus::Disabled
+                    from: !php/enum App\Modules\Users\Enum\Status::Deleted
+                    to: !php/enum App\Modules\Users\Enum\Status::Disabled
