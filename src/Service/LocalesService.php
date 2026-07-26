@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class LocalesService
 {
-    public function __construct(private readonly ContainerBagInterface $params)
+    public function __construct(private readonly ContainerBagInterface $containerBag)
     {
     }
 
@@ -29,7 +29,7 @@ class LocalesService
      */
     public function getLocales(): array
     {
-        return $this->params->get('app.locales');
+        return $this->containerBag->get('app.locales');
     }
 
     public function getLocaleName(string $locale): string
@@ -55,9 +55,7 @@ class LocalesService
 
     public function getLocaleHTML(string $locale): string
     {
-        str_contains($locale, '_') ? $html = str_replace('_', '-', $locale) : $html = $locale;
-
-        return $html;
+        return str_contains($locale, '_') ? str_replace('_', '-', $locale) : $locale;
     }
 
     /**
@@ -70,12 +68,14 @@ class LocalesService
         if (\in_array($language, $locales, true)) {
             return $language;
         }
+
         $poz = strrpos($language, '-');
         if (false !== $poz) {
             $language = substr($language, 0, $poz);
             if (\in_array($language, $locales, true)) {
                 return $language;
             }
+
             $poz = strrpos($language, '-');
             if (false !== $poz) {
                 $language = substr($language, 0, $poz);
