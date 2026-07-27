@@ -22,6 +22,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
@@ -31,20 +32,23 @@ use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
+/**
+ * @see \App\Tests\Controller\RegistrationControllerTest
+ */
 class RegistrationController extends AbstractController
 {
     public function __construct(
         private readonly EmailVerifier $emailVerifier,
         private readonly TranslatorInterface $translator,
-        private readonly WorkflowInterface $userStatusStateMachine,
+        #[Target('user_status')] private readonly WorkflowInterface $workflow,
     ) {
     }
 
     #[Route('/app/register', name: 'app_register', methods: ['GET', 'POST'])]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
-        $user = new Users();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $users = new Users();
+        $form = $this->createForm(RegistrationFormType::class, $users);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,30 +56,30 @@ class RegistrationController extends AbstractController
             $plainPassword = $form->get('plainPassword')->getData();
 
             // encode the plain password
-            $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+            $users->setPassword($userPasswordHasher->hashPassword($users, $plainPassword));
 
-            $this->userStatusStateMachine->apply($user, 'pending');
-            $user->setCreatedAt(new \DateTime());
-            $user->setCreatedBy((string) $user);
+            $this->workflow->apply($users, 'pending');
+            $users->setCreatedAt(new \DateTime());
+            $users->setCreatedBy((string) $users);
 
-            $entityManager->persist($user);
+            $entityManager->persist($users);
             $entityManager->flush();
 
-            $email = new TemplatedEmail();
+            $templatedEmail = new TemplatedEmail();
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation(
                 'app_verify_email',
-                $user,
-                $email
+                $users,
+                $templatedEmail
                     ->from(new Address($this->getParameter('app.email_bot'), $this->getParameter('app.name_bot')))
-                    ->to((string) $user->getEmail())
+                    ->to((string) $users->getEmail())
                     ->subject($this->translator->trans('Please Confirm your Email', [], 'users'))
                     ->htmlTemplate('@Users/registration/confirmation_email.html.twig')
             );
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, 'form_login', 'app');
+            return $security->login($users, 'form_login', 'app');
         }
 
         return $this->render('@Users/registration/signup.html.twig', [
@@ -101,8 +105,8 @@ class RegistrationController extends AbstractController
         // validate email confirmation link, sets User::isVerified=true and persists
         try {
             $this->emailVerifier->handleEmailConfirmation($request, $user);
-        } catch (VerifyEmailExceptionInterface $exception) {
-            $this->addFlash('verify_email_error', $this->translator->trans($exception->getReason(), [], 'VerifyEmailBundle'));
+        } catch (VerifyEmailExceptionInterface $verifyEmailException) {
+            $this->addFlash('verify_email_error', $this->translator->trans($verifyEmailException->getReason(), [], 'VerifyEmailBundle'));
 
             return $this->redirectToRoute('app_register');
         }
