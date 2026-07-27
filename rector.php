@@ -17,6 +17,7 @@ return RectorConfig::configure()
         __DIR__.'/config/reference.php',
         __DIR__.'/src/Kernel.php',
         __DIR__.'/importmap.php',
+        __DIR__.'/modules/Users/Entity/ResetPasswordRequest.php',
     ])
     ->withRootFiles()
     ->withPhpSets()
