@@ -34,20 +34,20 @@ final readonly class FormHandler implements RegistrationFormHandlerInterface
      */
     public function process(Request $request, FormInterface $form, UserResponseInterface $userInformation): bool
     {
-        $user = new Users();
-        $user->setEmail($userInformation->getEmail());
-        $user->setUsername($userInformation->getNickname());
-        $user->setFirstName($userInformation->getFirstName());
-        $user->setLastName($userInformation->getLastName());
+        $users = new Users();
+        $users->setEmail($userInformation->getEmail());
+        $users->setUsername($userInformation->getNickname());
+        $users->setFirstName($userInformation->getFirstName());
+        $users->setLastName($userInformation->getLastName());
 
-        $form->setData($user);
+        $form->setData($users);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            $user->setPassword(
+            $users->setPassword(
                 $this->userPasswordHasher->hashPassword(
-                    $user,
+                    $users,
                     $form->get('plainPassword')->getData()
                 )
             );
