@@ -31,6 +31,7 @@ return [
     'valex' => ['path' => './modules/Core/Resources/assets/valex.js', 'entrypoint' => true],
     '@symfony/stimulus-bundle' => ['path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js'],
     '@symfony/ux-turbo' => ['path' => './vendor/symfony/ux-turbo/assets/dist/turbo_controller.js'],
+    '@symfony/ux-dropzone' => ['path' => './vendor/symfony/ux-dropzone/assets/dist/controller.js'],
     '@hotwired/stimulus' => ['version' => '3.2.2'],
     '@hotwired/turbo' => ['version' => '8.0.23'],
     'es-module-shims' => ['version' => '2.8.2'],
