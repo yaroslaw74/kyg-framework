@@ -21,30 +21,32 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class ResetPasswordControllerTest extends WebTestCase
+final class ResetPasswordControllerTest extends WebTestCase
 {
-    private KernelBrowser $client;
-    private EntityManagerInterface $em;
-    private UsersRepository $userRepository;
+    private KernelBrowser $kernelBrowser;
+
+    private EntityManagerInterface $entityManager;
+
+    private UsersRepository $usersRepository;
 
     protected function setUp(): void
     {
-        $this->client = static::createClient();
+        $this->kernelBrowser = self::createClient();
 
         // Ensure we have a clean database
-        $container = static::getContainer();
+        $container = self::getContainer();
 
         /** @var EntityManagerInterface $em */
         $em = $container->get('doctrine')->getManager();
-        $this->em = $em;
+        $this->entityManager = $em;
 
-        $this->userRepository = $container->get(UsersRepository::class);
+        $this->usersRepository = $container->get(UsersRepository::class);
 
-        foreach ($this->userRepository->findAll() as $user) {
-            $this->em->remove($user);
+        foreach ($this->usersRepository->findAll() as $user) {
+            $this->entityManager->remove($user);
         }
 
-        $this->em->flush();
+        $this->entityManager->flush();
     }
 
     public function testResetPasswordController(): void
@@ -55,17 +57,17 @@ class ResetPasswordControllerTest extends WebTestCase
             ->setEmail('me@example.com')
             ->setPassword('a-test-password-that-will-be-changed-later')
         ;
-        $this->em->persist($user);
-        $this->em->flush();
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
 
         // Test Request reset password page
-        $this->client->request('GET', '/app/reset-password');
+        $this->kernelBrowser->request('GET', '/app/reset-password');
 
         self::assertResponseIsSuccessful();
         self::assertPageTitleContains('Reset your password');
 
         // Submit the reset password form and test email message is queued / sent
-        $this->client->submitForm('Send password reset email', [
+        $this->kernelBrowser->submitForm('Send password reset email', [
             'reset_password_request_form[email]' => 'me@example.com',
         ]);
 
@@ -80,37 +82,37 @@ class ResetPasswordControllerTest extends WebTestCase
         self::assertEmailAddressContains($messages[0], 'to', 'me@example.com');
         self::assertEmailTextBodyContains($messages[0], 'This link will expire in 1 hour.');
 
-        self::assertResponseRedirects('/app/check-email');
+        self::assertResponseRedirects('/app/reset-password/check-email');
 
         // Test check email landing page shows correct "expires at" time
-        $crawler = $this->client->followRedirect();
+        $crawler = $this->kernelBrowser->followRedirect();
 
         self::assertPageTitleContains('Password Reset Email Sent');
         self::assertStringContainsString('This link will expire in 1 hour', $crawler->html());
 
         // Test the link sent in the email is valid
         $email = $messages[0]->toString();
-        preg_match('#(/app/reset/[a-zA-Z0-9]+)#', $email, $resetLink);
+        preg_match('#(/reset-password/reset/[a-zA-Z0-9]+)#', $email, $resetLink);
 
-        $this->client->request('GET', $resetLink[1]);
+        $this->kernelBrowser->request('GET', $resetLink[1]);
 
-        self::assertResponseRedirects('/app/reset');
+        self::assertResponseRedirects('/app/reset-password/reset');
 
-        $this->client->followRedirect();
+        $this->kernelBrowser->followRedirect();
 
         // Test we can set a new password
-        $this->client->submitForm('Reset password', [
+        $this->kernelBrowser->submitForm('Reset password', [
             'change_password_form[plainPassword][first]' => 'newStrongPassword',
             'change_password_form[plainPassword][second]' => 'newStrongPassword',
         ]);
 
         self::assertResponseRedirects('/app/home');
 
-        $user = $this->userRepository->findOneBy(['email' => 'me@example.com']);
+        $user = $this->usersRepository->findOneBy(['email' => 'me@example.com']);
 
         self::assertInstanceOf(Users::class, $user);
 
-        $passwordHasher = static::getContainer()->get(UserPasswordHasherInterface::class);
+        $passwordHasher = self::getContainer()->get(UserPasswordHasherInterface::class);
         self::assertTrue($passwordHasher->isPasswordValid($user, 'newStrongPassword'));
     }
 }
