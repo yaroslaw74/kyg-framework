@@ -17,6 +17,7 @@ namespace App\Modules\Users\Security;
 use App\Modules\Users\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Workflow\WorkflowInterface;
@@ -29,40 +30,40 @@ class EmailVerifier
         private readonly VerifyEmailHelperInterface $verifyEmailHelper,
         private readonly MailerInterface $mailer,
         private readonly EntityManagerInterface $entityManager,
-        private readonly WorkflowInterface $userStatusStateMachine,
+        #[Target('user_status')] private readonly WorkflowInterface $workflow,
     ) {
     }
 
-    public function sendEmailConfirmation(string $verifyEmailRouteName, Users $user, TemplatedEmail $email): void
+    public function sendEmailConfirmation(string $verifyEmailRouteName, Users $users, TemplatedEmail $templatedEmail): void
     {
-        $signatureComponents = $this->verifyEmailHelper->generateSignature(
+        $verifyEmailSignatureComponents = $this->verifyEmailHelper->generateSignature(
             $verifyEmailRouteName,
-            (string) $user->getId(),
-            (string) $user->getEmail(),
-            ['id' => $user->getId()]
+            (string) $users->getId(),
+            (string) $users->getEmail(),
+            ['id' => $users->getId()]
         );
 
-        $context = $email->getContext();
-        $context['signedUrl'] = $signatureComponents->getSignedUrl();
-        $context['expiresAtMessageKey'] = $signatureComponents->getExpirationMessageKey();
-        $context['expiresAtMessageData'] = $signatureComponents->getExpirationMessageData();
+        $context = $templatedEmail->getContext();
+        $context['signedUrl'] = $verifyEmailSignatureComponents->getSignedUrl();
+        $context['expiresAtMessageKey'] = $verifyEmailSignatureComponents->getExpirationMessageKey();
+        $context['expiresAtMessageData'] = $verifyEmailSignatureComponents->getExpirationMessageData();
 
-        $email->context($context);
+        $templatedEmail->context($context);
 
-        $this->mailer->send($email);
+        $this->mailer->send($templatedEmail);
     }
 
     /**
      * @throws VerifyEmailExceptionInterface
      */
-    public function handleEmailConfirmation(Request $request, Users $user): void
+    public function handleEmailConfirmation(Request $request, Users $users): void
     {
-        $this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, (string) $user->getId(), (string) $user->getEmail());
+        $this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, (string) $users->getId(), (string) $users->getEmail());
 
-        $user->setIsVerified(true);
-        $this->userStatusStateMachine->apply($user, 'verified');
+        $users->setIsVerified(true);
+        $this->workflow->apply($users, 'verified');
 
-        $this->entityManager->persist($user);
+        $this->entityManager->persist($users);
         $this->entityManager->flush();
     }
 }
