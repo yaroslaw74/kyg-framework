@@ -14,8 +14,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Entity;
 
-use App\Modules\Users\Enum\UsersStatus;
-use App\Modules\Users\Enumeration\StatusEnum;
+use App\Modules\Users\Enum\Status;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -32,7 +31,6 @@ use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Yokai\EnumBundle\Validator\Constraints\Enum;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\Table(name: 'users__user')]
@@ -81,9 +79,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
 
     #[ORM\Column(type: Types::STRING, length: 20, nullable: true)]
     private ?string $locale = null;
-
-    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
-    private bool $isVerified = false;
 
     #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $facebook = null;
@@ -139,12 +134,28 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
     #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $windowsLive = null;
 
-    #[ORM\Column(type: Types::STRING, nullable: true)]
+    #[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
     private ?string $gravatar = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     #[Gedmo\UploadableFileName]
     private ?string $avatar = null;
+
+    #[ORM\Column(enumType: Status::class, options: ['default' => Status::New])]
+    private Status $status = Status::New;
+
+    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
+    private ?string $timezone = null;
+
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    private bool $isVerified = false;
+
+    #[ORM\Column(type: 'phone_number', nullable: true)]
+    /** @phpstan-ignore doctrine.descriptorNotFound */
+    private ?PhoneNumber $phoneNumber = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $address = null;
 
     /**
      * @var Collection<int, self>
@@ -160,17 +171,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
      */
     #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'friends')]
     private Collection $friendOf;
-
-    #[ORM\Column(type: 'phone_number', nullable: true)]
-    /** @phpstan-ignore doctrine.descriptorNotFound */
-    private ?PhoneNumber $mobile = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $address = null;
-
-    #[ORM\Column(enumType: UsersStatus::class, options: ['default' => UsersStatus::New])]
-    #[Enum(enum: StatusEnum::class)]
-    private UsersStatus $status = UsersStatus::New;
 
     public function __construct()
     {
@@ -189,6 +189,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         if (null !== $this->getFirstName()) {
             $name .= ' '.mb_substr($this->getFirstName(), 0, 1).'.';
         }
+
         if (null !== $this->getMiddleName()) {
             $name .= ' '.mb_substr($this->getMiddleName(), 0, 1).'.';
         }
@@ -226,7 +227,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
             $this->lastName,
             $this->middleName,
             $this->locale,
-            $this->isVerified,
             $this->facebook,
             $this->yandex,
             $this->google,
@@ -247,32 +247,19 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
             $this->windowsLive,
             $this->gravatar,
             $this->avatar,
-            $this->friends,
-            $this->friendOf,
-            $this->mobile,
-            $this->address,
             $this->status,
             $this->timezone,
+            $this->isVerified,
+            $this->phoneNumber,
+            $this->address,
+            $this->friends,
+            $this->friendOf,
             $this->createdAt,
             $this->createdBy,
             $this->updatedAt,
             $this->updatedBy,
             $this->deletedAt,
         ] = $data;
-    }
-
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     *
-     * @deprecated since Symfony 7.3, erase credentials using the "__serialize()" method instead
-     */
-    #[\Deprecated]
-    public function eraseCredentials(): void
-    {
-        // @deprecated, to be removed when upgrading to Symfony 8
     }
 
     public function getId(): ?int
@@ -356,9 +343,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         return $this->firstName;
     }
 
-    public function setFirstName(?string $first_name): static
+    public function setFirstName(?string $firstName): static
     {
-        $this->firstName = $first_name;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -368,9 +355,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         return $this->lastName;
     }
 
-    public function setLastName(?string $last_name): static
+    public function setLastName(?string $lastName): static
     {
-        $this->lastName = $last_name;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -380,9 +367,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         return $this->middleName;
     }
 
-    public function setMiddleName(?string $middle_name): static
+    public function setMiddleName(?string $middleName): static
     {
-        $this->middleName = $middle_name;
+        $this->middleName = $middleName;
 
         return $this;
     }
@@ -395,18 +382,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
     public function setLocale(?string $locale): static
     {
         $this->locale = $locale;
-
-        return $this;
-    }
-
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(bool $isVerified): static
-    {
-        $this->isVerified = $isVerified;
 
         return $this;
     }
@@ -651,6 +626,61 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         return $this;
     }
 
+    public function getStatus(): Status
+    {
+        return $this->status;
+    }
+
+    public function setStatus(Status $status): static
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function setTimezone(string $timezone): static
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getMobile(): ?PhoneNumber
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setMobile(?PhoneNumber $phoneNumber): static
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): static
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, self>
      */
@@ -698,49 +728,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         if ($this->friendOf->removeElement($friendOf)) {
             $friendOf->removeFriend($this);
         }
-
-        return $this;
-    }
-
-    public function getMobile(): ?PhoneNumber
-    {
-        return $this->mobile;
-    }
-
-    public function setMobile(?PhoneNumber $mobile): static
-    {
-        $this->mobile = $mobile;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(?string $address): static
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function setTimezone(string $timezone): static
-    {
-        $this->timezone = $timezone;
-
-        return $this;
-    }
-
-    public function getStatus(): UsersStatus
-    {
-        return $this->status;
-    }
-
-    public function setStatus(UsersStatus $status): static
-    {
-        $this->status = $status;
 
         return $this;
     }
