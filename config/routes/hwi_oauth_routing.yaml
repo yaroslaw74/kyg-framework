@@ -8,11 +8,11 @@ hwi_oauth_connect:
 
 hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.php"
-    prefix: /login
+    prefix: /hwi/login
 
 hwi_oauth_app_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.php"
-    prefix: /app/login
+    prefix: /app/hwi/login
 
 facebook-login:
     path: /login/check-facebook
@@ -32,7 +32,7 @@ mailru-login:
 odnoklassniki-login:
     path: /login/check-odnoklassniki
 
-xtwitter-login:
+x-twitter-login:
     path: /login/check-xtwitter
 
 vkontakte-login:
@@ -86,7 +86,7 @@ mailru-app-login:
 odnoklassniki-app-login:
     path: /app/login/check-odnoklassniki
 
-xtwitter-app-login:
+x-twitter-app-login:
     path: /app/login/check-xtwitter
 
 vkontakte-app-login:
