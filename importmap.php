@@ -57,6 +57,7 @@ return [
     '@swup/forms-plugin' => ['version' => '3.6.0'],
     '@swup/slide-theme' => ['version' => '2.0.2'],
     'swup' => ['version' => '4.9.2'],
+    '@swup/theme' => ['version' => '2.1.0'],
     '@swup/plugin' => ['version' => '4.0.0'],
     'delegate-it' => ['version' => '6.4.0'],
     'path-to-regexp' => ['version' => '8.4.2'],
