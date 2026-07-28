@@ -162,7 +162,7 @@
         "weirdan/doctrine-psalm-plugin": "^2.10",
         "yamadashy/phpstan-friendly-formatter": "^1.4",
         "zenstruck/browser": "^1.10",
-        "zenstruck/foundry": "^2.10",
+        "zenstruck/foundry": "^2.11",
         "zenstruck/mailer-test": "^1.5",
         "zenstruck/messenger-test": "^1.14"
     },
