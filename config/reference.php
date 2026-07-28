@@ -1685,15 +1685,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     skip_translation_on_load?: bool|Param, // Default: false
  *     metadata_cache_pool?: scalar|Param|null, // Default: null
  * }
- * @psalm-type NelmioJsLoggerConfig = array{
- *     allowed_levels?: list<scalar|Param|null>,
- *     ignore_messages?: list<scalar|Param|null>,
- *     ignore_url_prefixes?: list<scalar|Param|null>,
- *     use_stacktrace_js?: bool|array{ // add StackTrace.js as logging provider
- *         enabled?: bool|Param, // Default: false
- *         path?: scalar|Param|null, // Default: "https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"
- *     },
- * }
  * @psalm-type JbtronicsSettingsConfig = array{
  *     search_paths?: list<scalar|Param|null>,
  *     proxy_dir?: scalar|Param|null, // Default: "%kernel.cache_dir%/jbtronics_settings/proxies"
@@ -1858,7 +1849,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     nowo_twig_inspector?: NowoTwigInspectorConfig,
  *     zenstruck_foundry?: ZenstruckFoundryConfig,
  *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *     nelmio_js_logger?: NelmioJsLoggerConfig,
  *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
@@ -1891,7 +1881,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nowo_twig_inspector?: NowoTwigInspectorConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *         nelmio_js_logger?: NelmioJsLoggerConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
@@ -1923,7 +1912,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nowo_twig_inspector?: NowoTwigInspectorConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *         nelmio_js_logger?: NelmioJsLoggerConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
