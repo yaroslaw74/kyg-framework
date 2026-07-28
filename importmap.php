@@ -34,7 +34,7 @@ return [
     '@symfony/ux-dropzone' => ['path' => './vendor/symfony/ux-dropzone/assets/dist/controller.js'],
     '@hotwired/stimulus' => ['version' => '3.2.2'],
     '@hotwired/turbo' => ['version' => '8.0.23'],
-    'es-module-shims' => ['version' => '2.8.2'],
+    'es-module-shims' => ['version' => '2.8.4'],
     'idiomorph/dist/idiomorph.min.js' => ['version' => '0.7.4'],
     'frankenphp-hot-reload' => ['version' => '1.0.1'],
     'bootstrap-icons/font/bootstrap-icons.min.css' => ['version' => '1.13.1', 'type' => 'css'],
@@ -75,7 +75,7 @@ return [
     'simplebar/dist/simplebar.min.css' => ['version' => '6.3.3', 'type' => 'css'],
     'simplebar-core' => ['version' => '1.3.2'],
     'simplebar-core/dist/simplebar.min.css' => ['version' => '1.3.2', 'type' => 'css'],
-    'lodash-es/debounce.js' => ['version' => '4.17.21'],
-    'lodash-es/throttle.js' => ['version' => '4.17.21'],
+    'lodash-es/debounce.js' => ['version' => '4.18.1'],
+    'lodash-es/throttle.js' => ['version' => '4.18.1'],
     'resize-observer-polyfill' => ['version' => '1.5.1'],
 ];
