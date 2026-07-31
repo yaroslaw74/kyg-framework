@@ -49,3 +49,7 @@ phpstan.neon
 ###> symfonycasts/sass-bundle ###
 /public/assets/
 ###< symfonycasts/sass-bundle ###
+
+###> sensiolabs/minify-bundle ###
+/var/minify/
+###< sensiolabs/minify-bundle ###
