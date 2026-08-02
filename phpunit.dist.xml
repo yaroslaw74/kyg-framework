@@ -16,6 +16,7 @@
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
         <server name="BROWSER_ALWAYS_START_WEBSERVER" value="1"/>
+        <server name="KERNEL_CLASS" value="App\Kernel"/>
     </php>
 
     <testsuites>
@@ -30,7 +31,10 @@
             restrictWarnings="true"
     >
         <include>
+            <directory>config</directory>
+            <directory>modules</directory>
             <directory>src</directory>
+            <directory>public</directory>
         </include>
 
         <deprecationTrigger>
@@ -43,11 +47,11 @@
     <extensions>
         <bootstrap class="Zenstruck\Browser\Test\BrowserExtension" />
         <bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension" />
-        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+        <bootstrap class="Symfony\Component\Panther\ServerExtension" />
         <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension">
             <parameter name="clock-mock-namespaces" value="App" />
             <parameter name="dns-mock-namespaces" value="App" />
         </bootstrap>
-        <bootstrap class="Symfony\Component\Panther\ServerExtension" />
+        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
     </extensions>
 </phpunit>
