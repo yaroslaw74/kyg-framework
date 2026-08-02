@@ -6,7 +6,7 @@
             "!assets/icons/*",
             "!assets/vendor/*",
             "!assets/controllers.json",
-            "!mudules/Core/Resources/assets/fonts/*",
+            "!assets/fonts/*",
             "!public/assets/*",
             "!public/bundles/*",
             "!public/storage/*",
