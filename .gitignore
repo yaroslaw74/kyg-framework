@@ -29,26 +29,30 @@
 /migrations/
 ###< doctrine/migrations ###
 
-###> phpstan/phpstan ###
-phpstan.neon
-###< phpstan/phpstan ###
-
-###> kocal/biome-js-bundle ###
-/bin/biome*
-###< kocal/biome-js-bundle ###
-
 ###> friendsofphp/php-cs-fixer ###
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 
+###> kocal/biome-js-bundle ###
+/bin/biome*
+###< kocal/biome-js-bundle ###
+
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
 
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
 ###> symfonycasts/sass-bundle ###
 /public/assets/
 ###< symfonycasts/sass-bundle ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###
 
 ###> sensiolabs/minify-bundle ###
 /var/minify/
