@@ -246,7 +246,10 @@
         },
         "optimize-autoloader": true,
         "process-timeout": 3000,
-        "sort-packages": true
+        "sort-packages": true,
+        "preferred-install": {
+            "softspring/*": "source"
+        }
     },
     "extra": {
         "copy-file": {
