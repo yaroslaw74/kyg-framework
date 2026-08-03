@@ -262,6 +262,20 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
         ] = $data;
     }
 
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     *
+     * @deprecated since Symfony 7.3, erase credentials using the "__serialize()" method instead
+     */
+    #[\Deprecated]
+    public function eraseCredentials(): void
+    {
+        // @deprecated, to be removed when upgrading to Symfony 8
+    }
+
     public function getId(): ?int
     {
         return $this->id;
