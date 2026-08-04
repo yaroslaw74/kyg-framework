@@ -1761,7 +1761,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     rating?: "g"|"pg"|"r"|"x"|Param, // Default: "g"
  *     default?: "404"|"mp"|"identicon"|"monsterid"|"wavatar"|"retro"|"robohash"|"mm"|Param, // Default: "mp"
  *     format?: "url"|"base64"|Param, // Default: "url"
- *     secure?: bool|Param, // Deprecated: The child node "secure" at path "pyrrah_gravatar.secure" is deprecated. // Default: true
  * }
  * @psalm-type SonataIntlConfig = array{
  *     locale?: scalar|Param|null, // Default: null
