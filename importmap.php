@@ -350,7 +350,7 @@ return [
         'version' => '2.0.10',
     ],
     'filepond-plugin-image-transform' => [
-        'version' => '3.8.7',
+        'version' => '3.8.8',
     ],
     'filepond-plugin-image-validate-size' => [
         'version' => '1.2.7',
