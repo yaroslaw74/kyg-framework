@@ -101,7 +101,7 @@ return [
         'type' => 'css',
     ],
     '@tabler/icons-webfont/dist/tabler-icons.min.css' => [
-        'version' => '3.45.0',
+        'version' => '3.46.0',
         'type' => 'css',
     ],
     '@icon/themify-icons/themify-icons.css' => [
@@ -161,10 +161,10 @@ return [
         'version' => '2.11.8',
     ],
     '@simonwep/pickr' => [
-        'version' => '1.10.0',
+        'version' => '1.10.1',
     ],
     '@simonwep/pickr/dist/themes/nano.min.css' => [
-        'version' => '1.10.0',
+        'version' => '1.10.1',
         'type' => 'css',
     ],
     'choices.js' => [
