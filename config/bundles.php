@@ -48,4 +48,9 @@ return [
     ApiPlatform\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Nelmio\ApiDocBundle\NelmioApiDocBundle::class => ['all' => true],
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
+    Rekalogika\DirectPropertyAccess\RekalogikaDirectPropertyAccessBundle::class => ['all' => true],
+    Rekalogika\Reconstitutor\RekalogikaReconstitutorBundle::class => ['all' => true],
+    Rekalogika\TemporaryUrl\RekalogikaTemporaryUrlBundle::class => ['all' => true],
+    Rekalogika\File\Bundle\RekalogikaFileBundle::class => ['all' => true],
+    Rekalogika\File\Bridge\FilePond\RekalogikaFileFilePondBundle::class => ['all' => true],
 ];
