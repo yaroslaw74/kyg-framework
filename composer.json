@@ -93,6 +93,7 @@
         "symfony/property-access": "^7.4",
         "symfony/property-info": "^7.4",
         "symfony/rate-limiter": "^7.4",
+        "symfony/remote-event": "^7.4",
         "symfony/requirements-checker": "^2.0",
         "symfony/routing": "^7.4",
         "symfony/runtime": "^7.4",
@@ -116,6 +117,7 @@
         "symfony/var-dumper": "^7.4",
         "symfony/var-exporter": "^7.4",
         "symfony/web-link": "^7.4",
+        "symfony/webhook": "^7.4",
         "symfony/workflow": "^7.4",
         "symfony/yaml": "^7.4",
         "symfonycasts/reset-password-bundle": "^1.25",
@@ -129,7 +131,8 @@
         "twig/markdown-extra": "^3.28 || ^4.0",
         "twig/string-extra": "^3.24 || ^4.0",
         "twig/twig": "^3.28 || ^4.0",
-        "yokai/enum-bundle": "^5.1"
+        "yokai/enum-bundle": "^5.1",
+        "yokai/security-token-bundle": "^3.4"
     },
     "require-dev": {
         "behat/behat": "^3.32 || ^4.0",
