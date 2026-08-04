@@ -116,7 +116,8 @@
         "twig/inky-extra": "^3.26 || ^4.0",
         "twig/markdown-extra": "^3.28 || ^4.0",
         "twig/string-extra": "^3.24 || ^4.0",
-        "twig/twig": "^3.28 || ^4.0"
+        "twig/twig": "^3.28 || ^4.0",
+        "yokai/enum-bundle": "^5.1"
     },
     "require-dev": {
         "behat/behat": "^3.32",
