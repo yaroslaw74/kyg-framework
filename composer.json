@@ -22,7 +22,7 @@
         "security": "https://github.com/yaroslaw74/kyg-framework/security"
     },
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
@@ -125,7 +125,7 @@
         "yokai/enum-bundle": "^5.1"
     },
     "require-dev": {
-        "behat/behat": "^3.32",
+        "behat/behat": "^3.32 || ^4.0",
         "behat/gherkin": "^4.17",
         "behat/mink": "^1.13",
         "behat/mink-browserkit-driver": "^2.3",
@@ -168,7 +168,7 @@
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/phpunit": "^12.5 || ^13.0",
+        "phpunit/phpunit": "^13.1",
         "psalm/plugin-phpunit": "^0.19.7",
         "psalm/plugin-symfony": "^5.3",
         "rector/rector": "^2.6",
@@ -212,7 +212,8 @@
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
-        "symfony/polyfill-php83": "*"
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
     },
     "conflict": {
         "symfony/symfony": "*"
