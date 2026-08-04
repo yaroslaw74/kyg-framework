@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Users\Enum\Status;
 use App\Modules\Users\Enum\StatusEnum;
 use App\Modules\Users\Repository\UsersRepository;
@@ -40,6 +41,7 @@ use Yokai\EnumBundle\Validator\Constraints\Enum;
 #[Gedmo\SoftDeleteable]
 #[Gedmo\Uploadable(allowOverwrite: true, appendNumber: true, filenameGenerator: Validator::FILENAME_GENERATOR_SHA1)]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
+#[ApiResource]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface, TimezoneAwareInterface, \Stringable
 {
     use BlameableEntity;
@@ -270,10 +272,8 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
      *
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
-     *
-     * @deprecated since Symfony 7.3, erase credentials using the "__serialize()" method instead
      */
-    #[\Deprecated]
+    #[\Deprecated(message: 'since Symfony 7.4, erase credentials using the "__serialize()" method instead')]
     public function eraseCredentials(): void
     {
         // @deprecated, to be removed when upgrading to Symfony 8
