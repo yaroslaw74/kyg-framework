@@ -381,6 +381,38 @@
         <source>try again</source>
         <target>try again</target>
       </trans-unit>
+      <trans-unit id="1" resname="New">
+        <source>New</source>
+        <target>New</target>
+      </trans-unit>
+      <trans-unit id="2" resname="Pending">
+        <source>Pending</source>
+        <target>Pending</target>
+      </trans-unit>
+      <trans-unit id="3" resname="Validated">
+        <source>Validated</source>
+        <target>Validated</target>
+      </trans-unit>
+      <trans-unit id="4" resname="Inactive">
+        <source>Inactive</source>
+        <target>Inactive</target>
+      </trans-unit>
+      <trans-unit id="5" resname="Active">
+        <source>Active</source>
+        <target>Active</target>
+      </trans-unit>
+      <trans-unit id="6" resname="Banned">
+        <source>Banned</source>
+        <target>Banned</target>
+      </trans-unit>
+      <trans-unit id="7" resname="Disabled">
+        <source>Disabled</source>
+        <target>Disabled</target>
+      </trans-unit>
+      <trans-unit id="8" resname="Deleted">
+        <source>Deleted</source>
+        <target>Deleted</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
