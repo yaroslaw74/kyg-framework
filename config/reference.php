@@ -2408,6 +2408,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         read_only?: bool|Param, // Converts a file system to read-only // Default: false
  *     }>,
  * }
+ * @psalm-type RekalogikaFileConfig = array{
+ *     filesystems?: array<string, scalar|Param|null>,
+ *     default_filesystem_directory?: scalar|Param|null, // The storage directory used by the default filesystem. // Default: "%kernel.project_dir%/var/storage/default"
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2444,6 +2448,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     api_platform?: ApiPlatformConfig,
  *     nelmio_api_doc?: NelmioApiDocConfig,
  *     flysystem?: FlysystemConfig,
+ *     rekalogika_file?: RekalogikaFileConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2484,6 +2489,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         api_platform?: ApiPlatformConfig,
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         flysystem?: FlysystemConfig,
+ *         rekalogika_file?: RekalogikaFileConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2522,6 +2528,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         api_platform?: ApiPlatformConfig,
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         flysystem?: FlysystemConfig,
+ *         rekalogika_file?: RekalogikaFileConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
