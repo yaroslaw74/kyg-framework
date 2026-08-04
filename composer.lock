@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d3315dd9a64ff450d42b6aa753faead",
+    "content-hash": "6303bfc23826bf8e6fe335dbfe02ab14",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -1366,6 +1366,48 @@
                 "source": "https://github.com/beberlei/assert/tree/v3.3.4"
             },
             "time": "2026-06-10T19:47:05+00:00"
+        },
+        {
+            "name": "cardinalby/content-disposition",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cardinalby/phpContentDisposition.git",
+                "reference": "651b4dd51239c81967f9fce08dfdb786a65d6319"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cardinalby/phpContentDisposition/zipball/651b4dd51239c81967f9fce08dfdb786a65d6319",
+                "reference": "651b4dd51239c81967f9fce08dfdb786a65d6319",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0.19"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "cardinalby\\ContentDisposition\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cardinal",
+                    "homepage": "https://github.com/cardinalby/phpContentDisposition"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/cardinalby/phpContentDisposition/issues",
+                "source": "https://github.com/cardinalby/phpContentDisposition/tree/1.1.1"
+            },
+            "time": "2023-05-23T22:16:05+00:00"
         },
         {
             "name": "composer/semver",
@@ -2786,6 +2828,64 @@
             "time": "2025-09-04T10:17:22+00:00"
         },
         {
+            "name": "fileeye/mimemap",
+            "version": "2.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FileEye/MimeMap.git",
+                "reference": "d85461d6663501d29d1838d1ad65222a1ce44d7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FileEye/MimeMap/zipball/d85461d6663501d29d1838d1ad65222a1ce44d7b",
+                "reference": "d85461d6663501d29d1838d1ad65222a1ce44d7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "composer-runtime-api": "^2.0.0",
+                "sebastian/comparator": ">=5",
+                "sebastian/diff": ">=5",
+                "symfony/console": ">=6.4",
+                "symfony/filesystem": ">=6.4",
+                "symfony/var-dumper": ">=6.4",
+                "symfony/yaml": ">=6.4"
+            },
+            "bin": [
+                "bin/fileeye-mimemap"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FileEye\\MimeMap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "description": "A PHP library to handle MIME Content-Type fields and their related file extensions.",
+            "homepage": "https://github.com/FileEye/MimeMap",
+            "keywords": [
+                "mime",
+                "mime-database",
+                "mime-parser",
+                "mime-type"
+            ],
+            "support": {
+                "issues": "https://github.com/FileEye/MimeMap/issues",
+                "source": "https://github.com/FileEye/MimeMap/tree/2.2.5"
+            },
+            "time": "2026-03-22T21:57:45+00:00"
+        },
+        {
             "name": "gedmo/doctrine-extensions",
             "version": "v3.22.1",
             "source": {
@@ -3217,6 +3317,150 @@
                 }
             ],
             "time": "2026-02-19T21:38:10+00:00"
+        },
+        {
+            "name": "intervention/gif",
+            "version": "5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/gif.git",
+                "reference": "bb395af960deffe64d70c976b4df9283f68e762d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/gif/zipball/bb395af960deffe64d70c976b4df9283f68e762d",
+                "reference": "bb395af960deffe64d70c976b4df9283f68e762d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^12.0",
+                "slevomat/coding-standard": "~8.0",
+                "squizlabs/php_codesniffer": "^4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Gif\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io/"
+                }
+            ],
+            "description": "PHP GIF Encoder/Decoder",
+            "homepage": "https://github.com/intervention/gif",
+            "keywords": [
+                "animation",
+                "gd",
+                "gif",
+                "image"
+            ],
+            "support": {
+                "issues": "https://github.com/Intervention/gif/issues",
+                "source": "https://github.com/Intervention/gif/tree/5.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/interventionio",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Intervention",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/interventionphp",
+                    "type": "ko_fi"
+                }
+            ],
+            "time": "2026-05-03T06:04:47+00:00"
+        },
+        {
+            "name": "intervention/image",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "830907fc5397dfc2a51a4e90322d586989fc8364"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/830907fc5397dfc2a51a4e90322d586989fc8364",
+                "reference": "830907fc5397dfc2a51a4e90322d586989fc8364",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "intervention/gif": "^5",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^12.0",
+                "slevomat/coding-standard": "~8.0",
+                "squizlabs/php_codesniffer": "^4"
+            },
+            "suggest": {
+                "ext-exif": "Recommended to be able to read EXIF data properly."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io"
+                }
+            ],
+            "description": "PHP Image Processing",
+            "homepage": "https://image.intervention.io",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "resize",
+                "thumbnail",
+                "watermark"
+            ],
+            "support": {
+                "issues": "https://github.com/Intervention/image/issues",
+                "source": "https://github.com/Intervention/image/tree/4.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/interventionio",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Intervention",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/interventionphp",
+                    "type": "ko_fi"
+                }
+            ],
+            "time": "2026-07-09T13:07:14+00:00"
         },
         {
             "name": "jbtronics/settings-bundle",
@@ -3852,6 +4096,84 @@
             "time": "2023-07-31T13:36:50+00:00"
         },
         {
+            "name": "maennchen/zipstream-php",
+            "version": "3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maennchen/ZipStream-PHP.git",
+                "reference": "77bebeb4c6c340bb3c11c843b2cffd8bbfde4d5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/77bebeb4c6c340bb3c11c843b2cffd8bbfde4d5e",
+                "reference": "77bebeb4c6c340bb3c11c843b2cffd8bbfde4d5e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-zlib": "*",
+                "php-64bit": "^8.3"
+            },
+            "require-dev": {
+                "brianium/paratest": "^7.7",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "^3.86",
+                "guzzlehttp/guzzle": "^7.5",
+                "mikey179/vfsstream": "^1.6",
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpunit/phpunit": "^12.0",
+                "vimeo/psalm": "^6.0"
+            },
+            "suggest": {
+                "guzzlehttp/psr7": "^2.4",
+                "psr/http-message": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ZipStream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Duncan",
+                    "email": "pabs@pablotron.org"
+                },
+                {
+                    "name": "Jonatan Männchen",
+                    "email": "jonatan@maennchen.ch"
+                },
+                {
+                    "name": "Jesse Donat",
+                    "email": "donatj@gmail.com"
+                },
+                {
+                    "name": "András Kolesár",
+                    "email": "kolesar@kolesar.hu"
+                }
+            ],
+            "description": "ZipStream is a library for dynamically streaming dynamic zip files from PHP without writing to the disk at all on the server.",
+            "keywords": [
+                "stream",
+                "zip"
+            ],
+            "support": {
+                "issues": "https://github.com/maennchen/ZipStream-PHP/issues",
+                "source": "https://github.com/maennchen/ZipStream-PHP/tree/3.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/maennchen",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-04-11T18:38:28+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "3.10.0",
             "source": {
@@ -4260,6 +4582,84 @@
             "time": "2025-03-24T19:12:02+00:00"
         },
         {
+            "name": "nyholm/psr7",
+            "version": "1.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nyholm/psr7.git",
+                "reference": "a71f2b11690f4b24d099d6b16690a90ae14fc6f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/a71f2b11690f4b24d099d6b16690a90ae14fc6f3",
+                "reference": "a71f2b11690f4b24d099d6b16690a90ae14fc6f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.1 || ^2.0"
+            },
+            "provide": {
+                "php-http/message-factory-implementation": "1.0",
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "http-interop/http-factory-tests": "^0.9",
+                "php-http/message-factory": "^1.0",
+                "php-http/psr7-integration-tests": "^1.0",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.4",
+                "symfony/error-handler": "^4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nyholm\\Psr7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com"
+                },
+                {
+                    "name": "Martijn van der Ven",
+                    "email": "martijn@vanderven.se"
+                }
+            ],
+            "description": "A fast PHP7 implementation of PSR-7",
+            "homepage": "https://tnyholm.se",
+            "keywords": [
+                "psr-17",
+                "psr-7"
+            ],
+            "support": {
+                "issues": "https://github.com/Nyholm/psr7/issues",
+                "source": "https://github.com/Nyholm/psr7/tree/1.8.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Zegnat",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nyholm",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-09-09T07:06:30+00:00"
+        },
+        {
             "name": "odolbeau/phone-number-bundle",
             "version": "v4.2.5",
             "source": {
@@ -4334,6 +4734,85 @@
                 "source": "https://github.com/odolbeau/phone-number-bundle/tree/v4.2.5"
             },
             "time": "2025-10-14T19:52:30+00:00"
+        },
+        {
+            "name": "php-http/discovery",
+            "version": "1.20.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/discovery.git",
+                "reference": "82fe4c73ef3363caed49ff8dd1539ba06044910d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/82fe4c73ef3363caed49ff8dd1539ba06044910d",
+                "reference": "82fe4c73ef3363caed49ff8dd1539ba06044910d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0|^2.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "nyholm/psr7": "<1.0",
+                "zendframework/zend-diactoros": "*"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "*",
+                "php-http/client-implementation": "*",
+                "psr/http-client-implementation": "*",
+                "psr/http-factory-implementation": "*",
+                "psr/http-message-implementation": "*"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0.2|^2.0",
+                "graham-campbell/phpspec-skip-example-extension": "^5.0",
+                "php-http/httplug": "^1.0 || ^2.0",
+                "php-http/message-factory": "^1.0",
+                "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
+                "sebastian/comparator": "^3.0.5 || ^4.0.8",
+                "symfony/phpunit-bridge": "^6.4.4 || ^7.0.1"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Http\\Discovery\\Composer\\Plugin",
+                "plugin-optional": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Discovery\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "src/Composer/Plugin.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "adapter",
+                "client",
+                "discovery",
+                "factory",
+                "http",
+                "message",
+                "psr17",
+                "psr7"
+            ],
+            "support": {
+                "issues": "https://github.com/php-http/discovery/issues",
+                "source": "https://github.com/php-http/discovery/tree/1.20.0"
+            },
+            "time": "2024-10-02T11:20:13+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -4759,6 +5238,114 @@
             "time": "2019-01-08T18:20:26+00:00"
         },
         {
+            "name": "psr/http-factory",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory"
+            },
+            "time": "2024-04-15T12:06:14+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/2.0"
+            },
+            "time": "2023-04-04T09:54:51+00:00"
+        },
+        {
             "name": "psr/link",
             "version": "2.0.1",
             "source": {
@@ -4863,6 +5450,57 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
             "time": "2024-09-11T13:17:53+00:00"
+        },
+        {
+            "name": "psr/simple-cache",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+            },
+            "time": "2021-10-29T13:26:27+00:00"
         },
         {
             "name": "pyrrah/gravatar-bundle",
@@ -4995,6 +5633,1293 @@
                 "source": "https://github.com/DerManoMann/type-info-extras/tree/1.0.7"
             },
             "time": "2026-03-06T22:40:29+00:00"
+        },
+        {
+            "name": "rekalogika/direct-property-access",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/direct-property-access.git",
+                "reference": "0d06a59337425839c7afd8e6119eb87b90092751"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/direct-property-access/zipball/0d06a59337425839c7afd8e6119eb87b90092751",
+                "reference": "0d06a59337425839c7afd8e6119eb87b90092751",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "symfony/property-access": "^6.1 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1.54",
+                "phpunit/phpunit": "^10.5",
+                "psalm/plugin-phpunit": "^0.19.5",
+                "symfony/config": "^6.1 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^6.1 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.1 || ^7.0 || ^8.0",
+                "symfony/phpunit-bridge": "^6.1 || ^7.0 || ^8.0",
+                "vimeo/psalm": "^6.16"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\DirectPropertyAccess\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Simple implementation of PropertyAccessorInterface that reads and writes directly to the object's properties, bypassing getters and setters.",
+            "homepage": "https://rekalogika.dev/direct-property-access",
+            "support": {
+                "issues": "https://github.com/rekalogika/direct-property-access/issues",
+                "source": "https://github.com/rekalogika/direct-property-access/tree/1.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-08T20:19:28+00:00"
+        },
+        {
+            "name": "rekalogika/doctrine-collections-decorator",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/doctrine-collections-decorator.git",
+                "reference": "c96dbac81ad46020c437af07ee9cf064c578dc3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/doctrine-collections-decorator/zipball/c96dbac81ad46020c437af07ee9cf064c578dc3b",
+                "reference": "c96dbac81ad46020c437af07ee9cf064c578dc3b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/collections": "^2.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.5",
+                "psalm/plugin-phpunit": "^0.18.4 || ^0.19",
+                "symfony/phpunit-bridge": "^6.3 || ^7.0",
+                "symfony/var-dumper": "^6.3 || ^7.0",
+                "vimeo/psalm": "^5.15"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Collections\\Decorator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Lets you easily create decorator classes to dynamically modify the behaviors of Doctrine Collection objects, including the collection objects used by Doctrine ORM in your entities.",
+            "homepage": "https://rekalogika.dev/doctrine-collections-decorator",
+            "keywords": [
+                "abstract",
+                "collection",
+                "decorator",
+                "doctrine",
+                "entity",
+                "trait",
+                "wrapper"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/doctrine-collections-decorator/issues",
+                "source": "https://github.com/rekalogika/doctrine-collections-decorator/tree/2.3.0"
+            },
+            "time": "2024-03-31T05:39:40+00:00"
+        },
+        {
+            "name": "rekalogika/file",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file.git",
+                "reference": "be3a4e92afa402bb891b81164681a8daa571eed1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file/zipball/be3a4e92afa402bb891b81164681a8daa571eed1",
+                "reference": "be3a4e92afa402bb891b81164681a8daa571eed1",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^3.16",
+                "league/mime-type-detection": "^1.0.0",
+                "php": "^8.2",
+                "php-http/discovery": "^1.15",
+                "psr/http-factory-implementation": "^1.0",
+                "psr/http-message": "^1.0 || ^2.0",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-metadata": "^2.4.4",
+                "symfony/deprecation-contracts": "^3.1",
+                "symfony/service-contracts": "^3.1"
+            },
+            "require-dev": {
+                "nyholm/psr7": "^1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "High-level file abstraction library built on top of Flysystem. It lets you work with file objects in an object-oriented manner. A file object represents a file in a Flysystem filesystem. It can be a local file or a file in a cloud storage, the library lets you work with them in the same way.",
+            "homepage": "https://rekalogika.dev/file",
+            "keywords": [
+                "Flysystem",
+                "download",
+                "file",
+                "file abstraction",
+                "file interface",
+                "filesystem",
+                "storage",
+                "stream",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file/issues",
+                "source": "https://github.com/rekalogika/file/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:08+00:00"
+        },
+        {
+            "name": "rekalogika/file-association",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-association.git",
+                "reference": "fb743b29d615b706b412c0d4c5f4858e10cf5747"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-association/zipball/fb743b29d615b706b412c0d4c5f4858e10cf5747",
+                "reference": "fb743b29d615b706b412c0d4c5f4858e10cf5747",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "psr/cache": "^2 || ^3",
+                "psr/http-message": "^1.0 || ^2.0",
+                "psr/log": "^2 || ^3",
+                "rekalogika/file-association-contracts": "^2.4.4",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-null": "^2.4.4",
+                "rekalogika/reconstitutor": "^2.4",
+                "symfony/deprecation-contracts": "^3.1",
+                "symfony/service-contracts": "^3.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Association\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Handles the association between Doctrine entities and files using the rekalogika/file framework, including from file uploads.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "association",
+                "attachment",
+                "doctrine",
+                "entity",
+                "file",
+                "file upload",
+                "symfony",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-association/issues",
+                "source": "https://github.com/rekalogika/file-association/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:51:44+00:00"
+        },
+        {
+            "name": "rekalogika/file-association-contracts",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-association-contracts.git",
+                "reference": "031188f6de05342709c4a924c5422a91cb9d2b60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-association-contracts/zipball/031188f6de05342709c4a924c5422a91cb9d2b60",
+                "reference": "031188f6de05342709c4a924c5422a91cb9d2b60",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Contracts\\File\\Association\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Interface for file association. To be implemented in entities that support file association.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "association",
+                "file",
+                "file upload",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-association-contracts/issues",
+                "source": "https://github.com/rekalogika/file-association-contracts/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-09T06:06:09+00:00"
+        },
+        {
+            "name": "rekalogika/file-association-entity",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-association-entity.git",
+                "reference": "f476ea8feba89745ef4544683b18c904e3008b7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-association-entity/zipball/f476ea8feba89745ef4544683b18c904e3008b7f",
+                "reference": "f476ea8feba89745ef4544683b18c904e3008b7f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/collections": "^2.0 || ^3.0",
+                "php": "^8.2",
+                "psr/http-message": "^1.0 || ^2.0",
+                "rekalogika/doctrine-collections-decorator": "^2.0",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-metadata": "^2.4.4",
+                "rekalogika/file-null": "^2.4.4",
+                "symfony/translation-contracts": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Domain\\File\\Association\\Entity\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Utilities for handling files inside domain entities: EmbeddedMetadata for embedding metadata inside Doctrine entities, AbstractFile for creating one-to-many relations with files, and NullFile to handle cases in domain entities where a file must be present but is missing in the storage backend.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "association",
+                "attachment",
+                "doctrine",
+                "entity",
+                "file",
+                "file upload",
+                "symfony",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-association-entity/issues",
+                "source": "https://github.com/rekalogika/file-association-entity/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:51:44+00:00"
+        },
+        {
+            "name": "rekalogika/file-bundle",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-bundle.git",
+                "reference": "4ff7eedc960bb68fdd63325e5eeb62f52e9c47ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-bundle/zipball/4ff7eedc960bb68fdd63325e5eeb62f52e9c47ca",
+                "reference": "4ff7eedc960bb68fdd63325e5eeb62f52e9c47ca",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^3.16",
+                "league/flysystem-local": "^3.16",
+                "php": "^8.2",
+                "rekalogika/file": "^2.4.4",
+                "rekalogika/file-association-contracts": "^2.4.4",
+                "rekalogika/file-association-entity": "^2.4.4",
+                "rekalogika/file-contracts": "^2.4.4",
+                "symfony/cache": "^6.2 || ^7.0 || ^8.0",
+                "symfony/config": "^6.2 || ^7.0 || ^8.0",
+                "symfony/console": "^6.2 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^6.2 || ^7.0 || ^8.0",
+                "symfony/framework-bundle": "^6.2 || ^7.0 || ^8.0",
+                "symfony/http-foundation": "^6.2 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.2 || ^7.0 || ^8.0",
+                "symfony/service-contracts": "^3.1",
+                "twig/twig": "^3.9"
+            },
+            "require-dev": {
+                "symfony/routing": "^6.2 || ^7.0 || ^8.0"
+            },
+            "suggest": {
+                "rekalogika/file-association": "Attach files to entities",
+                "rekalogika/file-image": "Allows easy resizing image",
+                "rekalogika/file-server": "Temporary URL generator for FileInterface",
+                "rekalogika/file-symfony-bridge": "Adapters for Symfony components",
+                "rekalogika/file-zip": "Stream files to web browsers as a ZIP archive"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Bundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Integrates the rekalogika/file library into the Symfony framework.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "Flysystem",
+                "file",
+                "file-upload",
+                "filesystem",
+                "symfony",
+                "symfony-bundle",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-bundle/issues",
+                "source": "https://github.com/rekalogika/file-bundle/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:51:46+00:00"
+        },
+        {
+            "name": "rekalogika/file-contracts",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-contracts.git",
+                "reference": "462651597e2d9772c45025dc9f725bcb6f8616c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-contracts/zipball/462651597e2d9772c45025dc9f725bcb6f8616c9",
+                "reference": "462651597e2d9772c45025dc9f725bcb6f8616c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "psr/http-message": "^1.0 || ^2.0",
+                "symfony/translation-contracts": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Contracts\\File\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Interfaces, traits, and nominal classes for file abstraction.",
+            "homepage": "https://rekalogika.dev/file",
+            "keywords": [
+                "attachment",
+                "entity",
+                "file",
+                "file upload",
+                "filesystem",
+                "repository",
+                "storage",
+                "stream",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-contracts/issues",
+                "source": "https://github.com/rekalogika/file-contracts/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-09T06:06:21+00:00"
+        },
+        {
+            "name": "rekalogika/file-derivation",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-derivation.git",
+                "reference": "3d1f0b4243f477d811fccac8a97d33f8624cfb78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-derivation/zipball/3d1f0b4243f477d811fccac8a97d33f8624cfb78",
+                "reference": "3d1f0b4243f477d811fccac8a97d33f8624cfb78",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "rekalogika/file": "^2.4.4",
+                "rekalogika/file-contracts": "^2.4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Derivation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Provides an abstract class to streamline the creation of filters using the file derivation feature of the rekalogika/file framework.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "derivation",
+                "file",
+                "filter"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-derivation/issues",
+                "source": "https://github.com/rekalogika/file-derivation/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:51:58+00:00"
+        },
+        {
+            "name": "rekalogika/file-filepond",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-filepond.git",
+                "reference": "879bdd4d1a0f7a3f65ae4e32212e6c14ec5e69f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-filepond/zipball/879bdd4d1a0f7a3f65ae4e32212e6c14ec5e69f5",
+                "reference": "879bdd4d1a0f7a3f65ae4e32212e6c14ec5e69f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "rekalogika/file": "^2.4.4",
+                "rekalogika/file-association-entity": "^2.4.4",
+                "rekalogika/file-bundle": "^2.4.4",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-image": "^2.4.4",
+                "rekalogika/file-server": "^2.4.4",
+                "rekalogika/file-symfony-bridge": "^2.4.4",
+                "rekalogika/temporary-url-bundle": "^1.7.2",
+                "symfony/dependency-injection": "^6.2 || ^7.0 || ^8.0",
+                "symfony/form": "^6.2 || ^7.0 || ^8.0",
+                "symfony/http-foundation": "^6.2 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.2 || ^7.0 || ^8.0",
+                "symfony/options-resolver": "^6.2 || ^7.0 || ^8.0",
+                "symfony/stimulus-bundle": "^2.12 || ^3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Bridge\\FilePond\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Upload files using Symfony Form, FilePond, and the rekalogika/file framework",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "file",
+                "file-upload",
+                "filepond",
+                "form",
+                "javascript",
+                "symfony form",
+                "symfony-ux"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-filepond/issues",
+                "source": "https://github.com/rekalogika/file-filepond/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:51:55+00:00"
+        },
+        {
+            "name": "rekalogika/file-image",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-image.git",
+                "reference": "46065517cf60ddd636689158cd6c8d406b604193"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-image/zipball/46065517cf60ddd636689158cd6c8d406b604193",
+                "reference": "46065517cf60ddd636689158cd6c8d406b604193",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^3.3 || ^4.0",
+                "php": "^8.2",
+                "psr/log": "^2 || ^3",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-derivation": "^2.4.4",
+                "twig/twig": "^3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Image\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Simple image resizing filter for rekalogika/file. Callers provide the maximum width or height of the desired result, and whether to square-crop it.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "file",
+                "filter",
+                "image",
+                "intervention",
+                "jpeg",
+                "png",
+                "resize",
+                "thumbnail"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-image/issues",
+                "source": "https://github.com/rekalogika/file-image/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:04+00:00"
+        },
+        {
+            "name": "rekalogika/file-metadata",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-metadata.git",
+                "reference": "99936f78b59f43186b69a1b3f85374560522f738"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-metadata/zipball/99936f78b59f43186b69a1b3f85374560522f738",
+                "reference": "99936f78b59f43186b69a1b3f85374560522f738",
+                "shasum": ""
+            },
+            "require": {
+                "cardinalby/content-disposition": "^1.1",
+                "fileeye/mimemap": "^2.0",
+                "php": "^8.2",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-metadata-contracts": "^2.4.4",
+                "symfony/translation-contracts": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Domain\\File\\Metadata\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Metadata library for rekalogika/file",
+            "homepage": "https://rekalogika.dev/file",
+            "keywords": [
+                "file",
+                "http",
+                "http-headers",
+                "image",
+                "metadata"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-metadata/issues",
+                "source": "https://github.com/rekalogika/file-metadata/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:09+00:00"
+        },
+        {
+            "name": "rekalogika/file-metadata-contracts",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-metadata-contracts.git",
+                "reference": "db0983b26fbf0593d3d69ff3abd3a7313cd1e202"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-metadata-contracts/zipball/db0983b26fbf0593d3d69ff3abd3a7313cd1e202",
+                "reference": "db0983b26fbf0593d3d69ff3abd3a7313cd1e202",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Contracts\\File\\Metadata\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Additional abstractions of metadata types for rekalogika/file.",
+            "homepage": "https://rekalogika.dev/file",
+            "keywords": [
+                "file",
+                "image",
+                "metadata"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-metadata-contracts/issues",
+                "source": "https://github.com/rekalogika/file-metadata-contracts/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-09T06:06:19+00:00"
+        },
+        {
+            "name": "rekalogika/file-null",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-null.git",
+                "reference": "d9ecbf02162d805bc04ec2094bcc727ecaa38333"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-null/zipball/d9ecbf02162d805bc04ec2094bcc727ecaa38333",
+                "reference": "d9ecbf02162d805bc04ec2094bcc727ecaa38333",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "psr/http-message": "^1.0 || ^2.0",
+                "rekalogika/file-contracts": "^2.4.4",
+                "symfony/translation-contracts": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Domain\\File\\Null\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Null object pattern implementation for rekalogika/file framework.",
+            "homepage": "https://rekalogika.dev/file",
+            "keywords": [
+                "file",
+                "null",
+                "null-file",
+                "null-object",
+                "null-value",
+                "nullfile"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-null/issues",
+                "source": "https://github.com/rekalogika/file-null/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:10+00:00"
+        },
+        {
+            "name": "rekalogika/file-server",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-server.git",
+                "reference": "54c57d5481ba09959190f70628b52020acc7f49c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-server/zipball/54c57d5481ba09959190f70628b52020acc7f49c",
+                "reference": "54c57d5481ba09959190f70628b52020acc7f49c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-symfony-bridge": "^2.4.4",
+                "rekalogika/temporary-url-bundle": "^1.7.2",
+                "symfony/http-foundation": "^6.2 || ^7.0 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Temporary URL resource server for rekalogika/file FileInterface. Access files easily in your application by creating temporary URLs that expire after a set amount of time.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "file",
+                "server",
+                "temporary",
+                "temporary url",
+                "url"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-server/issues",
+                "source": "https://github.com/rekalogika/file-server/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:02+00:00"
+        },
+        {
+            "name": "rekalogika/file-symfony-bridge",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-symfony-bridge.git",
+                "reference": "0297fc0ee7111db2e7e2f06caf7d6a4d3b3e981c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-symfony-bridge/zipball/0297fc0ee7111db2e7e2f06caf7d6a4d3b3e981c",
+                "reference": "0297fc0ee7111db2e7e2f06caf7d6a4d3b3e981c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "rekalogika/file": "^2.4.4",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-metadata": "^2.4.4",
+                "rekalogika/file-metadata-contracts": "^2.4.4",
+                "symfony/form": "^6.2 || ^7.0 || ^8.0",
+                "symfony/http-foundation": "^6.2 || ^7.0 || ^8.0",
+                "symfony/validator": "^6.3 || ^7.1 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Bridge\\Symfony\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Provides integrations for Rekalogika FileInterface with Symfony HttpFoundation, Form, and Validator.",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "adapter",
+                "file",
+                "form",
+                "httpfoundation",
+                "response",
+                "streaming",
+                "symfony",
+                "validator"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-symfony-bridge/issues",
+                "source": "https://github.com/rekalogika/file-symfony-bridge/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:09+00:00"
+        },
+        {
+            "name": "rekalogika/file-zip",
+            "version": "2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/file-zip.git",
+                "reference": "11d31de606581d2e590004606c994ac1930dc530"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/file-zip/zipball/11d31de606581d2e590004606c994ac1930dc530",
+                "reference": "11d31de606581d2e590004606c994ac1930dc530",
+                "shasum": ""
+            },
+            "require": {
+                "maennchen/zipstream-php": "^3.1",
+                "php": "^8.2",
+                "psr/http-message": "^1.0 || ^2.0",
+                "rekalogika/file-contracts": "^2.4.4",
+                "rekalogika/file-metadata": "^2.4.4",
+                "rekalogika/temporary-url-bundle": "^1.7.2",
+                "symfony/http-foundation": "^6.2 || ^7.0 || ^8.0",
+                "symfony/translation-contracts": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\File\\Zip\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Streams a collection of files as a ZIP file to the client",
+            "homepage": "https://rekalogika.dev/file-bundle",
+            "keywords": [
+                "archive",
+                "download",
+                "file",
+                "http",
+                "stream",
+                "symfony",
+                "zip",
+                "zipstream"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/file-zip/issues",
+                "source": "https://github.com/rekalogika/file-zip/tree/2.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-07-11T12:52:11+00:00"
+        },
+        {
+            "name": "rekalogika/reconstitutor",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/reconstitutor.git",
+                "reference": "e83bd9912b856e532499ecd585a3695942010b3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/reconstitutor/zipball/e83bd9912b856e532499ecd585a3695942010b3b",
+                "reference": "e83bd9912b856e532499ecd585a3695942010b3b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.20.3 || ^3.3.3",
+                "php": "^8.2",
+                "psr/container": "^2.0",
+                "psr/log": "^2|^3",
+                "rekalogika/direct-property-access": "^1.1.2 || ^1.2",
+                "symfony/cache": "^6.0 || ^7.0 || ^8.0",
+                "symfony/config": "^6.0 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^6.3 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.0 || ^7.0 || ^8.0",
+                "symfony/service-contracts": "^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "doctrine/collections": "^2.2",
+                "doctrine/doctrine-bundle": "^2.18 || ^3.0",
+                "doctrine/persistence": "^3.1 || ^4.0",
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^10.5",
+                "psalm/plugin-phpunit": "^0.19.0",
+                "psalm/plugin-symfony": "^5.0",
+                "rector/rector": "^2.0",
+                "symfony/debug-bundle": "^6.0 || ^7.0 || ^8.0",
+                "symfony/doctrine-bridge": "^6.0 || ^7.0 || ^8.0",
+                "symfony/framework-bundle": "^6.0 || ^7.0 || ^8.0",
+                "symfony/monolog-bundle": "^3.0 || ^4.0",
+                "symfony/phpunit-bridge": "^6.1 || ^7.0 || ^8.0",
+                "symfony/runtime": "^6.2 || ^7.0 || ^8.0",
+                "symfony/uid": "^6.0 || ^7.0 || ^8.0",
+                "symfony/var-exporter": "^6.4 || ^7.0 || ^8.0",
+                "symfony/yaml": "^6.0 || ^7.0 || ^8.0",
+                "vimeo/psalm": "^6.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\Reconstitutor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "A thin layer above Doctrine events to help you reconstitute/hydrate your entities. The most common example being handling file uploads, but also many other purposes. It lets you augment Doctrine's hydration with your logic in a concise and expressive class.",
+            "homepage": "https://rekalogika.dev/reconstitutor",
+            "support": {
+                "issues": "https://github.com/rekalogika/reconstitutor/issues",
+                "source": "https://github.com/rekalogika/reconstitutor/tree/2.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-09T04:48:32+00:00"
+        },
+        {
+            "name": "rekalogika/temporary-url-bundle",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rekalogika/temporary-url-bundle.git",
+                "reference": "7a650d9fdc43f977972f859016781ff73be70222"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rekalogika/temporary-url-bundle/zipball/7a650d9fdc43f977972f859016781ff73be70222",
+                "reference": "7a650d9fdc43f977972f859016781ff73be70222",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "psr/cache": "^3.0",
+                "psr/simple-cache": "^3.0",
+                "symfony/cache": "^6.3 || ^7.0 || ^8.0",
+                "symfony/config": "^6.3 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^6.3 || ^7.0 || ^8.0",
+                "symfony/http-foundation": "^6.3 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.3 || ^7.0 || ^8.0",
+                "symfony/routing": "^6.3 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-mockery": "^2.0",
+                "phpunit/phpunit": "^10.5",
+                "psalm/plugin-mockery": "^1.1",
+                "psalm/plugin-phpunit": "^0.19.0",
+                "rector/rector": "^2.0",
+                "rector/swiss-knife": "^2.2",
+                "symfony/asset-mapper": "^6.3 || ^7.0 || ^8.0",
+                "symfony/event-dispatcher": "^6.3 || ^7.0 || ^8.0",
+                "symfony/phpunit-bridge": "^6.3 || ^7.0 || ^8.0",
+                "twig/twig": "^2.12|^3.0",
+                "vimeo/psalm": "^6.0"
+            },
+            "suggest": {
+                "twig/twig": "Use the 'temporary_url' filter to generate temporary URLs in Twig templates"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Rekalogika\\TemporaryUrl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Priyadi Iman Nurcahyo",
+                    "email": "priyadi@rekalogika.com"
+                }
+            ],
+            "description": "Symfony bundle for creating temporary URLs to your resources. You provide the resource in a plain PHP object, and a service to turn it into a HTTP response. The framework handles the rest.",
+            "homepage": "https://rekalogika.dev/temporary-url-bundle",
+            "keywords": [
+                "symfony",
+                "symfony-bundle",
+                "symfony-ux",
+                "temporary url"
+            ],
+            "support": {
+                "issues": "https://github.com/rekalogika/temporary-url-bundle/issues",
+                "source": "https://github.com/rekalogika/temporary-url-bundle/tree/1.8.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/priyadi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-05-09T13:55:24+00:00"
         },
         {
             "name": "sensiolabs/minify-bundle",
@@ -9739,33 +11664,36 @@
         },
         {
             "name": "symfony/stimulus-bundle",
-            "version": "v2.36.0",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stimulus-bundle.git",
-                "reference": "377a3d1ec5834631a7db53bd275276ff3c5b49df"
+                "reference": "510a7a1054acd4d24b2b8b09597bb9406f247193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stimulus-bundle/zipball/377a3d1ec5834631a7db53bd275276ff3c5b49df",
-                "reference": "377a3d1ec5834631a7db53bd275276ff3c5b49df",
+                "url": "https://api.github.com/repos/symfony/stimulus-bundle/zipball/510a7a1054acd4d24b2b8b09597bb9406f247193",
+                "reference": "510a7a1054acd4d24b2b8b09597bb9406f247193",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
-                "symfony/config": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/dependency-injection": "^5.4|^6.0|^7.0|^8.0",
+                "php": ">=8.4",
+                "symfony/config": "^7.4|^8.0",
+                "symfony/dependency-injection": "^7.4|^8.0",
                 "symfony/deprecation-contracts": "^2.0|^3.0",
-                "symfony/finder": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/http-kernel": "^5.4|^6.0|^7.0|^8.0",
+                "symfony/finder": "^7.4|^8.0",
+                "symfony/http-kernel": "^7.4|^8.0",
                 "twig/twig": "^2.15.3|^3.8"
             },
+            "conflict": {
+                "symfony/asset-mapper": "<6.4"
+            },
             "require-dev": {
-                "symfony/asset-mapper": "^6.3|^7.0|^8.0",
-                "symfony/framework-bundle": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/twig-bundle": "^5.4|^6.0|^7.0|^8.0",
-                "zenstruck/browser": "^1.4"
+                "phpunit/phpunit": "^11.1|^12.0",
+                "symfony/asset-mapper": "^7.4|^8.0",
+                "symfony/framework-bundle": "^7.4|^8.0",
+                "symfony/twig-bundle": "^7.4|^8.0",
+                "zenstruck/browser": "^1.9"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -9788,7 +11716,7 @@
                 "symfony-ux"
             ],
             "support": {
-                "source": "https://github.com/symfony/stimulus-bundle/tree/v2.36.0"
+                "source": "https://github.com/symfony/stimulus-bundle/tree/v3.4.0"
             },
             "funding": [
                 {
@@ -9808,7 +11736,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-06T04:31:36+00:00"
+            "time": "2026-07-25T17:54:47+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -20446,165 +22374,6 @@
                 "source": "https://github.com/psalm/psalm-plugin-symfony/tree/v5.3.0"
             },
             "time": "2026-02-12T11:24:16+00:00"
-        },
-        {
-            "name": "psr/http-factory",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
-                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "psr/http-message": "^1.0 || ^2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
-            "keywords": [
-                "factory",
-                "http",
-                "message",
-                "psr",
-                "psr-17",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/http-factory"
-            },
-            "time": "2024-04-15T12:06:14+00:00"
-        },
-        {
-            "name": "psr/http-message",
-            "version": "2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
-                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2 || ^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/http-message/tree/2.0"
-            },
-            "time": "2023-04-04T09:54:51+00:00"
-        },
-        {
-            "name": "psr/simple-cache",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\SimpleCache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interfaces for simple caching",
-            "keywords": [
-                "cache",
-                "caching",
-                "psr",
-                "psr-16",
-                "simple-cache"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
-            },
-            "time": "2021-10-29T13:26:27+00:00"
         },
         {
             "name": "react/cache",
