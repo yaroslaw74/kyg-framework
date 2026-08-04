@@ -43,4 +43,5 @@ return [
     SavinMikhail\ResponseProfilerBundle\ResponseProfilerBundle::class => ['dev' => true, 'test' => true],
     Spatie\SymfonyIgnitionBundle\IgnitionBundle::class => ['dev' => true],
     Sensiolabs\MinifyBundle\SensiolabsMinifyBundle::class => ['all' => true],
+    Yokai\EnumBundle\YokaiEnumBundle::class => ['all' => true],
 ];
