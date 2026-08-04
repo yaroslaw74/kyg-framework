@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use App\Modules\Users\Enum\Status;
+use App\Modules\Users\Enum\StatusEnum;
 use App\Modules\Users\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -31,6 +32,7 @@ use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Yokai\EnumBundle\Validator\Constraints\Enum;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[ORM\Table(name: 'users__user')]
@@ -142,6 +144,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface, Timezo
     private ?string $avatar = null;
 
     #[ORM\Column(enumType: Status::class, options: ['default' => Status::New])]
+    #[Enum(enum: StatusEnum::class)]
     private Status $status = Status::New;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
