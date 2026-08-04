@@ -16653,16 +16653,16 @@
         },
         {
             "name": "nowo-tech/twig-inspector-bundle",
-            "version": "v1.0.41",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nowo-tech/TwigInspectorBundle.git",
-                "reference": "aefd5ed0abe0ba265b09295d9cf4eccac7181efd"
+                "reference": "8910c49786849432df4e713ab888514c3448d6eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/aefd5ed0abe0ba265b09295d9cf4eccac7181efd",
-                "reference": "aefd5ed0abe0ba265b09295d9cf4eccac7181efd",
+                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/8910c49786849432df4e713ab888514c3448d6eb",
+                "reference": "8910c49786849432df4e713ab888514c3448d6eb",
                 "shasum": ""
             },
             "require": {
@@ -16676,6 +16676,8 @@
                 "symfony/http-kernel": "^6.0 || ^7.0 || ^8.0",
                 "symfony/routing": "^6.0 || ^7.0 || ^8.0",
                 "symfony/web-profiler-bundle": "^6.0 || ^7.0 || ^8.0",
+                "twig/extra-bundle": "^3.12",
+                "twig/string-extra": "^3.12",
                 "twig/twig": "^3.8 || ^4.0"
             },
             "require-dev": {
@@ -16688,7 +16690,8 @@
                 "rector/rector": "^2.0",
                 "symfony/framework-bundle": "^6.0 || ^7.0 || ^8.0",
                 "symfony/twig-bundle": "^6.0 || ^7.0 || ^8.0",
-                "symfony/yaml": "^6.0 || ^7.0 || ^8.0"
+                "symfony/yaml": "^6.0 || ^7.0 || ^8.0",
+                "vincentlanglet/twig-cs-fixer": "^3.0"
             },
             "suggest": {
                 "symfony/flex": "For automatic recipe installation (config and routes; registers this bundle for dev/test only — always install with composer require --dev)"
@@ -16755,7 +16758,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-07-29T17:43:04+00:00"
+            "time": "2026-08-04T12:20:10+00:00"
         },
         {
             "name": "orklah/psalm-insane-comparison",
@@ -22717,16 +22720,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.11.1",
+            "version": "v2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "df5790819d0228e3c48e575e79f280822200c270"
+                "reference": "f8d71e61bd1bc2781c7dd2e3de5ba0bde82acbb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/df5790819d0228e3c48e575e79f280822200c270",
-                "reference": "df5790819d0228e3c48e575e79f280822200c270",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/f8d71e61bd1bc2781c7dd2e3de5ba0bde82acbb7",
+                "reference": "f8d71e61bd1bc2781c7dd2e3de5ba0bde82acbb7",
                 "shasum": ""
             },
             "require": {
@@ -22828,7 +22831,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.11.1"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.11.2"
             },
             "funding": [
                 {
@@ -22840,7 +22843,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-01T21:34:09+00:00"
+            "time": "2026-08-03T20:19:51+00:00"
         },
         {
             "name": "zenstruck/mailer-test",
