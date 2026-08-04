@@ -53,4 +53,5 @@ return [
     Rekalogika\TemporaryUrl\RekalogikaTemporaryUrlBundle::class => ['all' => true],
     Rekalogika\File\Bundle\RekalogikaFileBundle::class => ['all' => true],
     Rekalogika\File\Bridge\FilePond\RekalogikaFileFilePondBundle::class => ['all' => true],
+    Yokai\SecurityTokenBundle\YokaiSecurityTokenBundle::class => ['all' => true],
 ];
