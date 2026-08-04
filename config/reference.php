@@ -676,7 +676,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         }>,
  *     },
  *     webhook?: bool|array{ // Webhook configuration
- *         enabled?: bool|Param, // Default: false
+ *         enabled?: bool|Param, // Default: true
  *         message_bus?: scalar|Param|null, // The message bus to use. // Default: "messenger.default_bus"
  *         routing?: array<string, array{ // Default: []
  *             service?: scalar|Param|null,
@@ -684,7 +684,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         }>,
  *     },
  *     remote-event?: bool|array{ // RemoteEvent configuration
- *         enabled?: bool|Param, // Default: false
+ *         enabled?: bool|Param, // Default: true
  *     },
  *     json_streamer?: bool|array{ // JSON streamer configuration
  *         enabled?: bool|Param, // Default: false
@@ -2412,6 +2412,22 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     filesystems?: array<string, scalar|Param|null>,
  *     default_filesystem_directory?: scalar|Param|null, // The storage directory used by the default filesystem. // Default: "%kernel.project_dir%/var/storage/default"
  * }
+ * @psalm-type YokaiSecurityTokenConfig = array{
+ *     tokens?: array<string, array{ // Default: []
+ *         generator?: scalar|Param|null, // Default: "yokai_security_token.open_ssl_token_generator"
+ *         duration?: scalar|Param|null, // Default: "+2 days"
+ *         usages?: int|Param, // Default: 1
+ *         keep?: scalar|Param|null, // Default: "+1 month"
+ *         unique?: bool|Param, // Default: false
+ *     }>,
+ *     services?: array{
+ *         information_guesser?: scalar|Param|null, // Default: "yokai_security_token.default_information_guesser"
+ *         token_factory?: scalar|Param|null, // Default: "yokai_security_token.default_token_factory"
+ *         token_repository?: scalar|Param|null, // Default: "yokai_security_token.default_token_repository"
+ *         token_manager?: scalar|Param|null, // Default: "yokai_security_token.default_token_manager"
+ *         archivist?: scalar|Param|null, // Default: "yokai_security_token.delete_archivist"
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2449,6 +2465,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     nelmio_api_doc?: NelmioApiDocConfig,
  *     flysystem?: FlysystemConfig,
  *     rekalogika_file?: RekalogikaFileConfig,
+ *     yokai_security_token?: YokaiSecurityTokenConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2490,6 +2507,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         flysystem?: FlysystemConfig,
  *         rekalogika_file?: RekalogikaFileConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2529,6 +2547,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_api_doc?: NelmioApiDocConfig,
  *         flysystem?: FlysystemConfig,
  *         rekalogika_file?: RekalogikaFileConfig,
+ *         yokai_security_token?: YokaiSecurityTokenConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
