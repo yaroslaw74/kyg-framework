@@ -4,9 +4,10 @@
             "**",
             "!assets/controllers/csrf_protection_controller.js",
             "!assets/icons/*",
+            "!assets/images/*",
+            "!assets/fonts/*",
             "!assets/vendor/*",
             "!assets/controllers.json",
-            "!assets/fonts/*",
             "!public/assets/*",
             "!public/bundles/*",
             "!public/storage/*",
@@ -15,7 +16,8 @@
             "!tests/*",
             "!var/*",
             "!vendor/*",
-            "!composer.json"
+            "!composer.json",
+            "!package.json"
         ]
     },
     "formatter": {
