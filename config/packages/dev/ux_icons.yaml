@@ -1,0 +1,5 @@
+# Full configuration reference: https://symfony.com/bundles/ux-icons/current/index.html#configuration
+ux_icons:
+    iconify:
+        # Persist each on-demand icon to disk on first render, so you don't forget to commit it before deploying (like `ux:icons:lock`)
+        auto_lock: true
