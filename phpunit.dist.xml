@@ -30,6 +30,7 @@
             restrictNotices="true"
             restrictWarnings="true"
     >
+
         <include>
             <directory>config</directory>
             <directory>modules</directory>
@@ -45,13 +46,12 @@
     </source>
 
     <extensions>
-        <bootstrap class="Zenstruck\Browser\Test\BrowserExtension" />
         <bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension" />
+        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
         <bootstrap class="Symfony\Component\Panther\ServerExtension" />
         <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension">
             <parameter name="clock-mock-namespaces" value="App" />
             <parameter name="dns-mock-namespaces" value="App" />
         </bootstrap>
-        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
     </extensions>
 </phpunit>
