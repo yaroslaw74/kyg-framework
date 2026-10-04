@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-final class Kernel extends BaseKernel
+class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
@@ -33,8 +33,6 @@ final class Kernel extends BaseKernel
     }
 
     /**
-     * Summary of configureRoutes.
-     *
      * @phpstan-ignore method.unused
      */
     private function configureRoutes(RoutingConfigurator $routes): void
@@ -70,5 +68,15 @@ final class Kernel extends BaseKernel
         if (false !== ($fileName = $ReflectionObject->getFileName())) {
             $routes->import($fileName, 'attribute');
         }
+    }
+
+    /**
+     * @return list<string> An array of allowed values for APP_ENV
+     *
+     * @phpstan-ignore method.unused
+     **/
+    private function getAllowedEnvs(): array
+    {
+        return ['prod', 'dev', 'test'];
     }
 }
