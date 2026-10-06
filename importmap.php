@@ -20,6 +20,7 @@
  *     package_specifier?: string, // Remote "package-name/path" specifier, defaults to the import name
  *     type?: 'js'|'css'|'json',
  *     entrypoint?: bool,
+ *     esm?: bool,                 // Whether jsDelivr's ESM build is used, defaults to true
  * }>
  */
 return [
@@ -37,6 +38,7 @@ return [
     '@symfony/ux-cropperjs' => ['path' => './vendor/symfony/ux-cropperjs/assets/dist/controller.js'],
     '@symfony/ux-map' => ['path' => './vendor/symfony/ux-map/assets/dist/abstract_map_controller.js'],
     '@symfony/ux-google-map' => ['path' => './vendor/symfony/ux-google-map/assets/dist/map_controller.js'],
+    '@symfony/ux-live-component' => ['path' => './vendor/symfony/ux-live-component/assets/dist/live_controller.js'],
     '@rekalogika/file-filepond' => ['path' => './vendor/rekalogika/file-filepond/assets/dist/filepond.js'],
     '@rekalogika/temporary-url-bundle' => ['path' => './vendor/rekalogika/temporary-url-bundle/assets/dist/autoexpire.js'],
     '@hotwired/stimulus' => ['version' => '3.2.2'],
