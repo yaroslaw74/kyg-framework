@@ -2,4 +2,8 @@ web_profiler:
     toolbar: true
 
 framework:
-    profiler: true
+    profiler:
+        collect: true
+        excluded_paths:
+            - '^/\.well-known/'
+            - '^/favicon\.ico$'
