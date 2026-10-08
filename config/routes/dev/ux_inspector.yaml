@@ -1,0 +1,2 @@
+ux_inspector:
+    resource: "@UXInspectorBundle/config/routes.php"
