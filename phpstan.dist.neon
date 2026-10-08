@@ -5,6 +5,7 @@ parameters:
     level: 6
     errorFormat: friendly
     paths:
+        - bin/
         - config/
         - modules/
         - public/
@@ -14,8 +15,6 @@ parameters:
         - config/bundles.php
         - config/preload.php
         - config/reference.php
-        - src/Kernel.php
-        - vendor/
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
         consoleApplicationLoader: tests/console-application.php
@@ -28,5 +27,5 @@ parameters:
         literalString: true
     friendly:
         editorUrl: 'vscode://file/%%file%%:%%line%%'
-    dadadev:
-        urlGeneratingRulesFile: var/cache/dev/url_generating_routes.php
+
+
