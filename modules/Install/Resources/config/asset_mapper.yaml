@@ -1,0 +1,5 @@
+framework:
+    asset_mapper:
+        paths:
+            vendor/rekalogika/file-filepond/assets/dist/: "@rekalogika/file-filepond"
+            vendor/rekalogika/temporary-url-bundle/assets/dist/: "@rekalogika/temporary-url-bundle"
