@@ -2220,6 +2220,36 @@
                 },
                 "additionalProperties": false
             },
+            "dama_doctrine_test": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "enable_static_connection": {
+                        "$ref": "#/$defs/types/variable",
+                        "default": true
+                    },
+                    "enable_static_meta_data_cache": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true
+                    },
+                    "enable_static_query_cache": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true
+                    },
+                    "connection_keys": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/variable"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "default": {
+                    "enable_static_connection": true,
+                    "enable_static_meta_data_cache": true,
+                    "enable_static_query_cache": true,
+                    "connection_keys": []
+                }
+            },
             "debug": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -3114,6 +3144,168 @@
                 },
                 "additionalProperties": false
             },
+            "doctrine_diagram": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "er": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "filename": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "%kernel.project_dir%/er"
+                            },
+                            "size": {
+                                "anyOf": [
+                                    {
+                                        "enum": [
+                                            "mini",
+                                            "midi",
+                                            "maxi"
+                                        ]
+                                    },
+                                    {
+                                        "$ref": "#/$defs/types/param"
+                                    }
+                                ],
+                                "default": "midi"
+                            },
+                            "theme": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "_none_"
+                            },
+                            "connection": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null
+                            },
+                            "include": {
+                                "$ref": "#/$defs/types/array_null",
+                                "items": {
+                                    "$ref": "#/$defs/types/scalar"
+                                }
+                            },
+                            "exclude": {
+                                "$ref": "#/$defs/types/array_null",
+                                "items": {
+                                    "$ref": "#/$defs/types/scalar"
+                                }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "filename": "%kernel.project_dir%/er",
+                            "size": "midi",
+                            "theme": "_none_",
+                            "connection": null,
+                            "include": [],
+                            "exclude": []
+                        }
+                    },
+                    "class": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "filename": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "%kernel.project_dir%/class"
+                            },
+                            "size": {
+                                "anyOf": [
+                                    {
+                                        "enum": [
+                                            "mini",
+                                            "midi",
+                                            "maxi"
+                                        ]
+                                    },
+                                    {
+                                        "$ref": "#/$defs/types/param"
+                                    }
+                                ],
+                                "default": "midi"
+                            },
+                            "theme": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "_none_"
+                            },
+                            "em": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null
+                            },
+                            "include": {
+                                "$ref": "#/$defs/types/array_null",
+                                "items": {
+                                    "$ref": "#/$defs/types/scalar"
+                                }
+                            },
+                            "exclude": {
+                                "$ref": "#/$defs/types/array_null",
+                                "items": {
+                                    "$ref": "#/$defs/types/scalar"
+                                }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "filename": "%kernel.project_dir%/class",
+                            "size": "midi",
+                            "theme": "_none_",
+                            "em": null,
+                            "include": [],
+                            "exclude": []
+                        }
+                    },
+                    "convert": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "format": {
+                                "anyOf": [
+                                    {
+                                        "enum": [
+                                            "puml",
+                                            "png",
+                                            "svg"
+                                        ]
+                                    },
+                                    {
+                                        "$ref": "#/$defs/types/param"
+                                    }
+                                ],
+                                "default": "svg"
+                            },
+                            "converter": {
+                                "anyOf": [
+                                    {
+                                        "enum": [
+                                            "auto",
+                                            "jar",
+                                            "server"
+                                        ]
+                                    },
+                                    {
+                                        "$ref": "#/$defs/types/param"
+                                    }
+                                ],
+                                "default": "auto"
+                            },
+                            "jar": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null
+                            },
+                            "server": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "http://www.plantuml.com/plantuml"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "format": "svg",
+                            "converter": "auto",
+                            "jar": null,
+                            "server": "http://www.plantuml.com/plantuml"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
             "doctrine_migrations": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -3239,6 +3431,40 @@
                         "$ref": "#/$defs/types/boolean",
                         "default": true,
                         "description": "Whether or not to wrap migrations in a single transaction."
+                    }
+                },
+                "additionalProperties": false
+            },
+            "easy_log": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "log_path": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "%kernel.logs_dir%/%kernel.environment%-readable.log",
+                        "description": "Path where readable log file will be located"
+                    },
+                    "max_line_length": {
+                        "$ref": "#/$defs/types/integer",
+                        "minimum": 1,
+                        "default": 120,
+                        "description": "Max line length in log file"
+                    },
+                    "prefix_length": {
+                        "$ref": "#/$defs/types/integer",
+                        "minimum": 0,
+                        "default": 2,
+                        "description": "Prefix length in log file"
+                    },
+                    "ignored_routes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "_wdt",
+                            "_profiler"
+                        ],
+                        "description": "Ignored routes list"
                     }
                 },
                 "additionalProperties": false
@@ -4828,6 +5054,11 @@
                                         "$ref": "#/$defs/types/integer",
                                         "default": 0,
                                         "description": "Seconds to wait between 2 session metadata updates."
+                                    },
+                                    "isolate_attributes": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false,
+                                        "description": "Whether to deep-clone the values read from and passed to session attributes, so that only values passed to set() are saved."
                                     }
                                 },
                                 "additionalProperties": false
@@ -4844,7 +5075,8 @@
                             "cookie_secure": "auto",
                             "cookie_httponly": true,
                             "cookie_samesite": "lax",
-                            "metadata_update_threshold": 0
+                            "metadata_update_threshold": 0,
+                            "isolate_attributes": false
                         },
                         "description": "Session configuration"
                     },
@@ -5017,6 +5249,51 @@
                             "max_host_connections": {
                                 "$ref": "#/$defs/types/integer",
                                 "description": "The maximum number of connections to a single host."
+                            },
+                            "recorder": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/types/object_null",
+                                        "properties": {
+                                            "enabled": {
+                                                "$ref": "#/$defs/types/boolean",
+                                                "default": false
+                                            },
+                                            "redactor": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": null,
+                                                "description": "Service id of a RedactorInterface; when set, \"redact\" and \"redact_except\" are ignored."
+                                            },
+                                            "redact": {
+                                                "$ref": "#/$defs/types/array_null",
+                                                "items": {
+                                                    "$ref": "#/$defs/types/scalar"
+                                                },
+                                                "description": "Header, query-string, form and JSON field names masked in recorded files, in addition to the built-in ones."
+                                            },
+                                            "redact_except": {
+                                                "$ref": "#/$defs/types/array_null",
+                                                "items": {
+                                                    "$ref": "#/$defs/types/scalar"
+                                                },
+                                                "description": "Names never masked, removed from the built-in lists."
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "type": [
+                                            "boolean"
+                                        ]
+                                    }
+                                ],
+                                "default": {
+                                    "enabled": false,
+                                    "redactor": null,
+                                    "redact": [],
+                                    "redact_except": []
+                                },
+                                "description": "Record HTTP exchanges into HAR files and replay them in tests (see RecorderHttpClient)."
                             },
                             "default_options": {
                                 "$ref": "#/$defs/types/object_null",
@@ -5669,6 +5946,12 @@
                 ],
                 "default": {
                     "enabled": true,
+                    "recorder": {
+                        "enabled": false,
+                        "redactor": null,
+                        "redact": [],
+                        "redact_except": []
+                    },
                     "scoped_clients": []
                 }
             },
@@ -5798,6 +6081,37 @@
                 "required": [
                     "resource_owners"
                 ],
+                "additionalProperties": false
+            },
+            "ignition": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "application_path": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "",
+                        "description": "When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner."
+                    },
+                    "dark_mode": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": false,
+                        "description": "By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode."
+                    },
+                    "should_display_exception": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": "%kernel.debug%",
+                        "description": "Avoid rendering Ignition, for example in production environments."
+                    },
+                    "force_html_response": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": false,
+                        "description": "When true, Ignition always renders HTML errors regardless of request format. When false, non-HTML requests (e.g. JSON) are handled by Symfony."
+                    },
+                    "openai_key": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "",
+                        "description": "if you want AI solutions to your app's errors."
+                    }
+                },
                 "additionalProperties": false
             },
             "jbtronics_settings": {
@@ -7031,6 +7345,25 @@
                     "convert_exception": false,
                     "remove_first_page_param": false
                 }
+            },
+            "kocal_biome_js": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "binary_version": {
+                        "$ref": "#/$defs/types/scalar",
+                        "description": "Biome.js CLI version to download.",
+                        "examples": [
+                            [
+                                "v1.9.4",
+                                "2.0.0"
+                            ]
+                        ]
+                    }
+                },
+                "required": [
+                    "binary_version"
+                ],
+                "additionalProperties": false
             },
             "lexik_jwt_authentication": {
                 "$ref": "#/$defs/types/object_null",
@@ -8544,6 +8877,20 @@
                                 "default": true,
                                 "description": "Whether redeliveries should be rejected and retried through a new message instead of being handled directly. This mostly makes sense for AMQP, which redelivers messages that were neither acknowledged nor rejected. Disabling it avoids losing a message when the retry or the failure transport is unreachable, at the risk of a redelivery loop that blocks the queue."
                             },
+                            "deduplication": {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "lock_factory": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null,
+                                        "description": "The service ID of the lock factory used to deduplicate messages, \"lock.factory\" when not set."
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "default": {
+                                    "lock_factory": null
+                                }
+                            },
                             "identity_stamps": {
                                 "$ref": "#/$defs/types/boolean",
                                 "default": false,
@@ -8702,6 +9049,9 @@
                     "failure_transport": null,
                     "stop_worker_on_signals": [],
                     "reject_redelivered_messages": true,
+                    "deduplication": {
+                        "lock_factory": null
+                    },
                     "identity_stamps": false,
                     "default_bus": null,
                     "buses": {
@@ -10086,6 +10436,246 @@
                     "channel_policy": [],
                     "admin_recipients": []
                 }
+            },
+            "nowo_twig_inspector": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "enabled_extensions": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            ".html.twig"
+                        ],
+                        "description": "List of template file extensions to inspect (e.g., [\".html.twig\", \".twig\"])"
+                    },
+                    "excluded_templates": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "List of template names or patterns to exclude from inspection"
+                    },
+                    "excluded_blocks": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "List of block names or patterns to exclude from inspection"
+                    },
+                    "enable_metrics": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true,
+                        "description": "Enable collection of template usage metrics in DataCollector"
+                    },
+                    "inject_on_sub_requests": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": false,
+                        "description": "When true, inject comments also during sub-requests (e.g. when main content is rendered as fragment). Enable if all templates show \"sub-request\" and none get inspected."
+                    },
+                    "cookie_name": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "twig_inspector_is_active",
+                        "description": "Name of the cookie used to enable/disable the inspector"
+                    },
+                    "max_injection_depth": {
+                        "$ref": "#/$defs/types/integer",
+                        "minimum": 0,
+                        "default": 0,
+                        "description": "Maximum nesting depth for comment injection (0 = unlimited). Reduces overhead on very deep template trees."
+                    },
+                    "excluded_templates_regex": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "Additional exclusion patterns as regex (e.g. [\"/^email\\\\//\"]). Applied in addition to excluded_templates."
+                    },
+                    "excluded_templates_prefixes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "Template name prefixes to exclude (namespace-style, e.g. [\"@Admin/\", \"components/\"])."
+                    },
+                    "excluded_blocks_regex": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "Additional block exclusion patterns as regex."
+                    },
+                    "overlay_theme": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "light",
+                        "description": "Overlay theme: \"light\", \"dark\", or \"auto\" (follow system preference)."
+                    },
+                    "overlay_compact": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": false,
+                        "description": "Use compact tooltip style for the overlay."
+                    },
+                    "reduced_motion": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": false,
+                        "description": "Respect reduced motion (accessibility). When true or system prefers-reduced-motion, animations are minimized."
+                    },
+                    "keyboard_shortcut": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "Ctrl+Shift+T",
+                        "description": "Keyboard shortcut to toggle inspector (e.g. \"Ctrl+Shift+T\"). Empty to disable."
+                    }
+                },
+                "additionalProperties": false
+            },
+            "optimization_advisor": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "thresholds": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "slow_query_ms": {
+                                "$ref": "#/$defs/types/number",
+                                "default": 30
+                            },
+                            "n_plus_one_count": {
+                                "$ref": "#/$defs/types/integer",
+                                "default": 10
+                            },
+                            "slow_listener_ms": {
+                                "$ref": "#/$defs/types/number",
+                                "default": 10
+                            },
+                            "max_items": {
+                                "$ref": "#/$defs/types/integer",
+                                "default": 200
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "slow_query_ms": 30,
+                            "n_plus_one_count": 10,
+                            "slow_listener_ms": 10,
+                            "max_items": 200
+                        }
+                    },
+                    "app_namespace_prefix": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "App\\"
+                    },
+                    "redact_sensitive_data": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true
+                    },
+                    "sensitive_param_patterns": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "email",
+                            "password",
+                            "passwd",
+                            "token",
+                            "secret",
+                            "auth",
+                            "credential",
+                            "phone",
+                            "address",
+                            "ssn",
+                            "card",
+                            "iban"
+                        ]
+                    },
+                    "sensitive_value_patterns": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "[^@\\s]+@[^@\\s]+\\.[^@\\s]+"
+                        ]
+                    },
+                    "sensitive_query_params": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "token",
+                            "api_key",
+                            "apikey",
+                            "secret",
+                            "password",
+                            "auth",
+                            "access_token",
+                            "refresh_token",
+                            "session_id",
+                            "_token",
+                            "email",
+                            "session",
+                            "cookie"
+                        ]
+                    },
+                    "infra_db_tables": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "doctrine_migration_versions"
+                        ]
+                    },
+                    "app_cache_pool_prefixes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "cache.app",
+                            "cache.doctrine.result",
+                            "cache.doctrine.orm"
+                        ]
+                    },
+                    "profiler_cache_pool_prefixes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "cache.profiler"
+                        ]
+                    },
+                    "profiler_template_prefixes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "@WebProfiler/"
+                        ]
+                    },
+                    "profiler_event_namespace_prefixes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "Symfony\\Bundle\\WebProfilerBundle\\"
+                        ]
+                    },
+                    "profiler_event_classes": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "Symfony\\Component\\HttpKernel\\EventListener\\ProfilerListener"
+                        ]
+                    }
+                },
+                "additionalProperties": false
             },
             "property_access": {
                 "anyOf": [
@@ -15065,6 +15655,53 @@
                 },
                 "additionalProperties": false
             },
+            "ux_inspector": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "enabled": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true,
+                        "description": "Enable the inspector. It stays off when kernel.debug is false."
+                    },
+                    "pull_tab": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true,
+                        "description": "Display a small pull tab on the right edge of the screen to open the Inspector."
+                    },
+                    "exclude_paths": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "/_profiler",
+                            "/_wdt",
+                            "/_error",
+                            "/_fragment"
+                        ],
+                        "description": "URL path prefixes where the inspector will not be injected"
+                    },
+                    "ignore_selectors": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "CSS selectors for DOM elements to skip during component detection"
+                    }
+                },
+                "additionalProperties": false,
+                "default": {
+                    "enabled": true,
+                    "pull_tab": true,
+                    "exclude_paths": [
+                        "/_profiler",
+                        "/_wdt",
+                        "/_error",
+                        "/_fragment"
+                    ],
+                    "ignore_selectors": []
+                }
+            },
             "ux_map": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -15771,6 +16408,298 @@
                     "enabled": true,
                     "workflows": []
                 }
+            },
+            "zenstruck_foundry": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "auto_refresh_proxies": {
+                        "$ref": "#/$defs/types/boolean_null",
+                        "default": null,
+                        "description": "Deprecated since zenstruck/foundry 2.0: Since 2.0 auto_refresh_proxies defaults to true and this configuration has no effect.\n\nWhether to auto-refresh proxies by default (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#auto-refresh)",
+                        "deprecated": true
+                    },
+                    "enable_auto_refresh_with_lazy_objects": {
+                        "$ref": "#/$defs/types/boolean_null",
+                        "default": null,
+                        "description": "Enable auto-refresh using PHP 8.4 lazy objects (cannot be enabled if PHP < 8.4)."
+                    },
+                    "faker": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "locale": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "The default locale to use for faker.",
+                                "examples": [
+                                    "fr_FR"
+                                ]
+                            },
+                            "seed": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "Deprecated since zenstruck/foundry 2.4: The \"faker.seed\" configuration is deprecated and will be removed in 3.0. Use environment variable \"FOUNDRY_FAKER_SEED\" instead.\n\nRandom number generator seed to produce the same fake values every run.",
+                                "examples": [
+                                    "1234"
+                                ],
+                                "deprecated": true
+                            },
+                            "manage_seed": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true,
+                                "description": "Automatically manage faker seed to ensure consistent data between test runs."
+                            },
+                            "service": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "Service id for custom faker instance.",
+                                "examples": [
+                                    "my_faker"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "locale": null,
+                            "seed": null,
+                            "manage_seed": true,
+                            "service": null
+                        },
+                        "description": "Configure the faker used by your factories."
+                    },
+                    "instantiator": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "use_constructor": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true,
+                                "description": "Use the constructor to instantiate objects."
+                            },
+                            "allow_extra_attributes": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": false,
+                                "description": "Whether or not to skip attributes that do not correspond to properties."
+                            },
+                            "always_force_properties": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": false,
+                                "description": "Whether or not to skip setters and force set object properties (public/private/protected) directly."
+                            },
+                            "service": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "Service id of your custom instantiator.",
+                                "examples": [
+                                    "my_instantiator"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "use_constructor": true,
+                            "allow_extra_attributes": false,
+                            "always_force_properties": false,
+                            "service": null
+                        },
+                        "description": "Configure the default instantiator used by your object factories."
+                    },
+                    "global_state": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "description": "Stories or invokable services to be loaded before each test."
+                    },
+                    "persistence": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "flush_once": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": false,
+                                "description": "Flush only once per call of `PersistentObjectFactory::create()` in userland."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "flush_once": false
+                        }
+                    },
+                    "orm": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "auto_persist": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true,
+                                "description": "Deprecated since zenstruck/foundry 2.4: Since 2.4 auto_persist defaults to true and this configuration has no effect.\n\nAutomatically persist entities when created.",
+                                "deprecated": true
+                            },
+                            "reset": {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "connections": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "default": [
+                                            "default"
+                                        ],
+                                        "description": "DBAL connections to reset with ResetDatabase trait"
+                                    },
+                                    "entity_managers": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "default": [
+                                            "default"
+                                        ],
+                                        "description": "Entity Managers to reset with ResetDatabase trait"
+                                    },
+                                    "mode": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "!php/enum Zenstruck\\Foundry\\ORM\\ResetDatabase\\ResetDatabaseMode::SCHEMA",
+                                                    "schema",
+                                                    "!php/enum Zenstruck\\Foundry\\ORM\\ResetDatabase\\ResetDatabaseMode::MIGRATE",
+                                                    "migrate",
+                                                    "schema",
+                                                    "migrate"
+                                                ]
+                                            },
+                                            {
+                                                "$ref": "#/$defs/types/param"
+                                            }
+                                        ],
+                                        "default": "schema",
+                                        "description": "Reset mode to use with ResetDatabase trait"
+                                    },
+                                    "migrations": {
+                                        "$ref": "#/$defs/types/object_null",
+                                        "properties": {
+                                            "configurations": {
+                                                "$ref": "#/$defs/types/array_null",
+                                                "items": {
+                                                    "$ref": "#/$defs/types/scalar"
+                                                },
+                                                "description": "Migration configurations"
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "default": {
+                                            "configurations": []
+                                        }
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "default": {
+                                    "connections": [
+                                        "default"
+                                    ],
+                                    "entity_managers": [
+                                        "default"
+                                    ],
+                                    "mode": "schema",
+                                    "migrations": {
+                                        "configurations": []
+                                    }
+                                }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "auto_persist": true,
+                            "reset": {
+                                "connections": [
+                                    "default"
+                                ],
+                                "entity_managers": [
+                                    "default"
+                                ],
+                                "mode": "schema",
+                                "migrations": {
+                                    "configurations": []
+                                }
+                            }
+                        }
+                    },
+                    "mongo": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "auto_persist": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true,
+                                "description": "Deprecated since zenstruck/foundry 2.4: Since 2.4 auto_persist defaults to true and this configuration has no effect.\n\nAutomatically persist documents when created.",
+                                "deprecated": true
+                            },
+                            "reset": {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "document_managers": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "default": [
+                                            "default"
+                                        ],
+                                        "description": "Document Managers to reset with ResetDatabase trait"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "default": {
+                                    "document_managers": [
+                                        "default"
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "auto_persist": true,
+                            "reset": {
+                                "document_managers": [
+                                    "default"
+                                ]
+                            }
+                        }
+                    },
+                    "make_factory": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "default_namespace": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "Factory",
+                                "description": "Default namespace where factories will be created by maker."
+                            },
+                            "add_hints": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true,
+                                "description": "Add \"beginner\" hints in the created factory."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "default_namespace": "Factory",
+                            "add_hints": true
+                        }
+                    },
+                    "make_story": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "default_namespace": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "Story",
+                                "description": "Default namespace where stories will be created by maker."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "default_namespace": "Story"
+                        }
+                    }
+                },
+                "additionalProperties": false
             }
         }
     },
@@ -15959,8 +16888,14 @@
                 "doctrine": {
                     "$ref": "#/$defs/nodes/doctrine"
                 },
+                "doctrine_diagram": {
+                    "$ref": "#/$defs/nodes/doctrine_diagram"
+                },
                 "doctrine_migrations": {
                     "$ref": "#/$defs/nodes/doctrine_migrations"
+                },
+                "easy_log": {
+                    "$ref": "#/$defs/nodes/easy_log"
                 },
                 "flysystem": {
                     "$ref": "#/$defs/nodes/flysystem"
@@ -15977,6 +16912,9 @@
                 "hwi_oauth": {
                     "$ref": "#/$defs/nodes/hwi_oauth"
                 },
+                "ignition": {
+                    "$ref": "#/$defs/nodes/ignition"
+                },
                 "jbtronics_settings": {
                     "$ref": "#/$defs/nodes/jbtronics_settings"
                 },
@@ -15988,6 +16926,9 @@
                 },
                 "knp_paginator": {
                     "$ref": "#/$defs/nodes/knp_paginator"
+                },
+                "kocal_biome_js": {
+                    "$ref": "#/$defs/nodes/kocal_biome_js"
                 },
                 "lexik_jwt_authentication": {
                     "$ref": "#/$defs/nodes/lexik_jwt_authentication"
@@ -16019,6 +16960,12 @@
                 "notifier": {
                     "$ref": "#/$defs/nodes/notifier"
                 },
+                "nowo_twig_inspector": {
+                    "$ref": "#/$defs/nodes/nowo_twig_inspector"
+                },
+                "optimization_advisor": {
+                    "$ref": "#/$defs/nodes/optimization_advisor"
+                },
                 "property_access": {
                     "$ref": "#/$defs/nodes/property_access"
                 },
@@ -16088,6 +17035,9 @@
                 "ux_icons": {
                     "$ref": "#/$defs/nodes/ux_icons"
                 },
+                "ux_inspector": {
+                    "$ref": "#/$defs/nodes/ux_inspector"
+                },
                 "ux_map": {
                     "$ref": "#/$defs/nodes/ux_map"
                 },
@@ -16105,6 +17055,9 @@
                 },
                 "workflow": {
                     "$ref": "#/$defs/nodes/workflow"
+                },
+                "zenstruck_foundry": {
+                    "$ref": "#/$defs/nodes/zenstruck_foundry"
                 }
             },
             "additionalProperties": false
@@ -16127,11 +17080,20 @@
                 "cropperjs": {
                     "$ref": "#/$defs/nodes/cropperjs"
                 },
+                "dama_doctrine_test": {
+                    "$ref": "#/$defs/nodes/dama_doctrine_test"
+                },
                 "doctrine": {
                     "$ref": "#/$defs/nodes/doctrine"
                 },
+                "doctrine_diagram": {
+                    "$ref": "#/$defs/nodes/doctrine_diagram"
+                },
                 "doctrine_migrations": {
                     "$ref": "#/$defs/nodes/doctrine_migrations"
+                },
+                "easy_log": {
+                    "$ref": "#/$defs/nodes/easy_log"
                 },
                 "flysystem": {
                     "$ref": "#/$defs/nodes/flysystem"
@@ -16187,6 +17149,12 @@
                 "notifier": {
                     "$ref": "#/$defs/nodes/notifier"
                 },
+                "nowo_twig_inspector": {
+                    "$ref": "#/$defs/nodes/nowo_twig_inspector"
+                },
+                "optimization_advisor": {
+                    "$ref": "#/$defs/nodes/optimization_advisor"
+                },
                 "property_access": {
                     "$ref": "#/$defs/nodes/property_access"
                 },
@@ -16256,6 +17224,9 @@
                 "ux_icons": {
                     "$ref": "#/$defs/nodes/ux_icons"
                 },
+                "ux_inspector": {
+                    "$ref": "#/$defs/nodes/ux_inspector"
+                },
                 "ux_map": {
                     "$ref": "#/$defs/nodes/ux_map"
                 },
@@ -16273,6 +17244,9 @@
                 },
                 "workflow": {
                     "$ref": "#/$defs/nodes/workflow"
+                },
+                "zenstruck_foundry": {
+                    "$ref": "#/$defs/nodes/zenstruck_foundry"
                 }
             },
             "additionalProperties": false
