@@ -1,11 +1,10 @@
 /migrations/
-/drivers/
 /public/additions/
 /public/storage/
 /public/theme/
 /public/translations/
 /public/uploads/
-/vendor/
+/drivers/
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -27,10 +26,13 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-###> friendsofphp/php-cs-fixer ###
-/.php-cs-fixer.php
-/.php-cs-fixer.cache
-###< friendsofphp/php-cs-fixer ###
+###> symfonycasts/sass-bundle ###
+/public/assets/
+###< symfonycasts/sass-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
 
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
@@ -40,10 +42,11 @@
 /bin/biome*
 ###< kocal/biome-js-bundle ###
 
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
-
-###> symfonycasts/sass-bundle ###
-/public/assets/
-###< symfonycasts/sass-bundle ###
