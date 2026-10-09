@@ -4,7 +4,7 @@ doctrine_diagram:
         filename: "%kernel.project_dir%/var/er"
         size: midi
     class:
-        filename: "%kernel.project_dir%/class"
+        filename: "%kernel.project_dir%/var/class"
         size: midi
     convert:
         format: svg
