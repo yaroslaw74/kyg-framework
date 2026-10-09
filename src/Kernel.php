@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-class Kernel extends BaseKernel
+final class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
@@ -32,9 +32,6 @@ class Kernel extends BaseKernel
         return $this->getProjectDir().'/public/additions';
     }
 
-    /**
-     * @phpstan-ignore method.unused
-     */
     private function configureRoutes(RoutingConfigurator $routes): void
     {
         $configDir = $this->getConfigDir();
@@ -72,8 +69,6 @@ class Kernel extends BaseKernel
 
     /**
      * @return list<string> An array of allowed values for APP_ENV
-     *
-     * @phpstan-ignore method.unused
      **/
     private function getAllowedEnvs(): array
     {
