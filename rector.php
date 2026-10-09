@@ -1,10 +1,12 @@
 <?php
 
 declare(strict_types=1);
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
     ->withPaths([
+        __DIR__.'/assets',
         __DIR__.'/config',
         __DIR__.'/modules',
         __DIR__.'/public',
@@ -12,6 +14,7 @@ return RectorConfig::configure()
         __DIR__.'/tests',
     ])
     ->withSkip([
+        __DIR__.'/assets/vendor/installed.php',
         __DIR__.'/config/bundles.php',
         __DIR__.'/config/preload.php',
         __DIR__.'/config/reference.php',
