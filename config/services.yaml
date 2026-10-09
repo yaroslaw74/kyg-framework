@@ -6,9 +6,7 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
-    app.email_bot: "%env(ENV_BOT_EMAIL)%"
-    app.name_bot: "%env(ENV_BOT_NAME)%"
+#parameters:
 
 services:
     # default configuration for services in *this* file
@@ -31,50 +29,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    hwi_oauth.user.provider.entity:
-        class: HWI\Bundle\OAuthBundle\Security\Core\User\EntityUserProvider
-        arguments:
-            $class: App\Modules\Users\Entity\Users
-            $properties:
-                "facebook": "facebook"
-                "yandex": "yandex"
-                "google": "google"
-                "linkedin": "linkedin"
-                "mailru": "mailru"
-                "odnoklassniki": "odnoklassniki"
-                "x_twitter": "xTwitter"
-                "vkontakte": "vkontakte"
-                "github": "github"
-                "amazon": "amazon"
-                "instagram": "instagram"
-                "twitch": "twitch"
-                "yahoo": "yahoo"
-                "spotify": "spotify"
-                "trello": "trello"
-                "dropbox": "dropbox"
-                "flickr": "flickr"
-                "windows_live": "windowsLive"
-    App\Modules\Users\Security\OAuthConnector:
-        arguments:
-            $properties:
-                "facebook": "facebook"
-                "yandex": "yandex"
-                "google": "google"
-                "linkedin": "linkedin"
-                "mailru": "mailru"
-                "odnoklassniki": "odnoklassniki"
-                "x_twitter": "xTwitter"
-                "vkontakte": "vkontakte"
-                "github": "github"
-                "amazon": "amazon"
-                "instagram": "instagram"
-                "twitch": "twitch"
-                "yahoo": "yahoo"
-                "spotify": "spotify"
-                "trello": "trello"
-                "dropbox": "dropbox"
-                "flickr": "flickr"
-                "windows_live": "windowsLive"
 
 imports:
     - { resource: "locales.php" }
