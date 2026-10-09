@@ -5,127 +5,24 @@ security:
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
-        user_provider:
-            entity:
-                class: App\Modules\Users\Entity\Users
-                property: username
+        users_in_memory: { memory: null }
 
     firewalls:
         dev:
             # Ensure dev tools and static assets are always allowed
             pattern: ^/(_profiler|_wdt|assets|build)/
             security: false
-
         main:
             lazy: true
-            provider: user_provider
-            oauth:
-                resource_owners:
-                    facebook: "/login/check-facebook"
-                    yandex: "/login/check-yandex"
-                    google: "/login/check-google"
-                    linkedin: "/login/check-linkedin"
-                    mailru: "/login/check-mailru"
-                    odnoklassniki: "/login/check-odnoklassniki"
-                    x_twitter: "/login/check-x-twitter"
-                    vkontakte: "/login/check-vkontakte"
-                    github: "/login/check-github"
-                    amazon: "/login/check-amazon"
-                    instagram: "/login/check-instagram"
-                    twitch: "/login/check-twitch"
-                    yahoo: "/login/check-yahoo"
-                    spotify: "/login/check-spotify"
-                    trello: "/login/check-trello"
-                    dropbox: "/login/check-dropbox"
-                    flickr: "/login/check-flickr"
-                    windows_live: "/login/check-windows-live"
-                login_path: /login
-                use_forward: false
-                failure_path: hwi_oauth_connect_registration
-                check_path: /login-check
-
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.entity
-
-        app:
-            lazy: true
-            pattern: /app(.*)
-            provider: user_provider
-            entry_point: "form_login"
-            form_login:
-                login_path: app_login
-                check_path: app_login
-                enable_csrf: true
-            logout:
-                path: app_logout
-                # where to redirect after logout
-                target: app
-            remember_me:
-                secret: "%env(APP_SECRET)%"
-                lifetime: 2629746
-                path: app
-            login_throttling:
-                max_attempts: 5
-                interval: "15 minutes"
-            oauth:
-                resource_owners:
-                    facebook: "/app/login/check-facebook"
-                    yandex: "/app/login/check-yandex"
-                    google: "/app/login/check-google"
-                    linkedin: "/app/login/check-linkedin"
-                    mailru: "/app/login/check-mailru"
-                    odnoklassniki: "/app/login/check-odnoklassniki"
-                    x_twitter: "/app/login/check-x-twitter"
-                    vkontakte: "/app/login/check-vkontakte"
-                    github: "/app/login/check-github"
-                    amazon: "/app/login/check-amazon"
-                    instagram: "/app/login/check-instagram"
-                    twitch: "/app/login/check-twitch"
-                    yahoo: "/app/login/check-yahoo"
-                    spotify: "/app/login/check-spotify"
-                    trello: "/app/login/check-trello"
-                    dropbox: "/app/login/check-dropbox"
-                    flickr: "/app/login/check-flickr"
-                    windows_live: "/app/login/check-windows-live"
-                login_path: /app/login
-                use_forward: false
-                failure_path: hwi_oauth_connect_registration
-                check_path: /app/login-check
-
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.entity
+            provider: users_in_memory
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            switch_user: true
-
-    role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
+            # switch_user: true
 
     # Note: Only the *first* matching rule is applied
     access_control:
-        - { path: ^/.*, role: PUBLIC_ACCESS }
-        - { path: ^/connect, roles: PUBLIC_ACCESS }
-
-        # login page needs to be accessed without credential
-        - { path: ^/login$, role: PUBLIC_ACCESS }
-        - { path: ^/hwi/login$, role: PUBLIC_ACCESS }
-        - { path: ^/logout$, role: PUBLIC_ACCESS }
-        - { path: ^/login_check$, role: PUBLIC_ACCESS }
-        - { path: ^/request$, role: PUBLIC_ACCESS }
-        - { path: ^/check-email$, role: PUBLIC_ACCESS }
-        - { path: ^/verify$, role: PUBLIC_ACCESS }
-        - { path: ^/reset/.*$, role: PUBLIC_ACCESS }
-
-        # App login page needs to be accessed without credential
-        - { path: ^/app/login$, role: PUBLIC_ACCESS }
-        - { path: ^/app/hwi/login$, role: PUBLIC_ACCESS }
-        - { path: ^/app/logout$, role: PUBLIC_ACCESS }
-        - { path: ^/app/login_check$, role: PUBLIC_ACCESS }
-        - { path: ^/app/request$, role: PUBLIC_ACCESS }
-        - { path: ^/app/check-email$, role: PUBLIC_ACCESS }
-        - { path: ^/app/verify$, role: PUBLIC_ACCESS }
-        - { path: ^/app/reset/.*$, role: PUBLIC_ACCESS }
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
