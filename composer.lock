@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3c53c76e62506443e1d031cefff1e8d",
+    "content-hash": "8a1582f789c618517f42a046e4823086",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -3886,31 +3886,30 @@
         },
         {
             "name": "knplabs/knp-menu-bundle",
-            "version": "v3.7.0",
+            "version": "v3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "aa22e57f8f41c34ad5e382aae4d0c12998c0eb5a"
+                "reference": "52407da3ac631077fc64f1c2641f35e06e07bbf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/aa22e57f8f41c34ad5e382aae4d0c12998c0eb5a",
-                "reference": "aa22e57f8f41c34ad5e382aae4d0c12998c0eb5a",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/52407da3ac631077fc64f1c2641f35e06e07bbf8",
+                "reference": "52407da3ac631077fc64f1c2641f35e06e07bbf8",
                 "shasum": ""
             },
             "require": {
                 "knplabs/knp-menu": "^3.8",
-                "php": "^8.1",
-                "symfony/config": "^6.4 | ^7.0 | ^8.0",
-                "symfony/dependency-injection": "^6.4 | ^7.0 | ^8.0",
-                "symfony/deprecation-contracts": "^2.5 | ^3.3",
-                "symfony/http-kernel": "^6.4 | ^7.0 | ^8.0"
+                "php": "^8.2",
+                "symfony/config": "^6.4 || ^7.4 || ^8.0",
+                "symfony/dependency-injection": "^6.4 || ^7.4 || ^8.0",
+                "symfony/deprecation-contracts": "^2.5 || ^3.3",
+                "symfony/http-kernel": "^6.4 || ^7.4 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^10.5 | ^11.5 | ^12.4",
-                "symfony/expression-language": "^6.4 | ^7.0 | ^8.0",
-                "symfony/phpunit-bridge": "^7.0 | ^8.0",
-                "symfony/templating": "^6.4 | ^7.0 | ^8.0"
+                "phpunit/phpunit": "^11.5 || ^12.5 || ^13.2",
+                "symfony/expression-language": "^6.4 || ^7.4 || ^8.0",
+                "symfony/phpunit-bridge": "^7.4 || ^8.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3947,9 +3946,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/KnpMenuBundle/issues",
-                "source": "https://github.com/KnpLabs/KnpMenuBundle/tree/v3.7.0"
+                "source": "https://github.com/KnpLabs/KnpMenuBundle/tree/v3.8.0"
             },
-            "time": "2025-11-30T08:30:04+00:00"
+            "time": "2026-10-11T15:22:17+00:00"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -8281,6 +8280,119 @@
             "time": "2026-09-12T19:02:49+00:00"
         },
         {
+            "name": "spomky-labs/pwa-bundle",
+            "version": "1.5.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spomky-Labs/pwa-bundle.git",
+                "reference": "0d5093d13325aa3c915aeed7a94069d227ae19d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/0d5093d13325aa3c915aeed7a94069d227ae19d8",
+                "reference": "0d5093d13325aa3c915aeed7a94069d227ae19d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "phpdocumentor/reflection-docblock": "^5.3|^6.0",
+                "psr/log": "^1.1|^2.0|^3.0",
+                "symfony/asset": "^6.4|^7.0|^8.0",
+                "symfony/asset-mapper": "^6.4|^7.0|^8.0",
+                "symfony/config": "^6.4|^7.0|^8.0",
+                "symfony/dependency-injection": "^6.4|^7.0|^8.0",
+                "symfony/deprecation-contracts": "^3.5",
+                "symfony/http-kernel": "^6.4|^7.0|^8.0",
+                "symfony/property-access": "^6.4|^7.0|^8.0",
+                "symfony/property-info": "^6.4|^7.0|^8.0",
+                "symfony/routing": "^6.4|^7.0|^8.0",
+                "symfony/serializer": "^6.4|^7.0|^8.0",
+                "symfony/service-contracts": "^3.0",
+                "symfony/web-link": "^6.4|^7.0|^8.0",
+                "twig/twig": "^3.8"
+            },
+            "require-dev": {
+                "dbrekelmans/bdi": "*",
+                "matthiasnoback/symfony-config-test": "^5.1|^6.0",
+                "monolog/monolog": "^3.0",
+                "nelmio/security-bundle": "^3.3",
+                "symfony/console": "^6.4|^7.0|^8.0",
+                "symfony/event-dispatcher": "^6.4|^7.0|^8.0",
+                "symfony/filesystem": "^6.4|^7.0|^8.0",
+                "symfony/finder": "^6.4|^7.0|^8.0",
+                "symfony/framework-bundle": "^7.0|^8.0",
+                "symfony/mime": "^6.4|^7.0|^8.0",
+                "symfony/monolog-bridge": "^6.4|^7.0|^8.0",
+                "symfony/monolog-bundle": "^3.10|^4.0",
+                "symfony/panther": "^2.3",
+                "symfony/translation": "^6.4|^7.0|^8.0",
+                "symfony/twig-bundle": "^7.0|^8.0",
+                "symfony/ux-icons": "^2.29",
+                "symfony/yaml": "^6.4|^7.0|^8.0"
+            },
+            "suggest": {
+                "ext-gd": "Required to generate icons (or Imagick).",
+                "ext-imagick": "Required to generate icons (or GD).",
+                "symfony/filesystem": "For generating and manipulating icons or screenshots",
+                "symfony/mime": "For generating and manipulating icons or screenshots",
+                "symfony/translation": "To translate the manifest members (name, description, categories, shortcuts, screenshot labels)",
+                "symfony/ux-icons": "For using SVG icons (e.g. for shortcuts)"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/spomky-labs/pwa-bundle",
+                    "name": "spomky-labs/pwa-bundle"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SpomkyLabs\\PwaBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florent Morselli",
+                    "homepage": "https://github.com/Spomky"
+                },
+                {
+                    "name": "All contributors",
+                    "homepage": "https://github.com/spomky-labs/pwa-bundle/contributors"
+                }
+            ],
+            "description": "Progressive Web App Manifest Generator Bundle for Symfony.",
+            "homepage": "https://github.com/spomky-labs",
+            "keywords": [
+                "bundle",
+                "pwa",
+                "symfony",
+                "symfony-ux"
+            ],
+            "support": {
+                "issues": "https://github.com/Spomky-Labs/pwa-bundle/issues",
+                "source": "https://github.com/Spomky-Labs/pwa-bundle/tree/1.5.14"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/FlorentMorselli",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Spomky",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/FlorentMorselli",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2026-08-20T07:09:47+00:00"
+        },
+        {
             "name": "stof/doctrine-extensions-bundle",
             "version": "v1.15.3",
             "source": {
@@ -10122,12 +10234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "b5f9c212f6ac36cd380639aaa0f8950ce21bbe19"
+                "reference": "ae0e3d67a75848e9a735715fac0fc237d1607408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/b5f9c212f6ac36cd380639aaa0f8950ce21bbe19",
-                "reference": "b5f9c212f6ac36cd380639aaa0f8950ce21bbe19",
+                "url": "https://api.github.com/repos/symfony/form/zipball/ae0e3d67a75848e9a735715fac0fc237d1607408",
+                "reference": "ae0e3d67a75848e9a735715fac0fc237d1607408",
                 "shasum": ""
             },
             "require": {
@@ -10214,7 +10326,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-10T14:42:59+00:00"
+            "time": "2026-10-11T13:02:32+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -10222,12 +10334,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/framework-bundle.git",
-                "reference": "8cae6fae33171a0b787125487c118dbf6df84e9b"
+                "reference": "2357a56ed33af60e13cb27d3e6657b08a0e84df3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/8cae6fae33171a0b787125487c118dbf6df84e9b",
-                "reference": "8cae6fae33171a0b787125487c118dbf6df84e9b",
+                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/2357a56ed33af60e13cb27d3e6657b08a0e84df3",
+                "reference": "2357a56ed33af60e13cb27d3e6657b08a0e84df3",
                 "shasum": ""
             },
             "require": {
@@ -10382,7 +10494,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-10T14:55:32+00:00"
+            "time": "2026-10-10T16:32:15+00:00"
         },
         {
             "name": "symfony/http-client",
@@ -10862,12 +10974,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "d5a152e2eadd2099ae3bc1ff35304dc10eb2f19a"
+                "reference": "8124410f718cc1388980708b5550c3ef846c19a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/d5a152e2eadd2099ae3bc1ff35304dc10eb2f19a",
-                "reference": "d5a152e2eadd2099ae3bc1ff35304dc10eb2f19a",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/8124410f718cc1388980708b5550c3ef846c19a5",
+                "reference": "8124410f718cc1388980708b5550c3ef846c19a5",
                 "shasum": ""
             },
             "require": {
@@ -10943,7 +11055,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-09T14:10:13+00:00"
+            "time": "2026-10-10T20:42:48+00:00"
         },
         {
             "name": "symfony/messenger",
@@ -13298,12 +13410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "0c950f4df4b9f42772557bf9c3ff1f7dfb9314dd"
+                "reference": "1a2adc46a58cdc2c1e16b0c82db7482fb197ddbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/0c950f4df4b9f42772557bf9c3ff1f7dfb9314dd",
-                "reference": "0c950f4df4b9f42772557bf9c3ff1f7dfb9314dd",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/1a2adc46a58cdc2c1e16b0c82db7482fb197ddbe",
+                "reference": "1a2adc46a58cdc2c1e16b0c82db7482fb197ddbe",
                 "shasum": ""
             },
             "require": {
@@ -13400,7 +13512,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-10T14:37:52+00:00"
+            "time": "2026-10-10T15:41:03+00:00"
         },
         {
             "name": "symfony/twig-bundle",
@@ -13408,12 +13520,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bundle.git",
-                "reference": "cbe8d1ae015ffb082213a4d33d9201f1ff61518e"
+                "reference": "6d627820fd38d71cce6425d373bfbf400f7db2cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bundle/zipball/cbe8d1ae015ffb082213a4d33d9201f1ff61518e",
-                "reference": "cbe8d1ae015ffb082213a4d33d9201f1ff61518e",
+                "url": "https://api.github.com/repos/symfony/twig-bundle/zipball/6d627820fd38d71cce6425d373bfbf400f7db2cf",
+                "reference": "6d627820fd38d71cce6425d373bfbf400f7db2cf",
                 "shasum": ""
             },
             "require": {
@@ -13486,7 +13598,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-10T14:35:44+00:00"
+            "time": "2026-10-11T12:53:27+00:00"
         },
         {
             "name": "symfony/type-info",
@@ -16335,16 +16447,16 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "6.12.0",
+            "version": "6.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "f7c0fc65cb9cdb84bdf0e4e21460d348888b41a2"
+                "reference": "6cbca4b611f03ae9ee58a5f2d341a0bc685c4903"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/f7c0fc65cb9cdb84bdf0e4e21460d348888b41a2",
-                "reference": "f7c0fc65cb9cdb84bdf0e4e21460d348888b41a2",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/6cbca4b611f03ae9ee58a5f2d341a0bc685c4903",
+                "reference": "6cbca4b611f03ae9ee58a5f2d341a0bc685c4903",
                 "shasum": ""
             },
             "require": {
@@ -16379,7 +16491,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "OpenApi\\": "src"
+                    "OpenApi\\": "src",
+                    "OpenApi\\Rector\\": "rector/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -16412,7 +16525,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/6.12.0"
+                "source": "https://github.com/zircote/swagger-php/tree/6.13.0"
             },
             "funding": [
                 {
@@ -16420,7 +16533,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-06T03:39:01+00:00"
+            "time": "2026-10-11T02:19:20+00:00"
         }
     ],
     "packages-dev": [
@@ -25614,12 +25727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-inspector.git",
-                "reference": "57b5eac10e7b1b7c1c280d4e20f57303a6e5fea9"
+                "reference": "a07b05710711035fe01d539664aa6422bd42aaf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-inspector/zipball/57b5eac10e7b1b7c1c280d4e20f57303a6e5fea9",
-                "reference": "57b5eac10e7b1b7c1c280d4e20f57303a6e5fea9",
+                "url": "https://api.github.com/repos/symfony/ux-inspector/zipball/a07b05710711035fe01d539664aa6422bd42aaf0",
+                "reference": "a07b05710711035fe01d539664aa6422bd42aaf0",
                 "shasum": ""
             },
             "require": {
@@ -25695,7 +25808,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-27T14:28:22+00:00"
+            "time": "2026-10-11T10:17:22+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",
@@ -26374,16 +26487,16 @@
         },
         {
             "name": "zenstruck/browser",
-            "version": "v1.12.0",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/browser.git",
-                "reference": "26c1b6d1e052dfdd9a2eef13d4f7134e824da00c"
+                "reference": "675b4c4a7c8d8bf3cb401105fee0b9fe425c8301"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/browser/zipball/26c1b6d1e052dfdd9a2eef13d4f7134e824da00c",
-                "reference": "26c1b6d1e052dfdd9a2eef13d4f7134e824da00c",
+                "url": "https://api.github.com/repos/zenstruck/browser/zipball/675b4c4a7c8d8bf3cb401105fee0b9fe425c8301",
+                "reference": "675b4c4a7c8d8bf3cb401105fee0b9fe425c8301",
                 "shasum": ""
             },
             "require": {
@@ -26439,7 +26552,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/browser/issues",
-                "source": "https://github.com/zenstruck/browser/tree/v1.12.0"
+                "source": "https://github.com/zenstruck/browser/tree/v1.13.0"
             },
             "funding": [
                 {
@@ -26451,7 +26564,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-24T16:02:16+00:00"
+            "time": "2026-10-10T20:12:17+00:00"
         },
         {
             "name": "zenstruck/callback",
