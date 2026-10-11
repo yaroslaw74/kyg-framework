@@ -5244,9 +5244,9 @@
                             "template": "@KnpMenu/menu.html.twig"
                         }
                     },
-                    "templating": {
+                    "route_voter": {
                         "$ref": "#/$defs/types/boolean",
-                        "default": false
+                        "default": true
                     },
                     "default_renderer": {
                         "$ref": "#/$defs/types/scalar",
@@ -8787,6 +8787,687 @@
                     "with_constructor_extractor": true
                 },
                 "description": "Property info configuration"
+            },
+            "pwa": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "asset_compiler": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true,
+                        "description": "When true, the assets will be compiled when the command \"asset-map:compile\" is run."
+                    },
+                    "early_hints": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "preload_manifest": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true,
+                                        "description": "Preload the PWA manifest file."
+                                    },
+                                    "preload_serviceworker": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false,
+                                        "description": "Preload the service worker script. Disabled by default as SW registration is usually deferred."
+                                    },
+                                    "preconnect_workbox_cdn": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true,
+                                        "description": "Preconnect to Workbox CDN when using CDN mode."
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "preload_manifest": true,
+                            "preload_serviceworker": false,
+                            "preconnect_workbox_cdn": true
+                        },
+                        "description": "Early Hints (HTTP 103) configuration. Requires a compatible server (FrankenPHP, Caddy)."
+                    },
+                    "favicons": {
+                        "$ref": "#/$defs/types/variable",
+                        "default": {
+                            "enabled": false,
+                            "src": null,
+                            "src_dark": null,
+                            "background_color": null,
+                            "background_color_dark": null,
+                            "safari_pinned_tab_color": null,
+                            "tile_color": null,
+                            "border_radius": null,
+                            "image_scale": null,
+                            "low_resolution": false,
+                            "use_silhouette": null,
+                            "use_start_image": true,
+                            "svg_color": "#000",
+                            "monochrome": false,
+                            "potrace": "potrace"
+                        }
+                    },
+                    "image_processor": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null,
+                        "description": "The image processor to use to generate the icons of different sizes.",
+                        "examples": [
+                            "SpomkyLabs\\PwaBundle\\ImageProcessor\\GDImageProcessor"
+                        ]
+                    },
+                    "logger": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null,
+                        "description": "The logger service to use. If not set, the default logger will be used."
+                    },
+                    "manifest": {
+                        "$ref": "#/$defs/types/variable",
+                        "default": {
+                            "enabled": false,
+                            "public_url": "/site.webmanifest",
+                            "use_credentials": true,
+                            "categories": [],
+                            "display_override": [],
+                            "scope_extensions": [],
+                            "icons": [],
+                            "screenshots": [],
+                            "file_handlers": [],
+                            "protocol_handlers": [],
+                            "prefer_related_applications": false,
+                            "related_applications": [],
+                            "shortcuts": [],
+                            "widgets": []
+                        }
+                    },
+                    "path_type_reference": {
+                        "$ref": "#/$defs/types/integer",
+                        "default": 1,
+                        "description": "Deprecated since spomky-labs/phpwa 1.1.0: The \"path_type_reference\" configuration key is deprecated. Use the \"path_type_reference\" of URL nodes instead.\n\nThe path type reference to generate paths/URLs. See https://symfony.com/doc/current/routing.html#generating-urls-in-controllers for more information.",
+                        "examples": [
+                            [
+                                1,
+                                0,
+                                3,
+                                2
+                            ]
+                        ],
+                        "deprecated": true
+                    },
+                    "resource_hints": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "auto_preconnect": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true,
+                                        "description": "Automatically add preconnect hints for detected external origins (Workbox CDN, Google Fonts)."
+                                    },
+                                    "preconnect": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "description": "Additional origins to preconnect to (establishes early connection: DNS + TCP + TLS).",
+                                        "examples": [
+                                            [
+                                                "https://api.example.com",
+                                                "https://cdn.example.com"
+                                            ]
+                                        ]
+                                    },
+                                    "dns_prefetch": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "description": "Additional origins for DNS prefetch only (DNS resolution only, lighter than preconnect).",
+                                        "examples": [
+                                            [
+                                                "https://analytics.example.com"
+                                            ]
+                                        ]
+                                    },
+                                    "preload": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/object_null",
+                                            "properties": {
+                                                "href": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "description": "The URL or path to preload.",
+                                                    "examples": [
+                                                        "/fonts/custom-font.woff2"
+                                                    ]
+                                                },
+                                                "as": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "script",
+                                                                "style",
+                                                                "font",
+                                                                "image",
+                                                                "fetch",
+                                                                "document",
+                                                                "audio",
+                                                                "video",
+                                                                "track",
+                                                                "worker"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "description": "The resource type."
+                                                },
+                                                "type": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "The MIME type of the resource.",
+                                                    "examples": [
+                                                        "font/woff2"
+                                                    ]
+                                                },
+                                                "crossorigin": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "anonymous",
+                                                                "use-credentials"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "default": null,
+                                                    "description": "The crossorigin attribute value. Required for fonts."
+                                                },
+                                                "fetchpriority": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "high",
+                                                                "low",
+                                                                "auto"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "default": null,
+                                                    "description": "The fetch priority hint."
+                                                },
+                                                "media": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "Media query for responsive preloading.",
+                                                    "examples": [
+                                                        "(min-width: 768px)"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "href",
+                                                "as"
+                                            ],
+                                            "additionalProperties": false
+                                        },
+                                        "description": "Resources to preload (downloaded early with high priority)."
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "auto_preconnect": true,
+                            "preconnect": [],
+                            "dns_prefetch": [],
+                            "preload": []
+                        },
+                        "description": "Resource Hints configuration for preconnect, dns-prefetch, and preload."
+                    },
+                    "serviceworker": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "src": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "description": "The path to the service worker source file. Can be served by Asset Mapper.",
+                                        "examples": [
+                                            "script/sw.js"
+                                        ]
+                                    },
+                                    "dest": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "/sw.js",
+                                        "description": "The public URL to the service worker.",
+                                        "examples": [
+                                            "/sw.js"
+                                        ]
+                                    },
+                                    "skip_waiting": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false,
+                                        "description": "Whether to skip waiting for the service worker to be activated."
+                                    },
+                                    "scope": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "/",
+                                        "description": "The scope of the service worker.",
+                                        "examples": [
+                                            "/app/"
+                                        ]
+                                    },
+                                    "use_cache": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true,
+                                        "description": "Whether the service worker should use the cache."
+                                    },
+                                    "workbox": {
+                                        "$ref": "#/$defs/types/variable",
+                                        "default": {
+                                            "enabled": true,
+                                            "use_cdn": false,
+                                            "google_fonts": {
+                                                "enabled": true,
+                                                "cache_prefix": null,
+                                                "max_age": null,
+                                                "max_entries": null
+                                            },
+                                            "cache_manifest": true,
+                                            "version": "7.3.0",
+                                            "workbox_public_url": "/workbox",
+                                            "idb_public_url": "/idb",
+                                            "workbox_import_placeholder": "//WORKBOX_IMPORT_PLACEHOLDER",
+                                            "standard_rules_placeholder": "//STANDARD_RULES_PLACEHOLDER",
+                                            "offline_fallback_placeholder": "//OFFLINE_FALLBACK_PLACEHOLDER",
+                                            "widgets_placeholder": "//WIDGETS_PLACEHOLDER",
+                                            "clear_cache": true,
+                                            "navigation_preload": false,
+                                            "image_cache": {
+                                                "enabled": true,
+                                                "cache_name": "images",
+                                                "regex": "/\\.(ico|png|jpe?g|gif|svg|webp|bmp)$/",
+                                                "max_entries": 60,
+                                                "max_age": 31536000
+                                            },
+                                            "asset_cache": {
+                                                "enabled": true,
+                                                "cache_name": "assets",
+                                                "regex": "/\\.(css|js|json|xml|txt|map|ico|png|jpe?g|gif|svg|webp|bmp)$/",
+                                                "max_age": 31536000
+                                            },
+                                            "font_cache": {
+                                                "enabled": true,
+                                                "cache_name": "fonts",
+                                                "regex": "/\\.(ttf|eot|otf|woff2)$/",
+                                                "max_entries": 60,
+                                                "max_age": 31536000
+                                            },
+                                            "resource_caches": [],
+                                            "background_sync": [],
+                                            "background_fetch": {
+                                                "enabled": false,
+                                                "db_name": "bgfetch-completed",
+                                                "success_message": null,
+                                                "failure_message": null
+                                            },
+                                            "image_cache_name": "images",
+                                            "font_cache_name": "fonts",
+                                            "page_cache_name": "pages",
+                                            "asset_cache_name": "assets",
+                                            "image_regex": "/\\.(ico|png|jpe?g|gif|svg|webp|bmp)$/",
+                                            "static_regex": "/\\.(css|js|json|xml|txt|map)$/",
+                                            "font_regex": "/\\.(ttf|eot|otf|woff2)$/",
+                                            "max_image_cache_entries": 60,
+                                            "max_image_age": 31536000,
+                                            "max_font_cache_entries": 30,
+                                            "max_font_age": 31536000,
+                                            "network_timeout_seconds": 3,
+                                            "warm_cache_urls": []
+                                        },
+                                        "description": "The configuration of the workbox."
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "dest": "/sw.js",
+                            "skip_waiting": false,
+                            "scope": "/",
+                            "use_cache": true,
+                            "workbox": {
+                                "enabled": true,
+                                "use_cdn": false,
+                                "google_fonts": {
+                                    "enabled": true,
+                                    "cache_prefix": null,
+                                    "max_age": null,
+                                    "max_entries": null
+                                },
+                                "cache_manifest": true,
+                                "version": "7.3.0",
+                                "workbox_public_url": "/workbox",
+                                "idb_public_url": "/idb",
+                                "workbox_import_placeholder": "//WORKBOX_IMPORT_PLACEHOLDER",
+                                "standard_rules_placeholder": "//STANDARD_RULES_PLACEHOLDER",
+                                "offline_fallback_placeholder": "//OFFLINE_FALLBACK_PLACEHOLDER",
+                                "widgets_placeholder": "//WIDGETS_PLACEHOLDER",
+                                "clear_cache": true,
+                                "navigation_preload": false,
+                                "image_cache": {
+                                    "enabled": true,
+                                    "cache_name": "images",
+                                    "regex": "/\\.(ico|png|jpe?g|gif|svg|webp|bmp)$/",
+                                    "max_entries": 60,
+                                    "max_age": 31536000
+                                },
+                                "asset_cache": {
+                                    "enabled": true,
+                                    "cache_name": "assets",
+                                    "regex": "/\\.(css|js|json|xml|txt|map|ico|png|jpe?g|gif|svg|webp|bmp)$/",
+                                    "max_age": 31536000
+                                },
+                                "font_cache": {
+                                    "enabled": true,
+                                    "cache_name": "fonts",
+                                    "regex": "/\\.(ttf|eot|otf|woff2)$/",
+                                    "max_entries": 60,
+                                    "max_age": 31536000
+                                },
+                                "resource_caches": [],
+                                "background_sync": [],
+                                "background_fetch": {
+                                    "enabled": false,
+                                    "db_name": "bgfetch-completed",
+                                    "success_message": null,
+                                    "failure_message": null
+                                },
+                                "image_cache_name": "images",
+                                "font_cache_name": "fonts",
+                                "page_cache_name": "pages",
+                                "asset_cache_name": "assets",
+                                "image_regex": "/\\.(ico|png|jpe?g|gif|svg|webp|bmp)$/",
+                                "static_regex": "/\\.(css|js|json|xml|txt|map)$/",
+                                "font_regex": "/\\.(ttf|eot|otf|woff2)$/",
+                                "max_image_cache_entries": 60,
+                                "max_image_age": 31536000,
+                                "max_font_cache_entries": 30,
+                                "max_font_age": 31536000,
+                                "network_timeout_seconds": 3,
+                                "warm_cache_urls": []
+                            }
+                        }
+                    },
+                    "speculation_rules": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "prefetch": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/object_null",
+                                            "properties": {
+                                                "source": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "list",
+                                                                "document"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "default": "document",
+                                                    "description": "The source type: \"list\" for explicit URLs, \"document\" for link matching."
+                                                },
+                                                "urls": {
+                                                    "$ref": "#/$defs/types/array_null",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "$ref": "#/$defs/types/object_null",
+                                                                "properties": {
+                                                                    "path": {
+                                                                        "$ref": "#/$defs/types/scalar",
+                                                                        "description": "The URL path or route name."
+                                                                    },
+                                                                    "params": {
+                                                                        "$ref": "#/$defs/types/array_null",
+                                                                        "items": {
+                                                                            "$ref": "#/$defs/types/variable"
+                                                                        },
+                                                                        "description": "Route parameters if path is a route name."
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "path"
+                                                                ],
+                                                                "additionalProperties": false
+                                                            },
+                                                            {
+                                                                "type": [
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "description": "For \"list\" source: explicit URLs to prefetch."
+                                                },
+                                                "selector_matches": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "For \"document\" source: CSS selector to match links.",
+                                                    "examples": [
+                                                        "a.prefetch, a[data-prefetch]"
+                                                    ]
+                                                },
+                                                "href_matches": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "For \"document\" source: URL pattern to match href attributes.",
+                                                    "examples": [
+                                                        "/products/*"
+                                                    ]
+                                                },
+                                                "eagerness": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "immediate",
+                                                                "eager",
+                                                                "moderate",
+                                                                "conservative"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "default": "moderate",
+                                                    "description": "Eagerness level: \"immediate\" (viewport), \"eager\" (hover 200ms), \"moderate\" (hover 100ms), \"conservative\" (mousedown/touchstart)."
+                                                },
+                                                "referrer_policy": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "Referrer policy for the speculative request.",
+                                                    "examples": [
+                                                        "no-referrer-when-downgrade"
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "description": "Rules for prefetching resources (download but do not execute)."
+                                    },
+                                    "prerender": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/object_null",
+                                            "properties": {
+                                                "source": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "list",
+                                                                "document"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "default": "document",
+                                                    "description": "The source type: \"list\" for explicit URLs, \"document\" for link matching."
+                                                },
+                                                "urls": {
+                                                    "$ref": "#/$defs/types/array_null",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "$ref": "#/$defs/types/object_null",
+                                                                "properties": {
+                                                                    "path": {
+                                                                        "$ref": "#/$defs/types/scalar",
+                                                                        "description": "The URL path or route name."
+                                                                    },
+                                                                    "params": {
+                                                                        "$ref": "#/$defs/types/array_null",
+                                                                        "items": {
+                                                                            "$ref": "#/$defs/types/variable"
+                                                                        },
+                                                                        "description": "Route parameters if path is a route name."
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "path"
+                                                                ],
+                                                                "additionalProperties": false
+                                                            },
+                                                            {
+                                                                "type": [
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "description": "For \"list\" source: explicit URLs to prerender."
+                                                },
+                                                "selector_matches": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "For \"document\" source: CSS selector to match links.",
+                                                    "examples": [
+                                                        "a.prerender, a[data-prerender]"
+                                                    ]
+                                                },
+                                                "href_matches": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "For \"document\" source: URL pattern to match href attributes.",
+                                                    "examples": [
+                                                        "/checkout"
+                                                    ]
+                                                },
+                                                "eagerness": {
+                                                    "anyOf": [
+                                                        {
+                                                            "enum": [
+                                                                "immediate",
+                                                                "eager",
+                                                                "moderate",
+                                                                "conservative"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$ref": "#/$defs/types/param"
+                                                        }
+                                                    ],
+                                                    "default": "conservative",
+                                                    "description": "Eagerness level. For prerender, \"conservative\" is recommended."
+                                                },
+                                                "referrer_policy": {
+                                                    "$ref": "#/$defs/types/scalar",
+                                                    "default": null,
+                                                    "description": "Referrer policy for the speculative request."
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        "description": "Rules for prerendering pages (download and execute in hidden context). Use with caution."
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "prefetch": [],
+                            "prerender": []
+                        },
+                        "description": "Speculation Rules API configuration for prefetching and prerendering pages."
+                    },
+                    "web_client": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null,
+                        "description": "The Panther Client for generating screenshots. If not set, the default client will be used."
+                    },
+                    "user_agent": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "PWAScreenshotBot",
+                        "description": "The user agent to use when generating screenshots. When this user agent is detected, the Symfony profiler and debug toolbar will be automatically disabled to ensure screenshots look like production."
+                    }
+                },
+                "additionalProperties": false
             },
             "pyrrah_gravatar": {
                 "$ref": "#/$defs/types/object_null",
@@ -16010,6 +16691,9 @@
         "property_info": {
             "$ref": "#/$defs/nodes/property_info"
         },
+        "pwa": {
+            "$ref": "#/$defs/nodes/pwa"
+        },
         "pyrrah_gravatar": {
             "$ref": "#/$defs/nodes/pyrrah_gravatar"
         },
@@ -16195,6 +16879,9 @@
                 },
                 "property_info": {
                     "$ref": "#/$defs/nodes/property_info"
+                },
+                "pwa": {
+                    "$ref": "#/$defs/nodes/pwa"
                 },
                 "pyrrah_gravatar": {
                     "$ref": "#/$defs/nodes/pyrrah_gravatar"
@@ -16385,6 +17072,9 @@
                 "property_info": {
                     "$ref": "#/$defs/nodes/property_info"
                 },
+                "pwa": {
+                    "$ref": "#/$defs/nodes/pwa"
+                },
                 "pyrrah_gravatar": {
                     "$ref": "#/$defs/nodes/pyrrah_gravatar"
                 },
@@ -16560,6 +17250,9 @@
                 },
                 "property_info": {
                     "$ref": "#/$defs/nodes/property_info"
+                },
+                "pwa": {
+                    "$ref": "#/$defs/nodes/pwa"
                 },
                 "pyrrah_gravatar": {
                     "$ref": "#/$defs/nodes/pyrrah_gravatar"
