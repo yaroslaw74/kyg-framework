@@ -19,11 +19,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class LocaleSubscriber implements EventSubscriberInterface
+final readonly class LocaleSubscriber implements EventSubscriberInterface
 {
-    private readonly string $defaultLocale;
+    private string $defaultLocale;
 
-    public function __construct(private readonly ContainerBagInterface $containerBag)
+    public function __construct(private ContainerBagInterface $containerBag)
     {
         $this->defaultLocale = $this->containerBag->get('kernel.default_locale');
     }
@@ -46,6 +46,10 @@ class LocaleSubscriber implements EventSubscriberInterface
         }
     }
 
+    /**
+     * @return array<string, string|array{0: string, 1?: int}|array{method: string, priority?: int, before?: string|list<string>, after?: string|list<string>}|list<array{0: string, 1?: int}|array{method: string, priority?: int, before?: string|list<string>, after?: string|list<string>}>>
+     */
+    #[\Override]
     public static function getSubscribedEvents(): array
     {
         return [
