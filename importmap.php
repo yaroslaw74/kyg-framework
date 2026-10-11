@@ -39,6 +39,7 @@ return [
     '@rekalogika/temporary-url-bundle' => ['path' => './vendor/rekalogika/temporary-url-bundle/assets/dist/autoexpire.js'],
     '@simonwep/pickr' => ['version' => '1.10.2'],
     '@simonwep/pickr/dist/themes/nano.min.css' => ['version' => '1.10.2', 'type' => 'css'],
+    '@spomky-labs/pwa/helpers' => ['path' => './vendor/spomky-labs/pwa-bundle/assets/src/helpers.js'],
     '@swup/debug-plugin' => ['version' => '4.1.0'],
     '@swup/fade-theme' => ['version' => '2.0.2'],
     '@swup/forms-plugin' => ['version' => '3.6.0'],
@@ -117,6 +118,8 @@ return [
     'filepond/locale/zh-tw.js' => ['version' => '4.32.12'],
     'frankenphp-hot-reload' => ['version' => '1.0.1'],
     'icons' => ['path' => './assets/icons-fonts.js', 'entrypoint' => true],
+    'idb' => ['version' => '8.0.4'],
+    'idb-keyval' => ['version' => '6.3.0'],
     'idiomorph/dist/idiomorph.min.js' => ['version' => '0.8.0'],
     'ionicons/dist/css/ionicons.min.css' => ['version' => '4.6.4-1', 'type' => 'css'],
     'line-awesome/dist/line-awesome/css/line-awesome.min.css' => ['version' => '1.3.0', 'type' => 'css'],
@@ -144,4 +147,5 @@ return [
     'valex' => ['path' => './assets/valex.js', 'entrypoint' => true],
     'valex-plugins' => ['path' => './assets/valex-plugins.js', 'entrypoint' => true],
     'weather-icons/css/weather-icons.min.css' => ['version' => '1.3.2', 'type' => 'css'],
+    'workbox-window' => ['version' => '7.4.1'],
 ];
