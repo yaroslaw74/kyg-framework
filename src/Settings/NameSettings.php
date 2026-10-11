@@ -21,7 +21,7 @@ use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
 
 #[Settings(name: 'name', dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'NameSettings.php'])]
-class NameSettings
+final class NameSettings
 {
     use SettingsTrait;
 
