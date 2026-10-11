@@ -37,7 +37,7 @@
         "friendsofsymfony/ckeditor-bundle": "^2.8",
         "hwi/oauth-bundle": "^2.5",
         "jbtronics/settings-bundle": "^5.0",
-        "knplabs/knp-menu-bundle": "^3.7",
+        "knplabs/knp-menu-bundle": "^3.8",
         "knplabs/knp-paginator-bundle": "^6.11",
         "knplabs/knp-time-bundle": "^2.5",
         "league/flysystem-bundle": "^3.7",
@@ -64,6 +64,7 @@
         "shivas/versioning-bundle": "^4.2",
         "slowprog/composer-copy-file": "^0.3.3",
         "sonata-project/intl-bundle": "^3.3",
+        "spomky-labs/pwa-bundle": "^1.5",
         "stof/doctrine-extensions-bundle": "^1.15",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "8.2.*",
@@ -193,11 +194,11 @@
         "symfony/ux-inspector": "3.x-dev",
         "symfony/web-profiler-bundle": "8.2.*",
         "systemsdk/easy-log-bundle": "^2.1",
-        "vimeo/psalm": "^6.20",
+        "vimeo/psalm": "^6.20 || ^7.0",
         "vincentlanglet/twig-cs-fixer": "^4.1",
         "weirdan/doctrine-psalm-plugin": "^2.10",
         "yamadashy/phpstan-friendly-formatter": "^1.5",
-        "zenstruck/browser": "^1.12",
+        "zenstruck/browser": "^1.13",
         "zenstruck/foundry": "^2.14",
         "zenstruck/mailer-test": "^1.5",
         "zenstruck/messenger-test": "^1.15"
@@ -364,6 +365,7 @@
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
             "sass:build": "symfony-cmd",
+            "pwa:compile": "symfony-cmd",
             "asset-map:compile": "symfony-cmd"
         }
     }
