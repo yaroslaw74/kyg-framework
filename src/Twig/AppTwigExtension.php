@@ -22,7 +22,7 @@ use Twig\Extension\ExtensionInterface;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFunction;
 
-class AppTwigExtension extends AbstractExtension implements ExtensionInterface, GlobalsInterface
+final class AppTwigExtension extends AbstractExtension implements ExtensionInterface, GlobalsInterface
 {
     public function __construct(
         private readonly LocalesService $localesService,
@@ -44,8 +44,9 @@ class AppTwigExtension extends AbstractExtension implements ExtensionInterface, 
     }
 
     /**
-     * @return array<string, string|bool>
+     * @return array<string, mixed>
      */
+    #[\Override]
     public function getGlobals(): array
     {
         $twigGlobalsSettings = $this->settingsManager->get(TwigGlobalsSettings::class);
