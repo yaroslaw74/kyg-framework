@@ -18,16 +18,17 @@ use App\Settings\EmailBotSettings;
 use Jbtronics\SettingsBundle\Manager\SettingsManagerInterface;
 use Symfony\Component\DependencyInjection\EnvVarLoaderInterface;
 
-class EmailBotVar implements EnvVarLoaderInterface
+final readonly class EmailBotVar implements EnvVarLoaderInterface
 {
-    public function __construct(private readonly SettingsManagerInterface $settingsManager)
+    public function __construct(private SettingsManagerInterface $settingsManager)
     {
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string|\Stringable>
      */
-    public function loadEnvVars(): array
+    #[\Override]
+    final public function loadEnvVars(): array
     {
         $emailBotSettings = $this->settingsManager->get(EmailBotSettings::class);
 
