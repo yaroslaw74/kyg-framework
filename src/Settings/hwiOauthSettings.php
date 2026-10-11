@@ -22,7 +22,7 @@ use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
 
 #[Settings(name: 'hwi', dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'HwiOauthSettings.php'])]
-class hwiOauthSettings
+final class hwiOauthSettings
 {
     use SettingsTrait;
 
