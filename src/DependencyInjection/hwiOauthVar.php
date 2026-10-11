@@ -25,8 +25,9 @@ final readonly class hwiOauthVar implements EnvVarLoaderInterface
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string|\Stringable>
      */
+    #[\Override]
     public function loadEnvVars(): array
     {
         $hwiOauthSettings = $this->settingsManager->get(hwiOauthSettings::class);
