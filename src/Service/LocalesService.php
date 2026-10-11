@@ -16,15 +16,13 @@ namespace App\Service;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
-class LocalesService
+final readonly class LocalesService
 {
-    public function __construct(private readonly ContainerBagInterface $containerBag)
+    public function __construct(private ContainerBagInterface $containerBag)
     {
     }
 
     /**
-     * Summary of getLocales.
-     *
      * @return array<string, array{name: string, dir: string, full: bool}>
      */
     public function getLocales(): array
