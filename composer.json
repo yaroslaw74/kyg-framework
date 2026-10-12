@@ -180,7 +180,7 @@
         "phpunit/php-invoker": "^7.0",
         "phpunit/php-text-template": "^6.0",
         "phpunit/php-timer": "^9.0",
-        "phpunit/phpunit": "^13.4",
+        "phpunit/phpunit": "^13.4.2",
         "psalm/plugin-phpunit": "^0.19.7 || ^0.20.4",
         "psalm/plugin-symfony": "^5.3",
         "rector/rector": "^2.7",
