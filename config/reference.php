@@ -329,18 +329,18 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         support_strategy?: scalar|Param|null,
  *         initial_marking?: \BackedEnum|Param|string|list<scalar|Param|null>,
  *         events_to_dispatch?: null|list<string|Param>,
- *         places?: Param|string|list<array{ // Default: []
+ *         places?: Param|string|list<Param|string|array{ // Default: []
  *             name?: scalar|Param|null,
  *             metadata?: array<string, mixed>,
  *         }>,
  *         transitions?: list<array{ // Default: []
  *             name?: string|Param,
  *             guard?: string|Param, // An expression to block the transition.
- *             from?: \BackedEnum|Param|string|list<array{ // Default: []
+ *             from?: \BackedEnum|Param|string|list<Param|string|array{ // Default: []
  *                 place?: string|Param,
  *                 weight?: int|Param, // Default: 1
  *             }>,
- *             to?: \BackedEnum|Param|string|list<array{ // Default: []
+ *             to?: \BackedEnum|Param|string|list<Param|string|array{ // Default: []
  *                 place?: string|Param,
  *                 weight?: int|Param, // Default: 1
  *             }>,
@@ -1328,7 +1328,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             backchannel_logout?: bool|array{ // Accept the logout tokens the OIDC provider posts when one of its sessions ends.
  *                 enabled?: bool|Param, // Default: false
  *                 path?: scalar|Param|null, // Path where the OIDC provider posts its logout tokens. // Default: "/oidc/backchannel-logout"
- *                 cache?: scalar|Param|null, // Id of the cache pool remembering the ended provider sessions, shared by every server of the application. // Default: "cache.app"
+ *                 cache?: scalar|Param|null, // Id of the cache pool remembering the ended provider sessions, shared by every server of the application. // Default: "cache.security"
  *                 lifetime?: int|Param, // How long an ended provider session is remembered, in seconds; at least how long a session can stay idle. // Default: 86400
  *             },
  *         },
@@ -1425,7 +1425,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                     base_uri?: scalar|Param|null, // Base URI of the userinfo endpoint on the OIDC server, or the OIDC server URI to use the discovery (require "discovery" to be configured). The latter must end with a slash when it has a path, as the discovery path is resolved against it as a relative URL.
  *                     discovery?: array{ // Enable the OIDC discovery.
  *                         cache?: array{
- *                             id?: scalar|Param|null, // Cache service id to use to cache the OIDC discovery configuration.
+ *                             id?: scalar|Param|null, // Cache service id to use to cache the OIDC discovery configuration. // Default: "cache.security.discovery"
  *                         },
  *                     },
  *                     claim?: scalar|Param|null, // Claim which contains the user identifier (e.g. sub, email, etc.). // Default: "sub"
@@ -1435,7 +1435,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                     discovery?: array{ // Enable the OIDC discovery.
  *                         base_uri?: Param|string|list<scalar|Param|null>,
  *                         cache?: array{
- *                             id?: scalar|Param|null, // Cache service id to use to cache the OIDC discovery configuration.
+ *                             id?: scalar|Param|null, // Cache service id to use to cache the OIDC discovery configuration. // Default: "cache.security.discovery"
  *                         },
  *                         enforce_key_usage_verification?: bool|Param, // When enabled (default), only keys explicitly designated for signature (via "use":"sig" or a "key_ops" entry containing "sign"/"verify") are accepted. When disabled, keys without any usage designation are also accepted; keys explicitly restricted to encryption are still rejected. // Default: true
  *                         check_issuer?: bool|null|array<string, string|Param>,
@@ -1476,7 +1476,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                         discovery?: bool|array{ // Read the keys the introspection response is verified against from the RFC 8414 metadata of the authorization server, whose URL is derived from the "issuer" this handler already declares. Only the "jwks_uri" is read from it: which algorithms are accepted stays declared here, so that an authorization server cannot widen it by announcing more.
  *                             enabled?: bool|Param, // Default: false
  *                             cache?: array{
- *                                 id?: scalar|Param|null, // Cache service id the metadata document and the keys it points at are stored in. // Default: "cache.app"
+ *                                 id?: scalar|Param|null, // Cache service id the metadata document and the keys it points at are stored in. // Default: "cache.security.discovery"
  *                             },
  *                         },
  *                         keyset?: scalar|Param|null, // JSON-encoded JWKSet holding the public keys of your authorization server, the ones it announces at its "jwks_uri", which the introspection response is verified against. // Default: null
@@ -1497,7 +1497,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             dpop?: bool|array{ // Accepts only the access tokens bound to a key the request proves it holds (DPoP), presented under the "DPoP" scheme.
  *                 enabled?: bool|Param, // Default: false
  *                 algorithms?: list<scalar|Param|null>,
- *                 cache?: scalar|Param|null, // The cache pool proofs are remembered in to refuse a replay, shared by all the instances of the application. // Default: "cache.app"
+ *                 cache?: scalar|Param|null, // The cache pool proofs are remembered in to refuse a replay, shared by all the instances of the application. // Default: "cache.security"
  *                 proof_lifetime?: int|Param, // How long a proof is accepted after its "iat", in seconds. // Default: 60
  *                 allowed_time_drift?: int|Param, // Allowed time drift in seconds for the "iat" of a proof, both ways. // Default: 5
  *             },
