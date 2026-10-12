@@ -1,0 +1,61 @@
+# Documentation available at https://pwa.spomky-labs.com/
+## Please add the favicons, manifest or serviceworker sections depending on your needs.
+pwa:
+    asset_compiler: false # Default to true. Will change to false in 2.0.0.
+    image_processor: "pwa.image_processor.gd" # 'pwa.image_processor.imagick' Or 'pwa.image_processor.gd'
+
+    manifest:
+        enabled: true
+        name: "KYG Framework"
+        short_name: "KYG"
+        description: "KYG Framework for Business"
+        categories: ["business"]
+        scope: "/"
+        start_url: "app"
+        display: "standalone"
+        display_override: ["standalone", "fullscreen", "browser", "minimal-ui", "window-controls-overlay"]
+        background_color: "#f8fafd"
+        theme_color: "#ecf0fa"
+        dark_theme_color: "#19202f"
+        use_credentials: true
+        icons:
+            - src: images/brand-logos/kyg-logo.png
+              sizes: [48, 72, 96, 144, 168, 192, 256, 512]
+
+    serviceworker:
+        enabled: true
+        src: "sw.js"
+        skip_waiting: true
+
+    favicons:
+        enabled: true
+
+        # Light mode icon (shown in light theme)
+        default:
+            src: images/brand-logos/kyg-logo.png
+            image_scale: 80
+            background_color: "#ecf0fa"
+            border_radius: 10
+
+        # Dark mode icon (shown in dark theme)
+        dark:
+            src: images/brand-logos/kyg-logo.png
+            image_scale: 80
+            background_color: "#19202f"
+            border_radius: 10
+
+        # Platform-specific
+        safari_pinned_tab_color: "#526cf7"
+        use_silhouette: false
+        tile_color: "#526cf7"
+
+        # Additional options
+        use_start_image: true
+        low_resolution: true
+
+    resource_hints:
+        enabled: true
+        auto_preconnect: true
+
+    early_hints:
+        enabled: true
