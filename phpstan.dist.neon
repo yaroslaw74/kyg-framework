@@ -25,6 +25,8 @@ parameters:
         reportDynamicQueryBuilders: true
         reportUnknownTypes: true
         literalString: true
+    dadadev:
+        urlGeneratingRulesFile: var/cache/dev/url_generating_routes.php
     friendly:
         editorUrl: 'vscode://file/%%file%%:%%line%%'
 
