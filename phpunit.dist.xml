@@ -25,9 +25,9 @@
         </testsuite>
     </testsuites>
 
-    <source ignoreSuppressionOfDeprecations="true" 
-            ignoreIndirectDeprecations="true" 
-            restrictNotices="true" 
+    <source ignoreSuppressionOfDeprecations="true"
+            ignoreIndirectDeprecations="true"
+            restrictNotices="true"
             restrictWarnings="true"
     >
         <include>
