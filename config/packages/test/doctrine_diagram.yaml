@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../schema.json
 # https://github.com/jawira/doctrine-diagram-bundle
 doctrine_diagram:
     er:
