@@ -45,7 +45,7 @@ export function generateCsrfToken(formElement) {
 
     if (csrfCookie && tokenCheck.test(csrfToken)) {
         const cookie = `${csrfCookie}_${csrfToken}=${csrfCookie}; path=/; samesite=strict`;
-        ocument.cookie = window.location.protocol === "https:" ? `__Host-${cookie}; secure` : cookie;
+        document.cookie = window.location.protocol === "https:" ? `__Host-${cookie}; secure` : cookie;
     }
 }
 
