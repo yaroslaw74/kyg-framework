@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../schema.json
 security:
     password_hashers:
         # Password hashers are resource-intensive by design to ensure security.
