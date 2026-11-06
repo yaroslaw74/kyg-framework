@@ -1,14 +1,15 @@
-framework:
-    asset_mapper:
-        # The paths to make available to the asset mapper.
-        paths:
-            - assets/
-            - public/theme/
-        missing_import_mode: strict
-        excluded_patterns:
-            - "*/assets/scss/**/_*.scss"
-            - "*/assets/scss/_*.scss"
-            - "*.md"
-            - "composer.json"
-            - "package.json"
-        exclude_dotfiles: true
+# yaml-language-server: $schema=../schema.json
+asset_mapper:
+    excluded_patterns:
+        - "*/assets/scss/**/_*.scss"
+        - "*/assets/scss/_*.scss"
+        - "*.md"
+        - "composer.json"
+        - "package.json"
+    # The paths to make available to the asset mapper.
+    paths:
+        - assets/
+        - public/theme/
+    metadata_dir: "%kernel.project_dir%/var/assets"
+    minimum_release_age: 604800
+    exclude_dotfiles: true
