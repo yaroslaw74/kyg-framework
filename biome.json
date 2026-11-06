@@ -2,6 +2,7 @@
     "files": {
         "includes": [
             "**",
+            "!assets/controllers/csrf_protection_controller.js",
             "!assets/icons/*",
             "!assets/images/*",
             "!assets/fonts/*",
