@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../schema.json
 kocal_biome_js:
     # The Biome.js CLI version to use, that you can find at https://github.com/biomejs/biome/tags:
     # - for >=2.0.0 versions, the git tag follows the pattern "@biomejs/biome@<binary_version>"
