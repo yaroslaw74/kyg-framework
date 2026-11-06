@@ -1,9 +1,9 @@
+# yaml-language-server: $schema=../../schema.json
 web_profiler:
     toolbar: true
 
 framework:
     profiler:
-        collect: true
         excluded_paths:
             - '^/\.well-known/'
             - '^/favicon\.ico$'
