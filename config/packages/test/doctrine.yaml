@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../schema.json
 doctrine:
     dbal:
         # "TEST_TOKEN" is typically set by ParaTest
