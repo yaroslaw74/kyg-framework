@@ -38,6 +38,7 @@ return [
     '@simonwep/pickr' => ['version' => '1.10.2'],
     '@simonwep/pickr/dist/themes/nano.min.css' => ['version' => '1.10.2', 'type' => 'css'],
     '@symfony/stimulus-bundle' => ['path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js'],
+    '@symfony/ux-google-map' => ['path' => './vendor/symfony/ux-google-map/assets/dist/map_controller.js'],
     '@symfony/ux-live-component' => ['path' => './vendor/symfony/ux-live-component/assets/dist/live_controller.js'],
     '@tabler/icons-webfont/dist/tabler-icons.min.css' => ['version' => '3.50.0', 'type' => 'css'],
     'app' => ['path' => './assets/app.js', 'entrypoint' => true],
