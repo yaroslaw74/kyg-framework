@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../schema.json
 # Documentation available at https://pwa.spomky-labs.com/
 ## Please add the favicons, manifest or serviceworker sections depending on your needs.
 pwa:
