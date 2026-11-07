@@ -143,7 +143,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     default_uri?: scalar|Param|null, // The default URI used to generate URLs in a non-HTTP context. // Default: null
  *     http_port?: scalar|Param|null, // Default: 80
  *     https_port?: scalar|Param|null, // Default: 443
- *     strict_requirements?: scalar|Param|null, // set to true to throw an exception when a parameter does not match the requirements set to false to disable exceptions when a parameter does not match the requirements (and return null instead) set to null to disable parameter checks against requirements 'true' is the preferred configuration in development mode, while 'false' or 'null' might be preferred in production // Default: true
+ *     strict_requirements?: scalar|Param|null, // Set to true to throw an exception when a parameter does not match the requirements. Set to false to disable exceptions when a parameter does not match the requirements (and return null instead). Set to null to disable parameter checks against requirements. Defaults to true in debug mode and to null otherwise.
  *     utf8?: bool|Param, // Default: true
  * }
  * @psalm-type CacheConfig = array{
@@ -216,7 +216,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         paths?: list<scalar|Param|null>,
  *     },
  *     not_compromised_password?: bool|array{
- *         enabled?: bool|Param, // When disabled, compromised passwords will be accepted as valid. // Default: true
+ *         enabled?: bool|Param|null, // When disabled, compromised passwords will be accepted as valid. Defaults to false when "framework.test" is enabled, to true otherwise. // Default: null
  *         endpoint?: scalar|Param|null, // API endpoint for the NotCompromisedPassword Validator. // Default: null
  *     },
  *     disable_translation?: bool|Param, // Default: false
@@ -271,14 +271,20 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     transports?: array<string, Param|string|array{ // Default: []
  *         dsn?: scalar|Param|null,
  *         serializer?: scalar|Param|null, // Service id of a custom serializer to use. // Default: null
- *         sign?: bool|Param, // Whether to sign every message sent to this transport with its trust level, and to refuse any message received from it that is unsigned, or signed as unverified when this is not a failure transport. When false, only the messages whose handlers ask for it are signed. // Default: false
+ *         sign?: bool|Param, // Whether to sign every message sent to this transport with its trust level, and to refuse any message received from it that is unsigned, or signed as unverified when this is not a failure transport. Handlers with the "sign" option require it on the transports their messages come from. // Default: false
  *         claim_check?: array{
  *             cache_pool?: scalar|Param|null, // Service id of the dedicated cache pool used to store claims. Pools declared under "framework.cache.pools" must define a "default_lifetime".
  *             max_size?: int|Param, // Maximum encoded message size in bytes before using a claim check.
  *         },
  *         options?: array<string, mixed>,
  *         failure_transport?: scalar|Param|null, // Transport name to send failed messages to (after all retries have failed). // Default: null
- *         outbox?: scalar|Param|null, // Name of the transport that stores the messages inside the current database transaction; consume that transport to forward them to this one. // Default: null
+ *         outbox?: scalar|Param|null, // Name or DSN of the transport that stores the messages inside the current database transaction; consume that transport to forward them to this one. A value that is not the name of a configured transport is a DSN, used to create the "orders.outbox" transport for an "orders" transport. // Default: null
+ *         inbox?: bool|array{ // Records the handled messages in a database table, in the transaction of their handlers, so that a redelivered message is not handled twice. Needs the "identity_stamps" option and a middleware that runs the handlers in a transaction.
+ *             enabled?: bool|Param, // Default: false
+ *             connection?: scalar|Param|null, // Name of the Doctrine DBAL connection of that transaction, the default connection when not set. // Default: null
+ *             table_name?: scalar|Param|null, // Default: "messenger_inbox"
+ *             retention?: int|Param, // Number of seconds a record is kept, which must exceed the time the transport can take to redeliver a message. // Default: 604800
+ *         },
  *         retry_strategy?: Param|string|array{
  *             service?: scalar|Param|null, // Service id to override the retry strategy entirely. // Default: null
  *             max_retries?: int|Param, // Default: 3
@@ -286,6 +292,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             multiplier?: float|Param, // If greater than 1, delay will grow exponentially for each retry: this delay = (delay * (multiple ^ retries)). // Default: 2
  *             max_delay?: int|Param, // Max time in ms that a retry should ever be delayed (0 = infinite). // Default: 0
  *             jitter?: float|Param, // Randomness to apply to the delay (between 0 and 1). // Default: 0.1
+ *         },
+ *         cooldown_strategy?: Param|bool|string|array{ // Stops consuming this transport for a while after its messages fail. With the default strategy, each worker counts its own failures.
+ *             enabled?: bool|Param, // Default: false
+ *             service?: scalar|Param|null, // Service id to override the cooldown strategy entirely. // Default: null
+ *             failure_threshold?: int|Param, // Number of failures in a row that start a cooldown. // Default: 5
+ *             delay?: int|Param, // Duration in ms of the first cooldown (or the initial value when multiplier is used). // Default: 1000
+ *             multiplier?: float|Param, // If greater than 1, the cooldown will grow exponentially for each further failure in a row: this delay = (delay * (multiplier ^ (failures - failure_threshold))). // Default: 2
+ *             max_delay?: int|Param, // Max duration in ms of a cooldown (0 = infinite). // Default: 60000
+ *             jitter?: float|Param, // Randomness to apply to the duration (between 0 and 1). // Default: 0.1
  *         },
  *         rate_limiter?: scalar|Param|null, // Rate limiter name to use when processing messages. // Default: null
  *         priority?: int|Param, // Order in which "messenger:consume --all" consumes this transport, higher comes first. // Default: 0
@@ -311,47 +326,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         messages?: Param|string|list<scalar|Param|null>,
  *         unwrap_exceptions?: bool|Param, // Whether the application gets the exception of the failing handler instead of a HandlerFailedException when it dispatches a message. // Default: false
  *     }>,
- * }
- * @psalm-type WorkflowConfig = bool|array{
- *     enabled?: bool|Param, // Default: true
- *     workflows?: array<string, array{ // Default: []
- *         audit_trail?: bool|array{
- *             enabled?: bool|Param, // Default: false
- *         },
- *         type?: "workflow"|"state_machine"|Param, // Default: "state_machine"
- *         marking_store?: array{
- *             type?: "method"|Param,
- *             property?: scalar|Param|null,
- *             service?: scalar|Param|null,
- *         },
- *         supports?: Param|string|list<scalar|Param|null>,
- *         definition_validators?: list<scalar|Param|null>,
- *         support_strategy?: scalar|Param|null,
- *         initial_marking?: \BackedEnum|Param|string|list<scalar|Param|null>,
- *         events_to_dispatch?: null|list<string|Param>,
- *         places?: Param|string|list<Param|string|array{ // Default: []
- *             name?: scalar|Param|null,
- *             metadata?: array<string, mixed>,
- *         }>,
- *         transitions?: list<array{ // Default: []
- *             name?: string|Param,
- *             guard?: string|Param, // An expression to block the transition.
- *             from?: \BackedEnum|Param|string|list<Param|string|array{ // Default: []
- *                 place?: string|Param,
- *                 weight?: int|Param, // Default: 1
- *             }>,
- *             to?: \BackedEnum|Param|string|list<Param|string|array{ // Default: []
- *                 place?: string|Param,
- *                 weight?: int|Param, // Default: 1
- *             }>,
- *             weight?: int|Param, // Default: 1
- *             metadata?: array<string, mixed>,
- *         }>,
- *         metadata?: array<string, mixed>,
- *     }>,
- * }
- * @psalm-type RemoteEventConfig = bool|array{
- *     enabled?: bool|Param, // Default: true
  * }
  * @psalm-type TypeInfoConfig = bool|array{
  *     enabled?: bool|Param, // Default: true
@@ -387,7 +361,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     server?: bool|Param, // If true, a "dev server" will return the assets from the public directory (true in "debug" mode only by default). // Default: "%kernel.debug%"
  *     public_prefix?: scalar|Param|null, // The public path where the assets will be written to (and served from when "server" is true). // Default: "/assets/"
  *     metadata_dir?: scalar|Param|null, // The directory where "asset-map:compile" writes manifest.json, importmap.json and entrypoint.*.json. These files are read by PHP only, so they do not need to be exposed to the browser. // Default: null
- *     missing_import_mode?: "strict"|"warn"|"ignore"|Param, // Behavior if an asset cannot be found when imported from JavaScript or CSS files - e.g. "import './non-existent.js'". "strict" means an exception is thrown, "warn" means a warning is logged, "ignore" means the import is left as-is. // Default: "warn"
+ *     missing_import_mode?: "strict"|"warn"|"ignore"|Param|null, // Behavior if an asset cannot be found when imported from JavaScript or CSS files - e.g. "import './non-existent.js'". "strict" means an exception is thrown, "warn" means a warning is logged, "ignore" means the import is left as-is. Defaults to "strict" in debug mode and to "warn" otherwise. // Default: null
  *     extensions?: array<string, scalar|Param|null>,
  *     importmap_path?: scalar|Param|null, // The path of the importmap.php file. // Default: "%kernel.project_dir%/importmap.php"
  *     importmap_polyfill?: scalar|Param|null, // The importmap name that will be used to load the polyfill. Set to false to disable. // Default: "es-module-shims"
@@ -402,32 +376,35 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         extensions?: list<scalar|Param|null>,
  *     },
  * }
- * @psalm-type WebhookConfig = bool|array{
+ * @psalm-type RateLimiterConfig = bool|array{
  *     enabled?: bool|Param, // Default: true
- *     message_bus?: scalar|Param|null, // The message bus to use. // Default: "messenger.default_bus"
- *     http_client?: scalar|Param|null, // The HTTP client to use to send webhooks. // Default: "http_client"
- *     no_private_network?: bool|array{ // Refuse to send webhooks to URLs that resolve to a private network.
- *         enabled?: bool|Param, // Default: false
- *         subnets?: Param|null|string|list<scalar|Param|null>,
- *         allow_list?: Param|string|list<scalar|Param|null>,
+ *     builder?: array{ // Configuration for the RateLimiterBuilder service.
+ *         lock_factory?: scalar|Param|null, // The service ID of the lock factory to use with the RateLimiterBuilder. // Default: "auto"
+ *         cache_pool?: scalar|Param|null, // The cache pool to use with RateLimiterBuilder. // Default: "cache.rate_limiter"
+ *         storage_service?: scalar|Param|null, // The service ID of a custom storage implementation, this precedes any configured "cache_pool". // Default: null
  *     },
- *     event_header_name?: scalar|Param|null, // Default: "Webhook-Event"
- *     id_header_name?: scalar|Param|null, // Default: "Webhook-Id"
- *     timestamp_header_name?: scalar|Param|null, // Default: "Webhook-Timestamp"
- *     signature_header_name?: scalar|Param|null, // Default: "Webhook-Signature"
- *     signing_algorithm?: scalar|Param|null, // Default: "sha256"
- *     signature_format?: "legacy"|"standard"|"transitional"|Param, // The signature scheme to emit and to require: "legacy" (default) for Symfony's historical "<algo>=<hex>" over the event name, the id and the body; "standard" for the Standard Webhooks "v1,<base64>" over the id, the timestamp and the body, which moves the event name from the "Webhook-Event" header to the payload's "type" key; "transitional" for both at once, during a migration. // Default: "legacy"
- *     timestamp_tolerance?: int|Param, // How far, in seconds, an incoming Standard Webhooks timestamp may be from the current time before the request is rejected as a replay. Set to 0 to accept any timestamp. Legacy signatures carry no timestamp and are never bounded. // Default: 300
- *     routing?: array<string, array{ // Default: []
- *         service?: scalar|Param|null, // The id of the request parser service for this type of webhook; defaults to the generic parser of the component, which checks the signature scheme set in "signature_format". // Default: "webhook.request_parser"
- *         secret?: scalar|Param|null, // The secret used to verify incoming request signatures. It must be set in production: with an empty value, depending on the parser, requests from any sender are accepted or every request is rejected. // Default: ""
+ *     limiters?: array<string, array{ // Default: []
+ *         lock_factory?: scalar|Param|null, // The service ID of the lock factory used by this limiter (or null to disable locking). // Default: "auto"
+ *         cache_pool?: scalar|Param|null, // The cache pool to use for storing the current limiter state. // Default: "cache.rate_limiter"
+ *         storage_service?: scalar|Param|null, // The service ID of a custom storage implementation, this precedes any configured "cache_pool". // Default: null
+ *         policy?: "fixed_window"|"token_bucket"|"sliding_window"|"compound"|"no_limit"|Param, // The algorithm to be used by this limiter.
+ *         limiters?: Param|string|array<string, array{ // Default: []
+ *             key?: scalar|Param|null, // The key to pass to this limiter, instead of the one passed to the compound limiter's create() method. // Default: null
+ *         }>,
+ *         limit?: int|Param, // The maximum allowed hits in a fixed interval or burst.
+ *         interval?: scalar|Param|null, // Configures the fixed interval if "policy" is set to "fixed_window" or "sliding_window". The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
+ *         rate?: array{ // Configures the fill rate if "policy" is set to "token_bucket".
+ *             interval?: scalar|Param|null, // Configures the rate interval. The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
+ *             amount?: int|Param, // Amount of tokens to add each interval. // Default: 1
+ *         },
+ *         anchor_at?: scalar|Param|null, // Aligns the "fixed_window" policy to a calendar (e.g. "2024-01-05 00:00:00 UTC" combined with `interval: 1 month` resets the counter on the 5th of each month). UTC if not specified. // Default: null
  *     }>,
  * }
  * @psalm-type HttpClientConfig = bool|array{
  *     enabled?: bool|Param, // Default: true
  *     max_host_connections?: int|Param, // The maximum number of connections to a single host.
  *     recorder?: bool|array{ // Record HTTP exchanges into HAR files and replay them in tests (see RecorderHttpClient).
- *         enabled?: bool|Param, // Default: false
+ *         enabled?: bool|Param|null, // Defaults to true when "framework.test" is enabled, to false otherwise. // Default: null
  *         redactor?: scalar|Param|null, // Service id of a RedactorInterface; when set, "redact" and "redact_except" are ignored. // Default: null
  *         redact?: list<scalar|Param|null>,
  *         redact_except?: list<scalar|Param|null>,
@@ -686,7 +663,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         dsn?: scalar|Param|null, // Default: "file:%kernel.cache_dir%/profiler"
  *         collect_serializer_data?: true|Param, // Deprecated: Setting the "framework.profiler.collect_serializer_data.collect_serializer_data" configuration option is deprecated. It will be removed in version 9.0. // Default: true
  *     },
- *     workflows?: WorkflowConfig,
+ *     workflows?: mixed,
  *     router?: RouterConfig,
  *     assets?: AssetConfig,
  *     asset_mapper?: AssetMapperConfig,
@@ -705,15 +682,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     http_client?: HttpClientConfig,
  *     mailer?: MailerConfig,
  *     notifier?: NotifierConfig,
- *     rate_limiter?: mixed,
+ *     rate_limiter?: RateLimiterConfig,
  *     uid?: UidConfig,
  *     html_sanitizer?: mixed,
- *     webhook?: WebhookConfig,
- *     remote_event?: RemoteEventConfig,
+ *     webhook?: mixed,
+ *     remote_event?: mixed,
  *     json_streamer?: mixed,
  *     session?: bool|array{ // Session configuration
  *         enabled?: bool|Param, // Default: false
- *         storage_factory_id?: scalar|Param|null, // Default: "session.storage.factory.native"
+ *         storage_factory_id?: scalar|Param|null, // Defaults to "session.storage.factory.mock_file" when "framework.test" is true, to "session.storage.factory.native" otherwise. // Default: null
  *         handler_id?: scalar|Param|null, // Defaults to using the native session handler, or to the native *file* session handler if "save_path" is not null.
  *         name?: scalar|Param|null,
  *         cookie_lifetime?: scalar|Param|null,
@@ -1030,6 +1007,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *     },
  *     default_transport?: scalar|Param|null, // Default: "default"
+ *     mercure?: array{
+ *         ignore_cookie_domain_errors?: bool|Param, // Render nothing and log a warning, instead of failing, when the authorization cookie of a private stream source cannot be created because the page is served on another domain than the hub // Default: false
+ *     },
  * }
  * @psalm-type TwigExtraConfig = array{
  *     cache?: bool|array{
@@ -1100,9 +1080,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ignore_case?: bool|Param, // Default: false
  *         encode_as_base64?: bool|Param, // Default: true
  *         iterations?: scalar|Param|null, // Default: 5000
- *         cost?: int|Param, // Default: null
- *         memory_cost?: scalar|Param|null, // Default: null
- *         time_cost?: scalar|Param|null, // Default: null
+ *         cost?: int|Param, // Defaults to the lowest value bcrypt accepts when "framework.test" is enabled. // Default: null
+ *         memory_cost?: scalar|Param|null, // Defaults to the lowest value argon2 accepts when "framework.test" is enabled. // Default: null
+ *         time_cost?: scalar|Param|null, // Defaults to the lowest value argon2 accepts when "framework.test" is enabled. // Default: null
  *         id?: scalar|Param|null,
  *     }>,
  *     providers?: array<string, array{ // Default: []
@@ -1137,9 +1117,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             enabled?: bool|Param, // Internal marker; the OIDC provider has no configuration options. // Default: true
  *             ...<string, mixed>
  *         },
- *         lexik_jwt?: array{
- *             class?: scalar|Param|null, // Default: "Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\User\\JWTUser"
- *         },
  *     }>,
  *     firewalls?: array<string, array{ // Default: []
  *         pattern?: scalar|Param|null,
@@ -1152,7 +1129,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         access_denied_url?: scalar|Param|null,
  *         access_denied_handler?: scalar|Param|null,
  *         entry_point?: scalar|Param|null, // An enabled authenticator name or a service id that implements "Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface".
- *         re_authentication_entry_point?: scalar|Param|null, // An enabled authenticator name or a service id implementing "Symfony\Component\Security\Http\EntryPoint\ReAuthenticationEntryPointInterface", asking an already authenticated user to prove possession of their credentials again when IS_AUTHENTICATED_RECENTLY or IS_AUTHENTICATED_VERY_RECENTLY is denied. Defaults to the firewall entry point when that one implements it.
+ *         entry_point_path?: scalar|Param|null, // A path, an absolute URL or a route name to redirect anonymous users to when they need to authenticate.
+ *         re_authentication_entry_point?: scalar|Param|null, // An enabled authenticator name or a service id implementing "Symfony\Component\Security\Http\EntryPoint\ReAuthenticationEntryPointInterface", started when the vote denying access asks for a re-authentication. Defaults to the firewall entry point when it implements this interface.
  *         provider?: scalar|Param|null,
  *         stateless?: bool|Param, // Default: false
  *         lazy?: bool|Param, // Default: false
@@ -1231,10 +1209,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             provider?: scalar|Param|null,
  *             user?: scalar|Param|null, // Default: "REMOTE_USER"
  *         },
- *         jwt?: array{
- *             provider?: scalar|Param|null, // Default: null
- *             authenticator?: scalar|Param|null, // Default: "lexik_jwt_authentication.security.jwt_authenticator"
- *         },
  *         login_link?: array{
  *             check_route?: scalar|Param|null, // Route that will validate the login link - e.g. "app_login_link_verify".
  *             check_post_only?: scalar|Param|null, // If true, only HTTP POST requests to "check_route" will be handled by the authenticator. // Default: false
@@ -1260,7 +1234,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             remember_me?: bool|Param, // Deprecated: Setting the "security.firewalls..oidc_login.remember_me.remember_me" configuration option has no effect and is deprecated. It will be removed in Symfony 9.0. // Default: true
  *             success_handler?: scalar|Param|null,
  *             failure_handler?: scalar|Param|null,
- *             check_path?: scalar|Param|null, // The firewall path where the OIDC provider redirects after authentication. Must match a redirect URI registered with the provider. A route is declared for this path by the "security.authenticator.oidc_login.route_loader" service, which the application must import (see the OIDC login documentation), as it does for the logout routes. A route name is accepted too, in which case no route is declared for it. // Default: "/oidc/callback"
+ *             check_path?: scalar|Param|null, // The firewall path where the OIDC provider redirects after authentication. Must match a redirect URI registered with the provider. A route is declared for this path by the "security.route_loader" service, which the application must import. A route name is accepted too, in which case no route is declared for it. // Default: "/oidc/callback"
  *             use_forward?: bool|Param, // Default: false
  *             login_path?: scalar|Param|null, // Default: "/login"
  *             always_use_default_target_path?: bool|Param, // Default: false
@@ -1270,8 +1244,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             failure_path?: scalar|Param|null, // Default: null
  *             failure_forward?: bool|Param, // Default: false
  *             failure_path_parameter?: scalar|Param|null, // Default: "_failure_path"
- *             provider_uri?: scalar|Param|null, // The OIDC Issuer URL (e.g. "https://accounts.example.com"). Used for .well-known/openid-configuration discovery.
- *             http_client?: scalar|Param|null, // The id of the HttpClient service every call to the provider is made with: discovery, JWKS, token and UserInfo endpoints. Defaults to "http_client". A scoped client must scope every host the provider announces, not only the issuer. // Default: null
+ *             provider_uri?: scalar|Param|null, // The OIDC Issuer URL (e.g. "https://accounts.example.com"). Used for .well-known/openid-configuration discovery unless "discovery_uri" is set.
+ *             discovery_uri?: scalar|Param|null, // Absolute URL of the discovery document. The "issuer" it announces is still checked against "provider_uri". // Default: null
+ *             http_client?: scalar|Param|null, // The id of the HttpClient service every call to the provider is made with: discovery, JWKS, token and UserInfo endpoints. Defaults to "http_client". A scoped client must scope the discovery host and every host the provider announces. // Default: null
  *             client_id?: scalar|Param|null, // The OIDC client identifier.
  *             client_certificate?: Param|string|array{ // The TLS client certificate presented to the token and UserInfo endpoints.
  *                 certificate?: scalar|Param|null, // Path to the PEM file of the certificate.
@@ -1296,7 +1271,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                 },
  *                 tls_client_auth?: bool|Param, // Authenticate with "client_certificate", issued by a certificate authority.
  *                 self_signed_tls_client_auth?: bool|Param, // Authenticate with "client_certificate", self-signed.
- *                 id?: scalar|Param|null, // The id of a service implementing "ClientAuthenticationInterface", for a scheme Symfony does not ship. The method it reports is only known once it is built, so the rules a public client cannot bend are then checked on the first request to this firewall instead of while the container compiles.
+ *                 id?: scalar|Param|null, // The id of a service implementing "ClientAuthenticationInterface", for a scheme Symfony does not ship. The method it reports is only known once it is built, so the rules a public client cannot bend are then checked when a login starts on this firewall instead of while the container compiles.
  *             },
  *             dpop?: Param|string|array{ // Binds the tokens the provider issues to a key held by this client (DPoP); a token the provider did not bind is refused.
  *                 key?: scalar|Param|null, // The private key the proofs are signed with, as a JSON-encoded JWK.
@@ -1319,7 +1294,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             },
  *             max_age?: int|Param, // Maximum elapsed seconds since the end-user authentication, sent as the "max_age" authorization parameter; the ID token must then carry an "auth_time" claim, which is checked against this value, "allowed_time_drift" included.
  *             authorization_params?: array<string, scalar|Param|null>,
- *             refresh_access_token?: bool|array{ // Renew the access token with the refresh token grant of RFC 6749, Section 6, so that it stays usable to call an API on behalf of the logged-in user. The provider only issues a refresh token when it was asked for one, e.g. with the "offline_access" scope, and the renewal needs the "expires_in" it is optional for the provider to report. Whether this is enabled or not, the tokens are held as the "oidc_refresh_token", "oidc_access_token" and "oidc_access_token_expires_at" attributes of the security token, and the "security.authenticator.oidc_login.token_refresher.<firewall>" service renews them on demand. A provider rotating refresh tokens expects the previous one never to be replayed, which a session handler locking the session guarantees, and the default one does.
+ *             refresh_access_token?: bool|array{ // Renew the access token with the refresh token grant of RFC 6749, Section 6, so that it stays usable to call an API on behalf of the logged-in user. The provider only issues a refresh token when it was asked for one, e.g. with the "offline_access" scope, and the renewal needs the "expires_in" it is optional for the provider to report. Whether this is enabled or not, the tokens are held as the "oauth2_refresh_token", "oauth2_access_token" and "oauth2_access_token_expires_at" attributes of the security token, and the "security.authenticator.oidc_login.token_refresher.<firewall>" service renews them on demand. A provider rotating refresh tokens expects the previous one never to be replayed, which a session handler locking the session guarantees, and the default one does.
  *                 enabled?: bool|Param, // Default: false
  *                 leeway?: int|Param, // How many seconds before its expiry the access token is renewed, so that one handed to a call in flight does not expire on the way. // Default: 30
  *             },
@@ -1483,8 +1458,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                     },
  *                 },
  *             },
- *             resource_metadata?: array{ // Declaring this node serves the RFC 9728 protected resource metadata document of the firewall at "/.well-known/oauth-protected-resource" and advertises its URL in the "resource_metadata" parameter of the "WWW-Authenticate" header, which is how a client discovers where to get a token this firewall accepts. The route is declared by the "security.authenticator.access_token.route_loader" service, which the application must import as it does for the logout routes; make sure it is reachable without a token.
- *                 resource?: scalar|Param|null, // The resource identifier of this firewall: an HTTPS URL, without a fragment (e.g. "https://api.example.com" or "https://example.com/api"). Its path component is inserted after the well-known path, as RFC 9728, Section 3.1 prescribes, so that one host can serve the metadata of several protected resources. Defaults to the origin the document is served from, which is what a firewall covering a whole application wants. // Default: null
+ *             resource_metadata?: array{ // Declaring this node serves the RFC 9728 protected resource metadata document of the firewall at "/.well-known/oauth-protected-resource" and advertises its URL in the "resource_metadata" parameter of the "WWW-Authenticate" header, which is how a client discovers where to get a token this firewall accepts. The route is declared by the "security.route_loader" service, which the application must import. Make sure the route is reachable without a token.
+ *                 resource?: scalar|Param|null, // The resource identifier of this firewall: an HTTPS URL without a fragment (e.g. "https://example.com/api"), read when the container is compiled, or a path (e.g. "/api") resolved against the origin of the request. Its path is inserted after the well-known path, as RFC 9728, Section 3.1 prescribes. Defaults to the origin of the request, which is what a firewall covering a whole application wants. // Default: null
  *                 authorization_servers?: Param|string|list<scalar|Param|null>,
  *                 jwks_uri?: scalar|Param|null, // URL of the JWK Set holding the keys this resource signs its own responses with. Unrelated to the keys the access tokens are verified against, which belong to the authorization server. // Default: null
  *                 scopes_supported?: Param|string|list<scalar|Param|null>,
@@ -1539,28 +1514,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             samesite?: null|"lax"|"strict"|"none"|Param, // Defaults to the value of "framework.session.cookie_samesite", or to "lax".
  *             always_remember_me?: bool|Param, // Default: false
  *             remember_me_parameter?: scalar|Param|null, // Default: "_remember_me"
- *         },
- *         two_factor?: array{
- *             check_path?: scalar|Param|null, // Default: "/2fa_check"
- *             post_only?: bool|Param, // Default: true
- *             auth_form_path?: scalar|Param|null, // Default: "/2fa"
- *             always_use_default_target_path?: bool|Param, // Default: false
- *             default_target_path?: scalar|Param|null, // Default: "/"
- *             success_handler?: scalar|Param|null, // Default: null
- *             failure_handler?: scalar|Param|null, // Default: null
- *             authentication_required_handler?: scalar|Param|null, // Default: null
- *             auth_code_parameter_name?: scalar|Param|null, // Default: "_auth_code"
- *             trusted_parameter_name?: scalar|Param|null, // Default: "_trusted"
- *             remember_me_sets_trusted?: scalar|Param|null, // Default: false
- *             multi_factor?: bool|Param, // Default: false
- *             prepare_on_login?: bool|Param, // Default: false
- *             prepare_on_access_denied?: bool|Param, // Default: false
- *             enable_csrf?: scalar|Param|null, // Default: false
- *             csrf_parameter?: scalar|Param|null, // Default: "_csrf_token"
- *             csrf_token_id?: scalar|Param|null, // Default: "two_factor"
- *             csrf_header?: scalar|Param|null, // Default: null
- *             csrf_token_manager?: scalar|Param|null, // Default: "scheb_two_factor.csrf_token_manager"
- *             provider?: scalar|Param|null, // Default: null
  *         },
  *     }>,
  *     access_control?: list<array{ // Default: []
@@ -1733,33 +1686,104 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     generate_final_classes?: bool|Param, // Default: true
  *     generate_final_entities?: bool|Param, // Default: false
  * }
- * @psalm-type NelmioCorsConfig = array{
- *     defaults?: array{
- *         allow_credentials?: bool|Param, // Default: false
- *         allow_origin?: list<scalar|Param|null>,
- *         allow_headers?: list<scalar|Param|null>,
- *         allow_methods?: list<scalar|Param|null>,
- *         allow_private_network?: bool|Param, // Default: false
- *         expose_headers?: list<scalar|Param|null>,
- *         max_age?: scalar|Param|null, // Default: 0
- *         hosts?: list<scalar|Param|null>,
- *         origin_regex?: bool|Param, // Default: false
- *         forced_allow_origin_value?: scalar|Param|null, // Default: null
- *         skip_same_as_origin?: bool|Param, // Default: true
+ * @psalm-type SymfonycastsResetPasswordConfig = array{
+ *     request_password_repository?: scalar|Param|null, // A class that implements ResetPasswordRequestRepositoryInterface - usually your ResetPasswordRequestRepository.
+ *     lifetime?: int|Param, // The length of time in seconds that a password reset request is valid for after it is created. // Default: 3600
+ *     throttle_limit?: int|Param, // Another password reset cannot be made faster than this throttle time in seconds. // Default: 3600
+ *     enable_garbage_collection?: bool|Param, // Enable/Disable automatic garbage collection. // Default: true
+ * }
+ * @psalm-type SymfonycastsSassConfig = array{
+ *     root_sass?: list<scalar|Param|null>,
+ *     binary?: scalar|Param|null, // The Sass binary to use // Default: null
+ *     search_for_binary?: scalar|Param|null, // Whether to search for the Sass binary in the system PATH // Default: true
+ *     sass_options?: array{
+ *         style?: "compressed"|"expanded"|Param, // The style of the generated CSS: compressed or expanded. // Default: "expanded"
+ *         charset?: bool|Param, // Whether to include the charset declaration in the generated Sass.
+ *         error_css?: bool|Param, // Emit a CSS file when an error occurs.
+ *         source_map?: bool|Param, // Whether to generate source maps. // Default: true
+ *         embed_sources?: bool|Param, // Embed source file contents in source maps.
+ *         embed_source_map?: bool|Param, // Embed source map contents in CSS. // Default: "%kernel.debug%"
+ *         load_path?: list<scalar|Param|null>,
+ *         quiet?: bool|Param, // Don't print warnings.
+ *         quiet_deps?: bool|Param, // Don't print compiler warnings from dependencies.
+ *         stop_on_error?: bool|Param, // Don't compile more files once an error is encountered.
+ *         trace?: bool|Param, // Print full Dart stack traces for exceptions.
  *     },
- *     paths?: array<string, array{ // Default: []
- *         allow_credentials?: bool|Param,
- *         allow_origin?: list<scalar|Param|null>,
- *         allow_headers?: list<scalar|Param|null>,
- *         allow_methods?: list<scalar|Param|null>,
- *         allow_private_network?: bool|Param,
- *         expose_headers?: list<scalar|Param|null>,
- *         max_age?: scalar|Param|null, // Default: 0
- *         hosts?: list<scalar|Param|null>,
- *         origin_regex?: bool|Param,
- *         forced_allow_origin_value?: scalar|Param|null, // Default: null
- *         skip_same_as_origin?: bool|Param,
- *     }>,
+ *     embed_sourcemap?: bool|Param|null, // Deprecated: Option "embed_sourcemap" at "symfonycasts_sass.embed_sourcemap" is deprecated. Use "sass_options.embed_source_map" instead". // Default: null
+ * }
+ * @psalm-type SymfonycastsVerifyEmailConfig = array{
+ *     lifetime?: int|Param, // The length of time in seconds that a signed URI is valid for after it is created. // Default: 3600
+ * }
+ * @psalm-type KocalBiomeJsConfig = array{
+ *     binary_version?: scalar|Param|null, // Biome.js CLI version to download.
+ * }
+ * @psalm-type DoctrineDiagramConfig = array{
+ *     er?: array{
+ *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/er"
+ *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
+ *         theme?: scalar|Param|null, // Default: "_none_"
+ *         connection?: scalar|Param|null, // Default: null
+ *         include?: list<scalar|Param|null>,
+ *         exclude?: list<scalar|Param|null>,
+ *     },
+ *     class?: array{
+ *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/class"
+ *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
+ *         theme?: scalar|Param|null, // Default: "_none_"
+ *         em?: scalar|Param|null, // Default: null
+ *         include?: list<scalar|Param|null>,
+ *         exclude?: list<scalar|Param|null>,
+ *     },
+ *     convert?: array{
+ *         format?: "puml"|"png"|"svg"|Param, // Default: "svg"
+ *         converter?: "auto"|"jar"|"server"|Param, // Default: "auto"
+ *         jar?: scalar|Param|null, // Default: null
+ *         server?: scalar|Param|null, // Default: "http://www.plantuml.com/plantuml"
+ *     },
+ * }
+ * @psalm-type ZenstruckFoundryConfig = array{
+ *     auto_refresh_proxies?: bool|Param|null, // Deprecated: Since 2.0 auto_refresh_proxies defaults to true and this configuration has no effect. // Whether to auto-refresh proxies by default (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#auto-refresh) // Default: null
+ *     enable_auto_refresh_with_lazy_objects?: bool|Param|null, // Enable auto-refresh using PHP 8.4 lazy objects (cannot be enabled if PHP < 8.4). // Default: null
+ *     faker?: array{ // Configure the faker used by your factories.
+ *         locale?: scalar|Param|null, // The default locale to use for faker. // Default: null
+ *         seed?: scalar|Param|null, // Deprecated: The "faker.seed" configuration is deprecated and will be removed in 3.0. Use environment variable "FOUNDRY_FAKER_SEED" instead. // Random number generator seed to produce the same fake values every run. // Default: null
+ *         manage_seed?: bool|Param, // Automatically manage faker seed to ensure consistent data between test runs. // Default: true
+ *         service?: scalar|Param|null, // Service id for custom faker instance. // Default: null
+ *     },
+ *     instantiator?: array{ // Configure the default instantiator used by your object factories.
+ *         use_constructor?: bool|Param, // Use the constructor to instantiate objects. // Default: true
+ *         allow_extra_attributes?: bool|Param, // Whether or not to skip attributes that do not correspond to properties. // Default: false
+ *         always_force_properties?: bool|Param, // Whether or not to skip setters and force set object properties (public/private/protected) directly. // Default: false
+ *         service?: scalar|Param|null, // Service id of your custom instantiator. // Default: null
+ *     },
+ *     global_state?: list<scalar|Param|null>,
+ *     persistence?: array{
+ *         flush_once?: bool|Param, // Flush only once per call of `PersistentObjectFactory::create()` in userland. // Default: false
+ *     },
+ *     orm?: array{
+ *         auto_persist?: bool|Param, // Deprecated: Since 2.4 auto_persist defaults to true and this configuration has no effect. // Automatically persist entities when created. // Default: true
+ *         reset?: array{
+ *             connections?: list<scalar|Param|null>,
+ *             entity_managers?: list<scalar|Param|null>,
+ *             mode?: null|\Zenstruck\Foundry\ORM\ResetDatabase\ResetDatabaseMode::SCHEMA|\Zenstruck\Foundry\ORM\ResetDatabase\ResetDatabaseMode::MIGRATE|\Zenstruck\Foundry\ORM\ResetDatabase\ResetDatabaseMode::AUTO|"schema"|"migrate"|"auto"|Param, // Reset mode to use with ResetDatabase trait ("auto" migrates if the app has migrations, otherwise resets the schema) // Default: null
+ *             migrations?: array{
+ *                 configurations?: list<scalar|Param|null>,
+ *             },
+ *         },
+ *     },
+ *     mongo?: array{
+ *         auto_persist?: bool|Param, // Deprecated: Since 2.4 auto_persist defaults to true and this configuration has no effect. // Automatically persist documents when created. // Default: true
+ *         reset?: array{
+ *             document_managers?: list<scalar|Param|null>,
+ *         },
+ *     },
+ *     make_factory?: array{
+ *         default_namespace?: scalar|Param|null, // Default namespace where factories will be created by maker. // Default: "Factory"
+ *         add_hints?: bool|Param, // Add "beginner" hints in the created factory. // Default: true
+ *     },
+ *     make_story?: array{
+ *         default_namespace?: scalar|Param|null, // Default namespace where stories will be created by maker. // Default: "Story"
+ *     },
  * }
  * @psalm-type ApiPlatformConfig = array{
  *     title?: scalar|Param|null, // The title of the API. // Default: ""
@@ -2056,29 +2080,53 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     ...<string, mixed>
  * }
- * @psalm-type JbtronicsSettingsConfig = array{
- *     search_paths?: list<scalar|Param|null>,
- *     proxy_dir?: scalar|Param|null, // Default: "%kernel.cache_dir%/jbtronics_settings/proxies"
- *     proxy_namespace?: scalar|Param|null, // Default: "Jbtronics\\SettingsBundle\\Proxies"
- *     default_storage_adapter?: scalar|Param|null, // Default: null
- *     save_after_migration?: bool|Param, // Default: true
- *     yaml_mapping_paths?: list<scalar|Param|null>,
- *     metadata_compiler_providers?: list<scalar|Param|null>,
- *     file_storage?: array{
- *         storage_directory?: scalar|Param|null, // Default: "%kernel.project_dir%/var/jbtronics_settings/"
- *         default_filename?: scalar|Param|null, // Default: "settings"
- *     },
- *     orm_storage?: array{
- *         default_entity_class?: scalar|Param|null, // Default: null
- *         prefetch_all?: bool|Param, // Default: true
- *         throw_on_connection_error?: bool|Param, // Default: false
- *     },
- *     cache?: array{
- *         metadata_service?: scalar|Param|null, // Default: "cache.system"
- *         service?: scalar|Param|null, // Default: "cache.app.taggable"
- *         default_cacheable?: bool|Param, // Default: false
- *         ttl?: int|Param, // Default: 0
- *         invalidate_on_env_change?: bool|Param, // Default: true
+ * @psalm-type DamaDoctrineTestConfig = array{
+ *     enable_static_connection?: mixed, // Default: true
+ *     enable_static_meta_data_cache?: bool|Param, // Default: true
+ *     enable_static_query_cache?: bool|Param, // Default: true
+ *     connection_keys?: list<mixed>,
+ * }
+ * @psalm-type FosCkEditorConfig = array{
+ *     enable?: bool|Param, // Default: true
+ *     async?: bool|Param, // Default: false
+ *     auto_inline?: bool|Param, // Default: true
+ *     inline?: bool|Param, // Default: false
+ *     autoload?: bool|Param, // Default: true
+ *     jquery?: bool|Param, // Default: false
+ *     require_js?: bool|Param, // Default: false
+ *     input_sync?: bool|Param, // Default: false
+ *     base_path?: scalar|Param|null, // Default: "bundles/fosckeditor/"
+ *     js_path?: scalar|Param|null, // Default: "bundles/fosckeditor/ckeditor.js"
+ *     jquery_path?: scalar|Param|null, // Default: "bundles/fosckeditor/adapters/jquery.js"
+ *     default_config?: scalar|Param|null, // Default: null
+ *     configs?: array<string, array<string, mixed>>,
+ *     plugins?: array<string, array{ // Default: []
+ *         path?: scalar|Param|null,
+ *         filename?: scalar|Param|null,
+ *     }>,
+ *     styles?: array<string, list<array{ // Default: []
+ *         name?: scalar|Param|null,
+ *         type?: scalar|Param|null,
+ *         widget?: scalar|Param|null,
+ *         element?: mixed,
+ *         styles?: array<string, scalar|Param|null>,
+ *         attributes?: array<string, scalar|Param|null>,
+ *     }>>,
+ *     templates?: array<string, array{ // Default: []
+ *         imagesPath?: scalar|Param|null,
+ *         templates?: list<array{ // Default: []
+ *             title?: scalar|Param|null,
+ *             image?: scalar|Param|null,
+ *             description?: scalar|Param|null,
+ *             html?: scalar|Param|null,
+ *             template?: scalar|Param|null,
+ *             template_parameters?: array<string, scalar|Param|null>,
+ *         }>,
+ *     }>,
+ *     filebrowsers?: array<string, scalar|Param|null>,
+ *     toolbars?: array{
+ *         configs?: array<string, list<mixed>>,
+ *         items?: array<string, list<mixed>>,
  *     },
  * }
  * @psalm-type HwiOauthConfig = array{
@@ -2115,6 +2163,31 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         options?: array<string, scalar|Param|null>,
  *         ...<string, mixed>
  *     }>,
+ * }
+ * @psalm-type JbtronicsSettingsConfig = array{
+ *     search_paths?: list<scalar|Param|null>,
+ *     proxy_dir?: scalar|Param|null, // Default: "%kernel.cache_dir%/jbtronics_settings/proxies"
+ *     proxy_namespace?: scalar|Param|null, // Default: "Jbtronics\\SettingsBundle\\Proxies"
+ *     default_storage_adapter?: scalar|Param|null, // Default: null
+ *     save_after_migration?: bool|Param, // Default: true
+ *     yaml_mapping_paths?: list<scalar|Param|null>,
+ *     metadata_compiler_providers?: list<scalar|Param|null>,
+ *     file_storage?: array{
+ *         storage_directory?: scalar|Param|null, // Default: "%kernel.project_dir%/var/jbtronics_settings/"
+ *         default_filename?: scalar|Param|null, // Default: "settings"
+ *     },
+ *     orm_storage?: array{
+ *         default_entity_class?: scalar|Param|null, // Default: null
+ *         prefetch_all?: bool|Param, // Default: true
+ *         throw_on_connection_error?: bool|Param, // Default: false
+ *     },
+ *     cache?: array{
+ *         metadata_service?: scalar|Param|null, // Default: "cache.system"
+ *         service?: scalar|Param|null, // Default: "cache.app.taggable"
+ *         default_cacheable?: bool|Param, // Default: false
+ *         ttl?: int|Param, // Default: 0
+ *         invalidate_on_env_change?: bool|Param, // Default: true
+ *     },
  * }
  * @psalm-type KnpMenuConfig = array{
  *     providers?: array{
@@ -2281,65 +2354,24 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         read_only?: bool|Param, // Converts a file system to read-only // Default: false
  *     }>,
  * }
- * @psalm-type PyrrahGravatarConfig = array{
- *     size?: int|Param, // Default: "80"
- *     rating?: "g"|"pg"|"r"|"x"|Param, // Default: "g"
- *     default?: "404"|"mp"|"identicon"|"monsterid"|"wavatar"|"retro"|"robohash"|"mm"|Param, // Default: "mp"
- *     format?: "url"|"base64"|Param, // Default: "url"
- * }
- * @psalm-type StofDoctrineExtensionsConfig = array{
- *     orm?: array<string, array{ // Default: []
- *         translatable?: scalar|Param|null, // Default: false
- *         timestampable?: scalar|Param|null, // Default: false
- *         blameable?: scalar|Param|null, // Default: false
- *         sluggable?: scalar|Param|null, // Default: false
- *         tree?: scalar|Param|null, // Default: false
- *         loggable?: scalar|Param|null, // Default: false
- *         ip_traceable?: scalar|Param|null, // Default: false
- *         sortable?: scalar|Param|null, // Default: false
- *         softdeleteable?: scalar|Param|null, // Default: false
- *         uploadable?: scalar|Param|null, // Default: false
- *         reference_integrity?: scalar|Param|null, // Default: false
- *     }>,
- *     mongodb?: array<string, array{ // Default: []
- *         translatable?: scalar|Param|null, // Default: false
- *         timestampable?: scalar|Param|null, // Default: false
- *         blameable?: scalar|Param|null, // Default: false
- *         sluggable?: scalar|Param|null, // Default: false
- *         tree?: scalar|Param|null, // Default: false
- *         loggable?: scalar|Param|null, // Default: false
- *         ip_traceable?: scalar|Param|null, // Default: false
- *         sortable?: scalar|Param|null, // Default: false
- *         softdeleteable?: scalar|Param|null, // Default: false
- *         uploadable?: scalar|Param|null, // Default: false
- *         reference_integrity?: scalar|Param|null, // Default: false
- *     }>,
- *     class?: array{
- *         translatable?: scalar|Param|null, // Default: "Gedmo\\Translatable\\TranslatableListener"
- *         timestampable?: scalar|Param|null, // Default: "Gedmo\\Timestampable\\TimestampableListener"
- *         blameable?: scalar|Param|null, // Default: "Gedmo\\Blameable\\BlameableListener"
- *         sluggable?: scalar|Param|null, // Default: "Gedmo\\Sluggable\\SluggableListener"
- *         tree?: scalar|Param|null, // Default: "Gedmo\\Tree\\TreeListener"
- *         loggable?: scalar|Param|null, // Default: "Gedmo\\Loggable\\LoggableListener"
- *         sortable?: scalar|Param|null, // Default: "Gedmo\\Sortable\\SortableListener"
- *         softdeleteable?: scalar|Param|null, // Default: "Gedmo\\SoftDeleteable\\SoftDeleteableListener"
- *         uploadable?: scalar|Param|null, // Default: "Gedmo\\Uploadable\\UploadableListener"
- *         reference_integrity?: scalar|Param|null, // Default: "Gedmo\\ReferenceIntegrity\\ReferenceIntegrityListener"
+ * @psalm-type OptimizationAdvisorConfig = array{
+ *     thresholds?: array{
+ *         slow_query_ms?: float|Param, // Default: 30.0
+ *         n_plus_one_count?: int|Param, // Default: 10
+ *         slow_listener_ms?: float|Param, // Default: 10.0
+ *         max_items?: int|Param, // Default: 200
  *     },
- *     softdeleteable?: array{
- *         handle_post_flush_event?: bool|Param, // Default: false
- *     },
- *     uploadable?: array{
- *         default_file_path?: scalar|Param|null, // Default: null
- *         mime_type_guesser_class?: scalar|Param|null, // Default: "Stof\\DoctrineExtensionsBundle\\Uploadable\\MimeTypeGuesserAdapter"
- *         default_file_info_class?: scalar|Param|null, // Default: "Stof\\DoctrineExtensionsBundle\\Uploadable\\UploadedFileInfo"
- *         validate_writable_directory?: bool|Param, // Default: true
- *     },
- *     default_locale?: scalar|Param|null, // Default: "en"
- *     translation_fallback?: bool|Param, // Default: false
- *     persist_default_translation?: bool|Param, // Default: false
- *     skip_translation_on_load?: bool|Param, // Default: false
- *     metadata_cache_pool?: scalar|Param|null, // Default: null
+ *     app_namespace_prefix?: scalar|Param|null, // Default: "App\\"
+ *     redact_sensitive_data?: bool|Param, // Default: true
+ *     sensitive_param_patterns?: list<scalar|Param|null>,
+ *     sensitive_value_patterns?: list<scalar|Param|null>,
+ *     sensitive_query_params?: list<scalar|Param|null>,
+ *     infra_db_tables?: list<scalar|Param|null>,
+ *     app_cache_pool_prefixes?: list<scalar|Param|null>,
+ *     profiler_cache_pool_prefixes?: list<scalar|Param|null>,
+ *     profiler_template_prefixes?: list<scalar|Param|null>,
+ *     profiler_event_namespace_prefixes?: list<scalar|Param|null>,
+ *     profiler_event_classes?: list<scalar|Param|null>,
  * }
  * @psalm-type NelmioApiDocConfig = array{
  *     type_info?: bool|Param, // Use the symfony/type-info component for determining types. // Default: true
@@ -2391,6 +2423,50 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         }>,
  *     },
  * }
+ * @psalm-type NelmioCorsConfig = array{
+ *     defaults?: array{
+ *         allow_credentials?: bool|Param, // Default: false
+ *         allow_origin?: list<scalar|Param|null>,
+ *         allow_headers?: list<scalar|Param|null>,
+ *         allow_methods?: list<scalar|Param|null>,
+ *         allow_private_network?: bool|Param, // Default: false
+ *         expose_headers?: list<scalar|Param|null>,
+ *         max_age?: scalar|Param|null, // Default: 0
+ *         hosts?: list<scalar|Param|null>,
+ *         origin_regex?: bool|Param, // Default: false
+ *         forced_allow_origin_value?: scalar|Param|null, // Default: null
+ *         skip_same_as_origin?: bool|Param, // Default: true
+ *     },
+ *     paths?: array<string, array{ // Default: []
+ *         allow_credentials?: bool|Param,
+ *         allow_origin?: list<scalar|Param|null>,
+ *         allow_headers?: list<scalar|Param|null>,
+ *         allow_methods?: list<scalar|Param|null>,
+ *         allow_private_network?: bool|Param,
+ *         expose_headers?: list<scalar|Param|null>,
+ *         max_age?: scalar|Param|null, // Default: 0
+ *         hosts?: list<scalar|Param|null>,
+ *         origin_regex?: bool|Param,
+ *         forced_allow_origin_value?: scalar|Param|null, // Default: null
+ *         skip_same_as_origin?: bool|Param,
+ *     }>,
+ * }
+ * @psalm-type NowoTwigInspectorConfig = array{
+ *     enabled_extensions?: list<scalar|Param|null>,
+ *     excluded_templates?: list<scalar|Param|null>,
+ *     excluded_blocks?: list<scalar|Param|null>,
+ *     enable_metrics?: bool|Param, // Enable collection of template usage metrics in DataCollector // Default: true
+ *     inject_on_sub_requests?: bool|Param, // When true, inject comments also during sub-requests (e.g. when main content is rendered as fragment). Enable if all templates show "sub-request" and none get inspected. // Default: false
+ *     cookie_name?: scalar|Param|null, // Name of the cookie used to enable/disable the inspector // Default: "twig_inspector_is_active"
+ *     max_injection_depth?: int|Param, // Maximum nesting depth for comment injection (0 = unlimited). Reduces overhead on very deep template trees. // Default: 0
+ *     excluded_templates_regex?: list<scalar|Param|null>,
+ *     excluded_templates_prefixes?: list<scalar|Param|null>,
+ *     excluded_blocks_regex?: list<scalar|Param|null>,
+ *     overlay_theme?: scalar|Param|null, // Overlay theme: "light", "dark", or "auto" (follow system preference). // Default: "light"
+ *     overlay_compact?: bool|Param, // Use compact tooltip style for the overlay. // Default: false
+ *     reduced_motion?: bool|Param, // Respect reduced motion (accessibility). When true or system prefers-reduced-motion, animations are minimized. // Default: false
+ *     keyboard_shortcut?: scalar|Param|null, // Keyboard shortcut to toggle inspector (e.g. "Ctrl+Shift+T"). Empty to disable. // Default: "Ctrl+Shift+T"
+ * }
  * @psalm-type MisdPhoneNumberConfig = array{
  *     twig?: array{
  *         enabled?: scalar|Param|null, // Default: true
@@ -2415,267 +2491,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ...<string, mixed>
  *     },
  * }
+ * @psalm-type PyrrahGravatarConfig = array{
+ *     size?: int|Param, // Default: "80"
+ *     rating?: "g"|"pg"|"r"|"x"|Param, // Default: "g"
+ *     default?: "404"|"mp"|"identicon"|"monsterid"|"wavatar"|"retro"|"robohash"|"mm"|Param, // Default: "mp"
+ *     format?: "url"|"base64"|Param, // Default: "url"
+ * }
  * @psalm-type RekalogikaFileConfig = array{
  *     filesystems?: array<string, scalar|Param|null>,
  *     default_filesystem_directory?: scalar|Param|null, // The storage directory used by the default filesystem. // Default: "%kernel.project_dir%/var/storage/default"
- * }
- * @psalm-type UxMapConfig = array{
- *     renderer?: scalar|Param|null, // Default: null
- *     google_maps?: array{
- *         default_map_id?: scalar|Param|null, // Default: null
- *     },
- * }
- * @psalm-type UxIconsConfig = array{
- *     icon_dir?: scalar|Param|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
- *     default_icon_attributes?: array<string, scalar|Param|null>,
- *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
- *         path?: scalar|Param|null, // The local icon set directory path. (cannot be used with 'alias')
- *         alias?: scalar|Param|null, // The remote icon set identifier. (cannot be used with 'path')
- *         icon_attributes?: array<string, scalar|Param|null>,
- *         suffixes?: array<string, array{ // The suffix name (e.g. "solid", "20-solid") // Default: []
- *             icon_attributes?: array<string, scalar|Param|null>,
- *         }>,
- *     }>,
- *     aliases?: array<string, string|Param>,
- *     iconify?: bool|array{ // Configuration for the remote icon service.
- *         enabled?: bool|Param, // Default: true
- *         on_demand?: bool|Param, // Whether to download icons "on demand". // Default: true
- *         auto_lock?: bool|Param, // Persist "on demand" icons to the local icon directory (see "icon_dir"). Recommended in dev only. Requires "on_demand" to be enabled. // Default: false
- *         endpoint?: scalar|Param|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
- *     },
- *     ignore_not_found?: bool|Param, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
- * }
- * @psalm-type TwigComponentConfig = array{
- *     defaults?: array<string, Param|string|array{ // Default: []
- *         template_directory?: scalar|Param|null, // Default: "components"
- *         name_prefix?: scalar|Param|null, // Default: ""
- *     }>,
- *     anonymous_template_directory?: scalar|Param|null, // Defaults to `components`
- *     profiler?: bool|array{ // Enables the profiler for Twig Component
- *         enabled?: bool|Param, // Default: "%kernel.debug%"
- *         collect_components?: bool|Param, // Collect components instances // Default: true
- *     },
- * }
- * @psalm-type LiveComponentConfig = array{
- *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
- *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
- * }
- * @psalm-type CropperjsConfig = array{
- *     driver?: "gd"|"imagick"|"vips"|Param, // The Intervention Image driver used for server-side cropping. // Default: "gd"
- *     driver_service?: scalar|Param|null, // Service id of a custom Intervention\Image\Interfaces\DriverInterface. When set, it takes precedence over "driver". // Default: null
- * }
- * @psalm-type SymfonycastsResetPasswordConfig = array{
- *     request_password_repository?: scalar|Param|null, // A class that implements ResetPasswordRequestRepositoryInterface - usually your ResetPasswordRequestRepository.
- *     lifetime?: int|Param, // The length of time in seconds that a password reset request is valid for after it is created. // Default: 3600
- *     throttle_limit?: int|Param, // Another password reset cannot be made faster than this throttle time in seconds. // Default: 3600
- *     enable_garbage_collection?: bool|Param, // Enable/Disable automatic garbage collection. // Default: true
- * }
- * @psalm-type SymfonycastsSassConfig = array{
- *     root_sass?: list<scalar|Param|null>,
- *     binary?: scalar|Param|null, // The Sass binary to use // Default: null
- *     search_for_binary?: scalar|Param|null, // Whether to search for the Sass binary in the system PATH // Default: true
- *     sass_options?: array{
- *         style?: "compressed"|"expanded"|Param, // The style of the generated CSS: compressed or expanded. // Default: "expanded"
- *         charset?: bool|Param, // Whether to include the charset declaration in the generated Sass.
- *         error_css?: bool|Param, // Emit a CSS file when an error occurs.
- *         source_map?: bool|Param, // Whether to generate source maps. // Default: true
- *         embed_sources?: bool|Param, // Embed source file contents in source maps.
- *         embed_source_map?: bool|Param, // Embed source map contents in CSS. // Default: "%kernel.debug%"
- *         load_path?: list<scalar|Param|null>,
- *         quiet?: bool|Param, // Don't print warnings.
- *         quiet_deps?: bool|Param, // Don't print compiler warnings from dependencies.
- *         stop_on_error?: bool|Param, // Don't compile more files once an error is encountered.
- *         trace?: bool|Param, // Print full Dart stack traces for exceptions.
- *     },
- *     embed_sourcemap?: bool|Param|null, // Deprecated: Option "embed_sourcemap" at "symfonycasts_sass.embed_sourcemap" is deprecated. Use "sass_options.embed_source_map" instead". // Default: null
- * }
- * @psalm-type SymfonycastsVerifyEmailConfig = array{
- *     lifetime?: int|Param, // The length of time in seconds that a signed URI is valid for after it is created. // Default: 3600
- * }
- * @psalm-type FosCkEditorConfig = array{
- *     enable?: bool|Param, // Default: true
- *     async?: bool|Param, // Default: false
- *     auto_inline?: bool|Param, // Default: true
- *     inline?: bool|Param, // Default: false
- *     autoload?: bool|Param, // Default: true
- *     jquery?: bool|Param, // Default: false
- *     require_js?: bool|Param, // Default: false
- *     input_sync?: bool|Param, // Default: false
- *     base_path?: scalar|Param|null, // Default: "bundles/fosckeditor/"
- *     js_path?: scalar|Param|null, // Default: "bundles/fosckeditor/ckeditor.js"
- *     jquery_path?: scalar|Param|null, // Default: "bundles/fosckeditor/adapters/jquery.js"
- *     default_config?: scalar|Param|null, // Default: null
- *     configs?: array<string, array<string, mixed>>,
- *     plugins?: array<string, array{ // Default: []
- *         path?: scalar|Param|null,
- *         filename?: scalar|Param|null,
- *     }>,
- *     styles?: array<string, list<array{ // Default: []
- *         name?: scalar|Param|null,
- *         type?: scalar|Param|null,
- *         widget?: scalar|Param|null,
- *         element?: mixed,
- *         styles?: array<string, scalar|Param|null>,
- *         attributes?: array<string, scalar|Param|null>,
- *     }>>,
- *     templates?: array<string, array{ // Default: []
- *         imagesPath?: scalar|Param|null,
- *         templates?: list<array{ // Default: []
- *             title?: scalar|Param|null,
- *             image?: scalar|Param|null,
- *             description?: scalar|Param|null,
- *             html?: scalar|Param|null,
- *             template?: scalar|Param|null,
- *             template_parameters?: array<string, scalar|Param|null>,
- *         }>,
- *     }>,
- *     filebrowsers?: array<string, scalar|Param|null>,
- *     toolbars?: array{
- *         configs?: array<string, list<mixed>>,
- *         items?: array<string, list<mixed>>,
- *     },
- * }
- * @psalm-type LexikJwtAuthenticationConfig = array{
- *     public_key?: scalar|Param|null, // The key used to sign tokens (useless for HMAC). If not set, the key will be automatically computed from the secret key. // Default: null
- *     additional_public_keys?: list<scalar|Param|null>,
- *     secret_key?: scalar|Param|null, // The key used to sign tokens. It can be a raw secret (for HMAC), a raw RSA/ECDSA key or the path to a file itself being plaintext or PEM. // Default: null
- *     pass_phrase?: scalar|Param|null, // The key passphrase (useless for HMAC) // Default: ""
- *     token_ttl?: scalar|Param|null, // Default: 3600
- *     allow_no_expiration?: bool|Param, // Allow tokens without "exp" claim (i.e. indefinitely valid, no lifetime) to be considered valid. Caution: usage of this should be rare. // Default: false
- *     clock_skew?: scalar|Param|null, // Default: 0
- *     encoder?: array{
- *         service?: scalar|Param|null, // Default: "lexik_jwt_authentication.encoder.lcobucci"
- *         signature_algorithm?: scalar|Param|null, // Default: "RS256"
- *     },
- *     user_id_claim?: scalar|Param|null, // Default: "username"
- *     token_extractors?: array{
- *         authorization_header?: bool|array{
- *             enabled?: bool|Param, // Default: true
- *             prefix?: scalar|Param|null, // Default: "Bearer"
- *             name?: scalar|Param|null, // Default: "Authorization"
- *         },
- *         cookie?: bool|array{
- *             enabled?: bool|Param, // Default: false
- *             name?: scalar|Param|null, // Default: "BEARER"
- *         },
- *         query_parameter?: bool|array{
- *             enabled?: bool|Param, // Default: false
- *             name?: scalar|Param|null, // Default: "bearer"
- *         },
- *         split_cookie?: bool|array{
- *             enabled?: bool|Param, // Default: false
- *             cookies?: list<scalar|Param|null>,
- *         },
- *     },
- *     remove_token_from_body_when_cookies_used?: scalar|Param|null, // Default: true
- *     set_cookies?: array<string, array{ // Default: []
- *         lifetime?: scalar|Param|null, // The cookie lifetime. If null, the "token_ttl" option value will be used // Default: null
- *         samesite?: "none"|"lax"|"strict"|Param, // Default: "lax"
- *         path?: scalar|Param|null, // Default: "/"
- *         domain?: scalar|Param|null, // Default: null
- *         secure?: scalar|Param|null, // Default: true
- *         httpOnly?: scalar|Param|null, // Default: true
- *         partitioned?: scalar|Param|null, // Default: false
- *         split?: list<scalar|Param|null>,
- *     }>,
- *     api_platform?: bool|array{ // API Platform compatibility: add check_path in OpenAPI documentation.
- *         enabled?: bool|Param, // Default: false
- *         check_path?: scalar|Param|null, // The login check path to add in OpenAPI. // Default: null
- *         username_path?: scalar|Param|null, // The path to the username in the JSON body. // Default: null
- *         password_path?: scalar|Param|null, // The path to the password in the JSON body. // Default: null
- *     },
- *     access_token_issuance?: bool|array{
- *         enabled?: bool|Param, // Default: false
- *         signature?: array{
- *             algorithm?: scalar|Param|null, // The algorithm use to sign the access tokens.
- *             key?: scalar|Param|null, // The signature key. It shall be JWK encoded.
- *         },
- *         encryption?: bool|array{
- *             enabled?: bool|Param, // Default: false
- *             key_encryption_algorithm?: scalar|Param|null, // The key encryption algorithm is used to encrypt the token.
- *             content_encryption_algorithm?: scalar|Param|null, // The key encryption algorithm is used to encrypt the token.
- *             key?: scalar|Param|null, // The encryption key. It shall be JWK encoded.
- *         },
- *     },
- *     access_token_verification?: bool|array{
- *         enabled?: bool|Param, // Default: false
- *         signature?: array{
- *             header_checkers?: list<scalar|Param|null>,
- *             claim_checkers?: list<scalar|Param|null>,
- *             mandatory_claims?: list<scalar|Param|null>,
- *             allowed_algorithms?: list<scalar|Param|null>,
- *             keyset?: scalar|Param|null, // The signature keyset. It shall be JWKSet encoded.
- *         },
- *         encryption?: bool|array{
- *             enabled?: bool|Param, // Default: false
- *             continue_on_decryption_failure?: bool|Param, // If enable, non-encrypted tokens or tokens that failed during decryption or verification processes are accepted. // Default: false
- *             header_checkers?: list<scalar|Param|null>,
- *             allowed_key_encryption_algorithms?: list<scalar|Param|null>,
- *             allowed_content_encryption_algorithms?: list<scalar|Param|null>,
- *             keyset?: scalar|Param|null, // The encryption keyset. It shall be JWKSet encoded.
- *         },
- *     },
- *     blocklist_token?: bool|array{
- *         enabled?: bool|Param, // Default: false
- *         cache?: scalar|Param|null, // Storage to track blocked tokens // Default: "cache.app"
- *     },
- * }
- * @psalm-type SchebTwoFactorConfig = array{
- *     persister?: scalar|Param|null, // Default: "scheb_two_factor.persister.doctrine"
- *     model_manager_name?: scalar|Param|null, // Default: null
- *     security_tokens?: list<scalar|Param|null>,
- *     ip_whitelist?: list<scalar|Param|null>,
- *     ip_whitelist_provider?: scalar|Param|null, // Default: "scheb_two_factor.default_ip_whitelist_provider"
- *     two_factor_token_factory?: scalar|Param|null, // Default: "scheb_two_factor.default_token_factory"
- *     two_factor_provider_decider?: scalar|Param|null, // Default: "scheb_two_factor.default_provider_decider"
- *     two_factor_condition?: scalar|Param|null, // Default: null
- *     code_reuse_cache?: scalar|Param|null, // Default: null
- *     code_reuse_cache_duration?: int|Param, // Default: 60
- *     code_reuse_default_handler?: scalar|Param|null, // Default: null
- *     trusted_device?: bool|array{
- *         enabled?: scalar|Param|null, // Default: false
- *         manager?: scalar|Param|null, // Default: "scheb_two_factor.default_trusted_device_manager"
- *         lifetime?: int|Param, // Default: 5184000
- *         extend_lifetime?: bool|Param, // Default: false
- *         key?: scalar|Param|null, // Default: null
- *         cookie_name?: scalar|Param|null, // Default: "trusted_device"
- *         cookie_secure?: true|false|"auto"|Param, // Default: "auto"
- *         cookie_domain?: scalar|Param|null, // Default: null
- *         cookie_path?: scalar|Param|null, // Default: "/"
- *         cookie_same_site?: scalar|Param|null, // Default: "lax"
- *     },
- *     backup_codes?: bool|array{
- *         enabled?: scalar|Param|null, // Default: false
- *         manager?: scalar|Param|null, // Default: "scheb_two_factor.default_backup_code_manager"
- *     },
- *     email?: bool|array{
- *         enabled?: scalar|Param|null, // Default: false
- *         mailer?: scalar|Param|null, // Default: null
- *         code_generator?: scalar|Param|null, // Default: "scheb_two_factor.security.email.default_code_generator"
- *         form_renderer?: scalar|Param|null, // Default: null
- *         sender_email?: scalar|Param|null, // Default: null
- *         sender_name?: scalar|Param|null, // Default: null
- *         template?: scalar|Param|null, // Default: "@SchebTwoFactor/Authentication/form.html.twig"
- *         digits?: int|Param, // Default: 4
- *     },
- *     google?: bool|array{
- *         enabled?: scalar|Param|null, // Default: false
- *         form_renderer?: scalar|Param|null, // Default: null
- *         issuer?: scalar|Param|null, // Default: null
- *         server_name?: scalar|Param|null, // Default: null
- *         template?: scalar|Param|null, // Default: "@SchebTwoFactor/Authentication/form.html.twig"
- *         digits?: int|Param, // Default: 6
- *         leeway?: int|Param, // Default: 0
- *     },
- *     totp?: bool|array{
- *         enabled?: scalar|Param|null, // Default: false
- *         form_renderer?: scalar|Param|null, // Default: null
- *         issuer?: scalar|Param|null, // Default: null
- *         server_name?: scalar|Param|null, // Default: null
- *         leeway?: int|Param, // Default: 0
- *         parameters?: list<scalar|Param|null>,
- *         template?: scalar|Param|null, // Default: "@SchebTwoFactor/Authentication/form.html.twig"
- *     },
  * }
  * @psalm-type SonataIntlConfig = array{
  *     locale?: scalar|Param|null, // Default: null
@@ -2686,298 +2510,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         locales?: array<string, scalar|Param|null>,
  *     },
  * }
- * @psalm-type JoseConfig = array{
- *     clock?: scalar|Param|null, // PSR-20 clock // Default: "jose.internal_clock"
- *     checkers?: array{
- *         claims?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             claims?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         headers?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             headers?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *     },
- *     jws?: array{
- *         builders?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             signature_algorithms?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         verifiers?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             signature_algorithms?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         serializers?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             serializers?: list<scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         loaders?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             signature_algorithms?: array<string, scalar|Param|null>,
- *             serializers?: array<string, scalar|Param|null>,
- *             header_checkers?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *     },
- *     jwe?: array{
- *         builders?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             encryption_algorithms?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         decrypters?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             encryption_algorithms?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         serializers?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             serializers?: list<scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         loaders?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             encryption_algorithms?: array<string, scalar|Param|null>,
- *             serializers?: array<string, scalar|Param|null>,
- *             header_checkers?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *     },
- *     nested_token?: array{
- *         loaders?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             signature_algorithms?: array<string, scalar|Param|null>,
- *             encryption_algorithms?: array<string, scalar|Param|null>,
- *             jws_serializers?: array<string, scalar|Param|null>,
- *             jwe_serializers?: array<string, scalar|Param|null>,
- *             jws_header_checkers?: array<string, scalar|Param|null>,
- *             jwe_header_checkers?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *         builders?: array<string, array{ // Default: []
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             signature_algorithms?: array<string, scalar|Param|null>,
- *             encryption_algorithms?: array<string, scalar|Param|null>,
- *             jws_serializers?: array<string, scalar|Param|null>,
- *             jwe_serializers?: array<string, scalar|Param|null>,
- *             tags?: array<string, mixed>,
- *         }>,
- *     },
- *     key_sets?: array<string, array{ // Default: []
- *         jwkset?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             value?: scalar|Param|null, // The JWKSet object.
- *         },
- *         jku?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             url?: scalar|Param|null, // URL of the key set.
- *             headers?: array<string, mixed>,
- *         },
- *         x5u?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             url?: scalar|Param|null, // URL of the key set.
- *             headers?: array<string, mixed>,
- *         },
- *     }>,
- *     keys?: array<string, array{ // Default: []
- *         file?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             path?: scalar|Param|null, // Path of the key file.
- *             password?: scalar|Param|null, // Password used to decrypt the key (optional). // Default: null
- *             additional_values?: array<string, mixed>,
- *         },
- *         p12?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             path?: scalar|Param|null, // Path of the key file.
- *             password?: scalar|Param|null, // Password used to decrypt the key (optional). // Default: null
- *             additional_values?: array<string, mixed>,
- *         },
- *         certificate?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             path?: scalar|Param|null, // Path of the certificate file.
- *             additional_values?: array<string, mixed>,
- *         },
- *         values?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             values?: array<string, mixed>,
- *         },
- *         secret?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             secret?: scalar|Param|null, // The shared secret.
- *             additional_values?: array<string, mixed>,
- *         },
- *         jwk?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             value?: scalar|Param|null, // The JWK object
- *         },
- *         x5c?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             value?: scalar|Param|null, // X509 certificate
- *             additional_values?: array<string, mixed>,
- *         },
- *         jwkset?: array{
- *             is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *             tags?: array<string, mixed>,
- *             key_set?: scalar|Param|null, // The key set service.
- *             index?: mixed, // The index of the key in the key set.
- *         },
- *     }>,
- *     jwk_uris?: array<string, array{ // Default: []
- *         id?: scalar|Param|null, // The service ID of the Key Set to share.
- *         path?: scalar|Param|null, // To share the JWKSet, then set a valid path (e.g. "/jwkset.json").
- *         tags?: array<string, mixed>,
- *         is_public?: bool|Param, // If true, the service will be public, else private. // Default: true
- *     }>,
- *     jku_factory?: bool|array{
- *         enabled?: bool|Param, // Default: false
- *         client?: scalar|Param|null, // HTTP Client used to retrieve key sets.
- *     },
- * }
- * @psalm-type UxInspectorConfig = array{
- *     enabled?: bool|Param, // Enable the inspector. It stays off when kernel.debug is false. // Default: true
- *     pull_tab?: bool|Param, // Display a small pull tab on the right edge of the screen to open the Inspector. // Default: true
- *     exclude_paths?: list<scalar|Param|null>,
- *     ignore_selectors?: list<scalar|Param|null>,
- * }
- * @psalm-type DamaDoctrineTestConfig = array{
- *     enable_static_connection?: mixed, // Default: true
- *     enable_static_meta_data_cache?: bool|Param, // Default: true
- *     enable_static_query_cache?: bool|Param, // Default: true
- *     connection_keys?: list<mixed>,
- * }
- * @psalm-type KocalBiomeJsConfig = array{
- *     binary_version?: scalar|Param|null, // Biome.js CLI version to download.
- * }
  * @psalm-type IgnitionConfig = array{
  *     application_path?: scalar|Param|null, // When setting the application path, Ignition will trim the given value from all paths. This will make the error page look cleaner. // Default: ""
  *     dark_mode?: bool|Param, // By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode. // Default: false
  *     should_display_exception?: bool|Param, // Avoid rendering Ignition, for example in production environments. // Default: "%kernel.debug%"
  *     force_html_response?: bool|Param, // When true, Ignition always renders HTML errors regardless of request format. When false, non-HTML requests (e.g. JSON) are handled by Symfony. // Default: false
  *     openai_key?: scalar|Param|null, // if you want AI solutions to your app's errors. // Default: ""
- * }
- * @psalm-type EasyLogConfig = array{
- *     log_path?: scalar|Param|null, // Path where readable log file will be located // Default: "%kernel.logs_dir%/%kernel.environment%-readable.log"
- *     max_line_length?: int|Param, // Max line length in log file // Default: 120
- *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
- *     ignored_routes?: list<scalar|Param|null>,
- * }
- * @psalm-type NowoTwigInspectorConfig = array{
- *     enabled_extensions?: list<scalar|Param|null>,
- *     excluded_templates?: list<scalar|Param|null>,
- *     excluded_blocks?: list<scalar|Param|null>,
- *     enable_metrics?: bool|Param, // Enable collection of template usage metrics in DataCollector // Default: true
- *     inject_on_sub_requests?: bool|Param, // When true, inject comments also during sub-requests (e.g. when main content is rendered as fragment). Enable if all templates show "sub-request" and none get inspected. // Default: false
- *     cookie_name?: scalar|Param|null, // Name of the cookie used to enable/disable the inspector // Default: "twig_inspector_is_active"
- *     max_injection_depth?: int|Param, // Maximum nesting depth for comment injection (0 = unlimited). Reduces overhead on very deep template trees. // Default: 0
- *     excluded_templates_regex?: list<scalar|Param|null>,
- *     excluded_templates_prefixes?: list<scalar|Param|null>,
- *     excluded_blocks_regex?: list<scalar|Param|null>,
- *     overlay_theme?: scalar|Param|null, // Overlay theme: "light", "dark", or "auto" (follow system preference). // Default: "light"
- *     overlay_compact?: bool|Param, // Use compact tooltip style for the overlay. // Default: false
- *     reduced_motion?: bool|Param, // Respect reduced motion (accessibility). When true or system prefers-reduced-motion, animations are minimized. // Default: false
- *     keyboard_shortcut?: scalar|Param|null, // Keyboard shortcut to toggle inspector (e.g. "Ctrl+Shift+T"). Empty to disable. // Default: "Ctrl+Shift+T"
- * }
- * @psalm-type ZenstruckFoundryConfig = array{
- *     auto_refresh_proxies?: bool|Param|null, // Deprecated: Since 2.0 auto_refresh_proxies defaults to true and this configuration has no effect. // Whether to auto-refresh proxies by default (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#auto-refresh) // Default: null
- *     enable_auto_refresh_with_lazy_objects?: bool|Param|null, // Enable auto-refresh using PHP 8.4 lazy objects (cannot be enabled if PHP < 8.4). // Default: null
- *     faker?: array{ // Configure the faker used by your factories.
- *         locale?: scalar|Param|null, // The default locale to use for faker. // Default: null
- *         seed?: scalar|Param|null, // Deprecated: The "faker.seed" configuration is deprecated and will be removed in 3.0. Use environment variable "FOUNDRY_FAKER_SEED" instead. // Random number generator seed to produce the same fake values every run. // Default: null
- *         manage_seed?: bool|Param, // Automatically manage faker seed to ensure consistent data between test runs. // Default: true
- *         service?: scalar|Param|null, // Service id for custom faker instance. // Default: null
- *     },
- *     instantiator?: array{ // Configure the default instantiator used by your object factories.
- *         use_constructor?: bool|Param, // Use the constructor to instantiate objects. // Default: true
- *         allow_extra_attributes?: bool|Param, // Whether or not to skip attributes that do not correspond to properties. // Default: false
- *         always_force_properties?: bool|Param, // Whether or not to skip setters and force set object properties (public/private/protected) directly. // Default: false
- *         service?: scalar|Param|null, // Service id of your custom instantiator. // Default: null
- *     },
- *     global_state?: list<scalar|Param|null>,
- *     persistence?: array{
- *         flush_once?: bool|Param, // Flush only once per call of `PersistentObjectFactory::create()` in userland. // Default: false
- *     },
- *     orm?: array{
- *         auto_persist?: bool|Param, // Deprecated: Since 2.4 auto_persist defaults to true and this configuration has no effect. // Automatically persist entities when created. // Default: true
- *         reset?: array{
- *             connections?: list<scalar|Param|null>,
- *             entity_managers?: list<scalar|Param|null>,
- *             mode?: \Zenstruck\Foundry\ORM\ResetDatabase\ResetDatabaseMode::SCHEMA|\Zenstruck\Foundry\ORM\ResetDatabase\ResetDatabaseMode::MIGRATE|"schema"|"migrate"|Param, // Reset mode to use with ResetDatabase trait // Default: "schema"
- *             migrations?: array{
- *                 configurations?: list<scalar|Param|null>,
- *             },
- *         },
- *     },
- *     mongo?: array{
- *         auto_persist?: bool|Param, // Deprecated: Since 2.4 auto_persist defaults to true and this configuration has no effect. // Automatically persist documents when created. // Default: true
- *         reset?: array{
- *             document_managers?: list<scalar|Param|null>,
- *         },
- *     },
- *     make_factory?: array{
- *         default_namespace?: scalar|Param|null, // Default namespace where factories will be created by maker. // Default: "Factory"
- *         add_hints?: bool|Param, // Add "beginner" hints in the created factory. // Default: true
- *     },
- *     make_story?: array{
- *         default_namespace?: scalar|Param|null, // Default namespace where stories will be created by maker. // Default: "Story"
- *     },
- * }
- * @psalm-type DoctrineDiagramConfig = array{
- *     er?: array{
- *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/er"
- *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
- *         theme?: scalar|Param|null, // Default: "_none_"
- *         connection?: scalar|Param|null, // Default: null
- *         include?: list<scalar|Param|null>,
- *         exclude?: list<scalar|Param|null>,
- *     },
- *     class?: array{
- *         filename?: scalar|Param|null, // Default: "%kernel.project_dir%/class"
- *         size?: "mini"|"midi"|"maxi"|Param, // Default: "midi"
- *         theme?: scalar|Param|null, // Default: "_none_"
- *         em?: scalar|Param|null, // Default: null
- *         include?: list<scalar|Param|null>,
- *         exclude?: list<scalar|Param|null>,
- *     },
- *     convert?: array{
- *         format?: "puml"|"png"|"svg"|Param, // Default: "svg"
- *         converter?: "auto"|"jar"|"server"|Param, // Default: "auto"
- *         jar?: scalar|Param|null, // Default: null
- *         server?: scalar|Param|null, // Default: "http://www.plantuml.com/plantuml"
- *     },
- * }
- * @psalm-type OptimizationAdvisorConfig = array{
- *     thresholds?: array{
- *         slow_query_ms?: float|Param, // Default: 30.0
- *         n_plus_one_count?: int|Param, // Default: 10
- *         slow_listener_ms?: float|Param, // Default: 10.0
- *         max_items?: int|Param, // Default: 200
- *     },
- *     app_namespace_prefix?: scalar|Param|null, // Default: "App\\"
- *     redact_sensitive_data?: bool|Param, // Default: true
- *     sensitive_param_patterns?: list<scalar|Param|null>,
- *     sensitive_value_patterns?: list<scalar|Param|null>,
- *     sensitive_query_params?: list<scalar|Param|null>,
- *     infra_db_tables?: list<scalar|Param|null>,
- *     app_cache_pool_prefixes?: list<scalar|Param|null>,
- *     profiler_cache_pool_prefixes?: list<scalar|Param|null>,
- *     profiler_template_prefixes?: list<scalar|Param|null>,
- *     profiler_event_namespace_prefixes?: list<scalar|Param|null>,
- *     profiler_event_classes?: list<scalar|Param|null>,
  * }
  * @psalm-type PwaConfig = array{
  *     asset_compiler?: bool|Param, // When true, the assets will be compiled when the command "asset-map:compile" is run. // Default: true
@@ -3387,6 +2925,117 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     web_client?: scalar|Param|null, // The Panther Client for generating screenshots. If not set, the default client will be used. // Default: null
  *     user_agent?: scalar|Param|null, // The user agent to use when generating screenshots. When this user agent is detected, the Symfony profiler and debug toolbar will be automatically disabled to ensure screenshots look like production. // Default: "PWAScreenshotBot"
  * }
+ * @psalm-type StofDoctrineExtensionsConfig = array{
+ *     orm?: array<string, array{ // Default: []
+ *         translatable?: scalar|Param|null, // Default: false
+ *         timestampable?: scalar|Param|null, // Default: false
+ *         blameable?: scalar|Param|null, // Default: false
+ *         sluggable?: scalar|Param|null, // Default: false
+ *         tree?: scalar|Param|null, // Default: false
+ *         loggable?: scalar|Param|null, // Default: false
+ *         ip_traceable?: scalar|Param|null, // Default: false
+ *         sortable?: scalar|Param|null, // Default: false
+ *         softdeleteable?: scalar|Param|null, // Default: false
+ *         uploadable?: scalar|Param|null, // Default: false
+ *         reference_integrity?: scalar|Param|null, // Default: false
+ *     }>,
+ *     mongodb?: array<string, array{ // Default: []
+ *         translatable?: scalar|Param|null, // Default: false
+ *         timestampable?: scalar|Param|null, // Default: false
+ *         blameable?: scalar|Param|null, // Default: false
+ *         sluggable?: scalar|Param|null, // Default: false
+ *         tree?: scalar|Param|null, // Default: false
+ *         loggable?: scalar|Param|null, // Default: false
+ *         ip_traceable?: scalar|Param|null, // Default: false
+ *         sortable?: scalar|Param|null, // Default: false
+ *         softdeleteable?: scalar|Param|null, // Default: false
+ *         uploadable?: scalar|Param|null, // Default: false
+ *         reference_integrity?: scalar|Param|null, // Default: false
+ *     }>,
+ *     class?: array{
+ *         translatable?: scalar|Param|null, // Default: "Gedmo\\Translatable\\TranslatableListener"
+ *         timestampable?: scalar|Param|null, // Default: "Gedmo\\Timestampable\\TimestampableListener"
+ *         blameable?: scalar|Param|null, // Default: "Gedmo\\Blameable\\BlameableListener"
+ *         sluggable?: scalar|Param|null, // Default: "Gedmo\\Sluggable\\SluggableListener"
+ *         tree?: scalar|Param|null, // Default: "Gedmo\\Tree\\TreeListener"
+ *         loggable?: scalar|Param|null, // Default: "Gedmo\\Loggable\\LoggableListener"
+ *         sortable?: scalar|Param|null, // Default: "Gedmo\\Sortable\\SortableListener"
+ *         softdeleteable?: scalar|Param|null, // Default: "Gedmo\\SoftDeleteable\\SoftDeleteableListener"
+ *         uploadable?: scalar|Param|null, // Default: "Gedmo\\Uploadable\\UploadableListener"
+ *         reference_integrity?: scalar|Param|null, // Default: "Gedmo\\ReferenceIntegrity\\ReferenceIntegrityListener"
+ *     },
+ *     softdeleteable?: array{
+ *         handle_post_flush_event?: bool|Param, // Default: false
+ *     },
+ *     uploadable?: array{
+ *         default_file_path?: scalar|Param|null, // Default: null
+ *         mime_type_guesser_class?: scalar|Param|null, // Default: "Stof\\DoctrineExtensionsBundle\\Uploadable\\MimeTypeGuesserAdapter"
+ *         default_file_info_class?: scalar|Param|null, // Default: "Stof\\DoctrineExtensionsBundle\\Uploadable\\UploadedFileInfo"
+ *         validate_writable_directory?: bool|Param, // Default: true
+ *     },
+ *     default_locale?: scalar|Param|null, // Default: "en"
+ *     translation_fallback?: bool|Param, // Default: false
+ *     persist_default_translation?: bool|Param, // Default: false
+ *     skip_translation_on_load?: bool|Param, // Default: false
+ *     metadata_cache_pool?: scalar|Param|null, // Default: null
+ * }
+ * @psalm-type CropperjsConfig = array{
+ *     driver?: "gd"|"imagick"|"vips"|Param, // The Intervention Image driver used for server-side cropping. // Default: "gd"
+ *     driver_service?: scalar|Param|null, // Service id of a custom Intervention\Image\Interfaces\DriverInterface. When set, it takes precedence over "driver". // Default: null
+ * }
+ * @psalm-type UxMapConfig = array{
+ *     renderer?: scalar|Param|null, // Default: null
+ *     google_maps?: array{
+ *         default_map_id?: scalar|Param|null, // Default: null
+ *     },
+ * }
+ * @psalm-type UxIconsConfig = array{
+ *     icon_dir?: scalar|Param|null, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
+ *     default_icon_attributes?: array<string, scalar|Param|null>,
+ *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
+ *         path?: scalar|Param|null, // The local icon set directory path. (cannot be used with 'alias')
+ *         alias?: scalar|Param|null, // The remote icon set identifier. (cannot be used with 'path')
+ *         icon_attributes?: array<string, scalar|Param|null>,
+ *         suffixes?: array<string, array{ // The suffix name (e.g. "solid", "20-solid") // Default: []
+ *             icon_attributes?: array<string, scalar|Param|null>,
+ *         }>,
+ *     }>,
+ *     aliases?: array<string, string|Param>,
+ *     iconify?: bool|array{ // Configuration for the remote icon service.
+ *         enabled?: bool|Param, // Default: true
+ *         on_demand?: bool|Param, // Whether to download icons "on demand". // Default: true
+ *         auto_lock?: bool|Param, // Persist "on demand" icons to the local icon directory (see "icon_dir"). Recommended in dev only. Requires "on_demand" to be enabled. // Default: false
+ *         endpoint?: scalar|Param|null, // The endpoint for the Iconify icons API. // Default: "https://api.iconify.design"
+ *     },
+ *     ignore_not_found?: bool|Param, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
+ * }
+ * @psalm-type UxInspectorConfig = array{
+ *     enabled?: bool|Param, // Enable the inspector. It stays off when kernel.debug is false. // Default: true
+ *     pull_tab?: bool|Param, // Display a small pull tab on the right edge of the screen to open the Inspector. // Default: true
+ *     exclude_paths?: list<scalar|Param|null>,
+ *     ignore_selectors?: list<scalar|Param|null>,
+ * }
+ * @psalm-type TwigComponentConfig = array{
+ *     defaults?: array<string, Param|string|array{ // Default: []
+ *         template_directory?: scalar|Param|null, // Default: "components"
+ *         name_prefix?: scalar|Param|null, // Default: ""
+ *     }>,
+ *     anonymous_template_directory?: scalar|Param|null, // Defaults to `components`
+ *     profiler?: bool|array{ // Enables the profiler for Twig Component
+ *         enabled?: bool|Param, // Default: "%kernel.debug%"
+ *         collect_components?: bool|Param, // Collect components instances // Default: true
+ *     },
+ * }
+ * @psalm-type LiveComponentConfig = array{
+ *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
+ *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
+ * }
+ * @psalm-type EasyLogConfig = array{
+ *     log_path?: scalar|Param|null, // Path where readable log file will be located // Default: "%kernel.logs_dir%/%kernel.environment%-readable.log"
+ *     max_line_length?: int|Param, // Max line length in log file // Default: 120
+ *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
+ *     ignored_routes?: list<scalar|Param|null>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -3399,14 +3048,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     translation?: TranslationConfig,
  *     web_link?: WebLinkConfig,
  *     messenger?: MessengerConfig,
- *     workflow?: WorkflowConfig,
- *     remote_event?: RemoteEventConfig,
  *     type_info?: TypeInfoConfig,
  *     property_access?: PropertyAccessConfig,
  *     property_info?: PropertyInfoConfig,
  *     uid?: UidConfig,
  *     asset_mapper?: AssetMapperConfig,
- *     webhook?: WebhookConfig,
+ *     rate_limiter?: RateLimiterConfig,
  *     http_client?: HttpClientConfig,
  *     mailer?: MailerConfig,
  *     notifier?: NotifierConfig,
@@ -3419,32 +3066,29 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig_extra?: TwigExtraConfig,
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
- *     nelmio_cors?: NelmioCorsConfig,
+ *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *     symfonycasts_sass?: SymfonycastsSassConfig,
+ *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *     api_platform?: ApiPlatformConfig,
- *     jbtronics_settings?: JbtronicsSettingsConfig,
+ *     fos_ck_editor?: FosCkEditorConfig,
  *     hwi_oauth?: HwiOauthConfig,
+ *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     knp_menu?: KnpMenuConfig,
  *     knp_paginator?: KnpPaginatorConfig,
  *     flysystem?: FlysystemConfig,
- *     pyrrah_gravatar?: PyrrahGravatarConfig,
- *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *     nelmio_api_doc?: NelmioApiDocConfig,
+ *     nelmio_cors?: NelmioCorsConfig,
  *     misd_phone_number?: MisdPhoneNumberConfig,
+ *     pyrrah_gravatar?: PyrrahGravatarConfig,
  *     rekalogika_file?: RekalogikaFileConfig,
+ *     sonata_intl?: SonataIntlConfig,
+ *     pwa?: PwaConfig,
+ *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *     cropperjs?: CropperjsConfig,
  *     ux_map?: UxMapConfig,
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
- *     cropperjs?: CropperjsConfig,
- *     symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
- *     symfonycasts_sass?: SymfonycastsSassConfig,
- *     symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *     fos_ck_editor?: FosCkEditorConfig,
- *     lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
- *     scheb_two_factor?: SchebTwoFactorConfig,
- *     sonata_intl?: SonataIntlConfig,
- *     jose?: JoseConfig,
- *     pwa?: PwaConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -3457,14 +3101,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
  *         messenger?: MessengerConfig,
- *         workflow?: WorkflowConfig,
- *         remote_event?: RemoteEventConfig,
  *         type_info?: TypeInfoConfig,
  *         property_access?: PropertyAccessConfig,
  *         property_info?: PropertyInfoConfig,
  *         uid?: UidConfig,
  *         asset_mapper?: AssetMapperConfig,
- *         webhook?: WebhookConfig,
+ *         rate_limiter?: RateLimiterConfig,
  *         http_client?: HttpClientConfig,
  *         mailer?: MailerConfig,
  *         notifier?: NotifierConfig,
@@ -3480,40 +3122,37 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
- *         nelmio_cors?: NelmioCorsConfig,
- *         api_platform?: ApiPlatformConfig,
- *         jbtronics_settings?: JbtronicsSettingsConfig,
- *         hwi_oauth?: HwiOauthConfig,
- *         knp_menu?: KnpMenuConfig,
- *         knp_paginator?: KnpPaginatorConfig,
- *         flysystem?: FlysystemConfig,
- *         pyrrah_gravatar?: PyrrahGravatarConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *         nelmio_api_doc?: NelmioApiDocConfig,
- *         misd_phone_number?: MisdPhoneNumberConfig,
- *         rekalogika_file?: RekalogikaFileConfig,
- *         ux_map?: UxMapConfig,
- *         ux_icons?: UxIconsConfig,
- *         twig_component?: TwigComponentConfig,
- *         live_component?: LiveComponentConfig,
- *         cropperjs?: CropperjsConfig,
  *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
  *         symfonycasts_sass?: SymfonycastsSassConfig,
  *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *         fos_ck_editor?: FosCkEditorConfig,
- *         lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
- *         scheb_two_factor?: SchebTwoFactorConfig,
- *         sonata_intl?: SonataIntlConfig,
- *         jose?: JoseConfig,
- *         ux_inspector?: UxInspectorConfig,
  *         kocal_biome_js?: KocalBiomeJsConfig,
- *         ignition?: IgnitionConfig,
- *         easy_log?: EasyLogConfig,
- *         nowo_twig_inspector?: NowoTwigInspectorConfig,
- *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         doctrine_diagram?: DoctrineDiagramConfig,
+ *         zenstruck_foundry?: ZenstruckFoundryConfig,
+ *         api_platform?: ApiPlatformConfig,
+ *         fos_ck_editor?: FosCkEditorConfig,
+ *         hwi_oauth?: HwiOauthConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
+ *         knp_menu?: KnpMenuConfig,
+ *         knp_paginator?: KnpPaginatorConfig,
+ *         flysystem?: FlysystemConfig,
  *         optimization_advisor?: OptimizationAdvisorConfig,
+ *         nelmio_api_doc?: NelmioApiDocConfig,
+ *         nelmio_cors?: NelmioCorsConfig,
+ *         nowo_twig_inspector?: NowoTwigInspectorConfig,
+ *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
+ *         rekalogika_file?: RekalogikaFileConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         ignition?: IgnitionConfig,
  *         pwa?: PwaConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         cropperjs?: CropperjsConfig,
+ *         ux_map?: UxMapConfig,
+ *         ux_icons?: UxIconsConfig,
+ *         ux_inspector?: UxInspectorConfig,
+ *         twig_component?: TwigComponentConfig,
+ *         live_component?: LiveComponentConfig,
+ *         easy_log?: EasyLogConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -3527,14 +3166,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
  *         messenger?: MessengerConfig,
- *         workflow?: WorkflowConfig,
- *         remote_event?: RemoteEventConfig,
  *         type_info?: TypeInfoConfig,
  *         property_access?: PropertyAccessConfig,
  *         property_info?: PropertyInfoConfig,
  *         uid?: UidConfig,
  *         asset_mapper?: AssetMapperConfig,
- *         webhook?: WebhookConfig,
+ *         rate_limiter?: RateLimiterConfig,
  *         http_client?: HttpClientConfig,
  *         mailer?: MailerConfig,
  *         notifier?: NotifierConfig,
@@ -3547,32 +3184,29 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
- *         nelmio_cors?: NelmioCorsConfig,
+ *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *         symfonycasts_sass?: SymfonycastsSassConfig,
+ *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
  *         api_platform?: ApiPlatformConfig,
- *         jbtronics_settings?: JbtronicsSettingsConfig,
+ *         fos_ck_editor?: FosCkEditorConfig,
  *         hwi_oauth?: HwiOauthConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         knp_menu?: KnpMenuConfig,
  *         knp_paginator?: KnpPaginatorConfig,
  *         flysystem?: FlysystemConfig,
- *         pyrrah_gravatar?: PyrrahGravatarConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         nelmio_api_doc?: NelmioApiDocConfig,
+ *         nelmio_cors?: NelmioCorsConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         rekalogika_file?: RekalogikaFileConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         pwa?: PwaConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         cropperjs?: CropperjsConfig,
  *         ux_map?: UxMapConfig,
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
- *         cropperjs?: CropperjsConfig,
- *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
- *         symfonycasts_sass?: SymfonycastsSassConfig,
- *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *         fos_ck_editor?: FosCkEditorConfig,
- *         lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
- *         scheb_two_factor?: SchebTwoFactorConfig,
- *         sonata_intl?: SonataIntlConfig,
- *         jose?: JoseConfig,
- *         pwa?: PwaConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3586,14 +3220,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
  *         messenger?: MessengerConfig,
- *         workflow?: WorkflowConfig,
- *         remote_event?: RemoteEventConfig,
  *         type_info?: TypeInfoConfig,
  *         property_access?: PropertyAccessConfig,
  *         property_info?: PropertyInfoConfig,
  *         uid?: UidConfig,
  *         asset_mapper?: AssetMapperConfig,
- *         webhook?: WebhookConfig,
+ *         rate_limiter?: RateLimiterConfig,
  *         http_client?: HttpClientConfig,
  *         mailer?: MailerConfig,
  *         notifier?: NotifierConfig,
@@ -3607,39 +3239,35 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
- *         nelmio_cors?: NelmioCorsConfig,
+ *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
+ *         symfonycasts_sass?: SymfonycastsSassConfig,
+ *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
+ *         doctrine_diagram?: DoctrineDiagramConfig,
+ *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         api_platform?: ApiPlatformConfig,
- *         jbtronics_settings?: JbtronicsSettingsConfig,
+ *         dama_doctrine_test?: DamaDoctrineTestConfig,
+ *         fos_ck_editor?: FosCkEditorConfig,
  *         hwi_oauth?: HwiOauthConfig,
+ *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         knp_menu?: KnpMenuConfig,
  *         knp_paginator?: KnpPaginatorConfig,
  *         flysystem?: FlysystemConfig,
- *         pyrrah_gravatar?: PyrrahGravatarConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         optimization_advisor?: OptimizationAdvisorConfig,
  *         nelmio_api_doc?: NelmioApiDocConfig,
+ *         nelmio_cors?: NelmioCorsConfig,
+ *         nowo_twig_inspector?: NowoTwigInspectorConfig,
  *         misd_phone_number?: MisdPhoneNumberConfig,
+ *         pyrrah_gravatar?: PyrrahGravatarConfig,
  *         rekalogika_file?: RekalogikaFileConfig,
+ *         sonata_intl?: SonataIntlConfig,
+ *         pwa?: PwaConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         cropperjs?: CropperjsConfig,
  *         ux_map?: UxMapConfig,
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
- *         cropperjs?: CropperjsConfig,
- *         symfonycasts_reset_password?: SymfonycastsResetPasswordConfig,
- *         symfonycasts_sass?: SymfonycastsSassConfig,
- *         symfonycasts_verify_email?: SymfonycastsVerifyEmailConfig,
- *         fos_ck_editor?: FosCkEditorConfig,
- *         lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
- *         scheb_two_factor?: SchebTwoFactorConfig,
- *         sonata_intl?: SonataIntlConfig,
- *         jose?: JoseConfig,
- *         ux_inspector?: UxInspectorConfig,
- *         dama_doctrine_test?: DamaDoctrineTestConfig,
  *         easy_log?: EasyLogConfig,
- *         nowo_twig_inspector?: NowoTwigInspectorConfig,
- *         zenstruck_foundry?: ZenstruckFoundryConfig,
- *         doctrine_diagram?: DoctrineDiagramConfig,
- *         optimization_advisor?: OptimizationAdvisorConfig,
- *         pwa?: PwaConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
@@ -3686,6 +3314,9 @@ namespace Symfony\Component\Routing\Loader\Configurator;
  * @psalm-type RouteConfig = array{
  *     path: string|array<string,string>,
  *     controller?: string,
+ *     template?: string,
+ *     redirect_to_route?: string,
+ *     redirect_to?: string,
  *     methods?: string|list<string>,
  *     requirements?: array<string,string>,
  *     defaults?: array<string,mixed>,
