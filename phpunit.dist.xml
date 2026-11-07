@@ -31,6 +31,7 @@
             restrictWarnings="true"
     >
         <include>
+            <directory>config</directory>
             <directory>modules</directory>
             <directory>public</directory>
             <directory>src</directory>
@@ -44,18 +45,17 @@
     </source>
 
     <extensions>
+        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+        <bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension" />
+        <bootstrap class="Zenstruck\Browser\Test\BrowserExtension" />
         <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension">
             <parameter name="clock-mock-namespaces" value="App" />
             <parameter name="dns-mock-namespaces" value="App" />
         </bootstrap>
         <bootstrap class="Symfony\Component\Panther\ServerExtension" />
-        <bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension" />
-        <bootstrap class="Zenstruck\Browser\Test\BrowserExtension" />
-        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
     </extensions>
 
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
     </listeners>
-
 </phpunit>
