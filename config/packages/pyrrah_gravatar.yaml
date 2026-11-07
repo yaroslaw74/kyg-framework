@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../schema.json
 pyrrah_gravatar:
     #rating: "g"      # Allowed values: g, pg, r, x
     #size: 80         # Image size in pixels
