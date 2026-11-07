@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../schema.json
 # Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
 twig:
     form_themes:
