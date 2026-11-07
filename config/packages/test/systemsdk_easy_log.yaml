@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../schema.json
 easy_log:
     log_path: "%kernel.logs_dir%/%kernel.environment%-readable.log"
     max_line_length: 120
