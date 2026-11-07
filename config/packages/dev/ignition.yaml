@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../schema.json
 ignition:
     application_path: "%kernel.project_dir%"
     dark_mode: false
