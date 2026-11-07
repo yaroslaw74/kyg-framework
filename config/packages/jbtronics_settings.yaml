@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../schema.json
 jbtronics_settings:
     # The folders where settings classes should be searched for
     search_paths:
