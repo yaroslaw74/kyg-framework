@@ -173,7 +173,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'full' => true,
             ],
             'ar_SD' => [
-                'name' => 'العربية (السودان)\'',
+                'name' => 'العربية (السودان)',
                 'dir' => 'rtl',
                 'full' => true,
             ],
@@ -533,7 +533,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'full' => true,
             ],
             'da_GL' => [
-                'name' => 'dansk (Grønland)\'',
+                'name' => 'dansk (Grønland)',
                 'dir' => 'ltr',
                 'full' => true,
             ],
@@ -3063,7 +3063,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'full' => true,
             ],
             'pt_LU' => [
-                'name' => 'português (Luxemburgo)\'',
+                'name' => 'português (Luxemburgo)',
                 'dir' => 'ltr',
                 'full' => true,
             ],
@@ -3653,12 +3653,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'full' => true,
             ],
             'th' => [
-                'name' => 'ไทย\'',
+                'name' => 'ไทย',
                 'dir' => 'ltr',
                 'full' => false,
             ],
             'th_TH' => [
-                'name' => 'ไทย (ไทย)\'',
+                'name' => 'ไทย (ไทย)',
                 'dir' => 'ltr',
                 'full' => true,
             ],
