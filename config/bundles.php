@@ -57,4 +57,7 @@ return [
     Systemsdk\Bundle\EasyLogBundle\EasyLogBundle::class => ['dev' => true, 'test' => true],
     Zenstruck\Mailer\Test\ZenstruckMailerTestBundle::class => ['dev' => true, 'test' => true],
     Zenstruck\Messenger\Test\ZenstruckMessengerTestBundle::class => ['test' => true],
+    Softspring\TwigExtraBundle\SfsTwigExtraBundle::class => ['all' => true],
+    Softspring\PermissionsBundle\SfsPermissionsBundle::class => ['all' => true],
+    Softspring\UserBundle\SfsUserBundle::class => ['all' => true],
 ];
