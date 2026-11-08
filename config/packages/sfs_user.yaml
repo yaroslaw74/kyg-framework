@@ -11,12 +11,20 @@ sfs_user:
     login:
         target_path_parameter: _target_path
     invite:
-        enabled: false
+        enabled: true
+        class: App\Modules\Users\Entity\UserInvitation
     history:
-        enabled: false
+        enabled: true
+        class: App\Modules\Users\Entity\UserAccess
 
     impersonate_bar:
         enabled: true
         switch_role: ROLE_ALLOWED_TO_SWITCH
         switch_route: app_entrypoint
         switch_parameter: _switch_user
+
+    mailer:
+        enabled: true
+        from:
+            address: "%app.email_bot%"
+            name: "%app.name_bot%"
