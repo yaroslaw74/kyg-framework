@@ -272,6 +272,42 @@
     "shivas/versioning-bundle": {
         "version": "4.2.0"
     },
+    "softspring/permissions-bundle": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "6d7ef4c495a51db268a7bfe2eb6640617973b2ec"
+        }
+    },
+    "softspring/twig-extra-bundle": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "575e1a8547d5e7ac0bc341ca4ed61f4a516a801d"
+        }
+    },
+    "softspring/user-bundle": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "2aedfb88c6757605a23d43dd48fe4e0cde02ef5c"
+        },
+        "files": [
+            "./config/packages/security.yaml.dist",
+            "./config/packages/sfs_admin_menu_users.yaml",
+            "./config/packages/sfs_user.yaml",
+            "./config/routes/sfs_user.yaml",
+            "./config/routes/sfs_user_admin.yaml",
+            "./src/Entity/User.php",
+            "./translations/sfs_components.en.yaml"
+        ]
+    },
     "sonata-project/intl-bundle": {
         "version": "3.3.0"
     },
