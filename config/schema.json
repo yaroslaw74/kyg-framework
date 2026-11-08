@@ -12107,6 +12107,508 @@
                     "named_serializers": []
                 }
             },
+            "sfs_twig_extra": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "active_for_routes_extension": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true
+                        }
+                    },
+                    "routing_extension": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true
+                        }
+                    },
+                    "date_span_extension": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true
+                        }
+                    },
+                    "instanceof_extension": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true
+                        }
+                    },
+                    "encore_entry_sources_extension": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "public_path": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "%kernel.project_dir%/public"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "public_path": "%kernel.project_dir%/public"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "default": {
+                    "active_for_routes_extension": {
+                        "enabled": true
+                    },
+                    "routing_extension": {
+                        "enabled": true
+                    },
+                    "date_span_extension": {
+                        "enabled": true
+                    },
+                    "instanceof_extension": {
+                        "enabled": true
+                    },
+                    "encore_entry_sources_extension": {
+                        "enabled": false,
+                        "public_path": "%kernel.project_dir%/public"
+                    }
+                }
+            },
+            "sfs_user": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "class": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "App\\Entity\\User"
+                    },
+                    "entity_manager": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "default"
+                    },
+                    "login": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "target_path_parameter": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null
+                            },
+                            "google_identity_platform": {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "client_id": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": ""
+                                    },
+                                    "api_key": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": ""
+                                    },
+                                    "tenant_id": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "context": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "signin"
+                                    },
+                                    "ux_mode": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "redirect"
+                                    },
+                                    "auto_prompt": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    },
+                                    "itp_support": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    },
+                                    "success_route": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "sfs_user_preferences"
+                                    },
+                                    "success_route_params": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        }
+                                    },
+                                    "failure_route": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "sfs_user_login"
+                                    },
+                                    "failure_route_params": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        }
+                                    },
+                                    "button": {
+                                        "$ref": "#/$defs/types/object_null",
+                                        "properties": {
+                                            "type": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": "standard"
+                                            },
+                                            "theme": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": "outline"
+                                            },
+                                            "size": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": "large"
+                                            },
+                                            "shape": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": "rectangular"
+                                            },
+                                            "text": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": "continue_with"
+                                            },
+                                            "logo_alignment": {
+                                                "$ref": "#/$defs/types/scalar",
+                                                "default": "left"
+                                            },
+                                            "width": {
+                                                "$ref": "#/$defs/types/integer",
+                                                "default": 320
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "default": {
+                                            "type": "standard",
+                                            "theme": "outline",
+                                            "size": "large",
+                                            "shape": "rectangular",
+                                            "text": "continue_with",
+                                            "logo_alignment": "left",
+                                            "width": 320
+                                        }
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "default": {
+                                    "enabled": false,
+                                    "client_id": "",
+                                    "api_key": "",
+                                    "tenant_id": null,
+                                    "context": "signin",
+                                    "ux_mode": "redirect",
+                                    "auto_prompt": true,
+                                    "itp_support": true,
+                                    "success_route": "sfs_user_preferences",
+                                    "success_route_params": [],
+                                    "failure_route": "sfs_user_login",
+                                    "failure_route_params": [],
+                                    "button": {
+                                        "type": "standard",
+                                        "theme": "outline",
+                                        "size": "large",
+                                        "shape": "rectangular",
+                                        "text": "continue_with",
+                                        "logo_alignment": "left",
+                                        "width": 320
+                                    }
+                                }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "target_path_parameter": null,
+                            "google_identity_platform": {
+                                "enabled": false,
+                                "client_id": "",
+                                "api_key": "",
+                                "tenant_id": null,
+                                "context": "signin",
+                                "ux_mode": "redirect",
+                                "auto_prompt": true,
+                                "itp_support": true,
+                                "success_route": "sfs_user_preferences",
+                                "success_route_params": [],
+                                "failure_route": "sfs_user_login",
+                                "failure_route_params": [],
+                                "button": {
+                                    "type": "standard",
+                                    "theme": "outline",
+                                    "size": "large",
+                                    "shape": "rectangular",
+                                    "text": "continue_with",
+                                    "logo_alignment": "left",
+                                    "width": 320
+                                }
+                            }
+                        }
+                    },
+                    "invite": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "class": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "App\\Entity\\UserInvitation"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "class": "App\\Entity\\UserInvitation"
+                        }
+                    },
+                    "mailer": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "from": {
+                                        "$ref": "#/$defs/types/object_null",
+                                        "properties": {
+                                            "address": {
+                                                "$ref": "#/$defs/types/scalar"
+                                            },
+                                            "name": {
+                                                "$ref": "#/$defs/types/scalar"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false
+                        }
+                    },
+                    "history": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "class": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "App\\Entity\\UserAccess"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "class": "App\\Entity\\UserAccess"
+                        }
+                    },
+                    "confirm_email": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true
+                        }
+                    },
+                    "reset_password": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "token_ttl": {
+                                "$ref": "#/$defs/types/integer",
+                                "default": 86400
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "token_ttl": 86400
+                        }
+                    },
+                    "impersonate_bar": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "switch_role": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "ROLE_ALLOWED_TO_SWITCH"
+                                    },
+                                    "switch_route": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "configure_switch_route"
+                                    },
+                                    "switch_route_params": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        }
+                                    },
+                                    "switch_parameter": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "_switch_user"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "switch_role": "ROLE_ALLOWED_TO_SWITCH",
+                            "switch_route": "configure_switch_route",
+                            "switch_route_params": [],
+                            "switch_parameter": "_switch_user"
+                        }
+                    },
+                    "oauth": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "facebook": {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "application_id": {
+                                        "$ref": "#/$defs/types/scalar"
+                                    },
+                                    "application_secret": {
+                                        "$ref": "#/$defs/types/scalar"
+                                    },
+                                    "login_create": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false
+            },
             "sonata_intl": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -14394,6 +14896,12 @@
         "serializer": {
             "$ref": "#/$defs/nodes/serializer"
         },
+        "sfs_twig_extra": {
+            "$ref": "#/$defs/nodes/sfs_twig_extra"
+        },
+        "sfs_user": {
+            "$ref": "#/$defs/nodes/sfs_user"
+        },
         "sonata_intl": {
             "$ref": "#/$defs/nodes/sonata_intl"
         },
@@ -14571,6 +15079,12 @@
                     "$ref": "#/$defs/nodes/serializer"
                 },
                 "services": true,
+                "sfs_twig_extra": {
+                    "$ref": "#/$defs/nodes/sfs_twig_extra"
+                },
+                "sfs_user": {
+                    "$ref": "#/$defs/nodes/sfs_user"
+                },
                 "sonata_intl": {
                     "$ref": "#/$defs/nodes/sonata_intl"
                 },
@@ -14751,6 +15265,12 @@
                     "$ref": "#/$defs/nodes/serializer"
                 },
                 "services": true,
+                "sfs_twig_extra": {
+                    "$ref": "#/$defs/nodes/sfs_twig_extra"
+                },
+                "sfs_user": {
+                    "$ref": "#/$defs/nodes/sfs_user"
+                },
                 "sonata_intl": {
                     "$ref": "#/$defs/nodes/sonata_intl"
                 },
@@ -14911,6 +15431,12 @@
                 },
                 "serializer": {
                     "$ref": "#/$defs/nodes/serializer"
+                },
+                "sfs_twig_extra": {
+                    "$ref": "#/$defs/nodes/sfs_twig_extra"
+                },
+                "sfs_user": {
+                    "$ref": "#/$defs/nodes/sfs_user"
                 },
                 "sonata_intl": {
                     "$ref": "#/$defs/nodes/sonata_intl"
