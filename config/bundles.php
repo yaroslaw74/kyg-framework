@@ -60,4 +60,5 @@ return [
     Softspring\TwigExtraBundle\SfsTwigExtraBundle::class => ['all' => true],
     Softspring\PermissionsBundle\SfsPermissionsBundle::class => ['all' => true],
     Softspring\UserBundle\SfsUserBundle::class => ['all' => true],
+    Softspring\Component\Components\SfsComponentsBundle::class => ['all' => true],
 ];
