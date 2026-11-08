@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../schema.json
+twig:
+    globals:
+        sfs_components_theme: "bootstrap5"
