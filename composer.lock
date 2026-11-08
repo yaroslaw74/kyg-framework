@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84fb454fd334bfe8c328b00dd8e6c315",
+    "content-hash": "b3d3526946457d2cc16a4aef1e65aab3",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -7313,6 +7313,55 @@
             "time": "2020-07-02T14:44:41+00:00"
         },
         {
+            "name": "softspring/components",
+            "version": "v6.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/softspring/components.git",
+                "reference": "fa1c2deec1ec0cb93322f7c71f89ed8f3088dc4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/softspring/components/zipball/fa1c2deec1ec0cb93322f7c71f89ed8f3088dc4c",
+                "reference": "fa1c2deec1ec0cb93322f7c71f89ed8f3088dc4c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4",
+                "symfony/twig-bundle": "^6.4 || ^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.50",
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^12.5",
+                "rector/rector": "^2.6.7",
+                "symfony/polyfill-php85": "^1.33",
+                "symfony/yaml": "^6.4 || ^7.4 || ^8.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-6.0": "6.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Softspring\\Component\\Components\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "description": "Shared Twig layouts, paginators, form themes, and UI fragments for Symfony applications",
+            "support": {
+                "issues": "https://github.com/softspring/components/issues",
+                "source": "https://github.com/softspring/components/tree/v6.0.0-rc1"
+            },
+            "time": "2026-10-20T13:25:40+00:00"
+        },
+        {
             "name": "softspring/crudl-controller",
             "version": "v6.0.0-rc1",
             "source": {
@@ -7575,6 +7624,71 @@
             "support": {
                 "issues": "https://github.com/softspring/events/issues",
                 "source": "https://github.com/softspring/events/tree/v6.0.0-rc1"
+            },
+            "time": "2026-10-20T13:25:40+00:00"
+        },
+        {
+            "name": "softspring/mailer-bundle",
+            "version": "6.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/softspring/mailer-bundle.git",
+                "reference": "76eb04da33500928838f38d9c62baa7c57b9bae3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/softspring/mailer-bundle/zipball/76eb04da33500928838f38d9c62baa7c57b9bae3",
+                "reference": "76eb04da33500928838f38d9c62baa7c57b9bae3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^2.10 || ^3.0 || ^4.0",
+                "doctrine/orm": "^2.10 || ^3.0 || ^4.0",
+                "php": ">=8.4",
+                "softspring/components": "^6.0@dev",
+                "softspring/doctrine-target-entity-resolver": "^6.0@dev",
+                "softspring/mime-translatable": "^6.0@dev",
+                "symfony/form": "^6.4 || ^7.4 || ^8.0",
+                "symfony/mailer": "^6.4 || ^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.50",
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "phpstan/phpstan": "^2.1",
+                "rector/rector": "^2.6.7",
+                "softspring/user-bundle": "^6.0@dev",
+                "symfony/console": "^6.4 || ^7.4 || ^8.0",
+                "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.0",
+                "symfony/polyfill-php85": "^1.33",
+                "symfony/translation": "^6.4 || ^7.4 || ^8.0",
+                "symfony/yaml": "^6.4 || ^7.4 || ^8.0",
+                "twig/twig": "^3.4"
+            },
+            "suggest": {
+                "softspring/admin-bundle": "Use softspring admin templates",
+                "twig/cssinliner-extra": "Use css inliner",
+                "twig/inky-extra": "Use Inky mailing templates"
+            },
+            "default-branch": true,
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-6.0": "6.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Softspring\\MailerBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "description": "This bundle provides some features that ease mailing for Symfony projects.",
+            "support": {
+                "issues": "https://github.com/softspring/mailer-bundle/issues",
+                "source": "https://github.com/softspring/mailer-bundle/tree/6.0"
             },
             "time": "2026-10-20T13:25:40+00:00"
         },
@@ -25541,12 +25655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "baa421cd0eb6cbc168d3b9bec886a2aa87f4681d"
+                "reference": "e204a63b93ef13af20bdf5f03cab7d25482da35e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/baa421cd0eb6cbc168d3b9bec886a2aa87f4681d",
-                "reference": "baa421cd0eb6cbc168d3b9bec886a2aa87f4681d",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/e204a63b93ef13af20bdf5f03cab7d25482da35e",
+                "reference": "e204a63b93ef13af20bdf5f03cab7d25482da35e",
                 "shasum": ""
             },
             "require": {
@@ -25656,7 +25770,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-11-08T17:15:54+00:00"
+            "time": "2026-11-08T17:57:56+00:00"
         },
         {
             "name": "vincentlanglet/twig-cs-fixer",
@@ -26428,6 +26542,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "softspring/mailer-bundle": 20,
         "softspring/user-bundle": 20,
         "vimeo/psalm": 20
     },
