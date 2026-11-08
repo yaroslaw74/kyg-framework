@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace App\Modules\Users\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Modules\Users\Enum\UserStatus;
 use App\Modules\Users\Model\OauthTrait;
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
@@ -93,6 +94,9 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
     #[Gedmo\UploadableFileName]
     private ?string $avatar = null;
 
+    #[ORM\Column(name: 'status', enumType: UserStatus::class, options: ['default' => UserStatus::NEW])]
+    private UserStatus $status = UserStatus::NEW;
+
     public function getDisplayName(): string
     {
         return trim(($this->getName() ?? '').' '.($this->getSurname() ?? ''));
@@ -103,11 +107,9 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
         return $this->id;
     }
 
-    public function setTimezone(string $timezone): static
+    public function setTimezone(string $timezone): void
     {
         $this->timezone = $timezone;
-
-        return $this;
     }
 
     public function getGravatar(): ?string
@@ -115,11 +117,9 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
         return $this->gravatar;
     }
 
-    public function setGravatar(?string $gravatar): static
+    public function setGravatar(?string $gravatar): void
     {
         $this->gravatar = $gravatar;
-
-        return $this;
     }
 
     public function getPhoneNumber(): ?PhoneNumber
@@ -127,11 +127,9 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(?PhoneNumber $phoneNumber): static
+    public function setPhoneNumber(?PhoneNumber $phoneNumber): void
     {
         $this->phoneNumber = $phoneNumber;
-
-        return $this;
     }
 
     public function getAvatar(): ?string
@@ -139,10 +137,18 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
         return $this->avatar;
     }
 
-    public function setAvatar(?string $avatar): static
+    public function setAvatar(?string $avatar): void
     {
         $this->avatar = $avatar;
+    }
 
-        return $this;
+    public function getStatus(): UserStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(UserStatus $status): void
+    {
+        $this->status = $status;
     }
 }
