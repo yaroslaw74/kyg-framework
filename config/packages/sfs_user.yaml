@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../schema.json
+imports:
+    - { resource: "@SfsUserBundle/config/security/admin_role_hierarchy.yaml" }
+
+sfs_user:
+    class: App\Modules\Users\Entity\User
+    confirm_email:
+        enabled: true
+    reset_password:
+        token_ttl: 86400
+    login:
+        target_path_parameter: _target_path
+    invite:
+        enabled: false
+    history:
+        enabled: false
+
+    impersonate_bar:
+        enabled: true
+        switch_role: ROLE_ALLOWED_TO_SWITCH
+        switch_route: app_entrypoint
+        switch_parameter: _switch_user
