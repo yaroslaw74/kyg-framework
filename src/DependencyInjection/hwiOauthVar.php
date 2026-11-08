@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\EnvVarLoaderInterface;
 
 final readonly class hwiOauthVar implements EnvVarLoaderInterface
 {
-    public function __construct(private SettingsManagerInterface $settingsManager)
+    public function __construct(private SettingsManagerInterface $settings)
     {
     }
 
@@ -30,7 +30,7 @@ final readonly class hwiOauthVar implements EnvVarLoaderInterface
     #[\Override]
     public function loadEnvVars(): array
     {
-        $hwiOauthSettings = $this->settingsManager->get(hwiOauthSettings::class);
+        $hwiOauthSettings = $this->settings->get(hwiOauthSettings::class);
 
         return [
             'FACEBOOK_ID' => $hwiOauthSettings->getFacebookID(),
