@@ -3036,6 +3036,89 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
  *     ignored_routes?: list<scalar|Param|null>,
  * }
+ * @psalm-type SfsTwigExtraConfig = array{
+ *     active_for_routes_extension?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ *     routing_extension?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ *     date_span_extension?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ *     instanceof_extension?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ *     encore_entry_sources_extension?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         public_path?: scalar|Param|null, // Default: "%kernel.project_dir%/public"
+ *     },
+ * }
+ * @psalm-type SfsUserConfig = array{
+ *     class?: scalar|Param|null, // Default: "App\\Entity\\User"
+ *     entity_manager?: scalar|Param|null, // Default: "default"
+ *     login?: array{
+ *         target_path_parameter?: scalar|Param|null, // Default: null
+ *         google_identity_platform?: array{
+ *             enabled?: bool|Param, // Default: false
+ *             client_id?: scalar|Param|null, // Default: ""
+ *             api_key?: scalar|Param|null, // Default: ""
+ *             tenant_id?: scalar|Param|null, // Default: null
+ *             context?: scalar|Param|null, // Default: "signin"
+ *             ux_mode?: scalar|Param|null, // Default: "redirect"
+ *             auto_prompt?: bool|Param, // Default: true
+ *             itp_support?: bool|Param, // Default: true
+ *             success_route?: scalar|Param|null, // Default: "sfs_user_preferences"
+ *             success_route_params?: list<scalar|Param|null>,
+ *             failure_route?: scalar|Param|null, // Default: "sfs_user_login"
+ *             failure_route_params?: list<scalar|Param|null>,
+ *             button?: array{
+ *                 type?: scalar|Param|null, // Default: "standard"
+ *                 theme?: scalar|Param|null, // Default: "outline"
+ *                 size?: scalar|Param|null, // Default: "large"
+ *                 shape?: scalar|Param|null, // Default: "rectangular"
+ *                 text?: scalar|Param|null, // Default: "continue_with"
+ *                 logo_alignment?: scalar|Param|null, // Default: "left"
+ *                 width?: int|Param, // Default: 320
+ *             },
+ *         },
+ *     },
+ *     invite?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         class?: scalar|Param|null, // Default: "App\\Entity\\UserInvitation"
+ *     },
+ *     mailer?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         from?: array{
+ *             address?: scalar|Param|null,
+ *             name?: scalar|Param|null,
+ *         },
+ *     },
+ *     history?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         class?: scalar|Param|null, // Default: "App\\Entity\\UserAccess"
+ *     },
+ *     confirm_email?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ *     reset_password?: array{
+ *         token_ttl?: int|Param, // Default: 86400
+ *     },
+ *     impersonate_bar?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         switch_role?: scalar|Param|null, // Default: "ROLE_ALLOWED_TO_SWITCH"
+ *         switch_route?: scalar|Param|null, // Default: "configure_switch_route"
+ *         switch_route_params?: list<scalar|Param|null>,
+ *         switch_parameter?: scalar|Param|null, // Default: "_switch_user"
+ *     },
+ *     oauth?: array{
+ *         facebook?: array{
+ *             application_id?: scalar|Param|null,
+ *             application_secret?: scalar|Param|null,
+ *             login_create?: bool|Param, // Default: false
+ *         },
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -3089,6 +3172,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
+ *     sfs_twig_extra?: SfsTwigExtraConfig,
+ *     sfs_user?: SfsUserConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -3153,6 +3238,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
  *         easy_log?: EasyLogConfig,
+ *         sfs_twig_extra?: SfsTwigExtraConfig,
+ *         sfs_user?: SfsUserConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -3207,6 +3294,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         sfs_twig_extra?: SfsTwigExtraConfig,
+ *         sfs_user?: SfsUserConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3268,6 +3357,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
  *         easy_log?: EasyLogConfig,
+ *         sfs_twig_extra?: SfsTwigExtraConfig,
+ *         sfs_user?: SfsUserConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
