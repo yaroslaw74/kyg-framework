@@ -20,7 +20,7 @@ use Jbtronics\SettingsBundle\Settings\SettingsParameter;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
 
-#[Settings(name: 'WebSite', dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'WebSiteSettings.php'])]
+#[Settings(name: 'WebSite', storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'WebSiteSettings.php'], dependencyInjectable: true)]
 final class WebSiteSettings
 {
     use SettingsTrait;
