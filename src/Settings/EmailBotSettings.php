@@ -20,7 +20,7 @@ use Jbtronics\SettingsBundle\Settings\SettingsParameter;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Jbtronics\SettingsBundle\Storage\PHPFileStorageAdapter;
 
-#[Settings(dependencyInjectable: true, storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'EmailBotSettings.php'])]
+#[Settings(storageAdapter: PHPFileStorageAdapter::class, storageAdapterOptions: ['filename' => 'EmailBotSettings.php'], dependencyInjectable: true)]
 final class EmailBotSettings
 {
     use SettingsTrait;
