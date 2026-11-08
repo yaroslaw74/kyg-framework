@@ -1,5 +1,0 @@
-core:
-    resource:
-        path: "../../../Controller/"
-        namespace: App\Modules\Core\Controller
-    type: attribute
