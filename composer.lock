@@ -25541,12 +25541,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "6ac6a2ac55703efe180026d470a942a4d422caf9"
+                "reference": "8f26304d1b90e49bc8bc1da9da7dca63ec7fdc15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/6ac6a2ac55703efe180026d470a942a4d422caf9",
-                "reference": "6ac6a2ac55703efe180026d470a942a4d422caf9",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/8f26304d1b90e49bc8bc1da9da7dca63ec7fdc15",
+                "reference": "8f26304d1b90e49bc8bc1da9da7dca63ec7fdc15",
                 "shasum": ""
             },
             "require": {
@@ -25656,7 +25656,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-11-08T17:03:24+00:00"
+            "time": "2026-11-08T17:08:52+00:00"
         },
         {
             "name": "vincentlanglet/twig-cs-fixer",
