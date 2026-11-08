@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 final readonly class LocalesService
 {
-    public function __construct(private ContainerBagInterface $containerBag)
+    public function __construct(private ContainerBagInterface $params)
     {
     }
 
@@ -27,7 +27,7 @@ final readonly class LocalesService
      */
     public function getLocales(): array
     {
-        return $this->containerBag->get('app.locales');
+        return $this->params->get('app.locales');
     }
 
     public function getLocaleName(string $locale): string
