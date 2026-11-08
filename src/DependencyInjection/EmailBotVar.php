@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\EnvVarLoaderInterface;
 
 final readonly class EmailBotVar implements EnvVarLoaderInterface
 {
-    public function __construct(private SettingsManagerInterface $settingsManager)
+    public function __construct(private SettingsManagerInterface $settings)
     {
     }
 
@@ -28,10 +28,11 @@ final readonly class EmailBotVar implements EnvVarLoaderInterface
      * @return array<string|\Stringable>
      */
     #[\Override]
-    final public function loadEnvVars(): array
+    public function loadEnvVars(): array
     {
-        $emailBotSettings = $this->settingsManager->get(EmailBotSettings::class);
+        $emailBotSettings = $this->settings->get(EmailBotSettings::class);
 
+        /* @phpstan-ignore symplify.requireArrayShapeReturn */
         return [
             'ENV_BOT_EMAIL' => $emailBotSettings->getBotEmail(),
             'ENV_BOT_NAME' => $emailBotSettings->getBotName(),
