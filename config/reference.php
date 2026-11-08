@@ -327,6 +327,44 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         unwrap_exceptions?: bool|Param, // Whether the application gets the exception of the failing handler instead of a HandlerFailedException when it dispatches a message. // Default: false
  *     }>,
  * }
+ * @psalm-type WorkflowConfig = bool|array{
+ *     enabled?: bool|Param, // Default: true
+ *     workflows?: array<string, array{ // Default: []
+ *         audit_trail?: bool|array{
+ *             enabled?: bool|Param, // Default: false
+ *         },
+ *         type?: "workflow"|"state_machine"|Param, // Default: "state_machine"
+ *         marking_store?: array{
+ *             type?: "method"|Param,
+ *             property?: scalar|Param|null,
+ *             service?: scalar|Param|null,
+ *         },
+ *         supports?: Param|string|list<scalar|Param|null>,
+ *         definition_validators?: list<scalar|Param|null>,
+ *         support_strategy?: scalar|Param|null,
+ *         initial_marking?: \BackedEnum|Param|string|list<scalar|Param|null>,
+ *         events_to_dispatch?: null|list<string|Param>,
+ *         places?: Param|string|list<Param|string|array{ // Default: []
+ *             name?: scalar|Param|null,
+ *             metadata?: array<string, mixed>,
+ *         }>,
+ *         transitions?: list<array{ // Default: []
+ *             name?: string|Param,
+ *             guard?: string|Param, // An expression to block the transition.
+ *             from?: \BackedEnum|Param|string|list<Param|string|array{ // Default: []
+ *                 place?: string|Param,
+ *                 weight?: int|Param, // Default: 1
+ *             }>,
+ *             to?: \BackedEnum|Param|string|list<Param|string|array{ // Default: []
+ *                 place?: string|Param,
+ *                 weight?: int|Param, // Default: 1
+ *             }>,
+ *             weight?: int|Param, // Default: 1
+ *             metadata?: array<string, mixed>,
+ *         }>,
+ *         metadata?: array<string, mixed>,
+ *     }>,
+ * }
  * @psalm-type TypeInfoConfig = bool|array{
  *     enabled?: bool|Param, // Default: true
  *     aliases?: array<string, scalar|Param|null>,
@@ -663,7 +701,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         dsn?: scalar|Param|null, // Default: "file:%kernel.cache_dir%/profiler"
  *         collect_serializer_data?: true|Param, // Deprecated: Setting the "framework.profiler.collect_serializer_data.collect_serializer_data" configuration option is deprecated. It will be removed in version 9.0. // Default: true
  *     },
- *     workflows?: mixed,
+ *     workflows?: WorkflowConfig,
  *     router?: RouterConfig,
  *     assets?: AssetConfig,
  *     asset_mapper?: AssetMapperConfig,
@@ -3131,6 +3169,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     translation?: TranslationConfig,
  *     web_link?: WebLinkConfig,
  *     messenger?: MessengerConfig,
+ *     workflow?: WorkflowConfig,
  *     type_info?: TypeInfoConfig,
  *     property_access?: PropertyAccessConfig,
  *     property_info?: PropertyInfoConfig,
@@ -3186,6 +3225,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
  *         messenger?: MessengerConfig,
+ *         workflow?: WorkflowConfig,
  *         type_info?: TypeInfoConfig,
  *         property_access?: PropertyAccessConfig,
  *         property_info?: PropertyInfoConfig,
@@ -3253,6 +3293,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
  *         messenger?: MessengerConfig,
+ *         workflow?: WorkflowConfig,
  *         type_info?: TypeInfoConfig,
  *         property_access?: PropertyAccessConfig,
  *         property_info?: PropertyInfoConfig,
@@ -3309,6 +3350,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
  *         messenger?: MessengerConfig,
+ *         workflow?: WorkflowConfig,
  *         type_info?: TypeInfoConfig,
  *         property_access?: PropertyAccessConfig,
  *         property_info?: PropertyInfoConfig,
