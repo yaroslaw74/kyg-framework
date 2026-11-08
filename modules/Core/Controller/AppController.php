@@ -25,13 +25,13 @@ use Symfony\Component\Routing\Attribute\Route;
  */
 final class AppController extends AbstractController
 {
-    #[Route('/app', name: 'app', methods: ['GET'])]
+    #[Route(path: '/app', name: 'app', methods: ['GET'])]
     public function index(): RedirectResponse
     {
         return $this->redirectToRoute('app_home');
     }
 
-    #[Route('/app/home', name: 'app_home', methods: ['GET'])]
+    #[Route(path: '/app/home', name: 'app_home', methods: ['GET'])]
     #[Screenshot(
         sizes: ['hd', 'fhd', 'ipad/LP', 'iphone-14', 'desktop-lg', 'galaxy-s21', 'mobile-lg'],
         name: 'homepage',
