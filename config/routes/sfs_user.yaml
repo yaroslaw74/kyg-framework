@@ -2,9 +2,9 @@
 _sfs_login:
     resource: "@SfsUserBundle/config/routing/login.yaml"
 
-#_sfs_invitation:
-#    resource: '@SfsUserBundle/config/routing/invitation.yaml'
-#    prefix: /admin/invitation
+_sfs_invitation:
+    resource: "@SfsUserBundle/config/routing/invitation.yaml"
+    prefix: /admin/invitation
 
 _sfs_reset_password:
     resource: "@SfsUserBundle/config/routing/reset_password.yaml"
@@ -14,9 +14,9 @@ _sfs_change_password:
     resource: "@SfsUserBundle/config/routing/change_password.yaml"
     prefix: /admin/user/change-password
 
-#_sfs_register:
-#    resource: '@SfsUserBundle/config/routing/register.yaml'
-#    prefix: /admin/register
+_sfs_register:
+    resource: "@SfsUserBundle/config/routing/register.yaml"
+    prefix: /admin/register
 
 _sfs_preferences:
     resource: "@SfsUserBundle/config/routing/preferences.yaml"
