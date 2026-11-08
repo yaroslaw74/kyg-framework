@@ -25,13 +25,17 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use libphonenumber\PhoneNumber;
+use Softspring\UserBundle\Entity\ConfirmableTrait;
 use Softspring\UserBundle\Entity\EmailTrait;
 use Softspring\UserBundle\Entity\NameSurnameTrait;
+use Softspring\UserBundle\Entity\PasswordRequestTrait;
 use Softspring\UserBundle\Entity\RolesFullTrait;
 use Softspring\UserBundle\Entity\UserIdentifierUsernameTrait;
 use Softspring\UserBundle\Entity\UserPasswordTrait;
+use Softspring\UserBundle\Model\ConfirmableInterface;
 use Softspring\UserBundle\Model\NameSurnameInterface;
 use Softspring\UserBundle\Model\Oauth\FacebookOauthInterface;
+use Softspring\UserBundle\Model\PasswordRequestInterface;
 use Softspring\UserBundle\Model\RolesFullInterface;
 use Softspring\UserBundle\Model\User as UserModel;
 use Softspring\UserBundle\Model\UserHasLocalePreferenceInterface;
@@ -51,12 +55,14 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[Gedmo\Uploadable(allowOverwrite: true, appendNumber: true, filenameGenerator: Validator::FILENAME_GENERATOR_SHA1)]
 #[Gedmo\SoftDeleteable]
-class User extends UserModel implements UserInterface, UserIdentifierUsernameInterface, UserWithEmailInterface, UserPasswordInterface, NameSurnameInterface, RolesFullInterface, TimezoneAwareInterface, UserHasLocalePreferenceInterface, FacebookOauthInterface, PasswordAuthenticatedUserInterface
+class User extends UserModel implements UserInterface, UserIdentifierUsernameInterface, UserWithEmailInterface, UserPasswordInterface, NameSurnameInterface, RolesFullInterface, TimezoneAwareInterface, UserHasLocalePreferenceInterface, FacebookOauthInterface, PasswordAuthenticatedUserInterface, ConfirmableInterface, PasswordRequestInterface
 {
     use BlameableEntity;
+    use ConfirmableTrait;
     use EmailTrait;
     use NameSurnameTrait;
     use OauthTrait;
+    use PasswordRequestTrait;
     use RolesFullTrait;
     use SoftDeleteableEntity;
     use TimestampableEntity;
