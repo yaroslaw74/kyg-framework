@@ -56,6 +56,7 @@
         "rekalogika/file-zip": "^2.5",
         "shivas/versioning-bundle": "^4.2",
         "slowprog/composer-copy-file": "^0.3.3",
+        "softspring/mailer-bundle": "^6.0.x-dev",
         "softspring/user-bundle": "^6.0.x-dev",
         "sonata-project/intl-bundle": "^3.3",
         "spomky-labs/pwa-bundle": "^1.5",
