@@ -15,22 +15,23 @@ declare(strict_types=1);
 namespace App\EventSubscriber;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-final readonly class LocaleSubscriber implements EventSubscriberInterface
+final readonly class LocaleSubscriber
 {
     private string $defaultLocale;
 
-    public function __construct(private ContainerBagInterface $containerBag)
+    public function __construct(private ContainerBagInterface $params)
     {
-        $this->defaultLocale = $this->containerBag->get('kernel.default_locale');
+        $this->defaultLocale = $this->params->get('kernel.default_locale');
     }
 
-    public function onKernelRequest(RequestEvent $requestEvent): void
+    #[AsEventListener(event: KernelEvents::REQUEST, priority: 20)]
+    public function onKernelRequest(RequestEvent $event): void
     {
-        $request = $requestEvent->getRequest();
+        $request = $event->getRequest();
         if (!$request->hasPreviousSession()) {
             return;
         }
@@ -44,17 +45,5 @@ final readonly class LocaleSubscriber implements EventSubscriberInterface
             // if no explicit locale has been set on this request, use one from the session
             $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
         }
-    }
-
-    /**
-     * @return array<string, string|array{0: string, 1?: int}|array{method: string, priority?: int, before?: string|list<string>, after?: string|list<string>}|list<array{0: string, 1?: int}|array{method: string, priority?: int, before?: string|list<string>, after?: string|list<string>}>>
-     */
-    #[\Override]
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            // must be registered before (i.e. with a higher priority than) the default Locale listener
-            KernelEvents::REQUEST => [['onKernelRequest', 20]],
-        ];
     }
 }
