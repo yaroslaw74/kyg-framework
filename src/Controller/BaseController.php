@@ -32,7 +32,7 @@ final class BaseController extends AbstractController
         $this->webSiteSettings = $this->settingsManager->get(WebSiteSettings::class);
     }
 
-    #[Route('/', name: 'index', methods: ['GET'])]
+    #[Route(path: '/', name: 'index', methods: ['GET'])]
     public function index(): RedirectResponse
     {
         if (!$this->webSiteSettings->getWebSiteEnabled()) {
