@@ -11,6 +11,6 @@ _sfs_user_invitations:
     resource: "@SfsUserBundle/config/routing/admin_invitations.yaml"
     prefix: /admin/invitations
 
-#_sfs_user_history:
-#    resource: "@SfsUserBundle/config/routing/admin_access_history.yaml"
-#    prefix: /admin/access-history
+_sfs_user_history:
+    resource: "@SfsUserBundle/config/routing/admin_access_history.yaml"
+    prefix: /admin/access-history
