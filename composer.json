@@ -56,7 +56,10 @@
         "rekalogika/file-zip": "^2.5",
         "shivas/versioning-bundle": "^4.2",
         "slowprog/composer-copy-file": "^0.3.3",
+        "softspring/account-bundle": "^6.1.x-dev",
         "softspring/mailer-bundle": "^6.1.x-dev",
+        "softspring/permissions-bundle": "^6.1.x-dev",
+        "softspring/twig-extra-bundle": "^6.1.x-dev",
         "softspring/user-bundle": "^6.1.x-dev",
         "sonata-project/intl-bundle": "^3.3",
         "spomky-labs/pwa-bundle": "^1.5",
@@ -143,7 +146,7 @@
         "twig/twig": "^3.30 || ^4.0"
     },
     "require-dev": {
-        "composer/composer": "^2.11",
+        "composer/composer": "^2.11.2",
         "dama/doctrine-test-bundle": "^8.7",
         "dbrekelmans/bdi": "^1.4",
         "doctrine/doctrine-fixtures-bundle": "^4.3",
