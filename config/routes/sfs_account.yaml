@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../vendor/symfony/routing/Loader/schema/routing.schema.json
+_sfs_account_register:
+    resource: "@SfsAccountBundle/config/routing/register.yaml"
+    prefix: /admin/register/account
+
+_sfs_account_settings:
+    resource: "@SfsAccountBundle/config/routing/settings.yaml"
+    prefix: /admin/account/{_account}/settings
+
+_sfs_account_settings_users:
+    resource: "@SfsAccountBundle/config/routing/settings_users.yaml"
+    prefix: /admin/account/{_account}/settings/users
+
+_sfs_account_user_accounts:
+    resource: "@SfsAccountBundle/config/routing/user_accounts.yaml"
+    prefix: /admin/user/accounts
+
+_sfs_account_admin_accounts:
+    resource: "@SfsAccountBundle/config/routing/admin_accounts.yaml"
+    prefix: /admin/accounts
