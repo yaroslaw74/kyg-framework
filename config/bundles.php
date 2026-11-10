@@ -61,4 +61,5 @@ return [
     Softspring\PermissionsBundle\SfsPermissionsBundle::class => ['all' => true],
     Softspring\UserBundle\SfsUserBundle::class => ['all' => true],
     Softspring\Component\Components\SfsComponentsBundle::class => ['all' => true],
+    Softspring\AccountBundle\SfsAccountBundle::class => ['all' => true],
 ];
