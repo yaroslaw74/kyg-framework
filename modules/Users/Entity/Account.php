@@ -49,6 +49,7 @@ class Account extends AccountModel implements AccountMembershipsInterface, Owner
         $this->memberships = new ArrayCollection();
     }
 
+    #[\Override]
     public function getId(): ?int
     {
         return $this->id;
