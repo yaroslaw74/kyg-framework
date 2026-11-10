@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Softspring\UserBundle\Model\UserAccess as UserAccessModel;
 
 #[ORM\Entity(repositoryClass: UserAccessRepository::class)]
-#[ORM\Table(name: 'user_access')]
+#[ORM\Table(name: 'Users__user_access')]
 class UserAccess extends UserAccessModel
 {
     #[ORM\Id]
