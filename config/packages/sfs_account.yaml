@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../schema.json
+sfs_account:
+    class: App\Modules\Users\Entity\Account
+    membership_class: App\Modules\Users\Entity\AccountMembership
+    admin: true
+    twig_app_var_name: account
+    route_param_name: _account
+    find_field_name: id
+    filter:
+        enabled: true
