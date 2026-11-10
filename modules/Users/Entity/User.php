@@ -18,6 +18,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Modules\Users\Enum\UserStatus;
 use App\Modules\Users\Model\OauthTrait;
 use App\Modules\Users\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -26,6 +27,8 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
 use libphonenumber\PhoneNumber;
+use Softspring\AccountBundle\Entity\UserAccountMembershipsTrait;
+use Softspring\AccountBundle\Model\UserAccountMembershipsInterface;
 use Softspring\UserBundle\Entity\ConfirmableTrait;
 use Softspring\UserBundle\Entity\EmailTrait;
 use Softspring\UserBundle\Entity\NameSurnameTrait;
@@ -51,12 +54,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ApiResource]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: 'user')]
+#[ORM\Table(name: 'users__user')]
 #[ORM\HasLifecycleCallbacks]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[Gedmo\Uploadable(allowOverwrite: true, appendNumber: true, filenameGenerator: Validator::FILENAME_GENERATOR_SHA1)]
 #[Gedmo\SoftDeleteable]
-class User extends UserModel implements UserInterface, UserIdentifierUsernameInterface, UserWithEmailInterface, UserPasswordInterface, NameSurnameInterface, RolesFullInterface, TimezoneAwareInterface, UserHasLocalePreferenceInterface, FacebookOauthInterface, PasswordAuthenticatedUserInterface, ConfirmableInterface, PasswordRequestInterface
+class User extends UserModel implements ConfirmableInterface, FacebookOauthInterface, NameSurnameInterface, PasswordAuthenticatedUserInterface, PasswordRequestInterface, RolesFullInterface, TimezoneAwareInterface, UserAccountMembershipsInterface, UserHasLocalePreferenceInterface, UserIdentifierUsernameInterface, UserInterface, UserPasswordInterface, UserWithEmailInterface
 {
     use BlameableEntity;
     use ConfirmableTrait;
@@ -68,6 +71,7 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
     use SoftDeleteableEntity;
     use TimestampableEntity;
     use TimezoneAwareTrait;
+    use UserAccountMembershipsTrait;
     use UserHasLocalePreferenceTrait;
     use UserIdentifierUsernameTrait;
     use UserPasswordTrait;
@@ -96,6 +100,12 @@ class User extends UserModel implements UserInterface, UserIdentifierUsernameInt
 
     #[ORM\Column(name: 'status', enumType: UserStatus::class, options: ['default' => UserStatus::NEW])]
     private UserStatus $status = UserStatus::NEW;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->accountMemberships = new ArrayCollection();
+    }
 
     public function getDisplayName(): string
     {
