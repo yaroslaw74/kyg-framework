@@ -107,6 +107,7 @@ class User extends UserModel implements ConfirmableInterface, FacebookOauthInter
         $this->accountMemberships = new ArrayCollection();
     }
 
+    #[\Override]
     public function getDisplayName(): string
     {
         return trim(($this->getName() ?? '').' '.($this->getSurname() ?? ''));
