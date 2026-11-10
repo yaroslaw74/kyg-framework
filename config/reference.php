@@ -3157,6 +3157,18 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *     },
  * }
+ * @psalm-type SfsAccountConfig = array{
+ *     class?: scalar|Param|null, // Default: "App\\Entity\\Account"
+ *     admin?: bool|Param, // Default: true
+ *     entity_manager?: scalar|Param|null, // Default: "default"
+ *     twig_app_var_name?: scalar|Param|null, // Default: "account"
+ *     route_param_name?: scalar|Param|null, // Default: "_account"
+ *     find_field_name?: scalar|Param|null, // Default: "id"
+ *     membership_class?: scalar|Param|null, // Default: null
+ *     filter?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -3213,6 +3225,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     live_component?: LiveComponentConfig,
  *     sfs_twig_extra?: SfsTwigExtraConfig,
  *     sfs_user?: SfsUserConfig,
+ *     sfs_account?: SfsAccountConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -3280,6 +3293,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
+ *         sfs_account?: SfsAccountConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -3337,6 +3351,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
+ *         sfs_account?: SfsAccountConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3401,6 +3416,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
+ *         sfs_account?: SfsAccountConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
