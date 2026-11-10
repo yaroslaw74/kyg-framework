@@ -12107,6 +12107,62 @@
                     "named_serializers": []
                 }
             },
+            "sfs_account": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "class": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "App\\Entity\\Account"
+                    },
+                    "admin": {
+                        "$ref": "#/$defs/types/boolean",
+                        "default": true
+                    },
+                    "entity_manager": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "default"
+                    },
+                    "twig_app_var_name": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "account"
+                    },
+                    "route_param_name": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "_account"
+                    },
+                    "find_field_name": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "id"
+                    },
+                    "membership_class": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null
+                    },
+                    "filter": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
             "sfs_twig_extra": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -16882,6 +16938,9 @@
         "serializer": {
             "$ref": "#/$defs/nodes/serializer"
         },
+        "sfs_account": {
+            "$ref": "#/$defs/nodes/sfs_account"
+        },
         "sfs_twig_extra": {
             "$ref": "#/$defs/nodes/sfs_twig_extra"
         },
@@ -17068,6 +17127,9 @@
                     "$ref": "#/$defs/nodes/serializer"
                 },
                 "services": true,
+                "sfs_account": {
+                    "$ref": "#/$defs/nodes/sfs_account"
+                },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
                 },
@@ -17257,6 +17319,9 @@
                     "$ref": "#/$defs/nodes/serializer"
                 },
                 "services": true,
+                "sfs_account": {
+                    "$ref": "#/$defs/nodes/sfs_account"
+                },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
                 },
@@ -17426,6 +17491,9 @@
                 },
                 "serializer": {
                     "$ref": "#/$defs/nodes/serializer"
+                },
+                "sfs_account": {
+                    "$ref": "#/$defs/nodes/sfs_account"
                 },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
