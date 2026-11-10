@@ -28,21 +28,25 @@ class UserInvitation extends UserInvitationModel
     #[ORM\Column(name: 'id', type: Types::INTEGER)]
     private ?int $id = null;
 
+    #[\Override]
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    #[\Override]
     public function getUserIdentifier(): ?string
     {
         return $this->getUser()?->getUserIdentifier();
     }
 
+    #[\Override]
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    #[\Override]
     public function setEmail(?string $email): void
     {
         $this->email = $email;
