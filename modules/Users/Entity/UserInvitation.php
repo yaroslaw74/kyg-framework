@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Softspring\UserBundle\Model\UserInvitation as UserInvitationModel;
 
 #[ORM\Entity(repositoryClass: UserInvitationRepository::class)]
-#[ORM\Table(name: 'user_invitation')]
+#[ORM\Table(name: 'users__user_invitation')]
 class UserInvitation extends UserInvitationModel
 {
     #[ORM\Id]
