@@ -32,6 +32,7 @@ class AccountMembership extends AccountMembershipModel implements AccountMembers
     /**
      * @return string[]
      */
+    #[\Override]
     public function getRoles(): array
     {
         return $this->roles;
@@ -40,6 +41,7 @@ class AccountMembership extends AccountMembershipModel implements AccountMembers
     /**
      * @phpstan-ignore missingType.iterableValue
      */
+    #[\Override]
     public function setRoles(array $roles): void
     {
         $this->roles = array_values(array_unique($roles));
