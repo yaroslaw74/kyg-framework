@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91f6b32922e7ec8a89ef4a6c25b5469e",
+    "content-hash": "9992b1f5b316896522be19c0405be8d2",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -1680,16 +1680,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "4.5.0",
+            "version": "4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "c435cd7ea33e17d2a89288caf994cf3d4549b879"
+                "reference": "b2815456989aa41964ee66d7ab47b7885264acf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c435cd7ea33e17d2a89288caf994cf3d4549b879",
-                "reference": "c435cd7ea33e17d2a89288caf994cf3d4549b879",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/b2815456989aa41964ee66d7ab47b7885264acf3",
+                "reference": "b2815456989aa41964ee66d7ab47b7885264acf3",
                 "shasum": ""
             },
             "require": {
@@ -1702,7 +1702,7 @@
                 "doctrine/coding-standard": "14.0.0",
                 "fig/log-test": "^1",
                 "jetbrains/phpstorm-stubs": "2023.2",
-                "phpstan/phpstan": "2.1.30",
+                "phpstan/phpstan": "2.3.4",
                 "phpstan/phpstan-phpunit": "2.0.7",
                 "phpstan/phpstan-strict-rules": "^2",
                 "phpunit/phpunit": "11.5.56",
@@ -1766,7 +1766,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/4.5.0"
+                "source": "https://github.com/doctrine/dbal/tree/4.5.1"
             },
             "funding": [
                 {
@@ -1782,7 +1782,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-24T16:11:26+00:00"
+            "time": "2026-11-10T09:21:59+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -7315,17 +7315,87 @@
             "time": "2020-07-02T14:44:41+00:00"
         },
         {
+            "name": "softspring/account-bundle",
+            "version": "6.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/softspring/account-bundle.git",
+                "reference": "3bdf1972850c4229325923cf8e9d317b67a69c15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/softspring/account-bundle/zipball/3bdf1972850c4229325923cf8e9d317b67a69c15",
+                "reference": "3bdf1972850c4229325923cf8e9d317b67a69c15",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^2.10 || ^3.0 || ^4.0",
+                "doctrine/orm": "^2.10 || ^3.0 || ^4.0",
+                "php": ">=8.4",
+                "softspring/components": "6.1.*@dev",
+                "softspring/crudl-controller": "6.1.*@dev",
+                "softspring/doctrine-paginator": "6.1.*@dev",
+                "softspring/doctrine-query-filters": "6.1.*@dev",
+                "softspring/doctrine-target-entity-resolver": "6.1.*@dev",
+                "softspring/events": "6.1.*@dev",
+                "softspring/twig-extra-bundle": "6.1.*@dev",
+                "softspring/user-bundle": "6.1.*@dev",
+                "symfony/config": "^6.4 || ^7.4 || ^8.0",
+                "symfony/console": "^6.4 || ^7.4 || ^8.0",
+                "symfony/event-dispatcher": "^6.4 || ^7.4 || ^8.0",
+                "symfony/form": "^6.4 || ^7.4 || ^8.0",
+                "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.0",
+                "symfony/http-foundation": "^6.4 || ^7.4 || ^8.0",
+                "symfony/security-bundle": "^6.4 || ^7.4 || ^8.0",
+                "symfony/validator": "^6.4 || ^7.4 || ^8.0",
+                "symfony/yaml": "^6.4 || ^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "doctrine/doctrine-fixtures-bundle": "^3.7",
+                "ergebnis/composer-normalize": "^2.50",
+                "fakerphp/faker": "^1.21",
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^12.5",
+                "rector/rector": "^2.6.7",
+                "softspring/doctrine-templates": "6.1.*@dev",
+                "symfony/polyfill-php85": "^1.33"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-6.0": "6.0.x-dev",
+                    "dev-6.1": "6.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Softspring\\AccountBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "description": "Account ownership bundle for Symfony applications",
+            "support": {
+                "issues": "https://github.com/softspring/account-bundle/issues",
+                "source": "https://github.com/softspring/account-bundle/tree/6.1"
+            },
+            "time": "2026-11-10T09:36:52+00:00"
+        },
+        {
             "name": "softspring/components",
             "version": "6.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/components.git",
-                "reference": "13b068b59b36d0b7d224743109cbcc572f4f0abc"
+                "reference": "4a4b4d7c19434972bbaafd09ec0b9544cc48e04b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/components/zipball/13b068b59b36d0b7d224743109cbcc572f4f0abc",
-                "reference": "13b068b59b36d0b7d224743109cbcc572f4f0abc",
+                "url": "https://api.github.com/repos/softspring/components/zipball/4a4b4d7c19434972bbaafd09ec0b9544cc48e04b",
+                "reference": "4a4b4d7c19434972bbaafd09ec0b9544cc48e04b",
                 "shasum": ""
             },
             "require": {
@@ -7362,7 +7432,7 @@
                 "issues": "https://github.com/softspring/components/issues",
                 "source": "https://github.com/softspring/components/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/crudl-controller",
@@ -7370,12 +7440,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/crudl-controller.git",
-                "reference": "b5a8f0a2527bd76bf301cc22a26e555c57033bc1"
+                "reference": "7cee967397ed22cba7be0e7dee4d325a5b4ae15c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/crudl-controller/zipball/b5a8f0a2527bd76bf301cc22a26e555c57033bc1",
-                "reference": "b5a8f0a2527bd76bf301cc22a26e555c57033bc1",
+                "url": "https://api.github.com/repos/softspring/crudl-controller/zipball/7cee967397ed22cba7be0e7dee4d325a5b4ae15c",
+                "reference": "7cee967397ed22cba7be0e7dee4d325a5b4ae15c",
                 "shasum": ""
             },
             "require": {
@@ -7423,7 +7493,7 @@
                 "issues": "https://github.com/softspring/crudl-controller/issues",
                 "source": "https://github.com/softspring/crudl-controller/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/doctrine-paginator",
@@ -7431,12 +7501,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-paginator.git",
-                "reference": "5d613dd048338627032563bcd4fcd8a2d86cedca"
+                "reference": "03df2498c336f7697134e0c874afb911eb29a530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/doctrine-paginator/zipball/5d613dd048338627032563bcd4fcd8a2d86cedca",
-                "reference": "5d613dd048338627032563bcd4fcd8a2d86cedca",
+                "url": "https://api.github.com/repos/softspring/doctrine-paginator/zipball/03df2498c336f7697134e0c874afb911eb29a530",
+                "reference": "03df2498c336f7697134e0c874afb911eb29a530",
                 "shasum": ""
             },
             "require": {
@@ -7479,7 +7549,7 @@
                 "issues": "https://github.com/softspring/doctrine-paginator/issues",
                 "source": "https://github.com/softspring/doctrine-paginator/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/doctrine-query-filters",
@@ -7487,12 +7557,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-query-filters.git",
-                "reference": "39a5152612e3a59487934be50303ca6f0fcc3669"
+                "reference": "6a1c8bd90c3b48a7bf65148ab8d8793f69db0ba9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/doctrine-query-filters/zipball/39a5152612e3a59487934be50303ca6f0fcc3669",
-                "reference": "39a5152612e3a59487934be50303ca6f0fcc3669",
+                "url": "https://api.github.com/repos/softspring/doctrine-query-filters/zipball/6a1c8bd90c3b48a7bf65148ab8d8793f69db0ba9",
+                "reference": "6a1c8bd90c3b48a7bf65148ab8d8793f69db0ba9",
                 "shasum": ""
             },
             "require": {
@@ -7531,7 +7601,7 @@
                 "issues": "https://github.com/softspring/doctrine-query-filters/issues",
                 "source": "https://github.com/softspring/doctrine-query-filters/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/doctrine-target-entity-resolver",
@@ -7539,12 +7609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-target-entity-resolver.git",
-                "reference": "10a7fee15f5f2654d819af9832ce2c2c6e5882c9"
+                "reference": "fe0fb22b13fa3a07096a10295980d48b7b1c706d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/doctrine-target-entity-resolver/zipball/10a7fee15f5f2654d819af9832ce2c2c6e5882c9",
-                "reference": "10a7fee15f5f2654d819af9832ce2c2c6e5882c9",
+                "url": "https://api.github.com/repos/softspring/doctrine-target-entity-resolver/zipball/fe0fb22b13fa3a07096a10295980d48b7b1c706d",
+                "reference": "fe0fb22b13fa3a07096a10295980d48b7b1c706d",
                 "shasum": ""
             },
             "require": {
@@ -7581,7 +7651,7 @@
                 "issues": "https://github.com/softspring/doctrine-target-entity-resolver/issues",
                 "source": "https://github.com/softspring/doctrine-target-entity-resolver/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/events",
@@ -7589,12 +7659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/events.git",
-                "reference": "c8b692d960e1da93162fd0bf2a7bcf6000095da1"
+                "reference": "4d17f1ef88a9d222c3232a2a3d14f658f124db58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/events/zipball/c8b692d960e1da93162fd0bf2a7bcf6000095da1",
-                "reference": "c8b692d960e1da93162fd0bf2a7bcf6000095da1",
+                "url": "https://api.github.com/repos/softspring/events/zipball/4d17f1ef88a9d222c3232a2a3d14f658f124db58",
+                "reference": "4d17f1ef88a9d222c3232a2a3d14f658f124db58",
                 "shasum": ""
             },
             "require": {
@@ -7633,7 +7703,7 @@
                 "issues": "https://github.com/softspring/events/issues",
                 "source": "https://github.com/softspring/events/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/mailer-bundle",
@@ -7641,12 +7711,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/mailer-bundle.git",
-                "reference": "512b2cd745b51fb867d8e6c8182c7522e80f06c0"
+                "reference": "834b61131aa8373d078d425310ab9b3bfac53aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/mailer-bundle/zipball/512b2cd745b51fb867d8e6c8182c7522e80f06c0",
-                "reference": "512b2cd745b51fb867d8e6c8182c7522e80f06c0",
+                "url": "https://api.github.com/repos/softspring/mailer-bundle/zipball/834b61131aa8373d078d425310ab9b3bfac53aab",
+                "reference": "834b61131aa8373d078d425310ab9b3bfac53aab",
                 "shasum": ""
             },
             "require": {
@@ -7698,7 +7768,7 @@
                 "issues": "https://github.com/softspring/mailer-bundle/issues",
                 "source": "https://github.com/softspring/mailer-bundle/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/mime-translatable",
@@ -7706,12 +7776,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/mime-translatable.git",
-                "reference": "888c6e1820e488f943cb758028ff97743b73efe6"
+                "reference": "6a08f478442cfafa47aa049f1aa622c780e802bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/mime-translatable/zipball/888c6e1820e488f943cb758028ff97743b73efe6",
-                "reference": "888c6e1820e488f943cb758028ff97743b73efe6",
+                "url": "https://api.github.com/repos/softspring/mime-translatable/zipball/6a08f478442cfafa47aa049f1aa622c780e802bf",
+                "reference": "6a08f478442cfafa47aa049f1aa622c780e802bf",
                 "shasum": ""
             },
             "require": {
@@ -7755,7 +7825,7 @@
                 "issues": "https://github.com/softspring/mime-translatable/issues",
                 "source": "https://github.com/softspring/mime-translatable/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/permissions-bundle",
@@ -7763,12 +7833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/permissions-bundle.git",
-                "reference": "d3d6ffe00f8195796c0d5cd3373dabc13d002f85"
+                "reference": "2b8b0329253834a074992418b18d945861ee8022"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/permissions-bundle/zipball/d3d6ffe00f8195796c0d5cd3373dabc13d002f85",
-                "reference": "d3d6ffe00f8195796c0d5cd3373dabc13d002f85",
+                "url": "https://api.github.com/repos/softspring/permissions-bundle/zipball/2b8b0329253834a074992418b18d945861ee8022",
+                "reference": "2b8b0329253834a074992418b18d945861ee8022",
                 "shasum": ""
             },
             "require": {
@@ -7808,7 +7878,7 @@
                 "issues": "https://github.com/softspring/permissions-bundle/issues",
                 "source": "https://github.com/softspring/permissions-bundle/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/twig-extra-bundle",
@@ -7816,12 +7886,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/twig-extra-bundle.git",
-                "reference": "35b36578ae0e4348036f9440868f99139ed534cc"
+                "reference": "2449a28efed5bb3aa1efd72b4ce66d1679ac0506"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/twig-extra-bundle/zipball/35b36578ae0e4348036f9440868f99139ed534cc",
-                "reference": "35b36578ae0e4348036f9440868f99139ed534cc",
+                "url": "https://api.github.com/repos/softspring/twig-extra-bundle/zipball/2449a28efed5bb3aa1efd72b4ce66d1679ac0506",
+                "reference": "2449a28efed5bb3aa1efd72b4ce66d1679ac0506",
                 "shasum": ""
             },
             "require": {
@@ -7866,7 +7936,7 @@
                 "issues": "https://github.com/softspring/twig-extra-bundle/issues",
                 "source": "https://github.com/softspring/twig-extra-bundle/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "softspring/user-bundle",
@@ -7874,12 +7944,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/user-bundle.git",
-                "reference": "2905710fb1281505427284126ab1caf87041ba04"
+                "reference": "3cee2838dec698a3a2d5bc5bc9dace1ea2f20c3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/user-bundle/zipball/2905710fb1281505427284126ab1caf87041ba04",
-                "reference": "2905710fb1281505427284126ab1caf87041ba04",
+                "url": "https://api.github.com/repos/softspring/user-bundle/zipball/3cee2838dec698a3a2d5bc5bc9dace1ea2f20c3f",
+                "reference": "3cee2838dec698a3a2d5bc5bc9dace1ea2f20c3f",
                 "shasum": ""
             },
             "require": {
@@ -7958,7 +8028,7 @@
                 "issues": "https://github.com/softspring/user-bundle/issues",
                 "source": "https://github.com/softspring/user-bundle/tree/6.1"
             },
-            "time": "2026-11-09T14:41:09+00:00"
+            "time": "2026-11-10T09:36:52+00:00"
         },
         {
             "name": "sonata-project/intl-bundle",
@@ -17160,16 +17230,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.11.1",
+            "version": "2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "472b418967419c6124edd91dc6310a3bec091dae"
+                "reference": "12c820dbc3f030954b1d09f5884fcf1e9d29d6cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/472b418967419c6124edd91dc6310a3bec091dae",
-                "reference": "472b418967419c6124edd91dc6310a3bec091dae",
+                "url": "https://api.github.com/repos/composer/composer/zipball/12c820dbc3f030954b1d09f5884fcf1e9d29d6cb",
+                "reference": "12c820dbc3f030954b1d09f5884fcf1e9d29d6cb",
                 "shasum": ""
             },
             "require": {
@@ -17259,7 +17329,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.11.1"
+                "source": "https://github.com/composer/composer/tree/2.11.2"
             },
             "funding": [
                 {
@@ -17271,7 +17341,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-30T13:52:10+00:00"
+            "time": "2026-11-10T09:09:37+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -18898,16 +18968,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "3170236055eb67e860b9d2c01c664d1876fa1652"
+                "reference": "ac19e4e945513b1bad6744f8ea2626974a036bc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/3170236055eb67e860b9d2c01c664d1876fa1652",
-                "reference": "3170236055eb67e860b9d2c01c664d1876fa1652",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/ac19e4e945513b1bad6744f8ea2626974a036bc0",
+                "reference": "ac19e4e945513b1bad6744f8ea2626974a036bc0",
                 "shasum": ""
             },
             "require": {
@@ -18954,11 +19024,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-10-30T21:24:02+00:00"
+            "time": "2026-11-04T19:47:22+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -19004,7 +19074,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -19052,7 +19122,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -19098,7 +19168,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -19151,7 +19221,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -19202,16 +19272,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v13.40.0",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "8b4694c7ff2e3cf4dc7cd2177973617837a2f382"
+                "reference": "f36fc343f02bd13d56c71ed20b441bcb6839cf46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/8b4694c7ff2e3cf4dc7cd2177973617837a2f382",
-                "reference": "8b4694c7ff2e3cf4dc7cd2177973617837a2f382",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/f36fc343f02bd13d56c71ed20b441bcb6839cf46",
+                "reference": "f36fc343f02bd13d56c71ed20b441bcb6839cf46",
                 "shasum": ""
             },
             "require": {
@@ -19239,7 +19309,7 @@
                 "illuminate/filesystem": "Required to use the Composer class (^13.0).",
                 "laravel/serializable-closure": "Required to use the once function (^2.0.10).",
                 "league/commonmark": "Required to use Str::markdown() and Stringable::markdown() (^2.7).",
-                "league/uri": "Required to use the Uri class (^7.5.1).",
+                "league/uri": "Required to use the Uri class (^7.6).",
                 "ramsey/uuid": "Required to use Str::uuid() (^4.7).",
                 "symfony/process": "Required to use the Composer class (^7.4 || ^8.0).",
                 "symfony/uid": "Required to use Str::ulid() (^7.4 || ^8.0).",
@@ -19277,7 +19347,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-11-02T15:53:26+00:00"
+            "time": "2026-11-07T13:38:13+00:00"
         },
         {
             "name": "jawira/db-draw",
@@ -25708,12 +25778,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "fe0ce1a1aa770451daa3cdd3dccab75e564e06f3"
+                "reference": "a1ae18d5eacdc9ff771b0f13369ecfa415bcdc66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/fe0ce1a1aa770451daa3cdd3dccab75e564e06f3",
-                "reference": "fe0ce1a1aa770451daa3cdd3dccab75e564e06f3",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/a1ae18d5eacdc9ff771b0f13369ecfa415bcdc66",
+                "reference": "a1ae18d5eacdc9ff771b0f13369ecfa415bcdc66",
                 "shasum": ""
             },
             "require": {
@@ -25822,7 +25892,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-11-09T17:57:12+00:00"
+            "time": "2026-11-10T11:26:13+00:00"
         },
         {
             "name": "vincentlanglet/twig-cs-fixer",
@@ -26594,7 +26664,10 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "softspring/account-bundle": 20,
         "softspring/mailer-bundle": 20,
+        "softspring/permissions-bundle": 20,
+        "softspring/twig-extra-bundle": 20,
         "softspring/user-bundle": 20,
         "vimeo/psalm": 20
     },
