@@ -14,3 +14,6 @@ _sfs_user_invitations:
 _sfs_user_history:
     resource: "@SfsUserBundle/config/routing/admin_access_history.yaml"
     prefix: /admin/access-history
+
+_sfs_user_oauth_facebook:
+    resource: "@SfsUserBundle/config/routing/login_oauth_facebook.yaml"
