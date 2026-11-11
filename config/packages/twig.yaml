@@ -1,3 +1,7 @@
 # yaml-language-server: $schema=../schema.json
 twig:
+    form_themes:
+        - "bootstrap_5_layout.html.twig"
+        - "form/form_theme.html.twig"
+
     file_name_pattern: "*.twig"
