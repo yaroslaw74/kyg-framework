@@ -61,6 +61,25 @@ security:
             lazy: true
             provider: app_user_provider
             pattern: ^/app(.*)
+            entry_point: "form_login"
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                enable_csrf: true
+
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: app
+
+            remember_me:
+                secret: "%env(APP_SECRET)%"
+                lifetime: 2629746
+                path: app
+
+            login_throttling:
+                max_attempts: 5
+                interval: "15 minutes"
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
