@@ -53,9 +53,12 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label required" for="password">{% trans %}Password{% endtrans %}</label>
-                                <div class="input-group mb-3">
-                                    <input class="form-control" placeholder="{% trans %}Enter your Password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required>
-                                    <button class="btn-weve bth-light bg-transparent btn btn-primary" type="button" id="togglePassword"><i class="ri-eye-line"></i></button>
+                                <div class="toggle-password-container">
+                                    <input class="form-control" placeholder="{% trans %}Enter your Password{% endtrans %}" type="password" name="_password" id="password" autocomplete="current-password" required {{ stimulus_controller('toggle-password', {
+            visibleLabel: 'Show password',
+            hiddenLabel: 'Hide password',
+            buttonClasses: ['toggle-password-button']
+        }) }}>
                                 </div>
                             </div>
                             <div class="checkbox mb-3">
