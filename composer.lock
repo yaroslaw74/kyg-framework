@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60c1e98f42ffd1cffa407c1d873fda06",
+    "content-hash": "2bce085e06fe1cf21c1fd26586f84671",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -25836,16 +25836,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "dev-master",
+            "version": "7.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "0d5bbff2a1cabd71ba3e947770241b5246962794"
+                "reference": "81bda61675df22fc4e5e1ceab1c33f4c61a4830b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/0d5bbff2a1cabd71ba3e947770241b5246962794",
-                "reference": "0d5bbff2a1cabd71ba3e947770241b5246962794",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/81bda61675df22fc4e5e1ceab1c33f4c61a4830b",
+                "reference": "81bda61675df22fc4e5e1ceab1c33f4c61a4830b",
                 "shasum": ""
             },
             "require": {
@@ -25903,7 +25903,6 @@
                 "ext-igbinary": "^2.0.5 is required, used to serialize caching data",
                 "ext-zstd": ">=0.15.0 is required, used to compress caching data"
             },
-            "default-branch": true,
             "bin": [
                 "psalm",
                 "psalm-language-server",
@@ -25954,7 +25953,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-11-12T06:31:56+00:00"
+            "time": "2026-11-12T00:44:09+00:00"
         },
         {
             "name": "vincentlanglet/twig-cs-fixer",
