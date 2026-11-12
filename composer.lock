@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9992b1f5b316896522be19c0405be8d2",
+    "content-hash": "60c1e98f42ffd1cffa407c1d873fda06",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -22101,39 +22101,41 @@
         },
         {
             "name": "psalm/plugin-phpunit",
-            "version": "0.21.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-phpunit.git",
-                "reference": "01a0871ba04710331779a3a80c3caabc5427339c"
+                "reference": "02622ac27c733402886a6d6aaea8a69b14e94f7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/01a0871ba04710331779a3a80c3caabc5427339c",
-                "reference": "01a0871ba04710331779a3a80c3caabc5427339c",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/02622ac27c733402886a6d6aaea8a69b14e94f7b",
+                "reference": "02622ac27c733402886a6d6aaea8a69b14e94f7b",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
-                "php": ">=8.1",
-                "psalm/psalm-plugin-api": "^0.4"
+                "php": ">=8.2",
+                "psalm/psalm-plugin-api": "^0.4.2",
+                "vimeo/psalm": "^7.2 || dev-master"
             },
             "conflict": {
                 "phpspec/prophecy": "<1.20.0",
                 "phpspec/prophecy-phpunit": "<2.3.0",
-                "phpunit/phpunit": "<8.5.1"
+                "phpunit/phpunit": "<11.0"
             },
             "require-dev": {
-                "php": "^7.3 || ^8.0",
-                "phpunit/phpunit": "^10.0 || ^11.0 || ^12.0",
-                "squizlabs/php_codesniffer": "^3.3.1",
-                "vimeo/psalm": "^7|dev-master",
-                "weirdan/prophecy-shim": "^1.0 || ^2.0"
+                "friendsofphp/php-cs-fixer": "^3.88",
+                "phpspec/prophecy-phpunit": "^2.5",
+                "phpunit/phpunit": "^11.0 || ^12.0 || ^13.0"
             },
             "type": "psalm-plugin",
             "extra": {
                 "psalm": {
                     "pluginClass": "Psalm\\PhpUnitPlugin\\Plugin"
+                },
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -22154,9 +22156,9 @@
             "description": "Psalm plugin for PHPUnit",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-phpunit/issues",
-                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/0.21.1"
+                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/1.1.0"
             },
-            "time": "2026-10-20T11:28:19+00:00"
+            "time": "2026-11-11T10:38:01+00:00"
         },
         {
             "name": "psalm/plugin-symfony",
@@ -25475,6 +25477,122 @@
                 }
             ],
             "time": "2026-11-02T15:47:45+00:00"
+        },
+        {
+            "name": "symfony/ux-toolkit",
+            "version": "v3.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ux-toolkit.git",
+                "reference": "1b14edbe942992381d63c59365cfc589128ff613"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ux-toolkit/zipball/1b14edbe942992381d63c59365cfc589128ff613",
+                "reference": "1b14edbe942992381d63c59365cfc589128ff613",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4",
+                "phpstan/phpdoc-parser": "^2.0",
+                "symfony/console": "^7.4|^8.0",
+                "symfony/filesystem": "^7.4|^8.0",
+                "symfony/framework-bundle": "^7.4|^8.0",
+                "symfony/process": "^7.4|^8.0",
+                "symfony/string": "^7.4|^8.0",
+                "symfony/twig-bundle": "^7.4|^8.0",
+                "symfony/ux-twig-component": "^3.5",
+                "symfony/yaml": "^7.4|^8.0",
+                "twig/twig": "^3.29|^4.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "league/commonmark": "^2.8",
+                "phpunit/phpunit": "^11.1|^12.0",
+                "spatie/phpunit-snapshot-assertions": "^5.2.3",
+                "symfony/asset-mapper": "^7.4|^8.0",
+                "symfony/finder": "^7.4|^8.0",
+                "symfony/http-client": "^7.4|^8.0",
+                "symfony/stopwatch": "^7.4|^8.0",
+                "symfony/ux-icons": "^2.18|^3.0",
+                "symfonycasts/tailwind-bundle": "^0.12",
+                "tales-from-a-dev/twig-tailwind-extra": "^1.3.0",
+                "twig/extra-bundle": "^3.24|^4.0",
+                "twig/html-extra": "^3.24|^4.0",
+                "twig/intl-extra": "^3.24|^4.0",
+                "zenstruck/console-test": "^1.7"
+            },
+            "bin": [
+                "bin/ux-toolkit-kit-create",
+                "bin/ux-toolkit-kit-debug",
+                "bin/ux-toolkit-kit-lint"
+            ],
+            "type": "symfony-bundle",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/ux",
+                    "name": "symfony/ux"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\UX\\Toolkit\\": "src"
+                },
+                "exclude-from-classmap": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Hugo Alliaume",
+                    "email": "hugo@alliau.me"
+                },
+                {
+                    "name": "Jean-François Lépine",
+                    "email": "lepinejeanfrancois@gmail.com"
+                },
+                {
+                    "name": "Simon André",
+                    "email": "smn.andre@gmail.com"
+                }
+            ],
+            "description": "A tool to easily create a design system in your Symfony app with customizable, well-crafted Twig components",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "components",
+                "design-system",
+                "symfony-ux",
+                "twig",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/ux-toolkit/tree/v3.7.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-11-06T21:03:31+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",
