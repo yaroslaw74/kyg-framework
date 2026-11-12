@@ -14304,6 +14304,97 @@
                 },
                 "additionalProperties": false
             },
+            "ux_toolkit": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "components": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "dir": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "templates/components",
+                                "description": "The directory TwigComponent loads anonymous components from, relative to the project directory. It must match your configuration: the Twig \"default_path\" followed by the TwigComponent \"anonymous_template_directory\".",
+                                "examples": [
+                                    "templates/ui"
+                                ]
+                            },
+                            "subdirectory": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "A subdirectory of \"dir\" to install the components in. Their names get it as a prefix, which the installer adds to the copied files, e.g. \"<twig:ui:Button>\" for \"ui\".",
+                                "examples": [
+                                    "ui"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "dir": "templates/components",
+                            "subdirectory": null
+                        },
+                        "description": "Where \"ux:install\" installs the Twig components of recipes."
+                    },
+                    "controllers": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "dir": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "assets/controllers",
+                                "description": "The directory your Stimulus setup loads controllers from, relative to the project directory. It must match your configuration: an entry of \"stimulus.controller_paths\" with AssetMapper, the \"controllersDir\" option with Reprise, or the directory passed to \"require.context()\" with Webpack Encore.",
+                                "examples": [
+                                    "assets/js/controllers"
+                                ]
+                            },
+                            "subdirectory": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "A subdirectory of \"dir\" to install the controllers in. Their identifiers get it as a prefix, which the installer adds to the copied files, e.g. \"ui--dialog\" for \"ui\".",
+                                "examples": [
+                                    "ui"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "dir": "assets/controllers",
+                            "subdirectory": null
+                        },
+                        "description": "Where \"ux:install\" installs the Stimulus controllers of recipes."
+                    },
+                    "preview": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "kits": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "description": "The kits to preview: names of kits shipped with the Toolkit, or directories of external kits, absolute or relative to the project directory. Defaults to every kit shipped with the Toolkit."
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "kits": []
+                        },
+                        "description": "Wires the preview assets of kits into AssetMapper, Tailwind and the importmap."
+                    }
+                },
+                "additionalProperties": false
+            },
             "validation": {
                 "anyOf": [
                     {
@@ -17184,6 +17275,9 @@
                 "ux_map": {
                     "$ref": "#/$defs/nodes/ux_map"
                 },
+                "ux_toolkit": {
+                    "$ref": "#/$defs/nodes/ux_toolkit"
+                },
                 "validation": {
                     "$ref": "#/$defs/nodes/validation"
                 },
@@ -17372,6 +17466,9 @@
                 },
                 "ux_map": {
                     "$ref": "#/$defs/nodes/ux_map"
+                },
+                "ux_toolkit": {
+                    "$ref": "#/$defs/nodes/ux_toolkit"
                 },
                 "validation": {
                     "$ref": "#/$defs/nodes/validation"
