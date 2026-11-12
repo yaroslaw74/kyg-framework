@@ -188,7 +188,7 @@
         "symfony/web-profiler-bundle": "^8.2",
         "symplify/phpstan-rules": "^14.19",
         "systemsdk/easy-log-bundle": "^2.1",
-        "vimeo/psalm": "^7.x-dev",
+        "vimeo/psalm": "^7.3",
         "vincentlanglet/twig-cs-fixer": "^4.1",
         "weirdan/doctrine-psalm-plugin": "^2.11",
         "yamadashy/phpstan-friendly-formatter": "^1.5",
