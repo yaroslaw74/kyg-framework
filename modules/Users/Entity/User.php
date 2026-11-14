@@ -113,6 +113,7 @@ class User extends UserModel implements ConfirmableInterface, FacebookOauthInter
         return trim(($this->getName() ?? '').' '.($this->getSurname() ?? ''));
     }
 
+    #[\Override]
     public function getId(): ?int
     {
         return $this->id;
