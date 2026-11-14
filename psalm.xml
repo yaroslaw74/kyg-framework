@@ -23,23 +23,17 @@
         </ignoreFiles>
     </projectFiles>
     <plugins>
-        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
-        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
         <pluginClass class="Weirdan\DoctrinePsalmPlugin\Plugin"/>
+        <pluginClass class="Psl\Psalm\Plugin"/>
+        <pluginClass class="Orklah\PsalmInsaneComparison\Plugin"/>
+        <pluginClass class="Orklah\StrictEquality\Plugin"/>
+        <pluginClass class="Orklah\PsalmStrictNumericCast\Plugin"/>
+        <pluginClass class="Orklah\NotEmpty\Plugin"/>
+        <pluginClass class="Topotru\Psalm\ConditionalFinal\Plugin">
+            <useDoctrinePreset/>
+            <forbiddenFinalAttributes>
+                <attribute>ApiPlatform\Metadata\ApiResource</attribute>
+            </forbiddenFinalAttributes>
+        </pluginClass>
     </plugins>
-    <stubs>
-        <file name="vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php"/>
-    </stubs>
-    <issueHandlers>
-        <MissingFile>
-            <!-- https://github.com/psalm/psalm-plugin-symfony/issues/205 -->
-            <errorLevel type="suppress">
-                <file name="config/preload.php"/>
-            </errorLevel>
-        </MissingFile>
-    </issueHandlers>
-    <fileExtensions>
-        <extension name=".php"/>
-        <extension name=".twig" checker="/vendor/psalm/plugin-symfony/src/Twig/TemplateFileAnalyzer.php"/>
-    </fileExtensions>
 </psalm>
