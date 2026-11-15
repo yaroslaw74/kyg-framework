@@ -29,6 +29,33 @@ security:
             provider: app_user_provider
             pattern: ^/(.*)
             user_checker_on_refresh: true
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    yandex: "/login/check-yandex"
+                    google: "/login/check-google"
+                    linkedin: "/login/check-linkedin"
+                    mailru: "/login/check-mailru"
+                    odnoklassniki: "/login/check-odnoklassniki"
+                    x_twitter: "/login/check-x-twitter"
+                    vkontakte: "/login/check-vkontakte"
+                    github: "/login/check-github"
+                    amazon: "/login/check-amazon"
+                    instagram: "/login/check-instagram"
+                    twitch: "/login/check-twitch"
+                    yahoo: "/login/check-yahoo"
+                    spotify: "/login/check-spotify"
+                    trello: "/login/check-trello"
+                    dropbox: "/login/check-dropbox"
+                    flickr: "/login/check-flickr"
+                    windows_live: "/login/check-windows-live"
+                login_path: /login
+                use_forward: false
+                failure_path: hwi_oauth_connect_registration
+                check_path: /login-check
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
         admin:
             lazy: true
@@ -71,6 +98,34 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 target: app
+
+            oauth:
+                resource_owners:
+                    facebook: "/app/login/check-facebook"
+                    yandex: "/app/login/check-yandex"
+                    google: "/app/login/check-google"
+                    linkedin: "/app/login/check-linkedin"
+                    mailru: "/app/login/check-mailru"
+                    odnoklassniki: "/app/login/check-odnoklassniki"
+                    x_twitter: "/app/login/check-x-twitter"
+                    vkontakte: "/app/login/check-vkontakte"
+                    github: "/app/login/check-github"
+                    amazon: "/app/login/check-amazon"
+                    instagram: "/app/login/check-instagram"
+                    twitch: "/app/login/check-twitch"
+                    yahoo: "/app/login/check-yahoo"
+                    spotify: "/app/login/check-spotify"
+                    trello: "/app/login/check-trello"
+                    dropbox: "/app/login/check-dropbox"
+                    flickr: "/app/login/check-flickr"
+                    windows_live: "/app/login/check-windows-live"
+                login_path: /app/login
+                use_forward: false
+                failure_path: hwi_oauth_connect_registration
+                check_path: /app/login-check
+
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
             remember_me:
                 secret: "%env(APP_SECRET)%"
