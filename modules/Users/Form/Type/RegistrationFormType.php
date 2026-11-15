@@ -1,5 +1,4 @@
 <?php
-
 /**
  * KYG Framework for Business.
  *
@@ -11,26 +10,22 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
-
 namespace App\Modules\Users\Form\Type;
 
-use App\Modules\Users\Entity\Users;
+use App\Modules\Users\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * @template-extends AbstractType<Users>
- */
-class RegistrationFormType extends AbstractType
+final class RegistrationFormType extends AbstractType
 {
     public function __construct(private readonly TranslatorInterface $translator)
     {
@@ -63,12 +58,14 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => $this->translator->trans('I agree to the terms and conditions', [], 'users'),
+                'mapped' => false,
                 'row_attr' => [
                     'class' => 'checkbox mb-3 form-check form-check-lg',
                 ],
-                'mapped' => false,
                 'constraints' => [
-                    new IsTrue(message: $this->translator->trans('You should agree to our terms.', [], 'users')),
+                    new IsTrue(
+                        message: $this->translator->trans('You should agree to our terms.', [], 'users'),
+                    ),
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -84,8 +81,15 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => $this->translator->trans('Enter your Password', [], 'users'),
                 ],
                 'constraints' => [
-                    new NotBlank(message: $this->translator->trans('Please enter your Password', [], 'users')),
-                    new Length(min: 6, max: 30, minMessage: $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users')),
+                    new NotBlank(
+                        message: $this->translator->trans('Please enter a password', [], 'users'),
+                    ),
+                    new Length(
+                        min: 6,
+                        // max length allowed by Symfony for security reasons
+                        max: 4096,
+                        minMessage: $this->translator->trans('Your password should be at least {{ limit }} characters', [], 'users'),
+                    ),
                 ],
             ])
         ;
@@ -94,7 +98,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Users::class,
+            'data_class' => User::class,
         ]);
     }
 }
