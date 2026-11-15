@@ -10,7 +10,7 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
-namespace App\Controller\Tests;
+namespace App\Tests\Controller;
 
 use App\Modules\Users\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
