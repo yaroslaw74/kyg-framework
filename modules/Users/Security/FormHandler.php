@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Users\Security;
 
-use App\Modules\Users\Entity\Users;
+use App\Modules\Users\Entity\User;
 use HWI\Bundle\OAuthBundle\Form\RegistrationFormHandlerInterface;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use Symfony\Component\Form\FormInterface;
@@ -34,20 +34,20 @@ final readonly class FormHandler implements RegistrationFormHandlerInterface
      */
     public function process(Request $request, FormInterface $form, UserResponseInterface $userInformation): bool
     {
-        $users = new Users();
-        $users->setEmail($userInformation->getEmail());
-        $users->setUsername($userInformation->getNickname());
-        $users->setFirstName($userInformation->getFirstName());
-        $users->setLastName($userInformation->getLastName());
+        $user = new User();
+        $user->setEmail($userInformation->getEmail());
+        $user->setUsername($userInformation->getNickname());
+        $user->setName($userInformation->getFirstName());
+        $user->setSurname($userInformation->getLastName());
 
-        $form->setData($users);
+        $form->setData($user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            $users->setPassword(
+            $user->setPassword(
                 $this->userPasswordHasher->hashPassword(
-                    $users,
+                    $user,
                     $form->get('plainPassword')->getData()
                 )
             );
