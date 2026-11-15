@@ -26,6 +26,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use libphonenumber\PhoneNumber;
 use Softspring\AccountBundle\Entity\UserAccountMembershipsTrait;
 use Softspring\AccountBundle\Model\UserAccountMembershipsInterface;
@@ -59,6 +60,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]
 #[Gedmo\Uploadable(allowOverwrite: true, appendNumber: true, filenameGenerator: Validator::FILENAME_GENERATOR_SHA1)]
 #[Gedmo\SoftDeleteable]
+#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User extends UserModel implements ConfirmableInterface, FacebookOauthInterface, NameSurnameInterface, PasswordAuthenticatedUserInterface, PasswordRequestInterface, RolesFullInterface, TimezoneAwareInterface, UserAccountMembershipsInterface, UserHasLocalePreferenceInterface, UserIdentifierUsernameInterface, UserInterface, UserPasswordInterface, UserWithEmailInterface
 {
     use BlameableEntity;
@@ -100,6 +102,9 @@ class User extends UserModel implements ConfirmableInterface, FacebookOauthInter
 
     #[ORM\Column(name: 'status', enumType: UserStatus::class, options: ['default' => UserStatus::NEW])]
     private UserStatus $status = UserStatus::NEW;
+
+    #[ORM\Column(name: 'is_verified', type: Types::BOOLEAN, options: ['default' => false])]
+    private bool $isVerified = false;
 
     public function __construct()
     {
@@ -162,5 +167,16 @@ class User extends UserModel implements ConfirmableInterface, FacebookOauthInter
     public function setStatus(UserStatus $status): void
     {
         $this->status = $status;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): void
+    {
+        $this->isVerified = $isVerified;
+
     }
 }
