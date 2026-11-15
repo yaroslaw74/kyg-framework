@@ -1,5 +1,4 @@
 <?php
-
 /**
  * KYG Framework for Business.
  *
@@ -11,59 +10,61 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
-
 namespace App\Modules\Users\Security;
 
-use App\Modules\Users\Entity\Users;
+use App\Modules\Users\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Workflow\WorkflowInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
+use App\Modules\Users\Workflow\UserStstusWorkflow;
+use Symfony\Component\DependencyInjection\Attribute\Target;
+use Symfony\Component\Workflow\WorkflowInterface;
 
-class EmailVerifier
+final readonly class EmailVerifier
 {
     public function __construct(
-        private readonly VerifyEmailHelperInterface $verifyEmailHelper,
-        private readonly MailerInterface $mailer,
-        private readonly EntityManagerInterface $entityManager,
-        #[Target('user_status')] private readonly WorkflowInterface $workflow,
+        private VerifyEmailHelperInterface $verifyEmailHelper,
+        private MailerInterface $mailer,
+        private EntityManagerInterface $entityManager,
+        #[Target('user_status')]
+        private WorkflowInterface $workflow,
     ) {
     }
 
-    public function sendEmailConfirmation(string $verifyEmailRouteName, Users $users, TemplatedEmail $templatedEmail): void
+    public function sendEmailConfirmation(string $verifyEmailRouteName, User $user, TemplatedEmail $email): void
     {
-        $verifyEmailSignatureComponents = $this->verifyEmailHelper->generateSignature(
+        $signatureComponents = $this->verifyEmailHelper->generateSignature(
             $verifyEmailRouteName,
-            (string) $users->getId(),
-            (string) $users->getEmail(),
-            ['id' => $users->getId()]
+            (string) $user->getId(),
+            (string) $user->getEmail(),
+            ['id' => $user->getId()]
         );
 
-        $context = $templatedEmail->getContext();
-        $context['signedUrl'] = $verifyEmailSignatureComponents->getSignedUrl();
-        $context['expiresAtMessageKey'] = $verifyEmailSignatureComponents->getExpirationMessageKey();
-        $context['expiresAtMessageData'] = $verifyEmailSignatureComponents->getExpirationMessageData();
+        $context = $email->getContext();
+        $context['signedUrl'] = $signatureComponents->getSignedUrl();
+        $context['expiresAtMessageKey'] = $signatureComponents->getExpirationMessageKey();
+        $context['expiresAtMessageData'] = $signatureComponents->getExpirationMessageData();
 
-        $templatedEmail->context($context);
+        $email->context($context);
 
-        $this->mailer->send($templatedEmail);
+        $this->mailer->send($email);
     }
 
     /**
      * @throws VerifyEmailExceptionInterface
      */
-    public function handleEmailConfirmation(Request $request, Users $users): void
+    public function handleEmailConfirmation(Request $request, User $user): void
     {
-        $this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, (string) $users->getId(), (string) $users->getEmail());
+        $this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, (string) $user->getId(), (string) $user->getEmail());
 
-        $users->setIsVerified(true);
-        $this->workflow->apply($users, 'verified');
+        $user->setIsVerified(true);
+        $this->workflow->apply($user, UserStstusWorkflow::VALIDATED);
 
-        $this->entityManager->persist($users);
+        $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
 }
