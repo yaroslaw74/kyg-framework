@@ -20,13 +20,13 @@ use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class OAuthConnector implements AccountConnectorInterface
+final readonly class OAuthConnector implements AccountConnectorInterface
 {
     /**
      * @param array<string, string> $properties
      */
     public function __construct(
-        private readonly EntityManagerInterface $entityManager,
+        private EntityManagerInterface $entityManager,
         private array $properties,
     ) {
     }
