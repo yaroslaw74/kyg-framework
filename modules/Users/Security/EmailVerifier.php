@@ -20,7 +20,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
-use App\Modules\Users\Workflow\UserStstusWorkflow;
+use App\Modules\Users\Workflow\UserStatusWorkflow;
 use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\Workflow\WorkflowInterface;
 
@@ -30,8 +30,7 @@ final readonly class EmailVerifier
         private VerifyEmailHelperInterface $verifyEmailHelper,
         private MailerInterface $mailer,
         private EntityManagerInterface $entityManager,
-        #[Target('user_status')]
-        private WorkflowInterface $workflow,
+        #[Target('user_status')] private WorkflowInterface $workflow,
     ) {
     }
 
@@ -62,7 +61,7 @@ final readonly class EmailVerifier
         $this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, (string) $user->getId(), (string) $user->getEmail());
 
         $user->setIsVerified(true);
-        $this->workflow->apply($user, UserStstusWorkflow::VALIDATED);
+        $this->workflow->apply($user, UserStatusWorkflow::VALIDATED);
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
