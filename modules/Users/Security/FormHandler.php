@@ -28,7 +28,7 @@ final readonly class FormHandler implements RegistrationFormHandlerInterface
     }
 
     /**
-     * @param FormInterface<Users> $form
+     * @param FormInterface<User> $form
      *
      * @phpstan-ignore method.childParameterType
      */
