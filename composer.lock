@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aed166f8f6ab5007518ef422b8902a67",
+    "content-hash": "4b639ca40f4eb51893b76426d5e3e15b",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -7227,30 +7227,30 @@
         },
         {
             "name": "softspring/account-bundle",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/account-bundle.git",
-                "reference": "3bdf1972850c4229325923cf8e9d317b67a69c15"
+                "reference": "5a8b9b4b3d60b859fe718a46ae3bcac730dd7b3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/account-bundle/zipball/3bdf1972850c4229325923cf8e9d317b67a69c15",
-                "reference": "3bdf1972850c4229325923cf8e9d317b67a69c15",
+                "url": "https://api.github.com/repos/softspring/account-bundle/zipball/5a8b9b4b3d60b859fe718a46ae3bcac730dd7b3f",
+                "reference": "5a8b9b4b3d60b859fe718a46ae3bcac730dd7b3f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "^2.10 || ^3.0 || ^4.0",
                 "doctrine/orm": "^2.10 || ^3.0 || ^4.0",
                 "php": ">=8.4",
-                "softspring/components": "6.1.*@dev",
-                "softspring/crudl-controller": "6.1.*@dev",
-                "softspring/doctrine-paginator": "6.1.*@dev",
-                "softspring/doctrine-query-filters": "6.1.*@dev",
-                "softspring/doctrine-target-entity-resolver": "6.1.*@dev",
-                "softspring/events": "6.1.*@dev",
-                "softspring/twig-extra-bundle": "6.1.*@dev",
-                "softspring/user-bundle": "6.1.*@dev",
+                "softspring/components": "^6.0@dev",
+                "softspring/crudl-controller": "^6.0@dev",
+                "softspring/doctrine-paginator": "^6.0@dev",
+                "softspring/doctrine-query-filters": "^6.0@dev",
+                "softspring/doctrine-target-entity-resolver": "^6.0@dev",
+                "softspring/events": "^6.0@dev",
+                "softspring/twig-extra-bundle": "^6.0@dev",
+                "softspring/user-bundle": "^6.0@dev",
                 "symfony/config": "^6.4 || ^7.4 || ^8.0",
                 "symfony/console": "^6.4 || ^7.4 || ^8.0",
                 "symfony/event-dispatcher": "^6.4 || ^7.4 || ^8.0",
@@ -7269,14 +7269,13 @@
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^12.5",
                 "rector/rector": "^2.6.7",
-                "softspring/doctrine-templates": "6.1.*@dev",
+                "softspring/doctrine-templates": "^6.0@dev",
                 "symfony/polyfill-php85": "^1.33"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7291,22 +7290,22 @@
             "description": "Account ownership bundle for Symfony applications",
             "support": {
                 "issues": "https://github.com/softspring/account-bundle/issues",
-                "source": "https://github.com/softspring/account-bundle/tree/6.1"
+                "source": "https://github.com/softspring/account-bundle/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T11:12:03+00:00"
         },
         {
             "name": "softspring/components",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/components.git",
-                "reference": "4a4b4d7c19434972bbaafd09ec0b9544cc48e04b"
+                "reference": "5160ac6a2433c2219cb2d39b84839dab1830df12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/components/zipball/4a4b4d7c19434972bbaafd09ec0b9544cc48e04b",
-                "reference": "4a4b4d7c19434972bbaafd09ec0b9544cc48e04b",
+                "url": "https://api.github.com/repos/softspring/components/zipball/5160ac6a2433c2219cb2d39b84839dab1830df12",
+                "reference": "5160ac6a2433c2219cb2d39b84839dab1830df12",
                 "shasum": ""
             },
             "require": {
@@ -7325,8 +7324,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7341,29 +7339,29 @@
             "description": "Shared Twig layouts, paginators, form themes, and UI fragments for Symfony applications",
             "support": {
                 "issues": "https://github.com/softspring/components/issues",
-                "source": "https://github.com/softspring/components/tree/6.1"
+                "source": "https://github.com/softspring/components/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T11:13:12+00:00"
         },
         {
             "name": "softspring/crudl-controller",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/crudl-controller.git",
-                "reference": "7cee967397ed22cba7be0e7dee4d325a5b4ae15c"
+                "reference": "67fb95db4733b312ac0274c0839b3fbdc3c601b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/crudl-controller/zipball/7cee967397ed22cba7be0e7dee4d325a5b4ae15c",
-                "reference": "7cee967397ed22cba7be0e7dee4d325a5b4ae15c",
+                "url": "https://api.github.com/repos/softspring/crudl-controller/zipball/67fb95db4733b312ac0274c0839b3fbdc3c601b9",
+                "reference": "67fb95db4733b312ac0274c0839b3fbdc3c601b9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4",
-                "softspring/doctrine-paginator": "6.1.*@dev",
-                "softspring/doctrine-query-filters": "6.1.*@dev",
-                "softspring/events": "6.1.*@dev"
+                "softspring/doctrine-paginator": "^6.0@dev",
+                "softspring/doctrine-query-filters": "^6.0@dev",
+                "softspring/events": "^6.0@dev"
             },
             "require-dev": {
                 "doctrine/orm": "^2.10 || ^3.0 || ^4.0",
@@ -7386,8 +7384,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7402,29 +7399,29 @@
             "description": "A CRUD+list helper classes",
             "support": {
                 "issues": "https://github.com/softspring/crudl-controller/issues",
-                "source": "https://github.com/softspring/crudl-controller/tree/6.1"
+                "source": "https://github.com/softspring/crudl-controller/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:51:08+00:00"
         },
         {
             "name": "softspring/doctrine-paginator",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-paginator.git",
-                "reference": "03df2498c336f7697134e0c874afb911eb29a530"
+                "reference": "8f9a5767fae4765af92efd45424085e59ca7c7e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/doctrine-paginator/zipball/03df2498c336f7697134e0c874afb911eb29a530",
-                "reference": "03df2498c336f7697134e0c874afb911eb29a530",
+                "url": "https://api.github.com/repos/softspring/doctrine-paginator/zipball/8f9a5767fae4765af92efd45424085e59ca7c7e0",
+                "reference": "8f9a5767fae4765af92efd45424085e59ca7c7e0",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^1.8 || ^2.0 || ^3.0",
                 "doctrine/orm": "^2.10 || ^3.0 || ^4.0",
                 "php": ">=8.4",
-                "softspring/doctrine-query-filters": "6.1.*@dev",
+                "softspring/doctrine-query-filters": "^6.0@dev",
                 "symfony/form": "^6.4 || ^7.4 || ^8.0",
                 "symfony/http-foundation": "^6.4 || ^7.4 || ^8.0",
                 "symfony/routing": "^6.4 || ^7.4 || ^8.0",
@@ -7442,8 +7439,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7458,22 +7454,22 @@
             "description": "This library provides a paginator for doctrine query builder",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-paginator/issues",
-                "source": "https://github.com/softspring/doctrine-paginator/tree/6.1"
+                "source": "https://github.com/softspring/doctrine-paginator/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:29:16+00:00"
         },
         {
             "name": "softspring/doctrine-query-filters",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-query-filters.git",
-                "reference": "6a1c8bd90c3b48a7bf65148ab8d8793f69db0ba9"
+                "reference": "787eb41647da4e2f16aafe46eeb68c2ccf3c35d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/doctrine-query-filters/zipball/6a1c8bd90c3b48a7bf65148ab8d8793f69db0ba9",
-                "reference": "6a1c8bd90c3b48a7bf65148ab8d8793f69db0ba9",
+                "url": "https://api.github.com/repos/softspring/doctrine-query-filters/zipball/787eb41647da4e2f16aafe46eeb68c2ccf3c35d9",
+                "reference": "787eb41647da4e2f16aafe46eeb68c2ccf3c35d9",
                 "shasum": ""
             },
             "require": {
@@ -7494,8 +7490,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7510,22 +7505,22 @@
             "description": "This library adds a new filter for doctrine queries",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-query-filters/issues",
-                "source": "https://github.com/softspring/doctrine-query-filters/tree/6.1"
+                "source": "https://github.com/softspring/doctrine-query-filters/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:51:56+00:00"
         },
         {
             "name": "softspring/doctrine-target-entity-resolver",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-target-entity-resolver.git",
-                "reference": "fe0fb22b13fa3a07096a10295980d48b7b1c706d"
+                "reference": "ed5abe77e6010cbe01a3249a0f64c8399340bb5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/doctrine-target-entity-resolver/zipball/fe0fb22b13fa3a07096a10295980d48b7b1c706d",
-                "reference": "fe0fb22b13fa3a07096a10295980d48b7b1c706d",
+                "url": "https://api.github.com/repos/softspring/doctrine-target-entity-resolver/zipball/ed5abe77e6010cbe01a3249a0f64c8399340bb5a",
+                "reference": "ed5abe77e6010cbe01a3249a0f64c8399340bb5a",
                 "shasum": ""
             },
             "require": {
@@ -7544,8 +7539,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7560,22 +7554,22 @@
             "description": "This package provides a class that helps resolve target entities",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-target-entity-resolver/issues",
-                "source": "https://github.com/softspring/doctrine-target-entity-resolver/tree/6.1"
+                "source": "https://github.com/softspring/doctrine-target-entity-resolver/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:52:21+00:00"
         },
         {
             "name": "softspring/events",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/events.git",
-                "reference": "4d17f1ef88a9d222c3232a2a3d14f658f124db58"
+                "reference": "406c6cdbb717c0b0d98d80d71bb385709cc27989"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/events/zipball/4d17f1ef88a9d222c3232a2a3d14f658f124db58",
-                "reference": "4d17f1ef88a9d222c3232a2a3d14f658f124db58",
+                "url": "https://api.github.com/repos/softspring/events/zipball/406c6cdbb717c0b0d98d80d71bb385709cc27989",
+                "reference": "406c6cdbb717c0b0d98d80d71bb385709cc27989",
                 "shasum": ""
             },
             "require": {
@@ -7596,8 +7590,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7612,31 +7605,31 @@
             "description": "This component provides some useful event classes to use with Symfony",
             "support": {
                 "issues": "https://github.com/softspring/events/issues",
-                "source": "https://github.com/softspring/events/tree/6.1"
+                "source": "https://github.com/softspring/events/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:29:39+00:00"
         },
         {
             "name": "softspring/mailer-bundle",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/mailer-bundle.git",
-                "reference": "834b61131aa8373d078d425310ab9b3bfac53aab"
+                "reference": "0387ebb31efc8ff407fc203a4b2406b8f4dfa0ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/mailer-bundle/zipball/834b61131aa8373d078d425310ab9b3bfac53aab",
-                "reference": "834b61131aa8373d078d425310ab9b3bfac53aab",
+                "url": "https://api.github.com/repos/softspring/mailer-bundle/zipball/0387ebb31efc8ff407fc203a4b2406b8f4dfa0ab",
+                "reference": "0387ebb31efc8ff407fc203a4b2406b8f4dfa0ab",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "^2.10 || ^3.0 || ^4.0",
                 "doctrine/orm": "^2.10 || ^3.0 || ^4.0",
                 "php": ">=8.4",
-                "softspring/components": "6.1.*@dev",
-                "softspring/doctrine-target-entity-resolver": "6.1.*@dev",
-                "softspring/mime-translatable": "6.1.*@dev",
+                "softspring/components": "^6.0@dev",
+                "softspring/doctrine-target-entity-resolver": "^6.0@dev",
+                "softspring/mime-translatable": "^6.0@dev",
                 "symfony/form": "^6.4 || ^7.4 || ^8.0",
                 "symfony/mailer": "^6.4 || ^7.4 || ^8.0"
             },
@@ -7645,7 +7638,7 @@
                 "friendsofphp/php-cs-fixer": "^3.94",
                 "phpstan/phpstan": "^2.1",
                 "rector/rector": "^2.6.7",
-                "softspring/user-bundle": "6.1.*@dev",
+                "softspring/user-bundle": "^6.0@dev",
                 "symfony/console": "^6.4 || ^7.4 || ^8.0",
                 "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.0",
                 "symfony/polyfill-php85": "^1.33",
@@ -7661,8 +7654,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7677,22 +7669,22 @@
             "description": "This bundle provides some features that ease mailing for Symfony projects.",
             "support": {
                 "issues": "https://github.com/softspring/mailer-bundle/issues",
-                "source": "https://github.com/softspring/mailer-bundle/tree/6.1"
+                "source": "https://github.com/softspring/mailer-bundle/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:30:06+00:00"
         },
         {
             "name": "softspring/mime-translatable",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/mime-translatable.git",
-                "reference": "6a08f478442cfafa47aa049f1aa622c780e802bf"
+                "reference": "cc99c5ed13390cfa84a8670705bb6a7b8744ed3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/mime-translatable/zipball/6a08f478442cfafa47aa049f1aa622c780e802bf",
-                "reference": "6a08f478442cfafa47aa049f1aa622c780e802bf",
+                "url": "https://api.github.com/repos/softspring/mime-translatable/zipball/cc99c5ed13390cfa84a8670705bb6a7b8744ed3a",
+                "reference": "cc99c5ed13390cfa84a8670705bb6a7b8744ed3a",
                 "shasum": ""
             },
             "require": {
@@ -7718,8 +7710,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7734,22 +7725,22 @@
             "description": "This library extends symfony mime component providing a translatable email",
             "support": {
                 "issues": "https://github.com/softspring/mime-translatable/issues",
-                "source": "https://github.com/softspring/mime-translatable/tree/6.1"
+                "source": "https://github.com/softspring/mime-translatable/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T07:59:28+00:00"
         },
         {
             "name": "softspring/permissions-bundle",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/permissions-bundle.git",
-                "reference": "2b8b0329253834a074992418b18d945861ee8022"
+                "reference": "2991d941cf38472c81e2fbd66a044c363fd13de8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/permissions-bundle/zipball/2b8b0329253834a074992418b18d945861ee8022",
-                "reference": "2b8b0329253834a074992418b18d945861ee8022",
+                "url": "https://api.github.com/repos/softspring/permissions-bundle/zipball/2991d941cf38472c81e2fbd66a044c363fd13de8",
+                "reference": "2991d941cf38472c81e2fbd66a044c363fd13de8",
                 "shasum": ""
             },
             "require": {
@@ -7771,8 +7762,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7787,22 +7777,22 @@
             "description": "Permission hierarchy component for Symfony Security",
             "support": {
                 "issues": "https://github.com/softspring/permissions-bundle/issues",
-                "source": "https://github.com/softspring/permissions-bundle/tree/6.1"
+                "source": "https://github.com/softspring/permissions-bundle/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T11:27:47+00:00"
         },
         {
             "name": "softspring/twig-extra-bundle",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/twig-extra-bundle.git",
-                "reference": "2449a28efed5bb3aa1efd72b4ce66d1679ac0506"
+                "reference": "904da17981bf19fc40d47a7a0e2e913a9042f455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/twig-extra-bundle/zipball/2449a28efed5bb3aa1efd72b4ce66d1679ac0506",
-                "reference": "2449a28efed5bb3aa1efd72b4ce66d1679ac0506",
+                "url": "https://api.github.com/repos/softspring/twig-extra-bundle/zipball/904da17981bf19fc40d47a7a0e2e913a9042f455",
+                "reference": "904da17981bf19fc40d47a7a0e2e913a9042f455",
                 "shasum": ""
             },
             "require": {
@@ -7829,8 +7819,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7845,22 +7834,22 @@
             "description": "This bundle provides extra twig functions.",
             "support": {
                 "issues": "https://github.com/softspring/twig-extra-bundle/issues",
-                "source": "https://github.com/softspring/twig-extra-bundle/tree/6.1"
+                "source": "https://github.com/softspring/twig-extra-bundle/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T11:28:15+00:00"
         },
         {
             "name": "softspring/user-bundle",
-            "version": "6.1.x-dev",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/user-bundle.git",
-                "reference": "3cee2838dec698a3a2d5bc5bc9dace1ea2f20c3f"
+                "reference": "3ae083e61b9f3f3a78ccfada48325a225a15c515"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/user-bundle/zipball/3cee2838dec698a3a2d5bc5bc9dace1ea2f20c3f",
-                "reference": "3cee2838dec698a3a2d5bc5bc9dace1ea2f20c3f",
+                "url": "https://api.github.com/repos/softspring/user-bundle/zipball/3ae083e61b9f3f3a78ccfada48325a225a15c515",
+                "reference": "3ae083e61b9f3f3a78ccfada48325a225a15c515",
                 "shasum": ""
             },
             "require": {
@@ -7869,14 +7858,14 @@
                 "ext-json": "*",
                 "php": ">=8.4",
                 "psr/log": "^1.1 || ^2.0 || ^3.0",
-                "softspring/crudl-controller": "6.1.*@dev",
-                "softspring/doctrine-paginator": "6.1.*@dev",
-                "softspring/doctrine-query-filters": "6.1.*@dev",
-                "softspring/doctrine-target-entity-resolver": "6.1.*@dev",
-                "softspring/events": "6.1.*@dev",
-                "softspring/mime-translatable": "6.1.*@dev",
-                "softspring/permissions-bundle": "6.1.*@dev",
-                "softspring/twig-extra-bundle": "6.1.*@dev",
+                "softspring/crudl-controller": "^6.0@dev",
+                "softspring/doctrine-paginator": "^6.0@dev",
+                "softspring/doctrine-query-filters": "^6.0@dev",
+                "softspring/doctrine-target-entity-resolver": "^6.0@dev",
+                "softspring/events": "^6.0@dev",
+                "softspring/mime-translatable": "^6.0@dev",
+                "softspring/permissions-bundle": "^6.0@dev",
+                "softspring/twig-extra-bundle": "^6.0@dev",
                 "symfony/http-foundation": "^6.4 || ^7.4 || ^8.0",
                 "symfony/http-kernel": "^6.4 || ^7.4 || ^8.0",
                 "symfony/security-bundle": "^6.4 || ^7.4 || ^8.0",
@@ -7899,10 +7888,10 @@
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^12.5",
                 "rector/rector": "^2.6.7",
-                "softspring/account-bundle": "6.1.*@dev",
-                "softspring/doctrine-templates": "6.1.*@dev",
-                "softspring/mailer-bundle": "6.1.*@dev",
-                "softspring/media-bundle": "6.1.*@dev",
+                "softspring/account-bundle": "^6.0@dev",
+                "softspring/doctrine-templates": "^6.0@dev",
+                "softspring/mailer-bundle": "^6.0@dev",
+                "softspring/media-bundle": "^6.0@dev",
                 "symfony/browser-kit": "^6.4 || ^7.4 || ^8.0",
                 "symfony/css-selector": "^6.4 || ^7.4 || ^8.0",
                 "symfony/dom-crawler": "^6.4 || ^7.4 || ^8.0",
@@ -7921,8 +7910,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-6.0": "6.0.x-dev",
-                    "dev-6.1": "6.1.x-dev"
+                    "dev-6.0": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -7937,9 +7925,9 @@
             "description": "A complete user bundle",
             "support": {
                 "issues": "https://github.com/softspring/user-bundle/issues",
-                "source": "https://github.com/softspring/user-bundle/tree/6.1"
+                "source": "https://github.com/softspring/user-bundle/tree/v6.0.1"
             },
-            "time": "2026-11-10T09:36:52+00:00"
+            "time": "2026-11-09T08:30:18+00:00"
         },
         {
             "name": "sonata-project/intl-bundle",
@@ -27088,13 +27076,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "softspring/account-bundle": 20,
-        "softspring/mailer-bundle": 20,
-        "softspring/permissions-bundle": 20,
-        "softspring/twig-extra-bundle": 20,
-        "softspring/user-bundle": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
