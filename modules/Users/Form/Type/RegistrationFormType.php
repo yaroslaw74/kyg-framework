@@ -25,6 +25,9 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * @template-extends AbstractType<User>
+ */
 final class RegistrationFormType extends AbstractType
 {
     public function __construct(private readonly TranslatorInterface $translator)
