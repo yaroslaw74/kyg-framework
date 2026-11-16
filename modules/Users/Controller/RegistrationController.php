@@ -29,8 +29,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\Workflow\WorkflowInterface;
-use App\Modules\Users\Workflow\UserStstusWorkflow;
+use App\Modules\Users\Workflow\UserStatusWorkflow;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 /**
  * @see \App\Tests\Controller\RegistrationControllerTest
@@ -40,8 +41,7 @@ final class RegistrationController extends AbstractController
     public function __construct(
         private readonly EmailVerifier $emailVerifier,
         private readonly TranslatorInterface $translator,
-        #[Target('user_status')]
-        private readonly WorkflowInterface $workflow,
+        #[Target('user_status')] private readonly WorkflowInterface $workflow,
     ) {
     }
 
@@ -59,7 +59,7 @@ final class RegistrationController extends AbstractController
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
-            $this->workflow->apply($user, UserStstusWorkflow::PENDING);
+            $this->workflow->apply($user, UserStatusWorkflow::PENDING);
             $entityManager->persist($user);
             $entityManager->flush();
 
