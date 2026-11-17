@@ -13250,6 +13250,108 @@
                 },
                 "additionalProperties": false
             },
+            "sensiolabs_minify": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "asset_mapper": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true
+                                    },
+                                    "types": {
+                                        "$ref": "#/$defs/types/object_null",
+                                        "properties": {
+                                            "css": {
+                                                "$ref": "#/$defs/types/boolean",
+                                                "default": true
+                                            },
+                                            "js": {
+                                                "$ref": "#/$defs/types/boolean",
+                                                "default": true
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "default": {
+                                            "css": true,
+                                            "js": true
+                                        },
+                                        "description": "Asset types to minify"
+                                    },
+                                    "ignore_paths": {
+                                        "$ref": "#/$defs/types/variable",
+                                        "description": "Paths to exclude from minification",
+                                        "examples": [
+                                            [
+                                                "admin/*",
+                                                "*.min.*"
+                                            ]
+                                        ]
+                                    },
+                                    "ignore_vendor": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": true,
+                                        "description": "Exclude vendor assets from minification"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": true,
+                            "types": {
+                                "css": true,
+                                "js": true
+                            },
+                            "ignore_paths": [],
+                            "ignore_vendor": true
+                        },
+                        "description": "AssetMapper compiler settings"
+                    },
+                    "minify": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "local_binary": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": false,
+                                "description": "Path to the local binary (use \"auto\" for automatic detection)"
+                            },
+                            "download_binary": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": "%kernel.debug%",
+                                "description": "Download the binary from GitHub (defaults to \"true\" in debug mode)"
+                            },
+                            "download_directory": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "%kernel.project_dir%/var/minify",
+                                "description": "Directory to store the downloaded binary"
+                            },
+                            "version": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": null,
+                                "description": "Minify version to download (null for latest)"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "local_binary": false,
+                            "download_binary": "%kernel.debug%",
+                            "download_directory": "%kernel.project_dir%/var/minify",
+                            "version": null
+                        },
+                        "description": "Minify settings"
+                    }
+                },
+                "additionalProperties": false
+            },
             "serializer": {
                 "anyOf": [
                     {
@@ -18279,6 +18381,9 @@
         "security": {
             "$ref": "#/$defs/nodes/security"
         },
+        "sensiolabs_minify": {
+            "$ref": "#/$defs/nodes/sensiolabs_minify"
+        },
         "serializer": {
             "$ref": "#/$defs/nodes/serializer"
         },
@@ -18466,6 +18571,9 @@
                 },
                 "security": {
                     "$ref": "#/$defs/nodes/security"
+                },
+                "sensiolabs_minify": {
+                    "$ref": "#/$defs/nodes/sensiolabs_minify"
                 },
                 "serializer": {
                     "$ref": "#/$defs/nodes/serializer"
@@ -18662,6 +18770,9 @@
                 "security": {
                     "$ref": "#/$defs/nodes/security"
                 },
+                "sensiolabs_minify": {
+                    "$ref": "#/$defs/nodes/sensiolabs_minify"
+                },
                 "serializer": {
                     "$ref": "#/$defs/nodes/serializer"
                 },
@@ -18838,6 +18949,9 @@
                 },
                 "security": {
                     "$ref": "#/$defs/nodes/security"
+                },
+                "sensiolabs_minify": {
+                    "$ref": "#/$defs/nodes/sensiolabs_minify"
                 },
                 "serializer": {
                     "$ref": "#/$defs/nodes/serializer"
