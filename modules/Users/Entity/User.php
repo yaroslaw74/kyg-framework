@@ -26,7 +26,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Uploadable\Mapping\Validator;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use libphonenumber\PhoneNumber;
 use Softspring\AccountBundle\Entity\UserAccountMembershipsTrait;
 use Softspring\AccountBundle\Model\UserAccountMembershipsInterface;
@@ -50,6 +49,7 @@ use Softspring\UserBundle\Model\UserPasswordInterface;
 use Softspring\UserBundle\Model\UserWithEmailInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareInterface;
 use Sonata\IntlBundle\Timezone\TimezoneAwareTrait;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -177,6 +177,5 @@ class User extends UserModel implements ConfirmableInterface, FacebookOauthInter
     public function setIsVerified(bool $isVerified): void
     {
         $this->isVerified = $isVerified;
-
     }
 }
