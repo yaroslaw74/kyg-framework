@@ -31,6 +31,7 @@ final readonly class OAuthConnector implements AccountConnectorInterface
     ) {
     }
 
+    #[\Override]
     public function connect(UserInterface $user, UserResponseInterface $response): void
     {
         if (!isset($this->properties[$response->getResourceOwner()->getName()])) {
