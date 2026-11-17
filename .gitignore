@@ -59,3 +59,7 @@ phpstan.neon
 /public/site.*.webmanifest
 /public/sw.js
 ###< spomky-labs/pwa-bundle ###
+
+###> sensiolabs/minify-bundle ###
+/var/minify/
+###< sensiolabs/minify-bundle ###
