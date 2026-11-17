@@ -341,7 +341,6 @@
                 "bin/biome check --write assets",
                 "bin/biome format --write assets",
                 "vendor/bin/rector process --dry-run",
-                "vendor/bin/psalm --no-cache --alter --issues=all --dry-run",
                 "vendor/bin/phpstan analyse",
                 "vendor/bin/php-cs-fixer fix",
                 "@php bin/console doctrine:diagram:er"
