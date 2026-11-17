@@ -32,6 +32,7 @@ final readonly class FormHandler implements RegistrationFormHandlerInterface
      *
      * @phpstan-ignore method.childParameterType
      */
+    #[\Override]
     public function process(Request $request, FormInterface $form, UserResponseInterface $userInformation): bool
     {
         $user = new User();
