@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,19 +11,19 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Modules\Users\Security;
 
 use App\Modules\Users\Entity\User;
+use App\Modules\Users\Workflow\UserStatusWorkflow;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Workflow\WorkflowInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
-use App\Modules\Users\Workflow\UserStatusWorkflow;
-use Symfony\Component\DependencyInjection\Attribute\Target;
-use Symfony\Component\Workflow\WorkflowInterface;
 
 final readonly class EmailVerifier
 {
