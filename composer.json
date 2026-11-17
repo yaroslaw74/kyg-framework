@@ -357,6 +357,7 @@
         "post-install-cmd": [
             "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
             "SlowProg\\CopyFile\\ScriptHandler::copy",
+            "@php bin/console minify:install",
             "@auto-scripts"
         ],
         "post-update-cmd": [
