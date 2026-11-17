@@ -20,48 +20,48 @@ use Symfony\Component\Workflow\Attribute\AsWorkflow;
 use Symfony\Component\Workflow\Attribute\Transition;
 use Symfony\Component\Workflow\WorkflowType;
 
-#[AsWorkflow(type: WorkflowType::StateMachine, supports: User::class, initialMarking: UserStatus::NEW , markingProperty: 'status', auditTrail: true, places: UserStatus::class)]
-class UserStatusWorkflow
+#[AsWorkflow(type: WorkflowType::StateMachine, supports: User::class, initialMarking: UserStatus::NEW, markingProperty: 'status', auditTrail: true, places: UserStatus::class)]
+final class UserStatusWorkflow
 {
-    #[Transition(from: UserStatus::NEW , to: UserStatus::VALIDATED)]
-    public const VALIDATED = 'validated';
+    #[Transition(from: UserStatus::NEW, to: UserStatus::VALIDATED)]
+    public const string VALIDATED = 'validated';
 
     #[Transition(from: UserStatus::VALIDATED, to: UserStatus::PENDING)]
-    public const PENDING = 'pending';
+    public const string PENDING = 'pending';
 
-    #[Transition(from: UserStatus::NEW , to: UserStatus::ACTIVE)]
+    #[Transition(from: UserStatus::NEW, to: UserStatus::ACTIVE)]
     #[Transition(from: UserStatus::PENDING, to: UserStatus::ACTIVE)]
     #[Transition(from: UserStatus::INACTIVE, to: UserStatus::ACTIVE)]
     #[Transition(from: UserStatus::DISABLED, to: UserStatus::ACTIVE)]
     #[Transition(from: UserStatus::VALIDATED, to: UserStatus::ACTIVE)]
-    public const ACTIVE = 'active';
+    public const string ACTIVE = 'active';
 
     #[Transition(from: UserStatus::ACTIVE, to: UserStatus::INACTIVE)]
-    public const INACTIVE = 'inactive';
+    public const string INACTIVE = 'inactive';
 
     #[Transition(from: UserStatus::ACTIVE, to: UserStatus::BANNED)]
-    public const BANNED = 'banned';
+    public const string BANNED = 'banned';
 
-    #[Transition(from: UserStatus::NEW , to: UserStatus::DELETED)]
+    #[Transition(from: UserStatus::NEW, to: UserStatus::DELETED)]
     #[Transition(from: UserStatus::PENDING, to: UserStatus::DELETED)]
     #[Transition(from: UserStatus::ACTIVE, to: UserStatus::DELETED)]
     #[Transition(from: UserStatus::INACTIVE, to: UserStatus::DELETED)]
     #[Transition(from: UserStatus::BANNED, to: UserStatus::DELETED)]
     #[Transition(from: UserStatus::DISABLED, to: UserStatus::DELETED)]
     #[Transition(from: UserStatus::VALIDATED, to: UserStatus::DELETED)]
-    public const DELETED = 'deleted';
+    public const string DELETED = 'deleted';
 
-    #[Transition(from: UserStatus::NEW , to: UserStatus::DISABLED)]
+    #[Transition(from: UserStatus::NEW, to: UserStatus::DISABLED)]
     #[Transition(from: UserStatus::PENDING, to: UserStatus::DISABLED)]
     #[Transition(from: UserStatus::ACTIVE, to: UserStatus::DISABLED)]
     #[Transition(from: UserStatus::INACTIVE, to: UserStatus::DISABLED)]
     #[Transition(from: UserStatus::BANNED, to: UserStatus::DISABLED)]
     #[Transition(from: UserStatus::VALIDATED, to: UserStatus::DISABLED)]
-    public const DISABLED = 'disabled';
+    public const string DISABLED = 'disabled';
 
     #[Transition(from: UserStatus::BANNED, to: UserStatus::DISABLED)]
-    public const NOT_BANNED = 'not_banned';
+    public const string NOT_BANNED = 'not_banned';
 
     #[Transition(from: UserStatus::DELETED, to: UserStatus::DISABLED)]
-    public const NOT_DELETED = 'not_deleted';
+    public const string NOT_DELETED = 'not_deleted';
 }
