@@ -368,7 +368,9 @@
             "ckeditor:install --clear=drop --release=full": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd",
-            "sass:build": "symfony-cmd"
+            "sass:build": "symfony-cmd",
+            "pwa:compile": "symfony-cmd",
+            "asset-map:compile": "symfony-cmd"
         }
     }
 }
