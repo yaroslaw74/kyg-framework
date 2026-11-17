@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KYG Framework for Business.
  *
@@ -10,28 +11,28 @@
  * @license    GNU General Public License version 3 or later, see LICENSE
  */
 declare(strict_types=1);
+
 namespace App\Modules\Users\Controller;
 
-use App\Modules\Users\Form\Type\RegistrationFormType;
 use App\Modules\Users\Entity\User;
+use App\Modules\Users\Form\Type\RegistrationFormType;
 use App\Modules\Users\Repository\UserRepository;
 use App\Modules\Users\Security\EmailVerifier;
+use App\Modules\Users\Workflow\UserStatusWorkflow;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\DependencyInjection\Attribute\Target;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
-use Symfony\Component\DependencyInjection\Attribute\Target;
-use Symfony\Component\Workflow\WorkflowInterface;
-use App\Modules\Users\Workflow\UserStatusWorkflow;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-
 
 /**
  * @see \App\Tests\Controller\RegistrationControllerTest
@@ -46,7 +47,7 @@ final class RegistrationController extends AbstractController
     }
 
     #[Route(path: '/app/register', name: 'app_register', methods: ['GET', 'POST'])]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): ?Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
