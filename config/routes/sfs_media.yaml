@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../vendor/symfony/routing/Loader/schema/routing.schema.json
+_sfs_media_admin:
+    resource: "@SfsMediaBundle/config/routing/admin_media.yaml"
+    prefix: /admin/media
