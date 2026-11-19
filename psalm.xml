@@ -34,5 +34,6 @@
                 <attribute>ApiPlatform\Metadata\ApiResource</attribute>
             </forbiddenFinalAttributes>
         </pluginClass>
+        <pluginClass class="Guuzen\PsalmEnumPlugin\Plugin"/>
     </plugins>
 </psalm>
