@@ -13518,6 +13518,9 @@
                 },
                 "additionalProperties": false
             },
+            "sfs_media": {
+                "$ref": "#/$defs/types/variable"
+            },
             "sfs_twig_extra": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -18390,6 +18393,9 @@
         "sfs_account": {
             "$ref": "#/$defs/nodes/sfs_account"
         },
+        "sfs_media": {
+            "$ref": "#/$defs/nodes/sfs_media"
+        },
         "sfs_twig_extra": {
             "$ref": "#/$defs/nodes/sfs_twig_extra"
         },
@@ -18581,6 +18587,9 @@
                 "services": true,
                 "sfs_account": {
                     "$ref": "#/$defs/nodes/sfs_account"
+                },
+                "sfs_media": {
+                    "$ref": "#/$defs/nodes/sfs_media"
                 },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
@@ -18780,6 +18789,9 @@
                 "sfs_account": {
                     "$ref": "#/$defs/nodes/sfs_account"
                 },
+                "sfs_media": {
+                    "$ref": "#/$defs/nodes/sfs_media"
+                },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
                 },
@@ -18958,6 +18970,9 @@
                 },
                 "sfs_account": {
                     "$ref": "#/$defs/nodes/sfs_account"
+                },
+                "sfs_media": {
+                    "$ref": "#/$defs/nodes/sfs_media"
                 },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
