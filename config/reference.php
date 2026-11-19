@@ -3381,6 +3381,191 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         version?: scalar|Param|null, // Minify version to download (null for latest) // Default: null
  *     },
  * }
+ * @psalm-type SfsMediaConfig = array{
+ *     entity_manager?: scalar|Param|null, // Default: "default"
+ *     driver?: "filesystem"|"google_cloud_storage"|Param, // Default: "filesystem"
+ *     google_cloud_storage?: array{
+ *         bucket?: scalar|Param|null,
+ *         public_base_url?: scalar|Param|null, // Default: null
+ *         delayed_deletion_days?: int|Param, // Default: null
+ *     },
+ *     filesystem?: array{
+ *         path?: scalar|Param|null, // Default: "%kernel.project_dir%/public/media"
+ *         url?: scalar|Param|null, // Default: "/media"
+ *     },
+ *     defaults?: array{
+ *         imagine_driver?: "gd"|"imagick"|Param,
+ *         allow_upscale?: bool|Param,
+ *         resize_tolerance?: float|Param,
+ *         preserve_original_encoding?: bool|Param,
+ *         scale_width?: int|Param,
+ *         scale_height?: int|Param,
+ *         png_compression_level?: int|Param,
+ *         webp_quality?: int|Param,
+ *         jpeg_quality?: int|Param,
+ *         avif_quality?: int|Param,
+ *         flatten?: bool|Param,
+ *         resolution-x?: int|Param,
+ *         resolution-y?: int|Param,
+ *         resampling-filter?: scalar|Param|null,
+ *         resolution-units?: scalar|Param|null,
+ *         animated?: "keep"|"no"|Param,
+ *         animation?: array{
+ *             fps?: int|Param,
+ *             loop?: int|Param,
+ *             crf?: int|Param,
+ *             speed?: int|Param,
+ *             keyframe_interval?: int|Param,
+ *             max_duration?: float|Param,
+ *             max_frames?: int|Param,
+ *         },
+ *     },
+ *     imagine?: array{
+ *         driver?: "gd"|"imagick"|Param, // Default: "imagick"
+ *         allow_upscale?: bool|Param, // Default: false
+ *         resize_tolerance?: float|Param, // Default: 0.02
+ *         preserve_original_encoding?: bool|Param, // Default: true
+ *     },
+ *     ffmpeg?: array{
+ *         binary?: scalar|Param|null, // Default: "ffmpeg"
+ *         probe_binary?: scalar|Param|null, // Default: "ffprobe"
+ *         timeout?: int|Param, // Default: 300
+ *     },
+ *     media?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\MediaBundle\\Entity\\Media"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *         admin_controller?: bool|Param, // Default: true
+ *     },
+ *     version?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\MediaBundle\\Entity\\MediaVersion"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *     },
+ *     types?: array<string, array{ // Default: []
+ *         imagine_driver?: "gd"|"imagick"|Param,
+ *         allow_upscale?: bool|Param,
+ *         resize_tolerance?: float|Param,
+ *         preserve_original_encoding?: bool|Param,
+ *         type?: "video"|"image"|Param, // Default: "image"
+ *         name?: scalar|Param|null,
+ *         private?: bool|Param, // Default: false
+ *         description?: scalar|Param|null,
+ *         defaults?: array{
+ *             imagine_driver?: "gd"|"imagick"|Param,
+ *             allow_upscale?: bool|Param,
+ *             resize_tolerance?: float|Param,
+ *             preserve_original_encoding?: bool|Param,
+ *             scale_width?: int|Param,
+ *             scale_height?: int|Param,
+ *             png_compression_level?: int|Param,
+ *             webp_quality?: int|Param,
+ *             jpeg_quality?: int|Param,
+ *             avif_quality?: int|Param,
+ *             flatten?: bool|Param,
+ *             resolution-x?: int|Param,
+ *             resolution-y?: int|Param,
+ *             resampling-filter?: scalar|Param|null,
+ *             resolution-units?: scalar|Param|null,
+ *             animated?: "keep"|"no"|Param,
+ *             animation?: array{
+ *                 fps?: int|Param,
+ *                 loop?: int|Param,
+ *                 crf?: int|Param,
+ *                 speed?: int|Param,
+ *                 keyframe_interval?: int|Param,
+ *                 max_duration?: float|Param,
+ *                 max_frames?: int|Param,
+ *             },
+ *         },
+ *         generator?: scalar|Param|null, // Default: "Softspring\\MediaBundle\\Media\\DefaultNameGenerator"
+ *         upload_requirements?: array{
+ *             animation?: "no"|"accepted"|"required"|Param,
+ *             minWidth?: int|Param,
+ *             minHeight?: int|Param,
+ *             maxWidth?: int|Param,
+ *             maxHeight?: int|Param,
+ *             maxRatio?: int|Param,
+ *             minRatio?: int|Param,
+ *             minPixels?: int|Param,
+ *             maxPixels?: int|Param,
+ *             allowSquare?: bool|Param,
+ *             allowLandscape?: bool|Param,
+ *             allowPortrait?: bool|Param,
+ *             detectCorrupted?: bool|Param,
+ *             maxSize?: scalar|Param|null,
+ *             binaryFormat?: bool|Param,
+ *             mimeTypes?: list<scalar|Param|null>,
+ *         },
+ *         versions?: list<array{ // Default: []
+ *             imagine_driver?: "gd"|"imagick"|Param,
+ *             allow_upscale?: bool|Param,
+ *             resize_tolerance?: float|Param,
+ *             preserve_original_encoding?: bool|Param,
+ *             upload_requirements?: array{
+ *                 animation?: "no"|"accepted"|"required"|Param,
+ *                 minWidth?: int|Param,
+ *                 minHeight?: int|Param,
+ *                 maxWidth?: int|Param,
+ *                 maxHeight?: int|Param,
+ *                 maxRatio?: int|Param,
+ *                 minRatio?: int|Param,
+ *                 minPixels?: int|Param,
+ *                 maxPixels?: int|Param,
+ *                 allowSquare?: bool|Param,
+ *                 allowLandscape?: bool|Param,
+ *                 allowPortrait?: bool|Param,
+ *                 detectCorrupted?: bool|Param,
+ *                 maxSize?: scalar|Param|null,
+ *                 binaryFormat?: bool|Param,
+ *                 mimeTypes?: list<scalar|Param|null>,
+ *             },
+ *             type?: "jpeg"|"png"|"webp"|"keep"|"apng"|"avif"|"gif"|Param,
+ *             animated?: "keep"|"no"|Param,
+ *             animation?: array{
+ *                 fps?: int|Param,
+ *                 loop?: int|Param,
+ *                 crf?: int|Param,
+ *                 speed?: int|Param,
+ *                 keyframe_interval?: int|Param,
+ *                 max_duration?: float|Param,
+ *                 max_frames?: int|Param,
+ *             },
+ *             scale_width?: int|Param,
+ *             scale_height?: int|Param,
+ *             png_compression_level?: int|Param,
+ *             webp_quality?: int|Param,
+ *             jpeg_quality?: int|Param,
+ *             avif_quality?: int|Param,
+ *             flatten?: bool|Param,
+ *             resolution-x?: int|Param,
+ *             resolution-y?: int|Param,
+ *             resampling-filter?: scalar|Param|null,
+ *             resolution-units?: scalar|Param|null,
+ *             from?: scalar|Param|null, // Default: "_original"
+ *         }>,
+ *         pictures?: array<string, array{ // Default: []
+ *             img?: array{
+ *                 src_version?: scalar|Param|null, // Default: "_original"
+ *                 dimensions_version?: scalar|Param|null,
+ *             },
+ *             sources?: list<array{ // Default: []
+ *                 srcset?: list<array{ // Default: []
+ *                     version?: scalar|Param|null,
+ *                     suffix?: scalar|Param|null, // Default: ""
+ *                 }>,
+ *                 attrs?: list<scalar|Param|null>,
+ *             }>,
+ *         }>,
+ *         video_sets?: array<string, array{ // Default: []
+ *             sources?: list<array{ // Default: []
+ *                 version?: scalar|Param|null,
+ *                 attrs?: list<scalar|Param|null>,
+ *             }>,
+ *             poster_version?: scalar|Param|null,
+ *             attrs?: list<scalar|Param|null>,
+ *         }>,
+ *     }>,
+ *     ...<string, mixed>
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -3439,6 +3624,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sfs_user?: SfsUserConfig,
  *     sfs_account?: SfsAccountConfig,
  *     sensiolabs_minify?: SensiolabsMinifyConfig,
+ *     sfs_media?: SfsMediaConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -3509,6 +3695,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sfs_account?: SfsAccountConfig,
  *         ux_toolkit?: UxToolkitConfig,
  *         sensiolabs_minify?: SensiolabsMinifyConfig,
+ *         sfs_media?: SfsMediaConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -3568,6 +3755,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sfs_user?: SfsUserConfig,
  *         sfs_account?: SfsAccountConfig,
  *         sensiolabs_minify?: SensiolabsMinifyConfig,
+ *         sfs_media?: SfsMediaConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3635,6 +3823,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sfs_account?: SfsAccountConfig,
  *         ux_toolkit?: UxToolkitConfig,
  *         sensiolabs_minify?: SensiolabsMinifyConfig,
+ *         sfs_media?: SfsMediaConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
