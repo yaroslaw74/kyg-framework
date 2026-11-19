@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../schema.json
+imports:
+    - { resource: "@SfsMediaBundle/config/security/admin_role_hierarchy.yaml" }
+
+sfs_media:
+    imagine:
+        driver: gd
+    driver: filesystem
+    filesystem:
+        path: "%kernel.project_dir%/public/storage"
+        url: "/storage"
+    media:
+        admin_controller: true
