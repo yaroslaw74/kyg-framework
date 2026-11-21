@@ -31,50 +31,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    hwi_oauth.user.provider.entity:
-        class: HWI\Bundle\OAuthBundle\Security\Core\User\EntityUserProvider
-        arguments:
-            $class: App\Modules\Users\Entity\Users
-            $properties:
-                "facebook": "facebookUserId"
-                "yandex": "yandexUserId"
-                "google": "googleUserId"
-                "linkedin": "linkedinUserId"
-                "mailru": "mailruUserId"
-                "odnoklassniki": "odnoklassnikiUserId"
-                "x_twitter": "xTwitterUserId"
-                "vkontakte": "vkontakteUserId"
-                "github": "githubUserId"
-                "amazon": "amazonUserId"
-                "instagram": "instagramUserId"
-                "twitch": "twitchUserId"
-                "yahoo": "yahooUserId"
-                "spotify": "spotifyUserId"
-                "trello": "trelloUserId"
-                "dropbox": "dropboxUserId"
-                "flickr": "flickrUserId"
-                "windows_live": "windowsLiveUserId"
-    App\Modules\Users\Security\OAuthConnector:
-        arguments:
-            $properties:
-                "facebook": "facebookUserId"
-                "yandex": "yandexUserId"
-                "google": "googleUserId"
-                "linkedin": "linkedinUserId"
-                "mailru": "mailruUserId"
-                "odnoklassniki": "odnoklassnikiUserId"
-                "x_twitter": "xTwitterUserId"
-                "vkontakte": "vkontakteUserId"
-                "github": "githubUserId"
-                "amazon": "amazonUserId"
-                "instagram": "instagramUserId"
-                "twitch": "twitchUserId"
-                "yahoo": "yahooUserId"
-                "spotify": "spotifyUserId"
-                "trello": "trelloUserId"
-                "dropbox": "dropboxUserId"
-                "flickr": "flickrUserId"
-                "windows_live": "windowsLiveUserId"
 
 imports:
     - { resource: "locales.php" }
