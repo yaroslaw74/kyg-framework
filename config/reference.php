@@ -3297,6 +3297,24 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         public_path?: scalar|Param|null, // Default: "%kernel.project_dir%/public"
  *     },
  * }
+ * @psalm-type SfsMailerConfig = array{
+ *     entity_manager?: scalar|Param|null, // Default: "default"
+ *     templates?: array<string, array{ // Default: []
+ *         template?: scalar|Param|null,
+ *         subject_block?: scalar|Param|null, // Default: "subject"
+ *         html_block?: scalar|Param|null, // Default: "html"
+ *         text_block?: scalar|Param|null, // Default: "text"
+ *         from_email?: array{
+ *             sender_name?: scalar|Param|null,
+ *             address?: scalar|Param|null,
+ *         },
+ *         example_context?: list<mixed>,
+ *     }>,
+ *     history?: bool|array{
+ *         enabled?: bool|Param, // Default: false
+ *         class?: scalar|Param|null, // Default: "Softspring\\MailerBundle\\Entity\\EmailHistory"
+ *     },
+ * }
  * @psalm-type SfsUserConfig = array{
  *     class?: scalar|Param|null, // Default: "App\\Entity\\User"
  *     entity_manager?: scalar|Param|null, // Default: "default"
@@ -3699,6 +3717,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     live_component?: LiveComponentConfig,
  *     sfs_translatable?: SfsTranslatableConfig,
  *     sfs_twig_extra?: SfsTwigExtraConfig,
+ *     sfs_mailer?: SfsMailerConfig,
  *     sfs_user?: SfsUserConfig,
  *     sfs_media?: SfsMediaConfig,
  *     sfs_account?: SfsAccountConfig,
@@ -3773,6 +3792,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         sfs_translatable?: SfsTranslatableConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
+ *         sfs_mailer?: SfsMailerConfig,
  *         sfs_user?: SfsUserConfig,
  *         sfs_media?: SfsMediaConfig,
  *         sfs_account?: SfsAccountConfig,
@@ -3836,6 +3856,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         sfs_translatable?: SfsTranslatableConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
+ *         sfs_mailer?: SfsMailerConfig,
  *         sfs_user?: SfsUserConfig,
  *         sfs_media?: SfsMediaConfig,
  *         sfs_account?: SfsAccountConfig,
@@ -3907,6 +3928,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         easy_log?: EasyLogConfig,
  *         sfs_translatable?: SfsTranslatableConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
+ *         sfs_mailer?: SfsMailerConfig,
  *         sfs_user?: SfsUserConfig,
  *         sfs_media?: SfsMediaConfig,
  *         sfs_account?: SfsAccountConfig,
