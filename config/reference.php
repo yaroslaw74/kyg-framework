@@ -256,6 +256,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * @psalm-type WebLinkConfig = bool|array{ // Web links configuration
  *     enabled?: bool|Param, // Resolved at compile time // Default: true
  * }
+ * @psalm-type LockConfig = Param|bool|string|array{
+ *     enabled?: bool|Param, // Resolved at compile time // Default: true
+ *     resources?: Param|string|array<string, Param|string|list<mixed>>,
+ * }
  * @psalm-type MessengerConfig = bool|array{
  *     enabled?: bool|Param, // Resolved at compile time // Default: true
  *     routing?: array<string, Param|string|list<scalar|Param|null>>,
@@ -713,7 +717,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     property_info?: PropertyInfoConfig,
  *     cache?: CacheConfig,
  *     web_link?: WebLinkConfig,
- *     lock?: mixed,
+ *     lock?: LockConfig,
  *     semaphore?: mixed,
  *     messenger?: MessengerConfig,
  *     scheduler?: mixed,
@@ -3249,6 +3253,20 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
  *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
  * }
+ * @psalm-type UxToolkitConfig = array{
+ *     components?: array{ // Where "ux:install" installs the Twig components of recipes.
+ *         dir?: scalar|Param|null, // The directory TwigComponent loads anonymous components from, relative to the project directory. It must match your configuration: the Twig "default_path" followed by the TwigComponent "anonymous_template_directory". // Default: "templates/components"
+ *         subdirectory?: scalar|Param|null, // A subdirectory of "dir" to install the components in. Their names get it as a prefix, which the installer adds to the copied files, e.g. "<twig:ui:Button>" for "ui". // Default: null
+ *     },
+ *     controllers?: array{ // Where "ux:install" installs the Stimulus controllers of recipes.
+ *         dir?: scalar|Param|null, // The directory your Stimulus setup loads controllers from, relative to the project directory. It must match your configuration: an entry of "stimulus.controller_paths" with AssetMapper, the "controllersDir" option with Reprise, or the directory passed to "require.context()" with Webpack Encore. // Default: "assets/controllers"
+ *         subdirectory?: scalar|Param|null, // A subdirectory of "dir" to install the controllers in. Their identifiers get it as a prefix, which the installer adds to the copied files, e.g. "ui--dialog" for "ui". // Default: null
+ *     },
+ *     preview?: bool|array{ // Wires the preview assets of kits into AssetMapper, Tailwind and the importmap.
+ *         enabled?: bool|Param, // Resolved at compile time // Default: false
+ *         kits?: list<scalar|Param|null>,
+ *     },
+ * }
  * @psalm-type EasyLogConfig = array{
  *     log_path?: scalar|Param|null, // Path where readable log file will be located // Default: "%kernel.logs_dir%/%kernel.environment%-readable.log"
  *     max_line_length?: int|Param, // Max line length in log file // Default: 120
@@ -3336,49 +3354,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             application_secret?: scalar|Param|null,
  *             login_create?: bool|Param, // Default: false
  *         },
- *     },
- * }
- * @psalm-type SfsAccountConfig = array{
- *     class?: scalar|Param|null, // Default: "App\\Entity\\Account"
- *     admin?: bool|Param, // Default: true
- *     entity_manager?: scalar|Param|null, // Default: "default"
- *     twig_app_var_name?: scalar|Param|null, // Default: "account"
- *     route_param_name?: scalar|Param|null, // Default: "_account"
- *     find_field_name?: scalar|Param|null, // Default: "id"
- *     membership_class?: scalar|Param|null, // Default: null
- *     filter?: bool|array{
- *         enabled?: bool|Param, // Default: true
- *     },
- * }
- * @psalm-type UxToolkitConfig = array{
- *     components?: array{ // Where "ux:install" installs the Twig components of recipes.
- *         dir?: scalar|Param|null, // The directory TwigComponent loads anonymous components from, relative to the project directory. It must match your configuration: the Twig "default_path" followed by the TwigComponent "anonymous_template_directory". // Default: "templates/components"
- *         subdirectory?: scalar|Param|null, // A subdirectory of "dir" to install the components in. Their names get it as a prefix, which the installer adds to the copied files, e.g. "<twig:ui:Button>" for "ui". // Default: null
- *     },
- *     controllers?: array{ // Where "ux:install" installs the Stimulus controllers of recipes.
- *         dir?: scalar|Param|null, // The directory your Stimulus setup loads controllers from, relative to the project directory. It must match your configuration: an entry of "stimulus.controller_paths" with AssetMapper, the "controllersDir" option with Reprise, or the directory passed to "require.context()" with Webpack Encore. // Default: "assets/controllers"
- *         subdirectory?: scalar|Param|null, // A subdirectory of "dir" to install the controllers in. Their identifiers get it as a prefix, which the installer adds to the copied files, e.g. "ui--dialog" for "ui". // Default: null
- *     },
- *     preview?: bool|array{ // Wires the preview assets of kits into AssetMapper, Tailwind and the importmap.
- *         enabled?: bool|Param, // Resolved at compile time // Default: false
- *         kits?: list<scalar|Param|null>,
- *     },
- * }
- * @psalm-type SensiolabsMinifyConfig = array{
- *     asset_mapper?: bool|array{ // AssetMapper compiler settings
- *         enabled?: bool|Param, // Resolved at compile time // Default: true
- *         types?: array{ // Asset types to minify
- *             css?: bool|Param, // Default: true
- *             js?: bool|Param, // Default: true
- *         },
- *         ignore_paths?: list<scalar|Param|null>,
- *         ignore_vendor?: bool|Param, // Exclude vendor assets from minification // Default: true
- *     },
- *     minify?: array{ // Minify settings
- *         local_binary?: scalar|Param|null, // Path to the local binary (use "auto" for automatic detection) // Default: false
- *         download_binary?: bool|Param, // Download the binary from GitHub (defaults to "true" in debug mode) // Default: "%kernel.debug%"
- *         download_directory?: scalar|Param|null, // Directory to store the downloaded binary // Default: "%kernel.project_dir%/var/minify"
- *         version?: scalar|Param|null, // Minify version to download (null for latest) // Default: null
  *     },
  * }
  * @psalm-type SfsMediaConfig = array{
@@ -3566,6 +3541,101 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     }>,
  *     ...<string, mixed>
  * }
+ * @psalm-type SfsAccountConfig = array{
+ *     class?: scalar|Param|null, // Default: "App\\Entity\\Account"
+ *     admin?: bool|Param, // Default: true
+ *     entity_manager?: scalar|Param|null, // Default: "default"
+ *     twig_app_var_name?: scalar|Param|null, // Default: "account"
+ *     route_param_name?: scalar|Param|null, // Default: "_account"
+ *     find_field_name?: scalar|Param|null, // Default: "id"
+ *     membership_class?: scalar|Param|null, // Default: null
+ *     filter?: bool|array{
+ *         enabled?: bool|Param, // Default: true
+ *     },
+ * }
+ * @psalm-type SfsCmsConfig = array{
+ *     entity_manager?: scalar|Param|null, // Default: "default"
+ *     admin?: bool|Param, // Default: true
+ *     cache?: bool|array{
+ *         enabled?: bool|Param, // Resolved at compile time // Default: true
+ *         type?: "ttl"|"last_modified"|"none"|Param, // Default: null
+ *     },
+ *     esi?: bool|array{
+ *         enabled?: bool|Param, // Resolved at compile time // Default: true
+ *         response_cache_strategy?: "default"|"shortest_response"|Param, // Default: "default"
+ *     },
+ *     collections?: list<scalar|Param|null>,
+ *     site?: array{
+ *         identification?: "domain"|"path"|Param, // Deprecated: will be removed in 6.0 // Default: "domain"
+ *         class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\Site"
+ *         throw_not_found?: bool|Param, // Default: true
+ *     },
+ *     block?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\Block"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *         cache?: array{
+ *             enabled?: bool|Param,
+ *             type?: "ttl"|"none"|Param, // Default: null
+ *         },
+ *         types?: list<array{ // Default: []
+ *             name?: scalar|Param|null, // Default: null
+ *             description?: scalar|Param|null, // Default: null
+ *             admin_form?: scalar|Param|null,
+ *             render_template?: scalar|Param|null,
+ *         }>,
+ *     },
+ *     route?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\Route"
+ *         path_class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\RoutePath"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *         restricted_paths?: list<scalar|Param|null>,
+ *     },
+ *     content?: array{
+ *         content_class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\Content"
+ *         content_version_class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\ContentVersion"
+ *         page_class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\Page"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *         save_compiled?: bool|Param, // Default: true
+ *         autocompile_on_save?: bool|Param, // Default: false
+ *         autocompile_on_publish?: bool|Param, // Default: true
+ *         prefix_compiled?: scalar|Param|null, // Default: ""
+ *         cache?: array{
+ *             enabled?: bool|Param,
+ *             type?: "ttl"|"last_modified"|"none"|Param, // Default: null
+ *         },
+ *         recompile?: bool|Param, // Default: true
+ *     },
+ *     menu?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\Menu"
+ *         item_class?: scalar|Param|null, // Default: "Softspring\\CmsBundle\\Entity\\MenuItem"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *         cache?: array{
+ *             enabled?: bool|Param,
+ *             type?: "ttl"|"none"|Param, // Default: null
+ *         },
+ *     },
+ *     compiled?: array{
+ *         expiration_ttl?: int|Param, // Default: 2592000
+ *     },
+ *     ...<string, mixed>
+ * }
+ * @psalm-type SensiolabsMinifyConfig = array{
+ *     asset_mapper?: bool|array{ // AssetMapper compiler settings
+ *         enabled?: bool|Param, // Resolved at compile time // Default: true
+ *         types?: array{ // Asset types to minify
+ *             css?: bool|Param, // Default: true
+ *             js?: bool|Param, // Default: true
+ *         },
+ *         ignore_paths?: list<scalar|Param|null>,
+ *         ignore_vendor?: bool|Param, // Exclude vendor assets from minification // Default: true
+ *     },
+ *     minify?: array{ // Minify settings
+ *         local_binary?: scalar|Param|null, // Path to the local binary (use "auto" for automatic detection) // Default: false
+ *         download_binary?: bool|Param, // Download the binary from GitHub (defaults to "true" in debug mode) // Default: "%kernel.debug%"
+ *         download_directory?: scalar|Param|null, // Directory to store the downloaded binary // Default: "%kernel.project_dir%/var/minify"
+ *         version?: scalar|Param|null, // Minify version to download (null for latest) // Default: null
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -3577,6 +3647,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     validation?: ValidationConfig,
  *     translation?: TranslationConfig,
  *     web_link?: WebLinkConfig,
+ *     lock?: LockConfig,
  *     messenger?: MessengerConfig,
  *     workflow?: WorkflowConfig,
  *     type_info?: TypeInfoConfig,
@@ -3622,9 +3693,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     live_component?: LiveComponentConfig,
  *     sfs_twig_extra?: SfsTwigExtraConfig,
  *     sfs_user?: SfsUserConfig,
- *     sfs_account?: SfsAccountConfig,
- *     sensiolabs_minify?: SensiolabsMinifyConfig,
  *     sfs_media?: SfsMediaConfig,
+ *     sfs_account?: SfsAccountConfig,
+ *     sfs_cms?: SfsCmsConfig,
+ *     sensiolabs_minify?: SensiolabsMinifyConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -3636,6 +3708,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         validation?: ValidationConfig,
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
+ *         lock?: LockConfig,
  *         messenger?: MessengerConfig,
  *         workflow?: WorkflowConfig,
  *         type_info?: TypeInfoConfig,
@@ -3689,13 +3762,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_inspector?: UxInspectorConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         ux_toolkit?: UxToolkitConfig,
  *         easy_log?: EasyLogConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
- *         sfs_account?: SfsAccountConfig,
- *         ux_toolkit?: UxToolkitConfig,
- *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *         sfs_media?: SfsMediaConfig,
+ *         sfs_account?: SfsAccountConfig,
+ *         sfs_cms?: SfsCmsConfig,
+ *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -3708,6 +3782,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         validation?: ValidationConfig,
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
+ *         lock?: LockConfig,
  *         messenger?: MessengerConfig,
  *         workflow?: WorkflowConfig,
  *         type_info?: TypeInfoConfig,
@@ -3753,9 +3828,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
- *         sfs_account?: SfsAccountConfig,
- *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *         sfs_media?: SfsMediaConfig,
+ *         sfs_account?: SfsAccountConfig,
+ *         sfs_cms?: SfsCmsConfig,
+ *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -3768,6 +3844,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         validation?: ValidationConfig,
  *         translation?: TranslationConfig,
  *         web_link?: WebLinkConfig,
+ *         lock?: LockConfig,
  *         messenger?: MessengerConfig,
  *         workflow?: WorkflowConfig,
  *         type_info?: TypeInfoConfig,
@@ -3817,13 +3894,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         ux_toolkit?: UxToolkitConfig,
  *         easy_log?: EasyLogConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
- *         sfs_account?: SfsAccountConfig,
- *         ux_toolkit?: UxToolkitConfig,
- *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *         sfs_media?: SfsMediaConfig,
+ *         sfs_account?: SfsAccountConfig,
+ *         sfs_cms?: SfsCmsConfig,
+ *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
