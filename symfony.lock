@@ -284,6 +284,9 @@
     "shivas/versioning-bundle": {
         "version": "4.2.0"
     },
+    "softspring/armonic": {
+        "version": "v6.0.1"
+    },
     "softspring/cms-bundle": {
         "version": "6.0",
         "recipe": {
@@ -297,6 +300,18 @@
             "./config/packages/sfs_cms.yaml",
             "./config/routes/sfs_cms_admin.yaml",
             "./translations/sfs_components.en.yaml"
+        ]
+    },
+    "softspring/cms-module-collection": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "e45e469a7b8a199af164d9bffcab5097c87af994"
+        },
+        "files": [
+            "./config/packages/sfs_cms_modules.yaml"
         ]
     },
     "softspring/components": {
