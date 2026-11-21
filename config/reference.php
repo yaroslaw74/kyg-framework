@@ -3279,6 +3279,18 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         driver?: "google"|Param, // Default: "google"
  *     },
  * }
+ * @psalm-type SfsCmsSectionsConfig = array{
+ *     section?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\CmsSectionsPlugin\\Entity\\Section"
+ *         version_class?: scalar|Param|null, // Default: "Softspring\\CmsSectionsPlugin\\Entity\\SectionVersion"
+ *         find_field_name?: scalar|Param|null, // Default: "id"
+ *         save_compiled?: bool|Param, // Default: true
+ *         autocompile_on_save?: bool|Param, // Default: false
+ *         autocompile_on_publish?: bool|Param, // Default: true
+ *         prefix_compiled?: scalar|Param|null, // Default: ""
+ *         recompile?: bool|Param, // Default: true
+ *     },
+ * }
  * @psalm-type SfsTwigExtraConfig = array{
  *     active_for_routes_extension?: bool|array{
  *         enabled?: bool|Param, // Default: true
@@ -3724,6 +3736,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
  *     sfs_translatable?: SfsTranslatableConfig,
+ *     sfs_cms_sections?: SfsCmsSectionsConfig,
  *     sfs_twig_extra?: SfsTwigExtraConfig,
  *     sfs_mailer?: SfsMailerConfig,
  *     sfs_user?: SfsUserConfig,
@@ -3800,6 +3813,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_toolkit?: UxToolkitConfig,
  *         easy_log?: EasyLogConfig,
  *         sfs_translatable?: SfsTranslatableConfig,
+ *         sfs_cms_sections?: SfsCmsSectionsConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_mailer?: SfsMailerConfig,
  *         sfs_user?: SfsUserConfig,
@@ -3865,6 +3879,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
  *         sfs_translatable?: SfsTranslatableConfig,
+ *         sfs_cms_sections?: SfsCmsSectionsConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_mailer?: SfsMailerConfig,
  *         sfs_user?: SfsUserConfig,
@@ -3938,6 +3953,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_toolkit?: UxToolkitConfig,
  *         easy_log?: EasyLogConfig,
  *         sfs_translatable?: SfsTranslatableConfig,
+ *         sfs_cms_sections?: SfsCmsSectionsConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_mailer?: SfsMailerConfig,
  *         sfs_user?: SfsUserConfig,
