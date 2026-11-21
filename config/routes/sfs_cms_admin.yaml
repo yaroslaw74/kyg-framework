@@ -4,12 +4,12 @@ _sfs_cms_pages_:
     prefix: /admin/pages
 
 # CONFIGURE YOUR CUSTOM CONTENT TYPES ADMIN ROUTES
-# _sfs_cms_custom_:
-#     resource: "@SfsCmsBundle/config/routing/admin_content_type.yaml",
-#     prefix: /admin/custom
-#     defaults:
-#     _content_type: custom
-#     name_prefix: sfs_cms_admin_content_custom_
+_sfs_cms_custom_:
+    resource: "@SfsCmsBundle/config/routing/admin_content_type.yaml"
+    prefix: /admin/custom
+    defaults:
+        _content_type: custom
+        name_prefix: sfs_cms_admin_content_custom_
 
 _sfs_cms_routes_:
     resource: "@SfsCmsBundle/config/routing/admin_routes.yaml"
