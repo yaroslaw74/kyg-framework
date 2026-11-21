@@ -13616,6 +13616,60 @@
                 },
                 "additionalProperties": false
             },
+            "sfs_cms_sections": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "section": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "class": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "Softspring\\CmsSectionsPlugin\\Entity\\Section"
+                            },
+                            "version_class": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "Softspring\\CmsSectionsPlugin\\Entity\\SectionVersion"
+                            },
+                            "find_field_name": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "id"
+                            },
+                            "save_compiled": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true
+                            },
+                            "autocompile_on_save": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": false
+                            },
+                            "autocompile_on_publish": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true
+                            },
+                            "prefix_compiled": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": ""
+                            },
+                            "recompile": {
+                                "$ref": "#/$defs/types/boolean",
+                                "default": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "class": "Softspring\\CmsSectionsPlugin\\Entity\\Section",
+                            "version_class": "Softspring\\CmsSectionsPlugin\\Entity\\SectionVersion",
+                            "find_field_name": "id",
+                            "save_compiled": true,
+                            "autocompile_on_save": false,
+                            "autocompile_on_publish": true,
+                            "prefix_compiled": "",
+                            "recompile": true
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
             "sfs_mailer": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -18621,6 +18675,9 @@
         "sfs_cms_blog": {
             "$ref": "#/$defs/nodes/sfs_cms_blog"
         },
+        "sfs_cms_sections": {
+            "$ref": "#/$defs/nodes/sfs_cms_sections"
+        },
         "sfs_mailer": {
             "$ref": "#/$defs/nodes/sfs_mailer"
         },
@@ -18830,6 +18887,9 @@
                 },
                 "sfs_cms_blog": {
                     "$ref": "#/$defs/nodes/sfs_cms_blog"
+                },
+                "sfs_cms_sections": {
+                    "$ref": "#/$defs/nodes/sfs_cms_sections"
                 },
                 "sfs_mailer": {
                     "$ref": "#/$defs/nodes/sfs_mailer"
@@ -19047,6 +19107,9 @@
                 "sfs_cms_blog": {
                     "$ref": "#/$defs/nodes/sfs_cms_blog"
                 },
+                "sfs_cms_sections": {
+                    "$ref": "#/$defs/nodes/sfs_cms_sections"
+                },
                 "sfs_mailer": {
                     "$ref": "#/$defs/nodes/sfs_mailer"
                 },
@@ -19243,6 +19306,9 @@
                 },
                 "sfs_cms_blog": {
                     "$ref": "#/$defs/nodes/sfs_cms_blog"
+                },
+                "sfs_cms_sections": {
+                    "$ref": "#/$defs/nodes/sfs_cms_sections"
                 },
                 "sfs_mailer": {
                     "$ref": "#/$defs/nodes/sfs_mailer"
