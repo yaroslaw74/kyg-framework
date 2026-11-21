@@ -29,6 +29,7 @@ use Gedmo\Uploadable\Mapping\Validator;
 use libphonenumber\PhoneNumber;
 use Softspring\AccountBundle\Entity\UserAccountMembershipsTrait;
 use Softspring\AccountBundle\Model\UserAccountMembershipsInterface;
+use Softspring\CmsBlogPlugin\Model\AuthorInterface;
 use Softspring\UserBundle\Entity\ConfirmableTrait;
 use Softspring\UserBundle\Entity\EmailTrait;
 use Softspring\UserBundle\Entity\NameSurnameTrait;
@@ -61,7 +62,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[Gedmo\Uploadable(allowOverwrite: true, appendNumber: true, filenameGenerator: Validator::FILENAME_GENERATOR_SHA1)]
 #[Gedmo\SoftDeleteable]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User extends UserModel implements ConfirmableInterface, FacebookOauthInterface, NameSurnameInterface, PasswordAuthenticatedUserInterface, PasswordRequestInterface, RolesFullInterface, TimezoneAwareInterface, UserAccountMembershipsInterface, UserHasLocalePreferenceInterface, UserIdentifierUsernameInterface, UserInterface, UserPasswordInterface, UserWithEmailInterface
+class User extends UserModel implements AuthorInterface, ConfirmableInterface, FacebookOauthInterface, NameSurnameInterface, PasswordAuthenticatedUserInterface, PasswordRequestInterface, RolesFullInterface, TimezoneAwareInterface, UserAccountMembershipsInterface, UserHasLocalePreferenceInterface, UserIdentifierUsernameInterface, UserInterface, UserPasswordInterface, UserWithEmailInterface
 {
     use BlameableEntity;
     use ConfirmableTrait;
@@ -157,6 +158,15 @@ class User extends UserModel implements ConfirmableInterface, FacebookOauthInter
     public function setAvatar(?string $avatar): void
     {
         $this->avatar = $avatar;
+    }
+
+    public function getAvatarUrl(): string
+    {
+        if (null === $this->avatar) {
+            return '/assets/images/avatar/pngwing.com.png';
+        }
+
+        return $this->avatar;
     }
 
     public function getStatus(): UserStatus
