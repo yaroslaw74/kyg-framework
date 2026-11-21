@@ -73,4 +73,5 @@ return [
     Softspring\CmsBlogPlugin\SfsCmsBlogPlugin::class => ['all' => true],
     Softspring\Armonic\ArmonicBundle::class => ['all' => true],
     Sensiolabs\MinifyBundle\SensiolabsMinifyBundle::class => ['all' => true],
+    Scheb\TwoFactorBundle\SchebTwoFactorBundle::class => ['all' => true],
 ];
