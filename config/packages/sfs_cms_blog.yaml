@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../schema.json
+sfs_cms_blog:
+    author:
+        class: App\Modules\Users\Entity\User
