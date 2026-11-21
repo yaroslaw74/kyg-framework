@@ -40,3 +40,9 @@ twig:
                     role: ROLE_SFS_CMS_ADMIN_SITES_LIST
                     active_expression: "sfs_cms_admin_sites_"
                     icon: "bi bi-diagram-3"
+                sections:
+                    translation_key: "sidebar.menu.cms.sections"
+                    route: "sfs_cms_admin_sections_list"
+                    role: PERMISSION_SFS_CMS_ADMIN_SECTION_LIST
+                    active_expression: "sfs_cms_admin_sections_"
+                    icon: "bi bi-grid-fill me-2"
