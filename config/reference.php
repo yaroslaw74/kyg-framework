@@ -3273,6 +3273,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     prefix_length?: int|Param, // Prefix length in log file // Default: 2
  *     ignored_routes?: list<scalar|Param|null>,
  * }
+ * @psalm-type SfsTranslatableConfig = array{
+ *     api?: bool|array{
+ *         enabled?: bool|Param, // Resolved at compile time // Default: false
+ *         driver?: "google"|Param, // Default: "google"
+ *     },
+ * }
  * @psalm-type SfsTwigExtraConfig = array{
  *     active_for_routes_extension?: bool|array{
  *         enabled?: bool|Param, // Default: true
@@ -3691,6 +3697,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     ux_icons?: UxIconsConfig,
  *     twig_component?: TwigComponentConfig,
  *     live_component?: LiveComponentConfig,
+ *     sfs_translatable?: SfsTranslatableConfig,
  *     sfs_twig_extra?: SfsTwigExtraConfig,
  *     sfs_user?: SfsUserConfig,
  *     sfs_media?: SfsMediaConfig,
@@ -3764,6 +3771,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         ux_toolkit?: UxToolkitConfig,
  *         easy_log?: EasyLogConfig,
+ *         sfs_translatable?: SfsTranslatableConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
  *         sfs_media?: SfsMediaConfig,
@@ -3826,6 +3834,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         ux_icons?: UxIconsConfig,
  *         twig_component?: TwigComponentConfig,
  *         live_component?: LiveComponentConfig,
+ *         sfs_translatable?: SfsTranslatableConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
  *         sfs_media?: SfsMediaConfig,
@@ -3896,6 +3905,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         live_component?: LiveComponentConfig,
  *         ux_toolkit?: UxToolkitConfig,
  *         easy_log?: EasyLogConfig,
+ *         sfs_translatable?: SfsTranslatableConfig,
  *         sfs_twig_extra?: SfsTwigExtraConfig,
  *         sfs_user?: SfsUserConfig,
  *         sfs_media?: SfsMediaConfig,
