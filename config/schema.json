@@ -9824,6 +9824,337 @@
                     "utf8": true
                 }
             },
+            "scheb_two_factor": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "persister": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "scheb_two_factor.persister.doctrine"
+                    },
+                    "model_manager_name": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null
+                    },
+                    "security_tokens": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        },
+                        "default": [
+                            "Symfony\\Component\\Security\\Core\\Authentication\\Token\\UsernamePasswordToken",
+                            "Symfony\\Component\\Security\\Http\\Authenticator\\Token\\PostAuthenticationToken"
+                        ]
+                    },
+                    "ip_whitelist": {
+                        "$ref": "#/$defs/types/array_null",
+                        "items": {
+                            "$ref": "#/$defs/types/scalar"
+                        }
+                    },
+                    "ip_whitelist_provider": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "scheb_two_factor.default_ip_whitelist_provider"
+                    },
+                    "two_factor_token_factory": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "scheb_two_factor.default_token_factory"
+                    },
+                    "two_factor_provider_decider": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "scheb_two_factor.default_provider_decider"
+                    },
+                    "two_factor_condition": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null
+                    },
+                    "code_reuse_cache": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null
+                    },
+                    "code_reuse_cache_duration": {
+                        "$ref": "#/$defs/types/integer",
+                        "default": 60
+                    },
+                    "code_reuse_default_handler": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": null
+                    },
+                    "trusted_device": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": false
+                                    },
+                                    "manager": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "scheb_two_factor.default_trusted_device_manager"
+                                    },
+                                    "lifetime": {
+                                        "$ref": "#/$defs/types/integer",
+                                        "minimum": 1,
+                                        "default": 5184000
+                                    },
+                                    "extend_lifetime": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "key": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "cookie_name": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "trusted_device"
+                                    },
+                                    "cookie_secure": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    true,
+                                                    false,
+                                                    "auto"
+                                                ]
+                                            },
+                                            {
+                                                "$ref": "#/$defs/types/param"
+                                            }
+                                        ],
+                                        "default": "auto"
+                                    },
+                                    "cookie_domain": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "cookie_path": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "/"
+                                    },
+                                    "cookie_same_site": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "lax"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "manager": "scheb_two_factor.default_trusted_device_manager",
+                            "lifetime": 5184000,
+                            "extend_lifetime": false,
+                            "key": null,
+                            "cookie_name": "trusted_device",
+                            "cookie_secure": "auto",
+                            "cookie_domain": null,
+                            "cookie_path": "/",
+                            "cookie_same_site": "lax"
+                        }
+                    },
+                    "backup_codes": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": false
+                                    },
+                                    "manager": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "scheb_two_factor.default_backup_code_manager"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "manager": "scheb_two_factor.default_backup_code_manager"
+                        }
+                    },
+                    "email": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": false
+                                    },
+                                    "mailer": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "code_generator": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "scheb_two_factor.security.email.default_code_generator"
+                                    },
+                                    "form_renderer": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "sender_email": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "sender_name": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "template": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "@SchebTwoFactor/Authentication/form.html.twig"
+                                    },
+                                    "digits": {
+                                        "$ref": "#/$defs/types/integer",
+                                        "minimum": 1,
+                                        "default": 4
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "mailer": null,
+                            "code_generator": "scheb_two_factor.security.email.default_code_generator",
+                            "form_renderer": null,
+                            "sender_email": null,
+                            "sender_name": null,
+                            "template": "@SchebTwoFactor/Authentication/form.html.twig",
+                            "digits": 4
+                        }
+                    },
+                    "google": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": false
+                                    },
+                                    "form_renderer": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "issuer": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "server_name": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "template": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "@SchebTwoFactor/Authentication/form.html.twig"
+                                    },
+                                    "digits": {
+                                        "$ref": "#/$defs/types/integer",
+                                        "minimum": 1,
+                                        "default": 6
+                                    },
+                                    "leeway": {
+                                        "$ref": "#/$defs/types/integer",
+                                        "minimum": 0,
+                                        "default": 0
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "form_renderer": null,
+                            "issuer": null,
+                            "server_name": null,
+                            "template": "@SchebTwoFactor/Authentication/form.html.twig",
+                            "digits": 6,
+                            "leeway": 0
+                        }
+                    },
+                    "totp": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": false
+                                    },
+                                    "form_renderer": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "issuer": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "server_name": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": null
+                                    },
+                                    "leeway": {
+                                        "$ref": "#/$defs/types/integer",
+                                        "minimum": 0,
+                                        "default": 0
+                                    },
+                                    "parameters": {
+                                        "$ref": "#/$defs/types/array_null",
+                                        "items": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        }
+                                    },
+                                    "template": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "@SchebTwoFactor/Authentication/form.html.twig"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "form_renderer": null,
+                            "issuer": null,
+                            "server_name": null,
+                            "leeway": 0,
+                            "parameters": [],
+                            "template": "@SchebTwoFactor/Authentication/form.html.twig"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
             "security": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -12752,6 +13083,92 @@
                                                     ]
                                                 }
                                             ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "two_factor": {
+                                    "$ref": "#/$defs/types/object_null",
+                                    "properties": {
+                                        "check_path": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "/2fa_check"
+                                        },
+                                        "post_only": {
+                                            "$ref": "#/$defs/types/boolean",
+                                            "default": true
+                                        },
+                                        "auth_form_path": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "/2fa"
+                                        },
+                                        "always_use_default_target_path": {
+                                            "$ref": "#/$defs/types/boolean",
+                                            "default": false
+                                        },
+                                        "default_target_path": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "/"
+                                        },
+                                        "success_handler": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": null
+                                        },
+                                        "failure_handler": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": null
+                                        },
+                                        "authentication_required_handler": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": null
+                                        },
+                                        "auth_code_parameter_name": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "_auth_code"
+                                        },
+                                        "trusted_parameter_name": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "_trusted"
+                                        },
+                                        "remember_me_sets_trusted": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": false
+                                        },
+                                        "multi_factor": {
+                                            "$ref": "#/$defs/types/boolean",
+                                            "default": false
+                                        },
+                                        "prepare_on_login": {
+                                            "$ref": "#/$defs/types/boolean",
+                                            "default": false
+                                        },
+                                        "prepare_on_access_denied": {
+                                            "$ref": "#/$defs/types/boolean",
+                                            "default": false
+                                        },
+                                        "enable_csrf": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": false
+                                        },
+                                        "csrf_parameter": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "_csrf_token"
+                                        },
+                                        "csrf_token_id": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "two_factor"
+                                        },
+                                        "csrf_header": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": null
+                                        },
+                                        "csrf_token_manager": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": "scheb_two_factor.csrf_token_manager"
+                                        },
+                                        "provider": {
+                                            "$ref": "#/$defs/types/scalar",
+                                            "default": null
                                         }
                                     },
                                     "additionalProperties": false
@@ -18657,6 +19074,9 @@
         "router": {
             "$ref": "#/$defs/nodes/router"
         },
+        "scheb_two_factor": {
+            "$ref": "#/$defs/nodes/scheb_two_factor"
+        },
         "security": {
             "$ref": "#/$defs/nodes/security"
         },
@@ -18868,6 +19288,9 @@
                 },
                 "router": {
                     "$ref": "#/$defs/nodes/router"
+                },
+                "scheb_two_factor": {
+                    "$ref": "#/$defs/nodes/scheb_two_factor"
                 },
                 "security": {
                     "$ref": "#/$defs/nodes/security"
@@ -19088,6 +19511,9 @@
                 "router": {
                     "$ref": "#/$defs/nodes/router"
                 },
+                "scheb_two_factor": {
+                    "$ref": "#/$defs/nodes/scheb_two_factor"
+                },
                 "security": {
                     "$ref": "#/$defs/nodes/security"
                 },
@@ -19288,6 +19714,9 @@
                 },
                 "router": {
                     "$ref": "#/$defs/nodes/router"
+                },
+                "scheb_two_factor": {
+                    "$ref": "#/$defs/nodes/scheb_two_factor"
                 },
                 "security": {
                     "$ref": "#/$defs/nodes/security"
