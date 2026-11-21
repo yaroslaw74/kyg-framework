@@ -34,3 +34,7 @@ _sfs_cms_sites_:
 _sfs_media_admin_types_:
     resource: "@SfsMediaBundle/config/routing/admin_media.yaml"
     prefix: /admin/media
+
+_sfs_cms_sections_:
+    resource: "@SfsCmsSectionsPlugin/config/routing/admin_sections.yaml"
+    prefix: /admin/sections
