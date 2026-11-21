@@ -62,11 +62,13 @@ return [
     Softspring\Component\DynamicFormType\SfsDynamicFormTypeBundle::class => ['all' => true],
     Softspring\TwigExtraBundle\SfsTwigExtraBundle::class => ['all' => true],
     Softspring\PermissionsBundle\SfsPermissionsBundle::class => ['all' => true],
+    Softspring\MailerBundle\SfsMailerBundle::class => ['all' => true],
     Softspring\UserBundle\SfsUserBundle::class => ['all' => true],
     Softspring\Component\Components\SfsComponentsBundle::class => ['all' => true],
     Softspring\MediaBundle\SfsMediaBundle::class => ['all' => true],
     Softspring\AccountBundle\SfsAccountBundle::class => ['all' => true],
     Softspring\CmsBundle\SfsCmsBundle::class => ['all' => true],
+    Softspring\CmsBlogPlugin\SfsCmsBlogPlugin::class => ['all' => true],
     Softspring\Armonic\ArmonicBundle::class => ['all' => true],
     Sensiolabs\MinifyBundle\SensiolabsMinifyBundle::class => ['all' => true],
 ];
