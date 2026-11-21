@@ -10,6 +10,8 @@ asset_mapper:
     paths:
         - assets/
         - public/theme/
+        - vendor/softspring/cms-bundle/assets/dist/
+        - vendor/softspring/collection-form-type/assets/dist/
     metadata_dir: "%kernel.project_dir%/var/assets"
     minimum_release_age: 604800
     exclude_dotfiles: true
