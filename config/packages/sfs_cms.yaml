@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=../schema.json
 imports:
     - { resource: "@SfsCmsBundle/config/security/admin_role_hierarchy.yaml" }
+    - { resource: "@SfsCmsSectionsPlugin/config/security/admin_role_hierarchy.yaml" }
 
 security:
     role_hierarchy:
@@ -12,6 +13,10 @@ security:
             - ROLE_SFS_CMS_ADMIN_MENUS_RW
             - ROLE_SFS_CMS_ADMIN_SITES_RO
             - ROLE_SFS_CMS_ADMIN_CONTENTS_TRANSLATOR
+            - ROLE_SFS_CMS_ADMIN_SECTIONS_RW
+
+parameters:
+    sfs_cms.admin: "admin"
 
 asset_mapper:
     paths:
