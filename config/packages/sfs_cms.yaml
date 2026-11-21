@@ -16,7 +16,7 @@ security:
 asset_mapper:
     paths:
         - vendor/softspring/cms-bundle/assets/dist/
-         
+
 sfs_cms:
     site:
         identification: "domain"
