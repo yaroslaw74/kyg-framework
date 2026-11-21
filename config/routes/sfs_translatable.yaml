@@ -1,0 +1,3 @@
+# yaml-language-server: $schema=../../vendor/symfony/routing/Loader/schema/routing.schema.json
+sfs_translatable:
+    resource: "@SfsTranslatableBundle/config/routing/api_translate.yaml"
