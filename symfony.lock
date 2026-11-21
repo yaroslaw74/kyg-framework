@@ -284,6 +284,21 @@
     "shivas/versioning-bundle": {
         "version": "4.2.0"
     },
+    "softspring/cms-bundle": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "0bc737f5d4b6884d3555521cddef84b9a4853864"
+        },
+        "files": [
+            "./config/packages/sfs_admin_menu_cms.yaml",
+            "./config/packages/sfs_cms.yaml",
+            "./config/routes/sfs_cms_admin.yaml",
+            "./translations/sfs_components.en.yaml"
+        ]
+    },
     "softspring/components": {
         "version": "6.0",
         "recipe": {
@@ -295,6 +310,18 @@
         "files": [
             "./config/packages/sfs_components.yaml",
             "./templates/base.html.twig"
+        ]
+    },
+    "softspring/doctrine-migrations-version-comparator": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "5.1",
+            "ref": "7d9953168aa6913dc0061bf23f554d73201dc46a"
+        },
+        "files": [
+            "./config/packages/sfs_doctrine_migrations.yaml"
         ]
     },
     "softspring/media-bundle": {
@@ -480,6 +507,18 @@
             "./.editorconfig",
             "./.symfony.local.yaml",
             "./AGENTS.md"
+        ]
+    },
+    "symfony/lock": {
+        "version": "8.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "8.2",
+            "ref": "472277fb1c5d4445a9f474a9c2dd66c9b59a3167"
+        },
+        "files": [
+            "./config/packages/lock.yaml"
         ]
     },
     "symfony/mailer": {
