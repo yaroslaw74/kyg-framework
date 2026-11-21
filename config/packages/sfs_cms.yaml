@@ -13,6 +13,10 @@ security:
             - ROLE_SFS_CMS_ADMIN_SITES_RO
             - ROLE_SFS_CMS_ADMIN_CONTENTS_TRANSLATOR
 
+asset_mapper:
+    paths:
+        - vendor/softspring/cms-bundle/assets/dist/
+         
 sfs_cms:
     site:
         identification: "domain"
