@@ -1,4 +1,8 @@
 # yaml-language-server: $schema=../../vendor/symfony/routing/Loader/schema/routing.schema.json
+_sfs_cms_admin:
+    resource: "@SfsCmsBundle/config/routing/admin.yaml"
+    prefix: /admin/cms
+
 _sfs_cms_pages_:
     resource: "@SfsCmsBundle/config/routing/admin_pages.yaml"
     prefix: /admin/pages
