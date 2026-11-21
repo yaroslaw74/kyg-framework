@@ -53,7 +53,6 @@ security:
                 use_forward: false
                 failure_path: hwi_oauth_connect_registration
                 check_path: /login-check
-
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.entity
 
@@ -65,21 +64,17 @@ security:
                 provider: sfs_user
                 login_path: sfs_user_login
                 check_path: sfs_user_login_check
-
             login_throttling:
                 max_attempts: 5
                 interval: "1 minute"
-
             remember_me:
                 secret: "%env(APP_SECRET)%"
                 lifetime: 2592000 # 1 month
                 secure: true
                 httponly: true
                 always_remember_me: false
-
             logout:
                 path: sfs_user_logout
-
             switch_user:
                 role: ROLE_ALLOWED_TO_SWITCH
                 parameter: _switch_user
@@ -93,12 +88,10 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
-
             logout:
                 path: app_logout
                 # where to redirect after logout
                 target: app
-
             oauth:
                 resource_owners:
                     facebook: "/app/login/check-facebook"
@@ -123,15 +116,15 @@ security:
                 use_forward: false
                 failure_path: hwi_oauth_connect_registration
                 check_path: /app/login-check
-
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.entity
-
+            two_factor:
+                auth_form_path: 2fa_login
+                check_path: 2fa_login_check
             remember_me:
                 secret: "%env(APP_SECRET)%"
                 lifetime: 2629746
                 path: app
-
             login_throttling:
                 max_attempts: 5
                 interval: "15 minutes"
@@ -185,6 +178,7 @@ security:
         - { path: ^/app/check-email$, role: PUBLIC_ACCESS }
         - { path: ^/app/verify$, role: PUBLIC_ACCESS }
         - { path: ^/app/reset-password/.*$, role: PUBLIC_ACCESS }
+        - { path: ^/app/2fa, role: IS_AUTHENTICATED_2FA_IN_PROGRESS }
 
         # CMS login page needs to be accessed without credential
         - { path: ^/admin/login$, role: PUBLIC_ACCESS }
