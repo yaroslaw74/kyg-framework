@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../schema.json
+services:
+    Softspring\Component\DoctrineMigrationsVersionComparator\VersionNumberComparator: null
+
+doctrine_migrations:
+    services:
+        # configure the version comparator service
+        'Doctrine\Migrations\Version\Comparator': 'Softspring\Component\DoctrineMigrationsVersionComparator\VersionNumberComparator'
