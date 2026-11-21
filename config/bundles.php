@@ -69,6 +69,7 @@ return [
     Softspring\AccountBundle\SfsAccountBundle::class => ['all' => true],
     Softspring\CmsBundle\SfsCmsBundle::class => ['all' => true],
     Softspring\CmsBlogPlugin\SfsCmsBlogPlugin::class => ['all' => true],
+    Softspring\CmsTranslationPlugin\SfsCmsTranslationPlugin::class => ['all' => true],
     Softspring\Armonic\ArmonicBundle::class => ['all' => true],
     Sensiolabs\MinifyBundle\SensiolabsMinifyBundle::class => ['all' => true],
 ];
