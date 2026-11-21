@@ -13591,6 +13591,48 @@
             "sfs_media": {
                 "$ref": "#/$defs/types/variable"
             },
+            "sfs_translatable": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "api": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "driver": {
+                                        "anyOf": [
+                                            {
+                                                "enum": [
+                                                    "google"
+                                                ]
+                                            },
+                                            {
+                                                "$ref": "#/$defs/types/param"
+                                            }
+                                        ],
+                                        "default": "google"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "driver": "google"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
             "sfs_twig_extra": {
                 "$ref": "#/$defs/types/object_null",
                 "properties": {
@@ -18472,6 +18514,9 @@
         "sfs_media": {
             "$ref": "#/$defs/nodes/sfs_media"
         },
+        "sfs_translatable": {
+            "$ref": "#/$defs/nodes/sfs_translatable"
+        },
         "sfs_twig_extra": {
             "$ref": "#/$defs/nodes/sfs_twig_extra"
         },
@@ -18672,6 +18717,9 @@
                 },
                 "sfs_media": {
                     "$ref": "#/$defs/nodes/sfs_media"
+                },
+                "sfs_translatable": {
+                    "$ref": "#/$defs/nodes/sfs_translatable"
                 },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
@@ -18880,6 +18928,9 @@
                 "sfs_media": {
                     "$ref": "#/$defs/nodes/sfs_media"
                 },
+                "sfs_translatable": {
+                    "$ref": "#/$defs/nodes/sfs_translatable"
+                },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
                 },
@@ -19067,6 +19118,9 @@
                 },
                 "sfs_media": {
                     "$ref": "#/$defs/nodes/sfs_media"
+                },
+                "sfs_translatable": {
+                    "$ref": "#/$defs/nodes/sfs_translatable"
                 },
                 "sfs_twig_extra": {
                     "$ref": "#/$defs/nodes/sfs_twig_extra"
