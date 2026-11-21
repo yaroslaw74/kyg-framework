@@ -3643,6 +3643,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     ...<string, mixed>
  * }
+ * @psalm-type SfsCmsBlogConfig = array{
+ *     article?: array{
+ *         class?: scalar|Param|null, // Default: "Softspring\\CmsBlogPlugin\\Entity\\ArticleContent"
+ *     },
+ *     author?: array{
+ *         class?: scalar|Param|null,
+ *     },
+ * }
  * @psalm-type SensiolabsMinifyConfig = array{
  *     asset_mapper?: bool|array{ // AssetMapper compiler settings
  *         enabled?: bool|Param, // Resolved at compile time // Default: true
@@ -3722,6 +3730,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sfs_media?: SfsMediaConfig,
  *     sfs_account?: SfsAccountConfig,
  *     sfs_cms?: SfsCmsConfig,
+ *     sfs_cms_blog?: SfsCmsBlogConfig,
  *     sensiolabs_minify?: SensiolabsMinifyConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
@@ -3797,6 +3806,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sfs_media?: SfsMediaConfig,
  *         sfs_account?: SfsAccountConfig,
  *         sfs_cms?: SfsCmsConfig,
+ *         sfs_cms_blog?: SfsCmsBlogConfig,
  *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *     },
  *     "when@prod"?: array{
@@ -3861,6 +3871,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sfs_media?: SfsMediaConfig,
  *         sfs_account?: SfsAccountConfig,
  *         sfs_cms?: SfsCmsConfig,
+ *         sfs_cms_blog?: SfsCmsBlogConfig,
  *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *     },
  *     "when@test"?: array{
@@ -3933,6 +3944,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sfs_media?: SfsMediaConfig,
  *         sfs_account?: SfsAccountConfig,
  *         sfs_cms?: SfsCmsConfig,
+ *         sfs_cms_blog?: SfsCmsBlogConfig,
  *         sensiolabs_minify?: SensiolabsMinifyConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
