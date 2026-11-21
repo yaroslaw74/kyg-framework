@@ -13588,6 +13588,113 @@
             "sfs_cms": {
                 "$ref": "#/$defs/types/variable"
             },
+            "sfs_cms_blog": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "article": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "class": {
+                                "$ref": "#/$defs/types/scalar",
+                                "default": "Softspring\\CmsBlogPlugin\\Entity\\ArticleContent"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "default": {
+                            "class": "Softspring\\CmsBlogPlugin\\Entity\\ArticleContent"
+                        }
+                    },
+                    "author": {
+                        "$ref": "#/$defs/types/object_null",
+                        "properties": {
+                            "class": {
+                                "$ref": "#/$defs/types/scalar"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false
+            },
+            "sfs_mailer": {
+                "$ref": "#/$defs/types/object_null",
+                "properties": {
+                    "entity_manager": {
+                        "$ref": "#/$defs/types/scalar",
+                        "default": "default"
+                    },
+                    "templates": {
+                        "$ref": "#/$defs/types/object_null",
+                        "additionalProperties": {
+                            "$ref": "#/$defs/types/object_null",
+                            "properties": {
+                                "template": {
+                                    "$ref": "#/$defs/types/scalar"
+                                },
+                                "subject_block": {
+                                    "$ref": "#/$defs/types/scalar",
+                                    "default": "subject"
+                                },
+                                "html_block": {
+                                    "$ref": "#/$defs/types/scalar",
+                                    "default": "html"
+                                },
+                                "text_block": {
+                                    "$ref": "#/$defs/types/scalar",
+                                    "default": "text"
+                                },
+                                "from_email": {
+                                    "$ref": "#/$defs/types/object_null",
+                                    "properties": {
+                                        "sender_name": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        },
+                                        "address": {
+                                            "$ref": "#/$defs/types/scalar"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "example_context": {
+                                    "$ref": "#/$defs/types/array_null",
+                                    "items": {
+                                        "$ref": "#/$defs/types/variable"
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "history": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/types/object_null",
+                                "properties": {
+                                    "enabled": {
+                                        "$ref": "#/$defs/types/boolean",
+                                        "default": false
+                                    },
+                                    "class": {
+                                        "$ref": "#/$defs/types/scalar",
+                                        "default": "Softspring\\MailerBundle\\Entity\\EmailHistory"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": [
+                                    "boolean"
+                                ]
+                            }
+                        ],
+                        "default": {
+                            "enabled": false,
+                            "class": "Softspring\\MailerBundle\\Entity\\EmailHistory"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
             "sfs_media": {
                 "$ref": "#/$defs/types/variable"
             },
@@ -18511,6 +18618,12 @@
         "sfs_cms": {
             "$ref": "#/$defs/nodes/sfs_cms"
         },
+        "sfs_cms_blog": {
+            "$ref": "#/$defs/nodes/sfs_cms_blog"
+        },
+        "sfs_mailer": {
+            "$ref": "#/$defs/nodes/sfs_mailer"
+        },
         "sfs_media": {
             "$ref": "#/$defs/nodes/sfs_media"
         },
@@ -18714,6 +18827,12 @@
                 },
                 "sfs_cms": {
                     "$ref": "#/$defs/nodes/sfs_cms"
+                },
+                "sfs_cms_blog": {
+                    "$ref": "#/$defs/nodes/sfs_cms_blog"
+                },
+                "sfs_mailer": {
+                    "$ref": "#/$defs/nodes/sfs_mailer"
                 },
                 "sfs_media": {
                     "$ref": "#/$defs/nodes/sfs_media"
@@ -18925,6 +19044,12 @@
                 "sfs_cms": {
                     "$ref": "#/$defs/nodes/sfs_cms"
                 },
+                "sfs_cms_blog": {
+                    "$ref": "#/$defs/nodes/sfs_cms_blog"
+                },
+                "sfs_mailer": {
+                    "$ref": "#/$defs/nodes/sfs_mailer"
+                },
                 "sfs_media": {
                     "$ref": "#/$defs/nodes/sfs_media"
                 },
@@ -19115,6 +19240,12 @@
                 },
                 "sfs_cms": {
                     "$ref": "#/$defs/nodes/sfs_cms"
+                },
+                "sfs_cms_blog": {
+                    "$ref": "#/$defs/nodes/sfs_cms_blog"
+                },
+                "sfs_mailer": {
+                    "$ref": "#/$defs/nodes/sfs_mailer"
                 },
                 "sfs_media": {
                     "$ref": "#/$defs/nodes/sfs_media"
