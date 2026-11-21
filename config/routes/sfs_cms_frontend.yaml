@@ -2,3 +2,7 @@
 _sfs_cms_frontend:
     resource: "@SfsCmsBundle/config/routing/frontend.yaml"
     prefix: /{_locale}
+
+_sfs_cms_sections_frontend_:
+    resource: "@SfsCmsSectionsPlugin/config/routing/frontend_sections.yaml"
+    prefix: /{_locale}
