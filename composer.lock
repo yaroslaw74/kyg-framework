@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e6a9a68d3b28488b9e72ddca7b51675",
+    "content-hash": "4e4e5f1418b653e412a820625a54d9cc",
     "packages": [
         {
             "name": "api-platform/doctrine-common",
@@ -8576,6 +8576,80 @@
             "time": "2026-05-07T15:30:40+00:00"
         },
         {
+            "name": "scienta/doctrine-json-functions",
+            "version": "6.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ScientaNL/DoctrineJsonFunctions.git",
+                "reference": "d19d67a40734fd81025bfffdf40ff26d5ace16ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ScientaNL/DoctrineJsonFunctions/zipball/d19d67a40734fd81025bfffdf40ff26d5ace16ea",
+                "reference": "d19d67a40734fd81025bfffdf40ff26d5ace16ea",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.2 || ^4",
+                "doctrine/lexer": "^2.0 || ^3.0",
+                "doctrine/orm": "^2.19 || ^3",
+                "ext-pdo": "*",
+                "php": "^8.1",
+                "symfony/polyfill-php83": "^1.27"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-doctrine": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^10.0 || ^11.0 || ^12.5",
+                "psalm/plugin-phpunit": "^0.19",
+                "slevomat/coding-standard": "~8",
+                "symfony/cache": "^5.4 || ^6.4 || ^7.4 || ^8.0",
+                "symfony/var-exporter": "^6.4 || ^7.4 || ^8.0",
+                "vimeo/psalm": "^6.15",
+                "webmozart/assert": "^1.9.1 || ^2.1"
+            },
+            "suggest": {
+                "dunglas/doctrine-json-odm": "To serialize / deserialize objects as JSON documents."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Scienta\\DoctrineJsonFunctions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Doctrine Json Functions Contributors",
+                    "homepage": "https://github.com/ScientaNL/DoctrineJsonFunctions/contributors"
+                }
+            ],
+            "description": "A set of extensions to Doctrine that add support for json query functions.",
+            "keywords": [
+                "database",
+                "doctrine",
+                "dql",
+                "json",
+                "mariadb",
+                "mysql",
+                "orm",
+                "postgres",
+                "postgresql",
+                "sqlite"
+            ],
+            "support": {
+                "issues": "https://github.com/ScientaNL/DoctrineJsonFunctions/issues",
+                "source": "https://github.com/ScientaNL/DoctrineJsonFunctions/tree/6.5.0"
+            },
+            "time": "2026-03-10T08:22:48+00:00"
+        },
+        {
             "name": "sensiolabs/minify-bundle",
             "version": "v1.3.1",
             "source": {
@@ -8882,6 +8956,63 @@
                 "source": "https://github.com/softspring/armonic/tree/v6.0.1"
             },
             "time": "2026-11-09T11:32:12+00:00"
+        },
+        {
+            "name": "softspring/cms-blog-plugin",
+            "version": "v6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/softspring/cms-blog-plugin.git",
+                "reference": "46b864ad96165b0475cecb11830f26a05a8ad15a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/softspring/cms-blog-plugin/zipball/46b864ad96165b0475cecb11830f26a05a8ad15a",
+                "reference": "46b864ad96165b0475cecb11830f26a05a8ad15a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4",
+                "scienta/doctrine-json-functions": "^6.0",
+                "softspring/cms-bundle": "^6.0@dev",
+                "softspring/time-ago-bundle": "^6.0@dev",
+                "symfony/translation": "^6.4 || ^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.50",
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "guzzlehttp/guzzle": "^7.8.2",
+                "guzzlehttp/promises": "^2.0",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^12.5",
+                "rector/rector": "^2.6.7",
+                "softspring/cms-data-plugin": "^6.0@dev",
+                "symfony/polyfill-php85": "^1.33"
+            },
+            "suggest": {
+                "softspring/user-bundle": "If you want to use users as blog authors"
+            },
+            "type": "sfs-cms-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-6.0": "6.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Softspring\\CmsBlogPlugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "description": "A Blog extension for softspring cms",
+            "support": {
+                "issues": "https://github.com/softspring/cms-blog-plugin/issues",
+                "source": "https://github.com/softspring/cms-blog-plugin/tree/v6.0.1"
+            },
+            "time": "2026-11-09T08:28:39+00:00"
         },
         {
             "name": "softspring/cms-bundle",
