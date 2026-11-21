@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../schema.json
+sfs_cms:
+    collections:
+        - vendor/softspring/cms-module-collection
