@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../schema.json
+imports:
+    - { resource: "@SfsCmsTranslationPlugin/config/security/admin_role_hierarchy.yaml" }
+
+security:
+    role_hierarchy:
+        ROLE_TRANSLATOR:
+            - ROLE_SFS_CMS_ADMIN_CONTENTS_TRANSLATOR
+            - ROLE_SFS_CMS_ADMIN_SECTIONS_TRANSLATOR
