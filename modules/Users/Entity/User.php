@@ -160,6 +160,7 @@ class User extends UserModel implements AuthorInterface, ConfirmableInterface, F
         $this->avatar = $avatar;
     }
 
+    #[\Override]
     public function getAvatarUrl(): string
     {
         if (null === $this->avatar) {
