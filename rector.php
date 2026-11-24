@@ -26,6 +26,7 @@ return RectorConfig::configure()
         __DIR__.'/config/preload.php',
         __DIR__.'/config/reference.php',
         __DIR__.'/importmap.php',
+        __DIR__.'/modules/Users/Entity/ResetPasswordRequest.php',
     ])
     // uncomment to reach your current PHP version
     ->withRootFiles()
