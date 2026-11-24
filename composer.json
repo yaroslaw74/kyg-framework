@@ -140,6 +140,7 @@
         "symfony/stimulus-bundle": "^3.8",
         "symfony/stopwatch": "8.2.*",
         "symfony/string": "8.2.*",
+        "symfony/thanks": "^1.4",
         "symfony/translation": "8.2.*",
         "symfony/twig-bridge": "8.2.*",
         "symfony/twig-bundle": "8.2.*",
@@ -216,7 +217,6 @@
         "symfony/maker-bundle": "^1.68",
         "symfony/panther": "^2.4",
         "symfony/phpunit-bridge": "^8.1",
-        "symfony/thanks": "^1.4",
         "symfony/ux-inspector": "^3.8",
         "symfony/ux-toolkit": "^3.8",
         "symfony/web-profiler-bundle": "8.2.*",
@@ -357,8 +357,7 @@
         "scripts-dev": {
             "post-install-cmd": [
                 "@php bin/console biomejs:download",
-                "vendor/bin/bdi detect drivers",
-                "@composer thanks --dry-run"
+                "vendor/bin/bdi detect drivers"
             ],
             "post-update-cmd": [
                 "@php bin/console lint:twig templates/ public/additions/ modules/ --show-deprecations",
@@ -383,6 +382,7 @@
             "Balrok\\ComposerMkdir\\ScriptHandler::mkdirs",
             "SlowProg\\CopyFile\\ScriptHandler::copy",
             "@php bin/console minify:install",
+            "@composer thanks --dry-run",
             "@auto-scripts"
         ],
         "post-update-cmd": [
