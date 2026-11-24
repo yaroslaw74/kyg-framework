@@ -23,7 +23,6 @@ return App::config([
                     'type' => 'attribute',
                     'dir' => '%kernel.project_dir%/modules/Users/Entity',
                     'prefix' => 'App\Modules\Users\Entity',
-                    'alias' => 'Users',
                 ],
             ],
         ],
