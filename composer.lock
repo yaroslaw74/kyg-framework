@@ -2922,24 +2922,24 @@
         },
         {
             "name": "ergebnis/classy",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "d7f1bf1bd3f52ff422f79a51a2062f8d24eb020b"
+                "reference": "f4c4ca2adf2b74872a6acba823b0a7b411227bb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/d7f1bf1bd3f52ff422f79a51a2062f8d24eb020b",
-                "reference": "d7f1bf1bd3f52ff422f79a51a2062f8d24eb020b",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/f4c4ca2adf2b74872a6acba823b0a7b411227bb6",
+                "reference": "f4c4ca2adf2b74872a6acba823b0a7b411227bb6",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.56.1",
+                "ergebnis/composer-normalize": "^2.57.0",
                 "ergebnis/data-provider": "^3.7.1",
                 "ergebnis/license": "^2.9.0",
                 "ergebnis/php-cs-fixer-config": "^6.64.3",
@@ -2949,7 +2949,7 @@
                 "fakerphp/faker": "^1.24.1",
                 "infection/infection": "~0.26.6",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.2.13",
+                "phpstan/phpstan": "^2.3.7",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
@@ -2964,7 +2964,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.2-dev"
+                    "dev-main": "3.3-dev"
                 }
             },
             "autoload": {
@@ -2997,7 +2997,7 @@
                 "issues": "https://github.com/ergebnis/classy/issues",
                 "source": "https://github.com/ergebnis/classy"
             },
-            "time": "2026-11-19T13:09:56+00:00"
+            "time": "2026-11-24T15:42:02+00:00"
         },
         {
             "name": "fileeye/mimemap",
@@ -9369,7 +9369,7 @@
         },
         {
             "name": "softspring/account-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/account-bundle.git",
@@ -9432,13 +9432,13 @@
             "description": "Account ownership bundle for Symfony applications",
             "support": {
                 "issues": "https://github.com/softspring/account-bundle/issues",
-                "source": "https://github.com/softspring/account-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/account-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T11:12:03+00:00"
         },
         {
             "name": "softspring/armonic",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/armonic.git",
@@ -9484,13 +9484,13 @@
             "description": "A powerful Symfony CMS",
             "support": {
                 "issues": "https://github.com/softspring/armonic/issues",
-                "source": "https://github.com/softspring/armonic/tree/v6.0.1"
+                "source": "https://github.com/softspring/armonic/tree/v6.0.2"
             },
             "time": "2026-11-09T11:32:12+00:00"
         },
         {
             "name": "softspring/cms-blog-plugin",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/cms-blog-plugin.git",
@@ -9541,13 +9541,13 @@
             "description": "A Blog extension for softspring cms",
             "support": {
                 "issues": "https://github.com/softspring/cms-blog-plugin/issues",
-                "source": "https://github.com/softspring/cms-blog-plugin/tree/v6.0.1"
+                "source": "https://github.com/softspring/cms-blog-plugin/tree/v6.0.2"
             },
             "time": "2026-11-09T08:28:39+00:00"
         },
         {
             "name": "softspring/cms-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/cms-bundle.git",
@@ -9639,7 +9639,7 @@
             "description": "A cms bundle",
             "support": {
                 "issues": "https://github.com/softspring/cms-bundle/issues",
-                "source": "https://github.com/softspring/cms-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/cms-bundle/tree/v6.0.2"
             },
             "funding": [
                 {
@@ -9651,16 +9651,16 @@
         },
         {
             "name": "softspring/cms-module-collection",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/cms-module-collection.git",
-                "reference": "22e4bbdc6c84bb0cd54c85c043394b65ab02618c"
+                "reference": "9bef43ffb8d34ef5cc91e2da3cc1d28e05eaed86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/cms-module-collection/zipball/22e4bbdc6c84bb0cd54c85c043394b65ab02618c",
-                "reference": "22e4bbdc6c84bb0cd54c85c043394b65ab02618c",
+                "url": "https://api.github.com/repos/softspring/cms-module-collection/zipball/9bef43ffb8d34ef5cc91e2da3cc1d28e05eaed86",
+                "reference": "9bef43ffb8d34ef5cc91e2da3cc1d28e05eaed86",
                 "shasum": ""
             },
             "require": {
@@ -9691,13 +9691,13 @@
             "description": "A module collection for softspring/cms-bundle",
             "support": {
                 "issues": "https://github.com/softspring/cms-module-collection/issues",
-                "source": "https://github.com/softspring/cms-module-collection/tree/v6.0.1"
+                "source": "https://github.com/softspring/cms-module-collection/tree/v6.0.2"
             },
-            "time": "2026-11-09T09:01:46+00:00"
+            "time": "2026-11-17T12:27:14+00:00"
         },
         {
             "name": "softspring/cms-sections-plugin",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/cms-sections-plugin.git",
@@ -9742,13 +9742,13 @@
             "description": "A sections extension for softspring cms",
             "support": {
                 "issues": "https://github.com/softspring/cms-sections-plugin/issues",
-                "source": "https://github.com/softspring/cms-sections-plugin/tree/v6.0.1"
+                "source": "https://github.com/softspring/cms-sections-plugin/tree/v6.0.2"
             },
             "time": "2026-11-13T09:08:49+00:00"
         },
         {
             "name": "softspring/cms-translation-plugin",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/cms-translation-plugin.git",
@@ -9798,22 +9798,22 @@
             "description": "A translation extension for softspring cms",
             "support": {
                 "issues": "https://github.com/softspring/cms-translation-plugin/issues",
-                "source": "https://github.com/softspring/cms-translation-plugin/tree/v6.0.1"
+                "source": "https://github.com/softspring/cms-translation-plugin/tree/v6.0.2"
             },
             "time": "2026-11-09T08:28:48+00:00"
         },
         {
             "name": "softspring/collection-form-type",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/collection-form-type.git",
-                "reference": "eba8721f15c8c12c6505eecb0f2158ccde018363"
+                "reference": "e0e24c4bb8e9d1b28e75db38bd9d4b5fe0fdd995"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/softspring/collection-form-type/zipball/eba8721f15c8c12c6505eecb0f2158ccde018363",
-                "reference": "eba8721f15c8c12c6505eecb0f2158ccde018363",
+                "url": "https://api.github.com/repos/softspring/collection-form-type/zipball/e0e24c4bb8e9d1b28e75db38bd9d4b5fe0fdd995",
+                "reference": "e0e24c4bb8e9d1b28e75db38bd9d4b5fe0fdd995",
                 "shasum": ""
             },
             "require-dev": {
@@ -9844,13 +9844,13 @@
             "description": "JavaScript helpers for dynamic collection form interactions in Symfony applications",
             "support": {
                 "issues": "https://github.com/softspring/collection-form-type/issues",
-                "source": "https://github.com/softspring/collection-form-type/tree/v6.0.1"
+                "source": "https://github.com/softspring/collection-form-type/tree/v6.0.2"
             },
-            "time": "2026-11-09T08:50:44+00:00"
+            "time": "2026-11-24T13:57:25+00:00"
         },
         {
             "name": "softspring/components",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/components.git",
@@ -9893,13 +9893,13 @@
             "description": "Shared Twig layouts, paginators, form themes, and UI fragments for Symfony applications",
             "support": {
                 "issues": "https://github.com/softspring/components/issues",
-                "source": "https://github.com/softspring/components/tree/v6.0.1"
+                "source": "https://github.com/softspring/components/tree/v6.0.2"
             },
             "time": "2026-11-09T11:13:12+00:00"
         },
         {
             "name": "softspring/crudl-controller",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/crudl-controller.git",
@@ -9953,13 +9953,13 @@
             "description": "A CRUD+list helper classes",
             "support": {
                 "issues": "https://github.com/softspring/crudl-controller/issues",
-                "source": "https://github.com/softspring/crudl-controller/tree/v6.0.1"
+                "source": "https://github.com/softspring/crudl-controller/tree/v6.0.2"
             },
             "time": "2026-11-09T08:51:08+00:00"
         },
         {
             "name": "softspring/doctrine-migrations-version-comparator",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-migrations-version-comparator.git",
@@ -10003,13 +10003,13 @@
             "description": "Provides a class to sort doctrine migrations by version name",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-migrations-version-comparator/issues",
-                "source": "https://github.com/softspring/doctrine-migrations-version-comparator/tree/v6.0.1"
+                "source": "https://github.com/softspring/doctrine-migrations-version-comparator/tree/v6.0.2"
             },
             "time": "2026-11-09T08:51:30+00:00"
         },
         {
             "name": "softspring/doctrine-paginator",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-paginator.git",
@@ -10058,13 +10058,13 @@
             "description": "This library provides a paginator for doctrine query builder",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-paginator/issues",
-                "source": "https://github.com/softspring/doctrine-paginator/tree/v6.0.1"
+                "source": "https://github.com/softspring/doctrine-paginator/tree/v6.0.2"
             },
             "time": "2026-11-09T08:29:16+00:00"
         },
         {
             "name": "softspring/doctrine-query-filters",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-query-filters.git",
@@ -10109,13 +10109,13 @@
             "description": "This library adds a new filter for doctrine queries",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-query-filters/issues",
-                "source": "https://github.com/softspring/doctrine-query-filters/tree/v6.0.1"
+                "source": "https://github.com/softspring/doctrine-query-filters/tree/v6.0.2"
             },
             "time": "2026-11-09T08:51:56+00:00"
         },
         {
             "name": "softspring/doctrine-target-entity-resolver",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/doctrine-target-entity-resolver.git",
@@ -10158,13 +10158,13 @@
             "description": "This package provides a class that helps resolve target entities",
             "support": {
                 "issues": "https://github.com/softspring/doctrine-target-entity-resolver/issues",
-                "source": "https://github.com/softspring/doctrine-target-entity-resolver/tree/v6.0.1"
+                "source": "https://github.com/softspring/doctrine-target-entity-resolver/tree/v6.0.2"
             },
             "time": "2026-11-09T08:52:21+00:00"
         },
         {
             "name": "softspring/dynamic-form-type",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/dynamic-form-type.git",
@@ -10211,13 +10211,13 @@
             "description": "This component allows to create dynamic forms from an array configuration",
             "support": {
                 "issues": "https://github.com/softspring/dynamic-form-type/issues",
-                "source": "https://github.com/softspring/dynamic-form-type/tree/v6.0.1"
+                "source": "https://github.com/softspring/dynamic-form-type/tree/v6.0.2"
             },
             "time": "2026-11-09T08:52:45+00:00"
         },
         {
             "name": "softspring/events",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/events.git",
@@ -10262,13 +10262,13 @@
             "description": "This component provides some useful event classes to use with Symfony",
             "support": {
                 "issues": "https://github.com/softspring/events/issues",
-                "source": "https://github.com/softspring/events/tree/v6.0.1"
+                "source": "https://github.com/softspring/events/tree/v6.0.2"
             },
             "time": "2026-11-09T08:29:39+00:00"
         },
         {
             "name": "softspring/mailer-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/mailer-bundle.git",
@@ -10326,13 +10326,13 @@
             "description": "This bundle provides some features that ease mailing for Symfony projects.",
             "support": {
                 "issues": "https://github.com/softspring/mailer-bundle/issues",
-                "source": "https://github.com/softspring/mailer-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/mailer-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T08:30:06+00:00"
         },
         {
             "name": "softspring/media-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/media-bundle.git",
@@ -10409,13 +10409,13 @@
             "description": "A media management bundle",
             "support": {
                 "issues": "https://github.com/softspring/media-bundle/issues",
-                "source": "https://github.com/softspring/media-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/media-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T11:12:20+00:00"
         },
         {
             "name": "softspring/mime-translatable",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/mime-translatable.git",
@@ -10465,13 +10465,13 @@
             "description": "This library extends symfony mime component providing a translatable email",
             "support": {
                 "issues": "https://github.com/softspring/mime-translatable/issues",
-                "source": "https://github.com/softspring/mime-translatable/tree/v6.0.1"
+                "source": "https://github.com/softspring/mime-translatable/tree/v6.0.2"
             },
             "time": "2026-11-09T07:59:28+00:00"
         },
         {
             "name": "softspring/permissions-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/permissions-bundle.git",
@@ -10517,13 +10517,13 @@
             "description": "Permission hierarchy component for Symfony Security",
             "support": {
                 "issues": "https://github.com/softspring/permissions-bundle/issues",
-                "source": "https://github.com/softspring/permissions-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/permissions-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T11:27:47+00:00"
         },
         {
             "name": "softspring/polymorphic-form-type",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/polymorphic-form-type.git",
@@ -10568,13 +10568,13 @@
             "description": "Symfony Polymorphic Form Type",
             "support": {
                 "issues": "https://github.com/softspring/polymorphic-form-type/issues",
-                "source": "https://github.com/softspring/polymorphic-form-type/tree/v6.0.1"
+                "source": "https://github.com/softspring/polymorphic-form-type/tree/v6.0.2"
             },
             "time": "2026-11-09T07:56:15+00:00"
         },
         {
             "name": "softspring/time-ago-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/time-ago-bundle.git",
@@ -10621,13 +10621,13 @@
             "description": "This bundle provides a simple twig extension to human readable date diff based on translations",
             "support": {
                 "issues": "https://github.com/softspring/time-ago-bundle/issues",
-                "source": "https://github.com/softspring/time-ago-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/time-ago-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T07:55:51+00:00"
         },
         {
             "name": "softspring/translatable-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/translatable-bundle.git",
@@ -10685,13 +10685,13 @@
             "description": "Symfony form type for translatable fields",
             "support": {
                 "issues": "https://github.com/softspring/translatable-bundle/issues",
-                "source": "https://github.com/softspring/translatable-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/translatable-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T07:53:50+00:00"
         },
         {
             "name": "softspring/twig-extra-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/twig-extra-bundle.git",
@@ -10742,13 +10742,13 @@
             "description": "This bundle provides extra twig functions.",
             "support": {
                 "issues": "https://github.com/softspring/twig-extra-bundle/issues",
-                "source": "https://github.com/softspring/twig-extra-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/twig-extra-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T11:28:15+00:00"
         },
         {
             "name": "softspring/user-bundle",
-            "version": "v6.0.1",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/softspring/user-bundle.git",
@@ -10833,7 +10833,7 @@
             "description": "A complete user bundle",
             "support": {
                 "issues": "https://github.com/softspring/user-bundle/issues",
-                "source": "https://github.com/softspring/user-bundle/tree/v6.0.1"
+                "source": "https://github.com/softspring/user-bundle/tree/v6.0.2"
             },
             "time": "2026-11-09T08:30:18+00:00"
         },
@@ -16947,16 +16947,16 @@
         },
         {
             "name": "symfony/ux-icons",
-            "version": "v3.8.0",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-icons.git",
-                "reference": "b4701c2e843d1ba77c83b01295cd00913385f27b"
+                "reference": "b5a0303482211bfc97a24726890acde6bd6cb6b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-icons/zipball/b4701c2e843d1ba77c83b01295cd00913385f27b",
-                "reference": "b4701c2e843d1ba77c83b01295cd00913385f27b",
+                "url": "https://api.github.com/repos/symfony/ux-icons/zipball/b5a0303482211bfc97a24726890acde6bd6cb6b8",
+                "reference": "b5a0303482211bfc97a24726890acde6bd6cb6b8",
                 "shasum": ""
             },
             "require": {
@@ -17018,7 +17018,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-icons/tree/v3.8.0"
+                "source": "https://github.com/symfony/ux-icons/tree/v3.8.1"
             },
             "funding": [
                 {
@@ -17038,20 +17038,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-15T08:13:44+00:00"
+            "time": "2026-11-24T07:03:25+00:00"
         },
         {
             "name": "symfony/ux-live-component",
-            "version": "v3.8.0",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-live-component.git",
-                "reference": "6b7820193eddb1bd890d6d318531e08b12335ee3"
+                "reference": "e49210a05005317b9a6c885b0d9953e77909fd3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-live-component/zipball/6b7820193eddb1bd890d6d318531e08b12335ee3",
-                "reference": "6b7820193eddb1bd890d6d318531e08b12335ee3",
+                "url": "https://api.github.com/repos/symfony/ux-live-component/zipball/e49210a05005317b9a6c885b0d9953e77909fd3e",
+                "reference": "e49210a05005317b9a6c885b0d9953e77909fd3e",
                 "shasum": ""
             },
             "require": {
@@ -17120,7 +17120,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-live-component/tree/v3.8.0"
+                "source": "https://github.com/symfony/ux-live-component/tree/v3.8.1"
             },
             "funding": [
                 {
@@ -17140,7 +17140,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-22T06:49:09+00:00"
+            "time": "2026-11-24T07:24:53+00:00"
         },
         {
             "name": "symfony/ux-map",
@@ -18174,25 +18174,25 @@
         },
         {
             "name": "twig/cache-extra",
-            "version": "v3.28.0",
+            "version": "v3.31.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/cache-extra.git",
-                "reference": "2c3b4612b6f9c66d25a38cf42f70ba954188d3f6"
+                "reference": "86812a8415dec2cd75603724b326f8a4ace70952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/cache-extra/zipball/2c3b4612b6f9c66d25a38cf42f70ba954188d3f6",
-                "reference": "2c3b4612b6f9c66d25a38cf42f70ba954188d3f6",
+                "url": "https://api.github.com/repos/twigphp/cache-extra/zipball/86812a8415dec2cd75603724b326f8a4ace70952",
+                "reference": "86812a8415dec2cd75603724b326f8a4ace70952",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1.0",
                 "symfony/cache": "^5.4|^6.4|^7.0|^8.0",
-                "twig/twig": "^3.21|^4.0"
+                "twig/twig": "^3.26|^4.0"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "^6.4|^7.0"
+                "symfony/phpunit-bridge": "^7.4|^8.0"
             },
             "type": "library",
             "autoload": {
@@ -18223,7 +18223,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/cache-extra/tree/v3.28.0"
+                "source": "https://github.com/twigphp/cache-extra/tree/v3.31.1"
             },
             "funding": [
                 {
@@ -18235,7 +18235,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-13T10:59:44+00:00"
+            "time": "2026-11-24T12:39:26+00:00"
         },
         {
             "name": "twig/cssinliner-extra",
@@ -18382,16 +18382,16 @@
         },
         {
             "name": "twig/html-extra",
-            "version": "v3.31.0",
+            "version": "v3.31.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/html-extra.git",
-                "reference": "92d388bd1685a1ef772c44d5f21f867e9550700a"
+                "reference": "e25770102c1447ba769fedb76552864a7c82d900"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/html-extra/zipball/92d388bd1685a1ef772c44d5f21f867e9550700a",
-                "reference": "92d388bd1685a1ef772c44d5f21f867e9550700a",
+                "url": "https://api.github.com/repos/twigphp/html-extra/zipball/e25770102c1447ba769fedb76552864a7c82d900",
+                "reference": "e25770102c1447ba769fedb76552864a7c82d900",
                 "shasum": ""
             },
             "require": {
@@ -18434,7 +18434,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/html-extra/tree/v3.31.0"
+                "source": "https://github.com/twigphp/html-extra/tree/v3.31.1"
             },
             "funding": [
                 {
@@ -18446,7 +18446,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-23T16:19:15+00:00"
+            "time": "2026-11-24T11:48:58+00:00"
         },
         {
             "name": "twig/inky-extra",
@@ -18520,16 +18520,16 @@
         },
         {
             "name": "twig/markdown-extra",
-            "version": "v3.29.0",
+            "version": "v3.31.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/markdown-extra.git",
-                "reference": "8a8e3c28ed17b03ed4965b2e265a018d61f00ba5"
+                "reference": "fec48a4e62b644d176c64f2a703373f48c3b92dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/markdown-extra/zipball/8a8e3c28ed17b03ed4965b2e265a018d61f00ba5",
-                "reference": "8a8e3c28ed17b03ed4965b2e265a018d61f00ba5",
+                "url": "https://api.github.com/repos/twigphp/markdown-extra/zipball/fec48a4e62b644d176c64f2a703373f48c3b92dd",
+                "reference": "fec48a4e62b644d176c64f2a703373f48c3b92dd",
                 "shasum": ""
             },
             "require": {
@@ -18542,7 +18542,7 @@
                 "league/commonmark": "^2.7",
                 "league/html-to-markdown": "^4.8|^5.0",
                 "michelf/php-markdown": "^1.8|^2.0",
-                "symfony/phpunit-bridge": "^6.4|^7.0",
+                "symfony/phpunit-bridge": "^7.4|^8.0",
                 "tempest/markdown": "^1.2"
             },
             "type": "library",
@@ -18577,7 +18577,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/markdown-extra/tree/v3.29.0"
+                "source": "https://github.com/twigphp/markdown-extra/tree/v3.31.1"
             },
             "funding": [
                 {
@@ -18589,7 +18589,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-06T20:35:36+00:00"
+            "time": "2026-11-24T11:49:00+00:00"
         },
         {
             "name": "twig/string-extra",
@@ -18660,16 +18660,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.31.0",
+            "version": "v3.31.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "fdcda27cbcd5880ddc2c4c2dc5858fb9ea8a0cda"
+                "reference": "6f6ec372231b53d1d564567a78beb8844cafa132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/fdcda27cbcd5880ddc2c4c2dc5858fb9ea8a0cda",
-                "reference": "fdcda27cbcd5880ddc2c4c2dc5858fb9ea8a0cda",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/6f6ec372231b53d1d564567a78beb8844cafa132",
+                "reference": "6f6ec372231b53d1d564567a78beb8844cafa132",
                 "shasum": ""
             },
             "require": {
@@ -18724,7 +18724,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.31.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.31.1"
             },
             "funding": [
                 {
@@ -18736,7 +18736,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-23T16:31:30+00:00"
+            "time": "2026-11-24T12:48:40+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -20199,16 +20199,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.11.2",
+            "version": "2.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "12c820dbc3f030954b1d09f5884fcf1e9d29d6cb"
+                "reference": "e4a580d4d41edb0eb5a470f441c9780ba49df75f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/12c820dbc3f030954b1d09f5884fcf1e9d29d6cb",
-                "reference": "12c820dbc3f030954b1d09f5884fcf1e9d29d6cb",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e4a580d4d41edb0eb5a470f441c9780ba49df75f",
+                "reference": "e4a580d4d41edb0eb5a470f441c9780ba49df75f",
                 "shasum": ""
             },
             "require": {
@@ -20298,7 +20298,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.11.2"
+                "source": "https://github.com/composer/composer/tree/2.11.3"
             },
             "funding": [
                 {
@@ -20310,7 +20310,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-10T09:09:37+00:00"
+            "time": "2026-11-24T09:14:18+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -20862,20 +20862,20 @@
         },
         {
             "name": "ergebnis/agent-detector",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/agent-detector.git",
-                "reference": "ae2169d42024c6009abd0bb0aec5cf46c902fb1d"
+                "reference": "b575df5338fa3208485e4ed169660a8a9388194c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/agent-detector/zipball/ae2169d42024c6009abd0bb0aec5cf46c902fb1d",
-                "reference": "ae2169d42024c6009abd0bb0aec5cf46c902fb1d",
+                "url": "https://api.github.com/repos/ergebnis/agent-detector/zipball/b575df5338fa3208485e4ed169660a8a9388194c",
+                "reference": "b575df5338fa3208485e4ed169660a8a9388194c",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.56.1",
@@ -20897,7 +20897,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.1-dev"
+                    "dev-main": "2.2-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -20927,20 +20927,20 @@
                 "security": "https://github.com/ergebnis/agent-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/agent-detector"
             },
-            "time": "2026-11-19T13:07:04+00:00"
+            "time": "2026-11-24T09:23:24+00:00"
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.58.0",
+            "version": "2.59.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "74ed2dad07f772e686a7f3498f2a507190640ee5"
+                "reference": "e0eef94583f4c0497dfbe7e4785d65a954ea956e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/74ed2dad07f772e686a7f3498f2a507190640ee5",
-                "reference": "74ed2dad07f772e686a7f3498f2a507190640ee5",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/e0eef94583f4c0497dfbe7e4785d65a954ea956e",
+                "reference": "e0eef94583f4c0497dfbe7e4785d65a954ea956e",
                 "shasum": ""
             },
             "require": {
@@ -20952,18 +20952,18 @@
                 "ergebnis/json-printer": "^3.7.0",
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2.12 || ^6.0.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "composer/composer": "^2.11.0",
                 "ergebnis/license": "^2.9.0",
-                "ergebnis/php-cs-fixer-config": "^6.64.3",
+                "ergebnis/php-cs-fixer-config": "^6.65.0",
                 "ergebnis/phpstan-rules": "^2.17.1",
                 "ergebnis/phpunit-slow-test-detector": "^2.27.0",
                 "ergebnis/rector-rules": "^1.19.0",
                 "fakerphp/faker": "^1.24.1",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.1.55",
+                "phpstan/phpstan": "^2.3.7",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
@@ -20975,7 +20975,7 @@
             "extra": {
                 "class": "Ergebnis\\Composer\\Normalize\\NormalizePlugin",
                 "branch-alias": {
-                    "dev-main": "2.58-dev"
+                    "dev-main": "2.59-dev"
                 },
                 "plugin-optional": true,
                 "composer-normalize": {
@@ -21012,30 +21012,30 @@
                 "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/composer-normalize"
             },
-            "time": "2026-11-19T13:10:46+00:00"
+            "time": "2026-11-24T15:42:52+00:00"
         },
         {
             "name": "ergebnis/differ",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/differ.git",
-                "reference": "fa4c635d54dfeba2af4383cc5648d044f4898f73"
+                "reference": "8797edb44183a8d0849725741a6fecbcb0b86480"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/differ/zipball/fa4c635d54dfeba2af4383cc5648d044f4898f73",
-                "reference": "fa4c635d54dfeba2af4383cc5648d044f4898f73",
+                "url": "https://api.github.com/repos/ergebnis/differ/zipball/8797edb44183a8d0849725741a6fecbcb0b86480",
+                "reference": "8797edb44183a8d0849725741a6fecbcb0b86480",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.56.1",
                 "ergebnis/data-provider": "^3.7.1",
                 "ergebnis/license": "^2.9.0",
-                "ergebnis/php-cs-fixer-config": "^6.64.1",
+                "ergebnis/php-cs-fixer-config": "^6.65.0",
                 "ergebnis/phpstan-rules": "^2.17.1",
                 "ergebnis/phpunit-slow-test-detector": "^2.27.0",
                 "ergebnis/rector-rules": "^1.19.0",
@@ -21043,9 +21043,9 @@
                 "infection/infection": "~0.26.6",
                 "phpbench/phpbench": "^1.2.14",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.2.16",
+                "phpstan/phpstan": "^2.3.6",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
-                "phpstan/phpstan-phpunit": "^2.1.1",
+                "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
                 "phpunit/phpunit": "^9.6.38",
                 "rector/rector": "^2.7.0"
@@ -21053,7 +21053,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.0-dev"
+                    "dev-main": "1.1-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -21088,25 +21088,25 @@
                 "security": "https://github.com/ergebnis/differ/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/differ"
             },
-            "time": "2026-11-12T17:53:55+00:00"
+            "time": "2026-11-24T15:44:30+00:00"
         },
         {
             "name": "ergebnis/json",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json.git",
-                "reference": "36bcd6b05dc05176064c0f7813d955fd3313cb47"
+                "reference": "cb297869141d309284bb67f75ded5b81d15d1517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json/zipball/36bcd6b05dc05176064c0f7813d955fd3313cb47",
-                "reference": "36bcd6b05dc05176064c0f7813d955fd3313cb47",
+                "url": "https://api.github.com/repos/ergebnis/json/zipball/cb297869141d309284bb67f75ded5b81d15d1517",
+                "reference": "cb297869141d309284bb67f75ded5b81d15d1517",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "ergebnis/data-provider": "^3.7.1",
@@ -21118,7 +21118,7 @@
                 "fakerphp/faker": "^1.24.1",
                 "infection/infection": "~0.26.6",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.2.14",
+                "phpstan/phpstan": "^2.3.7",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
@@ -21128,7 +21128,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.8-dev"
+                    "dev-main": "1.9-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -21161,20 +21161,20 @@
                 "security": "https://github.com/ergebnis/json/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json"
             },
-            "time": "2026-11-19T13:14:02+00:00"
+            "time": "2026-11-24T15:46:25+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
-            "version": "4.13.0",
+            "version": "4.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "edf69bb6451940f80756a29218600ccce5a42d80"
+                "reference": "7544b319e0b01a4d6445fe4f381295f9ddc7f1fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/edf69bb6451940f80756a29218600ccce5a42d80",
-                "reference": "edf69bb6451940f80756a29218600ccce5a42d80",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/7544b319e0b01a4d6445fe4f381295f9ddc7f1fc",
+                "reference": "7544b319e0b01a4d6445fe4f381295f9ddc7f1fc",
                 "shasum": ""
             },
             "require": {
@@ -21184,7 +21184,7 @@
                 "ergebnis/json-schema-validator": "^4.2.0",
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2.12 || ^6.0.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "composer/semver": "^3.6.0",
@@ -21196,7 +21196,7 @@
                 "fakerphp/faker": "^1.24.1",
                 "infection/infection": "~0.26.6",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.3.2",
+                "phpstan/phpstan": "^2.3.7",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
@@ -21209,7 +21209,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "4.13-dev"
+                    "dev-main": "4.14-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -21243,36 +21243,36 @@
                 "security": "https://github.com/ergebnis/json-normalizer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-normalizer"
             },
-            "time": "2026-11-19T13:14:26+00:00"
+            "time": "2026-11-24T15:46:49+00:00"
         },
         {
             "name": "ergebnis/json-pointer",
-            "version": "3.11.0",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-pointer.git",
-                "reference": "b660a1c3b12eb18a718e64b388d7a42b39f67abf"
+                "reference": "3257b82d16f63fcd5f704df790481be45b1e5dff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/b660a1c3b12eb18a718e64b388d7a42b39f67abf",
-                "reference": "b660a1c3b12eb18a718e64b388d7a42b39f67abf",
+                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/3257b82d16f63fcd5f704df790481be45b1e5dff",
+                "reference": "3257b82d16f63fcd5f704df790481be45b1e5dff",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "ergebnis/data-provider": "^3.7.1",
                 "ergebnis/license": "^2.9.0",
-                "ergebnis/php-cs-fixer-config": "^6.64.3",
+                "ergebnis/php-cs-fixer-config": "^6.65.0",
                 "ergebnis/phpstan-rules": "^2.17.1",
                 "ergebnis/phpunit-slow-test-detector": "^2.27.0",
                 "ergebnis/rector-rules": "^1.19.0",
                 "fakerphp/faker": "^1.24.1",
                 "infection/infection": "~0.26.6",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.2.14",
+                "phpstan/phpstan": "^2.3.7",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
@@ -21282,7 +21282,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.11-dev"
+                    "dev-main": "3.12-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -21317,25 +21317,25 @@
                 "security": "https://github.com/ergebnis/json-pointer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-pointer"
             },
-            "time": "2026-11-19T13:14:51+00:00"
+            "time": "2026-11-24T15:47:16+00:00"
         },
         {
             "name": "ergebnis/json-printer",
-            "version": "3.10.0",
+            "version": "3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-printer.git",
-                "reference": "f1d191df7d6f3fd7a7a92b4bb83e9f1aab33637b"
+                "reference": "d435b3a2d13935abe120eccc250bfb9300822257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-printer/zipball/f1d191df7d6f3fd7a7a92b4bb83e9f1aab33637b",
-                "reference": "f1d191df7d6f3fd7a7a92b4bb83e9f1aab33637b",
+                "url": "https://api.github.com/repos/ergebnis/json-printer/zipball/d435b3a2d13935abe120eccc250bfb9300822257",
+                "reference": "d435b3a2d13935abe120eccc250bfb9300822257",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "ergebnis/data-provider": "^3.7.1",
@@ -21347,7 +21347,7 @@
                 "infection/infection": "~0.26.6",
                 "phpbench/phpbench": "^1.2.14",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.3.4",
+                "phpstan/phpstan": "^2.3.7",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.2",
                 "phpstan/phpstan-strict-rules": "^2.1.1",
@@ -21357,7 +21357,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.10-dev"
+                    "dev-main": "3.11-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -21392,20 +21392,20 @@
                 "security": "https://github.com/ergebnis/json-printer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-printer"
             },
-            "time": "2026-11-19T13:15:15+00:00"
+            "time": "2026-11-24T15:47:46+00:00"
         },
         {
             "name": "ergebnis/json-schema-validator",
-            "version": "4.7.0",
+            "version": "4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-schema-validator.git",
-                "reference": "5beb71cd57c24865dfea8695936b85c5ef83da1e"
+                "reference": "c27ff4eec27b6ddc9acb74d6c7370456904bf1ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-schema-validator/zipball/5beb71cd57c24865dfea8695936b85c5ef83da1e",
-                "reference": "5beb71cd57c24865dfea8695936b85c5ef83da1e",
+                "url": "https://api.github.com/repos/ergebnis/json-schema-validator/zipball/c27ff4eec27b6ddc9acb74d6c7370456904bf1ac",
+                "reference": "c27ff4eec27b6ddc9acb74d6c7370456904bf1ac",
                 "shasum": ""
             },
             "require": {
@@ -21413,7 +21413,7 @@
                 "ergebnis/json-pointer": "^3.4.0",
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2.12 || ^6.0.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0"
             },
             "require-dev": {
                 "ergebnis/data-provider": "^3.7.1",
@@ -21434,7 +21434,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "4.7-dev"
+                    "dev-main": "4.8-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -21469,7 +21469,7 @@
                 "security": "https://github.com/ergebnis/json-schema-validator/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-schema-validator"
             },
-            "time": "2026-11-19T13:15:40+00:00"
+            "time": "2026-11-24T15:48:10+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -21853,7 +21853,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -21913,7 +21913,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -21959,7 +21959,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -22007,7 +22007,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -22053,7 +22053,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -22106,7 +22106,7 @@
         },
         {
             "name": "illuminate/reflection",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/reflection.git",
@@ -22157,7 +22157,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -25259,16 +25259,16 @@
         },
         {
             "name": "psalm/plugin-phpunit",
-            "version": "1.3.2",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-phpunit.git",
-                "reference": "e160c6311d7b83f8e52268bc9edc2834d0536958"
+                "reference": "9971f924f1ab8323fdeff42a00b2b4f484788af6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/e160c6311d7b83f8e52268bc9edc2834d0536958",
-                "reference": "e160c6311d7b83f8e52268bc9edc2834d0536958",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/9971f924f1ab8323fdeff42a00b2b4f484788af6",
+                "reference": "9971f924f1ab8323fdeff42a00b2b4f484788af6",
                 "shasum": ""
             },
             "require": {
@@ -25314,22 +25314,22 @@
             "description": "Psalm plugin for PHPUnit",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-phpunit/issues",
-                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/1.3.2"
+                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/1.3.4"
             },
-            "time": "2026-11-19T12:38:00+00:00"
+            "time": "2026-11-24T11:04:53+00:00"
         },
         {
             "name": "psalm/plugin-symfony",
-            "version": "v5.13.0",
+            "version": "v5.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-symfony.git",
-                "reference": "54cdc276ad62386bb31a97bdfbfa22c04169fd45"
+                "reference": "ae724bcc66aae3b7a42c73ea02b6e0474c42cd7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-symfony/zipball/54cdc276ad62386bb31a97bdfbfa22c04169fd45",
-                "reference": "54cdc276ad62386bb31a97bdfbfa22c04169fd45",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-symfony/zipball/ae724bcc66aae3b7a42c73ea02b6e0474c42cd7b",
+                "reference": "ae724bcc66aae3b7a42c73ea02b6e0474c42cd7b",
                 "shasum": ""
             },
             "require": {
@@ -25388,22 +25388,22 @@
             "description": "Psalm Plugin for Symfony",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-symfony/issues",
-                "source": "https://github.com/psalm/psalm-plugin-symfony/tree/v5.13.0"
+                "source": "https://github.com/psalm/psalm-plugin-symfony/tree/v5.14.0"
             },
-            "time": "2026-11-20T22:08:45+00:00"
+            "time": "2026-11-24T13:34:44+00:00"
         },
         {
             "name": "psalm/psalm-plugin-api",
-            "version": "0.5.1",
+            "version": "0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-api.git",
-                "reference": "5a369947e49038acf57618daa5fd0e92dbc54ac2"
+                "reference": "afdfe1107fbbd8dc245dd582ee04cd5bf1b9d3b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-api/zipball/5a369947e49038acf57618daa5fd0e92dbc54ac2",
-                "reference": "5a369947e49038acf57618daa5fd0e92dbc54ac2",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-api/zipball/afdfe1107fbbd8dc245dd582ee04cd5bf1b9d3b9",
+                "reference": "afdfe1107fbbd8dc245dd582ee04cd5bf1b9d3b9",
                 "shasum": ""
             },
             "conflict": {
@@ -25423,9 +25423,9 @@
             "description": "Stable, semantically versioned API for Psalm plugins",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-api/issues",
-                "source": "https://github.com/psalm/psalm-plugin-api/tree/0.5.1"
+                "source": "https://github.com/psalm/psalm-plugin-api/tree/0.5.2"
             },
-            "time": "2026-11-20T17:46:59+00:00"
+            "time": "2026-11-24T12:56:35+00:00"
         },
         {
             "name": "react/cache",
@@ -29046,16 +29046,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "7.16.0",
+            "version": "7.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "708bf98874d359acbdcedb84f8624e9ec215867d"
+                "reference": "a3f2b3ba9c0ae3e9b8e7100598f47f0d98c3867a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/708bf98874d359acbdcedb84f8624e9ec215867d",
-                "reference": "708bf98874d359acbdcedb84f8624e9ec215867d",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/a3f2b3ba9c0ae3e9b8e7100598f47f0d98c3867a",
+                "reference": "a3f2b3ba9c0ae3e9b8e7100598f47f0d98c3867a",
                 "shasum": ""
             },
             "require": {
@@ -29068,6 +29068,7 @@
                 "danog/advanced-json-rpc": "^3.1",
                 "ext-ctype": "*",
                 "ext-dom": "*",
+                "ext-filter": "*",
                 "ext-json": "*",
                 "ext-libxml": "*",
                 "ext-mbstring": "*",
@@ -29082,7 +29083,7 @@
                 "psalm/plugin-mockery": "^1.3.2",
                 "psalm/plugin-phpunit": "^0.21 || ^0.22 || ^1.0",
                 "psalm/plugin-symfony": "^5.9.1",
-                "psalm/psalm-plugin-api": "0.5.1",
+                "psalm/psalm-plugin-api": "0.5.2",
                 "sebastian/diff": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
                 "spatie/array-to-xml": "^2.17.0 || ^3.0",
                 "symfony/console": "^6.0 || ^7.0 || ^8.0",
@@ -29113,6 +29114,10 @@
             "suggest": {
                 "ext-curl": "In order to send data to shepherd",
                 "ext-igbinary": "^2.0.5 is required, used to serialize caching data",
+                "ext-pcntl": "Used with ext-posix to analyse in parallel",
+                "ext-posix": "Used with ext-pcntl to analyse in parallel",
+                "ext-readline": "Used by psalm-review",
+                "ext-zlib": "Used to compress caching data when ext-zstd isn't available",
                 "ext-zstd": ">=0.15.0 is required, used to compress caching data"
             },
             "bin": [
@@ -29125,6 +29130,9 @@
             ],
             "type": "project",
             "extra": {
+                "skills": {
+                    "source": "skills"
+                },
                 "branch-alias": {
                     "dev-1.x": "1.x-dev",
                     "dev-2.x": "2.x-dev",
@@ -29165,7 +29173,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-11-22T13:12:53+00:00"
+            "time": "2026-11-24T13:08:53+00:00"
         },
         {
             "name": "vincentlanglet/twig-cs-fixer",
