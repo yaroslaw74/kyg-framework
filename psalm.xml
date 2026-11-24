@@ -19,6 +19,7 @@
             <file name="config/bundles.php"/>
             <file name="config/preload.php"/>
             <file name="config/reference.php"/>
+            <file name="src/Kernel.php"/>
         </ignoreFiles>
     </projectFiles>
     <plugins>
